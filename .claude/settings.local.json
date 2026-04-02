@@ -5,7 +5,8 @@
       "Bash(find C:/Users/arthu -maxdepth 5 \\\\\\(-iname *workflow* -o -iname *agent* -o -iname *PBFS* -o -iname *15-step* -o -iname *consulting* \\\\\\))",
       "Bash(find C:/Users/arthu/Downloads -maxdepth 2 \\\\\\(-iname *PBFS* -o -iname *15-step* -o -iname *Prime*Pathway* -o -iname *sovereign* -o -iname *consulting* \\\\\\))",
       "Bash(find C:/Users/arthu/Downloads -maxdepth 2 -iname *subcontract* -o -iname *PBFS*)",
-      "Bash(python -c \"from docx import Document; doc = Document\\(''''C:/Users/arthu/Downloads/PRIME PATHWY_ SOVEREIGN OPERATIONAL ARCHIVE/Sovereign Master Blueprint Consolidation.docx''''\\); print\\(''''''''.join\\([p.text for p in doc.paragraphs]\\)\\)\")"
+      "Bash(python -c \"from docx import Document; doc = Document\\(''''C:/Users/arthu/Downloads/PRIME PATHWY_ SOVEREIGN OPERATIONAL ARCHIVE/Sovereign Master Blueprint Consolidation.docx''''\\); print\\(''''''''.join\\([p.text for p in doc.paragraphs]\\)\\)\")",
+      "Bash(git add:*)"
     ]
   }
 }
