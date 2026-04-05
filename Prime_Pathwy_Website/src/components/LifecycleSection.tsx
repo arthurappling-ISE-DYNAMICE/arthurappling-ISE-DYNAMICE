@@ -39,10 +39,10 @@ export default function LifecycleSection() {
               className={
                 step.highlight
                   ? 'bg-bg-elevated border border-gold ring-1 ring-[rgba(201,168,76,0.15)] p-6'
-                  : 'bg-bg-base border border-[#1E1E1E] p-6'
+                  : 'bg-bg-base border border-border-subtle p-6'
               }
             >
-              <div className={`font-mono text-xl mb-3 tracking-tight ${step.highlight ? 'text-gold' : 'text-[#2A2A2A]'}`}>
+              <div className={`font-mono text-xl mb-3 tracking-tight ${step.highlight ? 'text-gold' : 'text-text-muted'}`}>
                 {step.num}
               </div>
               <h3 className={`font-mono text-xs uppercase tracking-wide mb-2 ${step.highlight ? 'text-gold' : 'text-text-primary'}`}>

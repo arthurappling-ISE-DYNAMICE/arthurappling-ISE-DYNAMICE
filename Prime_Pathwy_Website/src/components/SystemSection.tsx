@@ -39,7 +39,7 @@ export default function SystemSection() {
           {cards.map((card) => (
             <div
               key={card.label}
-              className="bg-bg-surface border border-[#1E1E1E] p-6 hover:border-[rgba(201,168,76,0.4)] hover:bg-bg-elevated transition-colors"
+              className="bg-bg-surface border border-border-subtle p-6 hover:border-[rgba(201,168,76,0.4)] hover:bg-bg-elevated transition-colors"
             >
               <h3 className="font-mono text-xs text-gold tracking-wide mb-3 uppercase">
                 {card.label}

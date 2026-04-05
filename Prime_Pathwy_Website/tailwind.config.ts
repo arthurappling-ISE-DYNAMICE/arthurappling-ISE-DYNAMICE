@@ -17,6 +17,7 @@ const config: Config = {
         'text-primary': '#F0ECE0',
         'text-secondary': '#888888',
         'text-muted': '#555555',
+        'border-subtle': '#1E1E1E',
       },
       fontFamily: {
         serif: ['Georgia', 'serif'],
