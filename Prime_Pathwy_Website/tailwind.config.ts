@@ -15,8 +15,8 @@ const config: Config = {
         'bg-elevated': '#111111',
         gold: '#C9A84C',
         'text-primary': '#F0ECE0',
-        'text-secondary': '#888888',
-        'text-muted': '#555555',
+        'text-secondary': '#FFFFFF',
+        'text-muted': '#FFFFFF',
         'border-subtle': '#1E1E1E',
         dim: '#333333',        // secondary/back-button borders
       },

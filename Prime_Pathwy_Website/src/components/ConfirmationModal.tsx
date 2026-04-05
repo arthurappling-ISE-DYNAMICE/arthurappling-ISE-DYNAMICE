@@ -44,7 +44,8 @@ export default function ConfirmationModal() {
       {/* Closing Tagline */}
       <p
         className="font-mono text-xs tracking-[0.3em] uppercase"
-        style={{ color: 'rgba(201,168,76,0.5)' }}
+        className="text-gold"
+        aria-label="Prime Pathwy Operating Standard: If it is not documented, it did not occur."
       >
         Prime Pathwy Operating Standard · If it is not documented, it did not
         occur.

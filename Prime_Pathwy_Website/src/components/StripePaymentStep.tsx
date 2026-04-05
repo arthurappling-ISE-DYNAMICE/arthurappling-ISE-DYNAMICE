@@ -13,7 +13,7 @@ const stripeAppearance = {
     colorPrimary: '#C9A84C',
     colorBackground: '#0D0D0D',
     colorText: '#F0ECE0',
-    colorTextSecondary: '#888888',
+    colorTextSecondary: '#FFFFFF',
     colorDanger: '#ff4444',
     fontFamily: '"Courier New", Courier, monospace',
     borderRadius: '0px',
@@ -32,7 +32,7 @@ const stripeAppearance = {
       boxShadow: 'none',
     },
     '.Label': {
-      color: '#888888',
+      color: '#FFFFFF',
       fontFamily: '"Courier New", Courier, monospace',
       fontSize: '11px',
       letterSpacing: '0.1em',

@@ -37,7 +37,7 @@ export default function DocumentationSection() {
           </p>
           <p
             className="font-mono text-xs tracking-wide"
-            style={{ color: 'rgba(201,168,76,0.6)' }}
+            className="text-gold"
           >
             — Prime Pathwy Operating Standard, Section 5
           </p>

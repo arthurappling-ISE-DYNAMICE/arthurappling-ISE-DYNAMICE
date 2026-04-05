@@ -1,21 +1,28 @@
+'use client'
+
+import { useState } from 'react'
+
 interface LifecycleStep {
   num: string
   label: string
   note: string
-  highlight: boolean
 }
 
 const steps: LifecycleStep[] = [
-  { num: '01', label: 'Select Services', note: 'Property type + unit size', highlight: false },
-  { num: '02', label: 'Review Pricing', note: 'Labor shown; disposal billed separately', highlight: false },
-  { num: '03', label: 'Accept Agreements', note: 'Click-wrap — scope, payment, verification', highlight: false },
-  { num: '04', label: 'Submit Payment', note: 'Captured and timestamped', highlight: false },
-  { num: '05', label: 'Verification Gate', note: 'Identity + authority verified before scheduling ($1,000+)', highlight: true },
-  { num: '06', label: 'Work Performed', note: 'Before/during/after photos taken', highlight: false },
-  { num: '07', label: 'Completion & Archive', note: 'Photos delivered, records archived', highlight: false },
+  { num: '01', label: 'Select Services',    note: 'Property type + unit size' },
+  { num: '02', label: 'Review Pricing',     note: 'Labor shown; disposal billed separately' },
+  { num: '03', label: 'Accept Agreements',  note: 'Click-wrap — scope, payment, verification' },
+  { num: '04', label: 'Submit Payment',     note: 'Captured and timestamped' },
+  { num: '05', label: 'Verification Gate',  note: 'Identity + authority verified before scheduling ($1,000+)' },
+  { num: '06', label: 'Work Performed',     note: 'Before/during/after photos taken' },
+  { num: '07', label: 'Completion & Archive', note: 'Photos delivered, records archived' },
 ]
 
 export default function LifecycleSection() {
+  const [activeStep, setActiveStep] = useState('05')
+
+  const active = steps.find((s) => s.num === activeStep) ?? steps[4]
+
   return (
     <section
       id="lifecycle"
@@ -32,26 +39,45 @@ export default function LifecycleSection() {
         >
           7 Steps. No Surprises.
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-3">
-          {steps.map((step) => (
-            <div
-              key={step.num}
-              className={
-                step.highlight
-                  ? 'bg-bg-elevated border border-gold ring-1 ring-[rgba(201,168,76,0.15)] p-6'
-                  : 'bg-bg-base border border-border-subtle p-6'
-              }
-            >
-              <div className={`font-mono text-xl mb-3 tracking-tight ${step.highlight ? 'text-gold' : 'text-text-muted'}`}>
-                {step.num}
-              </div>
-              <h3 className={`font-mono text-xs uppercase tracking-wide mb-2 ${step.highlight ? 'text-gold' : 'text-text-primary'}`}>
-                {step.label}
-              </h3>
-              <p className="font-mono text-xs text-text-muted leading-relaxed">{step.note}</p>
-            </div>
-          ))}
+
+        {/* Step selector */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-3 mb-8">
+          {steps.map((step) => {
+            const isActive = step.num === activeStep
+            return (
+              <button
+                key={step.num}
+                onClick={() => setActiveStep(step.num)}
+                aria-pressed={isActive}
+                className={[
+                  'text-left p-6 transition-colors duration-150 focus:outline-none focus-visible:ring-1 focus-visible:ring-gold',
+                  isActive
+                    ? 'bg-bg-elevated border border-gold ring-1 ring-[rgba(201,168,76,0.15)]'
+                    : 'bg-bg-base border border-border-subtle hover:border-[#333]',
+                ].join(' ')}
+              >
+                <div className={`font-mono text-xl mb-3 tracking-tight ${isActive ? 'text-gold' : 'text-text-muted'}`}>
+                  {step.num}
+                </div>
+                <h3 className={`font-mono text-xs uppercase tracking-wide ${isActive ? 'text-gold' : 'text-text-primary'}`}>
+                  {step.label}
+                </h3>
+              </button>
+            )
+          })}
         </div>
+
+        {/* Detail panel */}
+        <div className="border border-gold bg-bg-elevated px-8 py-6 flex items-start gap-6">
+          <span className="font-mono text-3xl text-gold tracking-tight shrink-0">{active.num}</span>
+          <div>
+            <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-gold mb-2">
+              {active.label}
+            </h3>
+            <p className="font-mono text-sm text-text-primary leading-relaxed">{active.note}</p>
+          </div>
+        </div>
+
       </div>
     </section>
   )
