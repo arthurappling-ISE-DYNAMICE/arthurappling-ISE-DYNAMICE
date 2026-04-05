@@ -18,6 +18,7 @@ const config: Config = {
         'text-secondary': '#888888',
         'text-muted': '#555555',
         'border-subtle': '#1E1E1E',
+        dim: '#333333',        // secondary/back-button borders
       },
       fontFamily: {
         serif: ['Georgia', 'serif'],

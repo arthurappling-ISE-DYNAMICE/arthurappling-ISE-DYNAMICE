@@ -146,7 +146,7 @@ function PaymentForm({ formState, onSuccess, onBack }: PaymentFormProps) {
             type="checkbox"
             checked={agreed}
             onChange={(e) => setAgreed(e.target.checked)}
-            className="mt-1 flex-shrink-0 accent-[#C9A84C] w-4 h-4"
+            className="mt-1 flex-shrink-0 accent-gold w-4 h-4"
             aria-describedby="agreement-text"
           />
           <p
@@ -178,7 +178,7 @@ function PaymentForm({ formState, onSuccess, onBack }: PaymentFormProps) {
         <button
           type="button"
           onClick={onBack}
-          className="font-mono text-xs tracking-[0.1em] uppercase border border-[#333] text-text-secondary hover:border-[#555] px-6 py-3 transition-colors"
+          className="font-mono text-xs tracking-[0.1em] uppercase border border-dim text-text-secondary hover:border-text-muted px-6 py-3 transition-colors"
         >
           ← Back
         </button>
@@ -258,7 +258,7 @@ export default function StripePaymentStep({
         <button
           type="button"
           onClick={onBack}
-          className="mt-4 font-mono text-xs tracking-[0.1em] uppercase border border-[#333] text-text-secondary hover:border-[#555] px-6 py-3 transition-colors"
+          className="mt-4 font-mono text-xs tracking-[0.1em] uppercase border border-dim text-text-secondary hover:border-text-muted px-6 py-3 transition-colors"
         >
           ← Back
         </button>
