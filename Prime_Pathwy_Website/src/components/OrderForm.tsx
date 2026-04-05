@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { calculatePrice, getUnitSizes } from '@/lib/pricing'
 import type {
   OrderFormState,
@@ -20,6 +20,16 @@ const INITIAL_STATE: OrderFormState = {
   addons: { disposal: false, extremeConditions: false },
   serviceDetails: { address: '', preferredDate: '', accessMethod: '' },
   agreementAccepted: false,
+}
+
+// ---------------------------------------------------------------------------
+// Type guard — prevents unsafe UnitSize cast from select input string
+// ---------------------------------------------------------------------------
+
+const VALID_UNIT_SIZES = new Set<string>(['studio-1br', '2br', '3br', '4br'])
+
+function isUnitSize(value: string): value is UnitSize {
+  return VALID_UNIT_SIZES.has(value)
 }
 
 // ---------------------------------------------------------------------------
@@ -46,8 +56,9 @@ function RadioCard({
   return (
     <button
       type="button"
+      role="radio"
+      aria-checked={selected}
       onClick={onClick}
-      aria-pressed={selected}
       className={`flex items-center gap-3 w-full px-5 py-4 border font-mono text-sm transition-colors text-left ${
         selected
           ? 'border-gold text-text-primary bg-bg-elevated'
@@ -178,7 +189,7 @@ function Step2({
         <select
           id="unit-size-select"
           value={form.unitSize ?? ''}
-          onChange={(e) => selectSize(e.target.value as UnitSize)}
+          onChange={(e) => { if (isUnitSize(e.target.value)) selectSize(e.target.value) }}
           className="w-full bg-bg-elevated border border-[#333] text-text-primary font-mono text-sm px-4 py-3 focus:outline-none focus:border-gold transition-colors"
         >
           <option value="" disabled>
@@ -377,6 +388,7 @@ function Step4({
             id="preferred-date"
             type="date"
             value={preferredDate}
+            min={new Date().toISOString().split('T')[0]}
             onChange={(e) => updateField('preferredDate', e.target.value)}
             className="w-full bg-bg-elevated border border-[#333] text-text-primary font-mono text-sm px-4 py-3 focus:outline-none focus:border-gold transition-colors"
           />
@@ -440,11 +452,16 @@ export default function OrderForm({
 }) {
   const [form, setForm] = useState<OrderFormState>(INITIAL_STATE)
 
-  // Step 5: hand off to parent and unmount
-  if (form.step === 5) {
-    onPaymentReady(form)
-    return null
-  }
+  // Step 5: hand off to parent — called in useEffect to avoid state update during render.
+  // agreementAccepted is set to true in StripePaymentStep (Task 15) before payment capture.
+  useEffect(() => {
+    if (form.step === 5) {
+      onPaymentReady(form)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [form.step])
+
+  if (form.step === 5) return null
 
   return (
     <div className="max-w-2xl mx-auto">
