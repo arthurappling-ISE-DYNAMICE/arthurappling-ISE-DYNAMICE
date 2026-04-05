@@ -1,5 +1,6 @@
 import Nav from '@/components/Nav'
 import HeroSection from '@/components/HeroSection'
+import SystemSection from '@/components/SystemSection'
 
 export default function Home() {
   return (
@@ -7,6 +8,7 @@ export default function Home() {
       <Nav />
       <main>
         <HeroSection />
+        <SystemSection />
       </main>
     </>
   )
