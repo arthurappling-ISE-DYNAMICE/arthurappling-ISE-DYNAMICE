@@ -5,6 +5,7 @@ import LifecycleSection from '@/components/LifecycleSection'
 import DocumentationSection from '@/components/DocumentationSection'
 import PricingSection from '@/components/PricingSection'
 import AgreementSection from '@/components/AgreementSection'
+import OrderSection from '@/components/OrderSection'
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         <DocumentationSection />
         <PricingSection />
         <AgreementSection />
+        <OrderSection />
       </main>
     </>
   )
