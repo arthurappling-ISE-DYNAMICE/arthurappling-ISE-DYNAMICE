@@ -3,7 +3,7 @@ import type { PropertyType, UnitSize, PriceRange, PriceCalculation } from '@/typ
 // The $1,000+ verification gate threshold from the Prime Pathwy SOP Section 2.
 // Every standard unit in the price table exceeds this threshold, so verification
 // is required for all orders. Exported so tests can assert this invariant.
-export const VERIFICATION_GATE_THRESHOLD = 1000
+export const VERIFICATION_GATE_THRESHOLD = 1000 as const
 
 // Exact pricing from Prime Pathwy Master Merged 2026 — Section 1, Pricing & Service Scope
 const APARTMENT_PRICES: Partial<Record<UnitSize, PriceRange>> = {
@@ -25,6 +25,12 @@ const UNIT_LABELS: Partial<Record<UnitSize, string>> = {
   '4br': '4 Bedroom',
 }
 
+// Deterministic dollar formatter — no ICU dependency.
+// All prices are whole-dollar values; no fraction digits needed.
+function formatDollars(n: number): string {
+  return n.toLocaleString('en-US', { useGrouping: true, maximumFractionDigits: 0 })
+}
+
 export function calculatePrice(
   propertyType: PropertyType,
   unitSize: UnitSize
@@ -35,23 +41,23 @@ export function calculatePrice(
   return {
     unitLabel: UNIT_LABELS[unitSize] ?? unitSize,
     priceRange: range,
-    displayPrice: `$${range.min.toLocaleString('en-US')} \u2013 $${range.max.toLocaleString('en-US')}`,
+    displayPrice: `$${formatDollars(range.min)} \u2013 $${formatDollars(range.max)}`,
   }
 }
 
 export function getUnitSizes(
   propertyType: PropertyType
 ): { value: UnitSize; label: string }[] {
-  if (propertyType === 'apartment') {
-    return [
-      { value: 'studio-1br', label: 'Studio / 1 Bedroom ($1,200 \u2013 $1,600)' },
-      { value: '2br',        label: '2 Bedroom ($1,500 \u2013 $2,000)' },
-      { value: '3br',        label: '3 Bedroom ($1,800 \u2013 $2,400)' },
-    ]
-  }
-  return [
-    { value: '2br', label: '2 Bedroom ($1,600 \u2013 $2,100)' },
-    { value: '3br', label: '3 Bedroom ($1,900 \u2013 $2,600)' },
-    { value: '4br', label: '4 Bedroom ($2,300 \u2013 $3,000)' },
-  ]
+  const sizes: UnitSize[] =
+    propertyType === 'apartment'
+      ? ['studio-1br', '2br', '3br']
+      : ['2br', '3br', '4br']
+
+  return sizes.map((value) => {
+    const pricing = calculatePrice(propertyType, value)!
+    return {
+      value,
+      label: `${pricing.unitLabel} (${pricing.displayPrice})`,
+    }
+  })
 }
