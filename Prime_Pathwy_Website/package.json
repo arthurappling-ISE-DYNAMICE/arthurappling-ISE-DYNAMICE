@@ -18,15 +18,19 @@
     "react-dom": "19.2.4",
     "stripe": "^22.0.0"
   },
+  "knownPeerDepConflicts": {
+    "@stripe/react-stripe-js": "v6.1.0 declares react <20.0.0 but React 19 is installed. Works in practice. No React-19-compatible release exists as of 2026-04-04. Install via --legacy-peer-deps."
+  },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@vitest/coverage-v8": "^4.1.2",
+    "autoprefixer": "^10.4.27",
     "eslint": "^9",
     "eslint-config-next": "16.2.2",
-    "tailwindcss": "^4",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^3.4.19",
     "typescript": "^5",
     "vitest": "^4.1.2"
   }
