@@ -2,6 +2,11 @@ import type { Config } from 'tailwindcss'
 
 const config: Config = {
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
+  // darkMode: 'class' — this site is always dark. No OS-preference detection.
+  // 'dark:' Tailwind variants are NOT used anywhere in this codebase.
+  // The class strategy ensures dark: classes only apply if explicitly triggered,
+  // preventing accidental light-mode bleed-through.
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
