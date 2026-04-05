@@ -38,24 +38,24 @@ export default function AgreementSection() {
           id="agreement-heading"
           className="font-serif text-[28px] md:text-[36px] text-text-primary mb-12 max-w-3xl"
         >
-          What You're Accepting When You Place an Order
+          What You&apos;re Accepting When You Place an Order
         </h2>
 
-        <div className="max-w-3xl space-y-6 mb-12">
+        <ul className="max-w-3xl space-y-6 mb-12">
           {agreementTerms.map((term, idx) => (
-            <div key={idx} className="flex gap-4">
-              <span className="font-mono text-gold text-sm flex-shrink-0">·</span>
-              <p className="font-mono text-sm text-text-primary">
-                <span className="text-text-primary">{term.bold}</span>
-                <span className="text-text-secondary">{term.rest}</span>
+            <li key={idx} className="flex gap-4">
+              <span className="font-mono text-gold text-sm flex-shrink-0 mt-0.5" aria-hidden="true">·</span>
+              <p className="font-mono text-sm text-text-secondary leading-relaxed">
+                <span className="font-bold text-text-primary">{term.bold}</span>
+                {term.rest}
               </p>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
 
         <div className="max-w-3xl border-t border-border-subtle pt-8">
           <p
-            className="font-mono text-xs text-text-primary leading-relaxed"
+            className="font-mono text-xs leading-relaxed"
             style={{ color: 'rgba(201,168,76,0.6)' }}
           >
             By completing checkout, you enter into a binding electronic agreement. The website order record is the system of record.
