@@ -1,39 +1,42 @@
 'use client'
 
 import { useState } from 'react'
-import OrderForm from '@/components/OrderForm'
+import OrderForm from './OrderForm'
+import StripePaymentStep from './StripePaymentStep'
 import type { OrderFormState } from '@/types/order'
 
 export default function OrderSection() {
   const [readyState, setReadyState] = useState<OrderFormState | null>(null)
+  const [confirmed, setConfirmed] = useState(false)
 
   return (
-    <section
-      id="order"
-      aria-labelledby="order-heading"
-      className="bg-bg-surface py-20 px-6 md:px-16"
-    >
+    <section id="order" aria-labelledby="order-heading" className="bg-bg-surface py-20 px-6 md:px-16">
       <div className="max-w-6xl mx-auto">
-        <p className="font-mono text-xs tracking-[0.2em] uppercase text-gold mb-8">
+        <p className="font-mono text-xs tracking-[0.2em] uppercase text-gold mb-4">
           SECTION 06 — PLACE YOUR ORDER
         </p>
-
-        <h2
-          id="order-heading"
-          className="font-serif text-[28px] md:text-[36px] text-text-primary mb-12 max-w-3xl"
-        >
+        <h2 id="order-heading" className="font-serif text-[28px] md:text-[36px] text-text-primary mb-12">
           System of Record — Order Entry
         </h2>
 
-        {!readyState ? (
-          <OrderForm onPaymentReady={setReadyState} />
-        ) : (
-          <div className="max-w-2xl mx-auto">
-            <p className="font-mono text-sm text-gold mb-4">
-              Stripe payment step coming in Task 15...
+        {!readyState && <OrderForm onPaymentReady={setReadyState} />}
+
+        {readyState && !confirmed && (
+          <StripePaymentStep
+            formState={readyState}
+            onSuccess={() => setConfirmed(true)}
+            onBack={() => setReadyState(null)}
+          />
+        )}
+
+        {confirmed && (
+          <div className="max-w-2xl mx-auto text-center py-12">
+            <p className="font-mono text-xs tracking-[0.3em] uppercase text-gold mb-4">Order Recorded</p>
+            <p className="font-serif text-[24px] text-text-primary italic">
+              Your order is in the system. We leave no doubt.
             </p>
-            <p className="font-mono text-xs text-text-muted">
-              Order: {readyState.propertyType} / {readyState.unitSize}
+            <p className="font-mono text-xs text-text-muted mt-6">
+              Verification will be initiated within 1 business day. Check your email for confirmation.
             </p>
           </div>
         )}
