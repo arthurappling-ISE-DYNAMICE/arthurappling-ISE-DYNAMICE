@@ -16,23 +16,22 @@ function PriceTable({ title, rows }: PriceTableProps) {
           {title}
         </h3>
       </div>
-      <div>
-        {rows.map((row, idx) => (
-          <div
-            key={idx}
-            className={`flex justify-between items-center px-6 py-4 ${
-              idx < rows.length - 1 ? 'border-b border-[#1A1A1A]' : ''
-            }`}
-          >
-            <span className="font-mono text-sm text-text-secondary">
-              {row.type}
-            </span>
-            <span className="font-mono text-sm text-text-primary font-semibold">
-              {row.range}
-            </span>
-          </div>
-        ))}
-      </div>
+      <table className="w-full">
+        <thead className="sr-only">
+          <tr>
+            <th scope="col">Unit Type</th>
+            <th scope="col">Price Range</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row) => (
+            <tr key={row.type} className="border-b border-[#1A1A1A] last:border-b-0">
+              <td className="font-mono text-sm text-text-secondary px-6 py-4">{row.type}</td>
+              <td className="font-mono text-sm text-text-primary font-semibold px-6 py-4 text-right">{row.range}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   )
 }
