@@ -6,6 +6,14 @@ import type { PropertyType, UnitSize } from '@/types/order'
 const VALID_PROPERTY_TYPES: PropertyType[] = ['apartment', 'single-family']
 const VALID_UNIT_SIZES: UnitSize[] = ['studio-1br', '2br', '3br', '4br']
 
+function isPropertyType(v: string): v is PropertyType {
+  return VALID_PROPERTY_TYPES.includes(v as PropertyType)
+}
+
+function isUnitSize(v: string): v is UnitSize {
+  return VALID_UNIT_SIZES.includes(v as UnitSize)
+}
+
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json()
@@ -26,16 +34,16 @@ export async function POST(req: NextRequest) {
       )
     }
 
-    // Step 2: Validate propertyType
-    if (!VALID_PROPERTY_TYPES.includes(propertyType as PropertyType)) {
+    // Step 2: Validate propertyType — type predicate narrows string → PropertyType
+    if (!isPropertyType(propertyType)) {
       return NextResponse.json(
         { error: `Invalid propertyType. Must be one of: ${VALID_PROPERTY_TYPES.join(', ')}` },
         { status: 400 }
       )
     }
 
-    // Step 3: Validate unitSize
-    if (!VALID_UNIT_SIZES.includes(unitSize as UnitSize)) {
+    // Step 3: Validate unitSize — type predicate narrows string → UnitSize
+    if (!isUnitSize(unitSize)) {
       return NextResponse.json(
         { error: `Invalid unitSize. Must be one of: ${VALID_UNIT_SIZES.join(', ')}` },
         { status: 400 }
@@ -43,7 +51,8 @@ export async function POST(req: NextRequest) {
     }
 
     // Step 4: Server-side price lookup — client cannot influence amount
-    const pricing = calculatePrice(propertyType as PropertyType, unitSize as UnitSize)
+    // propertyType and unitSize are fully narrowed by the type predicates above
+    const pricing = calculatePrice(propertyType, unitSize)
     if (!pricing) {
       return NextResponse.json(
         { error: 'Invalid property/unit combination' },
@@ -51,7 +60,9 @@ export async function POST(req: NextRequest) {
       )
     }
 
-    // Step 5: Amount derived exclusively from server-side pricing table
+    // Step 5: Amount derived exclusively from server-side pricing table.
+    // Intentional: we charge priceRange.min as the booking deposit.
+    // The display range is shown in metadata (displayPrice) for record clarity.
     const amountInCents = pricing.priceRange.min * 100
 
     const paymentIntent = await stripe.paymentIntents.create({

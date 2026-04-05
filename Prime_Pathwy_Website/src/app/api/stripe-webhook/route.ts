@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
   const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET
   if (!webhookSecret) {
     console.error('[stripe-webhook] STRIPE_WEBHOOK_SECRET not configured')
-    return NextResponse.json({ error: 'STRIPE_WEBHOOK_SECRET not configured' }, { status: 500 })
+    return NextResponse.json({ error: 'Webhook endpoint is not configured' }, { status: 500 })
   }
 
   let event: Stripe.Event
