@@ -6,6 +6,7 @@ import DocumentationSection from '@/components/DocumentationSection'
 import PricingSection from '@/components/PricingSection'
 import AgreementSection from '@/components/AgreementSection'
 import OrderSection from '@/components/OrderSection'
+import Footer from '@/components/Footer'
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
         <AgreementSection />
         <OrderSection />
       </main>
+      <Footer />
     </>
   )
 }

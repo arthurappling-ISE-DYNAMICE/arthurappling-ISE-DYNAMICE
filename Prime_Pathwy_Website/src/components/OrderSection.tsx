@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import OrderForm from './OrderForm'
 import StripePaymentStep from './StripePaymentStep'
+import ConfirmationModal from './ConfirmationModal'
 import type { OrderFormState } from '@/types/order'
 
 export default function OrderSection() {
@@ -29,17 +30,7 @@ export default function OrderSection() {
           />
         )}
 
-        {confirmed && (
-          <div className="max-w-2xl mx-auto text-center py-12">
-            <p className="font-mono text-xs tracking-[0.3em] uppercase text-gold mb-4">Order Recorded</p>
-            <p className="font-serif text-[24px] text-text-primary italic">
-              Your order is in the system. We leave no doubt.
-            </p>
-            <p className="font-mono text-xs text-text-muted mt-6">
-              Verification will be initiated within 1 business day. Check your email for confirmation.
-            </p>
-          </div>
-        )}
+        {confirmed && <ConfirmationModal />}
       </div>
     </section>
   )
