@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export default function Nav() {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 h-14 bg-[#0A0A0A] border-b border-gold flex items-center justify-between px-6">
+    <nav aria-label="Primary navigation" className="fixed top-0 left-0 right-0 z-50 h-14 bg-[#0A0A0A] border-b border-gold flex items-center justify-between px-6">
       {/* Left: Seal + Wordmark */}
       <div className="flex items-center gap-3">
         <Image
