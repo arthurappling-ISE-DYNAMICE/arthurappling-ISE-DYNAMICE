@@ -28,8 +28,8 @@ export default function HeroSection() {
 
       {/* Subheadline */}
       <p className="font-mono text-sm text-[#555555] max-w-xl mb-10">
-        &ldquo;Every order is timestamped, photographed, verified, and archived.
-        This is not a cleaning service. This is a system.&rdquo;
+        Every order is timestamped, photographed, verified, and archived.
+        This is not a cleaning service. This is a system.
       </p>
 
       {/* CTA Button */}
