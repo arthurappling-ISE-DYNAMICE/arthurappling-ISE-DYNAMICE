@@ -30,15 +30,13 @@ export default function DocumentationSection() {
           SECTION 03 — DOCUMENTATION STANDARD
         </p>
 
-        <blockquote
-          id="documentation-heading"
-          className="max-w-3xl mx-auto text-center mb-16"
-        >
+        <h2 id="documentation-heading" className="sr-only">Documentation Standard</h2>
+        <blockquote className="max-w-3xl mx-auto text-center mb-16">
           <p className="font-serif text-[28px] md:text-[36px] italic text-text-primary mb-4">
             "If it is not documented, it did not occur."
           </p>
           <p
-            className="font-mono text-xs tracking-wide uppercase"
+            className="font-mono text-xs tracking-wide"
             style={{ color: 'rgba(201,168,76,0.6)' }}
           >
             — Prime Pathwy Operating Standard, Section 5
