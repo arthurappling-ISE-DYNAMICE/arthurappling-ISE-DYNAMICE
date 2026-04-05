@@ -17,7 +17,7 @@ export default function SystemSection() {
   return (
     <section id="system" className="bg-[#0A0A0A] py-20 px-6 md:px-16">
       <p className="font-mono text-xs tracking-[0.2em] uppercase text-[#C9A84C] mb-4">
-        Section 01 — The System
+        SECTION 01 — THE SYSTEM
       </p>
       <h2 className="font-serif text-[28px] md:text-[36px] text-[#F0ECE0] mb-12 max-w-2xl">
         What You&apos;re Hiring Is a System, Not a Crew
