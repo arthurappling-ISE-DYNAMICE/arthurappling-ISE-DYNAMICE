@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export default function ConfirmationModal() {
   return (
-    <div className="max-w-2xl mx-auto text-center py-12">
+    <div role="status" className="max-w-2xl mx-auto text-center py-12">
       {/* Medallion Logo */}
       <Image
         src="/logo.png"
