@@ -3,9 +3,11 @@ import HeroSection from '@/components/HeroSection'
 
 export default function Home() {
   return (
-    <main>
+    <>
       <Nav />
-      <HeroSection />
-    </main>
+      <main>
+        <HeroSection />
+      </main>
+    </>
   )
 }

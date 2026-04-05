@@ -14,6 +14,9 @@ const config: Config = {
         'bg-surface': '#0D0D0D',
         'bg-elevated': '#111111',
         gold: '#C9A84C',
+        'text-primary': '#F0ECE0',
+        'text-secondary': '#888888',
+        'text-muted': '#555555',
       },
       fontFamily: {
         serif: ['Georgia', 'serif'],
