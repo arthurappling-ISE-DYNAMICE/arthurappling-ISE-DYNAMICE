@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hero Headline Options</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0A0A0A;
+    color: #E8E8E8;
+    font-family: 'Georgia', serif;
+    padding: 32px 24px;
+  }
+
+  h1 {
+    color: #C9A84C;
+    font-size: 15px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    font-family: 'Courier New', monospace;
+  }
+  .subtitle {
+    color: #555;
+    font-size: 12px;
+    font-family: 'Courier New', monospace;
+    margin-bottom: 36px;
+    letter-spacing: 0.08em;
+  }
+  .gold-line { border: none; border-top: 1px solid #C9A84C44; margin-bottom: 32px; }
+
+  .options { display: flex; flex-direction: column; gap: 20px; }
+
+  .option {
+    border: 1px solid #1E1E1E;
+    border-left: 4px solid #C9A84C44;
+    background: #0D0D0D;
+    padding: 0;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    position: relative;
+  }
+  .option:hover { border-color: #C9A84C88; background: #111; }
+  .option.selected { border-left-color: #C9A84C; border-color: #C9A84C; background: #111; }
+  .option.selected::after {
+    content: '✓ SELECTED';
+    position: absolute;
+    top: 12px; right: 16px;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    font-family: 'Courier New', monospace;
+    color: #C9A84C;
+  }
+
+  .opt-letter {
+    display: inline-block;
+    background: #C9A84C;
+    color: #0A0A0A;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+    padding: 4px 10px;
+    letter-spacing: 0.1em;
+    margin: 0;
+  }
+
+  .opt-body { padding: 20px 24px 24px; }
+
+  /* Mockup hero previews */
+  .hero-preview {
+    background: #080808;
+    border: 1px solid #1A1A1A;
+    padding: 36px 32px;
+    text-align: center;
+    margin-bottom: 16px;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  .logo-placeholder {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    border: 2px solid #C9A84C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, #1a1400 0%, #080808 100%);
+    font-size: 11px;
+    color: #C9A84C;
+    letter-spacing: 0.1em;
+    font-family: 'Courier New', monospace;
+  }
+
+  .hero-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #C9A84C88;
+    font-family: 'Courier New', monospace;
+  }
+
+  .hero-headline { color: #F0ECE0; line-height: 1.2; }
+  .hero-headline.large { font-size: 28px; }
+  .hero-headline.medium { font-size: 24px; }
+
+  .hero-sub {
+    font-size: 13px;
+    color: #666;
+    font-family: 'Courier New', monospace;
+    max-width: 460px;
+    line-height: 1.6;
+    letter-spacing: 0.03em;
+  }
+
+  .hero-cta {
+    display: inline-block;
+    border: 1px solid #C9A84C;
+    color: #C9A84C;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-family: 'Courier New', monospace;
+    padding: 10px 28px;
+    margin-top: 4px;
+  }
+
+  .opt-desc {
+    font-size: 12px;
+    color: #666;
+    font-family: 'Courier New', monospace;
+    line-height: 1.6;
+  }
+  .opt-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: #C9A84C;
+    text-transform: uppercase;
+    font-family: 'Courier New', monospace;
+    margin-bottom: 6px;
+  }
+  em { color: #C9A84C88; font-style: normal; }
+</style>
+</head>
+<body>
+
+<h1>Section 00 — Hero Headline Direction</h1>
+<p class="subtitle">Click your preferred hero tone · Three directions, same aesthetic</p>
+<hr class="gold-line">
+
+<div class="options">
+
+  <!-- OPTION A -->
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="opt-letter">A</div>
+    <div class="opt-body">
+      <div class="opt-label">The System Statement — Direct, Operational</div>
+      <div class="hero-preview">
+        <div class="logo-placeholder">SEAL</div>
+        <div class="hero-eyebrow">Prime Pathwy Property Turnover</div>
+        <div class="hero-headline large">Property Turnover.<br>Documented. Defensible. Done.</div>
+        <div class="hero-sub">Scope locked before work begins. Every job archived. Built to survive any dispute.</div>
+        <div class="hero-cta">Place Your Order →</div>
+      </div>
+      <div class="opt-desc">
+        Punchy. Three-word cadence. Speaks directly to what property managers fear most: <em>disputes and undocumented work.</em> No fluff.
+      </div>
+    </div>
+  </div>
+
+  <!-- OPTION B -->
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="opt-letter">B</div>
+    <div class="opt-body">
+      <div class="opt-label">The Authority Declaration — Institutional, Formal</div>
+      <div class="hero-preview">
+        <div class="logo-placeholder">SEAL</div>
+        <div class="hero-eyebrow">Prime Pathwy Property Turnover · Est. 2026</div>
+        <div class="hero-headline large">The Standard for<br>Property Turnover Authority</div>
+        <div class="hero-sub">Prime Pathwy operates as a systemized, documented, and defensible service business. Scope is locked before work begins.</div>
+        <div class="hero-cta">Enter the System →</div>
+      </div>
+      <div class="opt-desc">
+        More formal. Positions Prime Pathwy as <em>the category standard,</em> not just a vendor. "Enter the System" CTA reinforces the institutional feel.
+      </div>
+    </div>
+  </div>
+
+  <!-- OPTION C -->
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="opt-letter">C</div>
+    <div class="opt-body">
+      <div class="opt-label">The Pain Pivot — Problem-First, Then System</div>
+      <div class="hero-preview">
+        <div class="logo-placeholder">SEAL</div>
+        <div class="hero-eyebrow">Prime Pathwy Property Turnover</div>
+        <div class="hero-headline medium">Your Last Turnover Vendor<br>Left No Record.<br>We Leave No Doubt.</div>
+        <div class="hero-sub">Every order is timestamped, photographed, verified, and archived. This is not a cleaning service. This is a system.</div>
+        <div class="hero-cta">Place Your Order →</div>
+      </div>
+      <div class="opt-desc">
+        Leads with the <em>problem the client has already lived.</em> Converts skeptics by naming their exact fear before they ask. Most aggressive conversion angle.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function toggleSelect(el) {
+  document.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  if (window.recordChoice) recordChoice(el.dataset.choice, el.querySelector('.opt-label').textContent.trim());
+}
+</script>
+
+</body>
+</html>
