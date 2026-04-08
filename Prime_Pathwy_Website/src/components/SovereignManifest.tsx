@@ -2,6 +2,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
+import { motion } from 'framer-motion'
 
 // ── 4 Pillars of the Sovereign System ──────────────────────────────────────
 const pillars = [
@@ -88,11 +89,11 @@ export default function SovereignManifest() {
           className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6"
         >
           {/* ── Sovereign System Install — triggers manifest ── */}
-          <button
+          <motion.button
             onClick={handleInstallClick}
             aria-expanded={manifestOpen}
             aria-controls="sovereign-manifest-detail"
-            className="font-mono text-xs tracking-[0.2em] uppercase px-5 py-5 text-left transition-all duration-200 border"
+            className="font-mono text-xs tracking-[0.2em] uppercase px-5 py-5 text-left border"
             style={
               manifestOpen
                 ? {
@@ -107,6 +108,15 @@ export default function SovereignManifest() {
                     borderColor: 'rgba(201,168,76,0.35)',
                   }
             }
+            whileHover={{
+              y: -5,
+              boxShadow: manifestOpen
+                ? '0 0 30px rgba(201,168,76,0.8), 0 0 60px rgba(201,168,76,0.35), 0 10px 24px rgba(0,0,0,0.5)'
+                : '0 0 24px rgba(201,168,76,0.55), 0 0 50px rgba(201,168,76,0.2), 0 10px 24px rgba(0,0,0,0.5)',
+              borderColor: 'rgba(201,168,76,0.9)',
+            }}
+            whileTap={{ scale: 0.97, y: 0 }}
+            transition={{ type: 'spring', stiffness: 380, damping: 18 }}
           >
             <span className="block text-[9px] tracking-[0.3em] mb-2 opacity-60">
               SVC — 01
@@ -118,7 +128,7 @@ export default function SovereignManifest() {
             >
               {manifestOpen ? '▲ COLLAPSE MANIFEST' : '▼ VIEW MANIFEST'}
             </span>
-          </button>
+          </motion.button>
 
           {/* ── Operational Autopsy ── */}
           <a
