@@ -55,8 +55,7 @@ export default function AgreementSection() {
 
         <div className="max-w-3xl border-t border-border-subtle pt-8">
           <p
-            className="font-mono text-xs leading-relaxed"
-            className="text-gold"
+            className="font-mono text-xs leading-relaxed text-gold"
           >
             By completing checkout, you enter into a binding electronic agreement. The website order record is the system of record.
           </p>

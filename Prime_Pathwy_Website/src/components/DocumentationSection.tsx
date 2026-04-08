@@ -36,8 +36,7 @@ export default function DocumentationSection() {
             "If it is not documented, it did not occur."
           </p>
           <p
-            className="font-mono text-xs tracking-wide"
-            className="text-gold"
+            className="font-mono text-xs tracking-wide text-gold"
           >
             — Prime Pathwy Operating Standard, Section 5
           </p>
