@@ -1,5 +1,6 @@
 // Prime_Pathwy_Website/src/components/ConsultingSection.tsx
 import Image from 'next/image'
+import SovereignManifest from '@/components/SovereignManifest'
 
 export default function ConsultingSection() {
   return (
@@ -41,7 +42,7 @@ export default function ConsultingSection() {
             They quietly drain your time, money, and leverage.
           </p>
           <div
-            className="w-16 border-t border-gold mb-0"
+            className="w-16 border-t border-gold"
             aria-hidden="true"
             style={{ boxShadow: '0 0 8px rgba(201,168,76,0.4)' }}
           />
@@ -101,11 +102,11 @@ export default function ConsultingSection() {
         </div>
       </section>
 
-      {/* ── SECTION 3 — FINAL STATE: The Result + Service Menu ─────────── */}
+      {/* ── SECTION 3 — FINAL STATE: The Result ────────────────────────── */}
       <section
         aria-labelledby="consulting-result-heading"
         className="relative w-full overflow-hidden"
-        style={{ minHeight: '100vh' }}
+        style={{ minHeight: '90vh' }}
       >
         <Image
           src="/images/consulting/luxury-office.png"
@@ -113,19 +114,18 @@ export default function ConsultingSection() {
           fill
           className="object-cover object-center"
         />
-        {/* Bottom-weighted overlay so buttons are readable */}
+        {/* Bottom-weighted overlay */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(to bottom, rgba(10,10,10,0.2) 0%, rgba(10,10,10,0.5) 50%, rgba(10,10,10,0.92) 100%)',
+              'linear-gradient(to bottom, rgba(10,10,10,0.15) 0%, rgba(10,10,10,0.45) 55%, rgba(10,10,10,0.92) 100%)',
           }}
           aria-hidden="true"
         />
 
         {/* Content — bottom-aligned */}
-        <div className="absolute inset-0 flex flex-col justify-end px-6 md:px-16 pb-16">
-
+        <div className="absolute inset-0 flex flex-col justify-end px-8 md:px-16 pb-16">
           <p
             className="font-mono text-[10px] tracking-[0.4em] uppercase mb-4"
             style={{ color: 'rgba(201,168,76,0.5)' }}
@@ -135,64 +135,25 @@ export default function ConsultingSection() {
           </p>
           <h2
             id="consulting-result-heading"
-            className="font-serif italic text-3xl md:text-5xl text-gold mb-4 max-w-2xl"
+            className="font-serif italic text-3xl md:text-5xl text-gold mb-4 max-w-3xl"
           >
             This Is What Sovereign Looks Like.
           </h2>
-          <p className="font-mono text-sm text-white/60 max-w-xl mb-12 leading-relaxed">
+          <p className="font-mono text-sm text-white/55 max-w-xl mb-10 leading-relaxed">
             Your operation — documented, automated, and running without you in the room.
           </p>
-
-          {/* Service Menu */}
-          <div
-            role="group"
-            aria-label="Consulting service menu"
-            className="flex flex-col gap-4 max-w-3xl"
+          <a
+            href="#consulting-inquiry"
+            aria-label="Select your consulting engagement"
+            className="font-mono text-xs tracking-[0.3em] uppercase text-gold/60 hover:text-gold transition-colors duration-200"
           >
-            {/* Tier buttons row */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-              <a
-                href="#consulting-inquiry"
-                aria-label="Sovereign System Install — full operational build-out"
-                className="font-mono text-xs tracking-[0.2em] uppercase text-gold border border-gold/40 px-5 py-4 text-center hover:bg-gold/10 hover:border-gold transition-colors duration-200"
-              >
-                Sovereign System Install
-              </a>
-              <a
-                href="#consulting-inquiry"
-                aria-label="Operational Autopsy — failure analysis and root cause diagnosis"
-                className="font-mono text-xs tracking-[0.2em] uppercase text-gold border border-gold/40 px-5 py-4 text-center hover:bg-gold/10 hover:border-gold transition-colors duration-200"
-              >
-                Operational Autopsy
-              </a>
-              <a
-                href="#consulting-inquiry"
-                aria-label="Consulting Inquiry — submit your operational profile"
-                className="font-mono text-xs tracking-[0.2em] uppercase text-gold border border-gold/40 px-5 py-4 text-center hover:bg-gold/10 hover:border-gold transition-colors duration-200"
-              >
-                Consulting Inquiry
-              </a>
-            </div>
-
-            {/* Primary CTA — glowing */}
-            <a
-              href="#consulting-inquiry"
-              aria-label="Request a Sovereign Diagnostic for five thousand dollars — primary consulting engagement"
-              className="font-mono text-sm tracking-[0.2em] uppercase text-[#0A0A0A] bg-gold px-8 py-5 text-center font-bold transition-all duration-200 hover:brightness-110"
-              style={{
-                boxShadow:
-                  '0 0 18px rgba(201,168,76,0.55), 0 0 40px rgba(201,168,76,0.25), inset 0 1px 0 rgba(255,255,255,0.15)',
-              }}
-            >
-              [ Request Sovereign Diagnostic — $5,000 ]
-            </a>
-          </div>
-
+            ↓ Select Your Engagement
+          </a>
         </div>
       </section>
 
-      {/* ── Inquiry anchor target ───────────────────────────────────────── */}
-      <div id="consulting-inquiry" aria-hidden="true" />
+      {/* ── SECTION 4 — SERVICE MENU + SOVEREIGN MANIFEST ──────────────── */}
+      <SovereignManifest />
 
     </div>
   )
