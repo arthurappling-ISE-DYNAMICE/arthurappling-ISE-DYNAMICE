@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ISE Health Console</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<style>
+  body { background:#050505; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; }
+  ::-webkit-scrollbar{width:4px} ::-webkit-scrollbar-thumb{background:rgba(201,168,76,.3);border-radius:2px}
+  .gold-text {
+    background:linear-gradient(135deg,#F5D98A,#C9A84C,#E2C06A);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  }
+  .card { background:#0D0D0D; border:1px solid rgba(255,255,255,.06); border-radius:1rem; transition:border-color .2s; }
+  .card:hover { border-color:rgba(201,168,76,.25); }
+  .stat-card { background:#111; border:1px solid rgba(255,255,255,.05); border-radius:1rem; padding:1.5rem; transition:border-color .2s; }
+  .stat-card:hover { border-color:rgba(201,168,76,.35); }
+  .pill { display:inline-block; font-size:9px; letter-spacing:.15em; text-transform:uppercase; padding:2px 8px; border-radius:4px; }
+  .sidebar-alert { background:rgba(239,68,68,.07); border:1px solid rgba(239,68,68,.2); border-radius:.75rem; padding:.75rem; }
+
+  /* ── Nav item states ─────────────────────────────────────────────────── */
+  .nav-item {
+    display:flex; align-items:center; gap:12px;
+    padding:10px 16px; border-radius:12px;
+    cursor:pointer; transition:all .2s;
+    border:1px solid transparent;
+    color:rgba(255,255,255,.35);
+  }
+  .nav-item:hover { background:rgba(255,255,255,.04); color:rgba(255,255,255,.7); }
+  .nav-item.active {
+    background:rgba(201,168,76,.08);
+    border-color:rgba(201,168,76,.3);
+    color:#C9A84C;
+    box-shadow:0 0 16px rgba(201,168,76,.12), inset 0 0 12px rgba(201,168,76,.04);
+  }
+  .nav-item.active svg { filter:drop-shadow(0 0 4px rgba(201,168,76,.6)); }
+
+  /* ── Views ───────────────────────────────────────────────────────────── */
+  .view { display:none; }
+  .view.active { display:block; }
+
+  /* ── Settings inputs ─────────────────────────────────────────────────── */
+  .settings-input {
+    width:100%; background:#1a1a1a; border:1px solid rgba(255,255,255,.1);
+    border-radius:12px; padding:10px 16px; color:#fff; outline:none;
+    font-size:14px; transition:border-color .2s;
+  }
+  .settings-input:focus { border-color:rgba(201,168,76,.5); box-shadow:0 0 0 2px rgba(201,168,76,.08); }
+  .settings-label { font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:rgba(255,255,255,.35); display:block; margin-bottom:6px; }
+</style>
+</head>
+<body class="text-white min-h-screen flex">
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     SIDEBAR
+══════════════════════════════════════════════════════════════════════ -->
+<aside class="w-60 bg-[#0A0A0A] border-r border-white/5 flex flex-col fixed h-full z-50">
+  <div class="p-7">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded-lg flex items-center justify-center font-bold text-black text-sm"
+           style="background:linear-gradient(135deg,#C9A84C,#8B7232)">A</div>
+      <span class="font-bold tracking-tighter text-base">PRIME PATHWY</span>
+    </div>
+    <p class="text-[10px] uppercase tracking-widest text-white/20 mt-1 ml-11">Health Console</p>
+  </div>
+
+  <nav class="flex-1 px-4 space-y-1">
+    <div id="nav-dashboard" class="nav-item active" onclick="switchView('dashboard')">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+        <rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>
+      </svg>
+      <span class="text-sm font-medium">Dashboard</span>
+    </div>
+
+    <div id="nav-analytics" class="nav-item" onclick="switchView('analytics')">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/>
+        <line x1="6" y1="20" x2="6" y2="14"/>
+      </svg>
+      <span class="text-sm font-medium">Analytics</span>
+    </div>
+
+    <div id="nav-settings" class="nav-item" onclick="switchView('settings')">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="3"/>
+        <path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M19.07 19.07l-1.41-1.41M4.93 19.07l1.41-1.41M12 2v2M12 20v2M2 12h2M20 12h2"/>
+      </svg>
+      <span class="text-sm font-medium">Settings</span>
+    </div>
+  </nav>
+
+  <!-- Sabotage Alert -->
+  <div class="m-4 sidebar-alert">
+    <div class="flex items-center gap-2 mb-1">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2">
+        <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+        <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+      <span class="text-[10px] font-bold uppercase tracking-widest" style="color:#EF4444">Sabotage Alert</span>
+    </div>
+    <p class="text-[11px] text-white/40 leading-relaxed">Hot Cocoa + Rice/Beans<br>= Primary spike trigger</p>
+  </div>
+</aside>
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     MAIN AREA
+══════════════════════════════════════════════════════════════════════ -->
+<main class="flex-1 ml-60 p-8 min-h-screen">
+
+  <!-- Shared header -->
+  <header class="flex justify-between items-center mb-10">
+    <div>
+      <h1 id="page-title" class="text-4xl font-bold italic gold-text">Sovereign Monitoring</h1>
+      <p id="page-sub" class="text-white/40 text-xs uppercase tracking-widest mt-1">Architect Health Command Center</p>
+    </div>
+    <div class="flex items-center gap-3">
+      <button onclick="document.getElementById('modal').classList.remove('hidden')"
+        class="flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-widest text-black"
+        style="background:linear-gradient(135deg,#E2C06A,#C9A84C);box-shadow:0 0 16px rgba(201,168,76,.35)">
+        + Add Reading
+      </button>
+      <div class="flex items-center gap-3 bg-white/5 p-2 pr-4 rounded-full border border-white/10">
+        <div class="w-8 h-8 rounded-full flex items-center justify-center text-black font-bold text-xs"
+             style="background:#C9A84C">AF</div>
+        <span class="text-sm font-medium">Arthur A.</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ════════════════════════════════════════════════════════════════════
+       VIEW: DASHBOARD
+  ════════════════════════════════════════════════════════════════════ -->
+  <div id="view-dashboard" class="view active">
+
+    <!-- Stat Cards -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
+      <div class="stat-card">
+        <p class="text-white/40 text-xs uppercase tracking-widest">14-Day Avg</p>
+        <p class="text-3xl font-bold mt-2">189.6</p>
+        <p class="text-xs mt-1" style="color:#F59E0B">mg/dL</p>
+      </div>
+      <div class="stat-card">
+        <p class="text-white/40 text-xs uppercase tracking-widest">Projected A1C</p>
+        <p class="text-3xl font-bold mt-2" style="color:#EF4444">8.23%</p>
+        <p class="text-xs mt-1 text-white/30">Goal: <span id="dash-goal">5.6</span>%</p>
+      </div>
+      <div class="stat-card">
+        <p class="text-white/40 text-xs uppercase tracking-widest">Baseline Lab</p>
+        <p class="text-3xl font-bold mt-2 text-white/70">8.6%</p>
+        <p class="text-xs mt-1 text-white/30">Last recorded</p>
+      </div>
+      <div class="stat-card">
+        <p class="text-white/40 text-xs uppercase tracking-widest">Goal A1C</p>
+        <p id="dash-goal-big" class="text-3xl font-bold mt-2" style="color:#10B981">5.6%</p>
+        <p id="dash-goal-delta" class="text-xs mt-1" style="color:#10B981">↓ 2.63% to go</p>
+      </div>
+    </div>
+
+    <!-- Charts -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-7">
+      <div class="card p-7 lg:col-span-2 relative overflow-hidden">
+        <div class="absolute top-0 left-0 right-0 h-px"
+             style="background:linear-gradient(90deg,transparent,rgba(201,168,76,.4),transparent)"></div>
+        <div class="flex justify-between items-center mb-6">
+          <h2 class="text-base font-bold italic" style="color:#C9A84C">Glucose Trajectory — 14 Days</h2>
+          <div class="text-xs text-white/30 flex gap-4">
+            <span>Avg <strong class="text-white">189.6</strong></span>
+            <span>Latest <strong class="text-white">163</strong></span>
+          </div>
+        </div>
+        <div style="height:280px"><canvas id="glucoseChart"></canvas></div>
+        <div class="mt-4 flex gap-6 text-xs text-white/25">
+          <span>— — Target 140</span><span>— — Danger 180</span>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-6">
+        <!-- A1C Path -->
+        <div class="card p-6">
+          <h2 class="text-sm font-bold italic text-white/70 mb-4">A1C Reduction Path</h2>
+          <div class="space-y-3">
+            <div class="flex justify-between items-center py-2 border-b border-white/5">
+              <span class="text-xs text-white/40 uppercase tracking-widest">Last Lab</span>
+              <span class="text-lg font-bold" style="color:#EF4444">8.6%</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/5">
+              <span class="text-xs text-white/40 uppercase tracking-widest">Current</span>
+              <span class="text-lg font-bold" style="color:#F59E0B">8.23%</span>
+            </div>
+            <div class="flex justify-between items-center py-2">
+              <span class="text-xs text-white/40 uppercase tracking-widest">Goal</span>
+              <span id="a1c-goal-display" class="text-lg font-bold" style="color:#10B981">5.6%</span>
+            </div>
+          </div>
+          <div class="mt-4 h-2 bg-white/5 rounded-full overflow-hidden">
+            <div id="a1c-progress-bar" class="h-full rounded-full"
+                 style="width:12%;background:linear-gradient(90deg,#EF4444,#F59E0B,#10B981)"></div>
+          </div>
+          <p id="a1c-progress-label" class="text-[10px] text-white/25 text-center mt-2 uppercase tracking-widest">
+            12% progress toward goal</p>
+        </div>
+
+        <!-- Command Log — dynamic -->
+        <div class="card p-6 flex-1">
+          <h2 class="text-sm font-bold italic text-white/70 mb-4">Command Log</h2>
+          <div id="command-log-entries" class="space-y-4">
+            <p class="text-white/25 text-xs text-center py-4 uppercase tracking-widest">Loading...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════════════════
+       VIEW: ANALYTICS
+  ════════════════════════════════════════════════════════════════════ -->
+  <div id="view-analytics" class="view">
+
+    <!-- Full-screen Glucose -->
+    <div class="card p-7 mb-7 relative overflow-hidden">
+      <div class="absolute top-0 left-0 right-0 h-px"
+           style="background:linear-gradient(90deg,transparent,rgba(201,168,76,.4),transparent)"></div>
+      <div class="flex justify-between items-center mb-6">
+        <div>
+          <h2 class="text-lg font-bold italic" style="color:#C9A84C">Glucose Trajectory — Full View</h2>
+          <p class="text-xs text-white/30 mt-1 uppercase tracking-widest">14-day anchor · Mar 25 → Apr 7</p>
+        </div>
+        <div class="flex gap-6 text-xs text-white/40">
+          <span>Avg <strong class="text-white text-sm">189.6</strong> mg/dL</span>
+          <span>A1C Est <strong style="color:#EF4444" class="text-sm">8.23%</strong></span>
+          <span>Latest <strong class="text-white text-sm">163</strong> mg/dL</span>
+        </div>
+      </div>
+      <div style="height:380px"><canvas id="glucoseChartFull"></canvas></div>
+      <div class="mt-5 grid grid-cols-3 gap-4">
+        <div class="text-center p-3 rounded-xl" style="background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.15)">
+          <p class="text-[10px] uppercase tracking-widest text-white/30 mb-1">In Range (70–180)</p>
+          <p class="text-xl font-bold" style="color:#10B981" id="stat-in-range">—</p>
+        </div>
+        <div class="text-center p-3 rounded-xl" style="background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.15)">
+          <p class="text-[10px] uppercase tracking-widest text-white/30 mb-1">Above 180</p>
+          <p class="text-xl font-bold" style="color:#EF4444" id="stat-above">—</p>
+        </div>
+        <div class="text-center p-3 rounded-xl" style="background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.15)">
+          <p class="text-[10px] uppercase tracking-widest text-white/30 mb-1">Peak Reading</p>
+          <p class="text-xl font-bold" style="color:#C9A84C" id="stat-peak">231</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- BP Trends -->
+    <div class="card p-7 relative overflow-hidden">
+      <div class="absolute top-0 left-0 right-0 h-px"
+           style="background:linear-gradient(90deg,transparent,rgba(90,143,212,.4),transparent)"></div>
+      <div class="flex justify-between items-center mb-6">
+        <div>
+          <h2 class="text-lg font-bold italic text-white/80">Blood Pressure Trends</h2>
+          <p class="text-xs text-white/30 mt-1 uppercase tracking-widest">Systolic / Diastolic · mmHg</p>
+        </div>
+        <div class="flex gap-4 text-xs text-white/40">
+          <span class="flex items-center gap-2"><span class="inline-block w-3 h-0.5 bg-red-400"></span>Systolic</span>
+          <span class="flex items-center gap-2"><span class="inline-block w-3 h-0.5 bg-blue-400"></span>Diastolic</span>
+        </div>
+      </div>
+      <div id="bp-chart-wrap" style="height:300px"><canvas id="bpChart"></canvas></div>
+      <div id="bp-empty" class="hidden text-center py-16">
+        <p class="text-white/25 text-sm uppercase tracking-widest">No blood pressure readings yet</p>
+        <p class="text-white/15 text-xs mt-2">Use + Add Reading to log your BP</p>
+      </div>
+      <div class="mt-4 flex gap-6 text-xs text-white/25">
+        <span>Normal: &lt; 120/80</span>
+        <span>Elevated: 120–129 systolic</span>
+        <span>High: ≥ 130/80</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════════════════
+       VIEW: SETTINGS
+  ════════════════════════════════════════════════════════════════════ -->
+  <div id="view-settings" class="view">
+    <div class="max-w-2xl">
+
+      <!-- Goal A1C -->
+      <div class="card p-8 mb-6 relative overflow-hidden">
+        <div class="absolute top-0 left-0 right-0 h-px"
+             style="background:linear-gradient(90deg,transparent,rgba(201,168,76,.4),transparent)"></div>
+        <h2 class="text-base font-bold italic mb-1" style="color:#C9A84C">A1C Goal</h2>
+        <p class="text-xs text-white/35 uppercase tracking-widest mb-6">Target A1C percentage</p>
+
+        <div class="flex items-end gap-4">
+          <div class="flex-1">
+            <label class="settings-label">Goal A1C (%)</label>
+            <input id="setting-goal-a1c" type="number" min="4" max="14" step="0.1"
+              class="settings-input" placeholder="5.6">
+          </div>
+          <button onclick="saveGoalA1C()"
+            class="px-6 py-2.5 rounded-xl text-xs font-bold uppercase tracking-widest text-black mb-px"
+            style="background:linear-gradient(135deg,#E2C06A,#C9A84C);box-shadow:0 0 14px rgba(201,168,76,.35)">
+            Save
+          </button>
+        </div>
+        <p id="goal-saved-msg" class="hidden text-xs mt-3 uppercase tracking-widest" style="color:#10B981">✓ Goal updated</p>
+
+        <div class="mt-6 p-4 rounded-xl" style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05)">
+          <div class="grid grid-cols-3 gap-4 text-center">
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-white/30 mb-1">Current</p>
+              <p class="text-xl font-bold" style="color:#F59E0B">8.23%</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-white/30 mb-1">Gap</p>
+              <p id="settings-gap" class="text-xl font-bold" style="color:#EF4444">2.63%</p>
+            </div>
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-white/30 mb-1">Goal</p>
+              <p id="settings-goal-display" class="text-xl font-bold" style="color:#10B981">5.6%</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trigger Log -->
+      <div class="card p-8 mb-6">
+        <h2 class="text-base font-bold italic mb-1 text-white/80">Sabotage Trigger Log</h2>
+        <p class="text-xs text-white/35 uppercase tracking-widest mb-6">Foods that spike your glucose</p>
+        <div class="space-y-3">
+          <div class="flex items-center justify-between p-3 rounded-xl" style="background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.15)">
+            <span class="text-sm font-medium">Hot Cocoa</span>
+            <span class="pill" style="color:#EF4444;background:rgba(239,68,68,.12)">Primary</span>
+          </div>
+          <div class="flex items-center justify-between p-3 rounded-xl" style="background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.15)">
+            <span class="text-sm font-medium">Rice + Beans</span>
+            <span class="pill" style="color:#EF4444;background:rgba(239,68,68,.12)">Primary</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Console Info -->
+      <div class="card p-8">
+        <h2 class="text-base font-bold italic mb-1 text-white/80">Console Info</h2>
+        <p class="text-xs text-white/35 uppercase tracking-widest mb-5">System reference</p>
+        <div class="space-y-3">
+          <div class="flex justify-between text-sm border-b border-white/5 pb-3">
+            <span class="text-white/40">Data File</span>
+            <span class="font-mono text-xs text-white/60">health_data.json</span>
+          </div>
+          <div class="flex justify-between text-sm border-b border-white/5 pb-3">
+            <span class="text-white/40">Server Port</span>
+            <span class="font-mono text-xs text-white/60">localhost:3131</span>
+          </div>
+          <div class="flex justify-between text-sm border-b border-white/5 pb-3">
+            <span class="text-white/40">Anchor Date</span>
+            <span class="font-mono text-xs text-white/60">Apr 7, 2026</span>
+          </div>
+          <div class="flex justify-between text-sm">
+            <span class="text-white/40">Readings Loaded</span>
+            <span id="settings-reading-count" class="font-mono text-xs text-white/60">14</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     ADD READING MODAL — DUAL ENTRY
+══════════════════════════════════════════════════════════════════════ -->
+<div id="modal" class="hidden fixed inset-0 z-50 flex items-center justify-center"
+     style="background:rgba(0,0,0,.82);backdrop-filter:blur(8px)">
+  <div class="bg-[#0F0F0F] border border-white/10 rounded-2xl w-full max-w-md shadow-2xl overflow-hidden">
+
+    <!-- Modal header -->
+    <div class="flex justify-between items-center px-7 pt-7 pb-5">
+      <h3 class="text-base font-bold italic" style="color:#C9A84C">Sovereign Entry Portal</h3>
+      <button onclick="document.getElementById('modal').classList.add('hidden')"
+              class="text-white/30 hover:text-white text-xl leading-none">&times;</button>
+    </div>
+
+    <!-- Tab switcher -->
+    <div class="flex mx-7 mb-5 rounded-xl overflow-hidden border border-white/8" style="background:#1a1a1a">
+      <button id="tab-btn-glucose" onclick="switchModalTab('glucose')"
+        class="flex-1 py-2.5 text-xs font-bold uppercase tracking-widest transition-all"
+        style="background:rgba(201,168,76,.12);color:#C9A84C;box-shadow:inset 0 0 8px rgba(201,168,76,.08)">
+        Blood Glucose
+      </button>
+      <button id="tab-btn-bp" onclick="switchModalTab('bp')"
+        class="flex-1 py-2.5 text-xs font-bold uppercase tracking-widest transition-all"
+        style="color:rgba(255,255,255,.3)">
+        Blood Pressure
+      </button>
+    </div>
+
+    <!-- ── GLUCOSE SECTION ──────────────────────────────────────────── -->
+    <div id="modal-glucose" class="px-7 pb-7">
+      <form onsubmit="saveGlucose(event)" class="space-y-4">
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="settings-label">Reading (mg/dL)</label>
+            <input id="g-val" type="number" min="40" max="600" required placeholder="163"
+                   class="settings-input text-lg font-bold">
+          </div>
+          <div>
+            <label class="settings-label">Type</label>
+            <select id="g-type" class="settings-input">
+              <option value="fasting">Fasting</option>
+              <option value="post-meal">Post-Meal</option>
+              <option value="bedtime">Bedtime</option>
+              <option value="random">Random</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label class="settings-label">Operational Notes</label>
+          <textarea id="g-notes" rows="3" placeholder="e.g. Hot cocoa spike · Ate rice and beans · Fasting was clean"
+            class="settings-input resize-none leading-relaxed"
+            style="font-size:13px"></textarea>
+        </div>
+        <button type="submit" class="w-full py-3 rounded-xl font-bold text-sm uppercase tracking-widest text-black"
+          style="background:linear-gradient(135deg,#E2C06A,#C9A84C);box-shadow:0 0 20px rgba(201,168,76,.4)">
+          Log Glucose Reading
+        </button>
+      </form>
+    </div>
+
+    <!-- ── BLOOD PRESSURE SECTION ────────────────────────────────────── -->
+    <div id="modal-bp" class="hidden px-7 pb-7">
+      <form onsubmit="saveBP(event)" class="space-y-4">
+        <div class="grid grid-cols-3 gap-3">
+          <div>
+            <label class="settings-label">Systolic</label>
+            <input id="bp-sys" type="number" min="60" max="250" required placeholder="120"
+                   class="settings-input text-lg font-bold">
+          </div>
+          <div>
+            <label class="settings-label">Diastolic</label>
+            <input id="bp-dia" type="number" min="40" max="160" required placeholder="80"
+                   class="settings-input text-lg font-bold">
+          </div>
+          <div>
+            <label class="settings-label">Pulse (bpm)</label>
+            <input id="bp-pulse" type="number" min="30" max="220" placeholder="72"
+                   class="settings-input text-lg font-bold">
+          </div>
+        </div>
+        <div>
+          <label class="settings-label">Operational Notes</label>
+          <textarea id="bp-notes" rows="3" placeholder="e.g. After morning walk · Stress elevated · Sitting, left arm"
+            class="settings-input resize-none leading-relaxed"
+            style="font-size:13px"></textarea>
+        </div>
+        <button type="submit" class="w-full py-3 rounded-xl font-bold text-sm uppercase tracking-widest text-black"
+          style="background:linear-gradient(135deg,#5A8FD4,#3B6DBF);box-shadow:0 0 20px rgba(90,143,212,.4)">
+          Log Blood Pressure
+        </button>
+      </form>
+    </div>
+
+    <p id="save-msg" class="hidden text-center text-xs pb-5 uppercase tracking-widest" style="color:#10B981">
+      ✓ Saved to health_data.json</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     SCRIPT
+══════════════════════════════════════════════════════════════════════ -->
+<script>
+// ── Anchor data ───────────────────────────────────────────────────────────────
+const GLUCOSE = [181,173,202,199,185,179,181,204,179,177,223,231,178,163]
+const LABELS  = ['Mar 25','Mar 26','Mar 27','Mar 28','Mar 29','Mar 30','Mar 31',
+                 'Apr 1','Apr 2','Apr 3','Apr 4','Apr 5','Apr 6','Apr 7']
+// Date → note map for chart tooltips (built from liveData on load)
+const NOTE_MAP = {}
+
+let liveData      = null
+let goalA1C       = 5.6
+let analyticsInit = false
+let chartDash     = null
+let chartFull     = null
+let chartBP       = null
+
+// ── Chart defaults ────────────────────────────────────────────────────────────
+Chart.defaults.color       = 'rgba(255,255,255,0.3)'
+Chart.defaults.borderColor = 'rgba(255,255,255,0.05)'
+
+const REF_LINE_PLUGIN = {
+  id: 'refLines',
+  beforeDraw(chart, _, { lines = [] }) {
+    const { ctx, chartArea: { left, right }, scales: { y } } = chart
+    ctx.save()
+    lines.forEach(({ value, color, dash }) => {
+      ctx.strokeStyle = color
+      ctx.setLineDash(dash || [5, 5])
+      ctx.lineWidth = 1
+      ctx.beginPath()
+      const py = y.getPixelForValue(value)
+      ctx.moveTo(left, py); ctx.lineTo(right, py); ctx.stroke()
+    })
+    ctx.restore()
+  }
+}
+Chart.register(REF_LINE_PLUGIN)
+
+function makeGradient(canvasId, h, c1, c2) {
+  const canvas = document.getElementById(canvasId)
+  if (!canvas) return 'transparent'
+  const g = canvas.getContext('2d').createLinearGradient(0, 0, 0, h)
+  g.addColorStop(0, c1); g.addColorStop(1, c2)
+  return g
+}
+
+// ── Build dashboard glucose chart ─────────────────────────────────────────────
+function buildDashChart() {
+  const grad = makeGradient('glucoseChart', 280, 'rgba(201,168,76,0.35)', 'rgba(201,168,76,0)')
+  chartDash = new Chart(document.getElementById('glucoseChart'), {
+    type: 'line',
+    data: {
+      labels: LABELS,
+      datasets: [{
+        data: GLUCOSE, borderColor: '#C9A84C', borderWidth: 2.5,
+        backgroundColor: grad, fill: true, tension: 0.35,
+        pointBackgroundColor: GLUCOSE.map(v => v > 180 ? '#EF4444' : '#C9A84C'),
+        pointRadius: 4, pointHoverRadius: 6,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#111', borderColor: 'rgba(255,255,255,.1)', borderWidth: 1,
+          callbacks: {
+            label: c => {
+              const note = NOTE_MAP[LABELS[c.dataIndex]]
+              const base = ` ${c.raw} mg/dL ${c.raw > 180 ? '⚠' : '✓'}`
+              return note ? [base, ` 📋 "${note}"`] : base
+            }
+          }
+        },
+        refLines: { lines: [
+          { value: 140, color: 'rgba(255,255,255,0.15)' },
+          { value: 180, color: 'rgba(239,68,68,0.2)' },
+        ]}
+      },
+      scales: {
+        x: { grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { maxRotation: 0, font: { size: 10 } } },
+        y: { grid: { color: 'rgba(255,255,255,0.04)' }, min: 80, max: 260, ticks: { font: { size: 10 } } }
+      }
+    }
+  })
+}
+
+// ── Build analytics charts ────────────────────────────────────────────────────
+function buildAnalyticsCharts() {
+  if (analyticsInit) return
+  analyticsInit = true
+
+  // Full glucose chart
+  const grad2 = makeGradient('glucoseChartFull', 380, 'rgba(201,168,76,0.3)', 'rgba(201,168,76,0)')
+  chartFull = new Chart(document.getElementById('glucoseChartFull'), {
+    type: 'line',
+    data: {
+      labels: LABELS,
+      datasets: [{
+        label: 'Glucose (mg/dL)',
+        data: GLUCOSE, borderColor: '#C9A84C', borderWidth: 2.5,
+        backgroundColor: grad2, fill: true, tension: 0.35,
+        pointBackgroundColor: GLUCOSE.map(v => v > 180 ? '#EF4444' : '#C9A84C'),
+        pointRadius: 5, pointHoverRadius: 7,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#111', borderColor: 'rgba(255,255,255,.1)', borderWidth: 1,
+          callbacks: {
+            label: c => {
+              const note = NOTE_MAP[LABELS[c.dataIndex]]
+              const status = c.raw > 180 ? 'Above range ⚠' : c.raw < 70 ? 'Below range ↓' : 'In range ✓'
+              const base = ` ${c.raw} mg/dL — ${status}`
+              return note ? [base, ` 📋 "${note}"`] : base
+            }
+          }
+        },
+        refLines: { lines: [
+          { value: 140, color: 'rgba(255,255,255,0.2)' },
+          { value: 180, color: 'rgba(239,68,68,0.25)' },
+          { value: 70,  color: 'rgba(245,158,11,0.2)' },
+        ]}
+      },
+      scales: {
+        x: { grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { font: { size: 11 } } },
+        y: { grid: { color: 'rgba(255,255,255,0.04)' }, min: 60, max: 260,
+             ticks: { font: { size: 11 }, callback: v => `${v}` } }
+      }
+    }
+  })
+
+  // Stats
+  const inRange = GLUCOSE.filter(v => v >= 70 && v <= 180).length
+  document.getElementById('stat-in-range').textContent =
+    `${inRange}/14 (${Math.round(inRange/14*100)}%)`
+  document.getElementById('stat-above').textContent =
+    `${GLUCOSE.filter(v=>v>180).length}/14`
+
+  // BP chart — load from API or show empty
+  const bpData = liveData?.bloodPressure ?? []
+  if (bpData.length === 0) {
+    document.getElementById('bp-chart-wrap').classList.add('hidden')
+    document.getElementById('bp-empty').classList.remove('hidden')
+  } else {
+    const sorted = [...bpData].sort((a,b) => `${a.date}${a.time}`.localeCompare(`${b.date}${b.time}`))
+    const bpLabels = sorted.map(r => r.date.slice(5))
+    const sysData  = sorted.map(r => r.systolic)
+    const diaData  = sorted.map(r => r.diastolic)
+
+    chartBP = new Chart(document.getElementById('bpChart'), {
+      type: 'line',
+      data: {
+        labels: bpLabels,
+        datasets: [
+          { label: 'Systolic', data: sysData, borderColor: '#E05555',
+            backgroundColor: 'rgba(224,85,85,0.08)', fill: true, tension: 0.3,
+            pointBackgroundColor: '#E05555', pointRadius: 4, borderWidth: 2 },
+          { label: 'Diastolic', data: diaData, borderColor: '#5A8FD4',
+            backgroundColor: 'rgba(90,143,212,0.06)', fill: true, tension: 0.3,
+            pointBackgroundColor: '#5A8FD4', pointRadius: 4, borderWidth: 2 }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: { backgroundColor:'#111', borderColor:'rgba(255,255,255,.1)', borderWidth:1 }
+        },
+        scales: {
+          x: { grid: { color: 'rgba(255,255,255,0.04)' } },
+          y: { grid: { color: 'rgba(255,255,255,0.04)' }, min: 60, max: 180 }
+        }
+      }
+    })
+  }
+}
+
+// ── Modal tab switcher ────────────────────────────────────────────────────────
+function switchModalTab(tab) {
+  const isGlucose = tab === 'glucose'
+  document.getElementById('modal-glucose').classList.toggle('hidden', !isGlucose)
+  document.getElementById('modal-bp').classList.toggle('hidden', isGlucose)
+
+  const btnG = document.getElementById('tab-btn-glucose')
+  const btnB = document.getElementById('tab-btn-bp')
+  if (isGlucose) {
+    btnG.style.cssText = 'flex:1;padding:10px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transition:all .2s;background:rgba(201,168,76,.12);color:#C9A84C;box-shadow:inset 0 0 8px rgba(201,168,76,.08)'
+    btnB.style.cssText = 'flex:1;padding:10px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transition:all .2s;color:rgba(255,255,255,.3)'
+  } else {
+    btnB.style.cssText = 'flex:1;padding:10px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transition:all .2s;background:rgba(90,143,212,.12);color:#5A8FD4;box-shadow:inset 0 0 8px rgba(90,143,212,.08)'
+    btnG.style.cssText = 'flex:1;padding:10px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transition:all .2s;color:rgba(255,255,255,.3)'
+  }
+}
+
+// ── Command Log renderer ──────────────────────────────────────────────────────
+function renderCommandLog() {
+  if (!liveData) return
+  const entries = []
+
+  liveData.glucose.forEach(r => {
+    if (!r.notes?.startsWith('Anchor')) { // skip anchor seed entries without real notes
+      entries.push({ kind:'glucose', value:r.value, date:r.date, time:r.time,
+                     readingType:r.type, notes:r.notes })
+    }
+  })
+  ;(liveData.bloodPressure || []).forEach(r => {
+    entries.push({ kind:'bp', sys:r.systolic, dia:r.diastolic, pulse:r.pulse,
+                   date:r.date, time:r.time, notes:r.notes })
+  })
+
+  entries.sort((a, b) => (`${b.date}${b.time}`).localeCompare(`${a.date}${a.time}`))
+  const recent = entries.slice(0, 6)
+
+  const container = document.getElementById('command-log-entries')
+  if (recent.length === 0) {
+    container.innerHTML = '<p class="text-white/25 text-xs text-center py-4 uppercase tracking-widest">No entries yet — add a reading</p>'
+    return
+  }
+
+  container.innerHTML = recent.map(e => {
+    if (e.kind === 'glucose') {
+      const c = e.value > 180 ? '#EF4444' : e.value < 70 ? '#F59E0B' : '#10B981'
+      const s = e.value > 180 ? 'Spike' : e.value < 70 ? 'Low' : 'Normal'
+      return `<div class="pl-3 py-1 rounded-r-lg hover:bg-white/2 transition-colors" style="border-left:2px solid ${c}40">
+        <p class="text-xs font-bold" style="color:rgba(255,255,255,.8)">Glucose: ${e.value} mg/dL</p>
+        ${e.notes ? `<p class="text-[11px] mt-1 italic leading-relaxed" style="color:rgba(201,168,76,.65)">"${e.notes}"</p>` : ''}
+        <div class="flex items-center gap-2 mt-1">
+          <span class="text-[10px] text-white/25 uppercase tracking-widest">${e.date} · ${e.readingType}</span>
+          <span class="pill" style="color:${c};background:${c}18">${s}</span>
+        </div>
+      </div>`
+    } else {
+      const c = e.sys >= 140 ? '#EF4444' : e.sys >= 120 ? '#F59E0B' : '#10B981'
+      const s = e.sys >= 140 ? 'High' : e.sys >= 120 ? 'Elevated' : 'Normal'
+      return `<div class="pl-3 py-1 rounded-r-lg hover:bg-white/2 transition-colors" style="border-left:2px solid ${c}40">
+        <p class="text-xs font-bold" style="color:rgba(255,255,255,.8)">BP: ${e.sys}/${e.dia} mmHg${e.pulse ? ` · ${e.pulse} bpm` : ''}</p>
+        ${e.notes ? `<p class="text-[11px] mt-1 italic leading-relaxed" style="color:rgba(90,143,212,.7)">"${e.notes}"</p>` : ''}
+        <div class="flex items-center gap-2 mt-1">
+          <span class="text-[10px] text-white/25 uppercase tracking-widest">${e.date}</span>
+          <span class="pill" style="color:${c};background:${c}18">${s}</span>
+        </div>
+      </div>`
+    }
+  }).join('')
+}
+
+// ── Build note map for chart tooltips ────────────────────────────────────────
+function buildNoteMap() {
+  if (!liveData?.glucose) return
+  const monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
+  liveData.glucose.forEach(r => {
+    if (!r.notes || r.notes.startsWith('Anchor')) return
+    const [, m, d] = r.date.split('-')
+    const label = `${monthNames[parseInt(m)-1]} ${parseInt(d)}`
+    NOTE_MAP[label] = r.notes
+  })
+}
+
+// ── Navigation state machine ──────────────────────────────────────────────────
+const VIEWS = ['dashboard', 'analytics', 'settings']
+const PAGE_META = {
+  dashboard: { title: 'Sovereign Monitoring',   sub: 'Architect Health Command Center' },
+  analytics:  { title: 'Analytics Command',      sub: 'Full-Spectrum Glucose & BP Analysis' },
+  settings:   { title: 'Console Settings',       sub: 'Configure Targets & Preferences' },
+}
+
+function switchView(name) {
+  // Hide all views, deactivate all nav items
+  VIEWS.forEach(v => {
+    document.getElementById(`view-${v}`).classList.remove('active')
+    document.getElementById(`nav-${v}`).classList.remove('active')
+  })
+
+  // Activate selected
+  document.getElementById(`view-${name}`).classList.add('active')
+  document.getElementById(`nav-${name}`).classList.add('active')
+
+  // Update header
+  document.getElementById('page-title').textContent = PAGE_META[name].title
+  document.getElementById('page-sub').textContent   = PAGE_META[name].sub
+
+  // Lazy-init analytics charts on first visit
+  if (name === 'analytics') buildAnalyticsCharts()
+
+  // Populate settings on entry
+  if (name === 'settings') {
+    document.getElementById('setting-goal-a1c').value = goalA1C
+    document.getElementById('settings-reading-count').textContent =
+      liveData?.glucose?.length ?? GLUCOSE.length
+  }
+}
+
+// ── Save Goal A1C ─────────────────────────────────────────────────────────────
+async function saveGoalA1C() {
+  const val = parseFloat(document.getElementById('setting-goal-a1c').value)
+  if (isNaN(val) || val < 4 || val > 14) return
+  goalA1C = val
+
+  // Update all displays
+  document.getElementById('a1c-goal-display').textContent = `${val}%`
+  document.getElementById('dash-goal').textContent = val
+  document.getElementById('dash-goal-big').textContent = `${val}%`
+  document.getElementById('settings-goal-display').textContent = `${val}%`
+  document.getElementById('settings-gap').textContent = `${(8.23 - val).toFixed(2)}%`
+
+  const progress = Math.max(0, Math.min(100, ((8.6 - 8.23) / (8.6 - val) * 100)))
+  document.getElementById('a1c-progress-bar').style.width = `${progress.toFixed(0)}%`
+  document.getElementById('a1c-progress-label').textContent =
+    `${progress.toFixed(0)}% progress toward goal`
+  document.getElementById('dash-goal-delta').textContent =
+    `↓ ${(8.23 - val).toFixed(2)}% to go`
+
+  // Persist to JSON
+  if (liveData) {
+    liveData.goal_a1c = val
+    await fetch('/api/data', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(liveData)
+    }).catch(() => {})
+  }
+
+  const msg = document.getElementById('goal-saved-msg')
+  msg.classList.remove('hidden')
+  setTimeout(() => msg.classList.add('hidden'), 2000)
+}
+
+// ── Shared post-save flash ────────────────────────────────────────────────────
+function flashSaved() {
+  const msg = document.getElementById('save-msg')
+  msg.classList.remove('hidden')
+  renderCommandLog()
+  buildNoteMap()
+  setTimeout(() => {
+    msg.classList.add('hidden')
+    document.getElementById('modal').classList.add('hidden')
+    switchModalTab('glucose') // reset tab for next open
+  }, 1400)
+}
+
+async function persistData() {
+  await fetch('/api/data', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(liveData)
+  })
+}
+
+function ensureLiveData() {
+  if (!liveData) liveData = { glucose: [], bloodPressure: [], last_lab_a1c: 8.6, lastUpdated: null }
+  if (!liveData.bloodPressure) liveData.bloodPressure = []
+}
+
+// ── Save glucose ──────────────────────────────────────────────────────────────
+async function saveGlucose(e) {
+  e.preventDefault()
+  ensureLiveData()
+  const val   = parseInt(document.getElementById('g-val').value)
+  const type  = document.getElementById('g-type').value
+  const notes = document.getElementById('g-notes').value.trim()
+
+  liveData.glucose.push({
+    id: Date.now(),
+    date: new Date().toISOString().slice(0, 10),
+    time: new Date().toTimeString().slice(0, 5),
+    value: val, type, notes
+  })
+
+  try {
+    await persistData()
+    document.getElementById('g-val').value   = ''
+    document.getElementById('g-notes').value = ''
+    flashSaved()
+  } catch { alert('Could not save — is the server running?') }
+}
+
+// ── Save blood pressure ───────────────────────────────────────────────────────
+async function saveBP(e) {
+  e.preventDefault()
+  ensureLiveData()
+  const sys   = parseInt(document.getElementById('bp-sys').value)
+  const dia   = parseInt(document.getElementById('bp-dia').value)
+  const pulse = parseInt(document.getElementById('bp-pulse').value) || null
+  const notes = document.getElementById('bp-notes').value.trim()
+
+  liveData.bloodPressure.push({
+    id: Date.now(),
+    date: new Date().toISOString().slice(0, 10),
+    time: new Date().toTimeString().slice(0, 5),
+    systolic: sys, diastolic: dia, pulse, notes
+  })
+
+  try {
+    await persistData()
+    document.getElementById('bp-sys').value   = ''
+    document.getElementById('bp-dia').value   = ''
+    document.getElementById('bp-pulse').value = ''
+    document.getElementById('bp-notes').value = ''
+    flashSaved()
+  } catch { alert('Could not save — is the server running?') }
+}
+
+// ── Boot ──────────────────────────────────────────────────────────────────────
+fetch('/api/data')
+  .then(r => r.json())
+  .then(d => {
+    liveData = d
+    if (d.goal_a1c) {
+      goalA1C = d.goal_a1c
+      document.getElementById('dash-goal').textContent = goalA1C
+      document.getElementById('dash-goal-big').textContent = `${goalA1C}%`
+      document.getElementById('a1c-goal-display').textContent = `${goalA1C}%`
+    }
+    buildNoteMap()
+    renderCommandLog()
+  })
+  .catch(() => {
+    renderCommandLog() // shows "no entries" state gracefully
+  })
+
+buildDashChart()
+</script>
+</body>
+</html>
