@@ -1,0 +1,27 @@
+{
+  "glucose": [
+    {
+      "id": 1775824844276,
+      "date": "2026-04-10",
+      "time": "05:40",
+      "value": 149,
+      "type": "fasting",
+      "notes": "Today reading was amazing"
+    }
+  ],
+  "bloodPressure": [],
+  "weightLog": [
+    {
+      "id": 1744228680001,
+      "date": "2026-04-09",
+      "time": "00:00",
+      "value": 207,
+      "notes": "Anchor — WEIGHT_ENGINE_ACTIVATE"
+    }
+  ],
+  "weight_goal": 185,
+  "glucose_target": 175,
+  "last_lab_a1c": 8.6,
+  "projected_a1c": 8.23,
+  "lastUpdated": "2026-04-10T00:00:00.000Z"
+}
