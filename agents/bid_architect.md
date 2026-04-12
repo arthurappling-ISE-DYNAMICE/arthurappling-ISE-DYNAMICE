@@ -55,7 +55,17 @@ Every output from every sub-command begins with this block, rendered exactly as 
 
 ---
 
-Render Credential Plate (see above), then output:
+Output the following Credential Plate verbatim, then continue with the scouting report:
+
+```
+════════════════════════════════════════════════════════════════
+  PRIME PATHWY — SOVEREIGN SUBCONTRACTING ENGINE
+  Lead Architect:  Arthur F. Appling Sr.
+  EIN: 84-4788578  |  DUNS: 12-3035654
+  425 Virginia St STE B, Vallejo, CA 94590
+  NAICS: 561720 (Janitorial Services)  |  562111 (Hauling)
+═══════════════════════════════════════════════════════════════
+```
 
 **SOVEREIGN SCOUTING REPORT — PERPLEXITY PROMPTS**
 *Generated for: Arthur F. Appling Sr. / Prime Pathwy*
@@ -104,7 +114,17 @@ Current date: [INSERT TODAY'S DATE].
 
 ---
 
-Render Credential Plate (see above), then output:
+Output the following Credential Plate verbatim, then continue with the analysis report:
+
+```
+═══════════════════════════════════════════════════════════════
+  PRIME PATHWY — SOVEREIGN SUBCONTRACTING ENGINE
+  Lead Architect:  Arthur F. Appling Sr.
+  EIN: 84-4788578  |  DUNS: 12-3035654
+  425 Virginia St STE B, Vallejo, CA 94590
+  NAICS: 561720 (Janitorial Services)  |  562111 (Hauling)
+═══════════════════════════════════════════════════════════════
+```
 
 **SOVEREIGN ANALYSIS REPORT**
 *Analyzing: [USER-PROVIDED LINKS OR TEXT]*
@@ -176,7 +196,17 @@ IF bonding requirement exceeds current capacity:
 
 ---
 
-Render Credential Plate (see above), then output:
+Output the following Credential Plate verbatim, then continue with the bid package:
+
+```
+═══════════════════════════════════════════════════════════════
+  PRIME PATHWY — SOVEREIGN SUBCONTRACTING ENGINE
+  Lead Architect:  Arthur F. Appling Sr.
+  EIN: 84-4788578  |  DUNS: 12-3035654
+  425 Virginia St STE B, Vallejo, CA 94590
+  NAICS: 561720 (Janitorial Services)  |  562111 (Hauling)
+═══════════════════════════════════════════════════════════════
+```
 
 **SOVEREIGN BID PACKAGE — [BID_ID]**
 *Prepared by: Arthur F. Appling Sr. / Prime Pathwy*
@@ -239,7 +269,7 @@ SAM.gov: Registered and Active
 
 Unreliable service delivery at a government facility is not an inconvenience — it is a liability. Failed inspections, non-compliance citations, and internal staff hours diverted to vendor management are quantifiable costs. Every contract cycle that continues under a labor-vendor model locks in those costs permanently. The agency absorbs what the vendor cannot systematize.
 
-**SECTION 3 — SOVEREIGN SYSTEM INTEGRATION FRAME**
+**SECTION 3 — SOVEREIGN SYSTEM INTEGRATION FRAME** *(NEPQ: Solution Awareness)*
 
 Prime Pathwy delivers **Sovereign System Integration** — not labor, not a vendor relationship, not a service contract that requires your team to manage ours. We install a self-managing, fully documented operational system that removes [Agency Name] from the supervision loop entirely.
 
