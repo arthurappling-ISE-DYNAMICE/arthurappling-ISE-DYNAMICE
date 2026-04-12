@@ -2,6 +2,7 @@
 
 ---
 
+```
 ═══════════════════════════════════════════════════════════════
   SOVEREIGN SUBCONTRACTING ENGINE — STANDARD OPERATING PROCEDURE
   Entity:  Arthur F. Appling Sr. / Prime Pathwy
@@ -10,10 +11,10 @@
   NAICS:   561720 (Janitorial Services)  |  562111 (Hauling)
   Classification: Institutional Grade | Audit-Ready | WAT Framework
 ═══════════════════════════════════════════════════════════════
+```
 
 **Author:** Arthur F. Appling Sr. — Lead Technical Architect
 **Business:** Prime Pathwy
-**Classification:** Institutional Grade | Audit-Ready | WAT Framework
 **Version:** 1.0 | Active Deployment
 
 ---
@@ -159,6 +160,8 @@ IF Set-Aside confirmed AND scope match AND value ≤ $100k
 ## Step 6 — Document Generation
 
 **Protocol:** Run `/bid draft [bid_id]` in Claude Code where `bid_id` is the solicitation number from SAM.gov (e.g., `W912BV-26-R-0014`).
+
+> **Dependency:** This step requires `/agents/bid_architect.md` to be deployed. If not yet available, use the Capability Statement Required Fields below as a manual template and apply the NEPQ framework directly for the proposal draft.
 
 Claude Code will generate:
 1. **Capability Statement** — one-page institutional credential document
