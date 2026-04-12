@@ -58,7 +58,7 @@ Every output from every sub-command begins with this block, rendered exactly as 
 Output the following Credential Plate verbatim, then continue with the scouting report:
 
 ```
-════════════════════════════════════════════════════════════════
+═══════════════════════════════════════════════════════════════
   PRIME PATHWY — SOVEREIGN SUBCONTRACTING ENGINE
   Lead Architect:  Arthur F. Appling Sr.
   EIN: 84-4788578  |  DUNS: 12-3035654
