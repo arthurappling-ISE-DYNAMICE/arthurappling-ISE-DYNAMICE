@@ -90,7 +90,7 @@
     min-height: 600px;
     overflow: hidden;
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
   }
   #hero-img {
     position: absolute;
@@ -99,26 +99,25 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
-    filter: brightness(.55) saturate(.8);
+    filter: brightness(.88) saturate(.95);
   }
   #hero-gradient {
     position: absolute;
     inset: 0;
     background: linear-gradient(
-      to top,
-      rgba(5,5,5,1) 0%,
-      rgba(5,5,5,.75) 25%,
-      rgba(5,5,5,.3) 55%,
-      rgba(5,5,5,.1) 80%,
-      transparent 100%
+      to right,
+      rgba(0,0,0,.62) 0%,
+      rgba(0,0,0,.38) 28%,
+      rgba(0,0,0,.08) 55%,
+      transparent 72%
     );
   }
   #hero-content {
     position: relative;
     z-index: 10;
     width: 100%;
-    padding: 0 2rem 4rem;
-    max-width: 900px;
+    padding: 100px 2rem 0 50px;
+    max-width: 820px;
   }
 
   /* ── Sections ──────────────────────────────────────────────────────────── */
@@ -230,7 +229,7 @@
   .price-table { width: 100%; border-collapse: collapse; }
   .price-row {
     display: grid;
-    grid-template-columns: 1fr auto auto;
+    grid-template-columns: 1fr auto auto auto;
     align-items: center;
     padding: 1rem 1.5rem;
     border-bottom: 1px solid rgba(255,255,255,.04);
@@ -337,6 +336,295 @@
     box-shadow: 0 4px 28px rgba(255,215,0,.25);
   }
   .btn-outline:active { transform: translateY(1px); }
+
+  /* ── Order Button (Service Cards) ─────────────────────────────────────── */
+  .order-btn {
+    display: inline-block;
+    font-family: 'Courier New', monospace;
+    font-size: 9px;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    color: #FFD700;
+    background: none;
+    border: 1px solid rgba(255,215,0,.4);
+    padding: .6rem 1.25rem;
+    cursor: pointer;
+    transition: background .2s, border-color .2s, color .2s;
+    margin-top: .25rem;
+  }
+  .order-btn:hover {
+    background: rgba(255,215,0,.08);
+    border-color: #FFD700;
+  }
+
+  /* ── Order Button (Pricing Rows) ──────────────────────────────────────── */
+  .price-order-btn {
+    font-family: 'Courier New', monospace;
+    font-size: 8px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: #FFD700;
+    background: none;
+    border: 1px solid rgba(255,215,0,.3);
+    padding: .4rem .9rem;
+    cursor: pointer;
+    transition: background .2s, border-color .2s;
+    white-space: nowrap;
+  }
+  .price-order-btn:hover {
+    background: rgba(255,215,0,.08);
+    border-color: rgba(255,215,0,.75);
+  }
+
+  /* ── Intake Modal ─────────────────────────────────────────────────────── */
+  #intake-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9000;
+    background: rgba(0,0,0,.93);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2rem 1rem 4rem;
+    overflow-y: auto;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s;
+  }
+  #intake-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+  #intake-modal {
+    width: 100%;
+    max-width: 640px;
+    background: #0A0A0A;
+    border: 1px solid rgba(201,168,76,.4);
+    padding: 2.5rem;
+    position: relative;
+    transform: translateY(24px);
+    transition: transform .3s;
+    margin-top: 2rem;
+  }
+  #intake-overlay.active #intake-modal {
+    transform: translateY(0);
+  }
+  #intake-close {
+    position: absolute;
+    top: 1.25rem; right: 1.25rem;
+    background: none;
+    border: 1px solid rgba(255,255,255,.14);
+    color: #FFFFFF;
+    width: 2rem; height: 2rem;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex; align-items: center; justify-content: center;
+    transition: border-color .2s, color .2s;
+    font-family: 'Courier New', monospace;
+    line-height: 1;
+  }
+  #intake-close:hover { border-color: rgba(201,168,76,.6); color: #C9A84C; }
+
+  .intake-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    padding-right: 2.5rem;
+  }
+  .intake-title {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-weight: 900;
+    font-size: clamp(22px, 3vw, 30px);
+    background: linear-gradient(135deg, #F5D98A, #C9A84C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0 0 .6rem;
+    line-height: 1.1;
+  }
+  .labor-only-badge {
+    font-size: 9px;
+    letter-spacing: .32em;
+    text-transform: uppercase;
+    color: #C9A84C;
+    border: 1px solid rgba(201,168,76,.45);
+    padding: .32rem .75rem;
+    display: inline-block;
+  }
+  .intake-section { margin-bottom: 2rem; }
+  .intake-section-label {
+    font-size: 9px;
+    letter-spacing: .32em;
+    text-transform: uppercase;
+    color: rgba(201,168,76,.55);
+    margin-bottom: .85rem;
+    display: block;
+  }
+
+  /* Package cards */
+  .intake-packages {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+    gap: 6px;
+  }
+  .intake-pkg-card {
+    background: #111;
+    border: 1px solid rgba(255,255,255,.07);
+    padding: .9rem 1rem;
+    cursor: pointer;
+    transition: border-color .2s, background .2s;
+    user-select: none;
+  }
+  .intake-pkg-card:hover { border-color: rgba(201,168,76,.4); background: #141414; }
+  .intake-pkg-card.selected { border-color: #C9A84C; background: rgba(201,168,76,.06); }
+  .intake-pkg-card:focus { outline: 1px solid rgba(201,168,76,.5); }
+  .pkg-name {
+    font-size: 1.25rem;
+    color: #FFFFFF;
+    display: block;
+    margin-bottom: .3rem;
+    line-height: 1.3;
+  }
+  .pkg-price {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #C9A84C;
+    display: block;
+  }
+
+  /* Rooms counter */
+  .intake-rooms-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .rooms-counter-btn {
+    width: 2.25rem; height: 2.25rem;
+    background: #111;
+    border: 1px solid rgba(255,255,255,.12);
+    color: #FFFFFF;
+    font-size: 1.25rem;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: border-color .2s, background .2s;
+    font-family: 'Courier New', monospace;
+    line-height: 1;
+  }
+  .rooms-counter-btn:hover { border-color: #C9A84C; background: rgba(201,168,76,.06); }
+  #rooms-count {
+    font-size: 1.25rem;
+    color: #FFFFFF;
+    min-width: 1.5rem;
+    text-align: center;
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-weight: 700;
+  }
+  .rooms-label { font-size: 1.25rem; color: #FFFFFF; }
+
+  /* Add-on rows */
+  .intake-addons { display: flex; flex-direction: column; gap: 6px; }
+  .addon-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: #111;
+    border: 1px solid rgba(255,255,255,.06);
+    padding: .8rem 1rem;
+    cursor: pointer;
+    transition: border-color .2s, background .2s;
+  }
+  .addon-row:hover { border-color: rgba(201,168,76,.3); background: #141414; }
+  .addon-row.checked { border-color: rgba(201,168,76,.55); background: rgba(201,168,76,.04); }
+  .addon-check {
+    width: 18px; height: 18px;
+    accent-color: #C9A84C;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .addon-name { font-size: 1.25rem; color: #FFFFFF; flex: 1; }
+  .addon-price {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #C9A84C;
+  }
+
+  /* Live Total block */
+  .intake-total-block {
+    background: #060606;
+    border: 1px solid rgba(201,168,76,.25);
+    padding: 1.75rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  #intake-total {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-weight: 900;
+    font-size: clamp(2rem, 5vw, 3rem);
+    background: linear-gradient(135deg, #F5D98A, #C9A84C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    transition: transform .15s;
+  }
+  #intake-total.bump { transform: scale(1.06); }
+  .intake-total-note {
+    font-size: 1.25rem;
+    color: #FFFFFF;
+    display: block;
+    margin-top: .5rem;
+  }
+
+  /* Contact fields */
+  .intake-field {
+    display: block;
+    width: 100%;
+    background: #111;
+    border: 1px solid rgba(255,255,255,.1);
+    color: #FFFFFF;
+    font-family: 'Courier New', monospace;
+    font-size: 1.25rem;
+    padding: .85rem 1rem;
+    margin-bottom: 8px;
+    outline: none;
+    transition: border-color .2s;
+  }
+  .intake-field::placeholder { color: rgba(255,255,255,.3); }
+  .intake-field:focus { border-color: rgba(201,168,76,.55); }
+
+  /* Submit */
+  #intake-submit {
+    display: block;
+    width: 100%;
+    background: #FFD700;
+    color: #0A0A0A;
+    font-family: 'Courier New', monospace;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    border: none;
+    padding: 1.25rem;
+    cursor: pointer;
+    transition: background .2s, box-shadow .2s, transform .1s;
+    margin-top: .5rem;
+  }
+  #intake-submit:hover { background: #FFE44D; box-shadow: 0 4px 28px rgba(255,215,0,.3); }
+  #intake-submit:active { transform: translateY(1px); }
 
   /* ── Divider ────────────────────────────────────────────────────────────  */
   .gold-divider {
@@ -713,12 +1001,13 @@
   .glide-photo-label.before-label {
     color: #FFFFFF;
     border-color: rgba(255,255,255,.35);
+    text-shadow: 0 0 18px rgba(201,168,76,.35), 0 1px 16px rgba(0,0,0,1);
   }
   .glide-photo-label.after-label  {
     color: #FFD700;
     border-color: rgba(255,215,0,.55);
     background: rgba(0,0,0,.72);
-    text-shadow: 0 0 20px rgba(255,215,0,.4), 0 1px 16px rgba(0,0,0,1);
+    text-shadow: 0 0 22px rgba(255,215,0,.65), 0 0 8px rgba(255,215,0,.3), 0 1px 16px rgba(0,0,0,1);
   }
 </style>
 </head>
@@ -747,10 +1036,10 @@
   <div id="hero-gradient" aria-hidden="true"></div>
   <div id="hero-content">
     <span class="eyebrow">Prime Pathwy · Property Turnover Division · Est. 2026</span>
-    <h1 class="serif-head gold-text" style="font-size: clamp(34px, 5.95vw, 68px); max-width: 820px; margin: 0 0 1.5rem;">
+    <h1 class="serif-head" style="font-size: 2.25rem; max-width: 480px; margin: 0 0 1.25rem; font-weight: 800; color: #FFFFFF; -webkit-text-fill-color: #FFFFFF; text-shadow: 0 0 10px rgba(255,215,0,0.8), 2px 2px 5px rgba(0,0,0,1);">
       Your Vacancy Clock<br>Doesn't Stop for<br>Slow Vendors.
     </h1>
-    <p style="font-size: clamp(18px, 2vw, 20px); color: #FFFFFF; max-width: 540px; margin: 0 0 2.5rem; line-height: 1.9;">
+    <p style="font-size: 1.25rem; color: #FFD700; max-width: 480px; margin: 0 0 2.5rem; line-height: 1.9; text-shadow: 1px 1px 4px rgba(0,0,0,1);">
       Every day your unit sits un-turned is revenue walking out the door.
       Most turnover crews don't treat your timeline like money. We do.
     </p>
@@ -761,6 +1050,27 @@
     <p style="margin-top: 1.5rem; font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.75);">
       Cleaning · Haul-Out · Paint · Full Turnovers · Documented · Defensible
     </p>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     PILLAR 1 — PROOF STRIP
+     Thin authority bar with gold dividers. Sovereign social proof.
+══════════════════════════════════════════════════════════════════════════ -->
+<div style="background: #020202; border-top: 1px solid rgba(201,168,76,.3); border-bottom: 1px solid rgba(201,168,76,.3); padding: .7rem 2rem;">
+  <div style="max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: center; flex-wrap: wrap;">
+    <span style="font-size: 1rem; color: #FFFFFF; letter-spacing: .07em; padding: .45rem 1.75rem; text-align: center; white-space: nowrap;">
+      Serving Solano County Property Managers
+    </span>
+    <span style="color: rgba(201,168,76,.55); font-size: 1.1rem; line-height: 1; flex-shrink: 0;" aria-hidden="true">|</span>
+    <span style="font-size: 1rem; color: #FFFFFF; letter-spacing: .07em; padding: .45rem 1.75rem; text-align: center; white-space: nowrap;">
+      Verified Past Performance
+    </span>
+    <span style="color: rgba(201,168,76,.55); font-size: 1.1rem; line-height: 1; flex-shrink: 0;" aria-hidden="true">|</span>
+    <span style="font-size: 1rem; color: #FFFFFF; letter-spacing: .07em; padding: .45rem 1.75rem; text-align: center; white-space: nowrap;">
+      Commercial-Grade Systems
+    </span>
   </div>
 </div>
 
@@ -858,7 +1168,7 @@
         <li>Move-in ready handover in 2–3 business days</li>
       </ul>
       <div class="service-price">Apartments: $1,200 – $2,400<br><span style="font-size: 13px; color: rgba(201,168,76,.6);">Homes: $1,600 – $3,000+</span></div>
-      <a href="#book" class="service-cta">Schedule Walkthrough →</a>
+      <button class="order-btn" onclick="openIntakeModal(null)" aria-label="Order Full Property Turnover">Order Now →</button>
     </div>
 
     <!-- SVC 02 — Clean-Out -->
@@ -877,7 +1187,7 @@
         <li>Odor treatment available as add-on</li>
       </ul>
       <div class="service-price">Starts at $1,200<br><span style="font-size: 13px; color: rgba(201,168,76,.6);">Quote after walkthrough</span></div>
-      <a href="#book" class="service-cta">Schedule Walkthrough →</a>
+      <button class="order-btn" onclick="openIntakeModal(null)" aria-label="Order Eviction Clean-Out">Order Now →</button>
     </div>
 
     <!-- SVC 03 — Haul-Out -->
@@ -896,7 +1206,7 @@
         <li>Available standalone or as part of full turnover</li>
       </ul>
       <div class="service-price">Billed at cost + labor<br><span style="font-size: 13px; color: rgba(201,168,76,.6);">Receipts provided</span></div>
-      <a href="#book" class="service-cta">Schedule Walkthrough →</a>
+      <button class="order-btn" onclick="openIntakeModal(null)" aria-label="Order Debris Removal">Order Now →</button>
     </div>
 
     <!-- SVC 04 — Paint -->
@@ -915,7 +1225,7 @@
         <li>Before / after documentation mandatory</li>
       </ul>
       <div class="service-price">Quote after walkthrough<br><span style="font-size: 13px; color: rgba(201,168,76,.6);">Scope-based pricing</span></div>
-      <a href="#book" class="service-cta">Schedule Walkthrough →</a>
+      <button class="order-btn" onclick="openIntakeModal(null)" aria-label="Order Interior Paint">Order Now →</button>
     </div>
 
   </div>
@@ -926,6 +1236,56 @@
     Extreme conditions (biohazard, hoarding) require separate written quote · Licensed trade work not included
   </p>
 </section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     PILLAR 2 — COMPLIANCE SHIELD
+     Documentation & Audit-Ready stamp. Sovereign system credibility.
+══════════════════════════════════════════════════════════════════════════ -->
+<div style="background: #060606; border-top: 1px solid rgba(201,168,76,.14); border-bottom: 1px solid rgba(201,168,76,.14);">
+  <section style="padding: 4.5rem 2rem;">
+    <div style="max-width: 900px; border: 1px solid rgba(201,168,76,.28); padding: 2.75rem 3rem; background: #0A0A0A;">
+
+      <!-- Shield header row -->
+      <div style="display: flex; align-items: center; gap: 1.1rem; margin-bottom: 1.75rem; flex-wrap: wrap;">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" style="flex-shrink: 0;" aria-hidden="true">
+          <path d="M12 2L3 6v5c0 5.25 3.75 10.15 9 11.35C17.25 21.15 21 16.25 21 11V6l-9-4z"
+                fill="rgba(201,168,76,.12)" stroke="#C9A84C" stroke-width="1.5"/>
+          <path d="M9 12l2 2 4-4" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span style="font-size: 9px; letter-spacing: .38em; text-transform: uppercase; color: rgba(201,168,76,.65);">
+          Documentation &amp; Audit-Ready
+        </span>
+        <span style="font-size: 9px; letter-spacing: .25em; text-transform: uppercase; color: rgba(255,255,255,.3); border: 1px solid rgba(201,168,76,.2); padding: .25rem .65rem;">
+          Standard on Every Job
+        </span>
+      </div>
+
+      <!-- Body -->
+      <p style="font-size: 1.125rem; color: #FFFFFF; line-height: 2.1; margin: 0 0 1.75rem; max-width: 760px;">
+        Every turnover is documented with a Master Merged PDF including timestamps, Before/After photos,
+        and audit-ready reporting. Chargeback defense built-in.
+      </p>
+
+      <!-- Three proof points -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; border: 1px solid rgba(255,255,255,.04);">
+        <div style="padding: 1.25rem 1.5rem; background: #0D0D0D;">
+          <p style="font-size: 9px; letter-spacing: .3em; text-transform: uppercase; color: rgba(201,168,76,.45); margin: 0 0 .4rem;">Timestamp Verified</p>
+          <p style="font-size: 1.125rem; color: #FFFFFF; margin: 0; line-height: 1.6;">Every photo is date-and-time stamped on delivery</p>
+        </div>
+        <div style="padding: 1.25rem 1.5rem; background: #0D0D0D; border-left: 1px solid rgba(255,255,255,.04);">
+          <p style="font-size: 9px; letter-spacing: .3em; text-transform: uppercase; color: rgba(201,168,76,.45); margin: 0 0 .4rem;">Before / After Record</p>
+          <p style="font-size: 1.125rem; color: #FFFFFF; margin: 0; line-height: 1.6;">Full photo set merged into one defensible PDF</p>
+        </div>
+        <div style="padding: 1.25rem 1.5rem; background: #0D0D0D; border-left: 1px solid rgba(255,255,255,.04);">
+          <p style="font-size: 9px; letter-spacing: .3em; text-transform: uppercase; color: rgba(201,168,76,.45); margin: 0 0 .4rem;">18-Month Archive</p>
+          <p style="font-size: 1.125rem; color: #FFFFFF; margin: 0; line-height: 1.6;">Job records retained — ready if a dispute ever arises</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>
 
 
 <!-- ══════════════════════════════════════════════════════════════════════════
@@ -1237,16 +1597,19 @@
           <span class="price-label">Studio / 1 Bedroom</span>
           <span class="price-amount">$1,200 – $1,600</span>
           <span class="price-note">Labor only</span>
+          <button class="price-order-btn" onclick="openIntakeModal('studio-1br')" aria-label="Order Studio / 1 Bedroom">Order →</button>
         </div>
         <div class="price-row">
           <span class="price-label">2 Bedroom</span>
           <span class="price-amount">$1,500 – $2,000</span>
           <span class="price-note">Labor only</span>
+          <button class="price-order-btn" onclick="openIntakeModal('2br-apt')" aria-label="Order 2 Bedroom Apartment">Order →</button>
         </div>
         <div class="price-row" style="background: rgba(201,168,76,.03);">
           <span class="price-label">3 Bedroom</span>
           <span class="price-amount">$1,800 – $2,400</span>
           <span class="price-note">Labor only</span>
+          <button class="price-order-btn" onclick="openIntakeModal('3br-apt')" aria-label="Order 3 Bedroom Apartment">Order →</button>
         </div>
       </div>
 
@@ -1257,16 +1620,19 @@
           <span class="price-label">2 Bedroom Home</span>
           <span class="price-amount">$1,600 – $2,100</span>
           <span class="price-note">Labor only</span>
+          <button class="price-order-btn" onclick="openIntakeModal('2br-home')" aria-label="Order 2 Bedroom Home">Order →</button>
         </div>
         <div class="price-row">
           <span class="price-label">3 Bedroom Home</span>
           <span class="price-amount">$1,900 – $2,600</span>
           <span class="price-note">Labor only</span>
+          <button class="price-order-btn" onclick="openIntakeModal('3br-home')" aria-label="Order 3 Bedroom Home">Order →</button>
         </div>
         <div class="price-row">
           <span class="price-label">4 Bedroom Home</span>
           <span class="price-amount">$2,300 – $3,000</span>
           <span class="price-note">Labor only</span>
+          <button class="price-order-btn" onclick="openIntakeModal('4br-home')" aria-label="Order 4 Bedroom Home">Order →</button>
         </div>
         <div class="price-row" style="background: rgba(201,168,76,.03);">
           <span class="price-label">Each Additional Bedroom</span>
@@ -1406,6 +1772,202 @@
 
 
 <!-- ══════════════════════════════════════════════════════════════════════════
+     PILLAR 3 — THE ARCHITECT BIO
+     Lead Architect identity. Sovereign authority + personal accountability.
+══════════════════════════════════════════════════════════════════════════ -->
+<div style="background: #040404; border-top: 1px solid rgba(201,168,76,.16);">
+  <section>
+    <span class="eyebrow">The Architect</span>
+
+    <div style="display: grid; grid-template-columns: 260px 1fr; gap: 4.5rem; align-items: start; max-width: 960px;" class="stack-on-mobile">
+
+      <!-- Identity Anchor Image — drop arthur_appling_sr.jpg into this folder to activate -->
+      <div style="position: relative; border: 1px solid rgba(201,168,76,.3); max-width: 260px; width: 100%; flex-shrink: 0;">
+        <img
+          id="architect-photo"
+          src="arthur_appling_sr.jpg"
+          alt="Arthur Appling Sr. — Lead Architect, Prime Pathwy"
+          style="display: block; width: 100%; height: 340px; object-fit: cover; object-position: center top;"
+          onerror="this.style.display='none'; document.getElementById('architect-fallback').style.display='flex';"
+        >
+        <!-- Fallback shown only if image file is missing -->
+        <div id="architect-fallback"
+             style="display: none; width: 100%; height: 340px; background: #0A0A0A; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; padding: 2rem;">
+          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="12" cy="8" r="4" stroke="rgba(201,168,76,.45)" stroke-width="1.5"/>
+            <path d="M4 20c0-4 3.58-7 8-7s8 3 8 7" stroke="rgba(201,168,76,.45)" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span style="font-size: 9px; letter-spacing: .3em; text-transform: uppercase; color: rgba(201,168,76,.45); text-align: center;">
+            Drop arthur_appling_sr.jpg<br>into this folder to activate
+          </span>
+        </div>
+        <!-- Gold corner accent -->
+        <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: .6rem 1rem; background: rgba(0,0,0,.72); backdrop-filter: blur(6px); border-top: 1px solid rgba(201,168,76,.25);">
+          <span style="font-size: 9px; letter-spacing: .28em; text-transform: uppercase; color: #C9A84C;">Lead Architect</span>
+        </div>
+      </div>
+
+      <!-- Bio content -->
+      <div>
+        <h2 class="serif-head gold-text" style="font-size: clamp(26px, 3.5vw, 44px); margin: 0 0 1rem; max-width: 520px;">
+          The Visionary<br>Behind the System
+        </h2>
+        <div class="gold-divider" style="margin-bottom: 1.75rem;"></div>
+
+        <!-- Name — Bold Gold, AAA contrast -->
+        <p style="font-size: 1.125rem; font-weight: 800; color: #FFD700; letter-spacing: .06em; margin: 0 0 1rem; line-height: 1.5; font-family: 'Courier New', monospace;">
+          ARTHUR APPLING SR. — LEAD ARCHITECT.
+        </p>
+
+        <!-- Sovereign bio — Stark White, 1.125rem, zero grays -->
+        <p style="font-size: 1.125rem; color: #FFFFFF; line-height: 2.1; margin: 0 0 1.75rem; max-width: 580px;">
+          Brings 20 years of disciplined operational and systemic experience. Our process forces the chaos
+          to yield, installing an audit-ready "Sovereign System" that protects your asset from chargebacks
+          and dysfunction. I don't just clear units; I secure your property's value.
+        </p>
+
+        <!-- Credential strip -->
+        <div style="display: flex; gap: 1.25rem; flex-wrap: wrap;">
+          <div style="border: 1px solid rgba(201,168,76,.22); padding: .6rem 1.1rem; background: #080808;">
+            <span style="font-size: 9px; letter-spacing: .28em; text-transform: uppercase; color: #C9A84C;">20 Years</span>
+            <span style="display: block; font-size: 1rem; color: #FFFFFF; margin-top: .2rem;">Operational Experience</span>
+          </div>
+          <div style="border: 1px solid rgba(201,168,76,.22); padding: .6rem 1.1rem; background: #080808;">
+            <span style="font-size: 9px; letter-spacing: .28em; text-transform: uppercase; color: #C9A84C;">100%</span>
+            <span style="display: block; font-size: 1rem; color: #FFFFFF; margin-top: .2rem;">Audit-Ready Delivery</span>
+          </div>
+          <div style="border: 1px solid rgba(201,168,76,.22); padding: .6rem 1.1rem; background: #080808;">
+            <span style="font-size: 9px; letter-spacing: .28em; text-transform: uppercase; color: #C9A84C;">Single Crew</span>
+            <span style="display: block; font-size: 1rem; color: #FFFFFF; margin-top: .2rem;">Full-Scope Accountability</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     INTAKE MODAL — Phase 2: Intake Engine
+     Opened by Order buttons on service cards and pricing rows.
+══════════════════════════════════════════════════════════════════════════ -->
+<div id="intake-overlay" role="dialog" aria-modal="true" aria-label="Get Your Quote — Prime Pathwy">
+  <div id="intake-modal">
+
+    <button id="intake-close" aria-label="Close quote form">✕</button>
+
+    <!-- Header -->
+    <div class="intake-header">
+      <div>
+        <h2 class="intake-title">Get Your Quote</h2>
+        <span class="labor-only-badge">Labor Only</span>
+      </div>
+    </div>
+
+    <!-- Step 1: Property Type -->
+    <div class="intake-section">
+      <span class="intake-section-label">01 — Select Property Type</span>
+      <div class="intake-packages" id="intake-packages">
+        <div class="intake-pkg-card" data-pkg="studio-1br" data-price="1600" role="button" tabindex="0">
+          <span class="pkg-name">Studio / 1BR</span>
+          <span class="pkg-price">$1,600</span>
+        </div>
+        <div class="intake-pkg-card" data-pkg="2br-apt" data-price="2000" role="button" tabindex="0">
+          <span class="pkg-name">2BR Apartment</span>
+          <span class="pkg-price">$2,000</span>
+        </div>
+        <div class="intake-pkg-card" data-pkg="3br-apt" data-price="2400" role="button" tabindex="0">
+          <span class="pkg-name">3BR Apartment</span>
+          <span class="pkg-price">$2,400</span>
+        </div>
+        <div class="intake-pkg-card" data-pkg="2br-home" data-price="2100" role="button" tabindex="0">
+          <span class="pkg-name">2BR Home</span>
+          <span class="pkg-price">$2,100</span>
+        </div>
+        <div class="intake-pkg-card" data-pkg="3br-home" data-price="2600" role="button" tabindex="0">
+          <span class="pkg-name">3BR Home</span>
+          <span class="pkg-price">$2,600</span>
+        </div>
+        <div class="intake-pkg-card" data-pkg="4br-home" data-price="3000" role="button" tabindex="0">
+          <span class="pkg-name">4BR Home</span>
+          <span class="pkg-price">$3,000</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2: Additional Rooms -->
+    <div class="intake-section">
+      <span class="intake-section-label">02 — Additional Rooms (+$200 each)</span>
+      <div class="intake-rooms-row">
+        <button class="rooms-counter-btn" id="rooms-minus" aria-label="Remove room">−</button>
+        <span id="rooms-count">0</span>
+        <button class="rooms-counter-btn" id="rooms-plus"  aria-label="Add room">+</button>
+        <span class="rooms-label">rooms × $200</span>
+      </div>
+    </div>
+
+    <!-- Step 3: Hauling Add-ons -->
+    <div class="intake-section">
+      <span class="intake-section-label">03 — Extra Junk Hauling</span>
+      <div class="intake-addons">
+        <label class="addon-row">
+          <input type="checkbox" class="addon-check" data-id="fridge"   data-price="195">
+          <span class="addon-name">Refrigerator / Freezer</span>
+          <span class="addon-price">$195</span>
+        </label>
+        <label class="addon-row">
+          <input type="checkbox" class="addon-check" data-id="mattress" data-price="145">
+          <span class="addon-name">Mattress / Box Spring</span>
+          <span class="addon-price">$145</span>
+        </label>
+        <label class="addon-row">
+          <input type="checkbox" class="addon-check" data-id="bedroom"  data-price="350">
+          <span class="addon-name">Bedroom Set</span>
+          <span class="addon-price">$350</span>
+        </label>
+        <label class="addon-row">
+          <input type="checkbox" class="addon-check" data-id="sofa"     data-price="225">
+          <span class="addon-name">Sofa / Sectional</span>
+          <span class="addon-price">$225</span>
+        </label>
+        <label class="addon-row">
+          <input type="checkbox" class="addon-check" data-id="truck"    data-price="950">
+          <span class="addon-name">Full Truck Load Bulk</span>
+          <span class="addon-price">$950</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Live Total -->
+    <div class="intake-total-block">
+      <div>
+        <span class="labor-only-badge">Labor Only</span>
+        <span class="intake-total-note">Estimated Total</span>
+      </div>
+      <div id="intake-total">$0</div>
+    </div>
+
+    <!-- Step 4: Contact Info -->
+    <div class="intake-section">
+      <span class="intake-section-label">04 — Your Information</span>
+      <input class="intake-field" id="intake-name"    type="text"  placeholder="Full Name"       autocomplete="name">
+      <input class="intake-field" id="intake-email"   type="email" placeholder="Email Address"   autocomplete="email">
+      <input class="intake-field" id="intake-phone"   type="tel"   placeholder="Phone Number"    autocomplete="tel">
+      <input class="intake-field" id="intake-address" type="text"  placeholder="Property Address">
+    </div>
+
+    <button id="intake-submit">Request This Quote →</button>
+
+    <p style="font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.35); margin-top: 1rem; text-align: center;">
+      No commitment required · Final quote confirmed after walkthrough · Labor only
+    </p>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════════
      FOOTER — LEGAL SHIELD
 ══════════════════════════════════════════════════════════════════════════ -->
 <footer>
@@ -1420,27 +1982,34 @@
     <p style="font-size: 9px; letter-spacing: .25em; text-transform: uppercase; color: rgba(255,255,255,.75); margin: 0;">
       Property Turnover Services · Cleaning · Haul-Out · Paint · Full Turnovers
     </p>
-    <p style="font-size: 9px; color: rgba(255,255,255,.18); margin: 0;">
-      pathwyservices@primepathwy.com · www.primepathwy.com
-    </p>
+    <!-- Trust Anchor — Institutional Contact Block -->
+    <div style="border: 1px solid rgba(201,168,76,.22); padding: 1.75rem 2.5rem; max-width: 720px; width: 100%; background: #050505;">
+      <p style="font-size: 9px; letter-spacing: .38em; text-transform: uppercase; color: rgba(201,168,76,.5); margin: 0 0 1rem;">
+        Business Address &amp; Contact
+      </p>
+      <p style="font-size: 1.1rem; color: #FFFFFF; font-weight: 700; margin: 0 0 .45rem; font-family: 'Courier New', monospace; letter-spacing: .04em; line-height: 1.6;">
+        425 Virginia St STE B &nbsp;·&nbsp; Vallejo, CA 94590
+      </p>
+      <p style="font-size: 1.1rem; color: #FFFFFF; font-weight: 700; margin: 0; font-family: 'Courier New', monospace; letter-spacing: .04em; line-height: 1.6;">
+        (925) 308-3233 &nbsp;·&nbsp; contact@primepathwy.com
+      </p>
+    </div>
 
     <!-- Divider -->
     <div style="width: 100%; max-width: 400px; height: 1px; background: rgba(255,255,255,.06);"></div>
 
     <!-- Legal Links + Accessibility -->
     <div style="display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; justify-content: center;">
-      <a href="#"
+      <a href="privacy.html"
          aria-label="Privacy Policy"
-         onclick="alert('Privacy Policy — Document in progress. Contact pathwyservices@primepathwy.com for inquiries.'); return false;"
          style="font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: #FFFFFF;
                 text-decoration: none; transition: color .2s;"
          onmouseover="this.style.color='#FFD700'" onmouseout="this.style.color='#FFFFFF'">
         Privacy Policy
       </a>
       <span style="color: rgba(255,255,255,.1);" aria-hidden="true">·</span>
-      <a href="#"
+      <a href="terms.html"
          aria-label="Terms of Service"
-         onclick="alert('Terms of Service — Document in progress. Contact pathwyservices@primepathwy.com for inquiries.'); return false;"
          style="font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: #FFFFFF;
                 text-decoration: none; transition: color .2s;"
          onmouseover="this.style.color='#FFD700'" onmouseout="this.style.color='#FFFFFF'">
@@ -1451,7 +2020,8 @@
       <!-- Accessibility Button -->
       <button
         aria-label="Accessibility information — ADA Compliant Design"
-        onclick="alert('Accessibility Statement\n\nThis site is designed to meet ADA compliance standards:\n— High-contrast color ratios for readability\n— Keyboard-navigable structure\n— ARIA labels on all interactive elements\n— Semantic HTML throughout\n\nFor accessibility support: pathwyservices@primepathwy.com');"
+        title="View Accessibility Statement"
+        onclick="window.location.href='accessibility.html'"
         style="background: none; border: 1px solid rgba(255,255,255,.12); padding: .4rem .85rem;
                cursor: pointer; display: inline-flex; align-items: center; gap: .5rem;
                font-family: 'Courier New', monospace; font-size: 9px; letter-spacing: .18em;
@@ -1557,6 +2127,165 @@ document.addEventListener('DOMContentLoaded', () => {
 
     apply(50); // initialize at center
   });
+
+  /* ── Intake Modal Engine ─────────────────────────────────────────────────
+     Opens via openIntakeModal(pkgKey) called by Order buttons.
+     pkgKey: 'studio-1br' | '2br-apt' | '3br-apt' | '2br-home' | '3br-home' | '4br-home' | null
+  ─────────────────────────────────────────────────────────────────────── */
+  (function() {
+    const overlay   = document.getElementById('intake-overlay');
+    const totalEl   = document.getElementById('intake-total');
+    const roomsEl   = document.getElementById('rooms-count');
+    let   selectedPkg = null;
+    let   extraRooms  = 0;
+
+    /* ── Calc & render total ── */
+    function refreshTotal() {
+      let t = 0;
+      if (selectedPkg) {
+        const card = document.querySelector(`.intake-pkg-card[data-pkg="${selectedPkg}"]`);
+        if (card) t += parseInt(card.dataset.price, 10);
+      }
+      t += extraRooms * 200;
+      document.querySelectorAll('.addon-check').forEach(cb => {
+        if (cb.checked) t += parseInt(cb.dataset.price, 10);
+      });
+      totalEl.textContent = t > 0 ? '$' + t.toLocaleString() : '$0';
+      /* micro-bump animation */
+      totalEl.classList.remove('bump');
+      void totalEl.offsetWidth; // reflow
+      totalEl.classList.add('bump');
+      setTimeout(() => totalEl.classList.remove('bump'), 180);
+    }
+
+    /* ── Reset + open ── */
+    window.openIntakeModal = function(pkgKey) {
+      selectedPkg = pkgKey || null;
+      extraRooms  = 0;
+      roomsEl.textContent = '0';
+      /* clear addons */
+      document.querySelectorAll('.addon-check').forEach(cb => { cb.checked = false; });
+      document.querySelectorAll('.addon-row').forEach(row => row.classList.remove('checked'));
+      /* mark selected package */
+      document.querySelectorAll('.intake-pkg-card').forEach(card => {
+        card.classList.toggle('selected', card.dataset.pkg === selectedPkg);
+      });
+      /* clear contact fields */
+      ['intake-name','intake-email','intake-phone','intake-address'].forEach(id => {
+        document.getElementById(id).value = '';
+      });
+      refreshTotal();
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      /* focus the modal for a11y */
+      document.getElementById('intake-close').focus();
+    };
+
+    /* ── Close ── */
+    function closeModal() {
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('intake-close').addEventListener('click', closeModal);
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) closeModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && overlay.classList.contains('active')) closeModal();
+    });
+
+    /* ── Package cards ── */
+    document.querySelectorAll('.intake-pkg-card').forEach(card => {
+      function selectPkg() {
+        selectedPkg = card.dataset.pkg;
+        document.querySelectorAll('.intake-pkg-card').forEach(c =>
+          c.classList.toggle('selected', c.dataset.pkg === selectedPkg));
+        refreshTotal();
+      }
+      card.addEventListener('click', selectPkg);
+      card.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectPkg(); }
+      });
+    });
+
+    /* ── Extra rooms counter ── */
+    document.getElementById('rooms-minus').addEventListener('click', function() {
+      if (extraRooms > 0) {
+        extraRooms--;
+        roomsEl.textContent = extraRooms;
+        refreshTotal();
+      }
+    });
+    document.getElementById('rooms-plus').addEventListener('click', function() {
+      extraRooms++;
+      roomsEl.textContent = extraRooms;
+      refreshTotal();
+    });
+
+    /* ── Add-on checkboxes ── */
+    document.querySelectorAll('.addon-check').forEach(function(cb) {
+      cb.addEventListener('change', function() {
+        cb.closest('.addon-row').classList.toggle('checked', cb.checked);
+        refreshTotal();
+      });
+    });
+
+    /* ── Submit → mailto ── */
+    document.getElementById('intake-submit').addEventListener('click', function() {
+      const name    = document.getElementById('intake-name').value.trim();
+      const email   = document.getElementById('intake-email').value.trim();
+      const phone   = document.getElementById('intake-phone').value.trim();
+      const address = document.getElementById('intake-address').value.trim();
+
+      const pkgCard  = selectedPkg
+        ? document.querySelector(`.intake-pkg-card[data-pkg="${selectedPkg}"]`)
+        : null;
+      const pkgLabel = pkgCard ? pkgCard.querySelector('.pkg-name').textContent : 'Not selected';
+      const pkgPrice = pkgCard ? pkgCard.querySelector('.pkg-price').textContent : '$0';
+
+      let addonLines = '';
+      document.querySelectorAll('.addon-check').forEach(function(cb) {
+        if (cb.checked) {
+          const lbl = cb.closest('.addon-row').querySelector('.addon-name').textContent.trim();
+          const prc = cb.closest('.addon-row').querySelector('.addon-price').textContent.trim();
+          addonLines += `  • ${lbl}: ${prc}\n`;
+        }
+      });
+
+      let total = 0;
+      if (pkgCard) total += parseInt(pkgCard.dataset.price, 10);
+      total += extraRooms * 200;
+      document.querySelectorAll('.addon-check').forEach(function(cb) {
+        if (cb.checked) total += parseInt(cb.dataset.price, 10);
+      });
+
+      const lines = [
+        'INTAKE QUOTE REQUEST — PRIME PATHWY TURNOVER SYSTEM',
+        '',
+        'PROPERTY TYPE : ' + pkgLabel + ' (' + pkgPrice + ' — LABOR ONLY)',
+        extraRooms > 0
+          ? 'ADDITIONAL ROOMS: ' + extraRooms + ' × $200 = $' + (extraRooms * 200).toLocaleString()
+          : '',
+        addonLines ? 'HAULING ADD-ONS:\n' + addonLines.trim() : '',
+        '',
+        'ESTIMATED TOTAL: $' + total.toLocaleString() + ' (LABOR ONLY)',
+        '',
+        'CONTACT INFO:',
+        name    ? 'Name:     ' + name    : '',
+        email   ? 'Email:    ' + email   : '',
+        phone   ? 'Phone:    ' + phone   : '',
+        address ? 'Property: ' + address : '',
+      ].filter(function(l) { return l !== ''; }).join('\n');
+
+      const subj = 'Quote Request — ' + pkgLabel + (address ? ' — ' + address : '');
+      window.location.href =
+        'mailto:pathwyservices@primepathwy.com' +
+        '?subject=' + encodeURIComponent(subj) +
+        '&body='    + encodeURIComponent(lines);
+    });
+
+  })();
 
 });
 </script>
