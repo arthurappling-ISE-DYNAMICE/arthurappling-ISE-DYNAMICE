@@ -88,6 +88,21 @@
     padding: 3.5rem 2rem;
     text-align: center;
   }
+  a[href="#main-content"]:focus {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    background: #050505;
+    color: #F5D98A;
+    padding: .5rem 1rem;
+    font-size: 13px;
+    letter-spacing: .1em;
+    z-index: 200;
+    outline: 2px solid #C9A84C;
+  }
   @media (max-width: 768px) {
     .content-wrap { padding: 0 1.25rem !important; }
   }
@@ -98,7 +113,7 @@
    font-size:9px;letter-spacing:.2em;text-transform:uppercase;">Skip to main content</a>
 
 <!-- NAV -->
-<nav>
+<nav aria-label="Site navigation">
   <a href="index.html" class="nav-logo">Prime Pathwy</a>
   <a href="index.html" class="back-link">← Back to Site</a>
 </nav>
@@ -115,7 +130,7 @@
       Arthur F. Appling Sr. — Executive Principal
     </p>
     <p style="font-size: 9px; letter-spacing: .2em; text-transform: uppercase;
-              color: rgba(255,255,255,.3); margin: 0 0 3rem;">
+              color: rgba(255,255,255,.55); margin: 0 0 3rem;">
       Effective: April 12, 2026
     </p>
     <div style="width: 100%; height: 1px; background: rgba(201,168,76,.15); margin-bottom: 3rem;"></div>
@@ -202,7 +217,7 @@
           Prime Pathwy<br>
           425 Virginia St STE B, Vallejo, CA 94590<br>
           <!-- UPDATE EMAIL: Replace with operations@primepathwy.com when Namecheap email is live -->
-          contact@primepathwy.com
+          <a href="mailto:contact@primepathwy.com" style="color:rgba(201,168,76,.7);text-decoration:none;">contact@primepathwy.com</a>
         </p>
       </div>
     </div>
@@ -229,7 +244,7 @@
       </p>
       <p style="font-size: 1.1rem; color: #FFFFFF; font-weight: 700; margin: 0; font-family: 'Courier New', monospace; letter-spacing: .04em; line-height: 1.6;">
         <!-- UPDATE PHONE: Confirm (925) 308-3233 is live -->
-        (925) 308-3233 &nbsp;·&nbsp;<!-- UPDATE EMAIL: Replace with operations@primepathwy.com when Namecheap email is live -->contact@primepathwy.com
+        (925) 308-3233 &nbsp;·&nbsp;<!-- UPDATE EMAIL: Replace with operations@primepathwy.com when Namecheap email is live --><a href="mailto:contact@primepathwy.com" style="color:rgba(201,168,76,.7);text-decoration:none;">contact@primepathwy.com</a>
       </p>
     </div>
     <div style="width: 100%; max-width: 400px; height: 1px; background: rgba(255,255,255,.04);"></div>

@@ -69,7 +69,7 @@
   }
   .back-link:hover { color: rgba(201,168,76,.8); }
   .legal-section-head {
-    font-size: 9px;
+    font-size: 11px;
     letter-spacing: .4em;
     text-transform: uppercase;
     color: rgba(201,168,76,.6);
@@ -88,6 +88,21 @@
     padding: 3.5rem 2rem;
     text-align: center;
   }
+  a[href="#main-content"]:focus {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    background: #050505;
+    color: #F5D98A;
+    padding: .5rem 1rem;
+    font-size: 13px;
+    letter-spacing: .1em;
+    z-index: 200;
+    outline: 2px solid #C9A84C;
+  }
   @media (max-width: 768px) {
     .content-wrap { padding: 0 1.25rem !important; }
   }
@@ -98,7 +113,7 @@
    font-size:9px;letter-spacing:.2em;text-transform:uppercase;">Skip to main content</a>
 
 <!-- NAV -->
-<nav>
+<nav aria-label="Site navigation">
   <a href="index.html" class="nav-logo">Prime Pathwy</a>
   <a href="index.html" class="back-link">← Back to Site</a>
 </nav>
@@ -115,7 +130,7 @@
       Arthur F. Appling Sr. — Executive Principal
     </p>
     <p style="font-size: 9px; letter-spacing: .2em; text-transform: uppercase;
-              color: rgba(255,255,255,.3); margin: 0 0 3rem;">
+              color: rgba(255,255,255,.55); margin: 0 0 3rem;">
       Effective: April 12, 2026
     </p>
     <div style="width: 100%; height: 1px; background: rgba(201,168,76,.15); margin-bottom: 3rem;"></div>
@@ -151,10 +166,10 @@
     <div style="margin-bottom: 2.5rem;">
       <h2 class="legal-section-head">Section 3 — Measures Taken</h2>
       <ul style="color: rgba(255,255,255,.75); font-size: 15px; line-height: 1.8; margin: 0; padding-left: 1.5rem;">
-        <li><strong style="color:#fff;">Color contrast:</strong> Matte Black <code style="color:rgba(201,168,76,.8);">#050505</code> background with Gold <code style="color:rgba(201,168,76,.8);">#F5D98A</code> text exceeds WCAG 4.5:1 minimum contrast ratio.</li>
+        <li><strong style="color:#fff;">Color contrast:</strong> Matte Black <code style="color:rgba(201,168,76,.8);white-space:nowrap;">#050505</code> background with Gold <code style="color:rgba(201,168,76,.8);white-space:nowrap;">#F5D98A</code> text exceeds WCAG 4.5:1 minimum contrast ratio.</li>
         <li><strong style="color:#fff;">Keyboard navigation:</strong> All interactive elements (buttons, links, inputs) reachable and operable via keyboard Tab and Enter.</li>
-        <li><strong style="color:#fff;">ARIA labels:</strong> All buttons, links, and interactive elements carry descriptive <code style="color:rgba(201,168,76,.8);">aria-label</code> attributes.</li>
-        <li><strong style="color:#fff;">Semantic HTML:</strong> Proper heading hierarchy, landmark elements (<code style="color:rgba(201,168,76,.8);">nav</code>, <code style="color:rgba(201,168,76,.8);">main</code>, <code style="color:rgba(201,168,76,.8);">footer</code>), semantic structure throughout.</li>
+        <li><strong style="color:#fff;">ARIA labels:</strong> All buttons, links, and interactive elements carry descriptive <code style="color:rgba(201,168,76,.8);white-space:nowrap;">aria-label</code> attributes.</li>
+        <li><strong style="color:#fff;">Semantic HTML:</strong> Proper heading hierarchy, landmark elements (<code style="color:rgba(201,168,76,.8);white-space:nowrap;">nav</code>, <code style="color:rgba(201,168,76,.8);white-space:nowrap;">main</code>, <code style="color:rgba(201,168,76,.8);white-space:nowrap;">footer</code>), semantic structure throughout.</li>
         <li><strong style="color:#fff;">No auto-play media:</strong> No audio or video plays automatically.</li>
         <li><strong style="color:#fff;">Responsive layout:</strong> Site layout supports browser zoom up to 400% without horizontal scrolling or loss of content.</li>
         <li><strong style="color:#fff;">Image alt text:</strong> All meaningful images carry descriptive alt attributes.</li>
@@ -196,7 +211,7 @@
           Prime Pathwy<br>
           425 Virginia St STE B, Vallejo, CA 94590<br>
           <!-- UPDATE EMAIL: Replace with operations@primepathwy.com when Namecheap email is live -->
-          contact@primepathwy.com
+          <a href="mailto:contact@primepathwy.com" style="color:rgba(201,168,76,.7);text-decoration:none;">contact@primepathwy.com</a>
         </p>
       </div>
     </div>
@@ -223,7 +238,7 @@
       </p>
       <p style="font-size: 1.1rem; color: #FFFFFF; font-weight: 700; margin: 0; font-family: 'Courier New', monospace; letter-spacing: .04em; line-height: 1.6;">
         <!-- UPDATE PHONE: Confirm (925) 308-3233 is live -->
-        (925) 308-3233 &nbsp;·&nbsp;<!-- UPDATE EMAIL: Replace with operations@primepathwy.com when Namecheap email is live -->contact@primepathwy.com
+        (925) 308-3233 &nbsp;·&nbsp;<!-- UPDATE EMAIL: Replace with operations@primepathwy.com when Namecheap email is live --><a href="mailto:contact@primepathwy.com" style="color:rgba(201,168,76,.7);text-decoration:none;">contact@primepathwy.com</a>
       </p>
     </div>
     <div style="width: 100%; max-width: 400px; height: 1px; background: rgba(255,255,255,.04);"></div>
