@@ -6,6 +6,7 @@
 <title>Privacy Policy | Prime Pathwy</title>
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="shortcut icon" href="favicon.ico">
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
   *, *::before, *::after { box-sizing: border-box; }
@@ -66,7 +67,7 @@
     text-decoration: none;
     transition: color .2s;
   }
-  .back-link:hover { color: #FFD700; }
+  .back-link:hover { color: rgba(201,168,76,.8); }
   .legal-section-head {
     font-size: 9px;
     letter-spacing: .4em;
@@ -93,6 +94,8 @@
 </style>
 </head>
 <body>
+<a href="#main-content" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;
+   font-size:9px;letter-spacing:.2em;text-transform:uppercase;">Skip to main content</a>
 
 <!-- NAV -->
 <nav>
@@ -101,7 +104,7 @@
 </nav>
 
 <!-- PAGE HEADER -->
-<div style="padding-top: 60px;">
+<main id="main-content" style="padding-top: 60px;">
   <div style="max-width: 860px; margin: 0 auto; padding: 5rem 1.5rem 3rem;" class="content-wrap">
     <span class="eyebrow">Legal · Privacy Policy</span>
     <h1 style="font-family: Georgia, 'Times New Roman', serif; font-style: italic; font-weight: 900;
@@ -119,7 +122,7 @@
 
     <!-- SECTION 1 -->
     <div style="margin-bottom: 2.5rem;">
-      <span class="legal-section-head">Section 1 — Information We Collect</span>
+      <h2 class="legal-section-head">Section 1 — Information We Collect</h2>
       <p style="color: rgba(255,255,255,.75); font-size: 15px; line-height: 1.8; margin: 0;">
         Prime Pathwy collects the following information when you request or receive services:
         name, mailing address, phone number, email address, property address, scope of services
@@ -131,7 +134,7 @@
 
     <!-- SECTION 2 -->
     <div style="margin-bottom: 2.5rem;">
-      <span class="legal-section-head">Section 2 — How We Use Your Information</span>
+      <h2 class="legal-section-head">Section 2 — How We Use Your Information</h2>
       <p style="color: rgba(255,255,255,.75); font-size: 15px; line-height: 1.8; margin: 0;">
         Your information is used exclusively for: scheduling and dispatch of services,
         invoicing and payment processing, service documentation and completion records,
@@ -142,7 +145,7 @@
 
     <!-- SECTION 3 — SOVEREIGN AUDIT LOGIC -->
     <div style="margin-bottom: 2.5rem;">
-      <span class="legal-section-head">Section 3 — Sovereign Audit Logic</span>
+      <h2 class="legal-section-head">Section 3 — Sovereign Audit Logic</h2>
       <div class="clause-block">
         <p style="color: rgba(255,255,255,.9); font-size: 15px; line-height: 1.8; margin: 0;">
           All job records, before/after photo documentation, signed work orders, and
@@ -157,7 +160,7 @@
 
     <!-- SECTION 4 — CCPA RIGHTS -->
     <div style="margin-bottom: 2.5rem;">
-      <span class="legal-section-head">Section 4 — Your California Rights (CCPA)</span>
+      <h2 class="legal-section-head">Section 4 — Your California Rights (CCPA)</h2>
       <div class="clause-block">
         <p style="color: rgba(255,255,255,.9); font-size: 15px; line-height: 1.8; margin: 0 0 1rem;">
           As a California resident, you have the following rights under the California
@@ -178,7 +181,7 @@
 
     <!-- SECTION 5 -->
     <div style="margin-bottom: 2.5rem;">
-      <span class="legal-section-head">Section 5 — Data Retention</span>
+      <h2 class="legal-section-head">Section 5 — Data Retention</h2>
       <p style="color: rgba(255,255,255,.75); font-size: 15px; line-height: 1.8; margin: 0;">
         Service records, work orders, and related documentation are retained for a minimum
         of three (3) years per Prime Pathwy operational doctrine. Records subject to active
@@ -189,11 +192,11 @@
 
     <!-- SECTION 6 -->
     <div style="margin-bottom: 4rem;">
-      <span class="legal-section-head">Section 6 — Contact for Privacy Requests</span>
+      <h2 class="legal-section-head">Section 6 — Contact for Privacy Requests</h2>
       <p style="color: rgba(255,255,255,.75); font-size: 15px; line-height: 1.8; margin: 0 0 1rem;">
         All privacy requests must be submitted in writing to:
       </p>
-      <div style="border: 1px solid rgba(201,168,76,.22); padding: 1.5rem 2rem; background: #050505; display: inline-block;">
+      <div style="border: 1px solid rgba(201,168,76,.22); padding: 1.5rem 2rem; background: #050505; display: block; max-width: fit-content;">
         <p style="color: #fff; font-size: 15px; line-height: 1.8; margin: 0; font-weight: 700;">
           Arthur F. Appling Sr. — Executive Principal<br>
           Prime Pathwy<br>
@@ -206,7 +209,7 @@
 
     <div style="width: 100%; height: 1px; background: rgba(255,255,255,.04); margin-bottom: 4rem;"></div>
   </div>
-</div>
+</main>
 
 <!-- FOOTER -->
 <footer>
