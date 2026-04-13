@@ -15,23 +15,8 @@ export default function HeroSection() {
         priority
       />
 
-      {/*
-        Dual-layer overlay — Sovereign Hybrid treatment:
-        Layer 1: radial gradient darkens corners while leaving the truck
-                 center near-untouched (0.05 black = studio key-light feel).
-        Layer 2: linear ramp from bottom creates a clean text-legibility
-                 zone without flattening the image midtones.
-      */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background: [
-            'radial-gradient(ellipse 110% 80% at 50% 35%, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.55) 75%, rgba(0,0,0,0.82) 100%)',
-            'linear-gradient(to top, rgba(0,0,0,0.90) 0%, rgba(0,0,0,0.48) 35%, rgba(0,0,0,0.15) 60%, transparent 80%)',
-          ].join(', '),
-        }}
-        aria-hidden="true"
-      />
+      {/* Dark overlay for text legibility — 30% keeps truck visible */}
+      <div className="absolute inset-0 bg-black/30" aria-hidden="true" />
 
       {/* Content — pushed to bottom two-thirds so medallion on truck is clear */}
       <div
@@ -48,17 +33,13 @@ export default function HeroSection() {
           PRIME PATHWY PROPERTY TURNOVER
         </p>
 
-        {/* Headline — serif italic brand voice, -0.02em Linear tracking */}
+        {/* Headline */}
         <h1
           id="hero-heading"
           className="font-serif italic text-2xl md:text-3xl text-white leading-tight mb-4 max-w-3xl"
-          style={{ letterSpacing: 'var(--hero-h1-tracking)' }}
         >
-          Your Last Turnover Vendor Left{' '}
-          <span style={{ color: '#C9A84C' }}>No Record.</span>{' '}
-          <span className="block">
-            We Leave <span style={{ color: '#C9A84C' }}>No Doubt.</span>
-          </span>
+          Your Last Turnover Vendor Left No Record.{' '}
+          <span className="block">We Leave No Doubt.</span>
         </h1>
 
         {/* Subheadline */}

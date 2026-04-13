@@ -27,7 +27,7 @@ export default function GallerySection() {
     <section
       id="gallery"
       aria-labelledby="gallery-heading"
-      className="bg-bg-surface py-32 px-6"
+      className="bg-bg-surface py-24 px-6"
     >
       <div className="max-w-5xl mx-auto">
 
@@ -39,11 +39,9 @@ export default function GallerySection() {
         >
           DOCUMENTED RESULTS
         </p>
-        {/* Serif italic — brand evidence voice, -0.01em slight tightening */}
         <h2
           id="gallery-heading"
           className="font-serif text-[28px] md:text-[36px] text-text-primary italic mb-16 max-w-2xl"
-          style={{ letterSpacing: '-0.01em' }}
         >
           Before &amp; After. Every Job. On Record.
         </h2>

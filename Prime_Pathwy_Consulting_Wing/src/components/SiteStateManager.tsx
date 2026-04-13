@@ -4,8 +4,8 @@
 import { useState } from 'react'
 import Nav from '@/components/Nav'
 import HeroSection from '@/components/HeroSection'
-import SystemSection from '@/components/SystemSection'
 import GallerySection from '@/components/GallerySection'
+import SystemSection from '@/components/SystemSection'
 import LifecycleSection from '@/components/LifecycleSection'
 import DocumentationSection from '@/components/DocumentationSection'
 import PricingSection from '@/components/PricingSection'
@@ -39,8 +39,8 @@ export default function SiteStateManager() {
         ) : (
           <>
             <HeroSection />
-            <SystemSection />
             <GallerySection />
+            <SystemSection />
             <LifecycleSection />
             <DocumentationSection />
             <PricingSection />
