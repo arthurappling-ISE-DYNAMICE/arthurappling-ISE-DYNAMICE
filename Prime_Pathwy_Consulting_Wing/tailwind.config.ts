@@ -21,8 +21,9 @@ const config: Config = {
         dim: '#333333',        // secondary/back-button borders
       },
       fontFamily: {
+        sans:  ['var(--font-inter)', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'sans-serif'],
         serif: ['Georgia', 'serif'],
-        mono: ['"Courier New"', 'Courier', 'monospace'],
+        mono:  ['"Courier New"', 'Courier', 'monospace'],
       },
     },
   },

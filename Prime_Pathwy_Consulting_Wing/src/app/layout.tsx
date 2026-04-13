@@ -1,10 +1,19 @@
-// ─── PRODUCTION GOLD MASTER — v1.0 — 2026-04-05 ────────────────────────────
+// ─── PRODUCTION GOLD MASTER — v1.1 — 2026-04-13 ────────────────────────────
 // DO NOT MODIFY WITHOUT ARCHITECT APPROVAL — Arthur F. Appling Sr.
+// v1.1: Inter Variable loaded via next/font/google for display headings
 // ─────────────────────────────────────────────────────────────────────────────
 import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
 import './globals.css'
 import SkipLink from '@/components/SkipLink'
 import CookieConsent from '@/components/CookieConsent'
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-inter',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: 'Prime Pathwy Property Turnover — Sovereign System',
@@ -20,7 +29,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.variable}>
       <body className="antialiased">
         <SkipLink />
         {children}
