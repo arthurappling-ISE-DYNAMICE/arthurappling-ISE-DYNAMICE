@@ -12,6 +12,12 @@
   --text-primary: #F0ECE0;
   --text-secondary: #FFFFFF;
   --text-muted: #FFFFFF;
+
+  /* ── Linear display typography tokens (sourced live 2026-04-13) ── */
+  --display-weight:    800;
+  --display-tracking: -0.04em;
+  --display-leading:   1.08;
+  --hero-h1-tracking: -0.02em;
 }
 
 html {

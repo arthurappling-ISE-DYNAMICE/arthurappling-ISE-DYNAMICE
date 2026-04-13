@@ -4,13 +4,14 @@
 import { useState } from 'react'
 import Nav from '@/components/Nav'
 import HeroSection from '@/components/HeroSection'
-import GallerySection from '@/components/GallerySection'
 import SystemSection from '@/components/SystemSection'
+import GallerySection from '@/components/GallerySection'
 import LifecycleSection from '@/components/LifecycleSection'
 import DocumentationSection from '@/components/DocumentationSection'
 import PricingSection from '@/components/PricingSection'
 import AgreementSection from '@/components/AgreementSection'
 import OrderSection from '@/components/OrderSection'
+import HeadshotPlaceholder from '@/components/HeadshotPlaceholder'
 import Footer from '@/components/Footer'
 import ConsultingSection from '@/components/ConsultingSection'
 
@@ -38,13 +39,14 @@ export default function SiteStateManager() {
         ) : (
           <>
             <HeroSection />
-            <GallerySection />
             <SystemSection />
+            <GallerySection />
             <LifecycleSection />
             <DocumentationSection />
             <PricingSection />
             <AgreementSection />
             <OrderSection />
+            <HeadshotPlaceholder />
           </>
         )}
       </main>
