@@ -1,4 +1,4 @@
-// Prime_Pathwy_Website/src/lib/stripe.server.ts
+// Prime_Pathwy_Consulting_Wing/src/lib/stripe.server.ts
 import 'server-only'
 import Stripe from 'stripe'
 

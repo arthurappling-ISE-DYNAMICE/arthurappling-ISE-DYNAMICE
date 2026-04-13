@@ -1,5 +1,7 @@
 # Prime Pathwy Sovereign System Landing Page — Implementation Plan
 
+> **RENAME NOTICE (2026-04-12):** The directory `Prime_Pathwy_Website/` was renamed to `Prime_Pathwy_Consulting_Wing/` for strategic clarity. All path references below using `Prime_Pathwy_Website/` are historical — the live directory is now `Prime_Pathwy_Consulting_Wing/`. This plan is an archived build record; do not re-execute.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Build the Prime Pathwy Sovereign System landing page — a Next.js hybrid marketing + Stripe order site in Matte Black and Gold, serving property owners who need institutional-grade turnover services.

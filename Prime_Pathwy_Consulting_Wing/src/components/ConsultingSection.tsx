@@ -1,4 +1,4 @@
-// Prime_Pathwy_Website/src/components/ConsultingSection.tsx
+// Prime_Pathwy_Consulting_Wing/src/components/ConsultingSection.tsx
 import Image from 'next/image'
 import SovereignManifest from '@/components/SovereignManifest'
 

@@ -1,4 +1,4 @@
-// Prime_Pathwy_Website/src/components/SiteStateManager.tsx
+// Prime_Pathwy_Consulting_Wing/src/components/SiteStateManager.tsx
 'use client'
 
 import { useState } from 'react'

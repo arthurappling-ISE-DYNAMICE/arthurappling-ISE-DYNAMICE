@@ -1,4 +1,4 @@
-// Prime_Pathwy_Website/src/components/Nav.tsx
+// Prime_Pathwy_Consulting_Wing/src/components/Nav.tsx
 'use client'
 
 import Image from 'next/image'

@@ -1,4 +1,4 @@
-// Prime_Pathwy_Website/src/lib/stripe.client.ts
+// Prime_Pathwy_Consulting_Wing/src/lib/stripe.client.ts
 import { loadStripe, type Stripe as StripeClient } from '@stripe/stripe-js'
 
 // Client-side Stripe singleton. Safe to import in React components marked 'use client'.

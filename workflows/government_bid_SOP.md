@@ -33,6 +33,20 @@
 
 **Out of Scope:** Prime contracts requiring bonding beyond current capacity. Open competition contracts without set-aside designation are LOW PRIORITY.
 
+**Legal Infrastructure Verification Checklist** *(confirm before submitting any bid — these pages are LIVE on local build as of 2026-04-12):*
+
+| Document | File | Status |
+|---|---|---|
+| Privacy Policy (CCPA) | `Prime_Pathwy_Turnover_System/privacy.html` | ✅ Live |
+| Terms of Service (No Verbal Order Rule) | `Prime_Pathwy_Turnover_System/terms.html` | ✅ Live |
+| ADA / WCAG 2.1 Accessibility Statement | `Prime_Pathwy_Turnover_System/accessibility.html` | ✅ Live |
+
+- [ ] All three legal pages load correctly at their local paths
+- [ ] Privacy Policy lists EIN 84-4788578 and address 425 Virginia St STE B, Vallejo, CA 94590
+- [ ] Terms of Service No Verbal Order Rule clause is present and visible
+- [ ] ADA Statement cites WCAG 2.1 Level AA compliance
+- [ ] `contact@primepathwy.com` is the active contact — update to `operations@primepathwy.com` when Namecheap email is live
+
 ---
 
 ## Step 2 — Required Setup

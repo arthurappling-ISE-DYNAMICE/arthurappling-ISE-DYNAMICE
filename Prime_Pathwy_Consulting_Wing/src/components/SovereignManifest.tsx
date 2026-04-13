@@ -1,4 +1,4 @@
-// Prime_Pathwy_Website/src/components/SovereignManifest.tsx
+// Prime_Pathwy_Consulting_Wing/src/components/SovereignManifest.tsx
 'use client'
 
 import { useState, useRef, useEffect } from 'react'

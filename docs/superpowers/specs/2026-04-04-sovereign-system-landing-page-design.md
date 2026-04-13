@@ -2,7 +2,8 @@
 **Date:** 2026-04-04  
 **Owner:** Arthur F. Appling Sr., Lead Technical Architect  
 **Business:** Prime Pathwy Property Turnover (strict spelling — no 'a' or 'x' in Pathwy)  
-**Status:** Approved for Implementation
+**Status:** Approved for Implementation  
+**RENAME NOTICE (2026-04-12):** Directory `Prime_Pathwy_Website/` → `Prime_Pathwy_Consulting_Wing/`. All references to the old name in this spec are historical.
 
 ---
 
