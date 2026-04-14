@@ -7,7 +7,6 @@
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="shortcut icon" href="favicon.ico">
-<script src="https://cdn.tailwindcss.com"></script>
 <style>
   /* ── Base ──────────────────────────────────────────────────────────────── */
   *, *::before, *::after { box-sizing: border-box; }
@@ -625,6 +624,33 @@
   }
   #intake-submit:hover { background: #FFE44D; box-shadow: 0 4px 28px rgba(255,215,0,.3); }
   #intake-submit:active { transform: translateY(1px); }
+
+  /* ── Footer Links ──────────────────────────────────────────────────────── */
+  .footer-link {
+    font-size: 9px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: color .2s;
+  }
+  .footer-link:hover { color: #FFD700; }
+  .footer-ada-link {
+    background: none;
+    border: 1px solid rgba(255,255,255,.12);
+    padding: .4rem .85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    font-family: 'Courier New', monospace;
+    font-size: 9px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: border-color .2s, color .2s;
+  }
+  .footer-ada-link:hover { border-color: #FFD700; color: #FFD700; }
 
   /* ── Divider ────────────────────────────────────────────────────────────  */
   .gold-divider {
@@ -1321,13 +1347,7 @@
            style="background-image: url('living_before.png'); background-position: center center;">
         <div class="glide-overlay"></div>
 
-        <!-- Top label — matches 222849 reference style -->
         <span class="glide-photo-label before-label" style="top: 1.25rem; left: 1.25rem;">
-          Before: Eviction Crisis
-        </span>
-
-        <!-- Bottom label -->
-        <span class="glide-photo-label before-label" style="bottom: 1.25rem; left: 1.25rem;">
           Before: Eviction Crisis
         </span>
       </div>
@@ -1337,13 +1357,7 @@
            style="background-image: url('living_after.png'); background-position: center center;">
         <div class="glide-overlay"></div>
 
-        <!-- Top label -->
         <span class="glide-photo-label after-label" style="top: 1.25rem; right: 1.25rem;">
-          After: Prime Pathwy Restoration
-        </span>
-
-        <!-- Bottom label -->
-        <span class="glide-photo-label after-label" style="bottom: 1.25rem; right: 1.25rem;">
           After: Prime Pathwy Restoration
         </span>
       </div>
@@ -1394,9 +1408,6 @@
         <span class="glide-photo-label before-label" style="top: 1.25rem; left: 1.25rem;">
           Before: Eviction Crisis
         </span>
-        <span class="glide-photo-label before-label" style="bottom: 1.25rem; left: 1.25rem;">
-          Before: Eviction Crisis
-        </span>
       </div>
 
       <!-- ── AFTER: right half of bathroom_compare.png ──────────────────── -->
@@ -1407,9 +1418,6 @@
         <div class="glide-overlay"></div>
 
         <span class="glide-photo-label after-label" style="top: 1.25rem; right: 1.25rem;">
-          After: Prime Pathwy Restoration
-        </span>
-        <span class="glide-photo-label after-label" style="bottom: 1.25rem; right: 1.25rem;">
           After: Prime Pathwy Restoration
         </span>
       </div>
@@ -1742,17 +1750,17 @@
     </p>
 
     <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem;">
-      <a href="mailto:pathwyservices@primepathwy.com?subject=Walkthrough%20Request%20—%20Property%20Turnover"
+      <a href="mailto:contact@primepathwy.com?subject=Walkthrough%20Request%20—%20Property%20Turnover"
          class="btn-gold">
         [ Request Walkthrough ]
       </a>
-      <a href="mailto:pathwyservices@primepathwy.com" class="btn-outline">
+      <a href="mailto:contact@primepathwy.com" class="btn-outline">
         Email Directly
       </a>
     </div>
 
     <p style="font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.75);">
-      pathwyservices@primepathwy.com · www.primepathwy.com
+      contact@primepathwy.com · www.primepathwy.com
     </p>
 
     <!-- System declaration -->
@@ -1974,11 +1982,7 @@
   <div style="max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
 
     <!-- Brand -->
-    <p style="margin: 0; font-family: Georgia, serif; font-style: italic; font-weight: 900; font-size: 20px;
-               background: linear-gradient(135deg, #F5D98A, #C9A84C); -webkit-background-clip: text;
-               -webkit-text-fill-color: transparent; background-clip: text;">
-      Prime Pathwy
-    </p>
+    <p class="serif-head gold-text" style="margin: 0; font-size: 20px;">Prime Pathwy</p>
     <p style="font-size: 9px; letter-spacing: .25em; text-transform: uppercase; color: rgba(255,255,255,.75); margin: 0;">
       Property Turnover Services · Cleaning · Haul-Out · Paint · Full Turnovers
     </p>
@@ -2000,36 +2004,16 @@
 
     <!-- Legal Links + Accessibility -->
     <div style="display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; justify-content: center;">
-      <a href="privacy.html"
-         aria-label="Privacy Policy"
-         style="font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: #FFFFFF;
-                text-decoration: none; transition: color .2s;"
-         onmouseover="this.style.color='#FFD700'" onmouseout="this.style.color='#FFFFFF'">
-        Privacy Policy
-      </a>
+      <a href="privacy.html" aria-label="Privacy Policy" class="footer-link">Privacy Policy</a>
       <span style="color: rgba(255,255,255,.1);" aria-hidden="true">·</span>
-      <a href="terms.html"
-         aria-label="Terms of Service"
-         style="font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: #FFFFFF;
-                text-decoration: none; transition: color .2s;"
-         onmouseover="this.style.color='#FFD700'" onmouseout="this.style.color='#FFFFFF'">
-        Terms of Service
-      </a>
+      <a href="terms.html" aria-label="Terms of Service" class="footer-link">Terms of Service</a>
       <span style="color: rgba(255,255,255,.1);" aria-hidden="true">·</span>
 
-      <!-- Accessibility Button -->
-      <button
-        type="button"
-        aria-label="Accessibility information — ADA Compliant Design"
-        title="View Accessibility Statement"
-        onclick="window.location.href='accessibility.html'"
-        style="background: none; border: 1px solid rgba(255,255,255,.12); padding: .4rem .85rem;
-               cursor: pointer; display: inline-flex; align-items: center; gap: .5rem;
-               font-family: 'Courier New', monospace; font-size: 9px; letter-spacing: .18em;
-               text-transform: uppercase; color: #FFFFFF;
-               transition: border-color .2s, color .2s;"
-        onmouseover="this.style.borderColor='#FFD700'; this.style.color='#FFD700'"
-        onmouseout="this.style.borderColor='rgba(255,255,255,.12)'; this.style.color='rgba(255,255,255,.3)'">
+      <!-- Accessibility Link -->
+      <a href="accessibility.html"
+         aria-label="Accessibility Statement — ADA Compliant Design"
+         title="View Accessibility Statement"
+         class="footer-ada-link">
         <!-- Wheelchair / Accessibility icon -->
         <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <circle cx="12" cy="3" r="2.5"/>
@@ -2038,7 +2022,7 @@
           <path d="M9.5 19.5a4 4 0 1 1-4-4 1 1 0 0 0 0-2 6 6 0 1 0 6 6 1 1 0 0 0-2 0z"/>
         </svg>
         ADA Compliant Design
-      </button>
+      </a>
     </div>
 
     <!-- Divider -->
@@ -2056,19 +2040,6 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ── High-Visibility: Upgrade all dim inline text to pure white ─────────
-     AAA WCAG 2.1 — minimum 7:1 contrast on #050505 background.
-     Pure white (#FFFFFF) = 21:1. Any rgba(255,255,255, <0.75) = sub-AAA. ── */
-  document.querySelectorAll('p, li, span').forEach(el => {
-    const c = el.style.color;
-    if (c && c.startsWith('rgba(255,255,255,')) {
-      const alpha = parseFloat(c.replace('rgba(255,255,255,', '').replace(')', ''));
-      if (!isNaN(alpha) && alpha < 0.75 && !el.classList.contains('eyebrow')) {
-        el.style.color = '#FFFFFF';
-      }
-    }
-  });
-
   /* ── Glide Slider Engine — rAF-driven, luxury smooth ──────────────────────
      Uses requestAnimationFrame for buttery rendering.
      Settling spring on release gives the "heavy luxury door" feel.        ── */
@@ -2078,29 +2049,23 @@ document.addEventListener('DOMContentLoaded', () => {
     let raf = null;
     let targetVal = 50;
     let currentVal = 50;
-    let isSettling = false;
 
-    /* Apply position immediately to both clip and line */
     function apply(v) {
       afterEl.style.clipPath = `inset(0 ${100 - v}% 0 0)`;
       lineEl.style.left      = v + '%';
     }
 
-    /* Smooth spring settling on mouse/touch release */
     function settle() {
       if (Math.abs(currentVal - targetVal) < 0.08) {
         currentVal = targetVal;
         apply(currentVal);
-        isSettling = false;
         return;
       }
-      /* Exponential ease-out — feels heavy and deliberate */
       currentVal += (targetVal - currentVal) * 0.18;
       apply(currentVal);
       raf = requestAnimationFrame(settle);
     }
 
-    /* During drag — instant response, no lag */
     function onDrag() {
       targetVal = parseFloat(input.value);
       currentVal = targetVal;
@@ -2108,10 +2073,8 @@ document.addEventListener('DOMContentLoaded', () => {
       apply(currentVal);
     }
 
-    /* On release — trigger spring settle */
     function onRelease() {
       targetVal = parseFloat(input.value);
-      isSettling = true;
       if (raf) cancelAnimationFrame(raf);
       raf = requestAnimationFrame(settle);
     }
@@ -2120,13 +2083,11 @@ document.addEventListener('DOMContentLoaded', () => {
     input.addEventListener('touchmove',  onDrag,    { passive: true });
     input.addEventListener('mouseup',    onRelease);
     input.addEventListener('touchend',   onRelease, { passive: true });
-
-    /* Keyboard arrow support for accessibility */
     input.addEventListener('keydown', e => {
       if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') onRelease();
     });
 
-    apply(50); // initialize at center
+    apply(50);
   });
 
   /* ── Intake Modal Engine ─────────────────────────────────────────────────
@@ -2134,13 +2095,14 @@ document.addEventListener('DOMContentLoaded', () => {
      pkgKey: 'studio-1br' | '2br-apt' | '3br-apt' | '2br-home' | '3br-home' | '4br-home' | null
   ─────────────────────────────────────────────────────────────────────── */
   (function() {
-    const overlay   = document.getElementById('intake-overlay');
-    const totalEl   = document.getElementById('intake-total');
-    const roomsEl   = document.getElementById('rooms-count');
-    let   selectedPkg = null;
-    let   extraRooms  = 0;
+    const overlay  = document.getElementById('intake-overlay');
+    const closeBtn = document.getElementById('intake-close');
+    const totalEl  = document.getElementById('intake-total');
+    const roomsEl  = document.getElementById('rooms-count');
+    let selectedPkg  = null;
+    let extraRooms   = 0;
+    let currentTotal = 0;
 
-    /* ── Calc & render total ── */
     function refreshTotal() {
       let t = 0;
       if (selectedPkg) {
@@ -2151,44 +2113,36 @@ document.addEventListener('DOMContentLoaded', () => {
       document.querySelectorAll('.addon-check').forEach(cb => {
         if (cb.checked) t += parseInt(cb.dataset.price, 10);
       });
+      currentTotal = t;
       totalEl.textContent = t > 0 ? '$' + t.toLocaleString() : '$0';
-      /* micro-bump animation */
       totalEl.classList.remove('bump');
-      void totalEl.offsetWidth; // reflow
+      void totalEl.offsetWidth;
       totalEl.classList.add('bump');
       setTimeout(() => totalEl.classList.remove('bump'), 180);
     }
 
-    /* ── Reset + open ── */
     window.openIntakeModal = function(pkgKey) {
       selectedPkg = pkgKey || null;
       extraRooms  = 0;
       roomsEl.textContent = '0';
-      /* clear addons */
       document.querySelectorAll('.addon-check').forEach(cb => { cb.checked = false; });
       document.querySelectorAll('.addon-row').forEach(row => row.classList.remove('checked'));
-      /* mark selected package */
       document.querySelectorAll('.intake-pkg-card').forEach(card => {
         card.classList.toggle('selected', card.dataset.pkg === selectedPkg);
       });
-      /* clear contact fields */
-      ['intake-name','intake-email','intake-phone','intake-address'].forEach(id => {
-        document.getElementById(id).value = '';
-      });
+      document.querySelectorAll('.intake-field').forEach(f => { f.value = ''; });
       refreshTotal();
       overlay.classList.add('active');
       document.body.style.overflow = 'hidden';
-      /* focus the modal for a11y */
-      document.getElementById('intake-close').focus();
+      closeBtn.focus();
     };
 
-    /* ── Close ── */
     function closeModal() {
       overlay.classList.remove('active');
       document.body.style.overflow = '';
     }
 
-    document.getElementById('intake-close').addEventListener('click', closeModal);
+    closeBtn.addEventListener('click', closeModal);
     overlay.addEventListener('click', function(e) {
       if (e.target === overlay) closeModal();
     });
@@ -2196,7 +2150,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'Escape' && overlay.classList.contains('active')) closeModal();
     });
 
-    /* ── Package cards ── */
     document.querySelectorAll('.intake-pkg-card').forEach(card => {
       function selectPkg() {
         selectedPkg = card.dataset.pkg;
@@ -2210,21 +2163,13 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    /* ── Extra rooms counter ── */
     document.getElementById('rooms-minus').addEventListener('click', function() {
-      if (extraRooms > 0) {
-        extraRooms--;
-        roomsEl.textContent = extraRooms;
-        refreshTotal();
-      }
+      if (extraRooms > 0) { extraRooms--; roomsEl.textContent = extraRooms; refreshTotal(); }
     });
     document.getElementById('rooms-plus').addEventListener('click', function() {
-      extraRooms++;
-      roomsEl.textContent = extraRooms;
-      refreshTotal();
+      extraRooms++; roomsEl.textContent = extraRooms; refreshTotal();
     });
 
-    /* ── Add-on checkboxes ── */
     document.querySelectorAll('.addon-check').forEach(function(cb) {
       cb.addEventListener('change', function() {
         cb.closest('.addon-row').classList.toggle('checked', cb.checked);
@@ -2232,18 +2177,27 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    /* ── Submit → mailto ── */
+    /* ── Submit → SMTP via /api/send-quote ── */
     document.getElementById('intake-submit').addEventListener('click', function() {
+      const btn     = document.getElementById('intake-submit');
       const name    = document.getElementById('intake-name').value.trim();
       const email   = document.getElementById('intake-email').value.trim();
       const phone   = document.getElementById('intake-phone').value.trim();
       const address = document.getElementById('intake-address').value.trim();
 
-      const pkgCard  = selectedPkg
-        ? document.querySelector(`.intake-pkg-card[data-pkg="${selectedPkg}"]`)
-        : null;
-      const pkgLabel = pkgCard ? pkgCard.querySelector('.pkg-name').textContent : 'Not selected';
-      const pkgPrice = pkgCard ? pkgCard.querySelector('.pkg-price').textContent : '$0';
+      /* Validation gate — require package + at least one contact method */
+      if (!selectedPkg) {
+        alert('Please select a property type before submitting.');
+        return;
+      }
+      if (!name && !email && !phone) {
+        alert('Please enter your name and at least one contact method (email or phone).');
+        return;
+      }
+
+      const pkgCard  = document.querySelector(`.intake-pkg-card[data-pkg="${selectedPkg}"]`);
+      const pkgLabel = pkgCard.querySelector('.pkg-name').textContent;
+      const pkgPrice = pkgCard.querySelector('.pkg-price').textContent;
 
       let addonLines = '';
       document.querySelectorAll('.addon-check').forEach(function(cb) {
@@ -2252,13 +2206,6 @@ document.addEventListener('DOMContentLoaded', () => {
           const prc = cb.closest('.addon-row').querySelector('.addon-price').textContent.trim();
           addonLines += `  • ${lbl}: ${prc}\n`;
         }
-      });
-
-      let total = 0;
-      if (pkgCard) total += parseInt(pkgCard.dataset.price, 10);
-      total += extraRooms * 200;
-      document.querySelectorAll('.addon-check').forEach(function(cb) {
-        if (cb.checked) total += parseInt(cb.dataset.price, 10);
       });
 
       const lines = [
@@ -2270,7 +2217,7 @@ document.addEventListener('DOMContentLoaded', () => {
           : '',
         addonLines ? 'HAULING ADD-ONS:\n' + addonLines.trim() : '',
         '',
-        'ESTIMATED TOTAL: $' + total.toLocaleString() + ' (LABOR ONLY)',
+        'ESTIMATED TOTAL: $' + currentTotal.toLocaleString() + ' (LABOR ONLY)',
         '',
         'CONTACT INFO:',
         name    ? 'Name:     ' + name    : '',
@@ -2280,10 +2227,43 @@ document.addEventListener('DOMContentLoaded', () => {
       ].filter(function(l) { return l !== ''; }).join('\n');
 
       const subj = 'Quote Request — ' + pkgLabel + (address ? ' — ' + address : '');
-      window.location.href =
-        'mailto:pathwyservices@primepathwy.com' +
-        '?subject=' + encodeURIComponent(subj) +
-        '&body='    + encodeURIComponent(lines);
+
+      /* Lock button during send */
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+
+      fetch('/api/send-quote', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ subject: subj, body: lines, replyTo: email || null })
+      })
+      .then(function(res) {
+        if (!res.ok) throw new Error('Server error ' + res.status);
+        return res.json();
+      })
+      .then(function() {
+        btn.textContent = '✓ Quote Request Sent';
+        btn.style.background = '#2e7d32';
+        btn.style.color = '#fff';
+        /* Close modal after 2.5 s */
+        setTimeout(function() {
+          document.getElementById('intake-overlay').style.display = 'none';
+          btn.disabled = false;
+          btn.textContent = 'Request This Quote →';
+          btn.style.background = '';
+          btn.style.color = '';
+        }, 2500);
+      })
+      .catch(function(err) {
+        console.error('send-quote error:', err);
+        btn.disabled = false;
+        btn.textContent = 'Request This Quote →';
+        /* Graceful fallback: open email client */
+        window.location.href =
+          'mailto:contact@primepathwy.com' +
+          '?subject=' + encodeURIComponent(subj) +
+          '&body='    + encodeURIComponent(lines);
+      });
     });
 
   })();

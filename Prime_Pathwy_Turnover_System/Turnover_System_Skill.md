@@ -244,7 +244,7 @@ When this skill is invoked to generate or update `index.html`:
 6. **Never** use rounded corners on service cards or pricing rows
 7. **Never** use "call for pricing" — all prices must be shown
 8. **Always** include the scope note: "Labor only · Disposal billed at cost"
-9. **Contact:** `pathwyservices@primepathwy.com` · `www.primepathwy.com`
+9. **Contact:** `contact@primepathwy.com` · `www.primepathwy.com`
 10. **Output:** Pure HTML + inline CSS + Tailwind CDN — no build step required
 
 ---
@@ -260,4 +260,4 @@ When this skill is invoked to generate or update `index.html`:
 - Ferrari truck as hero (full-bleed, bottom-anchored text overlay)
 - Matte black/gold throughout
 - Mobile responsive via Tailwind CDN
-- Includes booking CTA pointing to `pathwyservices@primepathwy.com`
+- Includes booking CTA pointing to `contact@primepathwy.com`
