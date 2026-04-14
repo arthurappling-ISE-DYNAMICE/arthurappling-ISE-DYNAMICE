@@ -26,7 +26,10 @@
       "Bash(sed -i 's/letter-spacing: \\\\.35em; text-transform: uppercase; color: rgba\\(255,255,255,\\\\.2\\)/letter-spacing: .35em; text-transform: uppercase; color: rgba\\(255,255,255,.75\\)/g' index.html)",
       "Bash(sed -i \"s/color: rgba\\(255,255,255,\\\\.25\\); line-height: 1\\\\.9/color: rgba\\(255,255,255,.75\\); line-height: 1.9/g\" index.html)",
       "Bash(sed -i \"s/onmouseout=\\\\\"this\\\\.style\\\\.color='rgba\\(255,255,255,\\\\.3\\)'\\\\\"/onmouseout=\\\\\"this.style.color='#FFFFFF'\\\\\"/g\" index.html)",
-      "Bash(sed -i \"s/text-transform: uppercase; color: rgba\\(255,255,255,\\\\.3\\);/text-transform: uppercase; color: #FFFFFF;/g\" index.html)"
+      "Bash(sed -i \"s/text-transform: uppercase; color: rgba\\(255,255,255,\\\\.3\\);/text-transform: uppercase; color: #FFFFFF;/g\" index.html)",
+      "Bash(node server.js)",
+      "Bash(netstat -ano)",
+      "Bash(findstr :3131)"
     ]
   }
 }

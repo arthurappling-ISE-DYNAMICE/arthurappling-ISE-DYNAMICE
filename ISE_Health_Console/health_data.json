@@ -135,6 +135,30 @@
       "value": 149,
       "type": "fasting",
       "notes": "Today reading was amazing🤩🫱🏾"
+    },
+    {
+      "id": 1775995548522,
+      "date": "2026-04-12",
+      "time": "05:05",
+      "value": 150,
+      "type": "fasting",
+      "notes": "Today reading was amazing🤩👋🏾"
+    },
+    {
+      "id": 1776077347415,
+      "date": "2026-04-13",
+      "time": "03:49",
+      "value": 156,
+      "type": "fasting",
+      "notes": "Today reading was amazing🤩👋🏾"
+    },
+    {
+      "id": 1776167984073,
+      "date": "2026-04-14",
+      "time": "04:59",
+      "value": 151,
+      "type": "fasting",
+      "notes": "Today reading was amazing🤩👋🏾"
     }
   ],
   "bloodPressure": [],
@@ -150,6 +174,6 @@
   "weight_goal": 185,
   "last_lab_a1c": 8.6,
   "projected_a1c": 8.23,
-  "lastUpdated": "2026-04-10T12:40:44.582Z",
+  "lastUpdated": "2026-04-14T11:59:44.392Z",
   "glucose_target": 175
 }

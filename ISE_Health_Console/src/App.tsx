@@ -49,6 +49,11 @@ interface HealthData {
 // ── Helpers ───────────────────────────────────────────────────────────────────
 function today() { return new Date().toISOString().slice(0, 10); }
 function nowTime() { return new Date().toTimeString().slice(0, 5); }
+function sortByDateTime<T extends { date: string; time: string }>(arr: T[]): T[] {
+  return [...arr].sort((a, b) =>
+    `${a.date}T${a.time}`.localeCompare(`${b.date}T${b.time}`)
+  );
+}
 
 function bpColor(sys: number, dia: number) {
   if (sys >= 140 || dia >= 90) return '#EF4444';
@@ -305,21 +310,36 @@ export default function MedicalDashboard() {
   }, []);
 
   // ── Derived stats ───────────────────────────────────────────────────────────
-  const glucoseVals = data?.glucose.map(r => r.value) ?? ANCHOR_GLUCOSE;
+  const sortedGlucose = sortByDateTime(data?.glucose ?? []);
+  const sortedBP      = sortByDateTime(data?.bloodPressure ?? []);
+  const sortedWeight  = sortByDateTime(data?.weightLog ?? []);
+
+  const last14Glucose = sortedGlucose.slice(-14);
+  const glucoseVals   = last14Glucose.length > 0
+    ? last14Glucose.map(r => r.value)
+    : ANCHOR_GLUCOSE;
+
   const avg14 = glucoseVals.length > 0
-    ? (glucoseVals.slice(-14).reduce((a, b) => a + b, 0) / Math.min(glucoseVals.length, 14)).toFixed(1)
+    ? (glucoseVals.reduce((a, b) => a + b, 0) / glucoseVals.length).toFixed(1)
     : '189.6';
   const projA1C   = ((parseFloat(avg14) + 46.7) / 28.7).toFixed(2);
   const lastLab   = data?.last_lab_a1c?.toFixed(1) ?? '8.6';
-  const latestGlucose = glucoseVals[glucoseVals.length - 1] ?? 149;
+  const latestGlucose = sortedGlucose.length > 0
+    ? sortedGlucose[sortedGlucose.length - 1].value
+    : 149;
 
-  const bpEntries = data?.bloodPressure ?? [];
-  const latestBP  = bpEntries[bpEntries.length - 1] ?? null;
+  const bpEntries = sortedBP;
+  const latestBP  = bpEntries.length > 0 ? bpEntries[bpEntries.length - 1] : null;
 
-  const weightEntries = data?.weightLog ?? [];
-  const latestWeight  = weightEntries[weightEntries.length - 1] ?? null;
+  const weightEntries = sortedWeight;
+  const latestWeight  = weightEntries.length > 0 ? weightEntries[weightEntries.length - 1] : null;
 
-  const chartData = glucoseVals.slice(-14).map((val, i) => ({ day: `D${i + 1}`, glucose: val }));
+  const chartData = last14Glucose.length > 0
+    ? last14Glucose.map(entry => ({
+        day: entry.date.slice(5).replace('-', '/'),
+        glucose: entry.value,
+      }))
+    : ANCHOR_GLUCOSE.map((v, i) => ({ day: `D${i + 1}`, glucose: v }));
 
   // ── Save handlers ───────────────────────────────────────────────────────────
   async function persist(updated: HealthData) {
@@ -478,10 +498,10 @@ export default function MedicalDashboard() {
           />
           <StatCard
             title="Blood Pressure"
-            value={latestBP ? `${latestBP.sys}/${latestBP.dia}` : '—/—'}
-            sub={latestBP ? 'mmHg' : 'No reading yet'}
+            value={latestBP ? `${latestBP.sys}/${latestBP.dia}` : '— / —'}
+            sub={latestBP ? 'mmHg' : '[ DATA PENDING ]'}
             icon={Heart}
-            accent={latestBP ? bpColor(latestBP.sys, latestBP.dia) : '#94A3B8'}
+            accent={latestBP ? bpColor(latestBP.sys, latestBP.dia) : '#F59E0B'}
           />
           <StatCard
             title="Body Weight"

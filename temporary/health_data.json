@@ -1,12 +1,164 @@
 {
   "glucose": [
     {
+      "id": 1743894000001,
+      "date": "2026-03-25",
+      "time": "07:12",
+      "value": 181,
+      "type": "fasting",
+      "notes": "Anchor — Day 1"
+    },
+    {
+      "id": 1743894000002,
+      "date": "2026-03-26",
+      "time": "07:08",
+      "value": 173,
+      "type": "fasting",
+      "notes": "Anchor — Day 2"
+    },
+    {
+      "id": 1743894000003,
+      "date": "2026-03-27",
+      "time": "07:05",
+      "value": 202,
+      "type": "fasting",
+      "notes": "Anchor — Day 3"
+    },
+    {
+      "id": 1743894000004,
+      "date": "2026-03-28",
+      "time": "07:22",
+      "value": 199,
+      "type": "fasting",
+      "notes": "Anchor — Day 4"
+    },
+    {
+      "id": 1743894000005,
+      "date": "2026-03-29",
+      "time": "07:10",
+      "value": 185,
+      "type": "fasting",
+      "notes": "Anchor — Day 5"
+    },
+    {
+      "id": 1743894000006,
+      "date": "2026-03-30",
+      "time": "07:00",
+      "value": 179,
+      "type": "fasting",
+      "notes": "Anchor — Day 6"
+    },
+    {
+      "id": 1743894000007,
+      "date": "2026-03-31",
+      "time": "06:55",
+      "value": 181,
+      "type": "fasting",
+      "notes": "Anchor — Day 7"
+    },
+    {
+      "id": 1743894000008,
+      "date": "2026-04-01",
+      "time": "07:18",
+      "value": 204,
+      "type": "fasting",
+      "notes": "Anchor — Day 8"
+    },
+    {
+      "id": 1743894000009,
+      "date": "2026-04-02",
+      "time": "07:30",
+      "value": 179,
+      "type": "fasting",
+      "notes": "Anchor — Day 9"
+    },
+    {
+      "id": 1743894000010,
+      "date": "2026-04-03",
+      "time": "07:02",
+      "value": 177,
+      "type": "fasting",
+      "notes": "Anchor — Day 10"
+    },
+    {
+      "id": 1743894000011,
+      "date": "2026-04-04",
+      "time": "07:35",
+      "value": 223,
+      "type": "fasting",
+      "notes": "Hot cocoa and the beans and rice."
+    },
+    {
+      "id": 1743894000012,
+      "date": "2026-04-05",
+      "time": "07:14",
+      "value": 231,
+      "type": "fasting",
+      "notes": "Anchor — Day 12 — Spike (Cocoa/Rice)"
+    },
+    {
+      "id": 1743894000013,
+      "date": "2026-04-06",
+      "time": "06:58",
+      "value": 178,
+      "type": "fasting",
+      "notes": "Anchor — Day 13"
+    },
+    {
+      "id": 1743894000014,
+      "date": "2026-04-07",
+      "time": "07:14",
+      "value": 163,
+      "type": "fasting",
+      "notes": "Today reading was amazing."
+    },
+    {
+      "id": 1775737083129,
+      "date": "2026-04-09",
+      "time": "05:18",
+      "value": 175,
+      "type": "fasting",
+      "notes": "Today was a good reading it could get better"
+    },
+    {
+      "id": 1775737810345,
+      "date": "2026-04-09",
+      "time": "05:30",
+      "value": 175,
+      "type": "fasting",
+      "notes": "Today was a good reading it could be better"
+    },
+    {
       "id": 1775824844276,
       "date": "2026-04-10",
       "time": "05:40",
       "value": 149,
       "type": "fasting",
-      "notes": "Today reading was amazing"
+      "notes": "Today reading was amazing🤩🫱🏾"
+    },
+    {
+      "id": 1775995548522,
+      "date": "2026-04-12",
+      "time": "05:05",
+      "value": 150,
+      "type": "fasting",
+      "notes": "Today reading was amazing🤩👋🏾"
+    },
+    {
+      "id": 1776077347415,
+      "date": "2026-04-13",
+      "time": "03:49",
+      "value": 156,
+      "type": "fasting",
+      "notes": "Today reading was amazing🤩👋🏾"
+    },
+    {
+      "id": 1776167984073,
+      "date": "2026-04-14",
+      "time": "04:59",
+      "value": 151,
+      "type": "fasting",
+      "notes": "Today reading was amazing🤩👋🏾"
     }
   ],
   "bloodPressure": [],
@@ -20,8 +172,8 @@
     }
   ],
   "weight_goal": 185,
-  "glucose_target": 175,
   "last_lab_a1c": 8.6,
   "projected_a1c": 8.23,
-  "lastUpdated": "2026-04-10T00:00:00.000Z"
+  "lastUpdated": "2026-04-14T11:59:44.392Z",
+  "glucose_target": 175
 }

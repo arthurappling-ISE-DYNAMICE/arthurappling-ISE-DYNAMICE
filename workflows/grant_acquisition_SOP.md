@@ -8,7 +8,7 @@
   Entity:  Arthur F. Appling Sr. / Prime Pathwy
   EIN:     84-4788578  |  DUNS: 12-3035654
   Address: 425 Virginia St STE B, Vallejo, CA 94590
-  NAICS:   561720 (Janitorial Services)  |  562111 (Hauling)
+  NAICS:   561720 (Janitorial Services)  |  562111 (Hauling)  |  484110 (General Freight)  |  491110 (Postal Service)
   Classification: Institutional Grade | Audit-Ready | WAT Framework
 ═══════════════════════════════════════════════════════════════
 ```
@@ -26,9 +26,11 @@
 
 **Primary Targets:**
 - California State Grants — grants.ca.gov (Cal OES, CalRecycle, CDFA, GO-Biz)
-- Federal Small Business Grants — SBA.gov, Grants.gov (NAICS 561720 / 562111 eligible programs)
+- Federal Small Business Grants — SBA.gov, Grants.gov (NAICS 561720 / 562111 / 484110 eligible programs)
+- **USPS eSourcing & Logistics Portal** — USPS non-dilutive logistics contracts and subcontract opportunities (NAICS 484110 / 491110); target: San Francisco CA RPDC at 2501 Rydin Rd., Richmond CA 94850
 - Minority Business Development Agency (MBDA) grant programs
 - Environmental Workforce Development grants (EPA Region 9 — covers Solano County)
+- DOT Small Business Transportation Resource Center (SBTRC) — logistics and transportation-specific grant programs for NAICS 484110 operators
 
 **Winning Definition:** A submitted, complete grant application that positions Prime Pathwy as a Sovereign System Integration provider — not a labor vendor — operating in an underserved community with documented operational infrastructure.
 
@@ -178,12 +180,28 @@ deadline, and eligibility requirements. Focus on minority-owned or community-imp
 ```
 Perplexity Prompt — Federal Small Business Grants:
 Find active federal grant programs on Grants.gov or SBA.gov for small businesses in
-NAICS 561720 (Janitorial Services) or 562111 (Solid Waste Collection / Hauling).
-Prioritize: Minority Business Development Agency (MBDA) grants, EPA Environmental
-Workforce Development grants (Region 9, California), SBA Community Navigator grants,
-and EDA Economic Development grants for underserved communities. Include program name,
-CFDA number, award range, deadline, and Small Business / Minority-Owned eligibility.
+NAICS 561720 (Janitorial Services), 562111 (Solid Waste Collection / Hauling), or
+484110 (General Freight Trucking). Prioritize: Minority Business Development Agency
+(MBDA) grants, EPA Environmental Workforce Development grants (Region 9, California),
+SBA Community Navigator grants, DOT Small Business Transportation Resource Center
+(SBTRC) grants, and EDA Economic Development grants for underserved communities.
+Include program name, CFDA number, award range, deadline, and Small Business /
+Minority-Owned eligibility.
 ```
+
+**USPS eSourcing & Logistics Portal (Non-Dilutive Logistics Contracts):**
+
+```
+Perplexity Prompt — USPS Logistics Subcontracting Opportunities:
+Find active USPS solicitations, Highway Contract Routes (HCR), or terminal-to-terminal
+hauling subcontract opportunities on SAM.gov or the USPS eSourcing portal for Northern
+California — specifically the San Francisco CA RPDC at 2501 Rydin Rd., Richmond CA 94850
+and its Local Processing Centers (Oakland, San Francisco, Petaluma, San Jose, Eureka).
+NAICS 484110 and 491110. Include solicitation numbers, award ranges, submission
+deadlines, and any small business or supplier diversity set-asides.
+```
+
+**Action:** Submit PS Form 5436 to USPS Transportation Contracts to be added to the solicitation mailing list — this ensures Prime Pathwy receives HCR and RPDC hauling route notices automatically. See `workflows/USPS_Logistics_Identity.md` for full USPS registration and eSourcing onboarding SOP.
 
 **Log Format:** Save scouting results in a dated file: `logs/grant_scout_YYYY-MM-DD.md`.
 
@@ -192,7 +210,7 @@ CFDA number, award range, deadline, and Small Business / Minority-Owned eligibil
 | Criterion | Requirement | GREEN | YELLOW | RED |
 |---|---|---|---|---|
 | Business type | Small Business / Minority-Owned | Match | Certification pending | Not applicable |
-| NAICS match | 561720 or 562111 | Match | Adjacent NAICS | No match |
+| NAICS match | 561720, 562111, 484110, or 491110 | Match | Adjacent NAICS | No match |
 | Geography | CA / Solano County / Vallejo | In-scope | Statewide eligible | Out of state |
 | Matching funds | Within operating budget | Not required or affordable | Review | Exceeds capacity |
 | Designation required | None or Small Business | None required | MBE/DBE needed | 501(c)(3) required |
@@ -256,6 +274,8 @@ CFDA number, award range, deadline, and Small Business / Minority-Owned eligibil
 - California State grants: grants.ca.gov
 - Federal grants: Grants.gov
 - SBA-specific programs: SBA.gov/funding-programs/grants
+- USPS Logistics Contracts: USPS eSourcing portal (via about.usps.com/what/business-services/suppliers/becoming/) + SAM.gov for HCR solicitations
+- DOT Transportation Grants: transportation.gov/grants (NAICS 484110 programs)
 
 **Log every submission in `logs/grant_submissions.md`:**
 
