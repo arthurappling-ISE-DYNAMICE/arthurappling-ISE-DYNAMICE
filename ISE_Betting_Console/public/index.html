@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AA Betting Board — ISE Dynamics V5</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --black:#0c0c0c;--panel:#141414;--border:#1e1e1e;--border2:#2a2a2a;
+  --gold:#c9a227;--gold-dim:#5a4510;--gold-glow:rgba(201,162,39,0.10);
+  --white:#f0f0f0;--dim:#555;--dim2:#333;
+  --green:#2ecc71;--red:#e74c3c;
+}
+body{background:var(--black);color:var(--white);font-family:'Courier New',monospace;
+     min-height:100vh;overflow-x:hidden;font-size:13px}
+::-webkit-scrollbar{width:4px;background:var(--black)}
+::-webkit-scrollbar-thumb{background:var(--gold-dim)}
+
+/* ── NAV ── */
+.nav{display:flex;align-items:center;justify-content:space-between;
+     padding:12px 24px;border-bottom:1px solid var(--border);
+     background:#090909;position:sticky;top:0;z-index:100}
+.nav-logo{font-size:11px;letter-spacing:3px;color:var(--gold);font-weight:700;text-transform:uppercase}
+.nav-sub{font-size:8px;color:var(--dim);letter-spacing:2px;margin-top:2px}
+.nav-right{display:flex;gap:10px;align-items:center}
+.badge{padding:3px 10px;font-size:8px;letter-spacing:2px;border:1px solid var(--gold-dim);color:var(--gold)}
+.status-pill{padding:3px 10px;font-size:8px;letter-spacing:2px;font-weight:700;
+             background:#2a7a50;color:#fff;transition:background .3s}
+.status-pill.danger{background:#7a1e1e}
+
+/* ── GRID ── */
+.grid{display:grid;grid-template-columns:1fr 1fr 296px;
+      grid-template-rows:1fr auto;gap:1px;background:var(--border);
+      min-height:calc(100vh - 49px)}
+.panel{background:var(--panel);padding:18px 20px;overflow:hidden}
+.panel-title{font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);
+             margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.panel-title::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* ── RIGHT COLUMN ── */
+.right-col{grid-column:3;grid-row:1/3;display:flex;flex-direction:column;
+           gap:1px;background:var(--border)}
+.right-section{background:var(--panel);padding:18px 20px}
+
+/* ── CARDS ── */
+.cards{display:grid;gap:6px;margin-bottom:12px}
+.cards-3{grid-template-columns:1fr 1fr 1fr}
+.cards-2{grid-template-columns:1fr 1fr}
+.cards-4{grid-template-columns:1fr 1fr 1fr 1fr}
+.card{background:#0e0e0e;border:1px solid var(--border);padding:9px 11px}
+.card-label{font-size:7px;letter-spacing:2px;color:var(--dim);text-transform:uppercase;margin-bottom:3px}
+.card-value{font-size:17px;font-weight:700}
+.card-value.gold{color:var(--gold)}
+.card-value.green{color:var(--green)}
+.card-value.red{color:var(--red)}
+.card-value.white{color:var(--white)}
+.card-value.dim{color:var(--dim);font-size:12px}
+.card-sub{font-size:7px;color:var(--dim);margin-top:1px;letter-spacing:1px}
+
+/* ── SVG CHART WRAPPER ── */
+.chart-wrap{width:100%;position:relative}
+.chart-axes{display:flex;justify-content:space-between;
+            font-size:8px;color:var(--dim);letter-spacing:1px;margin-top:4px}
+
+/* ── TOOLTIP ── */
+.tooltip{position:fixed;display:none;background:#0e0e0e;border:1px solid var(--gold-dim);
+         padding:10px 14px;font-size:8px;line-height:1.9;letter-spacing:1px;
+         pointer-events:none;z-index:999;min-width:160px}
+.tooltip.show{display:block}
+.tt-title{color:var(--gold);font-weight:700;font-size:9px;margin-bottom:4px;letter-spacing:2px}
+.tt-row{display:flex;justify-content:space-between;gap:14px}
+.tt-key{color:var(--dim)}
+.tt-val{color:var(--white)}
+.tt-val.gold{color:var(--gold)}
+.tt-val.green{color:var(--green)}
+.tt-val.red{color:var(--red)}
+
+/* ── LADDER ── */
+.ladder{display:flex;flex-direction:column;gap:6px}
+.tier{border:1px solid var(--border);padding:10px 12px;transition:all .2s}
+.tier.active{border-color:var(--gold-dim);background:var(--gold-glow)}
+.tier.locked{opacity:.3}
+.tier-badge{font-size:7px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:5px}
+.tier.active .tier-badge{color:var(--gold)}
+.tier-name{font-size:14px;font-weight:700;color:var(--white);margin-bottom:3px}
+.tier.active .tier-name{color:var(--gold)}
+.tier-thresh{font-size:8px;color:var(--dim);margin-bottom:7px}
+.tier.active .tier-thresh{color:rgba(201,162,39,.55)}
+.slots{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+.slot{background:#111;border:1px solid #1a1a1a;padding:4px 6px;
+      font-size:8px;letter-spacing:1px;color:var(--dim);text-align:center;
+      white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.slot.filled{border-color:var(--gold-dim);color:var(--gold);background:rgba(201,162,39,.05)}
+.slot.empty-locked{border-style:dashed;opacity:.25}
+.mandate{font-size:7px;letter-spacing:1px;color:var(--gold);background:rgba(201,162,39,.07);
+         border:1px solid var(--gold-dim);padding:2px 6px;display:inline-block;margin-top:5px}
+.conn{text-align:center;color:var(--gold-dim);font-size:15px;line-height:1.2}
+
+/* ── STEALTH TRACKER ── */
+.stealth-meta{display:flex;justify-content:space-between;font-size:8px;
+              letter-spacing:1px;color:var(--dim);margin-bottom:5px}
+.stealth-track{height:8px;background:#111;border:1px solid var(--border);
+               position:relative;overflow:hidden}
+.stealth-fill{height:100%;transition:width .5s}
+.stealth-fill.gold{background:linear-gradient(90deg,var(--gold),#dfc035)}
+.stealth-fill.danger{background:linear-gradient(90deg,var(--gold),var(--red))}
+.stealth-redzone{position:absolute;top:0;right:0;width:20%;height:100%;
+                 background:rgba(231,76,60,.10);border-left:1px dashed rgba(231,76,60,.3)}
+.stealth-readout{display:flex;justify-content:space-between;font-size:9px;margin-top:5px}
+
+/* ── RULES ── */
+.rules{background:#0a0a0a;border:1px solid var(--border);padding:11px;
+       font-size:8px;color:var(--dim);line-height:2;letter-spacing:1px;margin-top:10px}
+.rule-line{display:flex;gap:6px}
+.rn{color:var(--gold);min-width:14px}
+
+/* ── LOG ── */
+.log{font-size:8px;color:var(--dim);line-height:2;letter-spacing:1px;
+     border-top:1px solid var(--border);padding-top:8px;margin-top:8px}
+.log-gold{color:var(--gold)}
+.log-green{color:var(--green)}
+.log-red{color:var(--red)}
+
+/* ── DOT ── */
+.dot{width:5px;height:5px;border-radius:50%;background:var(--green);
+     display:inline-block;animation:pulse 2s infinite;margin-right:4px}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ── WATERMARK ── */
+.wm{text-align:center;padding:7px;font-size:7px;letter-spacing:3px;
+    color:#181818;text-transform:uppercase;background:#090909;border-top:1px solid #111}
+
+/* ── RENO DRAWER ── */
+.reno-btn{padding:3px 10px;font-size:8px;letter-spacing:2px;font-weight:700;
+          background:transparent;border:1px solid var(--gold);color:var(--gold);
+          cursor:pointer;transition:background .2s}
+.reno-btn:hover{background:var(--gold-glow)}
+
+#reno-drawer{position:fixed;top:0;right:0;height:100vh;width:360px;
+             background:#0f0f0f;border-left:1px solid var(--gold-dim);
+             transform:translateX(100%);transition:transform .3s ease;
+             z-index:300;display:flex;flex-direction:column;overflow:hidden}
+#reno-drawer.open{transform:translateX(0)}
+
+.reno-head{display:flex;justify-content:space-between;align-items:flex-start;
+           padding:14px 16px 10px;border-bottom:1px solid var(--border);
+           background:#090909;flex-shrink:0}
+.reno-title{font-size:9px;letter-spacing:3px;color:var(--gold);font-weight:700;
+            text-transform:uppercase;margin-bottom:6px}
+.reno-week-wrap{display:flex;align-items:center;gap:8px;font-size:8px;
+                color:var(--dim);letter-spacing:1px}
+#reno-week{background:#111;color:var(--gold);border:1px solid var(--gold-dim);
+           padding:3px 6px;font-size:8px;font-family:'Courier New',monospace;
+           letter-spacing:1px;cursor:pointer}
+.reno-close{background:none;border:none;color:var(--dim);font-size:18px;
+            cursor:pointer;padding:0 4px;line-height:1}
+.reno-close:hover{color:var(--white)}
+
+.reno-body{flex:1;overflow-y:auto;padding:12px 16px}
+
+.reno-tier{border:1px solid var(--border);padding:12px;margin-bottom:10px;
+           transition:opacity .3s,border-color .3s}
+.reno-tier.cascade-fail{opacity:.35;pointer-events:none;border-color:#3a1010}
+.reno-tier-label{font-size:7px;letter-spacing:2px;color:var(--gold);
+                 text-transform:uppercase;margin-bottom:10px;
+                 border-bottom:1px solid var(--border);padding-bottom:6px}
+.reno-field{margin-bottom:8px}
+.reno-label{font-size:7px;letter-spacing:1px;color:var(--dim);display:block;margin-bottom:3px}
+.reno-input{width:100%;background:#0a0a0a;border:1px solid var(--border);
+            color:var(--white);padding:6px 8px;font-size:9px;
+            font-family:'Courier New',monospace;letter-spacing:1px;box-sizing:border-box}
+.reno-input:focus{outline:none;border-color:var(--gold-dim)}
+.reno-input[readonly]{color:var(--dim);border-color:#1a1a1a;background:#080808}
+.reno-stake{font-size:8px;color:var(--dim);letter-spacing:1px;margin-bottom:8px;
+            padding:4px 0;border-top:1px solid var(--border)}
+.reno-err{font-size:7px;color:var(--red);letter-spacing:1px;margin-top:2px;min-height:13px}
+
+.reno-result{display:none;gap:6px;margin-top:8px}
+.reno-result.visible{display:flex}
+.reno-result-btn{flex:1;padding:6px;font-size:8px;letter-spacing:2px;font-weight:700;
+                 background:transparent;border:1px solid var(--border);
+                 color:var(--dim);cursor:pointer;transition:all .2s;text-transform:uppercase;
+                 font-family:'Courier New',monospace}
+.reno-result-btn.hit-btn{border-color:var(--gold-dim);color:var(--gold)}
+.reno-result-btn.hit-btn:hover,.reno-result-btn.hit-btn.active{background:rgba(201,162,39,.15)}
+.reno-result-btn.miss-btn{border-color:#3a1010;color:#773030}
+.reno-result-btn.miss-btn:hover,.reno-result-btn.miss-btn.active{background:rgba(231,76,60,.12);color:var(--red)}
+
+.reno-cascade-banner{display:none;text-align:center;font-size:7px;letter-spacing:3px;
+                     color:var(--red);border:1px solid #3a1010;padding:4px;
+                     margin-top:8px;text-transform:uppercase}
+.reno-cascade-banner.show{display:block}
+
+.reno-footer{padding:12px 16px;border-top:1px solid var(--border);
+             background:#090909;flex-shrink:0}
+#reno-commit{width:100%;padding:10px;font-size:9px;letter-spacing:2px;font-weight:700;
+             background:var(--gold);color:#000;border:none;cursor:pointer;
+             text-transform:uppercase;font-family:'Courier New',monospace;transition:opacity .2s}
+#reno-commit:hover{opacity:.85}
+#reno-committed-badge{display:none;text-align:center;font-size:8px;letter-spacing:2px;
+                      color:var(--green);padding:8px 0;font-family:'Courier New',monospace}
+</style>
+</head>
+<body>
+
+<div id="tooltip" class="tooltip">
+  <div class="tt-title" id="tt-title"></div>
+  <div id="tt-body"></div>
+</div>
+
+<div class="nav">
+  <div>
+    <div class="nav-logo">AA Betting Board</div>
+    <div class="nav-sub">ISE Dynamics · Sovereign Execution Engine V5</div>
+  </div>
+  <div class="nav-right">
+    <div class="badge" id="week-badge">WEEK 1 · 2026</div>
+    <button class="reno-btn" onclick="toggleDrawer()">⬡ RENO</button>
+    <div class="status-pill" id="status-pill">LOADING</div>
+  </div>
+</div>
+
+<div class="grid">
+  <!-- GRAPH A -->
+  <div class="panel">
+    <div class="panel-title">Graph A — Empire Curve</div>
+    <div class="cards cards-3" id="empire-stats"></div>
+    <div class="chart-wrap" id="empire-chart"></div>
+    <div class="chart-axes">
+      <span>Wk 1</span><span>Wk 5</span><span>Wk 10</span><span>Wk 15</span><span>Wk 18</span>
+    </div>
+  </div>
+
+  <!-- GRAPH B -->
+  <div class="panel">
+    <div class="panel-title">Graph B — Survivability vs Outcome</div>
+    <div style="font-size:8px;color:var(--dim);margin-bottom:8px;letter-spacing:1px">
+      BAR HEIGHT = SS SCORE · GOLD=Win · RED=Loss · GREY=Pending · HOVER FOR DETAILS
+    </div>
+    <div class="chart-wrap" id="ss-chart"></div>
+    <div style="display:flex;gap:12px;margin-top:8px;border-top:1px solid var(--border);padding-top:8px">
+      <span style="font-size:7px;color:var(--gold);letter-spacing:1px">■ T1–4 Foundation (SS≥90)</span>
+      <span style="font-size:7px;color:#666;letter-spacing:1px">■ T5–6 Extension (SS≥88)</span>
+      <span style="font-size:7px;color:var(--dim2);letter-spacing:1px">■ T7–8 Risk (SS≥85)</span>
+    </div>
+  </div>
+
+  <!-- RIGHT COLUMN -->
+  <div class="right-col">
+    <div class="right-section" style="flex:1">
+      <div class="panel-title">4-6-8 Ladder — Connection Mandate</div>
+      <div class="ladder" id="ladder"></div>
+    </div>
+    <div class="right-section" style="flex:0 0 auto">
+      <div class="panel-title">Stealth Tracker — Exposure</div>
+      <div id="stealth"></div>
+    </div>
+  </div>
+
+  <!-- WEEK STATUS -->
+  <div class="panel">
+    <div class="panel-title"><span class="dot"></span>Week Status — Tickets</div>
+    <div id="week-status"></div>
+  </div>
+
+  <!-- EXPOSURE DETAIL -->
+  <div class="panel">
+    <div class="panel-title">Exposure Detail — Season</div>
+    <div id="exposure"></div>
+  </div>
+</div>
+
+<div class="wm">AA Capital INC · ISE Dynamics · Prime Pathwy · Sovereign Execution</div>
+
+<!-- ── RENO INPUT DRAWER ──────────────────────────────────────────────────── -->
+<div id="reno-drawer">
+  <div class="reno-head">
+    <div>
+      <div class="reno-title">Reno Input Portal</div>
+      <div class="reno-week-wrap">
+        WEEK
+        <select id="reno-week">
+          <option value="1">1</option><option value="2">2</option>
+          <option value="3">3</option><option value="4">4</option>
+          <option value="5">5</option><option value="6">6</option>
+          <option value="7">7</option><option value="8">8</option>
+          <option value="9">9</option><option value="10">10</option>
+          <option value="11">11</option><option value="12">12</option>
+          <option value="13">13</option><option value="14">14</option>
+          <option value="15">15</option><option value="16">16</option>
+          <option value="17">17</option><option value="18">18</option>
+        </select>
+        <span style="color:var(--gold-dim)">· 2026</span>
+      </div>
+    </div>
+    <button class="reno-close" onclick="toggleDrawer()">✕</button>
+  </div>
+
+  <div class="reno-body">
+
+    <!-- 4-LEG -->
+    <div class="reno-tier" id="tier-4">
+      <div class="reno-tier-label">4-Leg · Foundation Lock · SS ≥ 90</div>
+      <div class="reno-field">
+        <label class="reno-label">William Hill Ticket ID</label>
+        <input id="t4-id" class="reno-input" type="text" maxlength="40"
+               placeholder="004014-0188-0612-0035">
+        <div class="reno-err" id="t4-err"></div>
+      </div>
+      <div class="reno-field">
+        <label class="reno-label">Payout $ (from physical ticket)</label>
+        <input id="t4-payout" class="reno-input" type="number" min="0" step="1" placeholder="0">
+      </div>
+      <div class="reno-stake">Stake: $100 · locked</div>
+      <div class="reno-result" id="t4-result">
+        <button class="reno-result-btn hit-btn" id="t4-hit"
+                onclick="setResult('4-Leg','Hit')">HIT</button>
+        <button class="reno-result-btn miss-btn" id="t4-miss"
+                onclick="setResult('4-Leg','Miss')">MISS</button>
+      </div>
+    </div>
+
+    <!-- 6-LEG -->
+    <div class="reno-tier" id="tier-6">
+      <div class="reno-tier-label">6-Leg · Extension Tier · SS ≥ 88</div>
+      <div class="reno-field">
+        <label class="reno-label">William Hill Ticket ID</label>
+        <input id="t6-id" class="reno-input" type="text" maxlength="40"
+               placeholder="004014-0188-0612-0035">
+        <div class="reno-err" id="t6-err"></div>
+      </div>
+      <div class="reno-field">
+        <label class="reno-label">Payout $ (from physical ticket)</label>
+        <input id="t6-payout" class="reno-input" type="number" min="0" step="1" placeholder="0">
+      </div>
+      <div class="reno-stake">Stake: $100 · locked</div>
+      <div class="reno-result" id="t6-result">
+        <button class="reno-result-btn hit-btn" id="t6-hit"
+                onclick="setResult('6-Leg','Hit')">HIT</button>
+        <button class="reno-result-btn miss-btn" id="t6-miss"
+                onclick="setResult('6-Leg','Miss')">MISS</button>
+      </div>
+      <div class="reno-cascade-banner" id="cascade-6">⬡ LADDER COLLAPSED</div>
+    </div>
+
+    <!-- 8-LEG -->
+    <div class="reno-tier" id="tier-8">
+      <div class="reno-tier-label">8-Leg · Risk Tier · SS ≥ 85</div>
+      <div class="reno-field">
+        <label class="reno-label">William Hill Ticket ID</label>
+        <input id="t8-id" class="reno-input" type="text" maxlength="40"
+               placeholder="004014-0188-0612-0035">
+        <div class="reno-err" id="t8-err"></div>
+      </div>
+      <div class="reno-field">
+        <label class="reno-label">Payout $ (from physical ticket)</label>
+        <input id="t8-payout" class="reno-input" type="number" min="0" step="1" placeholder="0">
+      </div>
+      <div class="reno-stake">Stake: $100 · locked</div>
+      <div class="reno-result" id="t8-result">
+        <button class="reno-result-btn hit-btn" id="t8-hit"
+                onclick="setResult('8-Leg','Hit')">HIT</button>
+        <button class="reno-result-btn miss-btn" id="t8-miss"
+                onclick="setResult('8-Leg','Miss')">MISS</button>
+      </div>
+      <div class="reno-cascade-banner" id="cascade-8">⬡ LADDER COLLAPSED</div>
+    </div>
+
+  </div><!-- /reno-body -->
+
+  <div class="reno-footer">
+    <button id="reno-commit" onclick="renoCommit()">⬡ RENO COMMITMENT — EXECUTE</button>
+    <div id="reno-committed-badge">✓ COMMITTED · TICKETS ACTIVE</div>
+  </div>
+</div>
+
+<script>
+// ── CONFIG ───────────────────────────────────────────────────────────────────
+const RED_FLAG = 500;
+const UNIT     = 100;
+
+// ── STATE ────────────────────────────────────────────────────────────────────
+let log = [];
+
+// ── RENO DRAWER ──────────────────────────────────────────────────────────────
+let drawerOpen = false;
+
+function toggleDrawer() {
+  drawerOpen = !drawerOpen;
+  const drawer = document.getElementById('reno-drawer');
+  if (drawerOpen) {
+    drawer.classList.add('open');
+    const lastWeek = log.length ? log[log.length - 1].week : 1;
+    const sel = document.getElementById('reno-week');
+    sel.value = lastWeek;
+    populateDrawer(lastWeek);
+  } else {
+    drawer.classList.remove('open');
+  }
+}
+
+function populateDrawer(week) {
+  const types  = ['4-Leg', '6-Leg', '8-Leg'];
+  const prefix = { '4-Leg': 't4', '6-Leg': 't6', '8-Leg': 't8' };
+
+  const entries = {};
+  types.forEach(t => {
+    entries[t] = log.find(e => e.week === week && e.type === t) || null;
+  });
+
+  const committed = !!entries['4-Leg'];
+
+  types.forEach(type => {
+    const p   = prefix[type];
+    const ent = entries[type];
+
+    document.getElementById(`${p}-id`).value     = ent?.ticketId     || '';
+    document.getElementById(`${p}-payout`).value = ent?.ticketPayout || '';
+
+    document.getElementById(`${p}-id`).readOnly     = committed;
+    document.getElementById(`${p}-payout`).readOnly = committed;
+
+    document.getElementById(`${p}-err`).textContent = '';
+
+    const resultDiv = document.getElementById(`${p}-result`);
+    if (committed) resultDiv.classList.add('visible');
+    else           resultDiv.classList.remove('visible');
+
+    document.getElementById(`${p}-hit`).classList.toggle('active',  ent?.status === 'Hit');
+    document.getElementById(`${p}-miss`).classList.toggle('active', ent?.status === 'Miss');
+  });
+
+  document.getElementById('reno-commit').style.display          = committed ? 'none'  : 'block';
+  document.getElementById('reno-committed-badge').style.display = committed ? 'block' : 'none';
+
+  const fourLegMiss = entries['4-Leg'] && entries['4-Leg'].status === 'Miss';
+  if (fourLegMiss) applyCascadeVisual();
+  else             clearCascadeVisual();
+}
+
+async function renoCommit() {
+  const week  = parseInt(document.getElementById('reno-week').value);
+  const today = new Date().toISOString().slice(0, 10);
+
+  const fields = {
+    '4-Leg': { id: 't4-id', payout: 't4-payout', err: 't4-err' },
+    '6-Leg': { id: 't6-id', payout: 't6-payout', err: 't6-err' },
+    '8-Leg': { id: 't8-id', payout: 't8-payout', err: 't8-err' },
+  };
+
+  let valid = true;
+  Object.entries(fields).forEach(([type, f]) => {
+    const val = document.getElementById(f.id).value.trim();
+    if (!val) {
+      document.getElementById(f.err).textContent = 'Ticket ID required for Audit Integrity.';
+      valid = false;
+    } else {
+      document.getElementById(f.err).textContent = '';
+    }
+  });
+  if (!valid) return;
+
+  const tiers = {};
+  Object.entries(fields).forEach(([type, f]) => {
+    tiers[type] = {
+      ticketId: document.getElementById(f.id).value.trim(),
+      payout:   parseFloat(document.getElementById(f.payout).value) || 0,
+    };
+  });
+
+  try {
+    const r = await fetch('/api/sync', {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify({ week, date: today, tiers }),
+    });
+    if (!r.ok) throw new Error('sync failed');
+    await fetchLog();
+    populateDrawer(week);
+  } catch (err) {
+    console.error('[RENO COMMIT FAILED]', err.message);
+  }
+}
+
+async function setResult(type, result) {
+  const week = parseInt(document.getElementById('reno-week').value);
+  const idx  = log.findIndex(e => e.week === week && e.type === type);
+  if (idx < 0) return;
+
+  const ticketPayout = log[idx].ticketPayout || 0;
+  const updates = result === 'Hit'
+    ? { status: 'Hit',  payout: ticketPayout, net_profit: ticketPayout - 100 }
+    : { status: 'Miss', payout: 0,            net_profit: -100 };
+
+  try {
+    const r = await fetch(`/api/log/${idx}`, {
+      method:  'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify(updates),
+    });
+    if (!r.ok) throw new Error('put failed');
+    if (type === '4-Leg' && result === 'Miss') await cascadeMiss(week);
+    await fetchLog();
+    populateDrawer(week);
+  } catch (err) {
+    console.error('[SET RESULT FAILED]', err.message);
+  }
+}
+
+async function cascadeMiss(week) {
+  for (const type of ['6-Leg', '8-Leg']) {
+    const idx = log.findIndex(e => e.week === week && e.type === type);
+    if (idx < 0) continue;
+    await fetch(`/api/log/${idx}`, {
+      method:  'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify({ status: 'Miss', payout: 0, net_profit: -100 }),
+    });
+  }
+  applyCascadeVisual();
+}
+
+function applyCascadeVisual() {
+  document.getElementById('tier-6').classList.add('cascade-fail');
+  document.getElementById('tier-8').classList.add('cascade-fail');
+  document.getElementById('cascade-6').classList.add('show');
+  document.getElementById('cascade-8').classList.add('show');
+}
+
+function clearCascadeVisual() {
+  document.getElementById('tier-6').classList.remove('cascade-fail');
+  document.getElementById('tier-8').classList.remove('cascade-fail');
+  document.getElementById('cascade-6').classList.remove('show');
+  document.getElementById('cascade-8').classList.remove('show');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('reno-week').addEventListener('change', e => {
+    populateDrawer(parseInt(e.target.value));
+  });
+});
+
+// ── TOOLTIP ──────────────────────────────────────────────────────────────────
+const tooltip = document.getElementById('tooltip');
+const ttTitle = document.getElementById('tt-title');
+const ttBody  = document.getElementById('tt-body');
+
+function showTooltip(e, title, rows) {
+  ttTitle.textContent = title;
+  ttBody.innerHTML = rows.map(([k,v,cls='']) =>
+    `<div class="tt-row"><span class="tt-key">${k}</span><span class="tt-val ${cls}">${v}</span></div>`
+  ).join('');
+  tooltip.classList.add('show');
+  moveTooltip(e);
+}
+function moveTooltip(e) {
+  const x = e.clientX + 14, y = e.clientY - 10;
+  const tw = tooltip.offsetWidth, th = tooltip.offsetHeight;
+  tooltip.style.left = (x + tw > window.innerWidth  ? x - tw - 18 : x) + 'px';
+  tooltip.style.top  = (y + th > window.innerHeight ? y - th - 10 : y) + 'px';
+}
+function hideTooltip() { tooltip.classList.remove('show'); }
+document.addEventListener('mousemove', e => { if (tooltip.classList.contains('show')) moveTooltip(e); });
+
+// ── HELPERS ──────────────────────────────────────────────────────────────────
+function outcomeColor(o) { return o === 'Hit' ? 'var(--gold)' : o === 'Miss' ? 'var(--red)' : '#2a2a2a'; }
+function outcomeClass(o) { return o === 'Hit' ? 'gold' : o === 'Miss' ? 'red' : ''; }
+function tierColor(tier)  { return tier === 'Foundation' ? 'var(--gold)' : tier === 'Extension' ? '#777' : '#3a3a3a'; }
+
+function card(label, value, cls, sub='') {
+  return `<div class="card">
+    <div class="card-label">${label}</div>
+    <div class="card-value ${cls}">${value}</div>
+    ${sub ? `<div class="card-sub">${sub}</div>` : ''}
+  </div>`;
+}
+
+// ── EMPIRE CURVE (SVG Area Chart) ────────────────────────────────────────────
+function renderEmpireCurve() {
+  const el = document.getElementById('empire-chart');
+  const stats = document.getElementById('empire-stats');
+
+  // Build per-week data
+  const weekMap = {};
+  log.forEach(e => {
+    const w = e.week;
+    if (!weekMap[w]) weekMap[w] = { week: w, payout: 0, invested: 0 };
+    weekMap[w].invested += (e.unit || UNIT);
+    if (e.status === 'Hit') weekMap[w].payout += (e.payout || 0);
+  });
+
+  let cumulative = 0;
+  const data = Object.values(weekMap).sort((a,b) => a.week - b.week).map(w => {
+    const net = w.payout - w.invested;
+    cumulative += net;
+    return { ...w, net, cumulative };
+  });
+  if (!data.length) data.push({ week: 1, payout: 0, invested: UNIT, net: 0, cumulative: 0 });
+
+  const totalInvested = log.reduce((s,e) => s + (e.unit || UNIT), 0);
+  const totalPayout   = log.filter(e => e.status === 'Hit').reduce((s,e) => s + (e.payout||0), 0);
+  const netPL         = totalPayout - totalInvested;
+  const plCls         = netPL > 0 ? 'green' : netPL < 0 ? 'red' : 'dim';
+  const plStr         = netPL === 0 ? '—' : (netPL > 0 ? '+' : '') + '$' + Math.abs(netPL).toLocaleString();
+
+  stats.innerHTML =
+    card('Starting Bankroll', '$100', 'gold') +
+    card('Net P&L', plStr, plCls) +
+    card('Weeks Played', Object.keys(weekMap).length, 'white');
+
+  // SVG dimensions
+  const W = 560, H = 160, PL = 36, PR = 8, PT = 10, PB = 4;
+  const cW = W - PL - PR, cH = H - PT - PB;
+
+  const yVals = data.map(d => d.cumulative);
+  const yMin  = Math.min(0, ...yVals);
+  const yMax  = Math.max(0, ...yVals, 50);
+  const xMax  = Math.max(18, data[data.length-1]?.week || 1);
+
+  const toX = w  => PL + ((w - 1) / (xMax - 1 || 1)) * cW;
+  const toY = v  => PT + (1 - (v - yMin) / (yMax - yMin || 1)) * cH;
+  const y0  = toY(0);
+
+  const pts = data.map(d => `${toX(d.week)},${toY(d.cumulative)}`).join(' ');
+  const first = { x: toX(data[0].week), y: toY(data[0].cumulative) };
+  const last  = { x: toX(data[data.length-1].week), y: toY(data[data.length-1].cumulative) };
+
+  // Grid y labels
+  const yLabels = [yMin, 0, yMax].filter((v,i,a) => a.indexOf(v) === i).map(v => ({
+    v, y: toY(v), label: '$' + (v >= 0 ? '' : '-') + Math.abs(v).toLocaleString()
+  }));
+
+  const dots = data.map((d,i) => {
+    const x = toX(d.week), y2 = toY(d.cumulative);
+    return `<circle class="emp-dot" cx="${x}" cy="${y2}" r="4"
+      fill="var(--gold)" stroke="var(--panel)" stroke-width="1.5"
+      data-idx="${i}" style="cursor:pointer" />`;
+  }).join('');
+
+  el.innerHTML = `<svg viewBox="0 0 ${W} ${H}" style="width:100%;height:175px;display:block">
+    <defs>
+      <linearGradient id="empG" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#c9a227" stop-opacity="0.30"/>
+        <stop offset="100%" stop-color="#c9a227" stop-opacity="0.02"/>
+      </linearGradient>
+    </defs>
+    ${yLabels.map(l => `
+      <line x1="${PL}" y1="${l.y}" x2="${W-PR}" y2="${l.y}" stroke="#1c1c1c" stroke-width="1"/>
+      <text x="${PL-4}" y="${l.y+3}" fill="#3a3a3a" font-size="8" font-family="monospace" text-anchor="end">${l.label}</text>
+    `).join('')}
+    <line x1="${PL}" y1="${y0}" x2="${W-PR}" y2="${y0}" stroke="#2a2a2a" stroke-dasharray="4,4" stroke-width="1"/>
+    <path d="M${first.x},${y0} L${pts} L${last.x},${y0} Z" fill="url(#empG)"/>
+    <polyline points="${pts}" fill="none" stroke="var(--gold)" stroke-width="1.5"/>
+    ${dots}
+  </svg>`;
+
+  // Dot hover tooltips
+  el.querySelectorAll('.emp-dot').forEach(dot => {
+    const idx = +dot.dataset.idx;
+    const d   = data[idx];
+    dot.addEventListener('mouseenter', e => showTooltip(e, `WEEK ${d.week}`, [
+      ['Gross Payout', '$' + (d.payout||0).toLocaleString(), 'gold'],
+      ['Invested',     '$' + (d.invested||0).toLocaleString()],
+      ['Net Profit',   (d.net>=0?'+':'') + '$' + Math.abs(d.net||0).toLocaleString(), d.net>=0?'green':'red'],
+      ['Cumulative',   (d.cumulative>=0?'+':'') + '$' + Math.abs(d.cumulative||0).toLocaleString(), d.cumulative>=0?'green':'red'],
+    ]));
+    dot.addEventListener('mouseleave', hideTooltip);
+  });
+}
+
+// ── SS vs OUTCOME (SVG Bar Chart) ────────────────────────────────────────────
+function renderSSChart() {
+  const el = document.getElementById('ss-chart');
+  const entry = log[log.length - 1];
+  const teams = entry?.teams || Array.from({length:8}, (_,i) => ({
+    slot:i+1, tier: i<4?'Foundation':i<6?'Extension':'Risk',
+    name:'TBD', ss:0, wri:0, outcome:null, momentum:''
+  }));
+
+  const W = 560, H = 170;
+  const barW = 44, gap = 12, PL = 8, PT = 10, PB = 28;
+  const chartH = H - PT - PB;
+  const ssMin = 82, ssRange = 18; // 82–100 mapped to 0–chartH
+
+  // Separator positions (after T4, after T6)
+  const barX = (i) => PL + i * (barW + gap) + (i >= 4 ? 20 : 0) + (i >= 6 ? 20 : 0);
+
+  const bars = teams.map((t, i) => {
+    const fillH = t.ss > 0 ? ((t.ss - ssMin) / ssRange) * chartH : chartH * 0.12;
+    const x = barX(i);
+    const y = PT + chartH - fillH;
+    const fill = t.ss > 0 ? outcomeColor(t.outcome) : '#1e1e1e';
+    const opacity = t.ss > 0 ? 1 : 0.4;
+    const labelColor = t.tier === 'Foundation' ? 'var(--gold)' : t.tier === 'Extension' ? '#666' : '#3a3a3a';
+    return `
+      <rect class="ss-bar" x="${x}" y="${y}" width="${barW}" height="${fillH}"
+        fill="${fill}" opacity="${opacity}" rx="1"
+        data-slot="${t.slot}" style="cursor:pointer"/>
+      <text x="${x + barW/2}" y="${H - PB + 14}" fill="${labelColor}" font-size="8"
+        font-family="monospace" text-anchor="middle">T${t.slot}</text>
+      ${t.ss > 0 ? `<text x="${x + barW/2}" y="${y - 3}" fill="var(--gold)" font-size="8"
+        font-family="monospace" text-anchor="middle">${t.ss}</text>` : ''}
+      ${t.name !== 'TBD' ? `<text x="${x + barW/2}" y="${H - PB + 24}" fill="#3a3a3a" font-size="7"
+        font-family="monospace" text-anchor="middle"
+        >${t.name.split(' ').slice(-1)[0].slice(0,6)}</text>` : ''}
+    `;
+  }).join('');
+
+  // Separators
+  const sep4x = barX(4) - 10;
+  const sep6x = barX(6) - 10;
+  const seps = `
+    <line x1="${sep4x}" y1="${PT}" x2="${sep4x}" y2="${PT+chartH}" stroke="#2a2a2a" stroke-width="1" stroke-dasharray="3,3"/>
+    <line x1="${sep6x}" y1="${PT}" x2="${sep6x}" y2="${PT+chartH}" stroke="#2a2a2a" stroke-width="1" stroke-dasharray="3,3"/>
+  `;
+
+  // Y-axis ticks
+  const yticks = [85, 90, 95, 100].map(v => {
+    const y = PT + chartH - ((v - ssMin) / ssRange) * chartH;
+    return `<line x1="${PL}" y1="${y}" x2="${W}" y2="${y}" stroke="#191919" stroke-width="1"/>
+            <text x="${PL + 2}" y="${y - 2}" fill="#2a2a2a" font-size="7" font-family="monospace">${v}</text>`;
+  }).join('');
+
+  el.innerHTML = `<svg viewBox="0 0 ${W} ${H}" style="width:100%;height:${H}px;display:block">
+    ${yticks}${seps}${bars}
+  </svg>`;
+
+  // Bar tooltips
+  el.querySelectorAll('.ss-bar').forEach(bar => {
+    const slot = +bar.dataset.slot;
+    const t = teams.find(x => x.slot === slot) || {};
+    bar.addEventListener('mouseenter', e => showTooltip(e, `T${slot} — ${t.name || 'TBD'}`, [
+      ['Tier',     t.tier || '—', 'gold'],
+      ['SS Score', t.ss   || '—', 'gold'],
+      ['WRI',      t.wri  != null ? (t.wri === 0 ? '0% (Indoor)' : t.wri + '%') : '—'],
+      ['Momentum', t.momentum || '—'],
+      ['Outcome',  t.outcome  || 'Pending', outcomeClass(t.outcome)],
+    ]));
+    bar.addEventListener('mouseleave', hideTooltip);
+  });
+}
+
+// ── LADDER ───────────────────────────────────────────────────────────────────
+function renderLadder() {
+  const el = document.getElementById('ladder');
+  const entry = log[log.length - 1];
+  const teams = entry?.teams || [];
+
+  const fnd = teams.filter(t => t.tier === 'Foundation');
+  const ext = teams.filter(t => t.tier === 'Extension');
+
+  const hasFoundation = fnd.filter(t => t.name !== 'TBD').length >= 4;
+  const hasExtension  = ext.filter(t => t.name !== 'TBD').length >= 2;
+
+  const tiers = [
+    { tier:'Risk',       label:'Risk Tier · Teams 7–8',         name:'8-Leg',
+      thresh:'SS ≥ 85 · WRI ≤ 20%', mandate:'BUILDS FROM 6-LEG',
+      active: hasExtension, slots: [7,8] },
+    { tier:'Extension',  label:'Extended Tier · Teams 5–6',     name:'6-Leg',
+      thresh:'SS ≥ 88 · WRI ≤ 15%', mandate:'BUILDS FROM 4-LEG',
+      active: hasFoundation, slots: [5,6] },
+    { tier:'Foundation', label:'Foundational Lock · Teams 1–4', name:'4-Leg ◆ ACTIVE',
+      thresh:'SS ≥ 90 · WRI ≤ 10%', mandate:'ANCHOR FOUNDATION',
+      active: true, slots: [1,2,3,4] },
+  ];
+
+  el.innerHTML = tiers.map((tier, i) => {
+    const slotEls = tier.slots.map(n => {
+      const t = teams.find(x => x.slot === n);
+      const filled = t && t.name !== 'TBD';
+      const label  = filled ? `T${n} — ${t.name.split(' ').slice(-1)[0]}` : `T${n}`;
+      const cls    = filled ? 'filled' : tier.active ? '' : 'empty-locked';
+      return `<div class="slot ${cls}">${label}</div>`;
+    }).join('');
+
+    return `
+      ${i > 0 ? '<div class="conn">↑</div>' : ''}
+      <div class="tier ${tier.active ? 'active' : 'locked'}">
+        <div class="tier-badge">${tier.label}</div>
+        <div class="tier-name">${tier.name}</div>
+        <div class="tier-thresh">${tier.thresh}</div>
+        <div class="slots">${slotEls}</div>
+        <div class="mandate">${tier.mandate}</div>
+      </div>
+    `;
+  }).join('');
+}
+
+// ── STEALTH TRACKER ──────────────────────────────────────────────────────────
+function renderStealth() {
+  const el = document.getElementById('stealth');
+  const currentEntry = log[log.length - 1] || {};
+  const weekEntries  = log.filter(e => e.week === currentEntry.week);
+  const exposure     = weekEntries.length * UNIT;
+  const pct          = Math.min((exposure / RED_FLAG) * 100, 100);
+  const danger       = exposure >= RED_FLAG;
+  const fillCls      = danger ? 'danger' : 'gold';
+
+  // Update nav pill
+  const pill = document.getElementById('status-pill');
+  if (danger) {
+    pill.textContent = '⚠ RED FLAG';
+    pill.classList.add('danger');
+  } else {
+    pill.textContent = currentEntry.status || 'Ready';
+    pill.classList.remove('danger');
+  }
+
+  el.innerHTML = `
+    <div class="stealth-meta">
+      <span>$0</span>
+      <span style="color:var(--red)">RED FLAG: $${RED_FLAG.toLocaleString()}</span>
+    </div>
+    <div class="stealth-track">
+      <div class="stealth-fill ${fillCls}" style="width:${Math.max(pct,2)}%"></div>
+      <div class="stealth-redzone"></div>
+    </div>
+    <div class="stealth-readout">
+      <span style="color:${danger?'var(--red)':'var(--gold)'};font-weight:700">
+        ${danger ? '⚠ ' : ''}$${exposure} (${weekEntries.length} unit${weekEntries.length!==1?'s':''})
+      </span>
+      <span style="color:var(--red)">MAX: $${RED_FLAG}</span>
+    </div>
+
+    <div class="cards cards-3" style="margin-top:10px">
+      ${card('Unit Size','$'+UNIT,'gold','per ticket')}
+      ${card('SS Avg', currentEntry.ss_avg || '—', 'gold','target')}
+      ${card('WRI Avg', currentEntry.wri_avg != null ? currentEntry.wri_avg+'%' : '—', 'green','target')}
+    </div>
+
+    <div class="rules">
+      <div class="rule-line"><span class="rn">01</span>T1–4 Foundational Lock — anchor every ticket.</div>
+      <div class="rule-line"><span class="rn">02</span>T5–6 added only to 4-leg → 6-leg.</div>
+      <div class="rule-line"><span class="rn">03</span>T7–8 added only to 6-leg → 8-leg.</div>
+      <div class="rule-line"><span class="rn">04</span>No tier skip. SS threshold mandatory.</div>
+    </div>
+  `;
+}
+
+// ── WEEK STATUS ───────────────────────────────────────────────────────────────
+function renderWeekStatus() {
+  const el = document.getElementById('week-status');
+  const e  = log[log.length - 1] || {};
+  const t  = e.type || '4-Leg';
+  const s  = e.status || 'Ready';
+  const is6 = t === '6-Leg' || t === '8-Leg';
+  const is8 = t === '8-Leg';
+
+  const sCls = s==='Hit'?'green':s==='Miss'?'red':s==='Ready'||s==='Pending'?'gold':'dim';
+
+  el.innerHTML = `
+    <div class="cards cards-3">
+      ${card('4-Leg', t==='4-Leg'?s:'ACTIVE', t==='4-Leg'?sCls:'gold', 'Foundation')}
+      ${card('6-Leg', is6?s:'LOCKED', is6?sCls:'dim', 'Extension')}
+      ${card('8-Leg', is8?s:'LOCKED', is8?sCls:'dim', 'Risk Tier')}
+    </div>
+    <div class="rules" style="margin-top:10px">
+      <div class="rule-line"><span class="rn">—</span><span style="color:var(--gold)">Engine: ISE Dynamics V5 Supreme · Rule Zero: ACTIVE</span></div>
+      <div class="rule-line"><span class="rn">—</span>Legacy Safety: Lambeau · Arrowhead · Pittsburgh locked.</div>
+      <div class="rule-line"><span class="rn">—</span>Bottom-Two Sentinel: ARMED · DEP Firewall: ARMED</div>
+      <div class="rule-line"><span class="rn">—</span>Auto-Risk Swap: 9 triggers loaded · WRI Monitor: ON</div>
+    </div>
+  `;
+}
+
+// ── EXPOSURE DETAIL ───────────────────────────────────────────────────────────
+function renderExposure() {
+  const el = document.getElementById('exposure');
+  const totalInvested = log.reduce((s,e) => s + (e.unit||UNIT), 0);
+  const totalPayout   = log.filter(e=>e.status==='Hit').reduce((s,e) => s+(e.payout||0),0);
+  const netPL         = totalPayout - totalInvested;
+  const balance       = UNIT + netPL;
+
+  el.innerHTML = `
+    <div class="cards cards-2">
+      ${card('Total Invested', '$'+totalInvested.toLocaleString(), 'white', log.length+' ticket'+(log.length!==1?'s':''))}
+      ${card('Current Balance','$'+balance.toLocaleString(), netPL>=0?'gold':'red','net of investment')}
+      ${card('4-Leg Est.','~$1,000','green','est. 10× unit')}
+      ${card('8-Leg Est.','~$25,000','green','est. 250× unit')}
+    </div>
+    <div class="log">${log.slice(-5).map(e => {
+      const sc = e.status==='Hit'?'log-green':e.status==='Miss'?'log-red':'';
+      return `<div><span class="log-gold">[${e.date}]</span> Wk${e.week} · ${e.type} · SS:${e.ss_avg} · WRI:${e.wri_avg}% · <span class="${sc}">${e.status}</span></div>`;
+    }).join('')}</div>
+  `;
+}
+
+// ── NAV SYNC ─────────────────────────────────────────────────────────────────
+function syncNav() {
+  const e = log[log.length - 1] || {};
+  document.getElementById('week-badge').textContent = `WEEK ${e.week || 1} · 2026`;
+}
+
+// ── FULL RENDER ───────────────────────────────────────────────────────────────
+function render() {
+  syncNav();
+  renderEmpireCurve();
+  renderSSChart();
+  renderLadder();
+  renderStealth();
+  renderWeekStatus();
+  renderExposure();
+}
+
+// ── DATA FETCH + POLL ─────────────────────────────────────────────────────────
+async function fetchLog() {
+  try {
+    const r = await fetch('/api/log');
+    if (!r.ok) throw new Error('bad response');
+    log = await r.json();
+  } catch (err) {
+    console.warn('fetch failed', err);
+  }
+  render();
+}
+
+fetchLog();
+setInterval(fetchLog, 30000);
+</script>
+</body>
+</html>
