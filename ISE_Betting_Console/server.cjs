@@ -132,7 +132,8 @@ const server = http.createServer((req, res) => {
             ticketId: tier.ticketId,
             ticketPayout: tier.payout,
             payout: 0, net_profit: 0,
-            ss_avg: 0, wri_avg: 0, teams: []
+            ss_avg: 0, wri_avg: 0,
+            teams: Array.isArray(tier.teams) ? tier.teams : []
           }
           const idx = log.findIndex(e => e.week === week && e.type === type)
           if (idx >= 0) {

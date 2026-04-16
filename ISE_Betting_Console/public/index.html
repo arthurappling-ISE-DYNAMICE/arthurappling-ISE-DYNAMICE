@@ -200,6 +200,20 @@ body{background:var(--black);color:var(--white);font-family:'Courier New',monosp
 #reno-commit:hover{opacity:.85}
 #reno-committed-badge{display:none;text-align:center;font-size:8px;letter-spacing:2px;
                       color:var(--green);padding:8px 0;font-family:'Courier New',monospace}
+
+/* ── TEAM SLOTS ── */
+.team-slots-label{font-size:7px;letter-spacing:1px;color:var(--dim);
+                  margin-bottom:4px;display:block}
+.team-slots{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:8px}
+.team-slot{display:flex;align-items:center;gap:4px}
+.team-slot-num{font-size:7px;letter-spacing:1px;color:var(--gold-dim);
+               min-width:16px;text-align:right;flex-shrink:0;font-weight:700}
+.team-slot-num.manual{color:var(--gold)}
+.team-input{flex:1;background:#080808;border:1px solid var(--border);
+            color:var(--white);padding:4px 5px;font-size:8px;
+            font-family:'Courier New',monospace;letter-spacing:0.5px;width:100%;min-width:0}
+.team-input:focus{outline:none;border-color:var(--gold-dim)}
+.team-input[readonly]{color:#3a3a3a;background:#050505;border-color:#111;cursor:default}
 </style>
 </head>
 <body>
@@ -312,6 +326,15 @@ body{background:var(--black);color:var(--white);font-family:'Courier New',monosp
         <label class="reno-label">Payout $ (from physical ticket)</label>
         <input id="t4-payout" class="reno-input" type="number" min="0" step="1" placeholder="0">
       </div>
+      <div class="reno-field">
+        <span class="team-slots-label">Teams T1–T4 (manual)</span>
+        <div class="team-slots">
+          <div class="team-slot"><span class="team-slot-num manual">T1</span><input id="t4-team-1" class="team-input" type="text" placeholder="e.g. KC Chiefs"></div>
+          <div class="team-slot"><span class="team-slot-num manual">T2</span><input id="t4-team-2" class="team-input" type="text" placeholder="e.g. SF 49ers"></div>
+          <div class="team-slot"><span class="team-slot-num manual">T3</span><input id="t4-team-3" class="team-input" type="text" placeholder="e.g. BAL Ravens"></div>
+          <div class="team-slot"><span class="team-slot-num manual">T4</span><input id="t4-team-4" class="team-input" type="text" placeholder="e.g. PHI Eagles"></div>
+        </div>
+      </div>
       <div class="reno-stake">Stake: $100 · locked</div>
       <div class="reno-result" id="t4-result">
         <button class="reno-result-btn hit-btn" id="t4-hit"
@@ -333,6 +356,17 @@ body{background:var(--black);color:var(--white);font-family:'Courier New',monosp
       <div class="reno-field">
         <label class="reno-label">Payout $ (from physical ticket)</label>
         <input id="t6-payout" class="reno-input" type="number" min="0" step="1" placeholder="0">
+      </div>
+      <div class="reno-field">
+        <span class="team-slots-label">T1–T4 from Foundation · T5–T6 manual</span>
+        <div class="team-slots">
+          <div class="team-slot"><span class="team-slot-num">T1</span><input id="t6-team-1" class="team-input" type="text" readonly></div>
+          <div class="team-slot"><span class="team-slot-num">T2</span><input id="t6-team-2" class="team-input" type="text" readonly></div>
+          <div class="team-slot"><span class="team-slot-num">T3</span><input id="t6-team-3" class="team-input" type="text" readonly></div>
+          <div class="team-slot"><span class="team-slot-num">T4</span><input id="t6-team-4" class="team-input" type="text" readonly></div>
+          <div class="team-slot"><span class="team-slot-num manual">T5</span><input id="t6-team-5" class="team-input" type="text" placeholder="e.g. DET Lions"></div>
+          <div class="team-slot"><span class="team-slot-num manual">T6</span><input id="t6-team-6" class="team-input" type="text" placeholder="e.g. BUF Bills"></div>
+        </div>
       </div>
       <div class="reno-stake">Stake: $100 · locked</div>
       <div class="reno-result" id="t6-result">
@@ -356,6 +390,19 @@ body{background:var(--black);color:var(--white);font-family:'Courier New',monosp
       <div class="reno-field">
         <label class="reno-label">Payout $ (from physical ticket)</label>
         <input id="t8-payout" class="reno-input" type="number" min="0" step="1" placeholder="0">
+      </div>
+      <div class="reno-field">
+        <span class="team-slots-label">T1–T6 from Foundation/Extension · T7–T8 manual</span>
+        <div class="team-slots">
+          <div class="team-slot"><span class="team-slot-num">T1</span><input id="t8-team-1" class="team-input" type="text" readonly></div>
+          <div class="team-slot"><span class="team-slot-num">T2</span><input id="t8-team-2" class="team-input" type="text" readonly></div>
+          <div class="team-slot"><span class="team-slot-num">T3</span><input id="t8-team-3" class="team-input" type="text" readonly></div>
+          <div class="team-slot"><span class="team-slot-num">T4</span><input id="t8-team-4" class="team-input" type="text" readonly></div>
+          <div class="team-slot"><span class="team-slot-num">T5</span><input id="t8-team-5" class="team-input" type="text" readonly></div>
+          <div class="team-slot"><span class="team-slot-num">T6</span><input id="t8-team-6" class="team-input" type="text" readonly></div>
+          <div class="team-slot"><span class="team-slot-num manual">T7</span><input id="t8-team-7" class="team-input" type="text" placeholder="e.g. NY Jets"></div>
+          <div class="team-slot"><span class="team-slot-num manual">T8</span><input id="t8-team-8" class="team-input" type="text" placeholder="e.g. CIN Bengals"></div>
+        </div>
       </div>
       <div class="reno-stake">Stake: $100 · locked</div>
       <div class="reno-result" id="t8-result">
@@ -434,6 +481,37 @@ function populateDrawer(week) {
   document.getElementById('reno-commit').style.display          = committed ? 'none'  : 'block';
   document.getElementById('reno-committed-badge').style.display = committed ? 'block' : 'none';
 
+  // ── Team slots ──────────────────────────────────────────────────────────────
+  // Build a flat slot→name map from the 8-Leg entry (has all 8 teams)
+  const teamNames = {};
+  const eightEntry = entries['8-Leg'];
+  if (eightEntry?.teams) eightEntry.teams.forEach(t => { teamNames[t.slot] = t.name || ''; });
+
+  // T1–T4: 4-Leg editable (lock when committed), mirror to 6/8 readonly
+  for (let i = 1; i <= 4; i++) {
+    const val = teamNames[i] || '';
+    const e4 = document.getElementById(`t4-team-${i}`);
+    const e6 = document.getElementById(`t6-team-${i}`);
+    const e8 = document.getElementById(`t8-team-${i}`);
+    if (e4) { e4.value = val; e4.readOnly = committed; }
+    if (e6)   e6.value = val;   // always readonly in HTML
+    if (e8)   e8.value = val;   // always readonly in HTML
+  }
+  // T5–T6: 6-Leg editable (lock when committed), mirror to 8 readonly
+  for (let i = 5; i <= 6; i++) {
+    const val = teamNames[i] || '';
+    const e6 = document.getElementById(`t6-team-${i}`);
+    const e8 = document.getElementById(`t8-team-${i}`);
+    if (e6) { e6.value = val; e6.readOnly = committed; }
+    if (e8)   e8.value = val;   // always readonly in HTML
+  }
+  // T7–T8: 8-Leg editable (lock when committed)
+  for (let i = 7; i <= 8; i++) {
+    const val = teamNames[i] || '';
+    const e8 = document.getElementById(`t8-team-${i}`);
+    if (e8) { e8.value = val; e8.readOnly = committed; }
+  }
+
   const fourLegMiss = entries['4-Leg'] && entries['4-Leg'].status === 'Miss';
   if (fourLegMiss) applyCascadeVisual();
   else             clearCascadeVisual();
@@ -468,6 +546,26 @@ async function renoCommit() {
       payout:   parseFloat(document.getElementById(f.payout).value) || 0,
     };
   });
+
+  // Build teams arrays — T1-T4 Foundation, T5-T6 Extension, T7-T8 Risk
+  const tn = (id) => document.getElementById(id)?.value.trim() || 'TBD';
+  const t4teams = [1,2,3,4].map(i => ({
+    slot: i, tier: 'Foundation', name: tn(`t4-team-${i}`),
+    ss: 0, wri: 0, outcome: null, momentum: ''
+  }));
+  const t6teams = [
+    ...t4teams,
+    ...[5,6].map(i => ({ slot: i, tier: 'Extension', name: tn(`t6-team-${i}`),
+      ss: 0, wri: 0, outcome: null, momentum: '' }))
+  ];
+  const t8teams = [
+    ...t6teams,
+    ...[7,8].map(i => ({ slot: i, tier: 'Risk', name: tn(`t8-team-${i}`),
+      ss: 0, wri: 0, outcome: null, momentum: '' }))
+  ];
+  tiers['4-Leg'].teams = t4teams;
+  tiers['6-Leg'].teams = t6teams;
+  tiers['8-Leg'].teams = t8teams;
 
   try {
     const r = await fetch('/api/sync', {
@@ -539,6 +637,24 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('reno-week').addEventListener('change', e => {
     populateDrawer(parseInt(e.target.value));
   });
+
+  // Live cascade: T1-T4 typed in 4-Leg → mirror to 6-Leg and 8-Leg readonly slots
+  for (let i = 1; i <= 4; i++) {
+    document.getElementById(`t4-team-${i}`).addEventListener('input', e => {
+      const v = e.target.value;
+      const e6 = document.getElementById(`t6-team-${i}`);
+      const e8 = document.getElementById(`t8-team-${i}`);
+      if (e6) e6.value = v;
+      if (e8) e8.value = v;
+    });
+  }
+  // Live cascade: T5-T6 typed in 6-Leg → mirror to 8-Leg readonly slots
+  for (let i = 5; i <= 6; i++) {
+    document.getElementById(`t6-team-${i}`).addEventListener('input', e => {
+      const e8 = document.getElementById(`t8-team-${i}`);
+      if (e8) e8.value = e.target.value;
+    });
+  }
 });
 
 // ── TOOLTIP ──────────────────────────────────────────────────────────────────
@@ -672,7 +788,8 @@ function renderEmpireCurve() {
 // ── SS vs OUTCOME (SVG Bar Chart) ────────────────────────────────────────────
 function renderSSChart() {
   const el = document.getElementById('ss-chart');
-  const entry = log[log.length - 1];
+  // Prefer the most recent 8-Leg entry — it carries all 8 teams after RENO COMMITMENT
+  const entry = [...log].reverse().find(e => e.type === '8-Leg') || log[log.length - 1];
   const teams = entry?.teams || Array.from({length:8}, (_,i) => ({
     slot:i+1, tier: i<4?'Foundation':i<6?'Extension':'Risk',
     name:'TBD', ss:0, wri:0, outcome:null, momentum:''
