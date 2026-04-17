@@ -137,10 +137,10 @@ body{background:var(--black);color:var(--white);font-family:'Courier New',monosp
           cursor:pointer;transition:background .2s}
 .reno-btn:hover{background:var(--gold-glow)}
 
-#reno-drawer{position:fixed;top:0;right:0;height:100vh;width:360px;
-             background:#0f0f0f;border-left:1px solid var(--gold-dim);
+#reno-drawer{position:fixed;top:0;right:0;height:100vh;width:400px;
+             background:#111 !important;border-left:2px solid #d4af37;
              transform:translateX(100%);transition:transform .3s ease;
-             z-index:300;display:flex;flex-direction:column;overflow:hidden}
+             z-index:10000;display:flex;flex-direction:column;overflow:hidden}
 #reno-drawer.open{transform:translateX(0)}
 
 .reno-head{display:flex;justify-content:space-between;align-items:flex-start;
@@ -167,11 +167,12 @@ body{background:var(--black);color:var(--white);font-family:'Courier New',monosp
                  border-bottom:1px solid var(--border);padding-bottom:6px}
 .reno-field{margin-bottom:8px}
 .reno-label{font-size:7px;letter-spacing:1px;color:var(--dim);display:block;margin-bottom:3px}
-.reno-input{width:100%;background:#0a0a0a;border:1px solid var(--border);
-            color:var(--white);padding:6px 8px;font-size:9px;
-            font-family:'Courier New',monospace;letter-spacing:1px;box-sizing:border-box}
-.reno-input:focus{outline:none;border-color:var(--gold-dim)}
-.reno-input[readonly]{color:var(--dim);border-color:#1a1a1a;background:#080808}
+.reno-input{width:100%;background:#1a1a1a !important;border:1px solid #3a3a3a;
+            color:#d4af37 !important;padding:6px 8px;font-size:9px;
+            font-family:'Courier New',monospace;letter-spacing:1px;box-sizing:border-box;
+            cursor:text !important;pointer-events:auto !important}
+.reno-input:focus{outline:none;border-color:#d4af37;box-shadow:0 0 0 1px rgba(212,175,55,.25)}
+.reno-input[readonly]{color:#666 !important;border-color:#222;background:#141414 !important;cursor:default !important}
 .reno-stake{font-size:8px;color:var(--dim);letter-spacing:1px;margin-bottom:8px;
             padding:4px 0;border-top:1px solid var(--border)}
 .reno-err{font-size:7px;color:var(--red);letter-spacing:1px;margin-top:2px;min-height:13px}
@@ -204,16 +205,92 @@ body{background:var(--black);color:var(--white);font-family:'Courier New',monosp
 /* ── TEAM SLOTS ── */
 .team-slots-label{font-size:7px;letter-spacing:1px;color:var(--dim);
                   margin-bottom:4px;display:block}
-.team-slots{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:8px}
-.team-slot{display:flex;align-items:center;gap:4px}
+.team-slots{display:flex;flex-direction:column;gap:3px;margin-bottom:8px}
+.team-slot{display:flex;align-items:center;gap:3px}
 .team-slot-num{font-size:7px;letter-spacing:1px;color:var(--gold-dim);
                min-width:16px;text-align:right;flex-shrink:0;font-weight:700}
 .team-slot-num.manual{color:var(--gold)}
-.team-input{flex:1;background:#080808;border:1px solid var(--border);
-            color:var(--white);padding:4px 5px;font-size:8px;
-            font-family:'Courier New',monospace;letter-spacing:0.5px;width:100%;min-width:0}
-.team-input:focus{outline:none;border-color:var(--gold-dim)}
-.team-input[readonly]{color:#3a3a3a;background:#050505;border-color:#111;cursor:default}
+.team-input{flex:1;background:#1a1a1a !important;border:1px solid #3a3a3a;
+            color:#d4af37 !important;padding:4px 5px;font-size:8px;
+            font-family:'Courier New',monospace;letter-spacing:0.5px;min-width:0;
+            cursor:text !important;pointer-events:auto !important}
+.team-input:focus{outline:none;border-color:#d4af37}
+.team-input[readonly]{color:#555 !important;background:#141414 !important;border-color:#222;cursor:default !important}
+.team-ss,.team-wri{width:30px;flex-shrink:0;background:#1a1a1a !important;border:1px solid #3a3a3a;
+                   color:#d4af37 !important;padding:4px 2px;font-size:7px;
+                   font-family:'Courier New',monospace;text-align:center;
+                   cursor:text !important;pointer-events:auto !important}
+.team-ss:focus,.team-wri:focus{outline:none;border-color:#d4af37}
+.team-ss[readonly],.team-wri[readonly]{color:#555 !important;background:#141414 !important;border-color:#222}
+.team-ss.invalid{border-color:#FF0000!important;color:#FF0000!important}
+.team-outcome-btns{display:flex;gap:2px;flex-shrink:0}
+.to-btn{width:18px;height:18px;font-size:7px;font-weight:700;background:transparent;
+        border:1px solid var(--border);color:var(--dim);cursor:pointer;
+        font-family:'Courier New',monospace;padding:0;line-height:18px;text-align:center}
+.to-btn.h-active{border-color:var(--gold-dim);color:#D4AF37;background:rgba(212,175,55,.12)}
+.to-btn.m-active{border-color:#5a1010;color:#FF0000;background:rgba(255,0,0,.08)}
+.to-btn:disabled{opacity:.2;cursor:default;pointer-events:none}
+/* ── LIVE TICKET TABLE ── */
+.ticket-table{width:100%;border-collapse:collapse;font-size:8px;letter-spacing:1px}
+.ticket-table th{color:var(--dim);text-transform:uppercase;letter-spacing:2px;
+                 border-bottom:1px solid var(--border2);padding:4px 8px;text-align:left;font-weight:400}
+.ticket-table td{padding:5px 8px;border-bottom:1px solid #111;vertical-align:middle}
+.t-row-win td:first-child{color:#D4AF37}
+.t-row-loss td:first-child{color:#FF0000}
+.t-row-loss{background:rgba(255,0,0,.04)}
+.t-row-win{background:rgba(212,175,55,.03)}
+.v-badge{font-size:11px;font-weight:700;letter-spacing:2px;display:inline-block;
+          width:14px;text-align:center}
+.v-W{color:#D4AF37}
+.v-L{color:#FF0000}
+.v-P{color:#555}
+/* ── PERFORMANCE GATE ── */
+.perf-gate{display:none;background:rgba(231,76,60,.08);border:1px solid #5a1a1a;
+           padding:8px 12px;margin-top:8px;font-size:7px;color:var(--red);letter-spacing:2px}
+.perf-gate.show{display:block}
+.perf-gate-title{font-size:8px;font-weight:700;margin-bottom:3px;text-transform:uppercase}
+/* ── PRESEASON TOGGLE ── */
+.preseason-toggle-btn{padding:3px 8px;font-size:7px;letter-spacing:2px;font-weight:700;
+  background:transparent;border:1px solid #333;color:#444;cursor:pointer;margin-top:6px;
+  font-family:'Courier New',monospace;text-transform:uppercase;transition:all .2s}
+.preseason-toggle-btn.active{border-color:#4a6070;color:#8a9ba8;background:rgba(138,155,168,.08)}
+#reno-drawer.preseason-mode{border-left-color:#2a3a44;background:#0b0f12}
+#reno-drawer.preseason-mode .reno-title{color:#8a9ba8}
+#reno-drawer.preseason-mode .reno-tier-label{color:#5a7080}
+#reno-drawer.preseason-mode .reno-head{background:#080c0e;border-bottom-color:#1a2a34}
+#reno-drawer.preseason-mode .reno-tier{border-color:#1a2a34;background:#080c0e}
+#reno-drawer.preseason-mode #reno-commit{background:#4a6070;color:#ccc}
+#reno-drawer.preseason-mode .team-slot-num.manual{color:#5a7080}
+.preseason-badge{font-size:6px;letter-spacing:2px;color:#5a7080;border:1px solid #1a2a34;
+                 padding:2px 6px;display:none;margin-left:6px;vertical-align:middle}
+.preseason-badge.show{display:inline-block}
+/* ── GHOST FACTOR PANEL ── */
+.ghost-panel{display:none;background:#060b0e;border:1px solid #1a2a34;
+             padding:8px;margin-top:6px;margin-bottom:8px}
+.ghost-panel.visible{display:block}
+.ghost-panel-title{font-size:6px;letter-spacing:3px;color:#4a6070;text-transform:uppercase;
+                   margin-bottom:6px;border-bottom:1px solid #1a2a34;padding-bottom:4px}
+.ghost-row{display:flex;align-items:center;gap:4px;margin-bottom:4px}
+.ghost-lbl{font-size:6px;color:#2a3a44;letter-spacing:1px;white-space:nowrap}
+.ghost-input{background:#040810;border:1px solid #1a2a34;color:#6a8898;
+             padding:3px 4px;font-size:7px;font-family:'Courier New',monospace;
+             text-align:center;flex:1;min-width:0;width:36px}
+.ghost-input:focus{outline:none;border-color:#2a4050}
+.ghost-score{font-size:8px;font-weight:700;color:#5a7888;letter-spacing:1px;
+             min-width:52px;text-align:right;white-space:nowrap}
+.ghost-legend{font-size:6px;color:#1a2a34;letter-spacing:1px;margin-top:4px;line-height:1.8}
+/* ── BLAME TAG / FAILURE LOG ── */
+.blame-tag-wrap{display:none;margin-top:3px;padding-left:18px}
+.blame-tag-wrap.visible{display:block}
+.blame-tag{width:100%;background:#080404;border:1px solid #3a1010;color:#aa3333;
+           padding:3px 6px;font-size:7px;font-family:'Courier New',monospace;
+           letter-spacing:0.5px;box-sizing:border-box;resize:none;height:30px;line-height:1.5}
+.blame-tag:focus{outline:none;border-color:#5a1a1a}
+/* ── $100K EMPIRE PROGRESS ── */
+.empire-progress{display:none;align-items:center;gap:8px;font-size:7px;
+                 letter-spacing:1px;padding:6px 0;border-top:1px solid var(--border);margin-top:4px}
+.empire-progress-bar-wrap{flex:1;height:2px;background:#181818;position:relative}
+.empire-progress-bar{height:100%;transition:width .6s;min-width:1px}
 </style>
 </head>
 <body>
@@ -229,6 +306,7 @@ body{background:var(--black);color:var(--white);font-family:'Courier New',monosp
     <div class="nav-sub">ISE Dynamics · Sovereign Execution Engine V5</div>
   </div>
   <div class="nav-right">
+    <button onclick="systemReset()" style="padding:3px 8px;font-size:7px;letter-spacing:2px;font-weight:700;background:transparent;border:1px solid #5a1a1a;color:#773030;cursor:pointer;font-family:'Courier New',monospace;text-transform:uppercase" title="Clear localStorage and hard-refresh">SYSTEM RESET</button>
     <div class="badge" id="week-badge">WEEK 1 · 2026</div>
     <button class="reno-btn" onclick="toggleDrawer()">⬡ RENO</button>
     <div class="status-pill" id="status-pill">LOADING</div>
@@ -243,6 +321,12 @@ body{background:var(--black);color:var(--white);font-family:'Courier New',monosp
     <div class="chart-wrap" id="empire-chart"></div>
     <div class="chart-axes">
       <span>Wk 1</span><span>Wk 5</span><span>Wk 10</span><span>Wk 15</span><span>Wk 18</span>
+    </div>
+    <div id="empire-progress" class="empire-progress">
+      <span style="color:var(--dim);white-space:nowrap;letter-spacing:2px">TARGET: $100K</span>
+      <div class="empire-progress-bar-wrap"><div class="empire-progress-bar" style="width:0%"></div></div>
+      <span class="ep-pct" style="color:var(--gold);white-space:nowrap;font-weight:700">0.0%</span>
+      <span class="ep-rem" style="color:var(--dim);white-space:nowrap">$100,000 remaining</span>
     </div>
   </div>
 
@@ -307,6 +391,10 @@ body{background:var(--black);color:var(--white);font-family:'Courier New',monosp
         </select>
         <span style="color:var(--gold-dim)">· 2026</span>
       </div>
+      <div>
+        <button id="preseason-toggle" class="preseason-toggle-btn" onclick="togglePreseason()">⬡ PRESEASON OFF</button>
+        <span id="preseason-badge" class="preseason-badge">TRAINING DATA</span>
+      </div>
     </div>
     <button class="reno-close" onclick="toggleDrawer()">✕</button>
   </div>
@@ -327,13 +415,23 @@ body{background:var(--black);color:var(--white);font-family:'Courier New',monosp
         <input id="t4-payout" class="reno-input" type="number" min="0" step="1" placeholder="0">
       </div>
       <div class="reno-field">
-        <span class="team-slots-label">Teams T1–T4 (manual)</span>
+        <span class="team-slots-label">Teams T1–T4 · SS ≥ 90 · WRI% · Outcome (manual)</span>
         <div class="team-slots">
-          <div class="team-slot"><span class="team-slot-num manual">T1</span><input id="t4-team-1" class="team-input" type="text" placeholder="e.g. KC Chiefs"></div>
-          <div class="team-slot"><span class="team-slot-num manual">T2</span><input id="t4-team-2" class="team-input" type="text" placeholder="e.g. SF 49ers"></div>
-          <div class="team-slot"><span class="team-slot-num manual">T3</span><input id="t4-team-3" class="team-input" type="text" placeholder="e.g. BAL Ravens"></div>
-          <div class="team-slot"><span class="team-slot-num manual">T4</span><input id="t4-team-4" class="team-input" type="text" placeholder="e.g. PHI Eagles"></div>
+          <div class="team-slot"><span class="team-slot-num manual">T1</span><input id="t4-team-1" class="team-input" type="text" placeholder="e.g. KC Chiefs"><input id="t4-ss-1" class="team-ss" type="number" min="80" max="100" placeholder="SS"><input id="t4-wri-1" class="team-wri" type="number" min="0" max="100" placeholder="WR%"><div class="team-outcome-btns"><button class="to-btn" id="to-h-1" onclick="setTeamOutcome(1,'Hit')">H</button><button class="to-btn" id="to-m-1" onclick="setTeamOutcome(1,'Miss')">M</button></div></div>
+          <div class="team-slot"><span class="team-slot-num manual">T2</span><input id="t4-team-2" class="team-input" type="text" placeholder="e.g. SF 49ers"><input id="t4-ss-2" class="team-ss" type="number" min="80" max="100" placeholder="SS"><input id="t4-wri-2" class="team-wri" type="number" min="0" max="100" placeholder="WR%"><div class="team-outcome-btns"><button class="to-btn" id="to-h-2" onclick="setTeamOutcome(2,'Hit')">H</button><button class="to-btn" id="to-m-2" onclick="setTeamOutcome(2,'Miss')">M</button></div></div>
+          <div class="team-slot"><span class="team-slot-num manual">T3</span><input id="t4-team-3" class="team-input" type="text" placeholder="e.g. BAL Ravens"><input id="t4-ss-3" class="team-ss" type="number" min="80" max="100" placeholder="SS"><input id="t4-wri-3" class="team-wri" type="number" min="0" max="100" placeholder="WR%"><div class="team-outcome-btns"><button class="to-btn" id="to-h-3" onclick="setTeamOutcome(3,'Hit')">H</button><button class="to-btn" id="to-m-3" onclick="setTeamOutcome(3,'Miss')">M</button></div></div>
+          <div class="team-slot"><span class="team-slot-num manual">T4</span><input id="t4-team-4" class="team-input" type="text" placeholder="e.g. PHI Eagles"><input id="t4-ss-4" class="team-ss" type="number" min="80" max="100" placeholder="SS"><input id="t4-wri-4" class="team-wri" type="number" min="0" max="100" placeholder="WR%"><div class="team-outcome-btns"><button class="to-btn" id="to-h-4" onclick="setTeamOutcome(4,'Hit')">H</button><button class="to-btn" id="to-m-4" onclick="setTeamOutcome(4,'Miss')">M</button></div></div>
         </div>
+      </div>
+      <div class="ghost-panel" id="ghost-4">
+        <div class="ghost-panel-title">⬡ Preseason Ghost Factors · T1–T4 Foundation</div>
+        <div class="ghost-row">
+          <span class="ghost-lbl">BQ</span><input id="g4-bq" class="ghost-input" type="number" min="0" max="10" placeholder="0-10">
+          <span class="ghost-lbl">HC%</span><input id="g4-hc" class="ghost-input" type="number" min="0" max="100" placeholder="0-100">
+          <span class="ghost-lbl">RBP</span><input id="g4-rbp" class="ghost-input" type="number" min="0" max="10" placeholder="0-10">
+          <span class="ghost-score" id="g4-pgs">PGS: —</span>
+        </div>
+        <div class="ghost-legend">BQ=Backup QB XP (0–10) · HC%=Coach PS Win% · RBP=Roster Bubble (0–10)</div>
       </div>
       <div class="reno-stake">Stake: $100 · locked</div>
       <div class="reno-result" id="t4-result">
@@ -358,15 +456,25 @@ body{background:var(--black);color:var(--white);font-family:'Courier New',monosp
         <input id="t6-payout" class="reno-input" type="number" min="0" step="1" placeholder="0">
       </div>
       <div class="reno-field">
-        <span class="team-slots-label">T1–T4 from Foundation · T5–T6 manual</span>
+        <span class="team-slots-label">T1–T4 from Foundation · T5–T6 manual · SS/WRI · Outcome</span>
         <div class="team-slots">
-          <div class="team-slot"><span class="team-slot-num">T1</span><input id="t6-team-1" class="team-input" type="text" readonly></div>
-          <div class="team-slot"><span class="team-slot-num">T2</span><input id="t6-team-2" class="team-input" type="text" readonly></div>
-          <div class="team-slot"><span class="team-slot-num">T3</span><input id="t6-team-3" class="team-input" type="text" readonly></div>
-          <div class="team-slot"><span class="team-slot-num">T4</span><input id="t6-team-4" class="team-input" type="text" readonly></div>
-          <div class="team-slot"><span class="team-slot-num manual">T5</span><input id="t6-team-5" class="team-input" type="text" placeholder="e.g. DET Lions"></div>
-          <div class="team-slot"><span class="team-slot-num manual">T6</span><input id="t6-team-6" class="team-input" type="text" placeholder="e.g. BUF Bills"></div>
+          <div class="team-slot"><span class="team-slot-num">T1</span><input id="t6-team-1" class="team-input" type="text" placeholder="↑ from T4"><input id="t6-ss-1" class="team-ss" type="number"><input id="t6-wri-1" class="team-wri" type="number"><div class="team-outcome-btns"><button class="to-btn" id="t6-to-h-1" disabled>H</button><button class="to-btn" id="t6-to-m-1" disabled>M</button></div></div>
+          <div class="team-slot"><span class="team-slot-num">T2</span><input id="t6-team-2" class="team-input" type="text" placeholder="↑ from T4"><input id="t6-ss-2" class="team-ss" type="number"><input id="t6-wri-2" class="team-wri" type="number"><div class="team-outcome-btns"><button class="to-btn" id="t6-to-h-2" disabled>H</button><button class="to-btn" id="t6-to-m-2" disabled>M</button></div></div>
+          <div class="team-slot"><span class="team-slot-num">T3</span><input id="t6-team-3" class="team-input" type="text" placeholder="↑ from T4"><input id="t6-ss-3" class="team-ss" type="number"><input id="t6-wri-3" class="team-wri" type="number"><div class="team-outcome-btns"><button class="to-btn" id="t6-to-h-3" disabled>H</button><button class="to-btn" id="t6-to-m-3" disabled>M</button></div></div>
+          <div class="team-slot"><span class="team-slot-num">T4</span><input id="t6-team-4" class="team-input" type="text" placeholder="↑ from T4"><input id="t6-ss-4" class="team-ss" type="number"><input id="t6-wri-4" class="team-wri" type="number"><div class="team-outcome-btns"><button class="to-btn" id="t6-to-h-4" disabled>H</button><button class="to-btn" id="t6-to-m-4" disabled>M</button></div></div>
+          <div class="team-slot"><span class="team-slot-num manual">T5</span><input id="t6-team-5" class="team-input" type="text" placeholder="e.g. DET Lions"><input id="t6-ss-5" class="team-ss" type="number" min="80" max="100" placeholder="SS"><input id="t6-wri-5" class="team-wri" type="number" min="0" max="100" placeholder="WR%"><div class="team-outcome-btns"><button class="to-btn" id="to-h-5" onclick="setTeamOutcome(5,'Hit')">H</button><button class="to-btn" id="to-m-5" onclick="setTeamOutcome(5,'Miss')">M</button></div></div>
+          <div class="team-slot"><span class="team-slot-num manual">T6</span><input id="t6-team-6" class="team-input" type="text" placeholder="e.g. BUF Bills"><input id="t6-ss-6" class="team-ss" type="number" min="80" max="100" placeholder="SS"><input id="t6-wri-6" class="team-wri" type="number" min="0" max="100" placeholder="WR%"><div class="team-outcome-btns"><button class="to-btn" id="to-h-6" onclick="setTeamOutcome(6,'Hit')">H</button><button class="to-btn" id="to-m-6" onclick="setTeamOutcome(6,'Miss')">M</button></div></div>
         </div>
+      </div>
+      <div class="ghost-panel" id="ghost-6">
+        <div class="ghost-panel-title">⬡ Preseason Ghost Factors · T5–T6 Extension</div>
+        <div class="ghost-row">
+          <span class="ghost-lbl">BQ</span><input id="g6-bq" class="ghost-input" type="number" min="0" max="10" placeholder="0-10">
+          <span class="ghost-lbl">HC%</span><input id="g6-hc" class="ghost-input" type="number" min="0" max="100" placeholder="0-100">
+          <span class="ghost-lbl">RBP</span><input id="g6-rbp" class="ghost-input" type="number" min="0" max="10" placeholder="0-10">
+          <span class="ghost-score" id="g6-pgs">PGS: —</span>
+        </div>
+        <div class="ghost-legend">BQ=Backup QB XP (0–10) · HC%=Coach PS Win% · RBP=Roster Bubble (0–10)</div>
       </div>
       <div class="reno-stake">Stake: $100 · locked</div>
       <div class="reno-result" id="t6-result">
@@ -392,17 +500,27 @@ body{background:var(--black);color:var(--white);font-family:'Courier New',monosp
         <input id="t8-payout" class="reno-input" type="number" min="0" step="1" placeholder="0">
       </div>
       <div class="reno-field">
-        <span class="team-slots-label">T1–T6 from Foundation/Extension · T7–T8 manual</span>
+        <span class="team-slots-label">T1–T6 from Foundation/Extension · T7–T8 manual · SS/WRI · Outcome</span>
         <div class="team-slots">
-          <div class="team-slot"><span class="team-slot-num">T1</span><input id="t8-team-1" class="team-input" type="text" readonly></div>
-          <div class="team-slot"><span class="team-slot-num">T2</span><input id="t8-team-2" class="team-input" type="text" readonly></div>
-          <div class="team-slot"><span class="team-slot-num">T3</span><input id="t8-team-3" class="team-input" type="text" readonly></div>
-          <div class="team-slot"><span class="team-slot-num">T4</span><input id="t8-team-4" class="team-input" type="text" readonly></div>
-          <div class="team-slot"><span class="team-slot-num">T5</span><input id="t8-team-5" class="team-input" type="text" readonly></div>
-          <div class="team-slot"><span class="team-slot-num">T6</span><input id="t8-team-6" class="team-input" type="text" readonly></div>
-          <div class="team-slot"><span class="team-slot-num manual">T7</span><input id="t8-team-7" class="team-input" type="text" placeholder="e.g. NY Jets"></div>
-          <div class="team-slot"><span class="team-slot-num manual">T8</span><input id="t8-team-8" class="team-input" type="text" placeholder="e.g. CIN Bengals"></div>
+          <div class="team-slot"><span class="team-slot-num">T1</span><input id="t8-team-1" class="team-input" type="text" placeholder="↑ from T4"><input id="t8-ss-1" class="team-ss" type="number"><input id="t8-wri-1" class="team-wri" type="number"><div class="team-outcome-btns"><button class="to-btn" id="t8-to-h-1" disabled>H</button><button class="to-btn" id="t8-to-m-1" disabled>M</button></div></div>
+          <div class="team-slot"><span class="team-slot-num">T2</span><input id="t8-team-2" class="team-input" type="text" placeholder="↑ from T4"><input id="t8-ss-2" class="team-ss" type="number"><input id="t8-wri-2" class="team-wri" type="number"><div class="team-outcome-btns"><button class="to-btn" id="t8-to-h-2" disabled>H</button><button class="to-btn" id="t8-to-m-2" disabled>M</button></div></div>
+          <div class="team-slot"><span class="team-slot-num">T3</span><input id="t8-team-3" class="team-input" type="text" placeholder="↑ from T4"><input id="t8-ss-3" class="team-ss" type="number"><input id="t8-wri-3" class="team-wri" type="number"><div class="team-outcome-btns"><button class="to-btn" id="t8-to-h-3" disabled>H</button><button class="to-btn" id="t8-to-m-3" disabled>M</button></div></div>
+          <div class="team-slot"><span class="team-slot-num">T4</span><input id="t8-team-4" class="team-input" type="text" placeholder="↑ from T4"><input id="t8-ss-4" class="team-ss" type="number"><input id="t8-wri-4" class="team-wri" type="number"><div class="team-outcome-btns"><button class="to-btn" id="t8-to-h-4" disabled>H</button><button class="to-btn" id="t8-to-m-4" disabled>M</button></div></div>
+          <div class="team-slot"><span class="team-slot-num">T5</span><input id="t8-team-5" class="team-input" type="text" placeholder="↑ from T6"><input id="t8-ss-5" class="team-ss" type="number"><input id="t8-wri-5" class="team-wri" type="number"><div class="team-outcome-btns"><button class="to-btn" id="t8-to-h-5" disabled>H</button><button class="to-btn" id="t8-to-m-5" disabled>M</button></div></div>
+          <div class="team-slot"><span class="team-slot-num">T6</span><input id="t8-team-6" class="team-input" type="text" placeholder="↑ from T6"><input id="t8-ss-6" class="team-ss" type="number"><input id="t8-wri-6" class="team-wri" type="number"><div class="team-outcome-btns"><button class="to-btn" id="t8-to-h-6" disabled>H</button><button class="to-btn" id="t8-to-m-6" disabled>M</button></div></div>
+          <div class="team-slot"><span class="team-slot-num manual">T7</span><input id="t8-team-7" class="team-input" type="text" placeholder="e.g. NY Jets"><input id="t8-ss-7" class="team-ss" type="number" min="80" max="100" placeholder="SS"><input id="t8-wri-7" class="team-wri" type="number" min="0" max="100" placeholder="WR%"><div class="team-outcome-btns"><button class="to-btn" id="to-h-7" onclick="setTeamOutcome(7,'Hit')">H</button><button class="to-btn" id="to-m-7" onclick="setTeamOutcome(7,'Miss')">M</button></div></div>
+          <div class="team-slot"><span class="team-slot-num manual">T8</span><input id="t8-team-8" class="team-input" type="text" placeholder="e.g. CIN Bengals"><input id="t8-ss-8" class="team-ss" type="number" min="80" max="100" placeholder="SS"><input id="t8-wri-8" class="team-wri" type="number" min="0" max="100" placeholder="WR%"><div class="team-outcome-btns"><button class="to-btn" id="to-h-8" onclick="setTeamOutcome(8,'Hit')">H</button><button class="to-btn" id="to-m-8" onclick="setTeamOutcome(8,'Miss')">M</button></div></div>
         </div>
+      </div>
+      <div class="ghost-panel" id="ghost-8">
+        <div class="ghost-panel-title">⬡ Preseason Ghost Factors · T7–T8 Risk Tier</div>
+        <div class="ghost-row">
+          <span class="ghost-lbl">BQ</span><input id="g8-bq" class="ghost-input" type="number" min="0" max="10" placeholder="0-10">
+          <span class="ghost-lbl">HC%</span><input id="g8-hc" class="ghost-input" type="number" min="0" max="100" placeholder="0-100">
+          <span class="ghost-lbl">RBP</span><input id="g8-rbp" class="ghost-input" type="number" min="0" max="10" placeholder="0-10">
+          <span class="ghost-score" id="g8-pgs">PGS: —</span>
+        </div>
+        <div class="ghost-legend">BQ=Backup QB XP (0–10) · HC%=Coach PS Win% · RBP=Roster Bubble (0–10)</div>
       </div>
       <div class="reno-stake">Stake: $100 · locked</div>
       <div class="reno-result" id="t8-result">
@@ -423,12 +541,20 @@ body{background:var(--black);color:var(--white);font-family:'Courier New',monosp
 </div>
 
 <script>
+// ── SYSTEM RESET ─────────────────────────────────────────────────────────────
+function systemReset() {
+  if (!confirm('SYSTEM RESET: Clear all local storage and reload?')) return;
+  try { localStorage.clear(); sessionStorage.clear(); } catch(e) {}
+  window.location.reload(true);
+}
+
 // ── CONFIG ───────────────────────────────────────────────────────────────────
 const RED_FLAG = 500;
 const UNIT     = 100;
 
 // ── STATE ────────────────────────────────────────────────────────────────────
 let log = [];
+let preseasonMode = false;
 
 // ── RENO DRAWER ──────────────────────────────────────────────────────────────
 let drawerOpen = false;
@@ -444,6 +570,85 @@ function toggleDrawer() {
     populateDrawer(lastWeek);
   } else {
     drawer.classList.remove('open');
+  }
+}
+
+// ── PRESEASON TOGGLE ─────────────────────────────────────────────────────────
+function togglePreseason() {
+  preseasonMode = !preseasonMode;
+  const btn    = document.getElementById('preseason-toggle');
+  const badge  = document.getElementById('preseason-badge');
+  const drawer = document.getElementById('reno-drawer');
+  btn.textContent = preseasonMode ? '⬡ PRESEASON ON' : '⬡ PRESEASON OFF';
+  btn.classList.toggle('active', preseasonMode);
+  badge.classList.toggle('show', preseasonMode);
+  drawer.classList.toggle('preseason-mode', preseasonMode);
+  ['ghost-4','ghost-6','ghost-8'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.classList.toggle('visible', preseasonMode);
+  });
+}
+
+// ── GHOST SCORE ───────────────────────────────────────────────────────────────
+function calcPGS(bq, hc, rbp) {
+  if (!bq && !hc && !rbp) return null;
+  return Math.min(100, Math.max(80, 70 + (bq||0)*1.5 + (hc||0)*0.1 + (rbp||0)*0.5)).toFixed(1);
+}
+
+// ── BLAME TAG GENERATOR ───────────────────────────────────────────────────────
+function generateBlameTag(slot, teamName, tierLabel) {
+  const T = `T${slot} ${teamName}`;
+  const lib = {
+    Foundation: [
+      `${T} Miss: Depth-chart instability — 2nd-string OL allowed pressure that collapsed pocket in Q3.`,
+      `${T} Miss: Backup QB decision-making under pressure failed to execute game plan in critical series.`,
+      `${T} Miss: Foundation unit exposed — skill-position depth turnover disrupted offensive rhythm.`,
+    ],
+    Extension: [
+      `${T} Miss: Extension tier matchup advantage neutralized — coverage scheme adaptation by opponent.`,
+      `${T} Miss: Roster bubble pressure backfired — high-leverage player failed in spot-start assignment.`,
+      `${T} Miss: WRI factor materialized — adverse conditions directly impacted passing game execution.`,
+    ],
+    Risk: [
+      `${T} Miss: Risk tier volatility realized — late-game situational execution collapsed under pressure.`,
+      `${T} Miss: Special teams breakdown created decisive field position disadvantage in 4th quarter.`,
+      `${T} Miss: High-WRI environment overcame positive SS score — weather/travel factor underweighted.`,
+    ],
+  };
+  const arr = lib[tierLabel] || lib.Risk;
+  return arr[slot % arr.length];
+}
+
+function injectBlameTag(slot, template) {
+  const mBtn = document.getElementById(`to-m-${slot}`);
+  if (!mBtn) return;
+  const slotDiv = mBtn.closest('.team-slot');
+  if (!slotDiv) return;
+  const existing = document.getElementById(`blame-${slot}`);
+  if (existing) existing.remove();
+  const wrap = document.createElement('div');
+  wrap.id = `blame-${slot}`;
+  wrap.className = 'blame-tag-wrap visible';
+  wrap.innerHTML = `<textarea class="blame-tag" id="blame-text-${slot}"
+    onchange="saveBlameTag(${slot},this.value)">${template}</textarea>`;
+  slotDiv.insertAdjacentElement('afterend', wrap);
+}
+
+async function saveBlameTag(slot, text) {
+  const week = parseInt(document.getElementById('reno-week').value);
+  const tierMax = { '4-Leg':4, '6-Leg':6, '8-Leg':8 };
+  for (const [type, maxSlot] of Object.entries(tierMax)) {
+    if (slot > maxSlot) continue;
+    const idx = log.findIndex(e => e.week === week && e.type === type);
+    if (idx < 0) continue;
+    const teams = JSON.parse(JSON.stringify(log[idx].teams || []));
+    const ti = teams.findIndex(t => t.slot === slot);
+    if (ti < 0) continue;
+    teams[ti].failure_log = text;
+    await fetch(`/api/log/${idx}`, {
+      method:'PUT', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ teams }),
+    });
   }
 }
 
@@ -465,8 +670,7 @@ function populateDrawer(week) {
     document.getElementById(`${p}-id`).value     = ent?.ticketId     || '';
     document.getElementById(`${p}-payout`).value = ent?.ticketPayout || '';
 
-    document.getElementById(`${p}-id`).readOnly     = committed;
-    document.getElementById(`${p}-payout`).readOnly = committed;
+    // inputs always editable — no committed lock
 
     document.getElementById(`${p}-err`).textContent = '';
 
@@ -482,34 +686,77 @@ function populateDrawer(week) {
   document.getElementById('reno-committed-badge').style.display = committed ? 'block' : 'none';
 
   // ── Team slots ──────────────────────────────────────────────────────────────
-  // Build a flat slot→name map from the 8-Leg entry (has all 8 teams)
-  const teamNames = {};
+  // Build flat slot→data maps from the 8-Leg entry (carries all 8 teams)
+  const teamName = {}, teamSS = {}, teamWRI = {}, teamOutcome = {};
   const eightEntry = entries['8-Leg'];
-  if (eightEntry?.teams) eightEntry.teams.forEach(t => { teamNames[t.slot] = t.name || ''; });
+  if (eightEntry?.teams) eightEntry.teams.forEach(t => {
+    teamName[t.slot]    = t.name    || '';
+    teamSS[t.slot]      = t.ss      != null ? t.ss  : '';
+    teamWRI[t.slot]     = t.wri     != null ? t.wri : '';
+    teamOutcome[t.slot] = t.outcome || null;
+  });
 
-  // T1–T4: 4-Leg editable (lock when committed), mirror to 6/8 readonly
+  // T1–T4: 4-Leg editable, mirrors in 6/8 readonly
   for (let i = 1; i <= 4; i++) {
-    const val = teamNames[i] || '';
-    const e4 = document.getElementById(`t4-team-${i}`);
-    const e6 = document.getElementById(`t6-team-${i}`);
-    const e8 = document.getElementById(`t8-team-${i}`);
-    if (e4) { e4.value = val; e4.readOnly = committed; }
-    if (e6)   e6.value = val;   // always readonly in HTML
-    if (e8)   e8.value = val;   // always readonly in HTML
+    const nm = teamName[i] || '', ss = teamSS[i], wri = teamWRI[i];
+    const e4n = document.getElementById(`t4-team-${i}`);
+    const e4s = document.getElementById(`t4-ss-${i}`);
+    const e4w = document.getElementById(`t4-wri-${i}`);
+    if (e4n) { e4n.value = nm;  e4n.readOnly = false; }
+    if (e4s) { e4s.value = ss;  e4s.readOnly = false; e4s.classList.remove('invalid'); }
+    if (e4w) { e4w.value = wri; e4w.readOnly = false; }
+    ['t6','t8'].forEach(p => {
+      const n = document.getElementById(`${p}-team-${i}`);
+      const s = document.getElementById(`${p}-ss-${i}`);
+      const w = document.getElementById(`${p}-wri-${i}`);
+      if (n) n.value = nm;
+      if (s) s.value = ss;
+      if (w) w.value = wri;
+    });
   }
-  // T5–T6: 6-Leg editable (lock when committed), mirror to 8 readonly
+  // T5–T6: 6-Leg editable, mirrors in 8 readonly
   for (let i = 5; i <= 6; i++) {
-    const val = teamNames[i] || '';
-    const e6 = document.getElementById(`t6-team-${i}`);
-    const e8 = document.getElementById(`t8-team-${i}`);
-    if (e6) { e6.value = val; e6.readOnly = committed; }
-    if (e8)   e8.value = val;   // always readonly in HTML
+    const nm = teamName[i] || '', ss = teamSS[i], wri = teamWRI[i];
+    const e6n = document.getElementById(`t6-team-${i}`);
+    const e6s = document.getElementById(`t6-ss-${i}`);
+    const e6w = document.getElementById(`t6-wri-${i}`);
+    if (e6n) { e6n.value = nm;  e6n.readOnly = false; }
+    if (e6s) { e6s.value = ss;  e6s.readOnly = false; }
+    if (e6w) { e6w.value = wri; e6w.readOnly = false; }
+    const e8n = document.getElementById(`t8-team-${i}`);
+    const e8s = document.getElementById(`t8-ss-${i}`);
+    const e8w = document.getElementById(`t8-wri-${i}`);
+    if (e8n) e8n.value = nm;
+    if (e8s) e8s.value = ss;
+    if (e8w) e8w.value = wri;
   }
-  // T7–T8: 8-Leg editable (lock when committed)
+  // T7–T8: 8-Leg editable
   for (let i = 7; i <= 8; i++) {
-    const val = teamNames[i] || '';
-    const e8 = document.getElementById(`t8-team-${i}`);
-    if (e8) { e8.value = val; e8.readOnly = committed; }
+    const nm = teamName[i] || '', ss = teamSS[i], wri = teamWRI[i];
+    const e8n = document.getElementById(`t8-team-${i}`);
+    const e8s = document.getElementById(`t8-ss-${i}`);
+    const e8w = document.getElementById(`t8-wri-${i}`);
+    if (e8n) { e8n.value = nm;  e8n.readOnly = false; }
+    if (e8s) { e8s.value = ss;  e8s.readOnly = false; }
+    if (e8w) { e8w.value = wri; e8w.readOnly = false; }
+  }
+
+  // ── Outcome buttons: enabled only after commitment ──────────────────────────
+  for (let i = 1; i <= 8; i++) {
+    const outcome = teamOutcome[i] || null;
+    // Primary buttons (T1-T4 in t4 section, T5-T6 in t6, T7-T8 in t8)
+    const hBtn = document.getElementById(`to-h-${i}`);
+    const mBtn = document.getElementById(`to-m-${i}`);
+    if (hBtn) { hBtn.disabled = false; hBtn.classList.toggle('h-active', outcome === 'Hit'); }
+    if (mBtn) { mBtn.disabled = false; mBtn.classList.toggle('m-active', outcome === 'Miss'); }
+    // Mirror display buttons in 6-leg (T1-T4) and 8-leg (T1-T6)
+    ['t6','t8'].forEach(p => {
+      if (i > 6 && p === 't6') return;
+      const hm = document.getElementById(`${p}-to-h-${i}`);
+      const mm = document.getElementById(`${p}-to-m-${i}`);
+      if (hm) { hm.disabled = true; hm.classList.toggle('h-active', outcome === 'Hit'); }
+      if (mm) { mm.disabled = true; mm.classList.toggle('m-active', outcome === 'Miss'); }
+    });
   }
 
   const fourLegMiss = entries['4-Leg'] && entries['4-Leg'].status === 'Miss';
@@ -548,30 +795,57 @@ async function renoCommit() {
   });
 
   // Build teams arrays — T1-T4 Foundation, T5-T6 Extension, T7-T8 Risk
-  const tn = (id) => document.getElementById(id)?.value.trim() || 'TBD';
+  const tn  = (id) => document.getElementById(id)?.value.trim() || 'TBD';
+  const ssn = (id) => parseInt(document.getElementById(id)?.value) || 0;
+  const wrn = (id) => parseInt(document.getElementById(id)?.value) || 0;
+
+  // ── 95% Edge Mandate: SS floor ≥ 90 for T1-T4 ─────────────────────────────
+  const ssWarnings = [];
+  for (let i = 1; i <= 4; i++) {
+    const ss = ssn(`t4-ss-${i}`);
+    const el = document.getElementById(`t4-ss-${i}`);
+    if (ss > 0 && ss < 90) {
+      ssWarnings.push(`T${i}: ${ss}`);
+      if (el) el.classList.add('invalid');
+    } else if (el) el.classList.remove('invalid');
+  }
+  if (ssWarnings.length > 0) {
+    document.getElementById('t4-err').textContent =
+      `⚠ SS FLOOR BREACH · ${ssWarnings.join(' · ')} · 95% EDGE MANDATE AT RISK`;
+    // Warn but do not block — Architect override allowed
+  }
+
   const t4teams = [1,2,3,4].map(i => ({
     slot: i, tier: 'Foundation', name: tn(`t4-team-${i}`),
-    ss: 0, wri: 0, outcome: null, momentum: ''
+    ss: ssn(`t4-ss-${i}`), wri: wrn(`t4-wri-${i}`), outcome: null, momentum: ''
   }));
   const t6teams = [
     ...t4teams,
     ...[5,6].map(i => ({ slot: i, tier: 'Extension', name: tn(`t6-team-${i}`),
-      ss: 0, wri: 0, outcome: null, momentum: '' }))
+      ss: ssn(`t6-ss-${i}`), wri: wrn(`t6-wri-${i}`), outcome: null, momentum: '' }))
   ];
   const t8teams = [
     ...t6teams,
     ...[7,8].map(i => ({ slot: i, tier: 'Risk', name: tn(`t8-team-${i}`),
-      ss: 0, wri: 0, outcome: null, momentum: '' }))
+      ss: ssn(`t8-ss-${i}`), wri: wrn(`t8-wri-${i}`), outcome: null, momentum: '' }))
   ];
   tiers['4-Leg'].teams = t4teams;
   tiers['6-Leg'].teams = t6teams;
   tiers['8-Leg'].teams = t8teams;
 
   try {
+    const ghost = {};
+    ['4','6','8'].forEach(t => {
+      const bq  = parseFloat(document.getElementById(`g${t}-bq`)?.value)  || 0;
+      const hc  = parseFloat(document.getElementById(`g${t}-hc`)?.value)  || 0;
+      const rbp = parseFloat(document.getElementById(`g${t}-rbp`)?.value) || 0;
+      ghost[`${t}-Leg`] = { bq, hc, rbp, pgs: calcPGS(bq, hc, rbp) };
+    });
+
     const r = await fetch('/api/sync', {
       method:  'POST',
       headers: { 'Content-Type': 'application/json' },
-      body:    JSON.stringify({ week, date: today, tiers }),
+      body:    JSON.stringify({ week, date: today, tiers, preseason: preseasonMode, ghost }),
     });
     if (!r.ok) throw new Error('sync failed');
     await fetchLog();
@@ -638,21 +912,62 @@ document.addEventListener('DOMContentLoaded', () => {
     populateDrawer(parseInt(e.target.value));
   });
 
-  // Live cascade: T1-T4 typed in 4-Leg → mirror to 6-Leg and 8-Leg readonly slots
+  // AUTO-OPEN: Drawer starts open so Architect can access inputs immediately
+  drawerOpen = true;
+  const drawer = document.getElementById('reno-drawer');
+  drawer.classList.add('open');
+  const lastWeek = log.length ? log[log.length - 1].week : 1;
+  const sel = document.getElementById('reno-week');
+  if (sel) sel.value = lastWeek;
+  populateDrawer(lastWeek);
+
+  // Live PGS calculation for each ghost panel
+  ['4','6','8'].forEach(t => {
+    ['bq','hc','rbp'].forEach(f => {
+      const el = document.getElementById(`g${t}-${f}`);
+      if (!el) return;
+      el.addEventListener('input', () => {
+        const bq  = parseFloat(document.getElementById(`g${t}-bq`)?.value)  || 0;
+        const hc  = parseFloat(document.getElementById(`g${t}-hc`)?.value)  || 0;
+        const rbp = parseFloat(document.getElementById(`g${t}-rbp`)?.value) || 0;
+        const pgs = calcPGS(bq, hc, rbp);
+        const pgsEl = document.getElementById(`g${t}-pgs`);
+        if (pgsEl) {
+          pgsEl.textContent = pgs ? `PGS: ${pgs}` : 'PGS: —';
+          pgsEl.style.color = pgs && parseFloat(pgs) >= 90 ? '#5a9878' : '#8a4a40';
+        }
+      });
+    });
+  });
+
+  // Live cascade T1-T4: mirror name/SS/WRI to 6-Leg and 8-Leg readonly slots
   for (let i = 1; i <= 4; i++) {
     document.getElementById(`t4-team-${i}`).addEventListener('input', e => {
       const v = e.target.value;
-      const e6 = document.getElementById(`t6-team-${i}`);
-      const e8 = document.getElementById(`t8-team-${i}`);
-      if (e6) e6.value = v;
-      if (e8) e8.value = v;
+      ['t6','t8'].forEach(p => { const el = document.getElementById(`${p}-team-${i}`); if (el) el.value = v; });
+    });
+    document.getElementById(`t4-ss-${i}`).addEventListener('input', e => {
+      const v = e.target.value, ss = parseInt(v) || 0;
+      ['t6','t8'].forEach(p => { const el = document.getElementById(`${p}-ss-${i}`); if (el) el.value = v; });
+      // Real-time SS floor badge
+      const el = e.target;
+      if (ss > 0 && ss < 90) el.classList.add('invalid'); else el.classList.remove('invalid');
+    });
+    document.getElementById(`t4-wri-${i}`).addEventListener('input', e => {
+      const v = e.target.value;
+      ['t6','t8'].forEach(p => { const el = document.getElementById(`${p}-wri-${i}`); if (el) el.value = v; });
     });
   }
-  // Live cascade: T5-T6 typed in 6-Leg → mirror to 8-Leg readonly slots
+  // Live cascade T5-T6: mirror name/SS/WRI to 8-Leg readonly slots
   for (let i = 5; i <= 6; i++) {
     document.getElementById(`t6-team-${i}`).addEventListener('input', e => {
-      const e8 = document.getElementById(`t8-team-${i}`);
-      if (e8) e8.value = e.target.value;
+      const el = document.getElementById(`t8-team-${i}`); if (el) el.value = e.target.value;
+    });
+    document.getElementById(`t6-ss-${i}`).addEventListener('input', e => {
+      const el = document.getElementById(`t8-ss-${i}`); if (el) el.value = e.target.value;
+    });
+    document.getElementById(`t6-wri-${i}`).addEventListener('input', e => {
+      const el = document.getElementById(`t8-wri-${i}`); if (el) el.value = e.target.value;
     });
   }
 });
@@ -770,6 +1085,27 @@ function renderEmpireCurve() {
     <polyline points="${pts}" fill="none" stroke="var(--gold)" stroke-width="1.5"/>
     ${dots}
   </svg>`;
+
+  // ── $100K Season Target Progress ────────────────────────────────────────────
+  const SEASON_TARGET = 100000;
+  const balance  = UNIT + netPL;
+  const pct      = Math.max(0, (balance / SEASON_TARGET) * 100);
+  const remaining = SEASON_TARGET - balance;
+  const progEl   = document.getElementById('empire-progress');
+  if (progEl) {
+    progEl.style.display = 'flex';
+    const bar = progEl.querySelector('.empire-progress-bar');
+    if (bar) {
+      bar.style.width      = Math.min(pct, 100).toFixed(2) + '%';
+      bar.style.background = netPL >= 0 ? 'var(--gold)' : 'var(--red)';
+    }
+    const pctEl = progEl.querySelector('.ep-pct');
+    if (pctEl) pctEl.textContent = pct.toFixed(1) + '%';
+    const remEl = progEl.querySelector('.ep-rem');
+    if (remEl) remEl.textContent = remaining > 0
+      ? '$' + Math.round(remaining).toLocaleString() + ' remaining'
+      : '⬡ TARGET ACHIEVED';
+  }
 
   // Dot hover tooltips
   el.querySelectorAll('.emp-dot').forEach(dot => {
@@ -955,30 +1291,164 @@ function renderStealth() {
   `;
 }
 
-// ── WEEK STATUS ───────────────────────────────────────────────────────────────
+// ── WEEK STATUS — LIVE TICKET TABLE ──────────────────────────────────────────
 function renderWeekStatus() {
   const el = document.getElementById('week-status');
-  const e  = log[log.length - 1] || {};
-  const t  = e.type || '4-Leg';
-  const s  = e.status || 'Ready';
-  const is6 = t === '6-Leg' || t === '8-Leg';
-  const is8 = t === '8-Leg';
+  const lastEntry = log[log.length - 1] || {};
+  const currentWeek = lastEntry.week || 1;
 
-  const sCls = s==='Hit'?'green':s==='Miss'?'red':s==='Ready'||s==='Pending'?'gold':'dim';
+  // All tickets for current week, sorted 4→6→8
+  const tierOrder = { '4-Leg': 0, '6-Leg': 1, '8-Leg': 2 };
+  const weekTickets = log
+    .filter(e => e.week === currentWeek)
+    .sort((a, b) => (tierOrder[a.type] || 0) - (tierOrder[b.type] || 0));
+
+  function vBadge(status) {
+    if (status === 'Hit')  return `<span class="v-badge v-W">W</span>`;
+    if (status === 'Miss') return `<span class="v-badge v-L">L</span>`;
+    return `<span class="v-badge v-P">P</span>`;
+  }
+  function rowClass(status) {
+    return status === 'Hit' ? 't-row-win' : status === 'Miss' ? 't-row-loss' : '';
+  }
+  function statusColor(s) {
+    return s === 'Hit' ? '#D4AF37' : s === 'Miss' ? '#FF0000' : 'var(--dim)';
+  }
+
+  const rows = weekTickets.map(t => `
+    <tr class="${rowClass(t.status)}">
+      <td>${vBadge(t.status)}</td>
+      <td style="color:var(--dim);font-size:7px;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${t.ticketId || '—'}</td>
+      <td style="color:var(--gold)">${t.type}</td>
+      <td style="color:${t.status==='Hit'?'var(--green)':'var(--dim)'}">${t.status==='Hit' ? '$'+(t.payout||0).toLocaleString() : '—'}</td>
+      <td style="color:${statusColor(t.status)};font-weight:700">${t.status||'Pending'}${(() => {
+        if (!t.killer_team) return '';
+        const killerTeam = (t.teams||[]).find(tm => tm.name === t.killer_team);
+        const log_note = killerTeam?.failure_log ? `<br><span style="font-size:6px;color:#883333;font-weight:400;letter-spacing:0">${killerTeam.failure_log.slice(0,80)}</span>` : '';
+        return `<br><span style="font-size:6px;color:#FF0000;font-weight:400">↯ ${t.killer_team}</span>${log_note}`;
+      })()}</td>
+    </tr>
+  `).join('');
+
+  const perfAlert = checkPerformanceGate();
 
   el.innerHTML = `
-    <div class="cards cards-3">
-      ${card('4-Leg', t==='4-Leg'?s:'ACTIVE', t==='4-Leg'?sCls:'gold', 'Foundation')}
-      ${card('6-Leg', is6?s:'LOCKED', is6?sCls:'dim', 'Extension')}
-      ${card('8-Leg', is8?s:'LOCKED', is8?sCls:'dim', 'Risk Tier')}
+    <table class="ticket-table">
+      <thead>
+        <tr>
+          <th style="width:22px">VER</th>
+          <th>Ticket ID</th>
+          <th>Tier</th>
+          <th>Payout</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${rows || '<tr><td colspan="5" style="color:var(--dim);text-align:center;padding:12px;letter-spacing:2px">NO TICKETS — OPEN RENO TO COMMIT</td></tr>'}
+      </tbody>
+    </table>
+    <div class="perf-gate ${perfAlert ? 'show' : ''}">
+      <div class="perf-gate-title">⚠ ENGINE RE-CALIBRATION REQUIRED</div>
+      T1-T4 Foundation hit rate &lt; 90% over last 3 weeks — ISE audit mandatory.
     </div>
     <div class="rules" style="margin-top:10px">
-      <div class="rule-line"><span class="rn">—</span><span style="color:var(--gold)">Engine: ISE Dynamics V5 Supreme · Rule Zero: ACTIVE</span></div>
-      <div class="rule-line"><span class="rn">—</span>Legacy Safety: Lambeau · Arrowhead · Pittsburgh locked.</div>
-      <div class="rule-line"><span class="rn">—</span>Bottom-Two Sentinel: ARMED · DEP Firewall: ARMED</div>
-      <div class="rule-line"><span class="rn">—</span>Auto-Risk Swap: 9 triggers loaded · WRI Monitor: ON</div>
+      <div class="rule-line"><span class="rn">—</span><span style="color:var(--gold)">Engine: ISE Dynamics V5 Supreme · 95% Edge Mandate: ACTIVE</span></div>
+      <div class="rule-line"><span class="rn">—</span>SS Floor T1–T4: ≥ 90 · Cascade Fail: ARMED · Dual-Write: VERIFIED</div>
+      <div class="rule-line"><span class="rn">—</span>Bottom-Two Sentinel: ARMED · DEP Firewall: ARMED · WRI Monitor: ON</div>
     </div>
   `;
+}
+
+// ── PERFORMANCE GATE ─────────────────────────────────────────────────────────
+function checkPerformanceGate() {
+  // Exclude preseason training data from regular-season hit-rate calculation
+  const resolved = log.filter(e =>
+    e.type === '4-Leg' && !e.preseason && (e.status === 'Hit' || e.status === 'Miss')
+  );
+  if (resolved.length < 3) return false;
+  const last3 = [...resolved].sort((a, b) => b.week - a.week).slice(0, 3);
+  return (last3.filter(e => e.status === 'Hit').length / 3) < 0.9;
+}
+
+// ── SET TEAM OUTCOME (per-team H/M with Foundation cascade) ──────────────────
+async function setTeamOutcome(slot, outcome) {
+  const week = parseInt(document.getElementById('reno-week').value);
+
+  // Which tiers contain this slot?
+  const tiersForSlot = ['4-Leg','6-Leg','8-Leg'].filter(type => {
+    if (type === '4-Leg') return slot <= 4;
+    if (type === '6-Leg') return slot <= 6;
+    return true;
+  });
+
+  let isFoundationMiss = false;
+  let killerName = null;
+
+  for (const type of tiersForSlot) {
+    const idx = log.findIndex(e => e.week === week && e.type === type);
+    if (idx < 0) continue;
+
+    const teams = JSON.parse(JSON.stringify(log[idx].teams || []));
+    const ti = teams.findIndex(t => t.slot === slot);
+    if (ti < 0) continue;
+
+    // Toggle: click same outcome again to clear
+    const newOutcome = teams[ti].outcome === outcome ? null : outcome;
+    teams[ti].outcome = newOutcome;
+
+    const updates = { teams };
+
+    if (slot <= 4 && newOutcome === 'Miss' && type === '4-Leg') {
+      isFoundationMiss = true;
+      killerName = teams[ti].name || `T${slot}`;
+      updates.status      = 'Miss';
+      updates.payout      = 0;
+      updates.net_profit  = -100;
+      updates.killer_team = killerName;
+    }
+
+    // Auto-generate blame tag on any Miss
+    if (newOutcome === 'Miss' && type === (slot<=4?'4-Leg':slot<=6?'6-Leg':'8-Leg')) {
+      const blameText = generateBlameTag(slot, teams[ti].name || `T${slot}`, teams[ti].tier || 'Risk');
+      teams[ti].failure_log = blameText;
+      setTimeout(() => injectBlameTag(slot, blameText), 150);
+    }
+    // Remove blame tag if outcome cleared/switched to Hit
+    if (newOutcome !== 'Miss' && type === (slot<=4?'4-Leg':slot<=6?'6-Leg':'8-Leg')) {
+      const existing = document.getElementById(`blame-${slot}`);
+      if (existing) existing.remove();
+      teams[ti].failure_log = null;
+    }
+
+    await fetch(`/api/log/${idx}`, {
+      method:  'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify(updates),
+    });
+  }
+
+  // Cascade 6/8-Leg and log killer_team across all tiers
+  if (isFoundationMiss) {
+    for (const type of ['6-Leg','8-Leg']) {
+      const idx = log.findIndex(e => e.week === week && e.type === type);
+      if (idx < 0) continue;
+      await fetch(`/api/log/${idx}`, {
+        method:  'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({ status: 'Miss', payout: 0, net_profit: -100, killer_team: killerName }),
+      });
+    }
+    applyCascadeVisual();
+  }
+
+  await fetchLog();
+  populateDrawer(week);
+
+  // Re-evaluate cascade visual
+  const fEntry = log.find(e => e.week === week && e.type === '4-Leg');
+  const hasFndMiss = fEntry?.status === 'Miss' ||
+    fEntry?.teams?.some(t => t.slot <= 4 && t.outcome === 'Miss');
+  if (hasFndMiss) applyCascadeVisual(); else clearCascadeVisual();
 }
 
 // ── EXPOSURE DETAIL ───────────────────────────────────────────────────────────

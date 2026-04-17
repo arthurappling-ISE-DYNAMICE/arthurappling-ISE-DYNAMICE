@@ -121,7 +121,7 @@ const server = http.createServer((req, res) => {
     req.on('data', c => { body += c })
     req.on('end', () => {
       try {
-        const { week, date, tiers } = JSON.parse(body)
+        const { week, date, tiers, preseason, ghost } = JSON.parse(body)
         const log = readLog()
         ;['4-Leg', '6-Leg', '8-Leg'].forEach(type => {
           const tier = tiers[type]
@@ -129,6 +129,8 @@ const server = http.createServer((req, res) => {
           const entry = {
             date, week, unit: 100, type,
             status: 'Active',
+            preseason: preseason || false,
+            ghost_factors: ghost?.[type] || null,
             ticketId: tier.ticketId,
             ticketPayout: tier.payout,
             payout: 0, net_profit: 0,
