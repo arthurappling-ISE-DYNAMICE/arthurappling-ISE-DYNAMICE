@@ -22,7 +22,7 @@ const MIME = {
 // Seed empty data file if missing
 if (!fs.existsSync(DATA_FILE)) {
   fs.writeFileSync(DATA_FILE, JSON.stringify(
-    { glucose: [], bloodPressure: [], last_lab_a1c: 8.6, projected_a1c: 8.23, lastUpdated: null },
+    { glucose: [], bloodPressure: [], weightLog: [], last_lab_a1c: null, projected_a1c: null, lastUpdated: null },
     null, 2
   ))
 }

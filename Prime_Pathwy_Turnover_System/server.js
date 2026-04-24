@@ -10,11 +10,25 @@ import 'dotenv/config';
 import express from 'express';
 import nodemailer from 'nodemailer';
 import { fileURLToPath } from 'url';
-import { dirname } from 'path';
+import { dirname, join } from 'path';
+import { writeFile, mkdir } from 'fs/promises';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app  = express();
 const PORT = process.env.PORT || 3000;
+
+const VAULT_LEADS = 'C:/Users/arthu/GeminiEcosystem/vault/prime_pathwy_master/leads';
+
+async function writeLeadToVault(payload) {
+  const ts  = new Date();
+  const stamp = ts.toISOString().replace(/[:.]/g, '-').slice(0, 19);
+  const name  = (payload.name || 'Unknown').replace(/[^a-zA-Z0-9 _-]/g, '').trim().replace(/\s+/g, '_') || 'Lead';
+  const filename = `${stamp}_${name}.json`;
+  const lead = { ...payload, logged_at: ts.toISOString() };
+  await mkdir(VAULT_LEADS, { recursive: true });
+  await writeFile(join(VAULT_LEADS, filename), JSON.stringify(lead, null, 2), 'utf8');
+  console.log(`[vault] Lead saved → ${filename}`);
+}
 
 /* ── SMTP transporter — Namecheap Private Email ─────────────────────────── */
 const transporter = nodemailer.createTransport({
@@ -47,6 +61,11 @@ app.post('/api/send-quote', async (req, res) => {
     text:    body,
     ...(replyTo ? { replyTo } : {}),  // reply goes to the client if they left an email
   };
+
+  // Vault lead log — non-blocking, never fails the response
+  writeLeadToVault(req.body).catch(err =>
+    console.error('[vault] Lead write failed:', err.message)
+  );
 
   try {
     await transporter.sendMail(mailOptions);

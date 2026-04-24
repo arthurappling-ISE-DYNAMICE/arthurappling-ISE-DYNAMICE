@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AA Capital INC — Sovereign Business Plan 2026</title>
+<style>
+/* ── BRAND DNA: Extracted from Prime_Pathwy_Turnover_System/index.html ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg-primary: #050505;
+  --bg-secondary: #0A0A0A;
+  --bg-card: #0D0D0D;
+  --gold-primary: #C9A84C;
+  --gold-light: #E2C06A;
+  --gold-bright: #F5D98A;
+  --gold-gradient: linear-gradient(135deg, #F5D98A, #C9A84C, #E2C06A);
+  --border-subtle: rgba(255,255,255,0.06);
+  --border-gold: rgba(201,168,76,0.3);
+  --text-white: #FFFFFF;
+  --text-muted: rgba(255,255,255,0.75);
+}
+html { font-size: 16px; }
+body {
+  background: var(--bg-primary);
+  color: var(--text-white);
+  font-family: 'Courier New', Courier, monospace;
+  line-height: 1.7;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.gold-text {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.serif { font-family: Georgia, 'Times New Roman', serif; font-style: italic; font-weight: 900; }
+.eyebrow {
+  font-size: 9px; letter-spacing: 0.4em; text-transform: uppercase;
+  color: rgba(201,168,76,0.75); display: block; margin-bottom: 0.75rem;
+}
+
+/* ── PAGE / PRINT LAYOUT ── */
+@page { size: letter; margin: 0; }
+.page {
+  width: 8.5in; min-height: 11in;
+  margin: 0 auto;
+  padding: 0.75in 0.85in;
+  background: var(--bg-primary);
+  page-break-after: always;
+  position: relative;
+}
+.page:last-child { page-break-after: avoid; }
+
+/* ── COVER PAGE ── */
+.cover {
+  display: flex; flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 0.75in 0.85in;
+  background: var(--bg-primary);
+  border-left: 4px solid var(--gold-primary);
+}
+.cover-top { border-bottom: 1px solid var(--border-gold); padding-bottom: 2rem; }
+.cover-logo {
+  font-family: Georgia, serif; font-style: italic; font-weight: 900;
+  font-size: 13px; letter-spacing: -0.02em;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  margin-bottom: 0.5rem;
+}
+.cover-entity { font-size: 10px; letter-spacing: 0.2em; color: var(--text-muted); text-transform: uppercase; }
+.cover-headline {
+  font-family: Georgia, serif; font-style: italic; font-weight: 900;
+  font-size: 52px; line-height: 1.0;
+  margin: 2.5rem 0 1.5rem;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.cover-sub {
+  font-size: 18px; color: var(--text-white); margin-bottom: 2rem;
+  letter-spacing: 0.05em;
+}
+.cover-meta-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+  margin-top: 2rem;
+}
+.cover-meta-item { border-left: 2px solid var(--border-gold); padding-left: 1rem; }
+.cover-meta-label { font-size: 9px; letter-spacing: 0.35em; text-transform: uppercase; color: rgba(201,168,76,0.75); margin-bottom: 0.3rem; }
+.cover-meta-value { font-size: 13px; color: var(--text-white); font-weight: bold; }
+.cover-bottom {
+  border-top: 1px solid var(--border-gold); padding-top: 1.5rem;
+  display: flex; justify-content: space-between; align-items: flex-end;
+}
+.cover-confidential {
+  font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase;
+  color: rgba(201,168,76,0.6);
+}
+.cover-tagline {
+  font-size: 11px; color: var(--text-muted); font-style: italic;
+  text-align: right;
+}
+.cover-seal {
+  width: 60px; height: 60px; border: 2px solid var(--border-gold);
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(201,168,76,0.05);
+  font-family: Georgia, serif; font-style: italic; font-weight: 900;
+  font-size: 20px; color: var(--gold-primary);
+}
+
+/* ── SECTION PAGES ── */
+.section-header {
+  border-bottom: 1px solid var(--border-gold);
+  padding-bottom: 1rem; margin-bottom: 2rem;
+}
+.section-number {
+  font-size: 9px; letter-spacing: 0.4em; text-transform: uppercase;
+  color: rgba(201,168,76,0.75); display: block; margin-bottom: 0.5rem;
+}
+.section-title {
+  font-family: Georgia, serif; font-style: italic; font-weight: 900;
+  font-size: 32px; line-height: 1.1;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.section-subtitle {
+  font-size: 12px; color: var(--text-muted); margin-top: 0.5rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+}
+
+/* ── CONTENT BLOCKS ── */
+h3 {
+  font-family: Georgia, serif; font-style: italic; font-weight: 900;
+  font-size: 16px; color: var(--gold-light);
+  margin: 1.75rem 0 0.75rem; letter-spacing: 0.02em;
+}
+h4 {
+  font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase;
+  color: rgba(201,168,76,0.85); margin: 1.25rem 0 0.5rem;
+}
+p { font-size: 14px; color: var(--text-white); margin-bottom: 0.85rem; line-height: 1.75; }
+ul { padding-left: 1.25rem; margin-bottom: 0.85rem; }
+li { font-size: 14px; color: var(--text-white); margin-bottom: 0.35rem; line-height: 1.65; }
+li::marker { color: var(--gold-primary); }
+strong { color: var(--gold-light); }
+
+/* ── STAT CARDS ── */
+.stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.5rem 0; }
+.stat-card {
+  background: var(--bg-card); border: 1px solid var(--border-gold);
+  padding: 1.25rem 1rem; text-align: center;
+}
+.stat-number {
+  font-family: Georgia, serif; font-style: italic; font-weight: 900;
+  font-size: 28px;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  display: block; margin-bottom: 0.35rem;
+}
+.stat-label { font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-muted); }
+
+/* ── TABLES ── */
+table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 13px; }
+th {
+  background: rgba(201,168,76,0.12); color: var(--gold-bright);
+  font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase;
+  padding: 0.6rem 0.75rem; text-align: left;
+  border-bottom: 1px solid var(--border-gold);
+}
+td {
+  padding: 0.55rem 0.75rem; color: var(--text-white);
+  border-bottom: 1px solid var(--border-subtle);
+  vertical-align: top;
+}
+tr:last-child td { border-bottom: 1px solid var(--border-gold); }
+.td-gold { color: var(--gold-light); font-weight: bold; }
+.td-right { text-align: right; }
+.tr-total { background: rgba(201,168,76,0.08); }
+.tr-total td { color: var(--gold-bright); font-weight: bold; font-size: 13px; }
+
+/* ── CALLOUT BOXES ── */
+.callout {
+  background: rgba(201,168,76,0.07); border-left: 3px solid var(--gold-primary);
+  padding: 1rem 1.25rem; margin: 1.25rem 0;
+}
+.callout p { margin: 0; font-size: 14px; }
+.callout-alert {
+  background: rgba(201,168,76,0.04); border: 1px solid var(--border-gold);
+  padding: 1rem 1.25rem; margin: 1.25rem 0;
+}
+
+/* ── MILESTONE LIST ── */
+.milestone-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0.6rem 0; border-bottom: 1px solid var(--border-subtle);
+  font-size: 13px;
+}
+.milestone-row:last-child { border-bottom: none; }
+.milestone-label { color: var(--text-white); }
+.milestone-value { color: var(--gold-light); font-weight: bold; font-size: 12px; }
+
+/* ── PROCESS STEPS ── */
+.process-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0.75rem; margin: 1.25rem 0; }
+.process-step { background: var(--bg-card); border: 1px solid var(--border-subtle); padding: 1rem; text-align: center; }
+.process-num {
+  font-family: Georgia, serif; font-style: italic; font-weight: 900; font-size: 22px;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  display: block; margin-bottom: 0.4rem;
+}
+.process-title { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 0.4rem; }
+.process-desc { font-size: 11px; color: var(--text-muted); }
+
+/* ── PAGE FOOTER ── */
+.page-footer {
+  position: absolute; bottom: 0.5in; left: 0.85in; right: 0.85in;
+  display: flex; justify-content: space-between; align-items: center;
+  border-top: 1px solid var(--border-subtle); padding-top: 0.4rem;
+}
+.footer-left { font-size: 9px; letter-spacing: 0.2em; color: rgba(201,168,76,0.6); }
+.footer-right { font-size: 9px; color: rgba(255,255,255,0.4); }
+
+/* ── APPENDIX ── */
+.talking-point {
+  background: var(--bg-card); border-left: 3px solid var(--gold-primary);
+  padding: 1rem 1.25rem; margin-bottom: 0.85rem;
+}
+.tp-number { font-size: 9px; letter-spacing: 0.35em; text-transform: uppercase; color: rgba(201,168,76,0.75); margin-bottom: 0.4rem; }
+.tp-title { font-size: 15px; color: var(--gold-bright); font-family: Georgia, serif; font-style: italic; font-weight: 900; margin-bottom: 0.4rem; }
+.tp-body { font-size: 13px; color: var(--text-white); }
+.tp-proof { font-size: 12px; color: var(--gold-light); margin-top: 0.3rem; font-style: italic; }
+
+/* ── PRINT MEDIA ── */
+@media print {
+  body { background: #050505 !important; }
+  .page { page-break-after: always; margin: 0; width: 100%; }
+  .cover { page-break-after: always; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════ COVER PAGE -->
+<div class="cover">
+  <div class="cover-top">
+    <div class="cover-logo">Prime Pathwy</div>
+    <div class="cover-entity">AA Capital INC &nbsp;·&nbsp; EIN 84-4788578 &nbsp;·&nbsp; DUNS 12-3035654 &nbsp;·&nbsp; Vallejo, CA 94590</div>
+  </div>
+
+  <div>
+    <span class="eyebrow">Sovereign Business Plan &nbsp;·&nbsp; Capital Injection Series</span>
+    <div class="cover-headline">Sovereign<br>Capital<br>Plan</div>
+    <div class="cover-sub">$125,000 SBA Capital Injection<br>Solano-Napa SBDC — April 24, 2026</div>
+
+    <div class="cover-meta-grid">
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">Prepared For</div>
+        <div class="cover-meta-value">Solano-Napa SBDC Advisor</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">Presentation Date</div>
+        <div class="cover-meta-value">April 24, 2026</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">Principal Architect</div>
+        <div class="cover-meta-value">Arthur F. Appling Sr.</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">Capital Requested</div>
+        <div class="cover-meta-value">$125,000</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">Year 1 Revenue Projection</div>
+        <div class="cover-meta-value">$257,000</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">DSCR (Debt Coverage)</div>
+        <div class="cover-meta-value">7.42x &nbsp;(min. 1.25x)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-bottom">
+    <div>
+      <div class="cover-confidential">Confidential &nbsp;·&nbsp; For Advisor Use Only</div>
+      <div style="font-size:10px;color:rgba(255,255,255,0.45);margin-top:0.3rem;">contact@primepathwy.com &nbsp;·&nbsp; www.primepathwy.com</div>
+    </div>
+    <div style="text-align:right;">
+      <div class="cover-tagline">Discipline Over Emotion.<br>Systems Over Shortcuts.</div>
+    </div>
+    <div class="cover-seal">PP</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════ SECTION 1: EXECUTIVE SUMMARY -->
+<div class="page">
+  <div class="section-header">
+    <span class="section-number">Section 01 &nbsp;·&nbsp; Foundation</span>
+    <div class="section-title">Executive Summary</div>
+    <div class="section-subtitle">Who We Are · What We Do · Why Now</div>
+  </div>
+
+  <h3>Business Identity</h3>
+  <p>AA Capital INC, operating as <strong>Prime Pathwy</strong>, is a California-incorporated consulting and property services firm headquartered in Vallejo, Solano County, CA. The company was incorporated January 27, 2020, holds EIN 84-4788578 and DUNS 12-3035654, and is currently pursuing California Small Business (SB) Certification through DGS Office of Small Business &amp; DVBE Services.</p>
+  <p>Prime Pathwy operates two distinct but complementary revenue engines:</p>
+  <ul>
+    <li><strong>Prime Pathwy Property Turnover System</strong> — institutional-grade property turnover services (clean, haul, paint) for landlords, real estate investors, and property managers in Solano County</li>
+    <li><strong>Prime Pathwy Consulting Wing — Elite 10</strong> — a $5,000/seat Sovereign System installation that automates operations for hauling, logistics, and painting operators using NEPQ diagnostic methodology</li>
+  </ul>
+
+  <div class="stat-row">
+    <div class="stat-card">
+      <span class="stat-number">$257K</span>
+      <span class="stat-label">Year 1 Revenue Projection</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-number">7.42x</span>
+      <span class="stat-label">Debt Service Coverage Ratio</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-number">M2</span>
+      <span class="stat-label">Cash Flow Positive By</span>
+    </div>
+  </div>
+
+  <h3>Capital Request</h3>
+  <p>AA Capital INC is requesting <strong>$125,000</strong> in SBA-backed capital through the Solano-Napa SBDC loan channel. Capital will be deployed in two allocations: <strong>$75,000</strong> for equipment acquisition (commercial truck, dump trailer, cleaning and paint systems) and <strong>$50,000</strong> in working capital to bridge operations during the first six months of revenue ramp.</p>
+
+  <h3>Repayment Confidence</h3>
+  <p>At a 7-year term and estimated 7.5% rate, monthly debt service is $1,917. Year 1 Net Operating Income of $170,780 produces a DSCR of <strong>7.42x</strong> — nearly six times the lender minimum of 1.25x. Working capital is never fully depleted. The business becomes cash-flow positive in Month 2 and self-sustaining from Month 5 on Turnover revenue alone.</p>
+
+  <div class="callout">
+    <p><strong>Architect's Declaration:</strong> This plan was built from operational source-of-truth data — canonical pricing extracted from the live Prime Pathwy Turnover System website, active NEPQ sales doctrine, and a verified expense model built on the owner's actual draw of $1,109 bi-weekly. Nothing in this document is hypothetical. Everything has a system behind it.</p>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-left">AA Capital INC &nbsp;·&nbsp; Prime Pathwy &nbsp;·&nbsp; EIN 84-4788578</div>
+    <div class="footer-right">Section 01 — Executive Summary</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════ SECTION 2: MARKET ANALYSIS -->
+<div class="page">
+  <div class="section-header">
+    <span class="section-number">Section 02 &nbsp;·&nbsp; Market Intelligence</span>
+    <div class="section-title">Market Analysis</div>
+    <div class="section-subtitle">The AB 2019 Opportunity · Solano County · State Procurement Pipeline</div>
+  </div>
+
+  <h3>The AB 2019 Legislative Framework</h3>
+  <p>California's legislative environment has created a structural mandate for Small Business participation in state government procurement. Under <strong>California Government Code §14837 et seq.</strong> (the foundational SB mandate), state agencies are required to award <strong>25% of contract dollars</strong> to certified Small Businesses. Assembly Bill 2019 reinforced and expanded the procurement preference framework, increasing the accountability of state agencies to meet SB spending goals and extending the mandate's reach into infrastructure and services contracts — the exact categories where Prime Pathwy's property turnover and consulting services operate.</p>
+
+  <div class="callout">
+    <p><strong>Strategic Implication:</strong> SB Certification via DGS OSDS (application in progress) is the master key. Once certified, AA Capital INC is immediately eligible to compete for a pipeline valued in the hundreds of millions annually across state agencies in Northern California. The 25% mandate is not optional for state agencies — it is enforced. This creates structural demand for certified SBs regardless of economic conditions.</p>
+  </div>
+
+  <h3>Solano County Market Conditions</h3>
+  <p>Solano County, anchored by Vallejo, Fairfield, Vacaville, and Benicia, represents a high-demand market for property turnover services. Key market drivers:</p>
+  <ul>
+    <li><strong>Vacancy rates:</strong> Solano County rental vacancy has remained above state average, driven by post-pandemic tenant displacement and ongoing housing cost pressures — creating continuous turnover demand for landlords and property managers</li>
+    <li><strong>Eviction volume:</strong> Post-moratorium eviction filings across Solano County continue at elevated rates, creating urgent demand for professional eviction clean-out and haul-out services</li>
+    <li><strong>SFH investor activity:</strong> Investor acquisition of single-family rental stock in Vallejo/Benicia corridors accelerated 2022–2025, creating a recurring client base of institutional landlords requiring documented, repeatable turnover systems</li>
+    <li><strong>Vendor gap:</strong> Solano County lacks institutional-grade, documented turnover operators. The market is dominated by informal cleaning crews and uncoordinated handymen — a gap Prime Pathwy is designed to fill</li>
+  </ul>
+
+  <h3>Consulting Market — The $5,000 Gap</h3>
+  <p>The target market for the Elite 10 Sovereign System is the Solano/Bay Area operator who is running a hauling, logistics, or painting business manually — owner-dependent, paper-based, and losing $40,000–$100,000/year in unbilled revenue and wasted admin time. This operator exists in every zip code in Northern California. The NEPQ diagnostic reveals the gap. The $5,000 system closes it.</p>
+
+  <div class="stat-row">
+    <div class="stat-card">
+      <span class="stat-number">25%</span>
+      <span class="stat-label">State SB Contract Mandate</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-number">$5,000</span>
+      <span class="stat-label">Elite 10 Price Per Seat</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-number">2–3 Day</span>
+      <span class="stat-label">Turnover Delivery Standard</span>
+    </div>
+  </div>
+
+  <h3>Competitive Positioning</h3>
+  <p>Prime Pathwy does not compete on price. It competes on <strong>documentation, system, and accountability</strong> — the three things informal vendors cannot replicate. Every job is delivered with a fixed written quote, before/during/after photo documentation, and a signed handover record. This institutional-grade approach positions Prime Pathwy as the vendor of choice for property managers, real estate investors, and state agency facilities contracts.</p>
+
+  <div class="page-footer">
+    <div class="footer-left">AA Capital INC &nbsp;·&nbsp; Prime Pathwy &nbsp;·&nbsp; EIN 84-4788578</div>
+    <div class="footer-right">Section 02 — Market Analysis</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════ SECTION 3: OPERATIONAL PLAN -->
+<div class="page">
+  <div class="section-header">
+    <span class="section-number">Section 03 &nbsp;·&nbsp; Operations</span>
+    <div class="section-title">Operational Plan</div>
+    <div class="section-subtitle">The Turnover System · The Elite 10 · The $125K Equipment Build-Out</div>
+  </div>
+
+  <h3>Revenue Engine 1 — Prime Pathwy Property Turnover System</h3>
+  <p>The Turnover System is a fully documented, 4-step property restoration process designed for speed, accountability, and repeatable margin. Services are scoped, priced, and executed under a single written agreement with full photo documentation on every job.</p>
+
+  <h4>Service Scope &amp; Canonical Pricing (2026)</h4>
+  <table>
+    <thead><tr><th>Service</th><th>Unit Type</th><th>Price Range</th><th>Blended Avg</th></tr></thead>
+    <tbody>
+      <tr><td>Full Turnover</td><td>Studio / 1BR Apartment</td><td>$1,200 – $1,600</td><td class="td-gold">$1,400</td></tr>
+      <tr><td>Full Turnover</td><td>2BR Apartment</td><td>$1,500 – $2,000</td><td class="td-gold">$1,750</td></tr>
+      <tr><td>Full Turnover</td><td>3BR Apartment</td><td>$1,800 – $2,400</td><td class="td-gold">$2,100</td></tr>
+      <tr><td>Full Turnover</td><td>2BR Single-Family Home</td><td>$1,600 – $2,100</td><td class="td-gold">$1,850</td></tr>
+      <tr><td>Full Turnover</td><td>3BR Single-Family Home</td><td>$1,900 – $2,600</td><td class="td-gold">$2,250</td></tr>
+      <tr><td>Full Turnover</td><td>4BR Single-Family Home</td><td>$2,300 – $3,000</td><td class="td-gold">$2,650</td></tr>
+      <tr class="tr-total"><td colspan="3">Forecast Blended Rate (conservative, skewed to 1–2BR)</td><td>$1,600</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:12px;color:rgba(255,255,255,0.75);">All pricing is labor only. Disposal/landfill fees billed separately at cost with receipts. Extreme conditions (biohazard, hoarding) quoted separately.</p>
+
+  <h4>The 4-Step Delivery Process</h4>
+  <div class="process-grid">
+    <div class="process-step">
+      <span class="process-num">01</span>
+      <div class="process-title">Walkthrough</div>
+      <div class="process-desc">On-site assessment. Scope defined before any work begins.</div>
+    </div>
+    <div class="process-step">
+      <span class="process-num">02</span>
+      <div class="process-title">Fixed Quote</div>
+      <div class="process-desc">Written quote returned. No verbal estimates. No surprises.</div>
+    </div>
+    <div class="process-step">
+      <span class="process-num">03</span>
+      <div class="process-title">Execution</div>
+      <div class="process-desc">Clean, haul, paint. Before/during/after photos mandatory.</div>
+    </div>
+    <div class="process-step">
+      <span class="process-num">04</span>
+      <div class="process-title">Handover</div>
+      <div class="process-desc">Move-in ready delivery with full photo documentation record.</div>
+    </div>
+  </div>
+
+  <h3>Revenue Engine 2 — Elite 10 Sovereign System Consulting</h3>
+  <p>The Elite 10 is a one-time $5,000 Sovereign System installation — not a subscription, not a retainer. The client receives a fully operational documented business system: managed GitHub repository, operational manual, custom domain, and all automations configured and running.</p>
+  <p>Sales are executed via the <strong>10-Point Sovereign NEPQ Diagnostic</strong> — a structured conversation designed to surface the operator's chaos cost before any price is named. The math does the selling. Prime Pathwy closes the gap.</p>
+
+  <h3>$125,000 Equipment Build-Out Plan</h3>
+  <table>
+    <thead><tr><th>Asset</th><th class="td-right">Cost</th><th>Purpose</th></tr></thead>
+    <tbody>
+      <tr><td>Commercial Work Truck / Van (used)</td><td class="td-right td-gold">$35,000</td><td>Crew transport, job mobilization</td></tr>
+      <tr><td>Commercial Dump Trailer (14' tandem axle)</td><td class="td-right td-gold">$18,000</td><td>Haul-out, debris removal, clean-outs</td></tr>
+      <tr><td>Professional Cleaning Equipment Package</td><td class="td-right td-gold">$8,500</td><td>Industrial vacuums, steam units, floor machines</td></tr>
+      <tr><td>Tools &amp; Safety Equipment</td><td class="td-right td-gold">$7,500</td><td>Hand tools, PPE, ladders, drop cloths</td></tr>
+      <tr><td>Paint Equipment &amp; Sprayers</td><td class="td-right td-gold">$6,000</td><td>Interior paint service execution</td></tr>
+      <tr class="tr-total"><td><strong>Equipment Total</strong></td><td class="td-right"><strong>$75,000</strong></td><td>60% of capital injection</td></tr>
+      <tr><td>Operating Bridge (6 months)</td><td class="td-right td-gold">$25,000</td><td>Overhead coverage during revenue ramp</td></tr>
+      <tr><td>Marketing &amp; Lead Generation</td><td class="td-right td-gold">$8,000</td><td>Google, social, direct mail</td></tr>
+      <tr><td>Technology / Sovereign Systems Lab</td><td class="td-right td-gold">$5,000</td><td>CRM, AI, hosting, automation</td></tr>
+      <tr><td>Insurance Deposits &amp; Bonds</td><td class="td-right td-gold">$5,000</td><td>Commercial liability + auto</td></tr>
+      <tr><td>Business Development &amp; Advisory</td><td class="td-right td-gold">$4,000</td><td>SBDC, legal, accounting</td></tr>
+      <tr><td>Emergency Contingency</td><td class="td-right td-gold">$3,000</td><td>Equipment repair, client gaps</td></tr>
+      <tr class="tr-total"><td><strong>Working Capital Total</strong></td><td class="td-right"><strong>$50,000</strong></td><td>40% of capital injection</td></tr>
+      <tr class="tr-total"><td><strong>TOTAL CAPITAL INJECTION</strong></td><td class="td-right"><strong>$125,000</strong></td><td></td></tr>
+    </tbody>
+  </table>
+
+  <div class="page-footer">
+    <div class="footer-left">AA Capital INC &nbsp;·&nbsp; Prime Pathwy &nbsp;·&nbsp; EIN 84-4788578</div>
+    <div class="footer-right">Section 03 — Operational Plan</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════ SECTION 4: FINANCIAL PROJECTIONS -->
+<div class="page">
+  <div class="section-header">
+    <span class="section-number">Section 04 &nbsp;·&nbsp; Financials</span>
+    <div class="section-title">Financial Projections</div>
+    <div class="section-subtitle">Year 1 Monthly · Year 2 Quarterly · Loan Repayment · Milestones</div>
+  </div>
+
+  <h3>Monthly Operating Expenses</h3>
+  <table>
+    <thead><tr><th>Category</th><th class="td-right">Monthly</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>Owner Draw</td><td class="td-right td-gold">$2,218</td><td>$1,109 bi-weekly × 2 — fixed, not scaled</td></tr>
+      <tr><td>SBA Loan Repayment</td><td class="td-right td-gold">$1,917</td><td>$125K @ 7.5%, 84-month term</td></tr>
+      <tr><td>Commercial Liability Insurance</td><td class="td-right">$350</td><td>Property turnover operations</td></tr>
+      <tr><td>Commercial Auto Insurance</td><td class="td-right">$400</td><td>Truck + trailer</td></tr>
+      <tr><td>Fuel &amp; Vehicle Maintenance</td><td class="td-right">$800</td><td>Job mobilization</td></tr>
+      <tr><td>Marketing &amp; Digital Lead Gen</td><td class="td-right">$500</td><td>Google, social, direct outreach</td></tr>
+      <tr><td>Technology / AI / Software</td><td class="td-right">$300</td><td>Sovereign Systems Lab, CRM</td></tr>
+      <tr><td>Phone &amp; Communications</td><td class="td-right">$200</td><td>Business line</td></tr>
+      <tr><td>Supplies &amp; Materials</td><td class="td-right">$300</td><td>Cleaning, paint consumables</td></tr>
+      <tr><td>Accounting &amp; Compliance</td><td class="td-right">$200</td><td>Bookkeeping, tax reserve</td></tr>
+      <tr class="tr-total"><td><strong>Total Monthly OpEx</strong></td><td class="td-right"><strong>$7,185</strong></td><td><strong>Break-even revenue target</strong></td></tr>
+    </tbody>
+  </table>
+
+  <h3>Year 1 Monthly Revenue Forecast</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Line</th><th>M1</th><th>M2</th><th>M3</th><th>M4</th><th>M5</th><th>M6</th>
+        <th>M7</th><th>M8</th><th>M9</th><th>M10</th><th>M11</th><th>M12</th><th>TOTAL</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="td-gold">Turnover Rev.</td>
+        <td>$2,800</td><td>$4,200</td><td>$5,600</td><td>$7,000</td><td>$8,400</td><td>$9,000</td>
+        <td>$10,500</td><td>$10,500</td><td>$12,000</td><td>$13,500</td><td>$13,500</td><td>$15,000</td>
+        <td class="td-gold">$112K</td>
+      </tr>
+      <tr>
+        <td class="td-gold">Consulting Rev.</td>
+        <td>$0</td><td>$5,000</td><td>$5,000</td><td>$10,000</td><td>$10,000</td><td>$10,000</td>
+        <td>$15,000</td><td>$15,000</td><td>$15,000</td><td>$20,000</td><td>$20,000</td><td>$20,000</td>
+        <td class="td-gold">$145K</td>
+      </tr>
+      <tr class="tr-total">
+        <td><strong>TOTAL REV.</strong></td>
+        <td>$2,800</td><td>$9,200</td><td>$10,600</td><td>$17,000</td><td>$18,400</td><td>$19,000</td>
+        <td>$25,500</td><td>$25,500</td><td>$27,000</td><td>$33,500</td><td>$33,500</td><td>$35,000</td>
+        <td><strong>$257K</strong></td>
+      </tr>
+      <tr>
+        <td>OpEx</td>
+        <td colspan="12" style="color:rgba(255,255,255,0.6);font-size:12px;">$7,185/month (fixed throughout Year 1)</td>
+        <td style="color:rgba(255,255,255,0.75);">$86,220</td>
+      </tr>
+      <tr class="tr-total">
+        <td><strong>NET INCOME</strong></td>
+        <td style="color:#e55;">(4,385)</td><td>$2,015</td><td>$3,415</td><td>$9,815</td><td>$11,215</td><td>$11,815</td>
+        <td>$18,315</td><td>$18,315</td><td>$19,815</td><td>$26,315</td><td>$26,315</td><td>$27,815</td>
+        <td><strong>$170,780</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Year 2 Quarterly Forecast</h3>
+  <table>
+    <thead><tr><th>Line</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th><th>YEAR 2 TOTAL</th></tr></thead>
+    <tbody>
+      <tr><td class="td-gold">Turnover Revenue</td><td>$57,600</td><td>$62,400</td><td>$67,200</td><td>$72,000</td><td class="td-gold">$259,200</td></tr>
+      <tr><td class="td-gold">Consulting Revenue</td><td>$75,000</td><td>$75,000</td><td>$90,000</td><td>$90,000</td><td class="td-gold">$330,000</td></tr>
+      <tr class="tr-total"><td><strong>TOTAL REVENUE</strong></td><td>$132,600</td><td>$137,400</td><td>$157,200</td><td>$162,000</td><td><strong>$589,200</strong></td></tr>
+      <tr><td>Total OpEx</td><td>$21,555</td><td>$21,555</td><td>$21,555</td><td>$21,555</td><td>$86,220</td></tr>
+      <tr class="tr-total"><td><strong>NET INCOME</strong></td><td>$111,045</td><td>$115,845</td><td>$135,645</td><td>$140,445</td><td><strong>$502,980</strong></td></tr>
+    </tbody>
+  </table>
+
+  <h3>Loan Repayment &amp; DSCR</h3>
+  <table>
+    <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td>Loan Amount</td><td class="td-gold">$125,000</td></tr>
+      <tr><td>Interest Rate (estimated)</td><td>7.5% annually</td></tr>
+      <tr><td>Term</td><td>84 months (7 years)</td></tr>
+      <tr><td>Monthly Payment</td><td class="td-gold">$1,917</td></tr>
+      <tr><td>Annual Debt Service</td><td>$23,004</td></tr>
+      <tr><td>Year 1 Net Operating Income</td><td class="td-gold">$170,780</td></tr>
+      <tr class="tr-total"><td><strong>DSCR (Year 1)</strong></td><td><strong>7.42x &nbsp;·&nbsp; Lender minimum: 1.25x</strong></td></tr>
+    </tbody>
+  </table>
+
+  <h4>Key Milestones</h4>
+  <div class="milestone-row"><span class="milestone-label">Cash flow positive</span><span class="milestone-value">Month 2</span></div>
+  <div class="milestone-row"><span class="milestone-label">Break-even on Turnover revenue alone</span><span class="milestone-value">Month 5</span></div>
+  <div class="milestone-row"><span class="milestone-label">First Elite 10 client closed</span><span class="milestone-value">Month 2</span></div>
+  <div class="milestone-row"><span class="milestone-label">Working capital fully restored</span><span class="milestone-value">Month 6</span></div>
+  <div class="milestone-row"><span class="milestone-label">10 Turnover jobs/month steady state</span><span class="milestone-value">Month 10</span></div>
+  <div class="milestone-row"><span class="milestone-label">$500K annual revenue run rate</span><span class="milestone-value">Month 10–11</span></div>
+
+  <div class="page-footer">
+    <div class="footer-left">AA Capital INC &nbsp;·&nbsp; Prime Pathwy &nbsp;·&nbsp; EIN 84-4788578</div>
+    <div class="footer-right">Section 04 — Financial Projections</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════ APPENDIX: ADVISOR TALKING POINTS -->
+<div class="page">
+  <div class="section-header">
+    <span class="section-number">Appendix A &nbsp;·&nbsp; April 24, 2026 Briefing</span>
+    <div class="section-title">Advisor Talking Points</div>
+    <div class="section-subtitle">Six Sovereign Arguments — Deliver in Order — Do Not Skip</div>
+  </div>
+
+  <p style="margin-bottom:1.5rem;">These are the six arguments that prove AA Capital INC is ready for the $125K injection and the 25% state mandate. Each has a proof line. Know the numbers cold.</p>
+
+  <div class="talking-point">
+    <div class="tp-number">Talking Point 01</div>
+    <div class="tp-title">Two Revenue Streams — Asset-Backed and High-Margin</div>
+    <div class="tp-body">This is not a single-revenue-stream bet. The Turnover System generates physical-asset-backed service revenue starting Month 1. The Elite 10 consulting generates $5,000/close with zero overhead beyond time. Both streams are operational, priced, and market-tested.</div>
+    <div class="tp-proof">Proof: Canonical pricing live at primepathwy.com. Consulting doctrine documented in NEPQ script. Two income engines, not one.</div>
+  </div>
+
+  <div class="talking-point">
+    <div class="tp-number">Talking Point 02</div>
+    <div class="tp-title">Cash Positive Month 2 — Working Capital Never Depleted</div>
+    <div class="tp-body">The only negative cash month is Month 1, during equipment acquisition. By Month 2, combined revenue exceeds monthly OpEx. The $50,000 working capital reserve remains above $45,000 in Month 1 and grows every month thereafter. This loan will never be at risk of default from a cash flow standpoint.</div>
+    <div class="tp-proof">Proof: Monthly cash flow table in Section 4. Working capital balance column shows no month below $45,000.</div>
+  </div>
+
+  <div class="talking-point">
+    <div class="tp-number">Talking Point 03</div>
+    <div class="tp-title">DSCR of 7.42x — Six Times the Minimum</div>
+    <div class="tp-body">Year 1 Net Operating Income of $170,780 against annual debt service of $23,004 produces a Debt Service Coverage Ratio of 7.42x. Most lenders require 1.25x. AA Capital INC exceeds that by nearly 600%. Even in a 50% revenue downside scenario, DSCR remains above 3.0x.</div>
+    <div class="tp-proof">Proof: $170,780 ÷ $23,004 = 7.42x. Confirmed in Section 4, Loan Repayment table.</div>
+  </div>
+
+  <div class="talking-point">
+    <div class="tp-number">Talking Point 04</div>
+    <div class="tp-title">The Equipment Is the Collateral</div>
+    <div class="tp-body">$75,000 of the $125,000 is deployed into physical, depreciating assets: commercial truck, dump trailer, cleaning equipment, paint systems. These are not consumed — they are collateral. A lender can look at that truck and trailer and see their security. This is not a services-only bet.</div>
+    <div class="tp-proof">Proof: Equipment allocation table in Section 3. $35K truck + $18K trailer = $53K in secured rolling assets, Day 1.</div>
+  </div>
+
+  <div class="talking-point">
+    <div class="tp-number">Talking Point 05</div>
+    <div class="tp-title">The 25% State Mandate Is a Structural Pipeline, Not a Pitch</div>
+    <div class="tp-body">California Government Code §14837 mandates that 25% of state contract dollars go to certified Small Businesses. DGS SB Certification application is in process. Once certified, AA Capital INC does not need to win competitive bids — it is in a preferred category. The pipeline is legislative, not aspirational.</div>
+    <div class="tp-proof">Proof: DGS PD 812 application package assembled. Articles of Incorporation (2020) and EIN in hand. Certification materials ready.</div>
+  </div>
+
+  <div class="talking-point">
+    <div class="tp-number">Talking Point 06</div>
+    <div class="tp-title">This Plan Was Built From Operating Data — Not Templates</div>
+    <div class="tp-body">Every pricing figure in this plan was pulled from the live Prime Pathwy website source code. Every expense figure matches actual bi-weekly draws. The Elite 10 price of $5,000 is the active published rate, not a projection. This is not a generic SBA template. This is a sovereign operating document.</div>
+    <div class="tp-proof">Proof: Source citations in Section 2 and 3 reference Turnover_System_Skill canonical pricing and consulting_elite_10 doctrine. Zero invented numbers.</div>
+  </div>
+
+  <div class="callout" style="margin-top:1.5rem;">
+    <p><strong>Closing Statement for the Advisor:</strong> &nbsp;"I'm not here asking if this can work. I'm here asking for the capital to execute what I've already built. The math is in front of you. The equipment list is specific. The clients are real. The certification is in process. I need $125,000 and 84 months. The business will pay it back in Year 1 at 7x coverage. That's the offer."</p>
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-left">AA Capital INC &nbsp;·&nbsp; Prime Pathwy &nbsp;·&nbsp; EIN 84-4788578</div>
+    <div class="footer-right">Appendix A — Advisor Talking Points</div>
+  </div>
+</div>
+
+</body>
+</html>

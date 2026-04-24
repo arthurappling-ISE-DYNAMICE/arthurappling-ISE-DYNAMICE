@@ -1,0 +1,1 @@
+MISSION: Find active California Small Business Grants or SAM.gov Bids for NAICS 561720/562111 in Solano County. Drop the Briefing in /temporary.
