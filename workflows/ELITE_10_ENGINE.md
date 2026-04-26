@@ -83,6 +83,124 @@
 
 ---
 
+## TECHNICAL LAYER — Bid Schema Definitions
+> Automation-ready types mirroring the tracker above. Human table is the source of truth; these types enforce it in code.
+
+### TypeScript Interfaces
+
+```typescript
+type NaicsCode = '561720' | '562111' | '484110'
+
+type BidSource =
+  | 'sam_gov'
+  | 'cal_eprocure'
+  | 'solano_county'
+  | 'city_of_vallejo'
+  | 'gsa_advantage'
+  | 'private'
+
+type BidStatus =
+  | 'monitoring'
+  | 'pending_cert'
+  | 'call_to_register'
+  | 'contact_purchasing'
+  | 'register_as_vendor'
+  | 'scout_after_sbdc'
+  | 'bid_submitted'
+  | 'awarded'
+
+interface BidThreshold {
+  min: number
+  max: number
+}
+
+interface BidRecord {
+  readonly id: string
+  source: BidSource
+  type: string
+  naics: NaicsCode[]
+  threshold: BidThreshold
+  status: BidStatus
+  lastChecked?: string   // ISO 8601 date string
+  notes?: string
+}
+
+interface BidFilters {
+  naics?: NaicsCode
+  source?: BidSource
+  status?: BidStatus
+  maxThreshold?: number
+  state?: 'CA'
+}
+
+interface ApiResponse<T> {
+  success: boolean
+  data?: T
+  error?: string
+  meta?: {
+    total: number
+    page: number
+    limit: number
+  }
+}
+
+interface BidRepository {
+  findAll(filters?: BidFilters): Promise<ApiResponse<BidRecord[]>>
+  findById(id: string): Promise<BidRecord | null>
+  create(data: Omit<BidRecord, 'id'>): Promise<BidRecord>
+  update(id: string, data: Partial<BidRecord>): Promise<BidRecord>
+  delete(id: string): Promise<void>
+}
+```
+
+### Python Dataclasses
+
+```python
+from __future__ import annotations
+from dataclasses import dataclass, field
+from typing import Literal
+
+NaicsCode = Literal['561720', '562111', '484110']
+
+BidSource = Literal[
+    'sam_gov',
+    'cal_eprocure',
+    'solano_county',
+    'city_of_vallejo',
+    'gsa_advantage',
+    'private',
+]
+
+BidStatus = Literal[
+    'monitoring',
+    'pending_cert',
+    'call_to_register',
+    'contact_purchasing',
+    'register_as_vendor',
+    'scout_after_sbdc',
+    'bid_submitted',
+    'awarded',
+]
+
+@dataclass(frozen=True)
+class BidThreshold:
+    min: float
+    max: float
+
+@dataclass(frozen=True)
+class BidRecord:
+    id: str
+    source: BidSource
+    type: str
+    naics: tuple[NaicsCode, ...]
+    threshold: BidThreshold
+    status: BidStatus
+    last_checked: str | None = None   # ISO 8601 date string
+    notes: str | None = None
+```
+
+---
+
 ## EXECUTION SEQUENCE (ordered by speed to first dollar)
 
 1. **Week 1:** Call City of Vallejo Purchasing — ask to be added to informal vendor list
