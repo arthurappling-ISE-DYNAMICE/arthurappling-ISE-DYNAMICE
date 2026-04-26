@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>XERO XERO — Mission Overview · AA Capital</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#080808;
+  --panel:#0f0f0f;
+  --panel2:#141414;
+  --border:#1a1a1a;
+  --border2:#2a2a2a;
+  --gold:#B8952A;
+  --gold-bright:#C9A84C;
+  --gold-dim:rgba(184,149,42,.14);
+  --gold-glow:rgba(184,149,42,.40);
+  --win:#39FF14;
+  --loss:#DC143C;
+  --white:#F0F0F0;
+  --dim:#4a4a4a;
+  --dim2:#2e2e2e;
+  --font:'Barlow Condensed',sans-serif;
+}
+body{
+  background:var(--bg);
+  color:var(--white);
+  font-family:var(--font);
+  font-size:17px;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+input,button,select{font-family:var(--font)}
+::-webkit-scrollbar{width:4px;height:4px;background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--dim2)}
+
+/* ── HEADER ── */
+.hdr{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 32px;
+  background:#080808;
+  border-bottom:1px solid var(--border2);
+  position:sticky;top:0;z-index:200;
+}
+.hdr-left{line-height:1.2}
+.hdr-entity{font-size:11px;font-weight:700;letter-spacing:5px;color:var(--gold);text-transform:uppercase}
+.hdr-sub{font-size:11px;letter-spacing:3px;color:var(--dim);text-transform:uppercase}
+.hdr-center{text-align:center}
+.hdr-title{font-size:26px;font-weight:900;letter-spacing:8px;color:var(--white);text-transform:uppercase}
+.hdr-mission{font-size:11px;font-weight:700;letter-spacing:5px;color:var(--gold);text-transform:uppercase;margin-top:2px}
+.hdr-right{display:flex;align-items:center;gap:12px}
+.live-pip{width:8px;height:8px;border-radius:50%;background:var(--win);box-shadow:0 0 8px var(--win);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.hdr-date{font-size:12px;letter-spacing:3px;color:var(--dim);text-transform:uppercase}
+
+/* ── TOOLBAR ── */
+.toolbar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 32px;
+  background:#0a0a0a;
+  border-bottom:1px solid var(--border);
+}
+.toolbar-left{display:flex;align-items:center;gap:6px}
+.week-tab{
+  font-size:13px;font-weight:700;letter-spacing:3px;color:var(--dim);
+  padding:5px 16px;cursor:pointer;
+  border:1px solid transparent;
+  text-transform:uppercase;transition:all .15s;
+}
+.week-tab:hover{color:var(--white);border-color:var(--border2)}
+.week-tab.active{color:var(--gold);border-color:var(--gold);background:var(--gold-dim)}
+.toolbar-right{display:flex;align-items:center;gap:10px}
+.save-status{font-size:12px;letter-spacing:3px;color:var(--dim);min-width:80px;text-align:right}
+.btn-ghost{
+  font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+  background:none;border:1px solid var(--border2);color:var(--dim);
+  padding:6px 16px;cursor:pointer;transition:all .15s;
+}
+.btn-ghost:hover{color:var(--gold);border-color:var(--gold)}
+.btn-save{
+  font-size:13px;font-weight:900;letter-spacing:3px;text-transform:uppercase;
+  background:var(--gold);color:#0d0d0d;border:none;
+  padding:8px 24px;cursor:pointer;transition:opacity .15s;
+}
+.btn-save:hover{opacity:.85}
+.btn-save:active{opacity:.65}
+
+/* ── MAIN ── */
+.main{padding:28px 32px;display:flex;flex-direction:column;gap:32px}
+
+/* ── SECTION ── */
+.section{}
+.section-hdr{
+  display:flex;align-items:baseline;gap:14px;
+  margin-bottom:12px;
+  padding-bottom:10px;
+  border-bottom:1px solid var(--border2);
+}
+.section-title{font-size:22px;font-weight:900;letter-spacing:6px;color:var(--gold);text-transform:uppercase}
+.section-badge{
+  font-size:11px;font-weight:700;letter-spacing:4px;color:var(--dim);
+  text-transform:uppercase;
+  border:1px solid var(--border2);padding:3px 10px;
+}
+.section-pnl{margin-left:auto;font-size:14px;font-weight:700;letter-spacing:2px}
+
+/* ── TABLE ── */
+.tbl-wrap{overflow-x:auto}
+table{
+  width:100%;border-collapse:collapse;
+  background:var(--panel);
+}
+thead tr{background:#0a0a0a;border-bottom:2px solid var(--gold)}
+thead th{
+  font-size:11px;font-weight:700;letter-spacing:4px;
+  color:var(--gold);text-transform:uppercase;
+  padding:10px 14px;text-align:left;white-space:nowrap;
+}
+thead th.center{text-align:center}
+tbody tr{border-bottom:1px solid var(--border);transition:background .15s}
+tbody tr:hover{background:var(--panel2)}
+tbody tr.row-won{background:rgba(57,255,20,.04);border-color:rgba(57,255,20,.15)}
+tbody tr.row-lost{background:rgba(220,20,60,.04);border-color:rgba(220,20,60,.15)}
+
+td{padding:6px 8px;vertical-align:middle}
+td.td-num{
+  font-size:18px;font-weight:900;color:var(--dim);
+  width:36px;text-align:center;letter-spacing:1px;
+  padding-left:14px;
+}
+td.td-num.won{color:var(--win)}
+td.td-num.lost{color:var(--loss)}
+
+/* ── TABLE INPUTS ── */
+.inp{
+  background:transparent;
+  border:1px solid transparent;
+  color:var(--white);
+  font-family:var(--font);
+  font-size:17px;font-weight:600;
+  padding:6px 10px;
+  width:100%;
+  outline:none;
+  transition:border-color .15s,background .15s;
+}
+.inp:focus{border-color:var(--gold);background:#0a0a0a}
+.inp::placeholder{color:var(--dim2);font-weight:400;font-size:15px}
+
+.inp-team{min-width:140px;letter-spacing:.5px}
+.inp-ss{width:90px;text-align:center;color:var(--gold);font-weight:700;letter-spacing:1px}
+.inp-ss:focus{color:var(--gold)}
+.inp-ss::placeholder{color:var(--dim2)}
+.inp-upi{width:90px;text-align:center;letter-spacing:1px}
+.inp-ticket{width:120px;font-size:15px;letter-spacing:2px;font-weight:700;color:var(--gold);text-transform:uppercase}
+.inp-label{width:110px;font-size:15px}
+
+/* Swap Risk select */
+.sel-swap{
+  background:#0a0a0a;
+  border:1px solid var(--border2);
+  color:var(--white);
+  font-family:var(--font);
+  font-size:15px;font-weight:700;
+  padding:6px 10px;
+  width:90px;
+  outline:none;
+  cursor:pointer;
+  transition:border-color .15s;
+  -webkit-appearance:none;
+  text-align:center;
+}
+.sel-swap:focus{border-color:var(--gold)}
+.sel-swap.risk-low{color:var(--win)}
+.sel-swap.risk-med{color:var(--gold)}
+.sel-swap.risk-high{color:var(--loss)}
+
+/* Legacy Flag toggle */
+.legacy-wrap{display:flex;align-items:center;justify-content:center}
+.legacy-cb{display:none}
+.legacy-lbl{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:48px;height:24px;cursor:pointer;
+  background:var(--dim2);border:1px solid var(--border2);
+  position:relative;transition:background .2s,border-color .2s;
+}
+.legacy-lbl::after{
+  content:'';position:absolute;left:3px;
+  width:16px;height:16px;
+  background:var(--dim);
+  transition:transform .2s,background .2s;
+}
+.legacy-cb:checked + .legacy-lbl{
+  background:rgba(201,168,76,.2);
+  border-color:var(--gold);
+}
+.legacy-cb:checked + .legacy-lbl::after{
+  transform:translateX(24px);
+  background:var(--gold);
+}
+
+/* Status cycle pill */
+.status-btn{
+  font-size:12px;font-weight:900;letter-spacing:3px;text-transform:uppercase;
+  border:1px solid var(--border2);background:none;color:var(--dim);
+  padding:5px 12px;cursor:pointer;width:80px;
+  transition:all .2s;
+}
+.status-btn.s-Pending{color:var(--gold);border-color:var(--gold);background:var(--gold-dim)}
+.status-btn.s-Won{color:var(--win);border-color:var(--win);background:rgba(57,255,20,.06);box-shadow:0 0 8px rgba(57,255,20,.3)}
+.status-btn.s-Lost{color:var(--loss);border-color:var(--loss);background:rgba(220,20,60,.06);box-shadow:0 0 8px rgba(220,20,60,.25)}
+
+/* ── SUMMARY FOOTER ── */
+.summary{
+  display:flex;border-top:1px solid var(--border2);
+  background:#080808;
+}
+.sum-cell{
+  flex:1;padding:16px 24px;border-right:1px solid var(--border);
+  text-align:center;
+}
+.sum-cell:last-child{border-right:none}
+.sum-label{font-size:11px;font-weight:700;letter-spacing:4px;color:var(--dim);text-transform:uppercase;margin-bottom:4px}
+.sum-val{font-size:28px;font-weight:900;color:var(--white)}
+.sum-val.gold{color:var(--gold)}
+.sum-val.win{color:var(--win)}
+.sum-val.loss{color:var(--loss)}
+
+/* ── TOAST ── */
+.toast{
+  position:fixed;bottom:24px;right:28px;
+  padding:10px 20px;
+  font-size:16px;font-weight:700;letter-spacing:2px;
+  border-left:3px solid var(--gold);
+  background:#0a0a0a;color:var(--gold);
+  opacity:0;transform:translateY(6px);
+  transition:all .25s;z-index:999;pointer-events:none;
+}
+.toast.show{opacity:1;transform:translateY(0)}
+.toast.win{border-color:var(--win);color:var(--win)}
+.toast.loss{border-color:var(--loss);color:var(--loss)}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="hdr">
+  <div class="hdr-left">
+    <div class="hdr-entity">AA Capital INC · Prime Pathwy</div>
+    <div class="hdr-sub">EIN 84-4788578 · Vallejo CA</div>
+  </div>
+  <div class="hdr-center">
+    <div class="hdr-title">Xero Xero</div>
+    <div class="hdr-mission">Master Mission Overview</div>
+  </div>
+  <div class="hdr-right">
+    <div class="live-pip"></div>
+    <div class="hdr-date" id="hdr-date">—</div>
+    <div style="font-size:9px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-top:4px;opacity:0.7;">QUANT AGENT · <a href="../../agents/betting_quant.md" style="color:var(--gold);text-decoration:none;">XERO XERO v1</a></div>
+  </div>
+</div>
+
+<!-- TOOLBAR -->
+<div class="toolbar">
+  <div class="toolbar-left" id="week-tabs"><!-- injected --></div>
+  <div class="toolbar-right">
+    <div class="save-status" id="save-status"></div>
+    <button class="btn-ghost" id="btn-new-week">+ Week</button>
+    <button class="btn-save" id="btn-save">Save</button>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main" id="main"><!-- injected --></div>
+
+<!-- SUMMARY -->
+<div class="summary">
+  <div class="sum-cell">
+    <div class="sum-label">Legs Won</div>
+    <div class="sum-val win" id="sum-won">0</div>
+  </div>
+  <div class="sum-cell">
+    <div class="sum-label">Legs Lost</div>
+    <div class="sum-val loss" id="sum-lost">0</div>
+  </div>
+  <div class="sum-cell">
+    <div class="sum-label">Legs Pending</div>
+    <div class="sum-val gold" id="sum-pending">0</div>
+  </div>
+  <div class="sum-cell">
+    <div class="sum-label">Legacy Flags</div>
+    <div class="sum-val gold" id="sum-legacy">0</div>
+  </div>
+  <div class="sum-cell">
+    <div class="sum-label">High Risk Swaps</div>
+    <div class="sum-val loss" id="sum-high-risk">0</div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+'use strict'
+
+const TABLES = [
+  { key: '4leg', label: '4-Leg Anchor',    badge: 'ANCHOR · CORE',     legs: 4 },
+  { key: '6leg', label: '6-Leg Extension', badge: 'EXTENSION · MID',   legs: 6 },
+  { key: '8leg', label: '8-Leg Extension', badge: 'EXTENSION · ELITE',  legs: 8 },
+]
+const STATUS_CYCLE = ['Pending', 'Won', 'Lost']
+
+let S = { currentWeek: 1, weeks: {} }
+
+// ── DATA HELPERS ──────────────────────────────────────────────────────────────
+function makeRow() {
+  return { ticket: '', team: '', ss: '', upi: '', swapRisk: 'Low', label: '', legacyFlag: false, status: 'Pending' }
+}
+function makeTableRows(count) { return Array.from({ length: count }, makeRow) }
+function makeWeek(n) {
+  const w = { date: new Date().toISOString().slice(0, 10), tables: {} }
+  TABLES.forEach(t => { w.tables[t.key] = makeTableRows(t.legs) })
+  S.weeks[String(n)] = w
+  return w
+}
+function weekData() {
+  const k = String(S.currentWeek)
+  if (!S.weeks[k]) makeWeek(S.currentWeek)
+  return S.weeks[k]
+}
+function tableRows(key) { return weekData().tables[key] }
+
+// ── SAVE / LOAD ───────────────────────────────────────────────────────────────
+let saveTimer = null
+function scheduleSave() { clearTimeout(saveTimer); saveTimer = setTimeout(saveState, 1000) }
+
+async function saveState() {
+  setStatus('Saving…')
+  try {
+    await fetch('/api/save', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(S)
+    })
+    setStatus('Saved ✓')
+  } catch { setStatus('Save failed') }
+}
+
+function setStatus(msg) {
+  const el = document.getElementById('save-status')
+  el.textContent = msg
+  if (msg !== 'Saving…') setTimeout(() => { el.textContent = '' }, 3000)
+}
+
+async function loadState() {
+  try {
+    const r = await fetch('/api/history')
+    const d = await r.json()
+    if (d && d.weeks && Object.keys(d.weeks).length) {
+      // Migrate old parlay format → mission format if needed
+      S = d
+      const k = String(S.currentWeek)
+      if (!S.weeks[k]) makeWeek(S.currentWeek)
+      const wd = S.weeks[k]
+      if (!wd.tables) {
+        wd.tables = {}
+        TABLES.forEach(t => { wd.tables[t.key] = makeTableRows(t.legs) })
+      }
+    } else {
+      makeWeek(1)
+    }
+  } catch { makeWeek(1) }
+}
+
+// ── RENDER ────────────────────────────────────────────────────────────────────
+function renderAll() {
+  renderWeekTabs()
+  renderMain()
+  updateSummary()
+}
+
+function renderWeekTabs() {
+  const container = document.getElementById('week-tabs')
+  container.innerHTML = ''
+  Object.keys(S.weeks).map(Number).sort((a,b)=>a-b).forEach(n => {
+    const btn = document.createElement('div')
+    btn.className = 'week-tab' + (n === S.currentWeek ? ' active' : '')
+    btn.textContent = 'Week ' + n
+    btn.onclick = () => { S.currentWeek = n; renderAll() }
+    container.appendChild(btn)
+  })
+}
+
+function renderMain() {
+  const main = document.getElementById('main')
+  main.innerHTML = ''
+  TABLES.forEach(t => {
+    const section = document.createElement('div')
+    section.className = 'section'
+    section.id = 'section-' + t.key
+    section.innerHTML = sectionHTML(t)
+    main.appendChild(section)
+    wireSection(t)
+  })
+}
+
+function sectionHTML(t) {
+  const rows = tableRows(t.key)
+  const wonCount  = rows.filter(r => r.status === 'Won').length
+  const lostCount = rows.filter(r => r.status === 'Lost').length
+  const pnlClass  = lostCount > 0 ? 'loss' : wonCount === rows.length ? 'win' : 'gold'
+  const pnlText   = lostCount > 0 ? `${lostCount} LOSS` : wonCount > 0 ? `${wonCount}/${rows.length} WON` : 'PENDING'
+
+  return `
+    <div class="section-hdr">
+      <div class="section-title">${t.label}</div>
+      <div class="section-badge">${t.badge}</div>
+      <div class="section-pnl" style="color:var(--${pnlClass === 'gold' ? 'gold' : pnlClass})">${pnlText}</div>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:36px">#</th>
+            <th>Ticket</th>
+            <th>Team</th>
+            <th class="center">SS</th>
+            <th class="center">UPI</th>
+            <th class="center">Swap Risk</th>
+            <th>Label</th>
+            <th class="center">Legacy Flag</th>
+            <th class="center">Status</th>
+          </tr>
+        </thead>
+        <tbody id="tbody-${t.key}">
+          ${rows.map((r, i) => rowHTML(t.key, i, r)).join('')}
+        </tbody>
+      </table>
+    </div>`
+}
+
+function rowHTML(key, i, r) {
+  const rc = r.status === 'Won' ? 'row-won' : r.status === 'Lost' ? 'row-lost' : ''
+  const nc = r.status === 'Won' ? 'won' : r.status === 'Lost' ? 'lost' : ''
+  const swapClass = r.swapRisk === 'Low' ? 'risk-low' : r.swapRisk === 'High' ? 'risk-high' : 'risk-med'
+  return `
+    <tr class="${rc}" id="row-${key}-${i}">
+      <td class="td-num ${nc}">${i + 1}</td>
+      <td><input class="inp inp-ticket" id="ticket-${key}-${i}"
+            value="${esc(r.ticket)}" placeholder="T-000" autocomplete="off"
+            data-key="${key}" data-idx="${i}" data-field="ticket"></td>
+      <td><input class="inp inp-team" id="team-${key}-${i}"
+            value="${esc(r.team)}" placeholder="Team / Player" autocomplete="off"
+            data-key="${key}" data-idx="${i}" data-field="team"></td>
+      <td><input class="inp inp-ss" id="ss-${key}-${i}"
+            value="${esc(r.ss)}" placeholder="—" autocomplete="off"
+            data-key="${key}" data-idx="${i}" data-field="ss"></td>
+      <td><input class="inp inp-upi" id="upi-${key}-${i}"
+            value="${esc(r.upi)}" placeholder="—" autocomplete="off"
+            data-key="${key}" data-idx="${i}" data-field="upi"></td>
+      <td style="text-align:center">
+        <select class="sel-swap ${swapClass}" id="swap-${key}-${i}"
+                data-key="${key}" data-idx="${i}">
+          <option ${r.swapRisk==='Low'?'selected':''}>Low</option>
+          <option ${r.swapRisk==='Med'?'selected':''}>Med</option>
+          <option ${r.swapRisk==='High'?'selected':''}>High</option>
+        </select>
+      </td>
+      <td><input class="inp inp-label" id="label-${key}-${i}"
+            value="${esc(r.label)}" placeholder="—" autocomplete="off"
+            data-key="${key}" data-idx="${i}" data-field="label"></td>
+      <td>
+        <div class="legacy-wrap">
+          <input type="checkbox" class="legacy-cb" id="legacy-${key}-${i}"
+                 data-key="${key}" data-idx="${i}" ${r.legacyFlag?'checked':''}>
+          <label class="legacy-lbl" for="legacy-${key}-${i}"></label>
+        </div>
+      </td>
+      <td style="text-align:center">
+        <button class="status-btn s-${r.status}" id="stbtn-${key}-${i}"
+                data-key="${key}" data-idx="${i}">${r.status}</button>
+      </td>
+    </tr>`
+}
+
+function esc(s) { return (s||'').replace(/"/g,'&quot;').replace(/</g,'&lt;') }
+
+// ── WIRING ────────────────────────────────────────────────────────────────────
+function wireSection(t) {
+  const tbody = document.getElementById('tbody-' + t.key)
+  if (!tbody) return
+
+  // Text inputs
+  tbody.querySelectorAll('.inp[data-field]').forEach(el => {
+    el.addEventListener('input', () => {
+      const rows = tableRows(el.dataset.key)
+      rows[+el.dataset.idx][el.dataset.field] = el.value
+      scheduleSave()
+      updateSummary()
+    })
+  })
+
+  // Swap Risk selects
+  tbody.querySelectorAll('.sel-swap').forEach(sel => {
+    sel.addEventListener('change', () => {
+      const rows = tableRows(sel.dataset.key)
+      rows[+sel.dataset.idx].swapRisk = sel.value
+      sel.className = 'sel-swap ' + (sel.value === 'Low' ? 'risk-low' : sel.value === 'High' ? 'risk-high' : 'risk-med')
+      scheduleSave()
+      updateSummary()
+    })
+  })
+
+  // Legacy Flag checkboxes
+  tbody.querySelectorAll('.legacy-cb').forEach(cb => {
+    cb.addEventListener('change', () => {
+      const rows = tableRows(cb.dataset.key)
+      rows[+cb.dataset.idx].legacyFlag = cb.checked
+      scheduleSave()
+      updateSummary()
+    })
+  })
+
+  // Status cycle buttons
+  tbody.querySelectorAll('.status-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const rows = tableRows(btn.dataset.key)
+      const row  = rows[+btn.dataset.idx]
+      const next = STATUS_CYCLE[(STATUS_CYCLE.indexOf(row.status) + 1) % STATUS_CYCLE.length]
+      row.status = next
+      btn.textContent = next
+      btn.className   = 'status-btn s-' + next
+      const tr = document.getElementById(`row-${btn.dataset.key}-${btn.dataset.idx}`)
+      if (tr) tr.className = next === 'Won' ? 'row-won' : next === 'Lost' ? 'row-lost' : ''
+      const numEl = tr && tr.querySelector('.td-num')
+      if (numEl) numEl.className = 'td-num ' + (next === 'Won' ? 'won' : next === 'Lost' ? 'lost' : '')
+      // refresh section PNL badge
+      refreshSectionHeader(btn.dataset.key)
+      scheduleSave()
+      updateSummary()
+    })
+  })
+}
+
+function refreshSectionHeader(key) {
+  const t = TABLES.find(x => x.key === key)
+  if (!t) return
+  const section = document.getElementById('section-' + key)
+  if (!section) return
+  const rows = tableRows(key)
+  const wonCount  = rows.filter(r => r.status === 'Won').length
+  const lostCount = rows.filter(r => r.status === 'Lost').length
+  const pnlEl = section.querySelector('.section-pnl')
+  if (!pnlEl) return
+  const pnlClass = lostCount > 0 ? 'loss' : wonCount === rows.length ? 'win' : 'gold'
+  const pnlText  = lostCount > 0 ? `${lostCount} LOSS` : wonCount > 0 ? `${wonCount}/${rows.length} WON` : 'PENDING'
+  pnlEl.style.color = `var(--${pnlClass})`
+  pnlEl.textContent = pnlText
+}
+
+// ── SUMMARY BAR ───────────────────────────────────────────────────────────────
+function updateSummary() {
+  let won = 0, lost = 0, pending = 0, legacy = 0, highRisk = 0
+  TABLES.forEach(t => {
+    tableRows(t.key).forEach(r => {
+      if (r.status === 'Won')     won++
+      else if (r.status === 'Lost')  lost++
+      else                           pending++
+      if (r.legacyFlag) legacy++
+      if (r.swapRisk === 'High') highRisk++
+    })
+  })
+  document.getElementById('sum-won').textContent      = won
+  document.getElementById('sum-lost').textContent     = lost
+  document.getElementById('sum-pending').textContent  = pending
+  document.getElementById('sum-legacy').textContent   = legacy
+  document.getElementById('sum-high-risk').textContent = highRisk
+}
+
+// ── WEEK ──────────────────────────────────────────────────────────────────────
+function newWeek() {
+  const existing = Object.keys(S.weeks).map(Number)
+  const next = existing.length ? Math.max(...existing) + 1 : 1
+  makeWeek(next)
+  S.currentWeek = next
+  renderAll()
+  saveState()
+  toast('Week ' + next + ' created', 'gold')
+}
+
+// ── TOAST ─────────────────────────────────────────────────────────────────────
+function toast(msg, type = 'gold') {
+  const el = document.getElementById('toast')
+  el.textContent = msg
+  el.className = 'toast ' + type + ' show'
+  clearTimeout(el._t)
+  el._t = setTimeout(() => el.classList.remove('show'), 3000)
+}
+
+// ── INIT ──────────────────────────────────────────────────────────────────────
+document.getElementById('hdr-date').textContent =
+  new Date().toLocaleDateString('en-US', { weekday:'short', month:'short', day:'numeric', year:'numeric' }).toUpperCase()
+
+document.getElementById('btn-save').addEventListener('click', () => {
+  saveState(); toast('Week saved', 'gold')
+})
+document.getElementById('btn-new-week').addEventListener('click', newWeek)
+
+loadState().then(() => {
+  if (!S.weeks[String(S.currentWeek)]) makeWeek(S.currentWeek)
+  renderAll()
+})
+</script>
+</body>
+</html>
