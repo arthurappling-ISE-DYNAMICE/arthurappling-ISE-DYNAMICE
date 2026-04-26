@@ -3,3 +3,35 @@ node_modules/
 *.local
 dist/
 .DS_Store
+
+# Vault & Archive binaries — stored in OneDrive/Drive, not source control
+vault/**/*.pdf
+vault/**/*.zip
+vault/**/*.docx
+vault/**/*.doc
+vault/**/*.xlsx
+vault/**/*.png
+vault/**/*.jpg
+vault/**/*.jpeg
+vault/**/*.ico
+vault/**/*.mp4
+
+archived_old_versions/**/*.pdf
+archived_old_versions/**/*.zip
+archived_old_versions/**/*.docx
+archived_old_versions/**/*.png
+archived_old_versions/**/*.jpg
+archived_old_versions/**/*.jpeg
+archived_old_versions/**/*.ico
+
+# Large asset files project-wide
+*.zip
+prompts/**/*.png
+prompts/**/*.jpg
+tools/consulting_wing/public/*.jpg
+tools/consulting_wing/public/*.png
+tools/consulting_wing/sovereign-promo/**/*.jpg
+tools/consulting_wing/sovereign-promo/**/*.png
+
+# Claude worktrees (internal only)
+.claude/worktrees/
