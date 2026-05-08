@@ -194,13 +194,6 @@
       max-width: 400px;
     }
 
-    /* ── SECTION 04: ARCHIVE OF SOVEREIGNTY ────────────────── */
-    #archive {
-      background-color: #080808;
-      padding: 100px 5%;
-      border-top: 1px solid rgba(184, 149, 42, 0.15);
-    }
-
     .archive-inner {
       max-width: 1200px;
       margin: 0 auto;
@@ -240,33 +233,224 @@
       max-width: 560px;
     }
 
-    /* ── SECTION FINAL: SOVEREIGN NARRATIVE ────────────────── */
-    #final-narrative {
+    /* ── SECTION 03: TRANSFORMATION UNLOCKS ─────────────────── */
+    #tiers {
       background-color: #080808;
-      margin-top: 150px;
-      width: 100vw;
-      position: relative;
-      left: 50%;
-      transform: translateX(-50%);
+      padding: 100px 5%;
+      border-top: 1px solid rgba(184, 149, 42, 0.15);
     }
 
-    .narrative-img {
-      display: block;
-      width: 100%;
-      height: auto;
-      object-fit: cover;
+    .tiers-inner {
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
-    .narrative-slogan {
+    .tiers-heading {
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: clamp(14px, 1.8vw, 22px);
-      font-weight: 700;
-      letter-spacing: 0.35em;
+      font-size: clamp(28px, 4vw, 56px);
+      font-weight: 900;
+      letter-spacing: 0.3em;
       text-transform: uppercase;
       color: var(--gold);
       text-align: center;
-      padding: 60px 5% 80px 5%;
-      line-height: 1.8;
+      margin-bottom: 60px;
+      filter: drop-shadow(0 0 20px rgba(184, 149, 42, 0.3));
+    }
+
+    .tier-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .tier-card {
+      background: #0a0a0a;
+      border: 1px solid rgba(184, 149, 42, 0.35);
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .tier-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(20px, 2.2vw, 30px);
+      font-weight: 900;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .tier-question {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(14px, 1.5vw, 18px);
+      font-weight: 200;
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--white);
+      border-left: 2px solid rgba(184, 149, 42, 0.5);
+      padding-left: 16px;
+    }
+
+    .tier-unlocks {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .tier-unlock-item {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(13px, 1.4vw, 17px);
+      font-weight: 400;
+      line-height: 1.4;
+      color: var(--white);
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .tier-unlock-item::before {
+      content: '—';
+      color: var(--gold);
+      position: absolute;
+      left: 0;
+    }
+
+    /* ── SECTION 04: SOVEREIGN RESULT ────────────────────────── */
+    #sovereign-result {
+      background-color: #080808;
+      padding: 100px 5%;
+      border-top: 1px solid rgba(184, 149, 42, 0.15);
+    }
+
+    /* ── SECTION 05: SYSTEM AUDIT REQUEST ────────────────────── */
+    #audit-form {
+      background-color: #080808;
+      padding: 100px 5%;
+      border-top: 1px solid rgba(184, 149, 42, 0.15);
+    }
+
+    .audit-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .audit-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(28px, 4vw, 56px);
+      font-weight: 900;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 48px;
+      filter: drop-shadow(0 0 20px rgba(184, 149, 42, 0.3));
+    }
+
+    .audit-form-fields {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      text-align: left;
+    }
+
+    .audit-field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .audit-field label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(13px, 1.4vw, 16px);
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .audit-field input,
+    .audit-field select,
+    .audit-field textarea {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(14px, 1.5vw, 17px);
+      font-weight: 200;
+      background: #0f0f0f;
+      border: 1px solid rgba(184, 149, 42, 0.4);
+      color: var(--white);
+      padding: 12px 16px;
+      outline: 2px solid transparent;
+      border-radius: 0;
+      width: 100%;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .audit-field input:focus,
+    .audit-field select:focus,
+    .audit-field textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 2px var(--gold);
+    }
+
+    .audit-field select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23B8952A' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+    }
+
+    .audit-field select option {
+      background: #0f0f0f;
+      color: var(--white);
+    }
+
+    .audit-field textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .audit-hook {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(16px, 2vw, 24px);
+      font-weight: 200;
+      font-style: italic;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      margin: 40px 0 24px 0;
+      text-align: center;
+    }
+
+    .audit-submit {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(13px, 1.1vw, 14px);
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--bg);
+      background: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 14px 56px;
+      cursor: pointer;
+      border-radius: 0;
+      transition: background 0.25s ease, border-color 0.25s ease;
+    }
+
+    .audit-submit:hover {
+      background: var(--gold-bright);
+      border-color: var(--gold-bright);
+    }
+
+    .audit-submit:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
     }
 
     /* ── SECTION 05: SYSTEM AUDIT REQUEST ────────────────────── */
@@ -385,12 +569,18 @@
     }
 
     /* ── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .tier-grid { grid-template-columns: 1fr; }
+    }
+
     @media (max-width: 640px) {
       #hero-top { padding: 0 20px; }
       .hero-headline { font-size: clamp(20px, 7vw, 36px); letter-spacing: 0.18em; }
       .hero-sub      { font-size: clamp(12px, 4vw, 18px); }
       #hero-bg       { width: 90%; height: 40%; }
       #hero-bottom   { bottom: 32px; }
+      .struggle-grid { grid-template-columns: 1fr; }
+      .audit-submit  { font-size: 14px; padding: 14px 32px; }
     }
   </style>
 </head>
@@ -398,6 +588,13 @@
 
   <section id="hero">
     <div id="hero-bg"></div>
+    <div id="hero-top">
+      <h1 class="hero-headline">The Level of Order<br>Your Legacy Demands</h1>
+      <p class="hero-sub">Most operations run on friction. The question is how long before the compounding leakage breaks your legacy.</p>
+    </div>
+    <div id="hero-bottom">
+      <a href="#audit-form" class="hero-cta">Initiate System Audit</a>
+    </div>
   </section>
 
   <!-- ── SECTION 02: THE FRICTION OF SURVIVAL ─────────────── -->
@@ -411,7 +608,7 @@
 
       <!-- RIGHT: Copy -->
       <div class="struggle-copy">
-        <h2 class="struggle-headline">What Would It Cost Your Operation If Nothing Changed In The Next 90 Days?</h2>
+        <h2 class="struggle-headline">What Does Your Operation Lose If Nothing Changes In The Next 90 Days?</h2>
         <p class="struggle-sub">Every day without a sovereign system is a day your revenue depends on your presence. Friction compounds. The gap between where you are and where your legacy demands you be grows wider with every unstructured hour.</p>
       </div>
 
@@ -419,21 +616,102 @@
   </section>
 
 
-  <!-- ── SECTION FINAL: THE SOVEREIGN NARRATIVE ──────────── -->
-  <section id="final-narrative">
-    <img src="the_sovereign_narrative.jpg" alt="From Operational Chaos to Sovereign Flow" id="narrative-img" class="narrative-img" />
-    <p class="narrative-slogan">
-      From Operational Chaos to Sovereign Flow.<br>
-      The Path of Order Is Locked In.
-    </p>
+  <!-- ── SECTION 03: TRANSFORMATION UNLOCKS ──────────────── -->
+  <section id="tiers">
+    <div class="tiers-inner">
+      <h2 class="tiers-heading">Choose Your Level of Transformation</h2>
+      <div class="tier-grid">
+
+        <!-- RAPID RELIEF -->
+        <div class="tier-card">
+          <h3 class="tier-name">Rapid Relief</h3>
+          <p class="tier-question">"Is your operation bleeding from daily friction you can't seem to stop?"</p>
+          <ul class="tier-unlocks">
+            <li class="tier-unlock-item">Operational stability without daily owner intervention</li>
+            <li class="tier-unlock-item">Revenue-protecting process documentation in place within 30 days</li>
+            <li class="tier-unlock-item">A clear chain of command that survives your absence</li>
+          </ul>
+        </div>
+
+        <!-- SYSTEMIZED GROWTH -->
+        <div class="tier-card">
+          <h3 class="tier-name">Systemized Growth</h3>
+          <p class="tier-question">"Is your revenue tied to your personal presence in the business?"</p>
+          <ul class="tier-unlocks">
+            <li class="tier-unlock-item">Systems that generate impact while you focus on legacy-level decisions</li>
+            <li class="tier-unlock-item">A documented operation that can be delegated, scaled, or sold</li>
+            <li class="tier-unlock-item">Compounding operational value that builds the asset, not the labor</li>
+          </ul>
+        </div>
+
+        <!-- SOVEREIGN LEGACY -->
+        <div class="tier-card">
+          <h3 class="tier-name">Sovereign Legacy</h3>
+          <p class="tier-question">"Is your business a legacy asset — or a liability that depends on you?"</p>
+          <ul class="tier-unlocks">
+            <li class="tier-unlock-item">Full sovereign architecture: documented, auditable, transferable</li>
+            <li class="tier-unlock-item">A business that operates as a Tier-1 institutional asset</li>
+            <li class="tier-unlock-item">The structural foundation required to access capital, partners, and scale</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
   </section>
 
-  <!-- ── SECTION 04: THE ARCHIVE OF SOVEREIGNTY ───────────── -->
-  <section id="archive">
+
+  <!-- ── SECTION 04: THE SOVEREIGN RESULT ──────────────────── -->
+  <section id="sovereign-result">
     <div class="archive-inner">
-      <h2 class="archive-headline">The Archive<br>of Sovereignty.</h2>
+      <h2 class="archive-headline">The Sovereign Result</h2>
       <div class="archive-rule"></div>
-      <p class="archive-sub">Every system, every process, every asset —<br>consolidated into one Master Asset.</p>
+      <p class="archive-sub">Every system built here moves you from operational chaos to sovereign flow. The work is not about surviving the friction. It is about building an operation so structurally sound that friction becomes irrelevant to your legacy.</p>
+    </div>
+  </section>
+
+  <!-- ── SECTION 05: SYSTEM AUDIT REQUEST ──────────────────── -->
+  <section id="audit-form">
+    <div class="audit-inner">
+      <h2 class="audit-title">System Audit Request</h2>
+      <form class="audit-form-fields" action="#" method="post">
+
+        <div class="audit-field">
+          <label for="audit-friction-area">Where is your operation losing the most ground right now?</label>
+          <select id="audit-friction-area" name="friction_area">
+            <option value="">— Select —</option>
+            <option value="staffing">Staffing Continuity</option>
+            <option value="revenue">Revenue Leakage</option>
+            <option value="process">Process Breakdown</option>
+            <option value="dependency">Owner Dependency</option>
+            <option value="capital">Capital Access</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="audit-field">
+          <label for="audit-friction-desc">Describe the friction in one sentence.</label>
+          <textarea id="audit-friction-desc" name="friction_description" placeholder="The single biggest operational drain right now is..."></textarea>
+        </div>
+
+        <div class="audit-field">
+          <label for="audit-sovereign-vision">What does a sovereign operation look like for you?</label>
+          <textarea id="audit-sovereign-vision" name="sovereign_vision" placeholder="When this is solved, my operation will..."></textarea>
+        </div>
+
+        <div class="audit-field">
+          <label for="audit-name">Name</label>
+          <input type="text" id="audit-name" name="name" placeholder="Full Name" />
+        </div>
+
+        <div class="audit-field">
+          <label for="audit-contact">Contact — Email or Phone</label>
+          <input type="text" id="audit-contact" name="contact" placeholder="email or phone" />
+        </div>
+
+        <p class="audit-hook">Is this the level you're ready to step into?</p>
+        <button type="submit" class="audit-submit">Request System Audit</button>
+
+      </form>
     </div>
   </section>
 
