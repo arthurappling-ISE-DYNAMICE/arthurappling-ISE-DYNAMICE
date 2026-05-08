@@ -414,7 +414,7 @@
 
     .audit-field textarea {
       resize: vertical;
-      min-height: 80px;
+      min-height: 120px;
     }
 
     .audit-hook {
@@ -446,6 +446,11 @@
     .audit-submit:hover {
       background: var(--gold-bright);
       border-color: var(--gold-bright);
+    }
+
+    .audit-submit:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
     }
 
     /* ── RESPONSIVE ─────────────────────────────────────────── */
@@ -585,7 +590,7 @@
 
         <div class="audit-field">
           <label for="audit-contact">Contact — Email or Phone</label>
-          <input type="email" id="audit-contact" name="contact" placeholder="email or phone" />
+          <input type="text" id="audit-contact" name="contact" placeholder="email or phone" />
         </div>
 
         <p class="audit-hook">Is this the level you're ready to step into?</p>
