@@ -549,5 +549,51 @@
     </div>
   </section>
 
+  <!-- ── SECTION 05: SYSTEM AUDIT REQUEST ──────────────────── -->
+  <section id="audit-form">
+    <div class="audit-inner">
+      <h2 class="audit-title">System Audit Request</h2>
+      <form class="audit-form-fields" action="#" method="post">
+
+        <div class="audit-field">
+          <label for="audit-friction-area">Where is your operation losing the most ground right now?</label>
+          <select id="audit-friction-area" name="friction_area">
+            <option value="">— Select —</option>
+            <option value="staffing">Staffing Continuity</option>
+            <option value="revenue">Revenue Leakage</option>
+            <option value="process">Process Breakdown</option>
+            <option value="dependency">Owner Dependency</option>
+            <option value="capital">Capital Access</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="audit-field">
+          <label for="audit-friction-desc">Describe the friction in one sentence.</label>
+          <textarea id="audit-friction-desc" name="friction_description" placeholder="The single biggest operational drain right now is..."></textarea>
+        </div>
+
+        <div class="audit-field">
+          <label for="audit-sovereign-vision">What does a sovereign operation look like for you?</label>
+          <textarea id="audit-sovereign-vision" name="sovereign_vision" placeholder="When this is solved, my operation will..."></textarea>
+        </div>
+
+        <div class="audit-field">
+          <label for="audit-name">Name</label>
+          <input type="text" id="audit-name" name="name" placeholder="Full Name" />
+        </div>
+
+        <div class="audit-field">
+          <label for="audit-contact">Contact — Email or Phone</label>
+          <input type="text" id="audit-contact" name="contact" placeholder="email or phone" />
+        </div>
+
+        <p class="audit-hook">Is this the level you're ready to step into?</p>
+        <button type="submit" class="audit-submit">Request System Audit</button>
+
+      </form>
+    </div>
+  </section>
+
 </body>
 </html>
