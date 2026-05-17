@@ -15,8 +15,8 @@ Houses executable tools, automation scripts, and live system integrations. Tools
 
 | Folder | Contents | Status |
 |--------|----------|--------|
-| integrations/ | References to live system integrations (betting engine, consulting wing) | Wave 3 — Pending |
-| scripts/ | Standalone automation scripts (NEPQ drafter, OODA orchestrator) | Wave 3 — Pending |
+| integrations/ | References to live system integrations (betting engine, consulting wing) | Wave 3 — Complete |
+| scripts/ | Standalone automation scripts (NEPQ drafter, OODA orchestrator) | Wave 3 — Complete |
 | repomix/ | Repomix tooling for codebase packaging | Wave 4 — Pending |
 | vexor/ | Vexor integration if activated | Wave 4 — Pending |
 
