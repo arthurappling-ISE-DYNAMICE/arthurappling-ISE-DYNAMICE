@@ -13,7 +13,7 @@ Persistent institutional knowledge for the AA Capital Inc. / Prime Pathwy operat
 
 | File / Folder | Contents | Status |
 |---------------|----------|--------|
-| market-intelligence/ | Dated intelligence reports (YYYY-MM-DD-topic.md format) | Wave 4 — Pending |
+| market-intelligence/ | Dated intelligence reports (YYYY-MM-DD-topic.md format) | Wave 4 — Complete |
 | lessons-learned.md | What worked, what failed, and why — session-agnostic | Active |
 | failed-experiments.md | Tools and approaches tested and disqualified — with documented reason | Active |
 | architecture-decisions.md | Design decisions with rationale — prevents re-litigating solved problems | Active |

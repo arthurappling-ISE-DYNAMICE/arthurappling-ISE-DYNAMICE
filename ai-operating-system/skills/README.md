@@ -13,7 +13,7 @@ Houses all imported AI skills categorized by operational domain. Each skill is d
 
 | Folder | Domain | Status |
 |--------|--------|--------|
-| engineering/ | AI engineering, Claude skills, code tooling | Wave 4 — Pending |
+| engineering/ | AI engineering, Claude skills, code tooling | Wave 4 — Complete |
 | research/ | Intelligence gathering, scouting protocols | Wave 4 — Pending |
 | frontend/ | UI/dashboard tooling | Wave 4 — Pending |
 | marketing/ | NEPQ, outreach, proposal frameworks | Wave 4 — Pending |
