@@ -1,0 +1,132 @@
+{
+  "results": [
+    {
+      "input": "PG\u0026E Pacific Gas and Electric energy efficiency business rebates and small business grants for Northern California 2025-2026",
+      "output": {
+        "agency": "The PG\u0026E Corporation Foundation (in partnership with California Restaurant Foundation)",
+        "application_docs": "California-based restaurant owners and commercial caterers in PG\u0026E's service area can apply. Applicants can have up to five locations (although only one location can apply). Annual revenue cannot exceed $3 million for the location. The restaurant must be in operation for one full year to qualify, and previous grant recipients are eligible to apply for a different location or concept. Existing food businesses that are expanding into a brick-and-mortar location are also eligible to apply.",
+        "contact": "NOT FOUND",
+        "deadline": "June 1 through June 30, 2026",
+        "geography": "Northern and Central California (PG\u0026E's service area)",
+        "matching_requirement": "No match required",
+        "max_award": "$5,000",
+        "portal_url": "www.restaurantscare.org/resilience",
+        "program_name": "Restaurants Care Resilience Grants",
+        "source_urls": "https://investor.pgecorp.com/news-events/press-releases/press-release-details/2026/Keeping-Local-Restaurants-Cooking-The-PGE-Corporation-Foundation-Funds-Restaurants-Care-Resilience-Grants/default.aspx"
+      },
+      "error": ""
+    },
+    {
+      "input": "Bay Area Air Quality Management District BAAQMD commercial vehicle grants and clean air business funding programs 2025-2026",
+      "output": {
+        "agency": "Bay Area Air Quality Management District (BAAQMD)",
+        "application_docs": "Application form, documentation of existing engine/equipment (information, serial number, GVWR, usage documentation), quotes from dealer for replacement equipment, engine executive order, documentation of fleet registration with CARB and compliance with regulations.",
+        "contact": "grants@baaqmd.gov, 415.749.4994",
+        "deadline": "Opening Summer 2026",
+        "geography": "California / Bay Area Air District",
+        "matching_requirement": "Co-funding allowed, no strict matching requirement specified.",
+        "max_award": "Up to $240,000 for Light- and Medium-Heavy Duty trucks; Up to $520,000 for Heavy-Heavy Duty trucks",
+        "portal_url": "https://www.baaqmd.gov/apply",
+        "program_name": "Zero-Emission Truck Voucher Incentive Program (VIP)",
+        "source_urls": "https://www.baaqmd.gov/funding-and-incentives/apply-for-funding, https://www.baaqmd.gov/en/Funding-and-Incentives/Businesses-and-Fleets, https://www.baaqmd.gov/en/Funding-and-Incentives/Businesses-and-Fleets/Trucks, https://www.baaqmd.gov/funding-and-incentives/funding-sources, https://www.baaqmd.gov/~/media/files/strategic-incentives/heavy-duty-zev/vip-fact-sheet_final_042126-pdf.pdf?rev=3bacbe0c3fc74ecc82529f356bf4d06d\u0026sc_lang=en"
+      },
+      "error": ""
+    },
+    {
+      "input": "Solano County small business micro-grants emergency business funding programs 2025-2026",
+      "output": {
+        "agency": "Workforce Development Board of Solano County",
+        "application_docs": "Valid business license, completed IRS Form W-9",
+        "contact": "opportunities@solanowdb.org",
+        "deadline": "May 1, 2026",
+        "geography": "Solano County",
+        "matching_requirement": "No match required",
+        "max_award": "Up to $25,000",
+        "portal_url": "https://solanoemployment.org/funding/",
+        "program_name": "Solano Workforce Stability Grant Program",
+        "source_urls": "https://solanoemployment.org/funding/, https://solanoemployment.org/abfunding/, https://solanoemployment.org/middfunding/, https://solanoemployment.org/valerofunding/"
+      },
+      "error": ""
+    },
+    {
+      "input": "City of Vallejo small business grants emergency funding programs 2025-2026",
+      "output": {
+        "agency": "City of Vallejo, Vallejo City Manager’s Office",
+        "application_docs": "Proof of 501(c)3 nonprofit status, IRS Letter of Determination; In good standing with the California Secretary of State, Active Status; Registered with the CA Attorney General office, Current Status; Proof of General Liability Insurance, including SAMS coverage when working with minors; Current Vallejo Business License",
+        "contact": "specialevents@cityofvallejo.net or 707-648-8616",
+        "deadline": "Application opens January 13, 2025; Application Deadline: March 23, 2025, at 12:00 PM PDT",
+        "geography": "City of Vallejo",
+        "matching_requirement": "Not explicitly stated as a matching requirement for the applicant; awards partially offset costs.",
+        "max_award": "Up to 25% of the anticipated total event budget or 100% of the anticipated cost of city services, whichever is higher. Final amount allocated will be announced following the adoption of the City’s 2025-26 budget in June 2025.",
+        "portal_url": "https://cityofvallejo.formstack.com/forms/sesp_grant_application",
+        "program_name": "Special Event Sponsorship Program",
+        "source_urls": "https://www.cityofvallejo.net/common/pages/GetFile.ashx?key=Wdg9AZsm"
+      },
+      "error": ""
+    },
+    {
+      "input": "City of Fairfield Vacaville Benicia small business grants emergency funding programs 2025-2026",
+      "output": {
+        "agency": "Verizon",
+        "application_docs": "Register for free, complete a Digital Ready course or event, and submit an application.",
+        "contact": "NOT FOUND",
+        "deadline": "March 31st, 2026",
+        "geography": "California (statewide)",
+        "matching_requirement": "No repayment required",
+        "max_award": "$5,000",
+        "portal_url": "https://digitalready.verizonwireless.com/course-details/id_CA_grant",
+        "program_name": "California $5,000 Grant (Verizon’s Small Business Digital Ready Grant)",
+        "source_urls": "https://www.vacavillechamber.com/grant-opportunities/"
+      },
+      "error": ""
+    },
+    {
+      "input": "California state small business micro-grants non-dilutive capital Bay Area Northern California 2025-2026",
+      "output": {
+        "agency": "California Employment Training Panel (ETP) and California Labor and Workforce Development Agency (LWDA)",
+        "application_docs": "Business 8-digit California Employer Account Number (CEAN), Business North American Industry Classification System (NAICS Code), Employee(s) Full Name who is utilizing the Family Paid Leave program, Employee's 10-digit EDD Customer Account Number (EDD CAN)",
+        "contact": "NOT FOUND",
+        "deadline": "Ongoing",
+        "geography": "California (statewide)",
+        "matching_requirement": "No match required",
+        "max_award": "Up to $2,000 per employee",
+        "portal_url": "https://microbizinsocal.org/grants/california-paid-family-small-business-grant/",
+        "program_name": "California Paid Family Leave Small Business Grant",
+        "source_urls": "https://microbizinsocal.org/grants/california-paid-family-small-business-grant/"
+      },
+      "error": ""
+    },
+    {
+      "input": "SBA USDA CDFI micro-grant programs Northern California Solano County Bay Area small business 2025-2026",
+      "output": {
+        "agency": "Department of Housing and Community Development",
+        "application_docs": "NOT FOUND",
+        "contact": "NOT FOUND",
+        "deadline": "6/5/26 16:00",
+        "geography": "All across California, 10% set-aside for Rural areas.",
+        "matching_requirement": "No",
+        "max_award": "$240,000,000",
+        "portal_url": "https://www.grants.ca.gov/grants/2026-mhp-gap-funding-nofa/",
+        "program_name": "2026 MHP Gap Funding NOFA",
+        "source_urls": "https://www.grants.ca.gov/?s\u0026applicant_type_search%5B%5D=business\u0026grant_categories_search%5B%5D=housing-community-economic-development"
+      },
+      "error": ""
+    },
+    {
+      "input": "Richmond California small business grants housing authority funding programs 2025-2026",
+      "output": {
+        "agency": "City of Richmond",
+        "application_docs": "NOT FOUND",
+        "contact": "NOT FOUND",
+        "deadline": "December 29, 2025 - December 2026 (or until funds are awarded)",
+        "geography": "Richmond, California (Iron Triangle, Coronado, and Santa Fe neighborhoods)",
+        "matching_requirement": "NOT FOUND",
+        "max_award": "Up to $15,000",
+        "portal_url": "https://www.ci.richmond.ca.us/4648/Small-Business-Facade-Improvement-Progra",
+        "program_name": "Small Business Facade Improvement Program",
+        "source_urls": "https://www.ci.richmond.ca.us/4648/Small-Business-Facade-Improvement-Progra"
+      },
+      "error": ""
+    }
+  ]
+}
