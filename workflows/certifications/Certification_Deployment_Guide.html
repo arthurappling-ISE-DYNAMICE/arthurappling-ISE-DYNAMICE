@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Certification Deployment Guide for AA Capital INC - Step-by-step instructions for Cal eProcure, DIR, and SAM.gov certifications">
+    <title>Certification Deployment Guide - AA Capital INC | Prime Pathwy Systems</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .title-page {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #2c5aa0 0%, #4a90e2 100%);
+            color: white;
+            margin: -40px -40px 40px -40px;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .title-page h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .title-page .subtitle {
+            font-size: 16px;
+            opacity: 0.95;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .title-page .entity {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-top: 20px;
+        }
+
+        .overview-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .overview-table thead {
+            background: #2c5aa0;
+            color: white;
+        }
+
+        .overview-table th,
+        .overview-table td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        .overview-table tbody tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .overview-table tbody tr:hover {
+            background: #e9ecef;
+        }
+
+        .guide-section {
+            page-break-before: always;
+            margin-top: 40px;
+            padding-top: 20px;
+        }
+
+        .guide-title {
+            background: #2c5aa0;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .guide-subtitle {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .step {
+            margin: 25px 0;
+            border-left: 4px solid #4a90e2;
+            padding-left: 15px;
+        }
+
+        .step-header {
+            background: #4a90e2;
+            color: white;
+            padding: 12px 15px;
+            font-size: 16px;
+            font-weight: 600;
+            margin: 20px 0 15px -19px;
+            border-radius: 3px;
+        }
+
+        .action-list {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        .action-list li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
+        .bullet-list {
+            margin: 10px 0;
+            padding-left: 40px;
+            list-style-type: disc;
+        }
+
+        .bullet-list li {
+            margin: 6px 0;
+        }
+
+        .pass-criteria {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            color: #155724;
+            padding: 12px 15px;
+            margin: 15px 0;
+            font-weight: 600;
+            border-radius: 3px;
+        }
+
+        .pass-criteria::before {
+            content: "✓ PASS CRITERIA: ";
+            font-weight: 700;
+        }
+
+        .error-box {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+            color: #721c24;
+            padding: 10px 15px;
+            margin: 10px 0 5px 15px;
+            font-weight: 600;
+            border-radius: 3px;
+        }
+
+        .error-box::before {
+            content: "⚠ ERROR: ";
+            font-weight: 700;
+        }
+
+        .fix-box {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            color: #004085;
+            padding: 10px 15px;
+            margin: 5px 0 15px 15px;
+            border-radius: 3px;
+        }
+
+        .fix-box::before {
+            content: "✓ FIX: ";
+            font-weight: 700;
+        }
+
+        .info-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            color: #856404;
+            padding: 12px 15px;
+            margin: 15px 0;
+            border-radius: 3px;
+            font-size: 14px;
+        }
+
+        .info-box::before {
+            content: "📌 NOTE: ";
+            font-weight: 700;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .data-table thead {
+            background: #4a90e2;
+            color: white;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        .data-table tbody tr:nth-child(even) {
+            background: #f0f7ff;
+        }
+
+        .data-table tbody tr:hover {
+            background: #e3f2fd;
+        }
+
+        .code {
+            background: #f4f4f4;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #c7254e;
+            font-weight: 600;
+        }
+
+        .checkbox {
+            margin: 5px 0;
+            padding: 8px;
+        }
+
+        .checkbox input {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+
+        .tracker-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        }
+
+        .tracker-table thead {
+            background: #2c5aa0;
+            color: white;
+        }
+
+        .tracker-table th,
+        .tracker-table td {
+            padding: 15px;
+            text-align: left;
+            border: 2px solid #2c5aa0;
+        }
+
+        .tracker-table tbody tr {
+            background: white;
+        }
+
+        .tracker-table tbody tr:nth-child(even) {
+            background: #f0f7ff;
+        }
+
+        .contact-header {
+            background: #2c5aa0;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 700;
+            margin: 30px 0 10px 0;
+            border-radius: 5px;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                padding: 20px;
+            }
+
+            .guide-section {
+                page-break-before: always;
+            }
+
+            .step {
+                page-break-inside: avoid;
+            }
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 5px;
+            border-radius: 2px;
+            font-weight: 600;
+        }
+
+        strong {
+            color: #2c5aa0;
+            font-weight: 700;
+        }
+
+        a {
+            color: #4a90e2;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .section {
+            page-break-inside: avoid;
+        }
+
+        h2 {
+            page-break-before: always;
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            .title-page {
+                margin: -20px -20px 20px -20px;
+                padding: 40px 15px;
+            }
+
+            .title-page h1 {
+                font-size: 24px;
+            }
+
+            .guide-title {
+                font-size: 18px;
+                padding: 15px;
+            }
+
+            .overview-table,
+            .data-table,
+            .tracker-table {
+                font-size: 12px;
+            }
+
+            .overview-table th,
+            .overview-table td,
+            .data-table th,
+            .data-table td,
+            .tracker-table th,
+            .tracker-table td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title-page">
+            <h1>Certification Deployment Guide</h1>
+            <div class="subtitle">Step-by-Step Instructions for Securing Government Certifications</div>
+            <div class="entity">AA Capital INC. | Prime Pathwy Systems</div>
+        </div>
+
+        <table class="overview-table">
+            <thead>
+                <tr>
+                    <th>CERTIFICATION</th>
+                    <th>PURPOSE</th>
+                    <th>TIMELINE</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Cal eProcure<br>Small Business (SB)</strong></td>
+                    <td>Direct awards $5k-$250k<br>Only 2 quotes required</td>
+                    <td>10-15 days</td>
+                </tr>
+                <tr>
+                    <td><strong>DIR Public Works<br>Registration</strong></td>
+                    <td>State facility compliance<br>Prevailing wage protection</td>
+                    <td>10-20 days</td>
+                </tr>
+                <tr>
+                    <td><strong>SAM.gov Federal<br>Entity Profile</strong></td>
+                    <td>Federal contract access<br>Active UEI number</td>
+                    <td>7-30 days</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="guide-section">
+            <div class="guide-title">GUIDE 1: Cal eProcure Small Business Certification</div>
+            <div class="guide-subtitle">Direct awards ($5k–$250k) • NAICS: 76120000, 76110000</div>
+
+            <div class="step">
+                <div class="step-header">STEP 1: Verify Cal eProcure Account Access</div>
+                <ol class="action-list">
+                    <li>Navigate to: <a href="https://caleprocure.ca.gov" target="_blank">https://caleprocure.ca.gov</a></li>
+                    <li>Click <strong>Login</strong> (top right corner)</li>
+                    <li>Enter credentials:
+                        <ul class="bullet-list">
+                            <li><strong>User ID:</strong> <span class="code">Bun-barty71$#</span></li>
+                            <li><strong>Password:</strong> Bun-barty71$#*4wV</li>
+                        </ul>
+                    </li>
+                </ol>
+                <div class="pass-criteria">Successfully logged into Cal eProcure dashboard</div>
+                <div class="error-box">Account locked or invalid credentials</div>
+                <div class="fix-box">Call FI$Cal at <strong>1-855-421-6355</strong>, provide Bidder ID: <span class="code">BID0129485</span></div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">STEP 2: Navigate to Certification Portal</div>
+                <ol class="action-list">
+                    <li>From dashboard, locate left-side menu</li>
+                    <li>Click <strong>Get Certified</strong></li>
+                    <li>Select <strong>Small Business (SB) Certification</strong></li>
+                </ol>
+                <div class="pass-criteria">SB Certification application form visible</div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">STEP 3: Complete Business Profile Information</div>
+                <p><strong>Business Information:</strong></p>
+                <ul class="bullet-list">
+                    <li>Legal Business Name: <strong>AA Capital INC.</strong></li>
+                    <li>DBA: <strong>Prime Pathwy</strong></li>
+                    <li>Business Address: [Your registered address]</li>
+                    <li>EIN: <strong>84-4788578</strong></li>
+                    <li>Business Structure: Corporation</li>
+                </ul>
+
+                <p><strong>Owner Information:</strong></p>
+                <ul class="bullet-list">
+                    <li>Owner Name: Arthur F. Appling Sr.</li>
+                    <li>Title: Owner / CEO</li>
+                    <li>Email: arthurappling@gmail.com</li>
+                    <li>Phone: [Business phone]</li>
+                </ul>
+                <div class="pass-criteria">All required fields (*) completed</div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">STEP 4: Select NAICS Activity Codes</div>
+                <ol class="action-list">
+                    <li>Scroll to <strong>Business Activities</strong> section</li>
+                    <li>Click <strong>Add NAICS Code</strong></li>
+                    <li>Enter codes:</li>
+                </ol>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>CODE</th>
+                            <th>DESCRIPTION</th>
+                            <th>TYPE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="code">76120000</span></td>
+                            <td>Refuse Collection/Disposal</td>
+                            <td><strong>PRIMARY ✓</strong></td>
+                        </tr>
+                        <tr>
+                            <td><span class="code">76110000</span></td>
+                            <td>Facilities Support/Cleaning</td>
+                            <td>Secondary</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="pass-criteria">Both codes visible, 76120000 marked PRIMARY</div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">STEP 5: Provide Revenue Documentation</div>
+                <ol class="action-list">
+                    <li>Locate <strong>Financial Information</strong> section</li>
+                    <li>Select gross receipts category:
+                        <ul class="bullet-list">
+                            <li><strong>Micro-Business:</strong> Avg annual receipts ≤ $5M (3-year avg)</li>
+                            <li><strong>Small Business:</strong> Based on NAICS thresholds</li>
+                        </ul>
+                    </li>
+                    <li>Upload documents:
+                        <ul class="bullet-list">
+                            <li>Required: Previous 3 years tax returns (1120, 1120S, or 1065)</li>
+                            <li>Alternate: P&amp;L statements certified by CPA</li>
+                        </ul>
+                    </li>
+                </ol>
+                <div class="pass-criteria">Documents uploaded, qualifies under SB threshold</div>
+                <div class="error-box">Revenue exceeds Small Business limits</div>
+                <div class="fix-box">Recalculate 3-year average: (Yr1 + Yr2 + Yr3) ÷ 3</div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">STEP 6: Certify and Submit</div>
+                <ol class="action-list">
+                    <li>Review all information for accuracy</li>
+                    <li>Check box: <strong>I certify information is true and accurate</strong></li>
+                    <li>Enter name as electronic signature</li>
+                    <li>Click <strong>Submit Application</strong></li>
+                </ol>
+                <div class="pass-criteria">Confirmation message received, status shows UNDER REVIEW</div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">STEP 7: Monitor Application Status</div>
+                <ol class="action-list">
+                    <li>Log in every 3-5 business days</li>
+                    <li>Navigate to <strong>My Certifications</strong></li>
+                    <li>Check status:</li>
+                </ol>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>STATUS</th>
+                            <th>MEANING</th>
+                            <th>ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Under Review</td>
+                            <td>Being processed (10-15 days)</td>
+                            <td>Wait</td>
+                        </tr>
+                        <tr>
+                            <td>Additional Info Needed</td>
+                            <td>Documents requested</td>
+                            <td>Check email/inbox</td>
+                        </tr>
+                        <tr>
+                            <td>Approved</td>
+                            <td>Certification ACTIVE</td>
+                            <td>Download cert</td>
+                        </tr>
+                        <tr>
+                            <td>Denied</td>
+                            <td>Application rejected</td>
+                            <td>Review &amp; reapply</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="pass-criteria">Status = APPROVED with expiration date visible</div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">STEP 8: Download and Save Certification</div>
+                <ol class="action-list">
+                    <li>Click on <strong>SB Certification</strong> (once approved)</li>
+                    <li>Click <strong>Download Certificate</strong></li>
+                    <li>Save PDF to: <span class="code">Prime Pathwy/certifications/SB_Certification_[DATE].pdf</span></li>
+                    <li>Print physical copy for operations binder</li>
+                </ol>
+                <div class="pass-criteria">Certificate saved digitally and physically filed</div>
+            </div>
+
+            <div class="info-box">SB Certification expires annually. Renew 60 days before expiration.</div>
+        </div>
+
+        <div class="guide-section">
+            <div class="guide-title">GUIDE 2: DIR Public Works Registration</div>
+            <div class="guide-subtitle">State compliance for public works • Prevailing wage protection</div>
+
+            <div class="step">
+                <div class="step-header">STEP 1: Determine Registration Requirement</div>
+                <p>Ask: <strong>Will I work on state/local government property?</strong></p>
+                <p>DIR required if performing:</p>
+                <ul class="bullet-list">
+                    <li>Cleaning/janitorial in state buildings</li>
+                    <li>Hauling debris from state facilities</li>
+                    <li>Maintenance on public property</li>
+                    <li>Subcontracting on public works projects</li>
+                </ul>
+                <div class="pass-criteria">Confirmed DIR registration is REQUIRED</div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">STEP 2: Navigate to DIR Portal</div>
+                <ol class="action-list">
+                    <li>Go to: <a href="https://www.dir.ca.gov/Public-Works/PublicWorks.html" target="_blank">https://www.dir.ca.gov/Public-Works/PublicWorks.html</a></li>
+                    <li>Click <strong>Register as a Public Works Contractor</strong></li>
+                    <li>Select <strong>New Registration</strong></li>
+                </ol>
+                <div class="pass-criteria">DIR contractor registration form visible</div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">STEP 3: Create DIR Account</div>
+                <ol class="action-list">
+                    <li>Click <strong>Create New Account</strong></li>
+                    <li>Provide:
+                        <ul class="bullet-list">
+                            <li>Business Name: <strong>AA Capital INC.</strong></li>
+                            <li>Email: [Business email]</li>
+                            <li>Password: [Create secure password]</li>
+                        </ul>
+                    </li>
+                    <li>Verify email (click link in inbox)</li>
+                    <li>Log back into DIR portal</li>
+                </ol>
+                <div class="pass-criteria">Account created, verified, can access DIR dashboard</div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">STEP 4: Complete Contractor Registration</div>
+                <p><strong>Section A: Business Information</strong></p>
+                <ul class="bullet-list">
+                    <li>Legal Business Name: <strong>AA Capital INC.</strong></li>
+                    <li>DBA: Prime Pathwy</li>
+                    <li>Business Address: [Physical address - NO P.O. BOX]</li>
+                    <li>Federal EIN: <strong>84-4788578</strong></li>
+                    <li>CA Contractor License: [If none, check 'Not licensed']</li>
+                </ul>
+
+                <p><strong>Section B: Business Type</strong></p>
+                <ul class="bullet-list">
+                    <li>Select: Corporation</li>
+                </ul>
+
+                <p><strong>Section C: Contact Information</strong></p>
+                <ul class="bullet-list">
+                    <li>Primary Contact: Arthur F. Appling Sr.</li>
+                    <li>Title: Owner/CEO</li>
+                    <li>Phone/Email: [Business info]</li>
+                </ul>
+                <div class="pass-criteria">All mandatory fields completed</div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">STEP 5: Specify Work Classifications</div>
+                <p>Select applicable work types:</p>
+                <ul class="bullet-list">
+                    <li>☑ Janitorial Services</li>
+                    <li>☑ Debris Removal / Hauling</li>
+                    <li>☑ Facilities Maintenance</li>
+                    <li>☑ Refuse Collection</li>
+                </ul>
+                <div class="pass-criteria">At least one classification matches NAICS codes</div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">STEP 6: Provide Insurance Documentation</div>
+                <p>Upload proof of coverage:</p>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>INSURANCE TYPE</th>
+                            <th>MINIMUM COVERAGE</th>
+                            <th>REQUIRED</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>General Liability</td>
+                            <td>$1M per occurrence</td>
+                            <td>YES</td>
+                        </tr>
+                        <tr>
+                            <td>Workers Comp</td>
+                            <td>Statutory limits</td>
+                            <td>If employees</td>
+                        </tr>
+                        <tr>
+                            <td>Auto Liability</td>
+                            <td>$1M combined single limit</td>
+                            <td>If using vehicles</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <ul class="bullet-list">
+                    <li>Format: PDF or JPG</li>
+                    <li>Must name 'State of California' as certificate holder</li>
+                </ul>
+                <div class="pass-criteria">All insurance docs uploaded and accepted</div>
+                <div class="error-box">Insurance coverage insufficient</div>
+                <div class="fix-box">Contact agent to increase limits, request updated COI</div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">STEP 7: Pay Registration Fee</div>
+                <ol class="action-list">
+                    <li>Review registration summary</li>
+                    <li>Proceed to payment</li>
+                    <li>Fee: ~$300 (annual - verify current rate)</li>
+                    <li>Payment: Credit/Debit or ACH</li>
+                    <li>Complete payment</li>
+                </ol>
+                <div class="pass-criteria">Payment confirmed, status = PENDING APPROVAL</div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">STEP 8: Submit Registration</div>
+                <ol class="action-list">
+                    <li>Review entire application</li>
+                    <li>Check: <strong>I certify all information is accurate</strong></li>
+                    <li>Enter name as e-signature</li>
+                    <li>Click <strong>Submit Registration</strong></li>
+                </ol>
+                <div class="pass-criteria">Confirmation screen + email, status = PENDING REVIEW</div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">STEP 9: Monitor Registration Status</div>
+                <ol class="action-list">
+                    <li>Check DIR portal every 5-7 days</li>
+                    <li>Check email for info requests</li>
+                    <li>Respond to DIR inquiries within 5 days</li>
+                    <li>Processing time: 10-20 business days (typical)</li>
+                </ol>
+                <div class="pass-criteria">Status changes to APPROVED</div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">STEP 10: Download DIR Registration Number</div>
+                <ol class="action-list">
+                    <li>Log into DIR portal (once approved)</li>
+                    <li>Navigate to <strong>My Registration</strong></li>
+                    <li>Locate DIR Registration Number (format: DIR-#######)</li>
+                    <li>Download certificate</li>
+                    <li>Save to: <span class="code">Prime Pathwy/certifications/DIR_Registration_[DATE].pdf</span></li>
+                    <li>Print physical copy</li>
+                </ol>
+                <div class="pass-criteria">DIR number active, linked to AA Capital INC., cert saved</div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">STEP 11: Link DIR to Cal eProcure</div>
+                <ol class="action-list">
+                    <li>Log into <strong>Cal eProcure</strong></li>
+                    <li>Navigate to <strong>My Profile → Business Information</strong></li>
+                    <li>Locate <strong>DIR Registration Number</strong> field</li>
+                    <li>Enter: DIR-#######</li>
+                    <li>Click <strong>Verify</strong> (validates with DIR database)</li>
+                    <li>Click <strong>Save</strong></li>
+                </ol>
+                <div class="pass-criteria">Cal eProcure shows 'DIR Registration: VERIFIED'</div>
+            </div>
+
+            <div class="info-box">DIR expires annually. If you win public works contracts, you MUST pay prevailing wages and submit weekly certified payroll.</div>
+        </div>
+
+        <div class="guide-section">
+            <div class="guide-title">GUIDE 3: SAM.gov Federal Entity Registration</div>
+            <div class="guide-subtitle">Active UEI for federal contracts • NAICS: 561720, 562111</div>
+
+            <div class="step">
+                <div class="step-header">STEP 1: Navigate to SAM.gov</div>
+                <ol class="action-list">
+                    <li>Go to: <a href="https://sam.gov" target="_blank">https://sam.gov</a></li>
+                    <li>Click <strong>Sign In</strong> (top right)</li>
+                    <li>If no account: Click <strong>Create Account</strong></li>
+                </ol>
+                <div class="pass-criteria">Reached SAM.gov login/registration page</div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">STEP 2: Create Login.gov Account</div>
+                <p>SAM.gov uses <strong>Login.gov</strong> for authentication</p>
+                <ol class="action-list">
+                    <li>Click <strong>Create an account</strong> on Login.gov</li>
+                    <li>Provide email and password</li>
+                    <li>Verify email (click link in inbox)</li>
+                    <li>Set up <strong>Two-Factor Authentication (2FA)</strong>:
+                        <ul class="bullet-list">
+                            <li>Choose: Phone (SMS), Auth app, or Security key</li>
+                            <li>Follow prompts to complete 2FA</li>
+                        </ul>
+                    </li>
+                </ol>
+                <div class="pass-criteria">Login.gov account created, 2FA active</div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">STEP 3: Access SAM.gov Entity Registration</div>
+                <ol class="action-list">
+                    <li>Log into SAM.gov using Login.gov credentials</li>
+                    <li>From dashboard, click <strong>Get Started</strong> under Entity Registration</li>
+                    <li>Select <strong>Register New Entity</strong></li>
+                </ol>
+                <div class="pass-criteria">On SAM.gov entity registration form</div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">STEP 4: Enter Business Information</div>
+                <p><strong>Section 1: Entity Information</strong></p>
+                <ul class="bullet-list">
+                    <li>Legal Business Name: <strong>AA Capital INC.</strong></li>
+                    <li>DBA: Prime Pathwy</li>
+                    <li>Physical Address: [Your registered business address - NO P.O. BOXES]</li>
+                </ul>
+
+                <p><strong>Section 2: Tax Information</strong></p>
+                <ul class="bullet-list">
+                    <li>TIN: <strong>84-4788578</strong></li>
+                    <li>TIN Type: EIN</li>
+                    <li>Business Start Date: [Formation date]</li>
+                </ul>
+
+                <p><strong>Section 3: Business Type</strong></p>
+                <ul class="bullet-list">
+                    <li>Type: Corporation</li>
+                    <li>Country: United States</li>
+                    <li>State: California</li>
+                </ul>
+                <div class="pass-criteria">All required fields in Sections 1-3 completed</div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">STEP 5: Obtain UEI</div>
+                <p>SAM.gov automatically assigns a <strong>Unique Entity ID (UEI)</strong></p>
+                <ol class="action-list">
+                    <li>System will assign new 12-character UEI.</li>
+                    <li><strong>Record this number immediately</strong></li>
+                    <li>Save to: <span class="code">Prime Pathwy/certifications/UEI_Number.txt</span></li>
+                </ol>
+                <div class="pass-criteria">UEI displayed and recorded</div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">STEP 6: Add NAICS Codes</div>
+                <ol class="action-list">
+                    <li>Navigate to <strong>NAICS Codes</strong> section</li>
+                    <li>Click <strong>Add NAICS Code</strong></li>
+                    <li>Enter codes:</li>
+                </ol>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>CODE</th>
+                            <th>DESCRIPTION</th>
+                            <th>SIZE STANDARD</th>
+                            <th>TYPE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="code">561720</span></td>
+                            <td>Janitorial Services</td>
+                            <td>$47M</td>
+                            <td><strong>PRIMARY ✓</strong></td>
+                        </tr>
+                        <tr>
+                            <td><span class="code">562111</span></td>
+                            <td>Solid Waste Collection</td>
+                            <td>$47M</td>
+                            <td>Secondary</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="pass-criteria">Both codes in profile, 561720 marked PRIMARY</div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">STEP 7: Complete Financial Information</div>
+                <ol class="action-list">
+                    <li>Scroll to <strong>Financial Information</strong></li>
+                    <li>Provide:
+                        <ul class="bullet-list">
+                            <li>Annual Revenue: [Last fiscal year gross receipts]</li>
+                            <li>Number of Employees: [Current count]</li>
+                        </ul>
+                    </li>
+                    <li>Verify Small Business status (Revenue ≤ $47M)</li>
+                    <li>Check: <strong>Entity qualifies as small business</strong></li>
+                </ol>
+                <div class="pass-criteria">Financial data entered, SB status confirmed</div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">STEP 8: Add Points of Contact</div>
+                <p>Add required contacts:</p>
+                <ul class="bullet-list">
+                    <li><strong>Government Business POC:</strong> Arthur F. Appling Sr. | Owner/CEO | arthurappling@gmail.com</li>
+                    <li><strong>Electronic Business POC:</strong> [Can be same as above]</li>
+                    <li><strong>Alternate POC:</strong> [Optional but recommended]</li>
+                </ul>
+                <div class="pass-criteria">At least Gov Business POC and Electronic POC added</div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">STEP 9: Banking Information</div>
+                <p>Required to receive federal payments:</p>
+                <ul class="bullet-list">
+                    <li>Bank Name: [Your business bank]</li>
+                    <li>Routing Number: [9-digit]</li>
+                    <li>Account Number: [Business account]</li>
+                    <li>Account Type: Checking or Savings</li>
+                </ul>
+                <div class="pass-criteria">Banking info entered and validated</div>
+                <div class="info-box">SECURITY: SAM.gov uses encrypted transmission. Never share via email.</div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">STEP 10: Representations &amp; Certifications</div>
+                <ol class="action-list">
+                    <li>Navigate to <strong>Representations and Certifications</strong></li>
+                    <li>Answer all questions truthfully:
+                        <ul class="bullet-list">
+                            <li>Business size</li>
+                            <li>Socioeconomic status</li>
+                            <li>Tax delinquency</li>
+                            <li>Criminal convictions</li>
+                        </ul>
+                    </li>
+                    <li>Sign certifications electronically</li>
+                </ol>
+                <div class="pass-criteria">All required certifications completed</div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">STEP 11: Submit Registration</div>
+                <ol class="action-list">
+                    <li>Review entire entity profile</li>
+                    <li>Click <strong>Submit</strong></li>
+                    <li>Confirm submission</li>
+                </ol>
+                <div class="pass-criteria">Confirmation message + email, status = SUBMITTED - IN REVIEW</div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">STEP 12: Monitor Registration Status</div>
+                <ol class="action-list">
+                    <li>Log in every 3-5 days</li>
+                    <li>Check <strong>Entity Registration Status</strong></li>
+                    <li>Processing: 7-10 days (up to 30 if IRS TIN validation delayed)</li>
+                </ol>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>STATUS</th>
+                            <th>ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Submitted</td>
+                            <td>Wait - registration received</td>
+                        </tr>
+                        <tr>
+                            <td>In Review</td>
+                            <td>Wait - being processed</td>
+                        </tr>
+                        <tr>
+                            <td>IRS TIN Validation Pending</td>
+                            <td>Wait - most common delay</td>
+                        </tr>
+                        <tr>
+                            <td>Active</td>
+                            <td>✓ Registration APPROVED</td>
+                        </tr>
+                        <tr>
+                            <td>Action Required</td>
+                            <td>Check messages immediately</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="pass-criteria">Status = ACTIVE</div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">STEP 13: Download Registration Certificate</div>
+                <ol class="action-list">
+                    <li>Once ACTIVE, navigate to <strong>Entity Registration</strong></li>
+                    <li>Click <strong>View/Download Registration</strong></li>
+                    <li>Save to: <span class="code">Prime Pathwy/certifications/SAM_Registration_[DATE].pdf</span></li>
+                    <li>Print physical copy</li>
+                </ol>
+                <div class="pass-criteria">Active UEI visible on dashboard, cert saved and filed</div>
+            </div>
+
+            <div class="step">
+                <div class="step-header">STEP 14: Integrate UEI into Business Materials</div>
+                <p>Add UEI to:</p>
+                <ul class="bullet-list">
+                    <li>Business cards</li>
+                    <li>Letterhead</li>
+                    <li>Bid proposal templates</li>
+                    <li>Email signature</li>
+                </ul>
+                <p>Format: <span class="code">UEI: [Your 12-char UEI]</span></p>
+                <div class="pass-criteria">UEI integrated into standard business docs</div>
+            </div>
+
+            <div class="info-box">CRITICAL: SAM.gov expires annually. Renewal reminder sent 60 days before. If registration lapses, you CANNOT receive federal contracts or payments. Log in quarterly to verify ACTIVE status.</div>
+        </div>
+
+        <div class="guide-section">
+            <div class="guide-title">CERTIFICATION STATUS TRACKER</div>
+
+            <table class="tracker-table">
+                <thead>
+                    <tr>
+                        <th>CERTIFICATION</th>
+                        <th>STATUS</th>
+                        <th>DATE STARTED</th>
+                        <th>DATE COMPLETED</th>
+                        <th>CERT LOCATION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Cal eProcure<br>SB Certification</strong></td>
+                        <td>
+                            <div class="checkbox"><input type="checkbox"> Not Started</div>
+                            <div class="checkbox"><input type="checkbox"> In Progress</div>
+                            <div class="checkbox"><input type="checkbox"> Complete</div>
+                        </td>
+                        <td>__________</td>
+                        <td>__________</td>
+                        <td><span class="code">certifications/<br>SB_Certification_<br>[DATE].pdf</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>DIR Public Works<br>Registration</strong></td>
+                        <td>
+                            <div class="checkbox"><input type="checkbox"> Not Started</div>
+                            <div class="checkbox"><input type="checkbox"> In Progress</div>
+                            <div class="checkbox"><input type="checkbox"> Complete</div>
+                        </td>
+                        <td>__________</td>
+                        <td>__________</td>
+                        <td><span class="code">certifications/<br>DIR_Registration_<br>[DATE].pdf</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>SAM.gov Federal<br>Entity Profile</strong></td>
+                        <td>
+                            <div class="checkbox"><input type="checkbox"> Not Started</div>
+                            <div class="checkbox"><input type="checkbox"> In Progress</div>
+                            <div class="checkbox"><input type="checkbox"> Complete</div>
+                        </td>
+                        <td>__________</td>
+                        <td>__________</td>
+                        <td><span class="code">certifications/<br>SAM_Registration_<br>[DATE].pdf</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="contact-header">QUICK REFERENCE: KEY CONTACTS</div>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>AGENCY</th>
+                        <th>PHONE</th>
+                        <th>PURPOSE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>FI$Cal Service Center</td>
+                        <td><strong>1-855-421-6355</strong></td>
+                        <td>Unlock Cal eProcure account</td>
+                    </tr>
+                    <tr>
+                        <td>DIR Help Desk</td>
+                        <td>Check DIR website</td>
+                        <td>Public Works registration support</td>
+                    </tr>
+                    <tr>
+                        <td>SAM.gov Federal Service Desk</td>
+                        <td><strong>1-866-606-8220</strong></td>
+                        <td>Entity registration assistance</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

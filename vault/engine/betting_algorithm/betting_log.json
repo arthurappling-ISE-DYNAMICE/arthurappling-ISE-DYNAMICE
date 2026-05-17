@@ -1,0 +1,172 @@
+[
+  {
+    "date": "2026-04-15",
+    "week": 1,
+    "unit": 100,
+    "type": "8-Leg",
+    "status": "Hit",
+    "ss_avg": 90,
+    "wri_avg": 11,
+    "payout": 1200,
+    "net_profit": 0,
+    "teams": [
+      {
+        "slot": 1,
+        "tier": "Foundation",
+        "name": "SF 49ers",
+        "ss": 95,
+        "wri": 5,
+        "outcome": "Hit",
+        "momentum": "Sustainer"
+      },
+      {
+        "slot": 2,
+        "tier": "Foundation",
+        "name": "KC Chiefs",
+        "ss": 94,
+        "wri": 8,
+        "outcome": "Hit",
+        "momentum": "Sustainer"
+      },
+      {
+        "slot": 3,
+        "tier": "Foundation",
+        "name": "BAL Ravens",
+        "ss": 92,
+        "wri": 10,
+        "outcome": "Hit",
+        "momentum": "Sustainer"
+      },
+      {
+        "slot": 4,
+        "tier": "Foundation",
+        "name": "PHI Eagles",
+        "ss": 91,
+        "wri": 12,
+        "outcome": "Hit",
+        "momentum": "Sustainer"
+      },
+      {
+        "slot": 5,
+        "tier": "Extension",
+        "name": "DET Lions",
+        "ss": 89,
+        "wri": 0,
+        "outcome": "Hit",
+        "momentum": "Fast Starter"
+      },
+      {
+        "slot": 6,
+        "tier": "Extension",
+        "name": "BUF Bills",
+        "ss": 88,
+        "wri": 18,
+        "outcome": "Hit",
+        "momentum": "Fast Starter"
+      },
+      {
+        "slot": 7,
+        "tier": "Risk",
+        "name": "NY Jets",
+        "ss": 86,
+        "wri": 15,
+        "outcome": "Hit",
+        "momentum": "Closer"
+      },
+      {
+        "slot": 8,
+        "tier": "Risk",
+        "name": "CIN Bengals",
+        "ss": 85,
+        "wri": 20,
+        "outcome": "Hit",
+        "momentum": "Closer"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-15",
+    "week": 2,
+    "unit": 100,
+    "type": "8-Leg",
+    "status": "Hit",
+    "ss_avg": 91,
+    "wri_avg": 10,
+    "payout": 18500,
+    "net_profit": 18400,
+    "teams": [
+      {
+        "slot": 1,
+        "tier": "Foundation",
+        "name": "SF 49ers",
+        "ss": 95,
+        "wri": 5,
+        "outcome": "Hit",
+        "momentum": "Sustainer"
+      },
+      {
+        "slot": 2,
+        "tier": "Foundation",
+        "name": "KC Chiefs",
+        "ss": 94,
+        "wri": 8,
+        "outcome": "Hit",
+        "momentum": "Sustainer"
+      },
+      {
+        "slot": 3,
+        "tier": "Foundation",
+        "name": "BAL Ravens",
+        "ss": 92,
+        "wri": 10,
+        "outcome": "Hit",
+        "momentum": "Sustainer"
+      },
+      {
+        "slot": 4,
+        "tier": "Foundation",
+        "name": "PHI Eagles",
+        "ss": 91,
+        "wri": 12,
+        "outcome": "Hit",
+        "momentum": "Sustainer"
+      },
+      {
+        "slot": 5,
+        "tier": "Extension",
+        "name": "DET Lions",
+        "ss": 89,
+        "wri": 0,
+        "outcome": "Hit",
+        "momentum": "Fast Starter"
+      },
+      {
+        "slot": 6,
+        "tier": "Extension",
+        "name": "BUF Bills",
+        "ss": 88,
+        "wri": 15,
+        "outcome": "Hit",
+        "momentum": "Fast Starter"
+      },
+      {
+        "slot": 7,
+        "tier": "Risk",
+        "name": "NY Jets",
+        "ss": 85,
+        "wri": 18,
+        "outcome": "Hit",
+        "momentum": "Closer"
+      },
+      {
+        "slot": 8,
+        "tier": "Risk",
+        "name": "DAL Cowboys",
+        "ss": 87,
+        "wri": 10,
+        "outcome": "Hit",
+        "momentum": "Sustainer"
+      }
+    ]
+  }
+]

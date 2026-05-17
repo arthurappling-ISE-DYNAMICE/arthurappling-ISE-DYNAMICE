@@ -1,0 +1,2297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prime Pathwy | Sovereign Turnover Systems</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="shortcut icon" href="favicon.ico">
+<meta name="description" content="Professional property turnovers in Solano County. Cleaned, hauled, painted, and documented in 3–5 business days. Same-day quote — commercial-grade results. Expedited 48-hour service available upon consultation.">
+<meta name="keywords" content="property turnover, apartment cleaning, eviction cleanout, haul-away, Vallejo, Solano County, Prime Pathwy">
+<meta property="og:title" content="Prime Pathwy | Sovereign Turnover Systems">
+<meta property="og:description" content="Commercial-grade turnover services — same-day quote, 3–5 business day completion, documented before/after photos. Expedited 48-hour service available upon consultation.">
+<meta property="og:image" content="https://www.primepathwy.com/ferrari_asset_v1.jpg">
+<meta property="og:url" content="https://www.primepathwy.com/">
+<meta property="og:type" content="business.business">
+<link rel="canonical" href="https://www.primepathwy.com/">
+<style>
+  /* ── Base ──────────────────────────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: #050505;
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    line-height: 1.6;
+  }
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-thumb { background: rgba(201,168,76,.3); border-radius: 2px; }
+
+  /* ── Gold utilities ────────────────────────────────────────────────────── */
+  .gold-text {
+    background: linear-gradient(135deg, #F5D98A, #C9A84C, #E2C06A);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .gold-border { border-color: rgba(201,168,76,.3); }
+
+  /* ── Typography ────────────────────────────────────────────────────────── */
+  .serif-head {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-style: italic;
+    font-weight: 900;
+    line-height: 1.05;
+  }
+  .eyebrow {
+    font-size: 9px;
+    letter-spacing: .4em;
+    text-transform: uppercase;
+    color: rgba(201,168,76,.5);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  /* ── Nav ───────────────────────────────────────────────────────────────── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(5,5,5,.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,.05);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    height: 60px;
+  }
+  .nav-logo {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-weight: 900;
+    font-size: 15px;
+    letter-spacing: -.02em;
+    background: linear-gradient(135deg, #F5D98A, #C9A84C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a {
+    font-size: 9px;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.75);
+    text-decoration: none;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: rgba(201,168,76,.8); }
+
+  /* ── Hero ──────────────────────────────────────────────────────────────── */
+  #hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+  }
+  #hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(.88) saturate(.95);
+  }
+  #hero-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(0,0,0,.62) 0%,
+      rgba(0,0,0,.38) 28%,
+      rgba(0,0,0,.08) 55%,
+      transparent 72%
+    );
+  }
+  #hero-content {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    padding: 100px 2rem 0 50px;
+    max-width: 820px;
+  }
+
+  /* ── Sections ──────────────────────────────────────────────────────────── */
+  section { padding: 6rem 2rem; max-width: 1100px; margin: 0 auto; }
+  .section-full { max-width: 100%; padding-left: 0; padding-right: 0; }
+  .section-inner { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+  /* ── Service Cards ─────────────────────────────────────────────────────── */
+  .service-card {
+    background: #0D0D0D;
+    border: 1px solid rgba(255,255,255,.06);
+    padding: 2.5rem;
+    transition: border-color .25s, box-shadow .25s;
+  }
+  .service-card:hover {
+    border-color: rgba(201,168,76,.35);
+    box-shadow: 0 0 24px rgba(201,168,76,.08);
+  }
+  .service-eyebrow {
+    font-size: 9px;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    color: rgba(201,168,76,.45);
+    margin-bottom: .75rem;
+  }
+  .service-name {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-weight: 900;
+    font-size: clamp(22px, 3vw, 30px);
+    background: linear-gradient(135deg, #F5D98A, #C9A84C, #E2C06A);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0 0 1rem;
+  }
+  .service-nepq {
+    font-size: 1.125rem;
+    color: #FFD700;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    padding-left: .75rem;
+    border-left: 2px solid rgba(255,215,0,.4);
+  }
+  .service-scope {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+  }
+  .service-scope li {
+    font-size: 1rem;
+    letter-spacing: .05em;
+    color: #FFFFFF;
+    padding: .35rem 0;
+    border-bottom: 1px solid rgba(255,255,255,.04);
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+  }
+  .service-scope li::before {
+    content: '✓';
+    color: #FFD700;
+    flex-shrink: 0;
+    opacity: .7;
+  }
+  .service-price {
+    font-size: 18px;
+    font-family: Georgia, serif;
+    font-style: italic;
+    color: #C9A84C;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+  }
+  .service-cta {
+    font-size: 9px;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    color: #FFD700;
+    text-decoration: none;
+    transition: color .2s, opacity .2s;
+    opacity: .75;
+  }
+  .service-cta:hover { opacity: 1; }
+
+  /* ── Process Steps ─────────────────────────────────────────────────────── */
+  .step {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(255,255,255,.04);
+  }
+  .step:last-child { border-bottom: none; }
+  .step-num {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-weight: 900;
+    font-size: clamp(36px, 5vw, 56px);
+    background: linear-gradient(135deg, #F5D98A, #C9A84C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    flex-shrink: 0;
+    line-height: 1;
+    width: 60px;
+  }
+
+  /* ── Pricing Table ─────────────────────────────────────────────────────── */
+  .price-table { width: 100%; border-collapse: collapse; }
+  .price-row {
+    display: grid;
+    grid-template-columns: 1fr auto auto auto;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,.04);
+    gap: 1rem;
+    transition: background .2s;
+  }
+  .price-row:hover { background: rgba(201,168,76,.03); }
+  .price-label {
+    font-size: 1rem;
+    letter-spacing: .1em;
+    color: #FFFFFF;
+  }
+  .price-amount {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 18px;
+    color: #C9A84C;
+    text-align: right;
+    white-space: nowrap;
+  }
+  .price-note {
+    font-size: 9px;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.75);
+    text-align: right;
+    white-space: nowrap;
+  }
+  .price-section-head {
+    font-size: 9px;
+    letter-spacing: .4em;
+    text-transform: uppercase;
+    color: rgba(201,168,76,.4);
+    padding: 1.5rem 1.5rem .5rem;
+    border-bottom: 1px solid rgba(201,168,76,.15);
+  }
+
+  /* ── Consequence Block ─────────────────────────────────────────────────── */
+  .consequence-block {
+    background: #080808;
+    border: 1px solid rgba(201,168,76,.15);
+    padding: 3rem;
+  }
+  .vacancy-calc {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin: 2rem 0;
+  }
+  .calc-cell {
+    background: #0A0A0A;
+    padding: 1.5rem;
+    text-align: center;
+  }
+  .calc-cell.highlight {
+    background: rgba(201,168,76,.06);
+    border: 1px solid rgba(201,168,76,.2);
+  }
+  .calc-label { font-size: 9px; letter-spacing: .3em; text-transform: uppercase; color: #FFFFFF; margin-bottom: .5rem; }
+  .calc-value { font-family: Georgia, serif; font-style: italic; font-weight: 900; font-size: clamp(28px, 4vw, 42px); color: #C9A84C; }
+  .calc-sub { font-size: 11px; color: #FFFFFF; margin-top: .35rem; }
+
+  /* ── CTA Section ───────────────────────────────────────────────────────── */
+  .btn-gold {
+    display: inline-block;
+    background: #FFD700;
+    color: #0A0A0A;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.1rem 2.25rem;
+    border: none;
+    cursor: pointer;
+    transition: background .2s, box-shadow .2s;
+    box-shadow: 0 2px 16px rgba(255,215,0,.2);
+  }
+  .btn-gold:hover {
+    background: #FFE44D;
+    box-shadow: 0 4px 28px rgba(255,215,0,.35);
+  }
+  .btn-gold:active { transform: translateY(1px); }
+  .btn-outline {
+    display: inline-block;
+    border: 1px solid #FFD700;
+    color: #FFD700;
+    background: transparent;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.1rem 2.25rem;
+    cursor: pointer;
+    transition: background .2s, color .2s, box-shadow .2s;
+  }
+  .btn-outline:hover {
+    background: #FFD700;
+    color: #0A0A0A;
+    box-shadow: 0 4px 28px rgba(255,215,0,.25);
+  }
+  .btn-outline:active { transform: translateY(1px); }
+
+  /* ── Order Button (Service Cards) ─────────────────────────────────────── */
+  .order-btn {
+    display: inline-block;
+    font-family: 'Courier New', monospace;
+    font-size: 9px;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    color: #FFD700;
+    background: none;
+    border: 1px solid rgba(255,215,0,.4);
+    padding: .6rem 1.25rem;
+    cursor: pointer;
+    transition: background .2s, border-color .2s, color .2s;
+    margin-top: .25rem;
+  }
+  .order-btn:hover {
+    background: rgba(255,215,0,.08);
+    border-color: #FFD700;
+  }
+
+  /* ── Order Button (Pricing Rows) ──────────────────────────────────────── */
+  .price-order-btn {
+    font-family: 'Courier New', monospace;
+    font-size: 8px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: #FFD700;
+    background: none;
+    border: 1px solid rgba(255,215,0,.3);
+    padding: .4rem .9rem;
+    cursor: pointer;
+    transition: background .2s, border-color .2s;
+    white-space: nowrap;
+  }
+  .price-order-btn:hover {
+    background: rgba(255,215,0,.08);
+    border-color: rgba(255,215,0,.75);
+  }
+
+  /* ── Intake Modal ─────────────────────────────────────────────────────── */
+  #intake-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9000;
+    background: rgba(0,0,0,.93);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2rem 1rem 4rem;
+    overflow-y: auto;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s;
+  }
+  #intake-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+  #intake-modal {
+    width: 100%;
+    max-width: 640px;
+    background: #0A0A0A;
+    border: 1px solid rgba(201,168,76,.4);
+    padding: 2.5rem;
+    position: relative;
+    transform: translateY(24px);
+    transition: transform .3s;
+    margin-top: 2rem;
+  }
+  #intake-overlay.active #intake-modal {
+    transform: translateY(0);
+  }
+  #intake-close {
+    position: absolute;
+    top: 1.25rem; right: 1.25rem;
+    background: none;
+    border: 1px solid rgba(255,255,255,.14);
+    color: #FFFFFF;
+    width: 2rem; height: 2rem;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex; align-items: center; justify-content: center;
+    transition: border-color .2s, color .2s;
+    font-family: 'Courier New', monospace;
+    line-height: 1;
+  }
+  #intake-close:hover { border-color: rgba(201,168,76,.6); color: #C9A84C; }
+
+  .intake-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    padding-right: 2.5rem;
+  }
+  .intake-title {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-weight: 900;
+    font-size: clamp(22px, 3vw, 30px);
+    background: linear-gradient(135deg, #F5D98A, #C9A84C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0 0 .6rem;
+    line-height: 1.1;
+  }
+  .labor-only-badge {
+    font-size: 9px;
+    letter-spacing: .32em;
+    text-transform: uppercase;
+    color: #C9A84C;
+    border: 1px solid rgba(201,168,76,.45);
+    padding: .32rem .75rem;
+    display: inline-block;
+  }
+  .intake-section { margin-bottom: 2rem; }
+  .intake-section-label {
+    font-size: 9px;
+    letter-spacing: .32em;
+    text-transform: uppercase;
+    color: rgba(201,168,76,.55);
+    margin-bottom: .85rem;
+    display: block;
+  }
+
+  /* Package cards */
+  .intake-packages {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+    gap: 6px;
+  }
+  .intake-pkg-card {
+    background: #111;
+    border: 1px solid rgba(255,255,255,.07);
+    padding: .9rem 1rem;
+    cursor: pointer;
+    transition: border-color .2s, background .2s;
+    user-select: none;
+  }
+  .intake-pkg-card:hover { border-color: rgba(201,168,76,.4); background: #141414; }
+  .intake-pkg-card.selected { border-color: #C9A84C; background: rgba(201,168,76,.06); }
+  .intake-pkg-card:focus { outline: 1px solid rgba(201,168,76,.5); }
+  .pkg-name {
+    font-size: 1.25rem;
+    color: #FFFFFF;
+    display: block;
+    margin-bottom: .3rem;
+    line-height: 1.3;
+  }
+  .pkg-price {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #C9A84C;
+    display: block;
+  }
+
+  /* Rooms counter */
+  .intake-rooms-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .rooms-counter-btn {
+    width: 2.25rem; height: 2.25rem;
+    background: #111;
+    border: 1px solid rgba(255,255,255,.12);
+    color: #FFFFFF;
+    font-size: 1.25rem;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: border-color .2s, background .2s;
+    font-family: 'Courier New', monospace;
+    line-height: 1;
+  }
+  .rooms-counter-btn:hover { border-color: #C9A84C; background: rgba(201,168,76,.06); }
+  #rooms-count {
+    font-size: 1.25rem;
+    color: #FFFFFF;
+    min-width: 1.5rem;
+    text-align: center;
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-weight: 700;
+  }
+  .rooms-label { font-size: 1.25rem; color: #FFFFFF; }
+
+  /* Add-on rows */
+  .intake-addons { display: flex; flex-direction: column; gap: 6px; }
+  .addon-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: #111;
+    border: 1px solid rgba(255,255,255,.06);
+    padding: .8rem 1rem;
+    cursor: pointer;
+    transition: border-color .2s, background .2s;
+  }
+  .addon-row:hover { border-color: rgba(201,168,76,.3); background: #141414; }
+  .addon-row.checked { border-color: rgba(201,168,76,.55); background: rgba(201,168,76,.04); }
+  .addon-check {
+    width: 18px; height: 18px;
+    accent-color: #C9A84C;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .addon-name { font-size: 1.25rem; color: #FFFFFF; flex: 1; }
+  .addon-price {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #C9A84C;
+  }
+
+  /* Live Total block */
+  .intake-total-block {
+    background: #060606;
+    border: 1px solid rgba(201,168,76,.25);
+    padding: 1.75rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  #intake-total {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-weight: 900;
+    font-size: clamp(2rem, 5vw, 3rem);
+    background: linear-gradient(135deg, #F5D98A, #C9A84C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    transition: transform .15s;
+  }
+  #intake-total.bump { transform: scale(1.06); }
+  .intake-total-note {
+    font-size: 1.25rem;
+    color: #FFFFFF;
+    display: block;
+    margin-top: .5rem;
+  }
+
+  /* Contact fields */
+  .intake-field {
+    display: block;
+    width: 100%;
+    background: #111;
+    border: 1px solid rgba(255,255,255,.1);
+    color: #FFFFFF;
+    font-family: 'Courier New', monospace;
+    font-size: 1.25rem;
+    padding: .85rem 1rem;
+    margin-bottom: 8px;
+    outline: none;
+    transition: border-color .2s;
+  }
+  .intake-field::placeholder { color: rgba(255,255,255,.3); }
+  .intake-field:focus { border-color: rgba(201,168,76,.55); }
+
+  /* Submit */
+  #intake-submit {
+    display: block;
+    width: 100%;
+    background: #FFD700;
+    color: #0A0A0A;
+    font-family: 'Courier New', monospace;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    border: none;
+    padding: 1.25rem;
+    cursor: pointer;
+    transition: background .2s, box-shadow .2s, transform .1s;
+    margin-top: .5rem;
+  }
+  #intake-submit:hover { background: #FFE44D; box-shadow: 0 4px 28px rgba(255,215,0,.3); }
+  #intake-submit:active { transform: translateY(1px); }
+
+  /* ── Footer Links ──────────────────────────────────────────────────────── */
+  .footer-link {
+    font-size: 9px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: color .2s;
+  }
+  .footer-link:hover { color: #FFD700; }
+  .footer-ada-link {
+    background: none;
+    border: 1px solid rgba(255,255,255,.12);
+    padding: .4rem .85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    font-family: 'Courier New', monospace;
+    font-size: 9px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: border-color .2s, color .2s;
+  }
+  .footer-ada-link:hover { border-color: #FFD700; color: #FFD700; }
+
+  /* ── Divider ────────────────────────────────────────────────────────────  */
+  .gold-divider {
+    width: 40px;
+    height: 1px;
+    background: rgba(201,168,76,.4);
+    box-shadow: 0 0 8px rgba(201,168,76,.3);
+    margin: 2rem 0;
+  }
+
+  /* ── Footer ─────────────────────────────────────────────────────────────── */
+  footer {
+    border-top: 1px solid rgba(255,255,255,.06);
+    background: #020202;
+    padding: 3.5rem 2rem;
+    text-align: center;
+  }
+
+  /* ── Responsive ─────────────────────────────────────────────────────────── */
+  @media (max-width: 768px) {
+    section { padding: 4rem 1.25rem; }
+    #hero-content { padding: 0 1.25rem 3rem; }
+    .nav-links { display: none; }
+    .vacancy-calc { grid-template-columns: 1fr; }
+    .price-row { grid-template-columns: 1fr auto; }
+    .price-note { display: none; }
+    .compare-grid { grid-template-columns: 1fr !important; }
+    .compare-wrap { height: 260px !important; }
+    .ba-caption-row { flex-direction: column; gap: .5rem; align-items: flex-start; }
+    /* Mobile stack — prevents 18px body text overlap on narrow screens */
+    .stack-on-mobile { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+    .pricing-grid-wrap { grid-template-columns: 1fr !important; }
+  }
+
+  /* ── High-Visibility: AAA Text Upgrades ──────────────────────────────────
+     All readable body text elevated to pure white or near-white.
+     Minimum contrast ratio: 7:1 on #050505 (AAA WCAG 2.1).         ──── */
+  .service-nepq   { font-weight: 500; }
+  .service-scope li { color: #fff; }
+  .price-label    { color: #FFFFFF; }
+  .price-note     { color: #FFFFFF; }
+  .calc-label     { color: #FFFFFF; letter-spacing: .25em; }
+  .calc-sub       { color: #FFFFFF; font-size: 11px; margin-top: .5rem; }
+
+  /* ══════════════════════════════════════════════════════════════════════════
+     GLIDE SLIDER SYSTEM — Prime Transformation Gallery
+     Luxury sliding-door reveal. Gold handle. Stark white copy. AAA contrast.
+  ══════════════════════════════════════════════════════════════════════════ */
+
+  /* Outer wrapper */
+  .glide-wrap {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    cursor: ew-resize;
+    user-select: none;
+    -webkit-user-select: none;
+    border: 1px solid rgba(255,255,255,.07);
+  }
+  .glide-wrap.tall    { height: 500px; }
+  .glide-wrap.medium  { height: 420px; }
+
+  /* Before / After base panels */
+  .glide-before, .glide-after {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2.5rem 3rem;
+    overflow: hidden;
+  }
+
+  /* BEFORE — warm, heavy, chaotic tone */
+  .glide-before {
+    background:
+      linear-gradient(to top, rgba(12,4,2,1) 0%, rgba(12,4,2,.7) 40%, transparent 100%),
+      radial-gradient(ellipse at 30% 40%, #2a0e06 0%, #190906 40%, #0e0604 100%);
+  }
+  /* Diagonal noise texture — suggests chaos */
+  .glide-before::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      -55deg,
+      rgba(180,50,20,.06) 0px, rgba(180,50,20,.06) 1px,
+      transparent 1px, transparent 14px
+    );
+    pointer-events: none;
+  }
+
+  /* AFTER — cool, clean, institutional */
+  .glide-after {
+    background:
+      linear-gradient(to top, rgba(2,8,12,1) 0%, rgba(2,8,12,.75) 40%, transparent 100%),
+      radial-gradient(ellipse at 70% 40%, #040f15 0%, #030b10 40%, #02080d 100%);
+    clip-path: inset(0 50% 0 0);
+    will-change: clip-path;
+  }
+  /* Fine grid — suggests order and documentation */
+  .glide-after::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,215,0,.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,215,0,.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+  }
+
+  /* Watermark text behind content */
+  .glide-watermark {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-weight: 900;
+    font-size: clamp(90px, 18vw, 160px);
+    letter-spacing: -.04em;
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
+    line-height: 1;
+  }
+  .glide-watermark.bad  { color: rgba(200,60,30,.07); }
+  .glide-watermark.good { color: rgba(255,215,0,.06); }
+
+  /* Corner state badge */
+  .glide-badge {
+    position: absolute;
+    top: 1.5rem;
+    font-size: 9px;
+    letter-spacing: .45em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: .35rem .9rem;
+    z-index: 8;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+  .glide-badge.bad {
+    left: 1.5rem;
+    color: rgba(255,100,70,1);
+    background: rgba(200,40,20,.15);
+    border: 1px solid rgba(200,40,20,.4);
+  }
+  .glide-badge.good {
+    right: 1.5rem;
+    color: #FFD700;
+    background: rgba(255,215,0,.1);
+    border: 1px solid rgba(255,215,0,.4);
+  }
+
+  /* Floating scattered damage / completion tags */
+  .glide-float {
+    position: absolute;
+    font-size: 9px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: .28rem .65rem;
+    border: 1px solid;
+    z-index: 4;
+    pointer-events: none;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+  .glide-float.bad {
+    color: rgba(255,100,70,.85);
+    border-color: rgba(200,50,30,.35);
+    background: rgba(20,4,2,.65);
+  }
+  .glide-float.good {
+    color: #FFD700;
+    border-color: rgba(255,215,0,.35);
+    background: rgba(2,10,16,.7);
+  }
+
+  /* Bottom content area */
+  .glide-content { position: relative; z-index: 5; }
+  .glide-eyebrow {
+    font-size: 9px;
+    letter-spacing: .4em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: .6rem;
+    display: block;
+  }
+  .glide-eyebrow.bad  { color: rgba(255,100,70,.8); }
+  .glide-eyebrow.good { color: rgba(255,215,0,.7); }
+
+  .glide-head {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-weight: 900;
+    font-size: clamp(24px, 3vw, 34px);
+    margin: 0 0 1.1rem;
+    line-height: 1.05;
+  }
+  .glide-head.bad  { color: rgba(255,110,80,.9); }
+  .glide-head.good {
+    background: linear-gradient(135deg, #F5D98A 0%, #FFD700 50%, #E2C06A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glide-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 420px;
+  }
+  .glide-list li {
+    font-size: 12px;
+    letter-spacing: .04em;
+    color: #FFFFFF;
+    padding: .4rem 0;
+    border-bottom: 1px solid rgba(255,255,255,.05);
+    display: flex;
+    align-items: flex-start;
+    gap: .7rem;
+    line-height: 1.6;
+  }
+  .glide-list li:last-child { border-bottom: none; }
+  .glide-icon-bad  { color: rgba(255,100,70,.85); flex-shrink: 0; margin-top: 1px; font-style: normal; }
+  .glide-icon-good { color: #FFD700;              flex-shrink: 0; margin-top: 1px; font-style: normal; opacity: .9; }
+
+  /* ── Gold Divider Line ───────────────────────────────────────────────────── */
+  .glide-line {
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    background: #FFD700;
+    pointer-events: none;
+    z-index: 15;
+    will-change: left;
+    box-shadow:
+      0 0 0 1px rgba(255,215,0,.15),
+      0 0 18px rgba(255,215,0,.8),
+      0 0 50px rgba(255,215,0,.3);
+  }
+
+  /* Luxury handle — gold square with arrows */
+  .glide-handle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 58px; height: 58px;
+    background: #FFD700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: ew-resize;
+    box-shadow:
+      0 0 0 4px rgba(255,215,0,.18),
+      0 0 28px rgba(255,215,0,.75),
+      0 0 70px rgba(255,215,0,.3),
+      inset 0 1px 0 rgba(255,255,255,.4),
+      inset 0 -1px 0 rgba(0,0,0,.25);
+  }
+  .glide-arrows {
+    font-size: 20px;
+    font-weight: 900;
+    color: #050505;
+    letter-spacing: -.08em;
+    line-height: 1;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  /* Invisible full-area range input — the draggable control */
+  .glide-input {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: ew-resize;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+    -webkit-appearance: none;
+    border: none;
+    background: transparent;
+  }
+
+  /* Caption strip below each slider */
+  .glide-caption {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .75rem .25rem;
+    border-top: 1px solid rgba(255,255,255,.05);
+    margin-top: 1px;
+    gap: 1rem;
+  }
+  .gcap-bad  { font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,100,70,.8);  font-weight: 600; }
+  .gcap-good { font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: #FFD700; font-weight: 600; }
+
+  /* Drag hint bar under slider */
+  .glide-hint {
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.75);
+    padding: .5rem 0 0;
+  }
+
+  /* Responsive */
+  @media (max-width: 820px) {
+    .glide-wrap.tall   { height: 420px; }
+    .glide-wrap.medium { height: 340px; }
+    .glide-before, .glide-after { padding: 1.5rem; }
+    .glide-head { font-size: 20px; }
+    .glide-float { display: none; }
+    .glide-handle { width: 46px; height: 46px; }
+    .glide-arrows { font-size: 16px; }
+    .glide-caption { flex-direction: column; align-items: flex-start; gap: .35rem; }
+  }
+
+  /* ── Photo Glide Mode — real images as panel backgrounds ────────────────
+     Removes CSS texture pseudo-elements and switches to photo backgrounds.
+     Dark gradient overlay preserves AAA label contrast.               ── */
+  .glide-photo::before { display: none !important; }
+  .glide-photo {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+  /* Cinematic gradient overlay — top and bottom darken for label legibility */
+  .glide-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,.72) 0%,
+      rgba(0,0,0,.25) 18%,
+      transparent     38%,
+      transparent     62%,
+      rgba(0,0,0,.25) 82%,
+      rgba(0,0,0,.75) 100%
+    );
+    z-index: 2;
+    pointer-events: none;
+  }
+  /* Bold white label — high-impact, AAA contrast, easy to read without leaning in */
+  .glide-photo-label {
+    position: absolute;
+    z-index: 6;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    text-shadow: 0 1px 16px rgba(0,0,0,1), 0 0 40px rgba(0,0,0,1);
+    padding: .55rem 1.25rem;
+    background: rgba(0,0,0,.72);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,.28);
+    white-space: nowrap;
+  }
+  .glide-photo-label.before-label {
+    color: #FFFFFF;
+    border-color: rgba(255,255,255,.35);
+    text-shadow: 0 0 18px rgba(201,168,76,.35), 0 1px 16px rgba(0,0,0,1);
+  }
+  .glide-photo-label.after-label  {
+    color: #FFD700;
+    border-color: rgba(255,215,0,.55);
+    background: rgba(0,0,0,.72);
+    text-shadow: 0 0 22px rgba(255,215,0,.65), 0 0 8px rgba(255,215,0,.3), 0 1px 16px rgba(0,0,0,1);
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     NAV
+══════════════════════════════════════════════════════════════════════════ -->
+<nav>
+  <span class="nav-logo">Prime Pathwy</span>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#process">Process</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#book">Book Walkthrough</a>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     SECTION 1 — HERO
+     NEPQ: Problem Awareness hook. No pitch. Surface the pain.
+══════════════════════════════════════════════════════════════════════════ -->
+<div id="hero">
+  <img id="hero-img" src="ferrari_asset_v1.jpg" alt="Prime Pathwy commercial dump truck — property turnover operations">
+  <div id="hero-gradient" aria-hidden="true"></div>
+  <div id="hero-content">
+    <span class="eyebrow">Prime Pathwy · Property Turnover Division · Est. 2026</span>
+    <h1 class="serif-head" style="font-size: 2.25rem; max-width: 480px; margin: 0 0 1.25rem; font-weight: 800; color: #FFFFFF; -webkit-text-fill-color: #FFFFFF; text-shadow: 0 0 10px rgba(255,215,0,0.8), 2px 2px 5px rgba(0,0,0,1);">
+      Your Vacancy Clock<br>Doesn't Stop for<br>Slow Vendors.
+    </h1>
+    <p style="font-size: 1.25rem; color: #FFD700; max-width: 480px; margin: 0 0 2.5rem; line-height: 1.9; text-shadow: 1px 1px 4px rgba(0,0,0,1);">
+      Every day your unit sits un-turned is revenue walking out the door.
+      Most turnover crews don't treat your timeline like money. We do.
+    </p>
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+      <a href="#book" class="btn-gold">Schedule Walkthrough</a>
+      <a href="#services" class="btn-outline">View Services</a>
+    </div>
+    <p style="margin-top: 1.5rem; font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.75);">
+      Cleaning · Haul-Out · Paint · Full Turnovers · Documented · Defensible
+    </p>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     PILLAR 1 — PROOF STRIP
+     Thin authority bar with gold dividers. Sovereign social proof.
+══════════════════════════════════════════════════════════════════════════ -->
+<div style="background: #020202; border-top: 1px solid rgba(201,168,76,.3); border-bottom: 1px solid rgba(201,168,76,.3); padding: .7rem 2rem;">
+  <div style="max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: center; flex-wrap: wrap;">
+    <span style="font-size: 1rem; color: #FFFFFF; letter-spacing: .07em; padding: .45rem 1.75rem; text-align: center; white-space: nowrap;">
+      Serving Solano County Property Managers
+    </span>
+    <span style="color: rgba(201,168,76,.55); font-size: 1.1rem; line-height: 1; flex-shrink: 0;" aria-hidden="true">|</span>
+    <span style="font-size: 1rem; color: #FFFFFF; letter-spacing: .07em; padding: .45rem 1.75rem; text-align: center; white-space: nowrap;">
+      Verified Past Performance
+    </span>
+    <span style="color: rgba(201,168,76,.55); font-size: 1.1rem; line-height: 1; flex-shrink: 0;" aria-hidden="true">|</span>
+    <span style="font-size: 1rem; color: #FFFFFF; letter-spacing: .07em; padding: .45rem 1.75rem; text-align: center; white-space: nowrap;">
+      Commercial-Grade Systems
+    </span>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     SECTION 2 — PROBLEM AWARENESS
+     NEPQ Phase 1: Name the reality they're already living with.
+══════════════════════════════════════════════════════════════════════════ -->
+<div style="background: #080808; border-top: 1px solid rgba(255,255,255,.04); border-bottom: 1px solid rgba(255,255,255,.04);">
+  <section>
+    <span class="eyebrow">Section 01 — The Problem</span>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;" class="stack-on-mobile">
+      <div>
+        <h2 class="serif-head gold-text" style="font-size: clamp(32px, 4.5vw, 54px); margin: 0 0 1.5rem;">
+          You're Managing<br>a Revenue Leak,<br>Not a Turnover.
+        </h2>
+        <div class="gold-divider"></div>
+        <p style="font-size: 1.125rem; color: #FFFFFF; line-height: 2; margin-bottom: 1.25rem;">
+          Disorganized turnovers don't fail loudly. They quietly drain your vacancy rate,
+          strain your property management relationships, and leave you exposed when a
+          vendor dispute turns into a chargeback you can't defend.
+        </p>
+        <p style="font-size: 1.125rem; color: #FFFFFF; line-height: 2;">
+          The problem isn't the tenant who left. It's the crew that won't show up on time,
+          can't document their work, and hands you a verbal estimate that doubles on delivery.
+        </p>
+      </div>
+
+      <!-- Pain Point List -->
+      <div style="background: #0A0A0A; border: 1px solid rgba(255,255,255,.05); padding: 2.5rem;">
+        <p style="font-size: 9px; letter-spacing: .35em; text-transform: uppercase; color: rgba(201,168,76,.35); margin-bottom: 1.5rem;">
+          Sound Familiar?
+        </p>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="display: flex; gap: 1rem; padding: .85rem 0; border-bottom: 1px solid rgba(255,255,255,.04); font-size: 1rem; color: #FFFFFF;">
+            <span style="color: rgba(239,68,68,.4); flex-shrink:0;">✗</span>
+            Vendor shows up 4 days late — unit still vacant
+          </li>
+          <li style="display: flex; gap: 1rem; padding: .85rem 0; border-bottom: 1px solid rgba(255,255,255,.04); font-size: 1rem; color: #FFFFFF;">
+            <span style="color: rgba(239,68,68,.4); flex-shrink:0;">✗</span>
+            No before/after photos — dispute you can't defend
+          </li>
+          <li style="display: flex; gap: 1rem; padding: .85rem 0; border-bottom: 1px solid rgba(255,255,255,.04); font-size: 1rem; color: #FFFFFF;">
+            <span style="color: rgba(239,68,68,.4); flex-shrink:0;">✗</span>
+            3 vendors for 1 unit — 3 sets of excuses
+          </li>
+          <li style="display: flex; gap: 1rem; padding: .85rem 0; border-bottom: 1px solid rgba(255,255,255,.04); font-size: 1rem; color: #FFFFFF;">
+            <span style="color: rgba(239,68,68,.4); flex-shrink:0;">✗</span>
+            Verbal quote, invoice is 40% higher
+          </li>
+          <li style="display: flex; gap: 1rem; padding: .85rem 0; border-bottom: 1px solid rgba(255,255,255,.04); font-size: 1rem; color: #FFFFFF;">
+            <span style="color: rgba(239,68,68,.4); flex-shrink:0;">✗</span>
+            Cleaning crew not equipped for eviction clean-outs
+          </li>
+          <li style="display: flex; gap: 1rem; padding: .85rem 0; font-size: 1rem; color: #FFFFFF;">
+            <span style="color: rgba(239,68,68,.4); flex-shrink:0;">✗</span>
+            Debris left — you're calling a separate hauler
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     SECTION 3 — SERVICES
+     NEPQ: Each card opens with a problem hook before presenting the solution.
+══════════════════════════════════════════════════════════════════════════ -->
+<section id="services">
+  <span class="eyebrow">Section 02 — Core Services</span>
+  <h2 class="serif-head gold-text" style="font-size: clamp(32px, 4.5vw, 54px); margin: 0 0 .75rem; max-width: 700px;">
+    One Crew. Full Scope. Written Agreement.
+  </h2>
+  <p style="font-size: 1.125rem; color: #FFFFFF; margin-bottom: 3.5rem; max-width: 520px; line-height: 1.9;">
+    Every service is scoped, documented, and delivered under a fixed written quote.
+    No verbal estimates. No scope creep. No surprises on the invoice.
+  </p>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2px;">
+
+    <!-- SVC 01 — Full Turnover -->
+    <div class="service-card">
+      <div class="service-eyebrow">SVC — 01 · FULL TURNOVER</div>
+      <h3 class="service-name">Full Property Turnover</h3>
+      <p class="service-nepq">
+        When a tenant leaves, every hour you're not move-in ready is money you're not collecting.
+        A full turnover shouldn't require three phone calls to three different crews.
+      </p>
+      <ul class="service-scope">
+        <li>Complete unit clean-out (all rooms)</li>
+        <li>Debris removal and haul-away</li>
+        <li>Interior paint and surface prep</li>
+        <li>Before / during / after photo documentation</li>
+        <li>Move-in ready handover in 3–5 business days</li>
+        <li>Expedited 48-hour service available upon consultation</li>
+      </ul>
+      <div class="service-price">Apartments: $1,200 – $2,400<br><span style="font-size: 13px; color: rgba(201,168,76,.6);">Homes: $1,600 – $3,000+</span></div>
+      <button class="order-btn" onclick="openIntakeModal(null)" aria-label="Order Full Property Turnover">Order Now →</button>
+    </div>
+
+    <!-- SVC 02 — Clean-Out -->
+    <div class="service-card">
+      <div class="service-eyebrow">SVC — 02 · CLEAN-OUT</div>
+      <h3 class="service-name">Eviction & Foreclosure Clean-Out</h3>
+      <p class="service-nepq">
+        General cleaning crews aren't equipped for eviction situations. If the condition
+        is extreme, you need a crew that documents every room before they touch it.
+      </p>
+      <ul class="service-scope">
+        <li>Eviction and foreclosure clean-outs</li>
+        <li>Full unit sweep — all rooms, all contents</li>
+        <li>Mandatory before-photos of all areas</li>
+        <li>Documented abandoned contents handling</li>
+        <li>Odor treatment available as add-on</li>
+      </ul>
+      <div class="service-price">Starts at $1,200<br><span style="font-size: 13px; color: rgba(201,168,76,.6);">Quote after walkthrough</span></div>
+      <button class="order-btn" onclick="openIntakeModal(null)" aria-label="Order Eviction Clean-Out">Order Now →</button>
+    </div>
+
+    <!-- SVC 03 — Haul-Out -->
+    <div class="service-card">
+      <div class="service-eyebrow">SVC — 03 · HAUL-OUT</div>
+      <h3 class="service-name">Debris Removal & Haul-Away</h3>
+      <p class="service-nepq">
+        Furniture, appliances, junk — when it needs to go, it needs to go now.
+        Our commercial dump trailer handles volume that pickup trucks and cleaning crews can't.
+      </p>
+      <ul class="service-scope">
+        <li>Commercial dump trailer on-site</li>
+        <li>Furniture, appliance, and debris removal</li>
+        <li>Landfill receipts provided (fees billed at cost)</li>
+        <li>Photos of loaded vehicle — volume documented</li>
+        <li>Available standalone or as part of full turnover</li>
+      </ul>
+      <div class="service-price">Billed at cost + labor<br><span style="font-size: 13px; color: rgba(201,168,76,.6);">Receipts provided</span></div>
+      <button class="order-btn" onclick="openIntakeModal(null)" aria-label="Order Debris Removal">Order Now →</button>
+    </div>
+
+    <!-- SVC 04 — Paint -->
+    <div class="service-card">
+      <div class="service-eyebrow">SVC — 04 · INTERIOR PAINT</div>
+      <h3 class="service-name">Interior Paint & Surface Prep</h3>
+      <p class="service-nepq">
+        A fresh coat of paint is the fastest way to reset a unit. But patch-and-roll
+        without proper surface prep means you're painting over the problem, not fixing it.
+      </p>
+      <ul class="service-scope">
+        <li>Professional paint sprayers — speed and coverage</li>
+        <li>Surface preparation and patching included</li>
+        <li>Full unit or room-by-room — your scope</li>
+        <li>Add-on to full turnover or standalone</li>
+        <li>Before / after documentation mandatory</li>
+      </ul>
+      <div class="service-price">Quote after walkthrough<br><span style="font-size: 13px; color: rgba(201,168,76,.6);">Scope-based pricing</span></div>
+      <button class="order-btn" onclick="openIntakeModal(null)" aria-label="Order Interior Paint">Order Now →</button>
+    </div>
+
+  </div>
+
+  <!-- Scope note -->
+  <p style="font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.75); margin-top: 1.5rem;">
+    All pricing reflects labor only · Disposal and landfill fees billed separately at cost with receipts ·
+    Extreme conditions (biohazard, hoarding) require separate written quote · Licensed trade work not included
+  </p>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     PILLAR 2 — COMPLIANCE SHIELD
+     Documentation & Audit-Ready stamp. Sovereign system credibility.
+══════════════════════════════════════════════════════════════════════════ -->
+<div style="background: #060606; border-top: 1px solid rgba(201,168,76,.14); border-bottom: 1px solid rgba(201,168,76,.14);">
+  <section style="padding: 4.5rem 2rem;">
+    <div style="max-width: 900px; border: 1px solid rgba(201,168,76,.28); padding: 2.75rem 3rem; background: #0A0A0A;">
+
+      <!-- Shield header row -->
+      <div style="display: flex; align-items: center; gap: 1.1rem; margin-bottom: 1.75rem; flex-wrap: wrap;">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" style="flex-shrink: 0;" aria-hidden="true">
+          <path d="M12 2L3 6v5c0 5.25 3.75 10.15 9 11.35C17.25 21.15 21 16.25 21 11V6l-9-4z"
+                fill="rgba(201,168,76,.12)" stroke="#C9A84C" stroke-width="1.5"/>
+          <path d="M9 12l2 2 4-4" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span style="font-size: 9px; letter-spacing: .38em; text-transform: uppercase; color: rgba(201,168,76,.65);">
+          Documentation &amp; Audit-Ready
+        </span>
+        <span style="font-size: 9px; letter-spacing: .25em; text-transform: uppercase; color: rgba(255,255,255,.3); border: 1px solid rgba(201,168,76,.2); padding: .25rem .65rem;">
+          Standard on Every Job
+        </span>
+      </div>
+
+      <!-- Body -->
+      <p style="font-size: 1.125rem; color: #FFFFFF; line-height: 2.1; margin: 0 0 1.75rem; max-width: 760px;">
+        Every turnover is documented with a Master Merged PDF including timestamps, Before/After photos,
+        and audit-ready reporting. Chargeback defense built-in.
+      </p>
+
+      <!-- Three proof points -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; border: 1px solid rgba(255,255,255,.04);">
+        <div style="padding: 1.25rem 1.5rem; background: #0D0D0D;">
+          <p style="font-size: 9px; letter-spacing: .3em; text-transform: uppercase; color: rgba(201,168,76,.45); margin: 0 0 .4rem;">Timestamp Verified</p>
+          <p style="font-size: 1.125rem; color: #FFFFFF; margin: 0; line-height: 1.6;">Every photo is date-and-time stamped on delivery</p>
+        </div>
+        <div style="padding: 1.25rem 1.5rem; background: #0D0D0D; border-left: 1px solid rgba(255,255,255,.04);">
+          <p style="font-size: 9px; letter-spacing: .3em; text-transform: uppercase; color: rgba(201,168,76,.45); margin: 0 0 .4rem;">Before / After Record</p>
+          <p style="font-size: 1.125rem; color: #FFFFFF; margin: 0; line-height: 1.6;">Full photo set merged into one defensible PDF</p>
+        </div>
+        <div style="padding: 1.25rem 1.5rem; background: #0D0D0D; border-left: 1px solid rgba(255,255,255,.04);">
+          <p style="font-size: 9px; letter-spacing: .3em; text-transform: uppercase; color: rgba(201,168,76,.45); margin: 0 0 .4rem;">18-Month Archive</p>
+          <p style="font-size: 1.125rem; color: #FFFFFF; margin: 0; line-height: 1.6;">Job records retained — ready if a dispute ever arises</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     SECTION 3.5 — THE PRIME TRANSFORMATION GALLERY
+     Two Glide Sliders. Gold handle. Luxury door feel. Stark white copy.
+══════════════════════════════════════════════════════════════════════════ -->
+<div id="gallery" style="background: #060606; border-top: 1px solid rgba(255,255,255,.05); border-bottom: 1px solid rgba(255,255,255,.05);">
+  <section>
+    <span class="eyebrow">Section 02.5 — The Prime Transformation Gallery</span>
+    <h2 class="serif-head gold-text" style="font-size: clamp(28px, 4vw, 50px); margin: 0 0 .75rem; max-width: 700px;">
+      This Is What the<br>Standard Looks Like.
+    </h2>
+    <p style="font-size: 15px; color: #FFFFFF; max-width: 540px; margin: 0 0 .5rem; line-height: 1.9; font-weight: 500;">
+      Drag the gold handle to see the transformation.
+    </p>
+    <p style="font-size: 1rem; color: #FFFFFF; max-width: 540px; margin: 0 0 3.5rem; line-height: 1.9;">
+      Every job documented. Every panel below is what Prime Pathwy delivers — not eventually. On delivery day.
+    </p>
+
+    <!-- ════════════════════════════════════════════════════════════════════
+         GLIDE SLIDER 1 — Full Turnover: Living Room (real photos)
+         BEFORE: living_before.png — chaotic trash-filled apartment
+         AFTER:  living_after.png  — pristine, carpet lines, move-in ready
+    ════════════════════════════════════════════════════════════════════ -->
+    <p class="service-eyebrow" style="margin-bottom: .75rem;">
+      Glide 01 · Full Turnover — Living Room
+    </p>
+
+    <div class="glide-wrap tall" id="glide-1">
+
+      <!-- ── BEFORE: real photo background ──────────────────────────────── -->
+      <div class="glide-before glide-photo"
+           style="background-image: url('living_before.png'); background-position: center center;">
+        <div class="glide-overlay"></div>
+
+        <span class="glide-photo-label before-label" style="top: 1.25rem; left: 1.25rem;">
+          Before: Eviction Crisis
+        </span>
+      </div>
+
+      <!-- ── AFTER: real photo background ───────────────────────────────── -->
+      <div class="glide-after glide-photo" id="glide-after-1"
+           style="background-image: url('living_after.png'); background-position: center center;">
+        <div class="glide-overlay"></div>
+
+        <span class="glide-photo-label after-label" style="top: 1.25rem; right: 1.25rem;">
+          After: Prime Pathwy Restoration
+        </span>
+      </div>
+
+      <!-- Gold vertical bar + luxury handle -->
+      <div class="glide-line" id="glide-line-1">
+        <div class="glide-handle">
+          <span class="glide-arrows">⟺</span>
+        </div>
+      </div>
+
+      <!-- Full-area invisible range input -->
+      <input
+        type="range"
+        class="glide-input"
+        data-after="glide-after-1"
+        data-line="glide-line-1"
+        min="0" max="100" value="50"
+        aria-label="Drag to compare Living Room — Before Eviction Crisis vs After Prime Pathwy Restoration"
+      >
+    </div><!-- /glide-1 -->
+
+    <div class="glide-caption">
+      <span class="gcap-bad">✗ Tenant Abandonment · Debris · Damaged Floors · Non-Rentable</span>
+      <span class="gcap-good">✓ Full Haul-Out · Painted · Carpet Reset · Documented · Move-In Ready</span>
+    </div>
+    <p class="glide-hint">⟵ Drag the gold bar left or right to reveal the transformation ⟶</p>
+
+
+    <!-- ════════════════════════════════════════════════════════════════════
+         GLIDE SLIDER 2 — Sanitized Bathroom (real photo, split technique)
+         Source: bathroom_compare.png — left half = before, right half = after
+         CSS background-position splits the combined image into two panels.
+    ════════════════════════════════════════════════════════════════════ -->
+    <p class="service-eyebrow" style="margin-top: 4rem; margin-bottom: .75rem;">
+      Glide 02 · Sanitized Bathroom — Institutional Grade
+    </p>
+
+    <div class="glide-wrap medium" id="glide-2">
+
+      <!-- ── BEFORE: left half of bathroom_compare.png ──────────────────── -->
+      <div class="glide-before glide-photo"
+           style="background-image: url('bathroom_compare.png');
+                  background-size: 200% 100%;
+                  background-position: left center;">
+        <div class="glide-overlay"></div>
+
+        <span class="glide-photo-label before-label" style="top: 1.25rem; left: 1.25rem;">
+          Before: Eviction Crisis
+        </span>
+      </div>
+
+      <!-- ── AFTER: right half of bathroom_compare.png ──────────────────── -->
+      <div class="glide-after glide-photo" id="glide-after-2"
+           style="background-image: url('bathroom_compare.png');
+                  background-size: 200% 100%;
+                  background-position: right center;">
+        <div class="glide-overlay"></div>
+
+        <span class="glide-photo-label after-label" style="top: 1.25rem; right: 1.25rem;">
+          After: Prime Pathwy Restoration
+        </span>
+      </div>
+
+      <!-- Gold vertical bar + luxury handle -->
+      <div class="glide-line" id="glide-line-2">
+        <div class="glide-handle">
+          <span class="glide-arrows">⟺</span>
+        </div>
+      </div>
+
+      <!-- Full-area invisible range input -->
+      <input
+        type="range"
+        class="glide-input"
+        data-after="glide-after-2"
+        data-line="glide-line-2"
+        min="0" max="100" value="50"
+        aria-label="Drag to compare Bathroom — Before Eviction Crisis vs After Prime Pathwy Restoration"
+      >
+    </div><!-- /glide-2 -->
+
+    <div class="glide-caption">
+      <span class="gcap-bad">✗ Grime · Water Stains · Mold Risk · Sanitation Failure</span>
+      <span class="gcap-good">✓ Hospital Grade · Gleaming Surfaces · Inspection Ready · Documented</span>
+    </div>
+    <p class="glide-hint">⟵ Drag the gold bar left or right to reveal the transformation ⟶</p>
+
+  </section>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     SECTION 4 — SOLUTION AWARENESS
+     NEPQ Phase 2: Contrast — what they've tried vs. what's different here.
+══════════════════════════════════════════════════════════════════════════ -->
+<div style="background: #080808; border-top: 1px solid rgba(255,255,255,.04); border-bottom: 1px solid rgba(255,255,255,.04);">
+  <section>
+    <span class="eyebrow">Section 03 — Why Prime Pathwy</span>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;" class="stack-on-mobile">
+      <div>
+        <h2 class="serif-head gold-text" style="font-size: clamp(28px, 4vw, 48px); margin: 0 0 1.5rem;">
+          You've Tried the<br>Patchwork Approach.<br>Here's What's Different.
+        </h2>
+        <div class="gold-divider"></div>
+        <p style="font-size: 1.125rem; color: #FFFFFF; line-height: 2; margin-bottom: 1.25rem;">
+          Most landlords and property managers have gone through the same cycle: a cleaning crew
+          that can't haul, a handyman who can't paint on schedule, and a hauler who won't provide
+          receipts. Three vendors, three invoices, three conversations when something goes wrong.
+        </p>
+        <p style="font-size: 1.125rem; color: #FFFFFF; line-height: 2;">
+          Prime Pathwy is built for property operators who need a single accountable crew
+          with commercial equipment, written scope, and documentation that holds up if
+          it ever needs to.
+          <span style="color: rgba(201,168,76,.7);">One agreement. One crew. One handover.</span>
+        </p>
+      </div>
+
+      <!-- Before / After contrast -->
+      <div>
+        <div style="background: #0A0A0A; border: 1px solid rgba(255,255,255,.05); padding: 2rem; margin-bottom: 2px;">
+          <p style="font-size: 9px; letter-spacing: .35em; text-transform: uppercase; color: rgba(255,255,255,.75); margin-bottom: 1.25rem;">
+            The Patchwork Approach
+          </p>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="display: flex; gap: 1rem; padding: .65rem 0; border-bottom: 1px solid rgba(255,255,255,.04); font-size: 1rem; color: #FFFFFF;">
+              <span style="color: rgba(239,68,68,.35); flex-shrink:0;">✗</span>3 vendors, 3 timelines, 3 excuses
+            </li>
+            <li style="display: flex; gap: 1rem; padding: .65rem 0; border-bottom: 1px solid rgba(255,255,255,.04); font-size: 1rem; color: #FFFFFF;">
+              <span style="color: rgba(239,68,68,.35); flex-shrink:0;">✗</span>Verbal quotes, invoices don't match
+            </li>
+            <li style="display: flex; gap: 1rem; padding: .65rem 0; border-bottom: 1px solid rgba(255,255,255,.04); font-size: 1rem; color: #FFFFFF;">
+              <span style="color: rgba(239,68,68,.35); flex-shrink:0;">✗</span>No documentation if dispute arises
+            </li>
+            <li style="display: flex; gap: 1rem; padding: .65rem 0; font-size: 1rem; color: #FFFFFF;">
+              <span style="color: rgba(239,68,68,.35); flex-shrink:0;">✗</span>Handymen not equipped for evictions
+            </li>
+          </ul>
+        </div>
+        <div style="background: rgba(201,168,76,.04); border: 1px solid rgba(201,168,76,.2); padding: 2rem;">
+          <p style="font-size: 9px; letter-spacing: .35em; text-transform: uppercase; color: rgba(201,168,76,.5); margin-bottom: 1.25rem;">
+            Prime Pathwy System
+          </p>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="display: flex; gap: 1rem; padding: .65rem 0; border-bottom: 1px solid rgba(201,168,76,.08); font-size: 1rem; color: #FFFFFF;">
+              <span style="color: rgba(201,168,76,.5); flex-shrink:0;">✓</span>One crew, full scope — clean, haul, paint
+            </li>
+            <li style="display: flex; gap: 1rem; padding: .65rem 0; border-bottom: 1px solid rgba(201,168,76,.08); font-size: 1rem; color: #FFFFFF;">
+              <span style="color: rgba(201,168,76,.5); flex-shrink:0;">✓</span>Fixed written quote — no verbal estimates
+            </li>
+            <li style="display: flex; gap: 1rem; padding: .65rem 0; border-bottom: 1px solid rgba(201,168,76,.08); font-size: 1rem; color: #FFFFFF;">
+              <span style="color: rgba(201,168,76,.5); flex-shrink:0;">✓</span>Before / during / after photos — every job
+            </li>
+            <li style="display: flex; gap: 1rem; padding: .65rem 0; font-size: 1rem; color: #FFFFFF;">
+              <span style="color: rgba(201,168,76,.5); flex-shrink:0;">✓</span>Commercial dump trailer — evictions handled
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     SECTION 5 — HOW IT WORKS (4-Step Process)
+══════════════════════════════════════════════════════════════════════════ -->
+<section id="process">
+  <span class="eyebrow">Section 04 — The Process</span>
+  <h2 class="serif-head gold-text" style="font-size: clamp(28px, 4vw, 48px); margin: 0 0 .75rem; max-width: 600px;">
+    Four Steps. Fixed Scope. Move-In Ready.
+  </h2>
+  <p style="font-size: 1.125rem; color: #FFFFFF; margin-bottom: 3rem; max-width: 480px; line-height: 1.9;">
+    No verbal agreements. No scope changes without a written change order.
+    Everything documented from first contact to final handover.
+  </p>
+
+  <div style="max-width: 700px;">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div>
+        <h3 style="font-family: Georgia, serif; font-style: italic; font-size: 20px; color: #C9A84C; margin: 0 0 .5rem; font-weight: 700;">Walkthrough & Assessment</h3>
+        <p style="font-size: 1.125rem; color: #FFFFFF; line-height: 1.9; margin: 0;">
+          On-site assessment of the unit condition and full scope. We document the state
+          of the property before a single piece of equipment is unloaded.
+        </p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div>
+        <h3 style="font-family: Georgia, serif; font-style: italic; font-size: 20px; color: #C9A84C; margin: 0 0 .5rem; font-weight: 700;">Fixed Written Quote</h3>
+        <p style="font-size: 1.125rem; color: #FFFFFF; line-height: 1.9; margin: 0;">
+          You receive a written quote with locked scope. No verbal estimates. No surprises.
+          Approve it and we schedule — scope is frozen from that point forward.
+        </p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div>
+        <h3 style="font-family: Georgia, serif; font-style: italic; font-size: 20px; color: #C9A84C; margin: 0 0 .5rem; font-weight: 700;">Execution: Clean, Haul, Paint</h3>
+        <p style="font-size: 1.125rem; color: #FFFFFF; line-height: 1.9; margin: 0;">
+          Full execution with milestone photos at each stage — after cleanout, after paint,
+          after final sweep. Landfill receipts provided for all disposal. Delivered in
+          3–5 business days under standard conditions. Expedited 48-hour service available upon consultation.
+        </p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <div>
+        <h3 style="font-family: Georgia, serif; font-style: italic; font-size: 20px; color: #C9A84C; margin: 0 0 .5rem; font-weight: 700;">Documented Handover</h3>
+        <p style="font-size: 1.125rem; color: #FFFFFF; line-height: 1.9; margin: 0;">
+          Move-in ready delivery with a full photo set sent directly to you. All job records
+          archived for 18–24 months. If a dispute ever arises, you have the documentation
+          to defend it.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     SECTION 6 — PRICING TABLE
+══════════════════════════════════════════════════════════════════════════ -->
+<div style="background: #080808; border-top: 1px solid rgba(255,255,255,.04); border-bottom: 1px solid rgba(255,255,255,.04);">
+  <section id="pricing">
+    <span class="eyebrow">Section 05 — Pricing Structure</span>
+    <h2 class="serif-head gold-text" style="font-size: clamp(28px, 4vw, 48px); margin: 0 0 .75rem;">
+      Clear Pricing. No Surprises.
+    </h2>
+    <p style="font-size: 1.125rem; color: #FFFFFF; margin-bottom: 3rem; max-width: 480px; line-height: 1.9;">
+      All pricing is labor only. Disposal and landfill fees are billed separately
+      at cost with receipts. Final pricing confirmed after walkthrough.
+    </p>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2px; max-width: 900px;" class="pricing-grid-wrap">
+
+      <!-- Apartments -->
+      <div style="background: #0A0A0A; border: 1px solid rgba(255,255,255,.05);">
+        <div class="price-section-head">Full Turnover — Apartment Units (Labor Only)</div>
+        <div class="price-row">
+          <span class="price-label">Studio / 1 Bedroom</span>
+          <span class="price-amount">$1,200 – $1,600</span>
+          <span class="price-note">Labor only</span>
+          <button class="price-order-btn" onclick="openIntakeModal('studio-1br')" aria-label="Order Studio / 1 Bedroom">Order →</button>
+        </div>
+        <div class="price-row">
+          <span class="price-label">2 Bedroom</span>
+          <span class="price-amount">$1,500 – $2,000</span>
+          <span class="price-note">Labor only</span>
+          <button class="price-order-btn" onclick="openIntakeModal('2br-apt')" aria-label="Order 2 Bedroom Apartment">Order →</button>
+        </div>
+        <div class="price-row" style="background: rgba(201,168,76,.03);">
+          <span class="price-label">3 Bedroom</span>
+          <span class="price-amount">$1,800 – $2,400</span>
+          <span class="price-note">Labor only</span>
+          <button class="price-order-btn" onclick="openIntakeModal('3br-apt')" aria-label="Order 3 Bedroom Apartment">Order →</button>
+        </div>
+      </div>
+
+      <!-- Homes -->
+      <div style="background: #0A0A0A; border: 1px solid rgba(255,255,255,.05);">
+        <div class="price-section-head">Full Turnover — Single-Family Homes (Labor Only)</div>
+        <div class="price-row">
+          <span class="price-label">2 Bedroom Home</span>
+          <span class="price-amount">$1,600 – $2,100</span>
+          <span class="price-note">Labor only</span>
+          <button class="price-order-btn" onclick="openIntakeModal('2br-home')" aria-label="Order 2 Bedroom Home">Order →</button>
+        </div>
+        <div class="price-row">
+          <span class="price-label">3 Bedroom Home</span>
+          <span class="price-amount">$1,900 – $2,600</span>
+          <span class="price-note">Labor only</span>
+          <button class="price-order-btn" onclick="openIntakeModal('3br-home')" aria-label="Order 3 Bedroom Home">Order →</button>
+        </div>
+        <div class="price-row">
+          <span class="price-label">4 Bedroom Home</span>
+          <span class="price-amount">$2,300 – $3,000</span>
+          <span class="price-note">Labor only</span>
+          <button class="price-order-btn" onclick="openIntakeModal('4br-home')" aria-label="Order 4 Bedroom Home">Order →</button>
+        </div>
+        <div class="price-row" style="background: rgba(201,168,76,.03);">
+          <span class="price-label">Each Additional Bedroom</span>
+          <span class="price-amount">+ $200</span>
+          <span class="price-note">Per room</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Add-ons -->
+    <div style="margin-top: 2px; max-width: 900px; background: #090909; border: 1px solid rgba(255,255,255,.04);">
+      <div class="price-section-head">Add-On Services</div>
+      <div class="price-row">
+        <span class="price-label">Dump & Haul-Away</span>
+        <span class="price-amount">At Cost + Labor</span>
+        <span class="price-note">Receipts provided</span>
+      </div>
+      <div class="price-row">
+        <span class="price-label">Appliance Removal</span>
+        <span class="price-amount">Quote After Walkthrough</span>
+        <span class="price-note">Scope-based</span>
+      </div>
+      <div class="price-row">
+        <span class="price-label">Odor Treatment & Sanitation</span>
+        <span class="price-amount">Quote After Walkthrough</span>
+        <span class="price-note">Scope-based</span>
+      </div>
+      <div class="price-row">
+        <span class="price-label">Additional Paint or Repair Work</span>
+        <span class="price-amount">Quote After Walkthrough</span>
+        <span class="price-note">Scope-based</span>
+      </div>
+    </div>
+
+    <p style="font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.75); margin-top: 1.25rem; max-width: 900px;">
+      Extreme conditions (biohazard, hoarding) require a separate written quote ·
+      Licensed trade work not included · Verification required for projects $1,000+
+    </p>
+  </section>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     SECTION 7 — CONSEQUENCE
+     NEPQ Phase 3: Quantify the cost of inaction.
+══════════════════════════════════════════════════════════════════════════ -->
+<section>
+  <span class="eyebrow">Section 06 — The Cost of Waiting</span>
+  <div class="consequence-block" style="max-width: 860px;">
+    <h2 class="serif-head gold-text" style="font-size: clamp(26px, 3.5vw, 44px); margin: 0 0 1rem;">
+      Every Day Is a Number.
+    </h2>
+    <p style="font-size: 1.125rem; color: #FFFFFF; line-height: 2; max-width: 560px; margin-bottom: 2.5rem;">
+      A slow turnover isn't just an inconvenience — it's a vacancy cost you're absorbing
+      every single day the unit isn't move-in ready. Run the math.
+    </p>
+
+    <div class="vacancy-calc">
+      <div class="calc-cell">
+        <div class="calc-label">$1,400/mo unit · 10-day vacancy</div>
+        <div class="calc-value">$467</div>
+        <div class="calc-sub">Lost rent while unit sits</div>
+      </div>
+      <div class="calc-cell highlight">
+        <div class="calc-label">$1,400/mo unit · 2-day vacancy</div>
+        <div class="calc-value">$93</div>
+        <div class="calc-sub">With a professional 2-day turnover</div>
+      </div>
+    </div>
+
+    <p style="font-size: 1.125rem; color: #FFFFFF; line-height: 2; max-width: 560px; margin-top: 2rem;">
+      The difference between a slow crew and a documented professional turnover
+      isn't just time — it's <span style="color: rgba(201,168,76,.8);">$374 per unit, per turnover.</span>
+      Multiply that across your portfolio and you're looking at a system problem, not a scheduling problem.
+    </p>
+
+    <div style="margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid rgba(201,168,76,.1);">
+      <p style="font-size: 9px; letter-spacing: .3em; text-transform: uppercase; color: rgba(255,255,255,.75);">
+        And that's before you factor in a vendor dispute, a missing receipt, or a chargeback
+        you can't defend because there was no documentation. Prime Pathwy closes every one of those gaps.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     SECTION 8 — COMMITMENT / CTA
+     NEPQ Phase 4: Lower friction. Safe next step. System declaration.
+══════════════════════════════════════════════════════════════════════════ -->
+<div id="book" style="background: #030303; border-top: 1px solid rgba(201,168,76,.1);">
+  <section style="text-align: center;">
+    <span class="eyebrow" style="display: block; text-align: center;">Section 07 — Book Your Walkthrough</span>
+    <h2 class="serif-head gold-text" style="font-size: clamp(32px, 5vw, 62px); margin: 0 auto 1.5rem; max-width: 700px;">
+      Schedule a Walkthrough.<br>Get a Fixed Quote.<br>Done in 3–5 Business Days.
+    </h2>
+    <div class="gold-divider" style="margin: 0 auto 2rem;"></div>
+    <p style="font-size: 1.125rem; color: #FFFFFF; line-height: 2; max-width: 520px; margin: 0 auto 1.5rem;">
+      This is not a sales call. This is an on-site assessment. We walk the unit,
+      document the scope, and return a fixed written quote. No verbal estimates.
+      No commitment required until you approve the quote.
+    </p>
+    <p style="font-size: 1.125rem; color: #FFFFFF; line-height: 2; max-width: 520px; margin: 0 auto 2.5rem;">
+      Approve it and we schedule. We deliver in 3–5 business days with a full
+      photo record and documented handover. Expedited 48-hour service available upon consultation.
+    </p>
+
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem;">
+      <a href="mailto:contact@primepathwy.com?subject=Walkthrough%20Request%20—%20Property%20Turnover"
+         class="btn-gold">
+        [ Request Walkthrough ]
+      </a>
+      <a href="mailto:contact@primepathwy.com" class="btn-outline">
+        Email Directly
+      </a>
+    </div>
+
+    <p style="font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.75);">
+      contact@primepathwy.com · www.primepathwy.com
+    </p>
+
+    <!-- System declaration -->
+    <div style="max-width: 600px; margin: 4rem auto 0; padding: 2rem; border: 1px solid rgba(255,255,255,.04); background: #080808;">
+      <p style="font-size: 9px; letter-spacing: .35em; text-transform: uppercase; color: rgba(201,168,76,.3); margin-bottom: 1rem;">
+        System Declaration
+      </p>
+      <p style="font-size: 11px; color: rgba(255,255,255,.75); line-height: 1.9;">
+        Scope is locked to the written quote. All changes require a written change order before work continues.
+        Before, during, and after photos are mandatory on every job. Disposal and landfill fees are billed
+        separately at cost with receipts. Job records archived 18–24 months minimum.
+        If it is not documented, it did not occur.
+      </p>
+    </div>
+  </section>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     PILLAR 3 — THE ARCHITECT BIO
+     Lead Architect identity. Sovereign authority + personal accountability.
+══════════════════════════════════════════════════════════════════════════ -->
+<div style="background: #040404; border-top: 1px solid rgba(201,168,76,.16);">
+  <section>
+    <span class="eyebrow">The Architect</span>
+
+    <div style="display: grid; grid-template-columns: 260px 1fr; gap: 4.5rem; align-items: start; max-width: 960px;" class="stack-on-mobile">
+
+      <!-- Identity Anchor Image — drop arthur_appling_sr.jpg into this folder to activate -->
+      <div style="position: relative; border: 1px solid rgba(201,168,76,.3); max-width: 260px; width: 100%; flex-shrink: 0;">
+        <img
+          id="architect-photo"
+          src="public/images/ARTHUR_APPLING_SR.JPG"
+          alt="Arthur Appling Sr. — Lead Architect, Prime Pathwy"
+          style="display: block; width: 100%; height: 340px; object-fit: cover; object-position: center top;"
+          onerror="this.style.display='none'; document.getElementById('architect-fallback').style.display='flex';"
+        >
+        <!-- Fallback shown only if image file is missing -->
+        <div id="architect-fallback"
+             style="display: none; width: 100%; height: 340px; background: #0A0A0A; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; padding: 2rem;">
+          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="12" cy="8" r="4" stroke="rgba(201,168,76,.45)" stroke-width="1.5"/>
+            <path d="M4 20c0-4 3.58-7 8-7s8 3 8 7" stroke="rgba(201,168,76,.45)" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span style="font-size: 9px; letter-spacing: .3em; text-transform: uppercase; color: rgba(201,168,76,.45); text-align: center;">
+            Drop arthur_appling_sr.jpg<br>into this folder to activate
+          </span>
+        </div>
+        <!-- Gold corner accent -->
+        <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: .6rem 1rem; background: rgba(0,0,0,.72); backdrop-filter: blur(6px); border-top: 1px solid rgba(201,168,76,.25);">
+          <span style="font-size: 9px; letter-spacing: .28em; text-transform: uppercase; color: #C9A84C;">Lead Architect</span>
+        </div>
+      </div>
+
+      <!-- Bio content -->
+      <div>
+        <h2 class="serif-head gold-text" style="font-size: clamp(26px, 3.5vw, 44px); margin: 0 0 1rem; max-width: 520px;">
+          The Visionary<br>Behind the System
+        </h2>
+        <div class="gold-divider" style="margin-bottom: 1.75rem;"></div>
+
+        <!-- Name — Bold Gold, AAA contrast -->
+        <p style="font-size: 1.125rem; font-weight: 800; color: #FFD700; letter-spacing: .06em; margin: 0 0 1rem; line-height: 1.5; font-family: 'Courier New', monospace;">
+          ARTHUR APPLING SR. — LEAD ARCHITECT.
+        </p>
+
+        <!-- Sovereign bio — Stark White, 1.125rem, zero grays -->
+        <p style="font-size: 1.125rem; color: #FFFFFF; line-height: 2.1; margin: 0 0 1.75rem; max-width: 580px;">
+          Brings 20 years of disciplined operational and systemic experience. Our process forces the chaos
+          to yield, installing an audit-ready "Sovereign System" that protects your asset from chargebacks
+          and dysfunction. I don't just clear units; I secure your property's value.
+        </p>
+
+        <!-- Credential strip -->
+        <div style="display: flex; gap: 1.25rem; flex-wrap: wrap;">
+          <div style="border: 1px solid rgba(201,168,76,.22); padding: .6rem 1.1rem; background: #080808;">
+            <span style="font-size: 9px; letter-spacing: .28em; text-transform: uppercase; color: #C9A84C;">20 Years</span>
+            <span style="display: block; font-size: 1rem; color: #FFFFFF; margin-top: .2rem;">Operational Experience</span>
+          </div>
+          <div style="border: 1px solid rgba(201,168,76,.22); padding: .6rem 1.1rem; background: #080808;">
+            <span style="font-size: 9px; letter-spacing: .28em; text-transform: uppercase; color: #C9A84C;">100%</span>
+            <span style="display: block; font-size: 1rem; color: #FFFFFF; margin-top: .2rem;">Audit-Ready Delivery</span>
+          </div>
+          <div style="border: 1px solid rgba(201,168,76,.22); padding: .6rem 1.1rem; background: #080808;">
+            <span style="font-size: 9px; letter-spacing: .28em; text-transform: uppercase; color: #C9A84C;">Single Crew</span>
+            <span style="display: block; font-size: 1rem; color: #FFFFFF; margin-top: .2rem;">Full-Scope Accountability</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     INTAKE MODAL — Phase 2: Intake Engine
+     Opened by Order buttons on service cards and pricing rows.
+══════════════════════════════════════════════════════════════════════════ -->
+<div id="intake-overlay" role="dialog" aria-modal="true" aria-label="Get Your Quote — Prime Pathwy">
+  <div id="intake-modal">
+
+    <button id="intake-close" aria-label="Close quote form">✕</button>
+
+    <!-- Header -->
+    <div class="intake-header">
+      <div>
+        <h2 class="intake-title">Get Your Quote</h2>
+        <span class="labor-only-badge">Labor Only</span>
+      </div>
+    </div>
+
+    <!-- Step 1: Property Type -->
+    <div class="intake-section">
+      <span class="intake-section-label">01 — Select Property Type</span>
+      <div class="intake-packages" id="intake-packages">
+        <div class="intake-pkg-card" data-pkg="studio-1br" data-price="1600" role="button" tabindex="0">
+          <span class="pkg-name">Studio / 1BR</span>
+          <span class="pkg-price">$1,600</span>
+        </div>
+        <div class="intake-pkg-card" data-pkg="2br-apt" data-price="2000" role="button" tabindex="0">
+          <span class="pkg-name">2BR Apartment</span>
+          <span class="pkg-price">$2,000</span>
+        </div>
+        <div class="intake-pkg-card" data-pkg="3br-apt" data-price="2400" role="button" tabindex="0">
+          <span class="pkg-name">3BR Apartment</span>
+          <span class="pkg-price">$2,400</span>
+        </div>
+        <div class="intake-pkg-card" data-pkg="2br-home" data-price="2100" role="button" tabindex="0">
+          <span class="pkg-name">2BR Home</span>
+          <span class="pkg-price">$2,100</span>
+        </div>
+        <div class="intake-pkg-card" data-pkg="3br-home" data-price="2600" role="button" tabindex="0">
+          <span class="pkg-name">3BR Home</span>
+          <span class="pkg-price">$2,600</span>
+        </div>
+        <div class="intake-pkg-card" data-pkg="4br-home" data-price="3000" role="button" tabindex="0">
+          <span class="pkg-name">4BR Home</span>
+          <span class="pkg-price">$3,000</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2: Additional Rooms -->
+    <div class="intake-section">
+      <span class="intake-section-label">02 — Additional Rooms (+$200 each)</span>
+      <div class="intake-rooms-row">
+        <button class="rooms-counter-btn" id="rooms-minus" aria-label="Remove room">−</button>
+        <span id="rooms-count">0</span>
+        <button class="rooms-counter-btn" id="rooms-plus"  aria-label="Add room">+</button>
+        <span class="rooms-label">rooms × $200</span>
+      </div>
+    </div>
+
+    <!-- Step 3: Hauling Add-ons -->
+    <div class="intake-section">
+      <span class="intake-section-label">03 — Extra Junk Hauling</span>
+      <div class="intake-addons">
+        <label class="addon-row">
+          <input type="checkbox" class="addon-check" data-id="fridge"   data-price="195">
+          <span class="addon-name">Refrigerator / Freezer</span>
+          <span class="addon-price">$195</span>
+        </label>
+        <label class="addon-row">
+          <input type="checkbox" class="addon-check" data-id="mattress" data-price="145">
+          <span class="addon-name">Mattress / Box Spring</span>
+          <span class="addon-price">$145</span>
+        </label>
+        <label class="addon-row">
+          <input type="checkbox" class="addon-check" data-id="bedroom"  data-price="350">
+          <span class="addon-name">Bedroom Set</span>
+          <span class="addon-price">$350</span>
+        </label>
+        <label class="addon-row">
+          <input type="checkbox" class="addon-check" data-id="sofa"     data-price="225">
+          <span class="addon-name">Sofa / Sectional</span>
+          <span class="addon-price">$225</span>
+        </label>
+        <label class="addon-row">
+          <input type="checkbox" class="addon-check" data-id="truck"    data-price="950">
+          <span class="addon-name">Full Truck Load Bulk</span>
+          <span class="addon-price">$950</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Live Total -->
+    <div class="intake-total-block">
+      <div>
+        <span class="labor-only-badge">Labor Only</span>
+        <span class="intake-total-note">Estimated Total</span>
+      </div>
+      <div id="intake-total">$0</div>
+    </div>
+
+    <!-- Step 4: Contact Info -->
+    <div class="intake-section">
+      <span class="intake-section-label">04 — Your Information</span>
+      <input class="intake-field" id="intake-name"    type="text"  placeholder="Full Name"       autocomplete="name">
+      <input class="intake-field" id="intake-email"   type="email" placeholder="Email Address"   autocomplete="email">
+      <input class="intake-field" id="intake-phone"   type="tel"   placeholder="Phone Number"    autocomplete="tel">
+      <input class="intake-field" id="intake-address" type="text"  placeholder="Property Address">
+    </div>
+
+    <button id="intake-submit">Request This Quote →</button>
+
+    <p style="font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.35); margin-top: 1rem; text-align: center;">
+      No commitment required · Final quote confirmed after walkthrough · Labor only
+    </p>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     FOOTER — LEGAL SHIELD
+══════════════════════════════════════════════════════════════════════════ -->
+<footer>
+  <div style="max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
+
+    <!-- Architect Portrait — rectangular gold-border frame -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: .75rem; margin-bottom: .5rem;">
+      <div style="border: 2px solid #C9A84C; box-shadow: 0 0 0 6px rgba(201,168,76,0.07), 0 0 36px rgba(201,168,76,0.13); background: #0D0D0D; width: 200px; height: 250px; position: relative; overflow: hidden; flex-shrink: 0;">
+        <img
+          src="public/images/ARTHUR_APPLING_SR.JPG"
+          alt="Arthur F. Appling Sr. — Lead Architect, Prime Pathwy"
+          style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: center top;"
+        >
+      </div>
+      <p style="font-size: 9px; letter-spacing: .28em; text-transform: uppercase; color: #C9A84C; margin: 0; font-family: 'Courier New', monospace;">
+        Arthur F. Appling Sr. &mdash; Lead Architect
+      </p>
+    </div>
+
+    <!-- Brand -->
+    <p class="serif-head gold-text" style="margin: 0; font-size: 20px;">Prime Pathwy</p>
+    <p style="font-size: 9px; letter-spacing: .25em; text-transform: uppercase; color: rgba(255,255,255,.75); margin: 0;">
+      Property Turnover Services · Cleaning · Haul-Out · Paint · Full Turnovers
+    </p>
+    <!-- Trust Anchor — Institutional Contact Block -->
+    <div style="border: 1px solid rgba(201,168,76,.22); padding: 1.75rem 2.5rem; max-width: 720px; width: 100%; background: #050505;">
+      <p style="font-size: 9px; letter-spacing: .38em; text-transform: uppercase; color: rgba(201,168,76,.5); margin: 0 0 1rem;">
+        Business Address &amp; Contact
+      </p>
+      <p style="font-size: 1.1rem; color: #FFFFFF; font-weight: 700; margin: 0 0 .45rem; font-family: 'Courier New', monospace; letter-spacing: .04em; line-height: 1.6;">
+        425 Virginia St STE B &nbsp;·&nbsp; Vallejo, CA 94590
+      </p>
+      <p style="font-size: 1.1rem; color: #FFFFFF; font-weight: 700; margin: 0; font-family: 'Courier New', monospace; letter-spacing: .04em; line-height: 1.6;">
+        <a href="tel:7074353998" style="color: #FFFFFF; text-decoration: none;">(707) 435-3998</a> &nbsp;·&nbsp; <a href="mailto:contact@primepathwy.com" style="color: #FFFFFF; text-decoration: none;">contact@primepathwy.com</a>
+      </p>
+    </div>
+
+    <!-- Divider -->
+    <div style="width: 100%; max-width: 400px; height: 1px; background: rgba(255,255,255,.06);"></div>
+
+    <!-- Legal Links + Accessibility -->
+    <div style="display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; justify-content: center;">
+      <a href="privacy.html" aria-label="Privacy Policy" class="footer-link">Privacy Policy</a>
+      <span style="color: rgba(255,255,255,.1);" aria-hidden="true">·</span>
+      <a href="terms.html" aria-label="Terms of Service" class="footer-link">Terms of Service</a>
+      <span style="color: rgba(255,255,255,.1);" aria-hidden="true">·</span>
+
+      <!-- Accessibility Link -->
+      <a href="accessibility.html"
+         aria-label="Accessibility Statement — ADA Compliant Design"
+         title="View Accessibility Statement"
+         class="footer-ada-link">
+        <!-- Wheelchair / Accessibility icon -->
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <circle cx="12" cy="3" r="2.5"/>
+          <path d="M19 10.5h-5.3l-.8-3H9a1 1 0 0 0 0 2h2.6l.9 3.4L11 17H7a1 1 0 0 0 0 2h4.5
+                   a1 1 0 0 0 .95-.68l1.3-4.32H18a1 1 0 0 0 0-2h-3.2l-.3-1.1H19a1 1 0 0 0 0-1.4z"/>
+          <path d="M9.5 19.5a4 4 0 1 1-4-4 1 1 0 0 0 0-2 6 6 0 1 0 6 6 1 1 0 0 0-2 0z"/>
+        </svg>
+        ADA Compliant Design
+      </a>
+    </div>
+
+    <!-- Divider -->
+    <div style="width: 100%; max-width: 400px; height: 1px; background: rgba(255,255,255,.04);"></div>
+
+    <!-- Copyright -->
+    <p style="font-size: 8px; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.12); margin: 0;">
+      © 2026 Prime Pathwy · All Rights Reserved · Documented · Defensible · Delivered
+    </p>
+
+  </div>
+</footer>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  /* ── Glide Slider Engine — rAF-driven, luxury smooth ──────────────────────
+     Uses requestAnimationFrame for buttery rendering.
+     Settling spring on release gives the "heavy luxury door" feel.        ── */
+  document.querySelectorAll('.glide-input').forEach(input => {
+    const afterEl = document.getElementById(input.dataset.after);
+    const lineEl  = document.getElementById(input.dataset.line);
+    let raf = null;
+    let targetVal = 50;
+    let currentVal = 50;
+
+    function apply(v) {
+      afterEl.style.clipPath = `inset(0 ${100 - v}% 0 0)`;
+      lineEl.style.left      = v + '%';
+    }
+
+    function settle() {
+      if (Math.abs(currentVal - targetVal) < 0.08) {
+        currentVal = targetVal;
+        apply(currentVal);
+        return;
+      }
+      currentVal += (targetVal - currentVal) * 0.18;
+      apply(currentVal);
+      raf = requestAnimationFrame(settle);
+    }
+
+    function onDrag() {
+      targetVal = parseFloat(input.value);
+      currentVal = targetVal;
+      if (raf) cancelAnimationFrame(raf);
+      apply(currentVal);
+    }
+
+    function onRelease() {
+      targetVal = parseFloat(input.value);
+      if (raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(settle);
+    }
+
+    input.addEventListener('input',      onDrag);
+    input.addEventListener('touchmove',  onDrag,    { passive: true });
+    input.addEventListener('mouseup',    onRelease);
+    input.addEventListener('touchend',   onRelease, { passive: true });
+    input.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') onRelease();
+    });
+
+    apply(50);
+  });
+
+  /* ── Intake Modal Engine ─────────────────────────────────────────────────
+     Opens via openIntakeModal(pkgKey) called by Order buttons.
+     pkgKey: 'studio-1br' | '2br-apt' | '3br-apt' | '2br-home' | '3br-home' | '4br-home' | null
+  ─────────────────────────────────────────────────────────────────────── */
+  (function() {
+    const overlay  = document.getElementById('intake-overlay');
+    const closeBtn = document.getElementById('intake-close');
+    const totalEl  = document.getElementById('intake-total');
+    const roomsEl  = document.getElementById('rooms-count');
+    let selectedPkg  = null;
+    let extraRooms   = 0;
+    let currentTotal = 0;
+
+    function refreshTotal() {
+      let t = 0;
+      if (selectedPkg) {
+        const card = document.querySelector(`.intake-pkg-card[data-pkg="${selectedPkg}"]`);
+        if (card) t += parseInt(card.dataset.price, 10);
+      }
+      t += extraRooms * 200;
+      document.querySelectorAll('.addon-check').forEach(cb => {
+        if (cb.checked) t += parseInt(cb.dataset.price, 10);
+      });
+      currentTotal = t;
+      totalEl.textContent = t > 0 ? '$' + t.toLocaleString() : '$0';
+      totalEl.classList.remove('bump');
+      void totalEl.offsetWidth;
+      totalEl.classList.add('bump');
+      setTimeout(() => totalEl.classList.remove('bump'), 180);
+    }
+
+    window.openIntakeModal = function(pkgKey) {
+      selectedPkg = pkgKey || null;
+      extraRooms  = 0;
+      roomsEl.textContent = '0';
+      document.querySelectorAll('.addon-check').forEach(cb => { cb.checked = false; });
+      document.querySelectorAll('.addon-row').forEach(row => row.classList.remove('checked'));
+      document.querySelectorAll('.intake-pkg-card').forEach(card => {
+        card.classList.toggle('selected', card.dataset.pkg === selectedPkg);
+      });
+      document.querySelectorAll('.intake-field').forEach(f => { f.value = ''; });
+      refreshTotal();
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    };
+
+    function closeModal() {
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) closeModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && overlay.classList.contains('active')) closeModal();
+    });
+
+    document.querySelectorAll('.intake-pkg-card').forEach(card => {
+      function selectPkg() {
+        selectedPkg = card.dataset.pkg;
+        document.querySelectorAll('.intake-pkg-card').forEach(c =>
+          c.classList.toggle('selected', c.dataset.pkg === selectedPkg));
+        refreshTotal();
+      }
+      card.addEventListener('click', selectPkg);
+      card.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectPkg(); }
+      });
+    });
+
+    document.getElementById('rooms-minus').addEventListener('click', function() {
+      if (extraRooms > 0) { extraRooms--; roomsEl.textContent = extraRooms; refreshTotal(); }
+    });
+    document.getElementById('rooms-plus').addEventListener('click', function() {
+      extraRooms++; roomsEl.textContent = extraRooms; refreshTotal();
+    });
+
+    document.querySelectorAll('.addon-check').forEach(function(cb) {
+      cb.addEventListener('change', function() {
+        cb.closest('.addon-row').classList.toggle('checked', cb.checked);
+        refreshTotal();
+      });
+    });
+
+    /* ── Submit → SMTP via /api/send-quote ── */
+    document.getElementById('intake-submit').addEventListener('click', function() {
+      const btn     = document.getElementById('intake-submit');
+      const name    = document.getElementById('intake-name').value.trim();
+      const email   = document.getElementById('intake-email').value.trim();
+      const phone   = document.getElementById('intake-phone').value.trim();
+      const address = document.getElementById('intake-address').value.trim();
+
+      /* Validation gate — require package + at least one contact method */
+      if (!selectedPkg) {
+        alert('Please select a property type before submitting.');
+        return;
+      }
+      if (!name && !email && !phone) {
+        alert('Please enter your name and at least one contact method (email or phone).');
+        return;
+      }
+
+      const pkgCard  = document.querySelector(`.intake-pkg-card[data-pkg="${selectedPkg}"]`);
+      const pkgLabel = pkgCard.querySelector('.pkg-name').textContent;
+      const pkgPrice = pkgCard.querySelector('.pkg-price').textContent;
+
+      let addonLines = '';
+      document.querySelectorAll('.addon-check').forEach(function(cb) {
+        if (cb.checked) {
+          const lbl = cb.closest('.addon-row').querySelector('.addon-name').textContent.trim();
+          const prc = cb.closest('.addon-row').querySelector('.addon-price').textContent.trim();
+          addonLines += `  • ${lbl}: ${prc}\n`;
+        }
+      });
+
+      const lines = [
+        'INTAKE QUOTE REQUEST — PRIME PATHWY TURNOVER SYSTEM',
+        '',
+        'PROPERTY TYPE : ' + pkgLabel + ' (' + pkgPrice + ' — LABOR ONLY)',
+        extraRooms > 0
+          ? 'ADDITIONAL ROOMS: ' + extraRooms + ' × $200 = $' + (extraRooms * 200).toLocaleString()
+          : '',
+        addonLines ? 'HAULING ADD-ONS:\n' + addonLines.trim() : '',
+        '',
+        'ESTIMATED TOTAL: $' + currentTotal.toLocaleString() + ' (LABOR ONLY)',
+        '',
+        'CONTACT INFO:',
+        name    ? 'Name:     ' + name    : '',
+        email   ? 'Email:    ' + email   : '',
+        phone   ? 'Phone:    ' + phone   : '',
+        address ? 'Property: ' + address : '',
+      ].filter(function(l) { return l !== ''; }).join('\n');
+
+      const subj = 'Quote Request — ' + pkgLabel + (address ? ' — ' + address : '');
+
+      /* Lock button during send */
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+
+      fetch('/api/send-quote', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ subject: subj, body: lines, replyTo: email || null })
+      })
+      .then(function(res) {
+        if (!res.ok) throw new Error('Server error ' + res.status);
+        return res.json();
+      })
+      .then(function() {
+        btn.textContent = '✓ Quote Request Sent';
+        btn.style.background = '#2e7d32';
+        btn.style.color = '#fff';
+        /* Close modal after 2.5 s */
+        setTimeout(function() {
+          document.getElementById('intake-overlay').style.display = 'none';
+          btn.disabled = false;
+          btn.textContent = 'Request This Quote →';
+          btn.style.background = '';
+          btn.style.color = '';
+        }, 2500);
+      })
+      .catch(function(err) {
+        console.error('send-quote error:', err);
+        btn.disabled = false;
+        btn.textContent = 'Request This Quote →';
+        /* Graceful fallback: open email client */
+        window.location.href =
+          'mailto:contact@primepathwy.com' +
+          '?subject=' + encodeURIComponent(subj) +
+          '&body='    + encodeURIComponent(lines);
+      });
+    });
+
+  })();
+
+});
+</script>
+</body>
+</html>
