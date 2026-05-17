@@ -79,5 +79,5 @@ ls C:/Users/arthu/GeminiEcosystem/workflows/
 - **DO NOT** skip PASS 1 because "you just ran it" — directory state changes between sessions
 - **DO NOT** accept verbal/mental confirmation for any pass — the status table must be produced in writing
 - **DO NOT** continue session after any FAIL without resolving and re-confirming
-- **DO NOT** check `agents/master_bio.md` (deprecated) — canonical path is `agents/identity/ARTHUR_MASTER_BIO.md`
+- **DO NOT** check `agents/master_bio.md` (deprecated) — correct PASS 3 path is `core/ARTHUR_MASTER_BIO.md`
 - **DO NOT** run passes out of order — PASS 3 depends on PASS 1 confirming agent files exist

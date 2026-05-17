@@ -14,7 +14,7 @@ ls C:/Users/arthu/.claude/skills/
 ```
 Pass Criteria: All expected silos present. No unexpected folders.
 Expected silos: `betting_engine`, `consulting_wing`, `hyperframes`, `market_intelligence`, `video_production`
-Expected agents: `master_bio.md`, `research_agent.md`, `bid_architect.md`, `betting_quant.md`
+Expected agents: `research_agent.md`, `bid_architect.md`, `betting_quant.md`, `identity/ARTHUR_MASTER_BIO.md`
 
 ### PASS 2 — LIVE SERVICES CHECK
 ```bash
@@ -24,7 +24,7 @@ Pass Criteria: HTTP 200. If not — restart: `cd tools/betting_engine && npx ser
 
 ### PASS 3 — AGENT CONSTANTS VERIFICATION
 - Open `agents/research_agent.md` → confirm SBDC date and DSCR 7.42x present
-- Open `agents/master_bio.md` → confirm EIN 84-4788578 present
+- Open `core/ARTHUR_MASTER_BIO.md` → confirm EIN 84-4788578 present
 - Open `agents/betting_quant.md` → confirm No-Lose Ladder and Draft window present
 
 ### PASS 4 — WORKFLOW INTEGRITY

@@ -48,11 +48,10 @@ Any FAIL: Stop, alert Architect, resolve before proceeding
 
 | System | Integration Type | Status |
 |--------|-----------------|--------|
-| `agents/identity/ARTHUR_MASTER_BIO.md` | PASS 3 read target | Active (canonical path confirmed) |
+| `core/ARTHUR_MASTER_BIO.md` | PASS 3 read target | Active (path updated 2026-05-17) |
 | `tools/betting_engine/` (port 3132) | PASS 2 HTTP health check | Active |
 | `.github/workflows/sovereign_audit.yml` | PASS 4 file presence check | Active |
 | `vault/` PDFs | PASS 5 file presence check | Active |
-| `agents/master_bio.md` | DEPRECATED — stale PASS 3 reference in source.md | **Stale — do not use; see risks-and-limitations.md** |
 
 ---
 
@@ -65,7 +64,7 @@ No slash command. Manually initiated. Mandatory at session start and after any s
 1. Load: workflows/research/recursive-integrity-audit/source.md
 2. Execute PASS 1 → confirm all expected silos present
 3. Execute PASS 2 → confirm port 3132 HTTP 200
-4. Execute PASS 3 → open CANONICAL paths (agents/identity/ARTHUR_MASTER_BIO.md — NOT deprecated agents/master_bio.md)
+4. Execute PASS 3 → open `core/ARTHUR_MASTER_BIO.md` — confirm EIN 84-4788578 present
 5. Execute PASS 4 → confirm sovereign_audit.yml present
 6. Execute PASS 5 → confirm both vault PDFs present
 7. Produce status table → all PASS before resuming any work
@@ -75,4 +74,4 @@ No slash command. Manually initiated. Mandatory at session start and after any s
 
 ## Redundancy Flags
 
-**One known redundancy to resolve:** source.md references `agents/master_bio.md` in PASS 3. The canonical path is `agents/identity/ARTHUR_MASTER_BIO.md`. Source.md must be updated to eliminate the deprecated reference. Until updated, this integration-map serves as the authoritative correction.
+No redundancy. source.md PASS 3 path updated to `core/ARTHUR_MASTER_BIO.md` on 2026-05-17. All references consistent.

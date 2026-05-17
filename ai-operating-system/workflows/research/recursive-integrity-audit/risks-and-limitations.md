@@ -17,16 +17,9 @@
 
 **CRITICAL — Action Required:**
 
-Source.md PASS 3 contains this instruction:
-> `Open agents/master_bio.md → confirm EIN 84-4788578 present`
+Source.md PASS 3 path is current: `core/ARTHUR_MASTER_BIO.md`
 
-**This path is stale.** `agents/master_bio.md` is deprecated as of 2026-05-17.
-
-**Correct path:** `agents/identity/ARTHUR_MASTER_BIO.md`
-
-All operators and AI sessions running this audit must substitute the correct path in PASS 3.
-
-**Remediation required:** Update source.md PASS 3 to reference `agents/identity/ARTHUR_MASTER_BIO.md` and remove the deprecated path reference. This update should be confirmed by Architect before closing the remediation item.
+This path was updated from the deprecated `agents/master_bio.md` reference on 2026-05-17. No further substitution required.
 
 ---
 
