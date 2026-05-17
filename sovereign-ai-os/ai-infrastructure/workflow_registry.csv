@@ -1,0 +1,19 @@
+workflow_file,purpose,primary_agent,required_tools,frequency,status
+ELITE_10_CONSULTING_FRAMEWORK.md,High-ticket consulting installation SOP,None,consulting_wing,On Demand,Active
+ELITE_10_ENGINE.md,Execution engine for Elite 10 framework,None,None,On Demand,Active
+LOCAL_PURCHASING_SCRIPT.md,Script for local government procurement outreach,bid_architect,None,Weekly,Active
+MASTER_EXECUTION_LEDGER.csv,Tracking ledger for all operational tasks,None,None,Daily,Active
+Prime_PATHWY_Dashboard.md,Central dashboard for business operations,None,None,Daily,Active
+SB_CERT_PAYLOAD.md,Payload for Small Business certification applications,None,None,Annual,Active
+TURNOVER_CHECKLIST_TEMPLATE.md,SOP for commercial property turnover services,None,None,Per Job,Active
+USPS_Logistics_Identity.md,Logistics identity and operations framework,None,None,On Demand,Active
+browser_scout_protocol.md,Protocol for automated browser research,research_agent,None,Daily,Active
+claude_skills_reference.md,Reference for AI agent skills,None,None,Reference,Active
+client_intake_script.md,NEPQ-style script for client intake,None,nepq_drafter.js,Per Lead,Active
+client_website_standard.md,Standards for client website deployments,None,None,Per Project,Active
+consulting_elite_10.md,Core consulting methodology,None,None,Reference,Active
+fleet_capital_ZEV.md,Framework for ZEV fleet capital acquisition,None,None,On Demand,Active
+government_bid_SOP.md,Standard operating procedure for government bids,bid_architect,None,Per Bid,Active
+grant_acquisition_SOP.md,Standard operating procedure for grant applications,bid_architect,None,Per Grant,Active
+master_pathwy.md,Master strategic document for Prime Pathwy,None,None,Reference,Active
+recursive_integrity_audit.md,Protocol for auditing system integrity,None,ooda_orchestrator.py,Weekly,Active
