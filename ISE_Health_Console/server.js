@@ -7,7 +7,7 @@ import { fileURLToPath } from 'url'
 const __dirname  = path.dirname(fileURLToPath(import.meta.url))
 const PORT       = 3131
 const DATA_FILE  = path.join(__dirname, 'health_data.json')
-const DIST_DIR   = __dirname
+const DIST_DIR   = path.join(__dirname, 'dist')
 
 // ── Temporary dual-write paths ─────────────────────────────────────────────
 const TEMP_DIR   = 'C:/Users/arthu/GeminiEcosystem/temporary'

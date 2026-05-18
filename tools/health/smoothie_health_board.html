@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7-Day Smoothie Health Board | Prime Pathwy Systems</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .no-print {
+                display: none;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+            background: #0b1220;
+            color: #e5e7eb;
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #0f172a;
+            padding: 0;
+        }
+
+        .header {
+            text-align: center;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, #1e40af 0%, #059669 50%, #f59e0b 100%);
+            color: white;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.2);
+            pointer-events: none;
+        }
+
+        .header h1 {
+            font-size: 42px;
+            margin-bottom: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .header .subtitle {
+            font-size: 16px;
+            opacity: 0.95;
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .content-wrapper {
+            padding: 40px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            border: 2px solid #3b82f6;
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+            transition: transform 0.2s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: #94a3b8;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #60a5fa 0%, #34d399 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-header {
+            background: linear-gradient(90deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            padding: 16px 24px;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            border-radius: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(30, 64, 175, 0.4);
+        }
+
+        .ingredient-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .ingredient-card {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .ingredient-card:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .ingredient-qty {
+            font-size: 28px;
+            font-weight: 800;
+            color: #60a5fa;
+            margin-bottom: 8px;
+        }
+
+        .ingredient-name {
+            font-size: 14px;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            background: #1e293b;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        table thead {
+            background: linear-gradient(90deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+        }
+
+        table th,
+        table td {
+            padding: 14px 16px;
+            text-align: left;
+            border: 1px solid #334155;
+            font-size: 14px;
+        }
+
+        table th {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 12px;
+        }
+
+        table tbody tr {
+            background: #1e293b;
+        }
+
+        table tbody tr:nth-child(even) {
+            background: #334155;
+        }
+
+        table tbody tr:hover {
+            background: #475569;
+        }
+
+        .batch-1 {
+            background: #1e3a8a !important;
+            font-weight: 700;
+            color: #dbeafe;
+        }
+
+        .batch-2 {
+            background: #065f46 !important;
+            font-weight: 700;
+            color: #d1fae5;
+        }
+
+        .batch-3 {
+            background: #854d0e !important;
+            font-weight: 700;
+            color: #fef3c7;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            border-left: 4px solid #3b82f6;
+            padding: 20px 24px;
+            margin: 24px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3);
+        }
+
+        .info-box strong {
+            color: #60a5fa;
+            font-weight: 700;
+        }
+
+        .effectiveness-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .marker-card {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-left: 4px solid #10b981;
+            padding: 20px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .marker-card:hover {
+            border-left-color: #34d399;
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+        }
+
+        .marker-title {
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #e5e7eb;
+            font-size: 15px;
+        }
+
+        .marker-desc {
+            font-size: 13px;
+            color: #94a3b8;
+            line-height: 1.5;
+        }
+
+        .footer {
+            margin-top: 60px;
+            padding: 30px 40px;
+            background: linear-gradient(90deg, #1e293b 0%, #334155 100%);
+            text-align: center;
+            font-size: 13px;
+            color: #94a3b8;
+            border-top: 2px solid #3b82f6;
+        }
+
+        .footer strong {
+            color: #60a5fa;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .page-break {
+            page-break-before: always;
+        }
+
+        @media print {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .ingredient-grid,
+            .effectiveness-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>7-Day Smoothie Health Board</h1>
+            <div class="subtitle">Metabolic Optimization Protocol | Prime Pathwy Systems</div>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Weekly Cost</div>
+                    <div class="stat-value">$24.10</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Per Smoothie</div>
+                    <div class="stat-value">$3.44</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Total Jars</div>
+                    <div class="stat-value">7</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Weekly Prep</div>
+                    <div class="stat-value">90 min</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-header">Shopping List (7-Day Cycle)</div>
+                <div class="ingredient-grid">
+                    <div class="ingredient-card">
+                        <div class="ingredient-qty">7</div>
+                        <div class="ingredient-name">Granny Smith apples</div>
+                    </div>
+                    <div class="ingredient-card">
+                        <div class="ingredient-qty">1 bunch</div>
+                        <div class="ingredient-name">Celery (21-28 stalks)</div>
+                    </div>
+                    <div class="ingredient-card">
+                        <div class="ingredient-qty">3-4</div>
+                        <div class="ingredient-name">English cucumbers</div>
+                    </div>
+                    <div class="ingredient-card">
+                        <div class="ingredient-qty">7</div>
+                        <div class="ingredient-name">Lemons</div>
+                    </div>
+                    <div class="ingredient-card">
+                        <div class="ingredient-qty">2 containers</div>
+                        <div class="ingredient-name">Costco spinach</div>
+                    </div>
+                    <div class="ingredient-card">
+                        <div class="ingredient-qty">1 root</div>
+                        <div class="ingredient-name">Fresh ginger</div>
+                    </div>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ingredient</th>
+                            <th>Quantity</th>
+                            <th>Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Granny Smith apples</td><td>7</td><td>$5.60</td></tr>
+                        <tr><td>Celery bunch</td><td>1 (21-28 stalks)</td><td>$2.50</td></tr>
+                        <tr><td>English cucumbers</td><td>3-4</td><td>$4.80</td></tr>
+                        <tr><td>Lemons</td><td>7</td><td>$4.20</td></tr>
+                        <tr><td>Costco spinach</td><td>2 large containers</td><td>$4.00</td></tr>
+                        <tr><td>Fresh ginger root</td><td>1 large root</td><td>$3.00</td></tr>
+                        <tr style="font-weight: 700; color: #60a5fa;"><td>TOTAL</td><td></td><td>$24.10</td></tr>
+                    </tbody>
+                </table>
+
+                <div class="info-box">
+                    <strong>Equipment Required:</strong> 7 glass mason jars (32oz minimum), high-speed blender (Vitamix/Ninja), cutting board, sharp knife, labels &amp; permanent marker
+                </div>
+            </div>
+
+            <div class="section page-break">
+                <div class="section-header">Weekly Prep Schedule</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Batch</th>
+                            <th>Action</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Monday</strong></td>
+                            <td class="batch-1">Batch 1</td>
+                            <td>Procurement &amp; Staging → Prep 3 jars</td>
+                            <td>30 min</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tuesday</strong></td>
+                            <td class="batch-1">Batch 1</td>
+                            <td>Consume jar from fridge</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Wednesday</strong></td>
+                            <td class="batch-1">Batch 1</td>
+                            <td>Consume jar + Equipment clean</td>
+                            <td>10 min</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Thursday</strong></td>
+                            <td class="batch-2">Batch 2</td>
+                            <td>Re-prep 3 fresh jars</td>
+                            <td>30 min</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Friday</strong></td>
+                            <td class="batch-2">Batch 2</td>
+                            <td>Consume jar from fridge</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Saturday</strong></td>
+                            <td class="batch-2">Batch 2</td>
+                            <td>Consume jar + Equipment clean</td>
+                            <td>10 min</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sunday</strong></td>
+                            <td class="batch-3">Batch 3</td>
+                            <td>Final prep 1 jar + Cycle reset</td>
+                            <td>10 min</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <div class="section-header">Consumption Protocol</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Timing</th>
+                            <th>Purpose</th>
+                            <th>Serving Size</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Morning (Fasted)</strong></td>
+                            <td>Optimal absorption window</td>
+                            <td>Full jar (32oz) or split 16oz×2</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Post-high-sodium meal</strong></td>
+                            <td>Cucumber hydration effect maximized</td>
+                            <td>Full jar (32oz)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pre-workout (optional)</strong></td>
+                            <td>Electrolyte load + hydration</td>
+                            <td>16oz</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <div class="section-header">Effectiveness Markers</div>
+                <div class="effectiveness-grid">
+                    <div class="marker-card">
+                        <div class="marker-title">Energy Stable</div>
+                        <div class="marker-desc">No crash 2hr post-consumption</div>
+                    </div>
+                    <div class="marker-card">
+                        <div class="marker-title">Reduced Bloating</div>
+                        <div class="marker-desc">Improved afternoon hydration</div>
+                    </div>
+                    <div class="marker-card">
+                        <div class="marker-title">Glucose Improvement</div>
+                        <div class="marker-desc">Monitor via ISE Health Console</div>
+                    </div>
+                    <div class="marker-card">
+                        <div class="marker-title">Magnesium Synergy</div>
+                        <div class="marker-desc">Enhanced Metformin efficacy</div>
+                    </div>
+                    <div class="marker-card">
+                        <div class="marker-title">Electrolyte Balance</div>
+                        <div class="marker-desc">Stable cardiovascular function</div>
+                    </div>
+                    <div class="marker-card">
+                        <div class="marker-title">Hydration Level</div>
+                        <div class="marker-desc">Reduced sodium bloating</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section page-break">
+                <div class="section-header">Storage Optimization</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Specification</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Fridge Temperature</td><td>35-38°F (optimal preservation)</td></tr>
+                        <tr><td>Jar Placement</td><td>Upright on shelf (not door)</td></tr>
+                        <tr><td>Stacking</td><td>Never stack (compression damages cells)</td></tr>
+                        <tr><td>Longevity (0-24hr)</td><td><strong style="color: #10b981;">Maximum nutrient density</strong></td></tr>
+                        <tr><td>Longevity (24-48hr)</td><td>Good (minor nutrient loss)</td></tr>
+                        <tr><td>Longevity (48-72hr)</td><td>Decline phase (oxidation visible)</td></tr>
+                        <tr><td>Longevity (72+hr)</td><td><strong style="color: #ef4444;">DISCARD (bacterial risk)</strong></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <div class="section-header">Blend Recipe (Per Smoothie)</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ingredient</th>
+                            <th>Quantity</th>
+                            <th>Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Lemon juice</td>
+                            <td>1 whole lemon</td>
+                            <td>Cleans fuel lines, natural preservative</td>
+                        </tr>
+                        <tr>
+                            <td>Cucumber</td>
+                            <td>1/2 English/Persian</td>
+                            <td>Maximum hydration, flushes sodium</td>
+                        </tr>
+                        <tr>
+                            <td>Celery stalks</td>
+                            <td>3-4 tightly bunched</td>
+                            <td>Natural electrolytes, engine hydration</td>
+                        </tr>
+                        <tr>
+                            <td>Apple</td>
+                            <td>1/4 Granny Smith</td>
+                            <td>Low-sugar fiber, stabilizes blood glucose</td>
+                        </tr>
+                        <tr>
+                            <td>Spinach</td>
+                            <td>1 handful (Costco)</td>
+                            <td>High magnesium, Metformin synergy</td>
+                        </tr>
+                        <tr>
+                            <td>Ginger</td>
+                            <td>1-inch knob</td>
+                            <td>Anti-inflammatory, digestive catalyst</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-box">
+                    <strong>Blend Order:</strong> Liquids first (lemon + cucumber) → Greens (spinach + celery) → Solids (apple + ginger) → Blend 60 seconds high speed
+                </div>
+            </div>
+
+            <div class="section page-break">
+                <div class="section-header">Weekly Tracking Checklist</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Task</th>
+                            <th>Mon</th>
+                            <th>Tue</th>
+                            <th>Wed</th>
+                            <th>Thu</th>
+                            <th>Fri</th>
+                            <th>Sat</th>
+                            <th>Sun</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Consume Batch 1</td>
+                            <td>☐</td><td>☐</td><td>☐</td>
+                            <td>—</td><td>—</td><td>—</td><td>—</td>
+                        </tr>
+                        <tr>
+                            <td>Consume Batch 2</td>
+                            <td>—</td><td>—</td><td>—</td>
+                            <td>☐</td><td>☐</td><td>☐</td><td>—</td>
+                        </tr>
+                        <tr>
+                            <td>Consume Batch 3</td>
+                            <td>—</td><td>—</td><td>—</td>
+                            <td>—</td><td>—</td><td>—</td><td>☐</td>
+                        </tr>
+                        <tr>
+                            <td>Prep New Batch</td>
+                            <td>☐</td><td>—</td><td>—</td>
+                            <td>☐</td><td>—</td><td>—</td><td>☐</td>
+                        </tr>
+                        <tr>
+                            <td>Equipment Clean</td>
+                            <td>—</td><td>—</td><td>☐</td>
+                            <td>—</td><td>—</td><td>☐</td><td>—</td>
+                        </tr>
+                        <tr>
+                            <td>Fridge Audit</td>
+                            <td>☐</td><td>—</td><td>—</td>
+                            <td>☐</td><td>—</td><td>—</td><td>☐</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="footer">
+            <strong>Prime Pathwy Systems | Metabolic Optimization Protocol</strong>
+            Systems Over Shortcuts • Data Over Hype • Sovereignty Over Chaos
+        </div>
+    </div>
+</body>
+</html>

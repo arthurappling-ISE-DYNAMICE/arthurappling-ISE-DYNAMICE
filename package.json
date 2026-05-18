@@ -1,0 +1,24 @@
+{
+  "name": "geminiecosystem",
+  "version": "1.0.0",
+  "main": "nepq_drafter.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arthurappling-ISE-DYNAMICE/arthurappling-ISE-DYNAMICE.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arthurappling-ISE-DYNAMICE/arthurappling-ISE-DYNAMICE/issues"
+  },
+  "homepage": "https://github.com/arthurappling-ISE-DYNAMICE/arthurappling-ISE-DYNAMICE#readme",
+  "description": "",
+  "defaultModel": "gemini-3.1-pro-preview"
+}
