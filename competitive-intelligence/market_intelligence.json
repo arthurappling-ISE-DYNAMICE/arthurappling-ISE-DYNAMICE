@@ -1,0 +1,137 @@
+{
+  "entity": "AA Capital INC dba Prime Pathwy",
+  "last_updated": "2026-05-18",
+  "region": "Northern California — Solano County, Sacramento, Bay Area",
+  "market_segments": [
+    {
+      "segment": "Federal Janitorial (VA, GSA)",
+      "saturation": "Medium",
+      "opportunity_score": 9,
+      "annual_market_size_estimate": "$500M+ (Northern CA region)",
+      "key_certifications_needed": ["SB", "8(a)", "SDVOSB"],
+      "primary_competitors": ["ABM Industries", "PRIDE Industries", "Aramark"],
+      "entry_strategy": "Target VA clinics and GSA buildings in Solano/Sacramento via set-aside bids"
+    },
+    {
+      "segment": "California State Facilities",
+      "saturation": "Medium",
+      "opportunity_score": 9,
+      "annual_market_size_estimate": "$200M+ (Northern CA region)",
+      "key_certifications_needed": ["CA SB", "CA DVBE"],
+      "primary_competitors": ["ABM Industries", "Aramark", "Regional SBs"],
+      "entry_strategy": "Leverage 25% SB goal; target DGS, Caltrans, CSU campuses"
+    },
+    {
+      "segment": "Solano County Government",
+      "saturation": "Low-Medium",
+      "opportunity_score": 10,
+      "annual_market_size_estimate": "$5M–$15M",
+      "key_certifications_needed": ["CA SB", "Business License"],
+      "primary_competitors": ["Unknown — research required"],
+      "entry_strategy": "First-mover advantage; register and monitor Solano County portal"
+    },
+    {
+      "segment": "Sacramento County Government",
+      "saturation": "High",
+      "opportunity_score": 7,
+      "annual_market_size_estimate": "$20M–$50M",
+      "key_certifications_needed": ["CA SB", "CA DVBE"],
+      "primary_competitors": ["ABM", "Jan-Pro", "Summit Facility Solutions"],
+      "entry_strategy": "Target smaller contracts; build references for larger bids"
+    },
+    {
+      "segment": "Transit Authorities",
+      "saturation": "Low",
+      "opportunity_score": 9,
+      "annual_market_size_estimate": "$10M–$30M",
+      "key_certifications_needed": ["DBE", "CA SB"],
+      "primary_competitors": ["PRIDE Industries", "Regional SBs"],
+      "entry_strategy": "DBE certification; target SolTrans (due for rebid), BART task orders"
+    },
+    {
+      "segment": "School Districts",
+      "saturation": "Medium",
+      "opportunity_score": 8,
+      "annual_market_size_estimate": "$15M–$40M",
+      "key_certifications_needed": ["CA SB", "Background check clearance"],
+      "primary_competitors": ["ABM", "Jan-Pro", "Regional SBs"],
+      "entry_strategy": "PlanetBids registration; target Solano County districts first"
+    },
+    {
+      "segment": "Housing Authorities",
+      "saturation": "Low",
+      "opportunity_score": 10,
+      "annual_market_size_estimate": "$5M–$15M",
+      "key_certifications_needed": ["CA SB", "Section 3 preference"],
+      "primary_competitors": ["Limited — underserved market"],
+      "entry_strategy": "Register with SHRA, Yolo County Housing, Vallejo HA; recurring contracts"
+    },
+    {
+      "segment": "Commercial Properties",
+      "saturation": "High",
+      "opportunity_score": 6,
+      "annual_market_size_estimate": "$50M+ (Northern CA)",
+      "key_certifications_needed": ["Business License", "Insurance"],
+      "primary_competitors": ["Jan-Pro", "Jani-King", "ServiceMaster", "Local operators"],
+      "entry_strategy": "Price competition; target property management companies with multiple properties"
+    }
+  ],
+  "pricing_benchmarks": {
+    "office_janitorial_per_sqft_monthly": {
+      "low": 0.08,
+      "mid": 0.12,
+      "premium": 0.18,
+      "unit": "USD per sq ft per month"
+    },
+    "industrial_janitorial_per_sqft_monthly": {
+      "low": 0.05,
+      "mid": 0.08,
+      "premium": 0.12,
+      "unit": "USD per sq ft per month"
+    },
+    "government_facilities_per_sqft_monthly": {
+      "low": 0.10,
+      "mid": 0.15,
+      "premium": 0.22,
+      "unit": "USD per sq ft per month"
+    },
+    "floor_stripping_waxing_per_sqft": {
+      "low": 0.25,
+      "mid": 0.45,
+      "premium": 0.75,
+      "unit": "USD per sq ft per service"
+    },
+    "pressure_washing_per_sqft": {
+      "low": 0.10,
+      "mid": 0.20,
+      "premium": 0.35,
+      "unit": "USD per sq ft"
+    },
+    "debris_removal_per_cubic_yard": {
+      "low": 75,
+      "mid": 125,
+      "premium": 200,
+      "unit": "USD per cubic yard (disposal included)"
+    },
+    "graffiti_abatement_per_sqft": {
+      "low": 1.50,
+      "mid": 3.00,
+      "premium": 5.00,
+      "unit": "USD per sq ft"
+    },
+    "emergency_response_per_hour": {
+      "low": 65,
+      "mid": 85,
+      "premium": 125,
+      "unit": "USD per hour all-in"
+    }
+  },
+  "competitive_advantages_for_prime_pathwy": [
+    "Local presence in Solano County — faster response than national firms",
+    "Direct owner accountability — not a franchise or corporate account",
+    "SB/DVBE certification eligibility — protected market access",
+    "Compliance-first positioning — audit-ready documentation",
+    "NEPQ-based sales approach — higher close rate on commercial accounts",
+    "Sovereign Systems infrastructure — operational efficiency advantage"
+  ]
+}
