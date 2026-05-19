@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Prime Pathwy — Sovereign Hybrid · Design Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+/* ─── DESIGN TOKENS (Sovereign Hybrid) ─────────────────────────────────── */
+:root {
+  /* Brand */
+  --gold:        #C9A84C;
+  --gold-dim:    rgba(201,168,76,0.4);
+  --gold-faint:  rgba(201,168,76,0.13);
+  --gold-bloom:  rgba(201,168,76,0.05);
+
+  /* Backgrounds */
+  --bg-base:     #0A0A0A;
+  --bg-surface:  #0D0D0D;
+  --bg-elevated: #111111;
+
+  /* Text */
+  --text-primary:   #F0ECE0;
+  --text-secondary: rgba(240,236,224,0.65);
+  --text-muted:     rgba(240,236,224,0.35);
+
+  /* ── LINEAR TOKENS (live-fetched from linear.app/brand) ─────────────── */
+  /* Font family: Inter Variable — preloaded via Google Fonts in production  */
+  --font-display:     'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-serif:       Georgia, 'Times New Roman', serif;
+  --font-mono:        'SF Mono', ui-monospace, 'Cascadia Code', monospace;
+
+  /* Linear display scale — 800wt, tight tracking, compressed leading        */
+  --display-weight:   800;
+  --display-tracking: -0.04em;  /* Linear's premium tight-tracking token     */
+  --display-leading:  1.08;
+
+  /* Subheading — 700wt, still compressed                                    */
+  --sub-weight:    700;
+  --sub-tracking:  -0.02em;
+  --sub-leading:   1.2;
+
+  /* Body mono — unchanged from brand                                         */
+  --body-tracking: 0.01em;
+  --body-leading:  1.75;
+
+  /* Subtle border-radius (Linear: 4-6px for cards, 2px for chips)           */
+  --radius-card:   4px;
+  --radius-chip:   2px;
+}
+
+/* ─── RESET ─────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  line-height: var(--body-leading);
+}
+
+/* ─── PAGE CHROME ───────────────────────────────────────────────────────── */
+.preview-badge {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(10,10,10,0.92); backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 24px;
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+.badge-left { color: var(--gold); }
+.badge-right { color: var(--text-muted); }
+.approve-btn {
+  background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.4);
+  color: var(--gold); font-family: var(--font-mono); font-size: 9px;
+  letter-spacing: 0.2em; text-transform: uppercase; padding: 5px 14px;
+  cursor: pointer; border-radius: var(--radius-chip);
+  transition: background 0.2s;
+}
+.approve-btn:hover { background: rgba(201,168,76,0.22); }
+
+/* ─── SECTION: HERO ─────────────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  width: 100%; height: 100vh; min-height: 600px;
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: flex-end;
+  padding-bottom: 64px;
+}
+.hero-img-placeholder {
+  position: absolute; inset: 0;
+  background:
+    /* faint center bloom — studio-light effect, does NOT wash truck */
+    radial-gradient(ellipse 90% 60% at 50% 35%,
+      rgba(201,168,76,0.06) 0%,
+      rgba(201,168,76,0.02) 35%,
+      transparent 65%),
+    /* truck silhouette stand-in */
+    linear-gradient(160deg, #1a1810 0%, #0e0c06 40%, #0A0A0A 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.truck-label {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.3em;
+  color: rgba(255,255,255,0.1); text-transform: uppercase;
+  user-select: none;
+}
+/* Dual-layer overlay:
+   1. Radial — edges go dark so corners frame the truck
+   2. Linear from bottom — text legibility zone              */
+.hero-overlay {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 110% 80% at 50% 35%,
+      rgba(0,0,0,0.05) 0%,
+      rgba(0,0,0,0.55) 75%,
+      rgba(0,0,0,0.82) 100%),
+    linear-gradient(to top,
+      rgba(0,0,0,0.92) 0%,
+      rgba(0,0,0,0.50) 35%,
+      rgba(0,0,0,0.18) 60%,
+      transparent 80%);
+}
+.hero-content {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column;
+  align-items: center; text-align: center;
+  max-width: 780px; padding: 0 24px;
+}
+.hero-eyebrow {
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 0.38em; text-transform: uppercase;
+  color: rgba(201,168,76,0.65); margin-bottom: 20px;
+}
+/* LINEAR DISPLAY TYPOGRAPHY applied to brand serif voice */
+.hero-h1 {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 900;
+  font-size: clamp(32px, 5vw, 56px);
+  line-height: var(--display-leading);
+  letter-spacing: var(--display-tracking);   /* ← Linear -0.04em */
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+.hero-h1 .gold-word {
+  background: linear-gradient(135deg, #F5D98A 0%, #E2C06A 30%, #C9A84C 60%, #F5D98A 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.hero-sub {
+  font-family: var(--font-mono); font-size: 13px;
+  color: rgba(255,255,255,0.65); line-height: 1.85;
+  max-width: 480px; margin-bottom: 36px;
+}
+.hero-cta {
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold); border: 1px solid rgba(201,168,76,0.5);
+  padding: 12px 28px; text-decoration: none;
+  border-radius: var(--radius-chip);
+  transition: background 0.2s, color 0.2s;
+  display: inline-block;
+}
+.hero-cta:hover { background: var(--gold); color: #0A0A0A; }
+
+/* ─── SECTION WRAPPER ───────────────────────────────────────────────────── */
+.section {
+  padding: 96px 24px;
+  max-width: 1200px; margin: 0 auto;
+}
+.section-eyebrow {
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: rgba(201,168,76,0.45); margin-bottom: 16px;
+}
+/* LINEAR DISPLAY — section headings */
+.section-h2 {
+  font-family: var(--font-display);
+  font-weight: var(--display-weight);           /* 800 */
+  letter-spacing: var(--display-tracking);      /* -0.04em */
+  line-height: var(--display-leading);          /* 1.08 */
+  font-size: clamp(28px, 3.5vw, 44px);
+  color: var(--text-primary);
+  margin-bottom: 48px; max-width: 640px;
+}
+/* Serif italic variant for subheadings that keep brand voice */
+.section-h2-serif {
+  font-family: var(--font-serif);
+  font-style: italic; font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  font-size: clamp(26px, 3vw, 38px);
+  color: var(--text-primary);
+  margin-bottom: 48px; max-width: 640px;
+}
+
+/* ─── SYSTEM SECTION (Services — NEW POSITION: after Hero) ─────────────── */
+.system-bg { background: var(--bg-base); border-bottom: 1px solid #1a1a1a; }
+
+/* GLASS CARDS — Sovereign Hybrid treatment */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+.glass-card {
+  position: relative;
+  background: rgba(201,168,76,0.035);        /* gold-tinted glass base */
+  border: 1px solid rgba(201,168,76,0.18);
+  border-radius: var(--radius-card);
+  padding: 28px 24px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: background 0.25s, border-color 0.25s, transform 0.2s, box-shadow 0.25s;
+  overflow: hidden;
+}
+/* Subtle inner top highlight — gives depth without glare */
+.glass-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.25), transparent);
+}
+.glass-card:hover {
+  background: rgba(201,168,76,0.065);
+  border-color: rgba(201,168,76,0.52);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(201,168,76,0.08);
+}
+.card-label {
+  font-family: var(--font-mono); font-size: 9px; font-weight: 600;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 12px;
+}
+.card-body {
+  font-family: var(--font-mono); font-size: 12px;
+  color: rgba(255,255,255,0.6); line-height: 1.8;
+}
+
+/* ─── GALLERY SECTION (Before & After — NEW POSITION: after Services) ──── */
+.gallery-bg { background: var(--bg-surface); }
+.before-after-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+  margin-bottom: 12px; border-radius: var(--radius-card); overflow: hidden;
+}
+.ba-pane {
+  position: relative; aspect-ratio: 4/3;
+  display: flex; align-items: flex-start; justify-content: flex-start;
+  padding: 10px;
+}
+.ba-before { background: linear-gradient(135deg, #1a1612 0%, #0e0c0a 100%); }
+.ba-after  { background: linear-gradient(135deg, #0e1209 0%, #0a0a0a 100%); }
+.ba-chip {
+  font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.22em;
+  text-transform: uppercase; padding: 3px 8px;
+  background: rgba(10,10,10,0.8);
+  border-radius: var(--radius-chip);
+}
+.ba-chip.before { color: rgba(255,255,255,0.6); }
+.ba-chip.after  { color: var(--gold); }
+.ba-placeholder {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.1); text-transform: uppercase;
+}
+
+/* ─── HEADSHOT PLACEHOLDER ───────────────────────────────────────────────── */
+.headshot-section {
+  background: var(--bg-base);
+  border-top: 1px solid #1a1a1a;
+  padding: 96px 24px;
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center;
+}
+.headshot-ring {
+  width: 160px; height: 160px; border-radius: 50%;
+  border: 2px solid var(--gold);
+  box-shadow:
+    0 0 0 6px rgba(201,168,76,0.08),
+    0 0 32px rgba(201,168,76,0.18);
+  background: rgba(201,168,76,0.04);
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column;
+  gap: 6px; margin-bottom: 24px;
+  position: relative; overflow: hidden;
+}
+/* subtle inner glow at top */
+.headshot-ring::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 50%;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,0.08), transparent);
+}
+.headshot-icon {
+  font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: rgba(201,168,76,0.5);
+}
+.headshot-sub {
+  font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.12em;
+  color: rgba(201,168,76,0.3);
+}
+.headshot-name {
+  font-family: var(--font-display);
+  font-weight: var(--display-weight);
+  letter-spacing: var(--display-tracking);
+  font-size: 22px; color: var(--text-primary); margin-bottom: 6px;
+}
+.headshot-title {
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(201,168,76,0.55);
+}
+
+/* ─── ANNOTATION LAYER ───────────────────────────────────────────────────── */
+.annotation {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.15em;
+  color: rgba(201,168,76,0.5); text-transform: uppercase;
+  border: 1px dashed rgba(201,168,76,0.2);
+  border-radius: 2px; padding: 3px 8px; margin-bottom: 16px;
+}
+.annotation::before { content: '→'; }
+
+/* ─── SPEC SIDEBAR ───────────────────────────────────────────────────────── */
+.spec-panel {
+  background: rgba(10,10,10,0.96); border-left: 1px solid #1E1E1E;
+  padding: 32px 24px; max-width: 320px;
+  font-family: var(--font-mono); font-size: 11px;
+}
+.spec-title {
+  font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 20px;
+}
+.spec-row { display: flex; justify-content: space-between; margin-bottom: 10px; }
+.spec-key { color: rgba(255,255,255,0.3); }
+.spec-val { color: rgba(255,255,255,0.75); text-align: right; }
+.spec-divider {
+  border: none; border-top: 1px solid #1E1E1E;
+  margin: 14px 0;
+}
+
+/* ─── PAGE LAYOUT ────────────────────────────────────────────────────────── */
+.page-body { display: flex; }
+.main-col { flex: 1; min-width: 0; }
+.sidebar-col { width: 280px; flex-shrink: 0; }
+
+@media (max-width: 900px) {
+  .before-after-row { grid-template-columns: 1fr; }
+  .sidebar-col { display: none; }
+}
+
+/* ─── DIVIDER ────────────────────────────────────────────────────────────── */
+.section-divider {
+  border: none; border-top: 1px solid #141414;
+  margin: 0 24px;
+}
+</style>
+</head>
+<body>
+
+<!-- ── Top badge ─────────────────────────────────────────────────────────── -->
+<div class="preview-badge">
+  <span class="badge-left">Sovereign Hybrid · Design Preview · layout-refresh branch</span>
+  <span class="badge-right">Approach C · Inter Variable + Matte Black + Gold</span>
+  <button class="approve-btn" onclick="approve()">Approve Design →</button>
+</div>
+
+<div class="page-body">
+<div class="main-col">
+
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+<!-- SECTION 1: HERO                                                        -->
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-img-placeholder">
+    <span class="truck-label">[ truck.png — full-bleed ]</span>
+  </div>
+  <!-- Dual-layer overlay: radial corners + linear text zone -->
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">Prime Pathwy Property Turnover</p>
+
+    <!-- Serif italic + Linear -0.04em tracking hybrid -->
+    <h1 class="hero-h1">
+      Your Last Turnover Vendor Left
+      <span class="gold-word">No Record.</span>
+      <span style="display:block;">We Leave <span class="gold-word">No Doubt.</span></span>
+    </h1>
+
+    <p class="hero-sub">
+      Every order is timestamped, photographed, verified, and archived.<br>
+      This is not a cleaning service. This is a system.
+    </p>
+
+    <a href="#system" class="hero-cta">[ Place Your Order → ]</a>
+  </div>
+</section>
+
+<hr class="section-divider" />
+
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+<!-- SECTION 2: SYSTEM / SERVICES (moved before Gallery — Hook first)      -->
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+<div class="system-bg" id="system">
+  <div class="section">
+    <div class="annotation">Reordered — Hook before Proof</div>
+    <p class="section-eyebrow">Section 01 — The System</p>
+
+    <!-- LINEAR DISPLAY HEADING — Inter 800, -0.04em -->
+    <h2 class="section-h2">
+      What You're Hiring Is a System,<br>Not a Crew
+    </h2>
+
+    <div class="cards-grid">
+      <!-- Card 1 -->
+      <div class="glass-card">
+        <p class="card-label">Scope Locked Before Work Begins</p>
+        <p class="card-body">No verbal approvals. Scope is defined by the order record and cannot change without a written change order.</p>
+      </div>
+      <!-- Card 2 -->
+      <div class="glass-card">
+        <p class="card-label">Every Job Documented</p>
+        <p class="card-body">Before, during, and after photos. Receipts. Timestamps. Archived 18–24 months minimum.</p>
+      </div>
+      <!-- Card 3 -->
+      <div class="glass-card">
+        <p class="card-label">Chargeback-Defensible by Design</p>
+        <p class="card-body">Order record, agreement acceptance log, photo set, and payment receipt — all on file before work begins.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- py-32 breathing room between Services and Gallery -->
+<div style="height: 64px; background: linear-gradient(to bottom, var(--bg-base), var(--bg-surface));"></div>
+
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+<!-- SECTION 3: GALLERY / BEFORE & AFTER (moved after Services — Proof)    -->
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+<div class="gallery-bg" id="gallery">
+  <div class="section">
+    <div class="annotation">Reordered — Proof after Hook</div>
+    <p class="section-eyebrow">Documented Results</p>
+
+    <!-- Serif italic for Gallery — brand voice variant -->
+    <h2 class="section-h2-serif">
+      Before &amp; After. Every Job. On Record.
+    </h2>
+
+    <!-- Living Room -->
+    <div style="margin-bottom: 40px;">
+      <p style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Living Room</p>
+      <div class="before-after-row">
+        <div class="ba-pane ba-before">
+          <span class="ba-chip before">Before</span>
+          <div class="ba-placeholder">[ living_before.png ]</div>
+        </div>
+        <div class="ba-pane ba-after">
+          <span class="ba-chip after">After</span>
+          <div class="ba-placeholder">[ living_after.png ]</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bathroom -->
+    <div>
+      <p style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Bathroom</p>
+      <div style="background:linear-gradient(135deg,#1a1612,#0e0c0a);aspect-ratio:16/7;border-radius:var(--radius-card);display:flex;align-items:flex-start;padding:10px;position:relative;">
+        <span class="ba-chip before">Before / After</span>
+        <div class="ba-placeholder" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">[ bathroom.png — composite ]</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+<!-- SECTION 4: HEADSHOT PLACEHOLDER (bottom of landing page)              -->
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+<div class="headshot-section">
+  <div class="annotation">New — Headshot Placeholder</div>
+
+  <div class="headshot-ring">
+    <span class="headshot-icon">Photo</span>
+    <span class="headshot-sub">Swap in later</span>
+  </div>
+
+  <p class="headshot-name">Arthur F. Appling Sr.</p>
+  <p class="headshot-title">Architect · AA Capital INC dba Prime Pathwy</p>
+</div>
+
+</div><!-- /main-col -->
+
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+<!-- SPEC SIDEBAR                                                            -->
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+<div class="sidebar-col">
+  <div class="spec-panel" style="position:sticky;top:41px;height:calc(100vh - 41px);overflow-y:auto;">
+
+    <p class="spec-title">Token Reference</p>
+
+    <p class="spec-title" style="color:rgba(255,255,255,0.4);font-size:8px;margin-bottom:10px;">Linear Typography</p>
+    <div class="spec-row"><span class="spec-key">font-family</span><span class="spec-val">Inter Variable</span></div>
+    <div class="spec-row"><span class="spec-key">display weight</span><span class="spec-val">800</span></div>
+    <div class="spec-row"><span class="spec-key">tracking (display)</span><span class="spec-val">−0.04em</span></div>
+    <div class="spec-row"><span class="spec-key">leading (display)</span><span class="spec-val">1.08</span></div>
+    <div class="spec-row"><span class="spec-key">sub-heading wt</span><span class="spec-val">700</span></div>
+    <div class="spec-row"><span class="spec-key">sub tracking</span><span class="spec-val">−0.02em</span></div>
+    <hr class="spec-divider" />
+
+    <p class="spec-title" style="color:rgba(255,255,255,0.4);font-size:8px;margin-bottom:10px;">Hero Overlay</p>
+    <div class="spec-row"><span class="spec-key">layer 1</span><span class="spec-val">radial corners</span></div>
+    <div class="spec-row"><span class="spec-key">bloom opacity</span><span class="spec-val">0.06 → 0</span></div>
+    <div class="spec-row"><span class="spec-key">layer 2</span><span class="spec-val">linear bottom</span></div>
+    <div class="spec-row"><span class="spec-key">text zone</span><span class="spec-val">0.92 → 0</span></div>
+    <hr class="spec-divider" />
+
+    <p class="spec-title" style="color:rgba(255,255,255,0.4);font-size:8px;margin-bottom:10px;">Glass Cards</p>
+    <div class="spec-row"><span class="spec-key">bg base</span><span class="spec-val">gold 3.5%</span></div>
+    <div class="spec-row"><span class="spec-key">border</span><span class="spec-val">gold 18%</span></div>
+    <div class="spec-row"><span class="spec-key">blur</span><span class="spec-val">12px</span></div>
+    <div class="spec-row"><span class="spec-key">hover bg</span><span class="spec-val">gold 6.5%</span></div>
+    <div class="spec-row"><span class="spec-key">hover border</span><span class="spec-val">gold 52%</span></div>
+    <div class="spec-row"><span class="spec-key">hover lift</span><span class="spec-val">translateY(−2px)</span></div>
+    <hr class="spec-divider" />
+
+    <p class="spec-title" style="color:rgba(255,255,255,0.4);font-size:8px;margin-bottom:10px;">Headshot Ring</p>
+    <div class="spec-row"><span class="spec-key">size</span><span class="spec-val">160px × 160px</span></div>
+    <div class="spec-row"><span class="spec-key">border</span><span class="spec-val">2px #C9A84C</span></div>
+    <div class="spec-row"><span class="spec-key">ring glow</span><span class="spec-val">0 0 0 6px gold/8%</span></div>
+    <div class="spec-row"><span class="spec-key">outer glow</span><span class="spec-val">0 0 32px gold/18%</span></div>
+    <hr class="spec-divider" />
+
+    <p class="spec-title" style="color:rgba(255,255,255,0.4);font-size:8px;margin-bottom:10px;">Section Rhythm</p>
+    <div class="spec-row"><span class="spec-key">Hero → Services</span><span class="spec-val">py-24</span></div>
+    <div class="spec-row"><span class="spec-key">Services → Gallery</span><span class="spec-val">py-32 ↑</span></div>
+    <div class="spec-row"><span class="spec-key">card gap</span><span class="spec-val">16px</span></div>
+    <div class="spec-row"><span class="spec-key">card radius</span><span class="spec-val">4px</span></div>
+    <hr class="spec-divider" />
+
+    <p class="spec-title" style="color:rgba(255,255,255,0.4);font-size:8px;margin-bottom:10px;">Brand</p>
+    <div class="spec-row"><span class="spec-key">--gold</span><span class="spec-val" style="color:#C9A84C;">#C9A84C</span></div>
+    <div class="spec-row"><span class="spec-key">--bg-base</span><span class="spec-val">#0A0A0A</span></div>
+    <div class="spec-row"><span class="spec-key">--text-primary</span><span class="spec-val">#F0ECE0</span></div>
+    <div class="spec-row"><span class="spec-key">border-radius</span><span class="spec-val">4px cards</span></div>
+  </div>
+</div><!-- /sidebar -->
+
+</div><!-- /page-body -->
+
+<script>
+function approve() {
+  if (window.__recordChoice) {
+    window.__recordChoice('approved', 'Sovereign Hybrid design approved');
+  }
+  document.querySelector('.approve-btn').textContent = '✓ Approved';
+  document.querySelector('.approve-btn').style.background = 'rgba(201,168,76,0.3)';
+}
+</script>
+</body>
+</html>

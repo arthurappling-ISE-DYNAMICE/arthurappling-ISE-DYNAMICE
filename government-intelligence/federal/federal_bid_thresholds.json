@@ -1,0 +1,115 @@
+{
+  "source": "Federal Acquisition Regulation (FAR)",
+  "last_updated": "2026-05-18",
+  "entity": "AA Capital INC dba Prime Pathwy",
+  "bid_thresholds": [
+    {
+      "tier": "Micro-Purchase",
+      "range_low": 0,
+      "range_high": 10000,
+      "competition_required": false,
+      "small_business_rule": "No set-aside requirement",
+      "notes": "Single-source purchase; no solicitation required"
+    },
+    {
+      "tier": "Simplified Acquisition",
+      "range_low": 10001,
+      "range_high": 250000,
+      "competition_required": true,
+      "small_business_rule": "Mandatory small business set-aside if two or more SBs can perform",
+      "notes": "SAP procedures apply; reduced documentation"
+    },
+    {
+      "tier": "Standard Competitive",
+      "range_low": 250001,
+      "range_high": 750000,
+      "competition_required": true,
+      "small_business_rule": "Set-aside or full and open competition",
+      "notes": "Full FAR Part 15 procedures"
+    },
+    {
+      "tier": "Large Contract",
+      "range_low": 750001,
+      "range_high": null,
+      "competition_required": true,
+      "small_business_rule": "Subcontracting plan required for large business primes",
+      "notes": "Full and open competition; subcontracting goals apply"
+    }
+  ],
+  "naics_codes": [
+    {
+      "code": "561720",
+      "description": "Janitorial Services",
+      "sba_size_standard_revenue": "$22M",
+      "primary_use": "Cleaning, custodial, sanitation services"
+    },
+    {
+      "code": "561210",
+      "description": "Facilities Support Services",
+      "sba_size_standard_revenue": "$47M",
+      "primary_use": "Integrated facilities management"
+    },
+    {
+      "code": "562910",
+      "description": "Remediation Services",
+      "sba_size_standard_revenue": "$22M",
+      "primary_use": "Environmental cleanup, debris removal"
+    },
+    {
+      "code": "561730",
+      "description": "Landscaping Services",
+      "sba_size_standard_revenue": "$9M",
+      "primary_use": "Grounds maintenance, lawn care"
+    },
+    {
+      "code": "561790",
+      "description": "Other Services to Buildings and Dwellings",
+      "sba_size_standard_revenue": "$22M",
+      "primary_use": "Pressure washing, window cleaning, pest control"
+    },
+    {
+      "code": "562112",
+      "description": "Hazardous Waste Collection",
+      "sba_size_standard_revenue": "$47M",
+      "primary_use": "Hazardous material removal and transport"
+    },
+    {
+      "code": "238990",
+      "description": "All Other Specialty Trade Contractors",
+      "sba_size_standard_employees": "500",
+      "primary_use": "General cleanup, debris hauling, public works support"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Small Business (SB)",
+      "governing_body": "SBA",
+      "advantage": "Priority in set-aside awards",
+      "naics_561720_threshold": "$22M annual revenue"
+    },
+    {
+      "name": "8(a) Business Development",
+      "governing_body": "SBA",
+      "advantage": "Sole-source up to $4.5M (services)",
+      "eligibility": "Socially/economically disadvantaged; <9 years in program"
+    },
+    {
+      "name": "HUBZone",
+      "governing_body": "SBA",
+      "advantage": "10% price evaluation preference; set-aside eligibility",
+      "eligibility": "Principal office in HUBZone; 35% employees in HUBZone"
+    },
+    {
+      "name": "WOSB",
+      "governing_body": "SBA",
+      "advantage": "Women-owned set-aside contracts",
+      "eligibility": "51% women-owned and controlled"
+    },
+    {
+      "name": "SDVOSB",
+      "governing_body": "VA/SBA",
+      "advantage": "Service-disabled veteran set-aside contracts",
+      "eligibility": "51% owned by service-disabled veteran"
+    }
+  ]
+}

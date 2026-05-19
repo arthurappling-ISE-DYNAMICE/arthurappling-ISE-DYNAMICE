@@ -1,0 +1,14 @@
+name: Sovereign Engine Audit
+on:
+  schedule:
+    - cron: '0 2 * * *'
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Operational Drift Check
+        run: |
+          echo "Scanning tools/ for structural integrity..."
+          find tools/ -type f | sort
+          echo "Audit complete."

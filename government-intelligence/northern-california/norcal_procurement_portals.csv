@@ -1,0 +1,30 @@
+agency_name,agency_type,county,portal_url,platform,registration_required,notes
+Solano County GSA,County,Solano,https://www.solanocounty.com/depts/gsa/purchasing/default.asp,Direct,Yes,Primary target county
+Sacramento County,County,Sacramento,https://www.saccounty.gov/procurement,PlanetBids,Yes,Active janitorial contracts 2026
+Yolo County,County,Yolo,https://www.yolocounty.org/general-government/general-services/purchasing,Direct,Yes,Yolo County seat Woodland
+Contra Costa County,County,Contra Costa,https://www.contracosta.ca.gov/4237/Purchasing,eBidding,Yes,Large county portfolio
+Alameda County,County,Alameda,https://gsa.acgov.org/purchasing,eBidding,Yes,Large county; active contracts
+Napa County,County,Napa,https://www.countyofnapa.org/1437/Purchasing,Direct,Yes,Email notifications
+San Joaquin County,County,San Joaquin,https://www.sjgov.org/department/gsa/purchasing,Direct,Yes,Central Valley
+City of Sacramento,City,Sacramento,https://www.cityofsacramento.org/Finance/Purchasing,PlanetBids,Yes,Large city active bids
+City of Vallejo,City,Solano,https://www.cityofvallejo.net/city_hall/departments___divisions/finance/purchasing,Direct,Yes,Solano County seat
+City of Fairfield,City,Solano,https://www.fairfield.ca.gov/gov/depts/finance/purchasing,Direct,Yes,Active facilities
+City of Vacaville,City,Solano,https://www.cityofvacaville.com/government/departments/finance/purchasing,Direct,Yes,Growing city
+City of Davis,City,Yolo,https://www.cityofdavis.org/city-hall/finance/purchasing,Direct,Yes,UC Davis adjacent
+City of Woodland,City,Yolo,https://www.cityofwoodland.org/government/departments/administrative-services/purchasing,Direct,Yes,Yolo County seat
+City of Stockton,City,San Joaquin,https://www.stocktonca.gov/government/departments/finance/purchasing.html,PlanetBids,Yes,Large city
+City of Oakland,City,Alameda,https://www.oaklandca.gov/topics/purchasing,PlanetBids,Yes,Major city large contracts
+BART,Transit,Multi-County,https://www.bart.gov/about/business/procurement,BART Portal,Yes,Major transit janitorial
+AC Transit,Transit,Alameda,https://www.actransit.org/doing-business,AC Transit Portal,Yes,East Bay bus facilities
+SolTrans,Transit,Solano,https://www.soltrans.org/resources/working-with-soltrans,Direct,Yes,Solano County transit
+Sacramento RT,Transit,Sacramento,https://www.sacrt.com/apps/doing-business,Direct,Yes,Light rail + bus
+Sacramento City USD,School District,Sacramento,https://www.scusd.edu/departments/business-and-operations/purchasing-services,PlanetBids,Yes,Large district active bids
+Elk Grove USD,School District,Sacramento,https://www.egusd.net/departments/purchasing,PlanetBids,Yes,Largest Sacramento district
+Fairfield-Suisun USD,School District,Solano,https://www.fsusd.org/departments/business-services,Direct,Yes,Solano County
+Vallejo City USD,School District,Solano,https://www.vcusd.org/departments/business-services,Direct,Yes,Solano County
+SHRA,Housing Authority,Sacramento,https://www.shra.org/doing-business,Direct,Yes,Active janitorial + maintenance
+Yolo County Housing,Housing Authority,Yolo,https://www.ych.ca.gov,Direct,Yes,Unit-turn cleaning contracts
+Oakland Housing Authority,Housing Authority,Alameda,https://www.oakha.org/business-opportunities,Direct,Yes,Large portfolio
+SMUD,Utility,Sacramento,https://www.smud.org/en/Business-Solutions-and-Rebates/Procurement,Direct,Yes,Active vendor program
+PG&E,Utility,Multi-County,https://www.pge.com/en_US/for-our-business-partners/purchasing-program,Direct,Yes,Facility maintenance
+East Bay MUD,Utility,Alameda,https://www.ebmud.com/about-us/business-opportunities,Direct,Yes,Facilities maintenance
