@@ -1,0 +1,19 @@
+Program_Name,Administrator,URL,Amount_Range,Eligibility,Application_Status,Renewal_Cycle,Geographic_Limit,Strategic_Fit_Score,Notes
+CalOSBA Direct-to-Business Grants,CalOSBA,calosba.ca.gov,$5K–$25K,CA small businesses,Monitor — no active programs 2026,Irregular,California,9/10,Subscribe to newsletter immediately
+California Grants Portal,grants.ca.gov,grants.ca.gov,Varies,All CA entities,Ongoing — check regularly,Varies,California,8/10,Aggregates all state grant programs
+USDA Rural Development Business Programs,USDA,rd.usda.gov,Varies,Rural CA businesses,Ongoing,Annual,Rural California,6/10,Check if business address qualifies as rural
+SBIR Phase I,SBA/NSF/DOD,sbir.gov,$50K–$275K,Tech/innovation businesses,Ongoing,Biannual,National,4/10,Requires R&D component
+State Trade Expansion Program (STEP),CalOSBA,export.business.ca.gov,Up to $10K/year,CA businesses that export,Ongoing,Annual,California,3/10,Low fit unless exporting services
+GoGreen Business Energy Financing,CPUC,gogreenfinancing.com,Varies,CA small/medium businesses,Ongoing,Rolling,California,7/10,Apply when purchasing energy equipment
+Zero-Emission Truck Loan Pilot,CARB,arb.ca.gov,Varies,CA small trucking businesses,Ongoing,Rolling,California,9/10,Critical for fleet compliance
+Work Opportunity Tax Credit (WOTC),IRS/DOL,dol.gov/agencies/eta/wotc,$2400–$9600 per hire,All businesses hiring qualifying workers,Ongoing,Per hire,National,10/10,Apply for every new hire — free money
+California Dream Fund (Closed),CalOSBA,calosba.ca.gov,Up to $10K,Underserved entrepreneurs,CLOSED — monitor for reopening,Irregular,California,8/10,May reopen — monitor
+CA Small Business COVID-19 Relief Grant (Closed),CalOSBA,calosba.ca.gov,$5K–$25K,CA small businesses,CLOSED,N/A,California,N/A,Historical reference — $3.79B deployed
+Brownfields Revolving Loan Fund,DTSC,dtsc.ca.gov,$200K–$900K,Property owners/businesses,Ongoing,Rolling,California,5/10,Relevant if acquiring contaminated property
+California Capital Access Program (CalCAP),CPCFA,treasurer.ca.gov/cpcfa,Varies,CA small businesses,Ongoing,Rolling,California,8/10,Credit enhancement — reduces lender risk
+IBank Jump Start Microloan,IBank,ibank.ca.gov,$500–$10K,Low-wealth/underserved communities,Ongoing,Rolling,California,7/10,Fast access; low amount
+IBank Small Business Loan Guarantee,IBank,ibank.ca.gov,Up to $5M,1–750 employees; CA-based,Ongoing,Rolling,California,10/10,Primary capital vehicle — apply via caloanmatch.org
+SBA 7(a) Loan,SBA,sba.gov/7a,Up to $5M,Operating small businesses,Ongoing,Rolling,National,10/10,Primary working capital vehicle
+SBA 504 Loan,SBA,sba.gov/504,Up to $5.5M,Operating small businesses,Ongoing,Rolling,National,10/10,Primary equipment/fleet vehicle
+SBA Microloan,SBA,sba.gov/microloans,Up to $50K,Operating small businesses,Ongoing,Rolling,National,8/10,Fast access for early-stage capital needs
+Working Solutions CDFI,Working Solutions,workingsolutions.org,$5K–$100K,CA businesses; no min credit/revenue,Ongoing,Rolling,California,10/10,Best first loan for early-stage — no collateral required
