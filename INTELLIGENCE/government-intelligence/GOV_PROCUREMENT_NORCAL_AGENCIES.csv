@@ -1,0 +1,19 @@
+Agency,Type,Location,Phone,Email,Portal_URL,Vendor_Registration,Key_Contract_Types,Rebid_Frequency,Competition_Level,Strategic_Priority
+Solano County Purchasing Services,County,Fairfield CA 94533,(707) 784-6320,purchasing@solanocounty.gov,procurement.opengov.com/portal/solanocounty,Required — OpenGov Portal,"Janitorial, hauling, facilities, transportation",Annual/Biennial,Low-Medium,P1
+Sonoma County Supplier Portal,County,Santa Rosa CA 95403,N/A,N/A,esupplier.sonomacounty.ca.gov,Self-managed Supplier Portal,"Janitorial, grounds, hauling, painting, facilities",1–3 year terms,Medium,P1
+Napa County Purchasing,County,Napa CA 94559,N/A,N/A,napacounty.gov,Contact Purchasing Division,"Transportation, maintenance, janitorial, hauling",Annual,Low,P1
+City of Vallejo Finance/Purchasing,Municipal,Vallejo CA 94590,N/A,N/A,cityofvallejo.net,Contact Finance Department,"Janitorial, hauling, debris removal, painting",Annual,Low-Medium,P2
+City of American Canyon,Municipal,American Canyon CA 94503,N/A,N/A,cityofamericancanyon.org,Contact City Hall,"Hauling, maintenance, transportation",Annual,Very Low,P1
+Solano Community College District,Education,Fairfield CA 94534,N/A,purchasing@solano.edu,solano.edu/administrative-offices/business-services/bid-opportunities.php,Vendor Application + W-9 via email,"Janitorial, maintenance, transportation",Annual,Low,P2
+Napa Unified School District,Education,Napa CA 94558,N/A,N/A,nusd.org,Contact Purchasing,"Janitorial, transportation, maintenance",Annual,Low,P2
+Vallejo City Unified School District,Education,Vallejo CA 94590,N/A,N/A,vcusd.org,Contact Purchasing,"Janitorial, transportation",Annual,Low,P2
+Department of Veterans Affairs (Federal),Federal,San Francisco CA 94121,N/A,N/A,sam.gov,SAM.gov registration required,"Janitorial, facility support, medical cleaning",5-year base+options,Medium-High,P1
+General Services Administration (Federal),Federal,San Francisco CA 94102,N/A,N/A,sam.gov,SAM.gov registration required,"Janitorial, painting, facility support, hauling",5-year base+options,Medium-High,P1
+U.S. Army Corps of Engineers (Federal),Federal,Sacramento CA 95814,N/A,N/A,sam.gov,SAM.gov registration required,"Painting, facility support, hauling",5-year base+options,Medium,P2
+USPS Western Region (Federal),Federal,San Francisco CA 94105,N/A,N/A,sam.gov,SAM.gov registration required,"Janitorial, hauling, transportation",Annual/Multi-year,Medium,P2
+Napa County Housing Authority,Housing Authority,Napa CA 94559,N/A,N/A,napacounty.gov/housing,Contact Housing Authority,"Painting, maintenance, hauling",Annual,Very Low,P1
+Solano County Housing Authority,Housing Authority,Fairfield CA 94533,N/A,N/A,solanocounty.gov,Contact Housing Authority,"Painting, maintenance, janitorial",Annual,Very Low,P1
+Queen of the Valley Medical Center,Private/Hospital,Napa CA 94558,N/A,N/A,N/A,Contact Facilities Management,"Janitorial, facility support, hauling",Annual,Low,P3
+NorthBay Medical Center,Private/Hospital,Fairfield CA 94533,N/A,N/A,N/A,Contact Facilities Management,"Janitorial, facility support",Annual,Low,P3
+Cal OES Emergency Vendor Registry,State Emergency,Sacramento CA 95814,N/A,N/A,caloes.ca.gov,Pre-registration required,"Debris hauling, emergency transport, cleanup",As-needed (disaster),Very Low,P1
+FEMA Region 9 Pre-Qualification,Federal Emergency,Oakland CA 94612,N/A,N/A,fema.gov,SAM.gov + FEMA registration,"Debris hauling, emergency transport, cleanup",As-needed (disaster),Very Low,P1

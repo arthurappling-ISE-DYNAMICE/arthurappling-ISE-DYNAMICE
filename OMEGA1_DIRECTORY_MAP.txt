@@ -1,0 +1,42 @@
+[01;34mINTELLIGENCE[0m
+├── [00mOMEGA1_GAP_ANALYSIS.md[0m
+├── [01;34mcommercial-intelligence[0m
+├── [01;34mcompetitive-intelligence[0m
+├── [01;34mcompliance-intelligence[0m
+│   └── [00mCOMP_OPERATIONS_MASTER.md[0m
+├── [01;34mfinance-intelligence[0m
+│   ├── [00mFIN_CAPITAL_MASTER.md[0m
+│   └── [00mFIN_GRANT_DATABASE.csv[0m
+├── [01;34mgovernment-intelligence[0m
+│   ├── [00mGOV_AGENCY_BEHAVIOR_PROFILES.md[0m
+│   ├── [00mGOV_PROCUREMENT_MASTER.md[0m
+│   ├── [00mGOV_PROCUREMENT_NORCAL_AGENCIES.csv[0m
+│   ├── [00mGOV_SAM_NAICS_MAP.md[0m
+│   └── [00mGOV_SET_ASIDE_OPPORTUNITY_MAP.md[0m
+├── [01;34mreal-estate-intelligence[0m
+└── [01;34msports-intelligence[0m
+    ├── [00mNFL_ANALYTICS_MASTER.md[0m
+    └── [00mNFL_TEAM_EFFICIENCY_DATABASE.csv[0m
+[01;34mAUTOMATION[0m
+├── [01;34magents[0m
+├── [01;34morchestrators[0m
+├── [01;34mscripts[0m
+└── [01;34mworkflows[0m
+    └── [00mAI_WORKFLOW_MASTER.md[0m
+[01;34mCORE_SYSTEMS[0m
+├── [01;34manalytics[0m
+├── [01;34mapps[0m
+└── [01;34mdashboards[0m
+[01;34mARCHIVE[0m
+├── [01;34mhistorical[0m
+├── [01;34mlegacy[0m
+└── [01;34msnapshots[0m
+[01;34mworkflows[0m
+├── [00mOutreach_Blueprint_Part1.md[0m
+├── [00mOutreach_Blueprint_Part2.md[0m
+└── [00mSovereign_System_Outreach_Blueprint.md[0m
+[01;34magents[0m
+[01;34mtools[0m
+[01;34mtemporary[0m
+
+0 directories, 0 files
