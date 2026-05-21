@@ -1,0 +1,14 @@
+{
+  "name": "Test Architect",
+  "email": "arthurappling@gmail.com",
+  "phone": "707-000-0000",
+  "subject": "MOCK TEST — Vault Lead Logger",
+  "body": "Property: 2BR Apartment | Rooms: 4 | Add-ons: Haul-Out | Total: $850",
+  "propertyType": "apartment",
+  "rooms": 4,
+  "addons": [
+    "haul-out"
+  ],
+  "totalEstimate": 850,
+  "logged_at": "2026-04-17T23:24:09.196Z"
+}

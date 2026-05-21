@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Pathwy Sovereign OS</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo-container">
+            <h1 class="logo-text">PRIME PATHWY</h1>
+            <p class="subtitle">SOVEREIGN OS</p>
+        </div>
+        <nav>
+            <ul>
+                <li class="active"><a href="#" data-target="dashboard">Dashboard</a></li>
+                <li><a href="#" data-target="receipt-intake">Receipt Intake</a></li>
+                <li><a href="#" data-target="work-site">Work-Site Docs</a></li>
+                <li><a href="#" data-target="evidence">Evidence Packages</a></li>
+                <li><a href="#" data-target="audit">Audit Archive</a></li>
+                <li><a href="#" data-target="settings">System Status</a></li>
+            </ul>
+        </nav>
+        <div class="system-status">
+            <div class="status-indicator" id="health-indicator"></div>
+            <span id="health-text">Checking Integrity...</span>
+        </div>
+    </div>
+
+    <main class="content">
+        <header>
+            <h2>Operational Dashboard</h2>
+            <div class="search-bar">
+                <input type="text" placeholder="Global Search (Vendor, ID, Hash)...">
+            </div>
+        </header>
+
+        <section id="dashboard" class="view active-view">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Pending OCR</h3>
+                    <p class="stat-value">12</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Active Work Orders</h3>
+                    <p class="stat-value">4</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Evidence Packages</h3>
+                    <p class="stat-value">28</p>
+                </div>
+                <div class="stat-card">
+                    <h3>System Integrity</h3>
+                    <p class="stat-value text-gold">100%</p>
+                </div>
+            </div>
+
+            <div class="recent-activity">
+                <h3>Recent Audit Logs</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Timestamp</th>
+                            <th>Event</th>
+                            <th>Entity</th>
+                            <th>Checksum Hash</th>
+                        </tr>
+                    </thead>
+                    <tbody id="audit-logs-body">
+                        <!-- Populated via JS -->
+                        <tr>
+                            <td>2026-05-13 09:42:11</td>
+                            <td>Upload</td>
+                            <td>Receipt #1042</td>
+                            <td class="hash-cell">a8f5f167f44f4964e6c998dee827110c</td>
+                        </tr>
+                        <tr>
+                            <td>2026-05-13 08:15:00</td>
+                            <td>Export</td>
+                            <td>WorkOrder #88 PDF</td>
+                            <td class="hash-cell">c4ca4238a0b923820dcc509a6f75849b</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="receipt-intake" class="view hidden-view">
+            <h2>Receipt Intake</h2>
+            <div class="upload-zone" id="drop-zone">
+                <div class="upload-icon">📄</div>
+                <p>Drag & Drop receipts here or click to browse</p>
+                <input type="file" id="file-input" hidden multiple accept="image/*,.pdf">
+                <button class="btn-primary" onclick="document.getElementById('file-input').click()">Select Files</button>
+            </div>
+            <div id="upload-status" class="mt-20"></div>
+        </section>
+        
+        <!-- Other sections would go here -->
+    </main>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

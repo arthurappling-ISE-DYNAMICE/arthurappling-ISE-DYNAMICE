@@ -36,34 +36,5 @@ GOOGLE_API_KEY=your_key_here
 ## Dependencies
 
 - `@google/genai` — Google Gemini JS SDK
-- `dotenv` — Loads `.env` into `process.env`
-
----
-
-## MYTHOS_WRAPPER — Sovereign Reasoning Engine
-
-**ACTIVE ACROSS ALL SESSIONS.** Every output produced in this ecosystem is governed by MYTHOS_ENGINE v1.0.
-
-```
-GOVERNING FILE: prompts/MYTHOS_ENGINE.md
-VAULT COPY:     vault/prime_pathwy_master/assets/MYTHOS_ENGINE.md
-
-EXECUTION SEQUENCE (mandatory before any deliverable is released):
-  Phase B → Phase A → Phase C → Output Released
-
-PHASE B — Atomic Decomposition
-  Every task broken to: Material Unit · Labor Unit · Equipment Unit · Documentation Unit
-  No scope item estimated at aggregate level.
-
-PHASE A — 7.42x DSCR Gate
-  Output Value / Input Cost ≥ 7.42x required.
-  Below threshold: restructure before release.
-
-PHASE C — Stealth Compliance
-  Zero AI attribution in any deliverable.
-  Authorship: Arthur F. Appling Sr. — AA Capital INC / Prime Pathwy.
-  Banned phrases enforced. Stealth audit checklist cleared.
-```
-
-**Architect:** Arthur F. Appling Sr. | EIN: 84-4788578 | AA Capital INC dba Prime Pathwy | Vallejo, CA 94590
-
+- `dotenv` — Loads `.env` into `process.env
+git remote -v`

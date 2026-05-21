@@ -1,0 +1,11 @@
+portal_name,url,type,registration_required,cost,naics_relevant,notes
+SAM.gov,https://sam.gov,Federal Primary,Yes,Free,"561720,561210,562910",Mandatory for all federal contractors; UEI required
+GSA Advantage,https://www.gsaadvantage.gov,Federal Schedule,Yes,Free,561720,GSA MAS Schedule for direct agency orders
+USASpending.gov,https://www.usaspending.gov,Research/Intelligence,No,Free,All,Awarded contract data; incumbent research
+SAM.gov Opportunities,https://sam.gov/opportunities,Bid Search,No (search),Free,All,Live federal solicitations
+GovWin IQ,https://govwin.com,Intelligence Platform,Yes,Paid,All,Pipeline + incumbent + award history
+HigherGov,https://www.highergov.com,Intelligence Platform,No,Freemium,All,Contract award history + competitor data
+BidSync,https://www.bidsync.com,Bid Aggregator,Yes,Paid,All,Federal + state + local bids
+BidNet Direct,https://www.bidnetdirect.com,Bid Aggregator,Yes,Paid,All,Government bid notifications
+FPDS-NG,https://www.fpds.gov,Federal Data,No,Free,All,Federal Procurement Data System — award history
+beta.SAM.gov,https://sam.gov,Federal Primary,Yes,Free,All,Current active platform replacing legacy SAM

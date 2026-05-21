@@ -1,0 +1,79 @@
+{
+  "manifest_version": "1.0",
+  "architect": "Arthur Fitzgerald Appling Sr.",
+  "entity": "AA Capital INC dba Prime Pathwy",
+  "EIN": "84-4788578",
+  "DUNS": "12-3035654",
+  "generated": "2026-04-15",
+  "vault_root": "GeminiEcosystem/vault",
+  "sections": {
+    "legal_shield": {
+      "rehabilitation": {
+        "file_count": 42,
+        "key_files": [
+          "Arthur_Appling_COR packet 09-28-2025_14-43-57-182.pdf",
+          "cert-rehab-form-2-1.pdf",
+          "BCIA-8016RR.pdf",
+          "Case DAI25-0474 (1).pdf"
+        ],
+        "milestone": "JUNE_8_DECISION.md",
+        "status": "APPLICATION TO GOVERNOR PENDING"
+      }
+    },
+    "finances": {
+      "taxes": {
+        "file_count": 54,
+        "coverage": "2017-2025",
+        "key_files": [
+          "2025_CA_RETURN_2026-03-14_084044.pdf",
+          "2025_FEDERAL_RETURN_2026-03-14_083933.pdf",
+          "Arthur_Appling_Tax_Records_2018_to_2022.pdf",
+          "MASTER_TAX_FOLDER_2025_EXECUTION.pdf"
+        ],
+        "status": "CONSOLIDATED"
+      },
+      "capital_AA": {
+        "file_count": 0,
+        "status": "READY — AWAITING CAPITAL DOCS"
+      }
+    },
+    "engine": {
+      "betting_algorithm": {
+        "file_count": 30,
+        "key_files": [
+          "william_hill_logic.py",
+          "NFL_Betting_Folder_Master_v5_FINAL.pdf",
+          "Airtable_Betting_Template_Weeks1-18_Playoffs.xlsx"
+        ],
+        "status": "LOGIC STUB ACTIVE — AWAITING SCRAPER"
+      },
+      "trading_scout": {
+        "file_count": 0,
+        "status": "READY — AWAITING TRADING ASSETS"
+      }
+    },
+    "prime_pathwy_master": {
+      "SOPs": {
+        "file_count": 2,
+        "files": ["MASTER_TURNOVER_FLOW.md", "GOVERNMENT_BID_TEMPLATE.md"],
+        "status": "INITIALIZED — READY FOR MANUS AI POPULATION"
+      },
+      "assets": {
+        "file_count": 47,
+        "key_files": [
+          "PRIME PATHWAY — CLOUD CODE ARCHITECT-LEVEL MASTER SYSTEM.docx",
+          "Prime_Pathway_Brand_System_Ultimate.pdf",
+          "Prime_Pathway_Bugatti_Master_System.pdf"
+        ],
+        "status": "CONSOLIDATED"
+      }
+    }
+  },
+  "totals": {
+    "total_files": 173,
+    "populated_sections": 4,
+    "empty_sections": 3
+  },
+  "onedrive_mirror": "VERIFY MANUALLY — OneDrive sync status not programmatically confirmed",
+  "status": "COCKPIT FULLY ARMED. ALL STREAMS CONSOLIDATED."
+}

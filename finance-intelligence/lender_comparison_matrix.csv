@@ -1,0 +1,13 @@
+lender_name,lender_type,program,max_amount,min_credit_score,typical_rate,speed_days,collateral_required,min_time_in_business,min_annual_revenue,best_use_case,website,notes
+SBA 7(a) via bank,SBA,7(a) Loan,$5M,680,10-11%,30-90,Yes (if available),2 years,$100K+,Working capital / acquisition,https://www.sba.gov/funding-programs/loans/7a-loans,Primary SBA program
+SBA 504 via CDC,SBA,504 Loan,$5.5M,680,6-8% (SBA portion),60-120,Asset (real estate/equipment),2 years,$100K+,Real estate / heavy equipment,https://www.sba.gov/funding-programs/loans/504-loans,Best rates for fixed assets
+SBA Microloan,SBA,Microloan,$50K,580,8-13%,30-60,Varies,Startup OK,$0,Startup / working capital,https://www.sba.gov/funding-programs/loans/microloans,Nonprofit intermediaries
+Pacific Community Ventures,CDFI,Business Loan,$500K,600,8-12%,14-45,Flexible,1 year,$50K+,Underserved borrowers CA,https://www.pacificcommunityventures.org,Bay Area + Sacramento focus
+Opportunity Fund,CDFI,Microloan + SBA,$250K,580,9-14%,14-30,Flexible,6 months,$0,Minority-owned / startup,https://www.opportunityfund.org,California focus
+Working Solutions,CDFI,Microloan,$50K,560,8-12%,14-21,Flexible,Startup OK,$0,Bay Area micro-business,https://www.workingsolutions.org,Startup-friendly
+Balboa Capital,Equipment Finance,Equipment Loan/Lease,$500K,620,8-15%,1-3,Equipment,6 months,$100K+,Equipment purchase,https://www.balboacapital.com,Fast approval
+Crest Capital,Equipment Finance,Equipment Loan/Lease,$500K,650,7-14%,1-5,Equipment,1 year,$100K+,Equipment purchase,https://www.crestcapital.com,No prepayment penalty
+National Funding,Alternative,Working Capital + Equipment,$500K,600,10-20%,1-3,Flexible,6 months,$100K+,Working capital,https://www.nationalfunding.com,Higher cost; fast
+IBank California,State CDFI,Loan Guarantee,$5M,620,Varies,30-60,Flexible,1 year,$50K+,California SB guarantee,https://www.ibank.ca.gov,State-backed guarantee
+Wells Fargo Equipment,Bank,Equipment Finance,$5M+,680,6-10%,7-14,Equipment,2 years,$250K+,Large equipment,https://www.wellsfargo.com/biz/equipment-financing,Bank-grade rates
+Bank of America,Bank,Equipment + LOC,$5M+,680,6-10%,7-14,Equipment/AR,2 years,$250K+,Established businesses,https://www.bankofamerica.com/smallbusiness,Bank-grade rates

@@ -1,4 +1,5 @@
 node_modules/
+gemini-app/node_modules/
 .env
 *.local
 dist/

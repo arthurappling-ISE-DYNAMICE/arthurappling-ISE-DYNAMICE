@@ -16,27 +16,78 @@
 <meta property="og:type" content="business.business">
 <link rel="canonical" href="https://www.primepathwy.com/">
 <style>
+  /* ── Design Tokens ─────────────────────────────────────────────────────── */
+  :root {
+    /* Primitives */
+    --color-black:           #050505;
+    --color-surface-deep:    #060606;
+    --color-surface-raised:  #080808;
+    --color-surface-card:    #0D0D0D;
+    --color-surface-control: #111111;
+    --color-surface-hover:   #141414;
+    --color-modal:           #0A0A0A;
+    --color-gold-light:      #F5D98A;
+    --color-gold-mid:        #E2C06A;
+    --color-gold:            #C9A84C;
+    --color-gold-bright:     #FFD700;
+    --color-gold-hover:      #FFE44D;
+    --color-white:           #FFFFFF;
+
+    /* Semantic roles */
+    --bg-page:               #050505;
+    --bg-card:               #0D0D0D;
+    --bg-control:            #111111;
+    --text-primary:          #FFFFFF;
+    --text-secondary:        rgba(255,255,255,.75);
+    --text-gold:             #C9A84C;
+    --text-gold-bright:      #FFD700;
+    --border-subtle:         rgba(255,255,255,.06);
+    --border-divider:        rgba(255,255,255,.04);
+    --border-gold-low:       rgba(201,168,76,.15);
+    --border-gold-mid:       rgba(201,168,76,.3);
+    --border-gold-active:    #C9A84C;
+    --gold-glow-soft:        rgba(201,168,76,.08);
+    --gold-glow-btn:         rgba(255,215,0,.2);
+    --gold-glow-btn-hover:   rgba(255,215,0,.35);
+
+    /* Gradients */
+    --gradient-gold:         linear-gradient(135deg, #F5D98A, #C9A84C, #E2C06A);
+    --gradient-gold-short:   linear-gradient(135deg, #F5D98A, #C9A84C);
+    --gradient-hero-scrim:   linear-gradient(to right, rgba(0,0,0,.62) 0%, rgba(0,0,0,.38) 28%, rgba(0,0,0,.08) 55%, transparent 72%);
+
+    /* Layout */
+    --max-content:           1100px;
+    --max-hero-content:      820px;
+    --section-padding:       6rem 2rem;
+    --nav-height:            60px;
+    --card-padding:          2.5rem;
+    --card-padding-sm:       1.5rem;
+    --gap-tight:             6px;
+    --gap-standard:          1.5rem;
+    --gap-loose:             2rem;
+  }
+
   /* ── Base ──────────────────────────────────────────────────────────────── */
   *, *::before, *::after { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
-    background: #050505;
+    background: var(--color-black);
     color: #fff;
     font-family: 'Courier New', Courier, monospace;
     margin: 0;
     line-height: 1.6;
   }
   ::-webkit-scrollbar { width: 4px; }
-  ::-webkit-scrollbar-thumb { background: rgba(201,168,76,.3); border-radius: 2px; }
+  ::-webkit-scrollbar-thumb { background: var(--border-gold-mid); border-radius: 2px; }
 
   /* ── Gold utilities ────────────────────────────────────────────────────── */
   .gold-text {
-    background: linear-gradient(135deg, #F5D98A, #C9A84C, #E2C06A);
+    background: var(--gradient-gold);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  .gold-border { border-color: rgba(201,168,76,.3); }
+  .gold-border { border-color: var(--border-gold-mid); }
 
   /* ── Typography ────────────────────────────────────────────────────────── */
   .serif-head {
@@ -74,7 +125,7 @@
     font-weight: 900;
     font-size: 15px;
     letter-spacing: -.02em;
-    background: linear-gradient(135deg, #F5D98A, #C9A84C);
+    background: var(--gradient-gold-short);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -84,11 +135,40 @@
     font-size: 9px;
     letter-spacing: .25em;
     text-transform: uppercase;
-    color: rgba(255,255,255,.75);
+    color: var(--text-secondary);
     text-decoration: none;
     transition: color .2s;
   }
   .nav-links a:hover { color: rgba(201,168,76,.8); }
+
+  /* ── Hamburger (hidden on desktop) ────────────────────────────────────── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+  }
+  .nav-hamburger-line {
+    display: block;
+    width: 20px;
+    height: 1px;
+    background: var(--text-secondary);
+    transition: background .2s, transform .2s, opacity .2s;
+    transform-origin: center;
+  }
+  .nav-hamburger:hover .nav-hamburger-line { background: var(--color-gold); }
+  .nav-hamburger[aria-expanded="true"] .nav-hamburger-line:nth-child(1) { transform: translateY(6px) rotate(45deg); background: var(--color-gold); }
+  .nav-hamburger[aria-expanded="true"] .nav-hamburger-line:nth-child(2) { opacity: 0; }
+  .nav-hamburger[aria-expanded="true"] .nav-hamburger-line:nth-child(3) { transform: translateY(-6px) rotate(-45deg); background: var(--color-gold); }
+  .nav-hamburger:focus-visible { outline: 1px solid rgba(201,168,76,.5); outline-offset: 2px; }
 
   /* ── Hero ──────────────────────────────────────────────────────────────── */
   #hero {
@@ -97,7 +177,7 @@
     min-height: 600px;
     overflow: hidden;
     display: flex;
-    align-items: flex-start;
+    align-items: flex-end; /* cinematic bottom-anchor — copy grounds to the image */
   }
   #hero-img {
     position: absolute;
@@ -106,25 +186,80 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
-    filter: brightness(.88) saturate(.95);
+    filter: brightness(.68) saturate(.72); /* darker, more atmospheric */
   }
   #hero-gradient {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      to right,
-      rgba(0,0,0,.62) 0%,
-      rgba(0,0,0,.38) 28%,
-      rgba(0,0,0,.08) 55%,
-      transparent 72%
-    );
+    /* Two-layer scrim: left column + bottom vignette.
+       Together they frame a dark stage for the copy. */
+    background:
+      linear-gradient(
+        to right,
+        rgba(0,0,0,.88) 0%,
+        rgba(0,0,0,.62) 28%,
+        rgba(0,0,0,.20) 56%,
+        transparent 74%
+      ),
+      linear-gradient(
+        to top,
+        rgba(0,0,0,.82) 0%,
+        rgba(0,0,0,.44) 26%,
+        transparent 54%
+      );
   }
   #hero-content {
     position: relative;
     z-index: 10;
     width: 100%;
-    padding: 100px 2rem 0 50px;
-    max-width: 820px;
+    max-width: 600px;                   /* tight column — copy commands the left third */
+    padding: 0 3.5rem 3.5rem 4.5rem;   /* bottom-heavy padding; adjusted for content fit */
+  }
+  /* Hero-specific type and element overrides */
+  #hero .eyebrow {
+    color: rgba(201,168,76,.6);         /* slightly brighter on the dark image */
+    margin-bottom: 1rem;
+  }
+  #hero h1 {
+    font-size: clamp(2.5rem, 5vw, 3.75rem);
+    margin: 0 0 1rem;
+    color: #FFFFFF;
+    -webkit-text-fill-color: #FFFFFF;
+    text-shadow: 0 2px 40px rgba(0,0,0,.9);
+    text-wrap: balance;
+    letter-spacing: -0.015em;
+    line-height: 1.04;
+  }
+  #hero .hero-subtitle {
+    font-size: 1.125rem;
+    color: var(--text-secondary);       /* hierarchy: white 75% — NOT gold */
+    max-width: 440px;
+    margin: 0 0 1.75rem;
+    line-height: 1.75;
+    text-shadow: 0 1px 12px rgba(0,0,0,.7);
+    letter-spacing: 0.01em;
+    hyphens: none;
+  }
+  #hero .hero-cta-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  #hero .hero-tagline {
+    margin-top: 1.5rem;
+    font-size: 9px;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.3);
+    line-height: 1;
+  }
+  /* Short-viewport guard — tightens spacing for laptop screens ≤820px tall */
+  @media (max-height: 820px) {
+    #hero-content { padding-bottom: 2.5rem; }
+    #hero h1 { margin-bottom: 0.75rem; }
+    #hero .hero-subtitle { margin-bottom: 1.25rem; line-height: 1.65; }
+    #hero .hero-tagline { margin-top: 1rem; }
   }
 
   /* ── Sections ──────────────────────────────────────────────────────────── */
@@ -134,14 +269,14 @@
 
   /* ── Service Cards ─────────────────────────────────────────────────────── */
   .service-card {
-    background: #0D0D0D;
-    border: 1px solid rgba(255,255,255,.06);
+    background: var(--color-surface-card);
+    border: 1px solid var(--border-subtle);
     padding: 2.5rem;
     transition: border-color .25s, box-shadow .25s;
   }
   .service-card:hover {
     border-color: rgba(201,168,76,.35);
-    box-shadow: 0 0 24px rgba(201,168,76,.08);
+    box-shadow: 0 0 24px var(--gold-glow-soft);
   }
   .service-eyebrow {
     font-size: 9px;
@@ -155,7 +290,7 @@
     font-style: italic;
     font-weight: 900;
     font-size: clamp(22px, 3vw, 30px);
-    background: linear-gradient(135deg, #F5D98A, #C9A84C, #E2C06A);
+    background: var(--gradient-gold);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -163,7 +298,7 @@
   }
   .service-nepq {
     font-size: 1.125rem;
-    color: #FFD700;
+    color: var(--color-gold-bright);
     line-height: 1.8;
     margin-bottom: 1.5rem;
     padding-left: .75rem;
@@ -179,14 +314,14 @@
     letter-spacing: .05em;
     color: #FFFFFF;
     padding: .35rem 0;
-    border-bottom: 1px solid rgba(255,255,255,.04);
+    border-bottom: 1px solid var(--border-divider);
     display: flex;
     align-items: center;
     gap: .75rem;
   }
   .service-scope li::before {
     content: '✓';
-    color: #FFD700;
+    color: var(--color-gold-bright);
     flex-shrink: 0;
     opacity: .7;
   }
@@ -194,7 +329,7 @@
     font-size: 18px;
     font-family: Georgia, serif;
     font-style: italic;
-    color: #C9A84C;
+    color: var(--color-gold);
     margin-bottom: 1.5rem;
     font-weight: 700;
   }
@@ -202,7 +337,7 @@
     font-size: 9px;
     letter-spacing: .25em;
     text-transform: uppercase;
-    color: #FFD700;
+    color: var(--color-gold-bright);
     text-decoration: none;
     transition: color .2s, opacity .2s;
     opacity: .75;
@@ -215,7 +350,7 @@
     gap: 1.5rem;
     align-items: flex-start;
     padding: 2rem 0;
-    border-bottom: 1px solid rgba(255,255,255,.04);
+    border-bottom: 1px solid var(--border-divider);
   }
   .step:last-child { border-bottom: none; }
   .step-num {
@@ -223,7 +358,7 @@
     font-style: italic;
     font-weight: 900;
     font-size: clamp(36px, 5vw, 56px);
-    background: linear-gradient(135deg, #F5D98A, #C9A84C);
+    background: var(--gradient-gold-short);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -239,7 +374,7 @@
     grid-template-columns: 1fr auto auto auto;
     align-items: center;
     padding: 1rem 1.5rem;
-    border-bottom: 1px solid rgba(255,255,255,.04);
+    border-bottom: 1px solid var(--border-divider);
     gap: 1rem;
     transition: background .2s;
   }
@@ -254,7 +389,7 @@
     font-style: italic;
     font-weight: 700;
     font-size: 18px;
-    color: #C9A84C;
+    color: var(--color-gold);
     text-align: right;
     white-space: nowrap;
   }
@@ -262,7 +397,7 @@
     font-size: 9px;
     letter-spacing: .15em;
     text-transform: uppercase;
-    color: rgba(255,255,255,.75);
+    color: var(--text-secondary);
     text-align: right;
     white-space: nowrap;
   }
@@ -272,13 +407,13 @@
     text-transform: uppercase;
     color: rgba(201,168,76,.4);
     padding: 1.5rem 1.5rem .5rem;
-    border-bottom: 1px solid rgba(201,168,76,.15);
+    border-bottom: 1px solid var(--border-gold-low);
   }
 
   /* ── Consequence Block ─────────────────────────────────────────────────── */
   .consequence-block {
-    background: #080808;
-    border: 1px solid rgba(201,168,76,.15);
+    background: var(--color-surface-raised);
+    border: 1px solid var(--border-gold-low);
     padding: 3rem;
   }
   .vacancy-calc {
@@ -288,7 +423,7 @@
     margin: 2rem 0;
   }
   .calc-cell {
-    background: #0A0A0A;
+    background: var(--color-modal);
     padding: 1.5rem;
     text-align: center;
   }
@@ -297,14 +432,14 @@
     border: 1px solid rgba(201,168,76,.2);
   }
   .calc-label { font-size: 9px; letter-spacing: .3em; text-transform: uppercase; color: #FFFFFF; margin-bottom: .5rem; }
-  .calc-value { font-family: Georgia, serif; font-style: italic; font-weight: 900; font-size: clamp(28px, 4vw, 42px); color: #C9A84C; }
+  .calc-value { font-family: Georgia, serif; font-style: italic; font-weight: 900; font-size: clamp(28px, 4vw, 42px); color: var(--color-gold); }
   .calc-sub { font-size: 11px; color: #FFFFFF; margin-top: .35rem; }
 
   /* ── CTA Section ───────────────────────────────────────────────────────── */
   .btn-gold {
     display: inline-block;
-    background: #FFD700;
-    color: #0A0A0A;
+    background: var(--color-gold-bright);
+    color: var(--color-modal);
     font-family: 'Courier New', monospace;
     font-size: 12px;
     font-weight: 700;
@@ -314,18 +449,18 @@
     padding: 1.1rem 2.25rem;
     border: none;
     cursor: pointer;
-    transition: background .2s, box-shadow .2s;
-    box-shadow: 0 2px 16px rgba(255,215,0,.2);
+    transition: background .2s, box-shadow .2s, transform .1s;
+    box-shadow: 0 2px 16px var(--gold-glow-btn);
   }
   .btn-gold:hover {
-    background: #FFE44D;
-    box-shadow: 0 4px 28px rgba(255,215,0,.35);
+    background: var(--color-gold-hover);
+    box-shadow: 0 4px 28px var(--gold-glow-btn-hover);
   }
   .btn-gold:active { transform: translateY(1px); }
   .btn-outline {
     display: inline-block;
-    border: 1px solid #FFD700;
-    color: #FFD700;
+    border: 1px solid var(--color-gold-bright);
+    color: var(--color-gold-bright);
     background: transparent;
     font-family: 'Courier New', monospace;
     font-size: 12px;
@@ -335,23 +470,26 @@
     text-decoration: none;
     padding: 1.1rem 2.25rem;
     cursor: pointer;
-    transition: background .2s, color .2s, box-shadow .2s;
+    transition: background .2s, color .2s, box-shadow .2s, transform .1s;
   }
   .btn-outline:hover {
-    background: #FFD700;
-    color: #0A0A0A;
+    background: var(--color-gold-bright);
+    color: var(--color-modal);
     box-shadow: 0 4px 28px rgba(255,215,0,.25);
   }
   .btn-outline:active { transform: translateY(1px); }
 
   /* ── Order Button (Service Cards) ─────────────────────────────────────── */
   .order-btn {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
     font-family: 'Courier New', monospace;
     font-size: 9px;
     letter-spacing: .25em;
     text-transform: uppercase;
-    color: #FFD700;
+    color: var(--color-gold-bright);
     background: none;
     border: 1px solid rgba(255,215,0,.4);
     padding: .6rem 1.25rem;
@@ -361,16 +499,20 @@
   }
   .order-btn:hover {
     background: rgba(255,215,0,.08);
-    border-color: #FFD700;
+    border-color: var(--color-gold-bright);
   }
 
   /* ── Order Button (Pricing Rows) ──────────────────────────────────────── */
   .price-order-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
     font-family: 'Courier New', monospace;
     font-size: 8px;
     letter-spacing: .2em;
     text-transform: uppercase;
-    color: #FFD700;
+    color: var(--color-gold-bright);
     background: none;
     border: 1px solid rgba(255,215,0,.3);
     padding: .4rem .9rem;
@@ -407,7 +549,7 @@
   #intake-modal {
     width: 100%;
     max-width: 640px;
-    background: #0A0A0A;
+    background: var(--color-modal);
     border: 1px solid rgba(201,168,76,.4);
     padding: 2.5rem;
     position: relative;
@@ -420,11 +562,11 @@
   }
   #intake-close {
     position: absolute;
-    top: 1.25rem; right: 1.25rem;
+    top: 1rem; right: 1rem;
     background: none;
     border: 1px solid rgba(255,255,255,.14);
     color: #FFFFFF;
-    width: 2rem; height: 2rem;
+    width: 2.75rem; height: 2.75rem;
     cursor: pointer;
     font-size: 1rem;
     display: flex; align-items: center; justify-content: center;
@@ -432,7 +574,7 @@
     font-family: 'Courier New', monospace;
     line-height: 1;
   }
-  #intake-close:hover { border-color: rgba(201,168,76,.6); color: #C9A84C; }
+  #intake-close:hover { border-color: rgba(201,168,76,.6); color: var(--color-gold); }
 
   .intake-header {
     display: flex;
@@ -446,7 +588,7 @@
     font-style: italic;
     font-weight: 900;
     font-size: clamp(22px, 3vw, 30px);
-    background: linear-gradient(135deg, #F5D98A, #C9A84C);
+    background: var(--gradient-gold-short);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -457,7 +599,7 @@
     font-size: 9px;
     letter-spacing: .32em;
     text-transform: uppercase;
-    color: #C9A84C;
+    color: var(--color-gold);
     border: 1px solid rgba(201,168,76,.45);
     padding: .32rem .75rem;
     display: inline-block;
@@ -479,16 +621,16 @@
     gap: 6px;
   }
   .intake-pkg-card {
-    background: #111;
+    background: var(--color-surface-control);
     border: 1px solid rgba(255,255,255,.07);
     padding: .9rem 1rem;
     cursor: pointer;
     transition: border-color .2s, background .2s;
     user-select: none;
   }
-  .intake-pkg-card:hover { border-color: rgba(201,168,76,.4); background: #141414; }
-  .intake-pkg-card.selected { border-color: #C9A84C; background: rgba(201,168,76,.06); }
-  .intake-pkg-card:focus { outline: 1px solid rgba(201,168,76,.5); }
+  .intake-pkg-card:hover { border-color: rgba(201,168,76,.4); background: var(--color-surface-hover); }
+  .intake-pkg-card.selected { border-color: var(--color-gold); background: rgba(201,168,76,.06); }
+  .intake-pkg-card:focus-visible { outline: 1px solid rgba(201,168,76,.5); }
   .pkg-name {
     font-size: 1.25rem;
     color: #FFFFFF;
@@ -501,7 +643,7 @@
     font-style: italic;
     font-weight: 700;
     font-size: 1.25rem;
-    color: #C9A84C;
+    color: var(--color-gold);
     display: block;
   }
 
@@ -512,8 +654,8 @@
     gap: 1rem;
   }
   .rooms-counter-btn {
-    width: 2.25rem; height: 2.25rem;
-    background: #111;
+    width: 2.75rem; height: 2.75rem;
+    background: var(--color-surface-control);
     border: 1px solid rgba(255,255,255,.12);
     color: #FFFFFF;
     font-size: 1.25rem;
@@ -523,7 +665,7 @@
     font-family: 'Courier New', monospace;
     line-height: 1;
   }
-  .rooms-counter-btn:hover { border-color: #C9A84C; background: rgba(201,168,76,.06); }
+  .rooms-counter-btn:hover { border-color: var(--color-gold); background: rgba(201,168,76,.06); }
   #rooms-count {
     font-size: 1.25rem;
     color: #FFFFFF;
@@ -541,17 +683,17 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    background: #111;
-    border: 1px solid rgba(255,255,255,.06);
+    background: var(--color-surface-control);
+    border: 1px solid var(--border-subtle);
     padding: .8rem 1rem;
     cursor: pointer;
     transition: border-color .2s, background .2s;
   }
-  .addon-row:hover { border-color: rgba(201,168,76,.3); background: #141414; }
+  .addon-row:hover { border-color: var(--border-gold-mid); background: var(--color-surface-hover); }
   .addon-row.checked { border-color: rgba(201,168,76,.55); background: rgba(201,168,76,.04); }
   .addon-check {
     width: 18px; height: 18px;
-    accent-color: #C9A84C;
+    accent-color: var(--color-gold);
     cursor: pointer;
     flex-shrink: 0;
   }
@@ -561,12 +703,12 @@
     font-style: italic;
     font-weight: 700;
     font-size: 1.25rem;
-    color: #C9A84C;
+    color: var(--color-gold);
   }
 
   /* Live Total block */
   .intake-total-block {
-    background: #060606;
+    background: var(--color-surface-deep);
     border: 1px solid rgba(201,168,76,.25);
     padding: 1.75rem;
     margin-bottom: 2rem;
@@ -581,7 +723,7 @@
     font-style: italic;
     font-weight: 900;
     font-size: clamp(2rem, 5vw, 3rem);
-    background: linear-gradient(135deg, #F5D98A, #C9A84C);
+    background: var(--gradient-gold-short);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -600,7 +742,7 @@
   .intake-field {
     display: block;
     width: 100%;
-    background: #111;
+    background: var(--color-surface-control);
     border: 1px solid rgba(255,255,255,.1);
     color: #FFFFFF;
     font-family: 'Courier New', monospace;
@@ -612,13 +754,14 @@
   }
   .intake-field::placeholder { color: rgba(255,255,255,.3); }
   .intake-field:focus { border-color: rgba(201,168,76,.55); }
+  .intake-field:focus-visible { border-color: rgba(201,168,76,.75); outline: none; }
 
   /* Submit */
   #intake-submit {
     display: block;
     width: 100%;
-    background: #FFD700;
-    color: #0A0A0A;
+    background: var(--color-gold-bright);
+    color: var(--color-modal);
     font-family: 'Courier New', monospace;
     font-size: 1.25rem;
     font-weight: 700;
@@ -630,7 +773,7 @@
     transition: background .2s, box-shadow .2s, transform .1s;
     margin-top: .5rem;
   }
-  #intake-submit:hover { background: #FFE44D; box-shadow: 0 4px 28px rgba(255,215,0,.3); }
+  #intake-submit:hover { background: var(--color-gold-hover); box-shadow: 0 4px 28px rgba(255,215,0,.3); }
   #intake-submit:active { transform: translateY(1px); }
 
   /* ── Footer Links ──────────────────────────────────────────────────────── */
@@ -642,7 +785,7 @@
     text-decoration: none;
     transition: color .2s;
   }
-  .footer-link:hover { color: #FFD700; }
+  .footer-link:hover { color: var(--color-gold-bright); }
   .footer-ada-link {
     background: none;
     border: 1px solid rgba(255,255,255,.12);
@@ -658,20 +801,20 @@
     text-decoration: none;
     transition: border-color .2s, color .2s;
   }
-  .footer-ada-link:hover { border-color: #FFD700; color: #FFD700; }
+  .footer-ada-link:hover { border-color: var(--color-gold-bright); color: var(--color-gold-bright); }
 
   /* ── Divider ────────────────────────────────────────────────────────────  */
   .gold-divider {
     width: 40px;
     height: 1px;
     background: rgba(201,168,76,.4);
-    box-shadow: 0 0 8px rgba(201,168,76,.3);
+    box-shadow: 0 0 8px var(--border-gold-mid);
     margin: 2rem 0;
   }
 
   /* ── Footer ─────────────────────────────────────────────────────────────── */
   footer {
-    border-top: 1px solid rgba(255,255,255,.06);
+    border-top: 1px solid var(--border-subtle);
     background: #020202;
     padding: 3.5rem 2rem;
     text-align: center;
@@ -680,22 +823,55 @@
   /* ── Responsive ─────────────────────────────────────────────────────────── */
   @media (max-width: 768px) {
     section { padding: 4rem 1.25rem; }
-    #hero-content { padding: 0 1.25rem 3rem; }
-    .nav-links { display: none; }
+    /* Mobile hero: switch to top-anchor — bottom-anchor clips when content
+       height exceeds 100vh on narrow viewports. */
+    #hero { align-items: flex-start; }
+    #hero-content { padding: 96px 1.5rem 3.5rem; max-width: 100%; }
+    #hero h1 { font-size: clamp(1.875rem, 7.5vw, 2.5rem); letter-spacing: -0.01em; }
+    #hero .hero-subtitle { max-width: 100%; font-size: 1rem; margin-bottom: 2rem; }
+    #hero .hero-cta-group { flex-direction: column; align-items: flex-start; gap: .75rem; }
+    #hero .hero-cta-group .btn-gold,
+    #hero .hero-cta-group .btn-outline { width: 100%; text-align: center; }
     .vacancy-calc { grid-template-columns: 1fr; }
     .price-row { grid-template-columns: 1fr auto; }
     .price-note { display: none; }
     .compare-grid { grid-template-columns: 1fr !important; }
     .compare-wrap { height: 260px !important; }
     .ba-caption-row { flex-direction: column; gap: .5rem; align-items: flex-start; }
-    /* Mobile stack — prevents 18px body text overlap on narrow screens */
     .stack-on-mobile { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
     .pricing-grid-wrap { grid-template-columns: 1fr !important; }
+
+    /* ── Mobile Nav ── */
+    .nav-hamburger { display: flex; }
+    .nav-links {
+      display: none;
+      position: fixed;
+      top: 60px; left: 0; right: 0;
+      z-index: 99;
+      flex-direction: column;
+      background: rgba(5,5,5,.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,168,76,.2);
+      gap: 0;
+      padding: .25rem 0;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links a {
+      padding: 0 2rem;
+      min-height: 52px;
+      display: flex;
+      align-items: center;
+      font-size: 10px;
+      letter-spacing: .3em;
+      border-bottom: 1px solid var(--border-divider);
+    }
+    .nav-links a:last-child { border-bottom: none; }
   }
 
   /* ── High-Visibility: AAA Text Upgrades ──────────────────────────────────
      All readable body text elevated to pure white or near-white.
-     Minimum contrast ratio: 7:1 on #050505 (AAA WCAG 2.1).         ──── */
+     Minimum contrast ratio: 7:1 on var(--color-black) (AAA WCAG 2.1).         ──── */
   .service-nepq   { font-weight: 500; }
   .service-scope li { color: #fff; }
   .price-label    { color: #FFFFFF; }
@@ -812,7 +988,7 @@
   }
   .glide-badge.good {
     right: 1.5rem;
-    color: #FFD700;
+    color: var(--color-gold-bright);
     background: rgba(255,215,0,.1);
     border: 1px solid rgba(255,215,0,.4);
   }
@@ -837,8 +1013,8 @@
     background: rgba(20,4,2,.65);
   }
   .glide-float.good {
-    color: #FFD700;
-    border-color: rgba(255,215,0,.35);
+    color: var(--color-gold-bright);
+    border-color: var(--gold-glow-btn-hover);
     background: rgba(2,10,16,.7);
   }
 
@@ -865,7 +1041,7 @@
   }
   .glide-head.bad  { color: rgba(255,110,80,.9); }
   .glide-head.good {
-    background: linear-gradient(135deg, #F5D98A 0%, #FFD700 50%, #E2C06A 100%);
+    background: linear-gradient(135deg, var(--color-gold-light) 0%, var(--color-gold-bright) 50%, var(--color-gold-mid) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -890,7 +1066,7 @@
   }
   .glide-list li:last-child { border-bottom: none; }
   .glide-icon-bad  { color: rgba(255,100,70,.85); flex-shrink: 0; margin-top: 1px; font-style: normal; }
-  .glide-icon-good { color: #FFD700;              flex-shrink: 0; margin-top: 1px; font-style: normal; opacity: .9; }
+  .glide-icon-good { color: var(--color-gold-bright);              flex-shrink: 0; margin-top: 1px; font-style: normal; opacity: .9; }
 
   /* ── Gold Divider Line ───────────────────────────────────────────────────── */
   .glide-line {
@@ -899,7 +1075,7 @@
     left: 50%;
     transform: translateX(-50%);
     width: 3px;
-    background: #FFD700;
+    background: var(--color-gold-bright);
     pointer-events: none;
     z-index: 15;
     will-change: left;
@@ -916,7 +1092,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 58px; height: 58px;
-    background: #FFD700;
+    background: var(--color-gold-bright);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -931,7 +1107,7 @@
   .glide-arrows {
     font-size: 20px;
     font-weight: 900;
-    color: #050505;
+    color: var(--color-black);
     letter-spacing: -.08em;
     line-height: 1;
     user-select: none;
@@ -965,7 +1141,7 @@
     gap: 1rem;
   }
   .gcap-bad  { font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,100,70,.8);  font-weight: 600; }
-  .gcap-good { font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: #FFD700; font-weight: 600; }
+  .gcap-good { font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: var(--color-gold-bright); font-weight: 600; }
 
   /* Drag hint bar under slider */
   .glide-hint {
@@ -973,7 +1149,7 @@
     font-size: 10px;
     letter-spacing: .3em;
     text-transform: uppercase;
-    color: rgba(255,255,255,.75);
+    color: var(--text-secondary);
     padding: .5rem 0 0;
   }
 
@@ -1038,11 +1214,99 @@
     text-shadow: 0 0 18px rgba(201,168,76,.35), 0 1px 16px rgba(0,0,0,1);
   }
   .glide-photo-label.after-label  {
-    color: #FFD700;
+    color: var(--color-gold-bright);
     border-color: rgba(255,215,0,.55);
     background: rgba(0,0,0,.72);
     text-shadow: 0 0 22px rgba(255,215,0,.65), 0 0 8px rgba(255,215,0,.3), 0 1px 16px rgba(0,0,0,1);
   }
+
+  /* ── Screen-Reader Only ──────────────────────────────────────────────────
+     Visually hidden but announced by assistive technology.
+     Used for <label> elements on form fields that show placeholder only.
+  ──────────────────────────────────────────────────────────────────────── */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* ── Focus-Visible Rings ─────────────────────────────────────────────────
+     Keyboard navigation visibility. All interactive surfaces get a
+     brand-consistent gold ring — only on keyboard focus, never on click.
+  ──────────────────────────────────────────────────────────────────────── */
+  .btn-gold:focus-visible,
+  #intake-submit:focus-visible {
+    outline: 2px solid var(--color-gold-bright);
+    outline-offset: 3px;
+  }
+  .btn-outline:focus-visible {
+    outline: 2px solid var(--color-gold-bright);
+    outline-offset: 3px;
+  }
+  .order-btn:focus-visible,
+  .price-order-btn:focus-visible {
+    outline: 1px solid rgba(255,215,0,.8);
+    outline-offset: 2px;
+  }
+  .service-cta:focus-visible {
+    outline: 1px solid rgba(255,215,0,.6);
+    outline-offset: 3px;
+  }
+  .rooms-counter-btn:focus-visible,
+  #intake-close:focus-visible {
+    outline: 1px solid rgba(201,168,76,.7);
+    outline-offset: 2px;
+  }
+  .nav-links a:focus-visible {
+    outline: 1px solid rgba(201,168,76,.5);
+    outline-offset: 3px;
+    color: rgba(201,168,76,.8);
+  }
+  .footer-link:focus-visible {
+    outline: 1px solid rgba(255,215,0,.6);
+    outline-offset: 3px;
+    color: var(--color-gold-bright);
+  }
+  .footer-ada-link:focus-visible {
+    outline: 1px solid rgba(255,215,0,.6);
+    outline-offset: 2px;
+    border-color: var(--color-gold-bright);
+    color: var(--color-gold-bright);
+  }
+  .glide-wrap:has(.glide-input:focus-visible) .glide-handle {
+    box-shadow:
+      0 0 0 4px rgba(255,215,0,.18),
+      0 0 0 7px rgba(255,215,0,.45),
+      0 0 28px rgba(255,215,0,.75),
+      0 0 70px rgba(255,215,0,.3),
+      inset 0 1px 0 rgba(255,255,255,.4),
+      inset 0 -1px 0 rgba(0,0,0,.25);
+  }
+
+  /* ── Reduced Motion ──────────────────────────────────────────────────────
+     All transitions and animations suppressed for users who prefer it.
+     Glide slider still functional — just instant instead of animated.
+  ──────────────────────────────────────────────────────────────────────── */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+    #intake-total.bump { transform: none; }
+  }
+
+  /* ── Mobile Hero Fix (removed) ──────────────────────────────────────────
+     padding-top override no longer needed — hero is bottom-anchored.
+     Content lives at the base of the viewport, not the top.
+  ──────────────────────────────────────────────────────────────────────── */
 </style>
 </head>
 <body>
@@ -1052,12 +1316,17 @@
 ══════════════════════════════════════════════════════════════════════════ -->
 <nav>
   <span class="nav-logo">Prime Pathwy</span>
-  <div class="nav-links">
+  <div class="nav-links" id="nav-links">
     <a href="#services">Services</a>
     <a href="#process">Process</a>
     <a href="#pricing">Pricing</a>
     <a href="#book">Book Walkthrough</a>
   </div>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-links">
+    <span class="nav-hamburger-line"></span>
+    <span class="nav-hamburger-line"></span>
+    <span class="nav-hamburger-line"></span>
+  </button>
 </nav>
 
 
@@ -1066,22 +1335,25 @@
      NEPQ: Problem Awareness hook. No pitch. Surface the pain.
 ══════════════════════════════════════════════════════════════════════════ -->
 <div id="hero">
-  <img id="hero-img" src="ferrari_asset_v1.jpg" alt="Prime Pathwy commercial dump truck — property turnover operations">
+  <img id="hero-img"
+       src="ferrari_asset_v1.jpg"
+       alt="Prime Pathwy commercial dump truck — property turnover operations"
+       fetchpriority="high">
   <div id="hero-gradient" aria-hidden="true"></div>
   <div id="hero-content">
-    <span class="eyebrow">Prime Pathwy · Property Turnover Division · Est. 2026</span>
-    <h1 class="serif-head" style="font-size: clamp(1.85rem, 3.5vw, 2.75rem); line-height: 1.1; max-width: 480px; margin: 0 0 1.25rem; font-weight: 800; color: #FFFFFF; -webkit-text-fill-color: #FFFFFF; text-shadow: 0 0 10px rgba(255,215,0,0.8), 2px 2px 5px rgba(0,0,0,1);">
+    <span class="eyebrow">Prime Pathwy · Property Turnover Division · Vallejo, CA</span>
+    <h1 class="serif-head">
       Your Vacancy Clock<br>Doesn't Stop for<br>Slow Vendors.
     </h1>
-    <p style="font-size: 1.25rem; color: #FFD700; max-width: 480px; margin: 0 0 2.5rem; line-height: 1.9; text-shadow: 1px 1px 4px rgba(0,0,0,1);">
+    <p class="hero-subtitle">
       Every day your unit sits un-turned is revenue walking out the door.
       Most turnover crews don't treat your timeline like money. We do.
     </p>
-    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+    <div class="hero-cta-group">
       <a href="#book" class="btn-gold">Schedule Walkthrough</a>
       <a href="#services" class="btn-outline">View Services</a>
     </div>
-    <p style="margin-top: 1.5rem; font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.75);">
+    <p class="hero-tagline">
       Cleaning · Haul-Out · Paint · Full Turnovers · Documented · Defensible
     </p>
   </div>
@@ -1092,7 +1364,7 @@
      PILLAR 1 — PROOF STRIP
      Thin authority bar with gold dividers. Sovereign social proof.
 ══════════════════════════════════════════════════════════════════════════ -->
-<div style="background: #020202; border-top: 1px solid rgba(201,168,76,.3); border-bottom: 1px solid rgba(201,168,76,.3); padding: .7rem 2rem;">
+<div style="background: #020202; border-top: 1px solid var(--border-gold-mid); border-bottom: 1px solid var(--border-gold-mid); padding: .7rem 2rem;">
   <div style="max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: center; flex-wrap: wrap;">
     <span style="font-size: 1rem; color: #FFFFFF; letter-spacing: .07em; padding: .45rem 1.75rem; text-align: center; white-space: nowrap;">
       Serving Solano County Property Managers
@@ -1113,7 +1385,7 @@
      SECTION 2 — PROBLEM AWARENESS
      NEPQ Phase 1: Name the reality they're already living with.
 ══════════════════════════════════════════════════════════════════════════ -->
-<div style="background: #080808; border-top: 1px solid rgba(255,255,255,.04); border-bottom: 1px solid rgba(255,255,255,.04);">
+<div style="background: var(--color-surface-raised); border-top: 1px solid var(--border-divider); border-bottom: 1px solid var(--border-divider);">
   <section>
     <span class="eyebrow">Section 01 — The Problem</span>
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;" class="stack-on-mobile">
@@ -1134,28 +1406,28 @@
       </div>
 
       <!-- Pain Point List -->
-      <div style="background: #0A0A0A; border: 1px solid rgba(255,255,255,.05); padding: 2.5rem;">
+      <div style="background: var(--color-modal); border: 1px solid rgba(255,255,255,.05); padding: 2.5rem;">
         <p style="font-size: 9px; letter-spacing: .35em; text-transform: uppercase; color: rgba(201,168,76,.35); margin-bottom: 1.5rem;">
           Sound Familiar?
         </p>
         <ul style="list-style: none; padding: 0; margin: 0;">
-          <li style="display: flex; gap: 1rem; padding: .85rem 0; border-bottom: 1px solid rgba(255,255,255,.04); font-size: 1rem; color: #FFFFFF;">
+          <li style="display: flex; gap: 1rem; padding: .85rem 0; border-bottom: 1px solid var(--border-divider); font-size: 1rem; color: #FFFFFF;">
             <span style="color: rgba(239,68,68,.4); flex-shrink:0;">✗</span>
             Vendor shows up 4 days late — unit still vacant
           </li>
-          <li style="display: flex; gap: 1rem; padding: .85rem 0; border-bottom: 1px solid rgba(255,255,255,.04); font-size: 1rem; color: #FFFFFF;">
+          <li style="display: flex; gap: 1rem; padding: .85rem 0; border-bottom: 1px solid var(--border-divider); font-size: 1rem; color: #FFFFFF;">
             <span style="color: rgba(239,68,68,.4); flex-shrink:0;">✗</span>
             No before/after photos — dispute you can't defend
           </li>
-          <li style="display: flex; gap: 1rem; padding: .85rem 0; border-bottom: 1px solid rgba(255,255,255,.04); font-size: 1rem; color: #FFFFFF;">
+          <li style="display: flex; gap: 1rem; padding: .85rem 0; border-bottom: 1px solid var(--border-divider); font-size: 1rem; color: #FFFFFF;">
             <span style="color: rgba(239,68,68,.4); flex-shrink:0;">✗</span>
             3 vendors for 1 unit — 3 sets of excuses
           </li>
-          <li style="display: flex; gap: 1rem; padding: .85rem 0; border-bottom: 1px solid rgba(255,255,255,.04); font-size: 1rem; color: #FFFFFF;">
+          <li style="display: flex; gap: 1rem; padding: .85rem 0; border-bottom: 1px solid var(--border-divider); font-size: 1rem; color: #FFFFFF;">
             <span style="color: rgba(239,68,68,.4); flex-shrink:0;">✗</span>
             Verbal quote, invoice is 40% higher
           </li>
-          <li style="display: flex; gap: 1rem; padding: .85rem 0; border-bottom: 1px solid rgba(255,255,255,.04); font-size: 1rem; color: #FFFFFF;">
+          <li style="display: flex; gap: 1rem; padding: .85rem 0; border-bottom: 1px solid var(--border-divider); font-size: 1rem; color: #FFFFFF;">
             <span style="color: rgba(239,68,68,.4); flex-shrink:0;">✗</span>
             Cleaning crew not equipped for eviction clean-outs
           </li>
@@ -1266,7 +1538,7 @@
   </div>
 
   <!-- Scope note -->
-  <p style="font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.75); margin-top: 1.5rem;">
+  <p style="font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: var(--text-secondary); margin-top: 1.5rem;">
     All pricing reflects labor only · Disposal and landfill fees billed separately at cost with receipts ·
     Extreme conditions (biohazard, hoarding) require separate written quote · Licensed trade work not included
   </p>
@@ -1277,16 +1549,16 @@
      PILLAR 2 — COMPLIANCE SHIELD
      Documentation & Audit-Ready stamp. Sovereign system credibility.
 ══════════════════════════════════════════════════════════════════════════ -->
-<div style="background: #060606; border-top: 1px solid rgba(201,168,76,.14); border-bottom: 1px solid rgba(201,168,76,.14);">
+<div style="background: var(--color-surface-deep); border-top: 1px solid rgba(201,168,76,.14); border-bottom: 1px solid rgba(201,168,76,.14);">
   <section style="padding: 4.5rem 2rem;">
-    <div style="max-width: 900px; border: 1px solid rgba(201,168,76,.28); padding: 2.75rem 3rem; background: #0A0A0A;">
+    <div style="max-width: 900px; border: 1px solid rgba(201,168,76,.28); padding: 2.75rem 3rem; background: var(--color-modal);">
 
       <!-- Shield header row -->
       <div style="display: flex; align-items: center; gap: 1.1rem; margin-bottom: 1.75rem; flex-wrap: wrap;">
         <svg width="30" height="30" viewBox="0 0 24 24" fill="none" style="flex-shrink: 0;" aria-hidden="true">
           <path d="M12 2L3 6v5c0 5.25 3.75 10.15 9 11.35C17.25 21.15 21 16.25 21 11V6l-9-4z"
-                fill="rgba(201,168,76,.12)" stroke="#C9A84C" stroke-width="1.5"/>
-          <path d="M9 12l2 2 4-4" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                fill="rgba(201,168,76,.12)" stroke="var(--color-gold)" stroke-width="1.5"/>
+          <path d="M9 12l2 2 4-4" stroke="var(--color-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         <span style="font-size: 9px; letter-spacing: .38em; text-transform: uppercase; color: rgba(201,168,76,.65);">
           Documentation &amp; Audit-Ready
@@ -1303,16 +1575,16 @@
       </p>
 
       <!-- Three proof points -->
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; border: 1px solid rgba(255,255,255,.04);">
-        <div style="padding: 1.25rem 1.5rem; background: #0D0D0D;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; border: 1px solid var(--border-divider);">
+        <div style="padding: 1.25rem 1.5rem; background: var(--color-surface-card);">
           <p style="font-size: 9px; letter-spacing: .3em; text-transform: uppercase; color: rgba(201,168,76,.45); margin: 0 0 .4rem;">Timestamp Verified</p>
           <p style="font-size: 1.125rem; color: #FFFFFF; margin: 0; line-height: 1.6;">Every photo is date-and-time stamped on delivery</p>
         </div>
-        <div style="padding: 1.25rem 1.5rem; background: #0D0D0D; border-left: 1px solid rgba(255,255,255,.04);">
+        <div style="padding: 1.25rem 1.5rem; background: var(--color-surface-card); border-left: 1px solid var(--border-divider);">
           <p style="font-size: 9px; letter-spacing: .3em; text-transform: uppercase; color: rgba(201,168,76,.45); margin: 0 0 .4rem;">Before / After Record</p>
           <p style="font-size: 1.125rem; color: #FFFFFF; margin: 0; line-height: 1.6;">Full photo set merged into one defensible PDF</p>
         </div>
-        <div style="padding: 1.25rem 1.5rem; background: #0D0D0D; border-left: 1px solid rgba(255,255,255,.04);">
+        <div style="padding: 1.25rem 1.5rem; background: var(--color-surface-card); border-left: 1px solid var(--border-divider);">
           <p style="font-size: 9px; letter-spacing: .3em; text-transform: uppercase; color: rgba(201,168,76,.45); margin: 0 0 .4rem;">18-Month Archive</p>
           <p style="font-size: 1.125rem; color: #FFFFFF; margin: 0; line-height: 1.6;">Job records retained — ready if a dispute ever arises</p>
         </div>
@@ -1327,7 +1599,7 @@
      SECTION 3.5 — THE PRIME TRANSFORMATION GALLERY
      Two Glide Sliders. Gold handle. Luxury door feel. Stark white copy.
 ══════════════════════════════════════════════════════════════════════════ -->
-<div id="gallery" style="background: #060606; border-top: 1px solid rgba(255,255,255,.05); border-bottom: 1px solid rgba(255,255,255,.05);">
+<div id="gallery" style="background: var(--color-surface-deep); border-top: 1px solid rgba(255,255,255,.05); border-bottom: 1px solid rgba(255,255,255,.05);">
   <section>
     <span class="eyebrow">Section 02.5 — The Prime Transformation Gallery</span>
     <h2 class="serif-head gold-text" style="font-size: clamp(28px, 4vw, 50px); margin: 0 0 .75rem; max-width: 700px;">
@@ -1463,7 +1735,7 @@
      SECTION 4 — SOLUTION AWARENESS
      NEPQ Phase 2: Contrast — what they've tried vs. what's different here.
 ══════════════════════════════════════════════════════════════════════════ -->
-<div style="background: #080808; border-top: 1px solid rgba(255,255,255,.04); border-bottom: 1px solid rgba(255,255,255,.04);">
+<div style="background: var(--color-surface-raised); border-top: 1px solid var(--border-divider); border-bottom: 1px solid var(--border-divider);">
   <section>
     <span class="eyebrow">Section 03 — Why Prime Pathwy</span>
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;" class="stack-on-mobile">
@@ -1487,18 +1759,18 @@
 
       <!-- Before / After contrast -->
       <div>
-        <div style="background: #0A0A0A; border: 1px solid rgba(255,255,255,.05); padding: 2rem; margin-bottom: 2px;">
-          <p style="font-size: 9px; letter-spacing: .35em; text-transform: uppercase; color: rgba(255,255,255,.75); margin-bottom: 1.25rem;">
+        <div style="background: var(--color-modal); border: 1px solid rgba(255,255,255,.05); padding: 2rem; margin-bottom: 2px;">
+          <p style="font-size: 9px; letter-spacing: .35em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 1.25rem;">
             The Patchwork Approach
           </p>
           <ul style="list-style: none; padding: 0; margin: 0;">
-            <li style="display: flex; gap: 1rem; padding: .65rem 0; border-bottom: 1px solid rgba(255,255,255,.04); font-size: 1rem; color: #FFFFFF;">
+            <li style="display: flex; gap: 1rem; padding: .65rem 0; border-bottom: 1px solid var(--border-divider); font-size: 1rem; color: #FFFFFF;">
               <span style="color: rgba(239,68,68,.35); flex-shrink:0;">✗</span>3 vendors, 3 timelines, 3 excuses
             </li>
-            <li style="display: flex; gap: 1rem; padding: .65rem 0; border-bottom: 1px solid rgba(255,255,255,.04); font-size: 1rem; color: #FFFFFF;">
+            <li style="display: flex; gap: 1rem; padding: .65rem 0; border-bottom: 1px solid var(--border-divider); font-size: 1rem; color: #FFFFFF;">
               <span style="color: rgba(239,68,68,.35); flex-shrink:0;">✗</span>Verbal quotes, invoices don't match
             </li>
-            <li style="display: flex; gap: 1rem; padding: .65rem 0; border-bottom: 1px solid rgba(255,255,255,.04); font-size: 1rem; color: #FFFFFF;">
+            <li style="display: flex; gap: 1rem; padding: .65rem 0; border-bottom: 1px solid var(--border-divider); font-size: 1rem; color: #FFFFFF;">
               <span style="color: rgba(239,68,68,.35); flex-shrink:0;">✗</span>No documentation if dispute arises
             </li>
             <li style="display: flex; gap: 1rem; padding: .65rem 0; font-size: 1rem; color: #FFFFFF;">
@@ -1511,13 +1783,13 @@
             Prime Pathwy System
           </p>
           <ul style="list-style: none; padding: 0; margin: 0;">
-            <li style="display: flex; gap: 1rem; padding: .65rem 0; border-bottom: 1px solid rgba(201,168,76,.08); font-size: 1rem; color: #FFFFFF;">
+            <li style="display: flex; gap: 1rem; padding: .65rem 0; border-bottom: 1px solid var(--gold-glow-soft); font-size: 1rem; color: #FFFFFF;">
               <span style="color: rgba(201,168,76,.5); flex-shrink:0;">✓</span>One crew, full scope — clean, haul, paint
             </li>
-            <li style="display: flex; gap: 1rem; padding: .65rem 0; border-bottom: 1px solid rgba(201,168,76,.08); font-size: 1rem; color: #FFFFFF;">
+            <li style="display: flex; gap: 1rem; padding: .65rem 0; border-bottom: 1px solid var(--gold-glow-soft); font-size: 1rem; color: #FFFFFF;">
               <span style="color: rgba(201,168,76,.5); flex-shrink:0;">✓</span>Fixed written quote — no verbal estimates
             </li>
-            <li style="display: flex; gap: 1rem; padding: .65rem 0; border-bottom: 1px solid rgba(201,168,76,.08); font-size: 1rem; color: #FFFFFF;">
+            <li style="display: flex; gap: 1rem; padding: .65rem 0; border-bottom: 1px solid var(--gold-glow-soft); font-size: 1rem; color: #FFFFFF;">
               <span style="color: rgba(201,168,76,.5); flex-shrink:0;">✓</span>Before / during / after photos — every job
             </li>
             <li style="display: flex; gap: 1rem; padding: .65rem 0; font-size: 1rem; color: #FFFFFF;">
@@ -1548,7 +1820,7 @@
     <div class="step">
       <div class="step-num">01</div>
       <div>
-        <h3 style="font-family: Georgia, serif; font-style: italic; font-size: 20px; color: #C9A84C; margin: 0 0 .5rem; font-weight: 700;">Walkthrough & Assessment</h3>
+        <h3 style="font-family: Georgia, serif; font-style: italic; font-size: 20px; color: var(--color-gold); margin: 0 0 .5rem; font-weight: 700;">Walkthrough & Assessment</h3>
         <p style="font-size: 1.125rem; color: #FFFFFF; line-height: 1.9; margin: 0;">
           On-site assessment of the unit condition and full scope. We document the state
           of the property before a single piece of equipment is unloaded.
@@ -1558,7 +1830,7 @@
     <div class="step">
       <div class="step-num">02</div>
       <div>
-        <h3 style="font-family: Georgia, serif; font-style: italic; font-size: 20px; color: #C9A84C; margin: 0 0 .5rem; font-weight: 700;">Fixed Written Quote</h3>
+        <h3 style="font-family: Georgia, serif; font-style: italic; font-size: 20px; color: var(--color-gold); margin: 0 0 .5rem; font-weight: 700;">Fixed Written Quote</h3>
         <p style="font-size: 1.125rem; color: #FFFFFF; line-height: 1.9; margin: 0;">
           You receive a written quote with locked scope. No verbal estimates. No surprises.
           Approve it and we schedule — scope is frozen from that point forward.
@@ -1568,7 +1840,7 @@
     <div class="step">
       <div class="step-num">03</div>
       <div>
-        <h3 style="font-family: Georgia, serif; font-style: italic; font-size: 20px; color: #C9A84C; margin: 0 0 .5rem; font-weight: 700;">Execution: Clean, Haul, Paint</h3>
+        <h3 style="font-family: Georgia, serif; font-style: italic; font-size: 20px; color: var(--color-gold); margin: 0 0 .5rem; font-weight: 700;">Execution: Clean, Haul, Paint</h3>
         <p style="font-size: 1.125rem; color: #FFFFFF; line-height: 1.9; margin: 0;">
           Full execution with milestone photos at each stage — after cleanout, after paint,
           after final sweep. Landfill receipts provided for all disposal. Delivered in
@@ -1579,7 +1851,7 @@
     <div class="step">
       <div class="step-num">04</div>
       <div>
-        <h3 style="font-family: Georgia, serif; font-style: italic; font-size: 20px; color: #C9A84C; margin: 0 0 .5rem; font-weight: 700;">Documented Handover</h3>
+        <h3 style="font-family: Georgia, serif; font-style: italic; font-size: 20px; color: var(--color-gold); margin: 0 0 .5rem; font-weight: 700;">Documented Handover</h3>
         <p style="font-size: 1.125rem; color: #FFFFFF; line-height: 1.9; margin: 0;">
           Move-in ready delivery with a full photo set sent directly to you. All job records
           archived for 18–24 months. If a dispute ever arises, you have the documentation
@@ -1594,7 +1866,7 @@
 <!-- ══════════════════════════════════════════════════════════════════════════
      SECTION 6 — PRICING TABLE
 ══════════════════════════════════════════════════════════════════════════ -->
-<div style="background: #080808; border-top: 1px solid rgba(255,255,255,.04); border-bottom: 1px solid rgba(255,255,255,.04);">
+<div style="background: var(--color-surface-raised); border-top: 1px solid var(--border-divider); border-bottom: 1px solid var(--border-divider);">
   <section id="pricing">
     <span class="eyebrow">Section 05 — Pricing Structure</span>
     <h2 class="serif-head gold-text" style="font-size: clamp(28px, 4vw, 48px); margin: 0 0 .75rem;">
@@ -1608,7 +1880,7 @@
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2px; max-width: 900px;" class="pricing-grid-wrap">
 
       <!-- Apartments -->
-      <div style="background: #0A0A0A; border: 1px solid rgba(255,255,255,.05);">
+      <div style="background: var(--color-modal); border: 1px solid rgba(255,255,255,.05);">
         <div class="price-section-head">Full Turnover — Apartment Units (Labor Only)</div>
         <div class="price-row">
           <span class="price-label">Studio / 1 Bedroom</span>
@@ -1631,7 +1903,7 @@
       </div>
 
       <!-- Homes -->
-      <div style="background: #0A0A0A; border: 1px solid rgba(255,255,255,.05);">
+      <div style="background: var(--color-modal); border: 1px solid rgba(255,255,255,.05);">
         <div class="price-section-head">Full Turnover — Single-Family Homes (Labor Only)</div>
         <div class="price-row">
           <span class="price-label">2 Bedroom Home</span>
@@ -1661,7 +1933,7 @@
     </div>
 
     <!-- Add-ons -->
-    <div style="margin-top: 2px; max-width: 900px; background: #090909; border: 1px solid rgba(255,255,255,.04);">
+    <div style="margin-top: 2px; max-width: 900px; background: #090909; border: 1px solid var(--border-divider);">
       <div class="price-section-head">Add-On Services</div>
       <div class="price-row">
         <span class="price-label">Dump & Haul-Away</span>
@@ -1685,7 +1957,7 @@
       </div>
     </div>
 
-    <p style="font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.75); margin-top: 1.25rem; max-width: 900px;">
+    <p style="font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: var(--text-secondary); margin-top: 1.25rem; max-width: 900px;">
       Extreme conditions (biohazard, hoarding) require a separate written quote ·
       Licensed trade work not included · Verification required for projects $1,000+
     </p>
@@ -1728,7 +2000,7 @@
     </p>
 
     <div style="margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid rgba(201,168,76,.1);">
-      <p style="font-size: 9px; letter-spacing: .3em; text-transform: uppercase; color: rgba(255,255,255,.75);">
+      <p style="font-size: 9px; letter-spacing: .3em; text-transform: uppercase; color: var(--text-secondary);">
         And that's before you factor in a vendor dispute, a missing receipt, or a chargeback
         you can't defend because there was no documentation. Prime Pathwy closes every one of those gaps.
       </p>
@@ -1768,16 +2040,16 @@
       </a>
     </div>
 
-    <p style="font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.75);">
+    <p style="font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--text-secondary);">
       contact@primepathwy.com · www.primepathwy.com
     </p>
 
     <!-- System declaration -->
-    <div style="max-width: 600px; margin: 4rem auto 0; padding: 2rem; border: 1px solid rgba(255,255,255,.04); background: #080808;">
-      <p style="font-size: 9px; letter-spacing: .35em; text-transform: uppercase; color: rgba(201,168,76,.3); margin-bottom: 1rem;">
+    <div style="max-width: 600px; margin: 4rem auto 0; padding: 2rem; border: 1px solid var(--border-divider); background: var(--color-surface-raised);">
+      <p style="font-size: 9px; letter-spacing: .35em; text-transform: uppercase; color: var(--border-gold-mid); margin-bottom: 1rem;">
         System Declaration
       </p>
-      <p style="font-size: 11px; color: rgba(255,255,255,.75); line-height: 1.9;">
+      <p style="font-size: 11px; color: var(--text-secondary); line-height: 1.9;">
         Scope is locked to the written quote. All changes require a written change order before work continues.
         Before, during, and after photos are mandatory on every job. Disposal and landfill fees are billed
         separately at cost with receipts. Job records archived 18–24 months minimum.
@@ -1799,17 +2071,18 @@
     <div style="display: grid; grid-template-columns: 260px 1fr; gap: 4.5rem; align-items: start; max-width: 960px;" class="stack-on-mobile">
 
       <!-- Identity Anchor Image — drop arthur_appling_sr.jpg into this folder to activate -->
-      <div style="position: relative; border: 1px solid rgba(201,168,76,.3); max-width: 260px; width: 100%; flex-shrink: 0;">
+      <div style="position: relative; border: 1px solid var(--border-gold-mid); max-width: 260px; width: 100%; flex-shrink: 0;">
         <img
           id="architect-photo"
           src="public/images/ARTHUR_APPLING_SR.JPG"
           alt="Arthur Appling Sr. — Lead Architect, Prime Pathwy"
+          loading="lazy"
           style="display: block; width: 100%; height: 340px; object-fit: cover; object-position: center top;"
           onerror="this.style.display='none'; document.getElementById('architect-fallback').style.display='flex';"
         >
         <!-- Fallback shown only if image file is missing -->
         <div id="architect-fallback"
-             style="display: none; width: 100%; height: 340px; background: #0A0A0A; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; padding: 2rem;">
+             style="display: none; width: 100%; height: 340px; background: var(--color-modal); flex-direction: column; align-items: center; justify-content: center; gap: 1rem; padding: 2rem;">
           <svg width="44" height="44" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <circle cx="12" cy="8" r="4" stroke="rgba(201,168,76,.45)" stroke-width="1.5"/>
             <path d="M4 20c0-4 3.58-7 8-7s8 3 8 7" stroke="rgba(201,168,76,.45)" stroke-width="1.5" stroke-linecap="round"/>
@@ -1820,7 +2093,7 @@
         </div>
         <!-- Gold corner accent -->
         <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: .6rem 1rem; background: rgba(0,0,0,.72); backdrop-filter: blur(6px); border-top: 1px solid rgba(201,168,76,.25);">
-          <span style="font-size: 9px; letter-spacing: .28em; text-transform: uppercase; color: #C9A84C;">Lead Architect</span>
+          <span style="font-size: 9px; letter-spacing: .28em; text-transform: uppercase; color: var(--color-gold);">Lead Architect</span>
         </div>
       </div>
 
@@ -1832,7 +2105,7 @@
         <div class="gold-divider" style="margin-bottom: 1.75rem;"></div>
 
         <!-- Name — Bold Gold, AAA contrast -->
-        <p style="font-size: 1.125rem; font-weight: 800; color: #FFD700; letter-spacing: .06em; margin: 0 0 1rem; line-height: 1.5; font-family: 'Courier New', monospace;">
+        <p style="font-size: 1.125rem; font-weight: 800; color: var(--color-gold-bright); letter-spacing: .06em; margin: 0 0 1rem; line-height: 1.5; font-family: 'Courier New', monospace;">
           ARTHUR APPLING SR. — LEAD ARCHITECT.
         </p>
 
@@ -1845,16 +2118,16 @@
 
         <!-- Credential strip -->
         <div style="display: flex; gap: 1.25rem; flex-wrap: wrap;">
-          <div style="border: 1px solid rgba(201,168,76,.22); padding: .6rem 1.1rem; background: #080808;">
-            <span style="font-size: 9px; letter-spacing: .28em; text-transform: uppercase; color: #C9A84C;">20 Years</span>
+          <div style="border: 1px solid rgba(201,168,76,.22); padding: .6rem 1.1rem; background: var(--color-surface-raised);">
+            <span style="font-size: 9px; letter-spacing: .28em; text-transform: uppercase; color: var(--color-gold);">20 Years</span>
             <span style="display: block; font-size: 1rem; color: #FFFFFF; margin-top: .2rem;">Operational Experience</span>
           </div>
-          <div style="border: 1px solid rgba(201,168,76,.22); padding: .6rem 1.1rem; background: #080808;">
-            <span style="font-size: 9px; letter-spacing: .28em; text-transform: uppercase; color: #C9A84C;">100%</span>
+          <div style="border: 1px solid rgba(201,168,76,.22); padding: .6rem 1.1rem; background: var(--color-surface-raised);">
+            <span style="font-size: 9px; letter-spacing: .28em; text-transform: uppercase; color: var(--color-gold);">100%</span>
             <span style="display: block; font-size: 1rem; color: #FFFFFF; margin-top: .2rem;">Audit-Ready Delivery</span>
           </div>
-          <div style="border: 1px solid rgba(201,168,76,.22); padding: .6rem 1.1rem; background: #080808;">
-            <span style="font-size: 9px; letter-spacing: .28em; text-transform: uppercase; color: #C9A84C;">Single Crew</span>
+          <div style="border: 1px solid rgba(201,168,76,.22); padding: .6rem 1.1rem; background: var(--color-surface-raised);">
+            <span style="font-size: 9px; letter-spacing: .28em; text-transform: uppercase; color: var(--color-gold);">Single Crew</span>
             <span style="display: block; font-size: 1rem; color: #FFFFFF; margin-top: .2rem;">Full-Scope Accountability</span>
           </div>
         </div>
@@ -1918,7 +2191,7 @@
       <span class="intake-section-label">02 — Additional Rooms (+$200 each)</span>
       <div class="intake-rooms-row">
         <button class="rooms-counter-btn" id="rooms-minus" aria-label="Remove room">−</button>
-        <span id="rooms-count">0</span>
+        <span id="rooms-count" aria-live="polite" aria-label="Extra rooms: 0">0</span>
         <button class="rooms-counter-btn" id="rooms-plus"  aria-label="Add room">+</button>
         <span class="rooms-label">rooms × $200</span>
       </div>
@@ -1962,15 +2235,19 @@
         <span class="labor-only-badge">Labor Only</span>
         <span class="intake-total-note">Estimated Total</span>
       </div>
-      <div id="intake-total">$0</div>
+      <div id="intake-total" aria-live="polite" aria-atomic="true">$0</div>
     </div>
 
     <!-- Step 4: Contact Info -->
     <div class="intake-section">
       <span class="intake-section-label">04 — Your Information</span>
+      <label for="intake-name"    class="sr-only">Full Name</label>
       <input class="intake-field" id="intake-name"    type="text"  placeholder="Full Name"       autocomplete="name">
+      <label for="intake-email"   class="sr-only">Email Address</label>
       <input class="intake-field" id="intake-email"   type="email" placeholder="Email Address"   autocomplete="email">
+      <label for="intake-phone"   class="sr-only">Phone Number</label>
       <input class="intake-field" id="intake-phone"   type="tel"   placeholder="Phone Number"    autocomplete="tel">
+      <label for="intake-address" class="sr-only">Property Address</label>
       <input class="intake-field" id="intake-address" type="text"  placeholder="Property Address">
     </div>
 
@@ -1992,25 +2269,26 @@
 
     <!-- Architect Portrait — rectangular gold-border frame -->
     <div style="display: flex; flex-direction: column; align-items: center; gap: .75rem; margin-bottom: .5rem;">
-      <div style="border: 2px solid #C9A84C; box-shadow: 0 0 0 6px rgba(201,168,76,0.07), 0 0 36px rgba(201,168,76,0.13); background: #0D0D0D; width: 200px; height: 250px; position: relative; overflow: hidden; flex-shrink: 0;">
+      <div style="border: 2px solid var(--color-gold); box-shadow: 0 0 0 6px rgba(201,168,76,0.07), 0 0 36px rgba(201,168,76,0.13); background: var(--color-surface-card); width: 200px; height: 250px; position: relative; overflow: hidden; flex-shrink: 0;">
         <img
           src="public/images/ARTHUR_APPLING_SR.JPG"
           alt="Arthur F. Appling Sr. — Lead Architect, Prime Pathwy"
+          loading="lazy"
           style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: center top;"
         >
       </div>
-      <p style="font-size: 9px; letter-spacing: .28em; text-transform: uppercase; color: #C9A84C; margin: 0; font-family: 'Courier New', monospace;">
+      <p style="font-size: 9px; letter-spacing: .28em; text-transform: uppercase; color: var(--color-gold); margin: 0; font-family: 'Courier New', monospace;">
         Arthur F. Appling Sr. &mdash; Lead Architect
       </p>
     </div>
 
     <!-- Brand -->
     <p class="serif-head gold-text" style="margin: 0; font-size: 20px;">Prime Pathwy</p>
-    <p style="font-size: 9px; letter-spacing: .25em; text-transform: uppercase; color: rgba(255,255,255,.75); margin: 0;">
+    <p style="font-size: 9px; letter-spacing: .25em; text-transform: uppercase; color: var(--text-secondary); margin: 0;">
       Property Turnover Services · Cleaning · Haul-Out · Paint · Full Turnovers
     </p>
     <!-- Trust Anchor — Institutional Contact Block -->
-    <div style="border: 1px solid rgba(201,168,76,.22); padding: 1.75rem 2.5rem; max-width: 720px; width: 100%; background: #050505;">
+    <div style="border: 1px solid rgba(201,168,76,.22); padding: 1.75rem 2.5rem; max-width: 720px; width: 100%; background: var(--color-black);">
       <p style="font-size: 9px; letter-spacing: .38em; text-transform: uppercase; color: rgba(201,168,76,.5); margin: 0 0 1rem;">
         Business Address &amp; Contact
       </p>
@@ -2023,7 +2301,7 @@
     </div>
 
     <!-- Divider -->
-    <div style="width: 100%; max-width: 400px; height: 1px; background: rgba(255,255,255,.06);"></div>
+    <div style="width: 100%; max-width: 400px; height: 1px; background: var(--border-subtle);"></div>
 
     <!-- Legal Links + Accessibility -->
     <div style="display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; justify-content: center;">
@@ -2049,7 +2327,7 @@
     </div>
 
     <!-- Divider -->
-    <div style="width: 100%; max-width: 400px; height: 1px; background: rgba(255,255,255,.04);"></div>
+    <div style="width: 100%; max-width: 400px; height: 1px; background: var(--border-divider);"></div>
 
     <!-- Copyright -->
     <p style="font-size: 8px; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.12); margin: 0;">
@@ -2119,12 +2397,14 @@ document.addEventListener('DOMContentLoaded', () => {
   ─────────────────────────────────────────────────────────────────────── */
   (function() {
     const overlay  = document.getElementById('intake-overlay');
+    const modal    = document.getElementById('intake-modal');
     const closeBtn = document.getElementById('intake-close');
     const totalEl  = document.getElementById('intake-total');
     const roomsEl  = document.getElementById('rooms-count');
     let selectedPkg  = null;
     let extraRooms   = 0;
     let currentTotal = 0;
+    let modalTrigger = null; // element that opened the modal — focus returns here on close
 
     function refreshTotal() {
       let t = 0;
@@ -2145,9 +2425,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     window.openIntakeModal = function(pkgKey) {
+      modalTrigger = document.activeElement;
       selectedPkg = pkgKey || null;
       extraRooms  = 0;
       roomsEl.textContent = '0';
+      roomsEl.setAttribute('aria-label', 'Extra rooms: 0');
       document.querySelectorAll('.addon-check').forEach(cb => { cb.checked = false; });
       document.querySelectorAll('.addon-row').forEach(row => row.classList.remove('checked'));
       document.querySelectorAll('.intake-pkg-card').forEach(card => {
@@ -2163,14 +2445,38 @@ document.addEventListener('DOMContentLoaded', () => {
     function closeModal() {
       overlay.classList.remove('active');
       document.body.style.overflow = '';
+      if (modalTrigger && typeof modalTrigger.focus === 'function') {
+        modalTrigger.focus();
+        modalTrigger = null;
+      }
     }
 
     closeBtn.addEventListener('click', closeModal);
     overlay.addEventListener('click', function(e) {
       if (e.target === overlay) closeModal();
     });
+
+    /* Focus trap — cycles Tab/Shift-Tab within #intake-modal while open */
     document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && overlay.classList.contains('active')) closeModal();
+      if (e.key === 'Escape' && overlay.classList.contains('active')) {
+        closeModal();
+        return;
+      }
+      if (e.key !== 'Tab' || !overlay.classList.contains('active')) return;
+      const focusable = Array.from(
+        modal.querySelectorAll(
+          'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), ' +
+          'textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )
+      ).filter(el => el.offsetParent !== null);
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last  = focusable[focusable.length - 1];
+      if (e.shiftKey) {
+        if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+      } else {
+        if (document.activeElement === last)  { e.preventDefault(); first.focus(); }
+      }
     });
 
     document.querySelectorAll('.intake-pkg-card').forEach(card => {
@@ -2187,10 +2493,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.getElementById('rooms-minus').addEventListener('click', function() {
-      if (extraRooms > 0) { extraRooms--; roomsEl.textContent = extraRooms; refreshTotal(); }
+      if (extraRooms > 0) {
+        extraRooms--;
+        roomsEl.textContent = extraRooms;
+        roomsEl.setAttribute('aria-label', 'Extra rooms: ' + extraRooms);
+        refreshTotal();
+      }
     });
     document.getElementById('rooms-plus').addEventListener('click', function() {
-      extraRooms++; roomsEl.textContent = extraRooms; refreshTotal();
+      extraRooms++;
+      roomsEl.textContent = extraRooms;
+      roomsEl.setAttribute('aria-label', 'Extra rooms: ' + extraRooms);
+      refreshTotal();
     });
 
     document.querySelectorAll('.addon-check').forEach(function(cb) {
@@ -2289,6 +2603,40 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
+  })();
+
+  /* ── Mobile Nav Toggle ───────────────────────────────────────────────────
+     Hamburger opens/closes the nav dropdown on viewports ≤768px.
+     Closes automatically when a link is tapped or the user resizes to desktop.
+  ──────────────────────────────────────────────────────────────────────── */
+  (function() {
+    const hamburger = document.getElementById('nav-hamburger');
+    const navLinks  = document.getElementById('nav-links');
+    if (!hamburger || !navLinks) return;
+
+    function openNav() {
+      navLinks.classList.add('open');
+      hamburger.setAttribute('aria-expanded', 'true');
+      hamburger.setAttribute('aria-label', 'Close navigation');
+    }
+
+    function closeNav() {
+      navLinks.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      hamburger.setAttribute('aria-label', 'Open navigation');
+    }
+
+    hamburger.addEventListener('click', function() {
+      navLinks.classList.contains('open') ? closeNav() : openNav();
+    });
+
+    navLinks.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', closeNav);
+    });
+
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) closeNav();
+    });
   })();
 
 });
