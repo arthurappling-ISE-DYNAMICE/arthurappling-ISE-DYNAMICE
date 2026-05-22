@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  sovereign_os:
+    build: .
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - ./prime_pathwy.db:/app/prime_pathwy.db
+      - ./vault:/app/vault
+    env_file:
+      - .env
+    read_only: true
+    tmpfs:
+      - /tmp
