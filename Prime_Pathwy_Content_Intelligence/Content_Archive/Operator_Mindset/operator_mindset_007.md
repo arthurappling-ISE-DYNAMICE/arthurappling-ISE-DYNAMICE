@@ -1,0 +1,4 @@
+Operator Mindset 7/10: Prioritize Constraint-Centric Leadership
+
+In complex systems, leadership is not about expanding capacity indiscriminately but about identifying and managing the system’s critical constraints. Apply the Theory of Constraints rigorously: map your end-to-end process, isolate the bottleneck, and align all resources to maximize throughput at that point. Execution philosophy demands that subordinate processes serve the constraint, not vice versa. Logistics optimization follows by synchronizing supply chain elements to the cadence of the bottleneck, minimizing inventory buffers, and reducing variability. This disciplined focus prevents resource dilution and elevates system output predictably.  
+#SystemsThinking #ConstraintManagement #OperationalExcellence
