@@ -1,0 +1,196 @@
+Act as a high-level commercial intelligence and local economic mapping system.
+
+Your objective is to build a complete operational business intelligence archive for Solano County, California with special focus on Vallejo, Benicia, Fairfield, Vacaville, American Canyon, and surrounding commercial corridors.
+
+Build an institutional-grade master database of all reachable commercial entities connected to:
+
+* Property Management
+* Commercial Real Estate
+* Warehousing
+* Logistics
+* Industrial Services
+* Construction
+* Maintenance
+* Fleet Services
+* Facilities Management
+* Government Vendors
+* Municipal Contractors
+* Janitorial Companies
+* Security Firms
+* Waste Management
+* Apartment Ownership Groups
+* Mobile Home Parks
+* HOA Management Companies
+* Storage Facilities
+* Roofing
+* HVAC
+* Plumbing
+* Electrical
+* Concrete
+* Painting
+* Asphalt
+* Junk Removal
+* Landscaping
+* Commercial Cleaning
+
+For every entity:
+
+* Verify business existence
+* Verify operational status
+* Extract owner or executive names
+* Extract decision-maker roles
+* Extract business phone numbers
+* Extract public emails
+* Extract websites
+* Extract LinkedIn profiles when available
+* Extract physical addresses
+* Extract service categories
+* Estimate company size
+* Estimate local footprint
+* Identify likely subcontracting needs
+* Identify likely recurring operational pain points
+* Identify probable buying triggers
+* Identify probable technology weaknesses
+* Identify probable operational inefficiencies
+
+Then:
+
+1. Organize the entire dataset into CRM-ready spreadsheet format.
+2. Deduplicate all entries.
+3. Add lead quality scoring.
+4. Add estimated contract value ranges.
+5. Add outreach angle recommendations.
+6. Add “best first-contact strategy.”
+7. Add urgency/opportunity scoring.
+8. Add follow-up cadence recommendations.
+
+Then create:
+
+* local market summaries
+* sector opportunity reports
+* underserved niche reports
+* competitive saturation analysis
+* operational inefficiency trends
+* AI automation opportunity analysis
+
+Deliver:
+
+* XLSX database
+* CSV exports
+* master PDF intelligence report
+* searchable markdown archive
+* structured folder hierarchy
+* executive summary
+* outreach strategy appendix
+* acquisition opportunity appendix
+* recurring revenue opportunity appendix
+
+Operate at maximum depth and completeness.
+Do not produce shallow summaries.
+Act as an enterprise operations architect and institutional systems consultant.
+
+Build a complete business operating system for Prime Pathwy.
+
+The objective is to create a fully structured, reusable fulfillment infrastructure capable of supporting:
+
+* consulting
+* field operations
+* local service businesses
+* contractor coordination
+* inspections
+* audits
+* logistics
+* compliance
+* AI-assisted management
+* remote administration
+
+Create a complete institutional-grade operational framework including:
+
+SECTION 1 — EXECUTIVE OPERATIONS
+
+* Daily operating procedures
+* Weekly review systems
+* KPI frameworks
+* Accountability systems
+* Management hierarchy templates
+* Internal reporting systems
+* Incident escalation systems
+
+SECTION 2 — FIELD OPERATIONS
+
+* Site inspection systems
+* Route management
+* Crew deployment
+* Vehicle management
+* Equipment tracking
+* Safety protocols
+* Documentation procedures
+* Job completion verification
+
+SECTION 3 — CLIENT MANAGEMENT
+
+* Client onboarding
+* Proposal systems
+* Contract workflows
+* Intake systems
+* Scope verification
+* Change-order systems
+* Billing verification
+* Retention systems
+
+SECTION 4 — COMPLIANCE
+
+* OSHA-style procedures
+* Insurance verification workflows
+* Contractor verification
+* Documentation retention
+* Audit procedures
+* Regulatory tracking systems
+
+SECTION 5 — AI + AUTOMATION
+
+* CRM workflows
+* Lead routing logic
+* Automation maps
+* AI agent task structures
+* Knowledge base organization
+* File hierarchy architecture
+* Naming conventions
+* SOP indexing systems
+
+SECTION 6 — FINANCIAL OPERATIONS
+
+* Invoice systems
+* Collections workflows
+* Vendor management
+* Expense categorization
+* Revenue tracking
+* Profitability analysis systems
+
+For every section:
+
+* include complete SOPs
+* include actual forms
+* include checklists
+* include templates
+* include scripts
+* include workflows
+* include escalation trees
+* include operational logic
+* include QA systems
+
+Deliver:
+
+* master operating manual
+* SOP library
+* printable forms
+* onboarding packet
+* executive handbook
+* markdown knowledge base
+* structured folder architecture
+* implementation roadmap
+* indexed table of contents
+
+Everything must be implementation-ready.
+No placeholders.
+No generic filler.

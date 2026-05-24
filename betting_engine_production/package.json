@@ -1,0 +1,9 @@
+{
+  "name": "aa-betting-engine-v2",
+  "version": "2.0.0",
+  "type": "module",
+  "description": "Strategic Analytics Dashboard V2 — AA Capital INC",
+  "scripts": {
+    "start": "node app.js"
+  }
+}

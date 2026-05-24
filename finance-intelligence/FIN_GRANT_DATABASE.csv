@@ -17,3 +17,66 @@ SBA 7(a) Loan,SBA,sba.gov/7a,Up to $5M,Operating small businesses,Ongoing,Rollin
 SBA 504 Loan,SBA,sba.gov/504,Up to $5.5M,Operating small businesses,Ongoing,Rolling,National,10/10,Primary equipment/fleet vehicle
 SBA Microloan,SBA,sba.gov/microloans,Up to $50K,Operating small businesses,Ongoing,Rolling,National,8/10,Fast access for early-stage capital needs
 Working Solutions CDFI,Working Solutions,workingsolutions.org,$5K–$100K,CA businesses; no min credit/revenue,Ongoing,Rolling,California,10/10,Best first loan for early-stage — no collateral required
+nt "C:\Users\arthu\GeminiEcosystem\temporary\super_system_package_vault\Prime_Pathwy_Master_Archive\Prime_Pathwy\fuse_leads.py" -TotalCount 60
+"""
+fuse_leads.py â€” Prime Pathwy Lead Fusion Engine
+
+Merges real business contact data from the NorCal Lead Extraction CSV
+into the 588-row Solano County CRM placeholder framework.
+
+Usage: python fuse_leads.py
+       (do not execute until enrichment data is verified)
+"""
+
+import csv
+import json
+import os
+import re
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from config import BASE_PATH, REAL_LEADS_PATH, CRM_DATABASE_PATH
+
+OUTPUT_PATH = os.path.join(BASE_PATH, "research", "leads", "enriched_solano_crm_database.csv")
+
+# Maps real leads industry_type values -> CRM sector names they enrich.
+# Real leads file contains exactly 5 industry types (confirmed via audit):
+#   Logistics Fleet, Junk Removal, Commercial Painting,
+#   Industrial Painting, Painting and Coatings
+SECTOR_MAP = {
+    "Logistics Fleet":      ["Logistics", "Fleet Services", "Warehousing"],
+    "Junk Removal":         ["Junk Removal", "Waste Management"],
+    "Industrial Painting":  ["Painting", "Industrial Services"],
+    "Commercial Painting":  ["Painting"],
+    "Painting and Coatings": ["Painting"],
+}
+
+# Invert SECTOR_MAP: CRM sector -> list of real industry types that can fill it.
+# Built at module load so the loop below never recomputes it.
+CRM_SECTOR_TO_REAL = {}
+for real_type, crm_sectors in SECTOR_MAP.items():
+    for crm_sector in crm_sectors:
+        CRM_SECTOR_TO_REAL.setdefault(crm_sector, []).append(real_type)
+
+
+# ---------------------------------------------------------------------------
+# PHASE 1 â€” Parse real leads from the NorCal extraction CSV
+# ---------------------------------------------------------------------------
+
+def parse_real_leads(filepath):
+    """
+    Extract business records from the NorCal lead extraction CSV.
+
+    File format: a single-column CSV where each row stores one segment.
+    Each segment's "Leads JSON" cell contains a JSON array double-CSV-escaped:
+      - Array block delimiters in raw text:  ""[  ...  ]"",<lead_count>
+      - JSON field quotes appear as four consecutive double-quotes:
+            """"business_name"""": """"AAA Courier""""
+      - CSV row-boundary quotes wrap each content line:  "    ....content...,  "
+
+    The ,<digits> suffix after ]"" disambiguates true array endings from
+    false positives caused by [verify] placeholder values inside the records.
+
+    Strategy:
+PS C:\Users\arthu\GeminiEcosystem\temporary\super_system_package_vault\Prime_Pathwy_Master_Archive\Prime_Pathwy> Copy-Item "C:\Users\arthu\GeminiEcosystem\temporary\super_system_package_vault\Prime_Pathwy_Master_Archive\Prime_Pathwy\research\leads\enriched_solano_crm_database.csv" -Destination "C:\Users\arthu\GeminiEcosystem\PrimePathwyOS\research\leads\enriched_solano_crm_database.csv" -Force
+PS

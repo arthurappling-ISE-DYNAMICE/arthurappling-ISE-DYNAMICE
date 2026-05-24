@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prime Pathwy Sovereign System Manual</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=JetBrains+Mono:wght@400;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0B0B0B;
+    color: #FFFFFF;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ─── PAGE LAYOUT ─────────────────────────────────────────── */
+  .page {
+    width: 850px;
+    min-height: 1100px;
+    margin: 0 auto;
+    padding: 70px 80px 60px 80px;
+    page-break-after: always;
+    position: relative;
+    background-color: #0B0B0B;
+  }
+
+  /* ─── COVER PAGE ──────────────────────────────────────────── */
+  .cover-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 1100px;
+  }
+  .cover-rule-top {
+    width: 100%;
+    height: 8px;
+    background-color: #C9A646;
+    margin-bottom: 80px;
+  }
+  .cover-rule-bottom {
+    width: 100%;
+    height: 8px;
+    background-color: #C9A646;
+    margin-top: 80px;
+  }
+  .cover-eyebrow {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 6px;
+    color: #C9A646;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+  }
+  .cover-title {
+    font-size: 58px;
+    font-weight: 900;
+    color: #C9A646;
+    text-transform: uppercase;
+    line-height: 1.1;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+  }
+  .cover-subtitle {
+    font-size: 26px;
+    font-weight: 400;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+  }
+  .cover-sub2 {
+    font-size: 18px;
+    font-weight: 400;
+    color: #888888;
+    margin-bottom: 60px;
+  }
+  .cover-divider {
+    width: 120px;
+    height: 2px;
+    background-color: #C9A646;
+    margin: 0 auto 40px auto;
+  }
+  .cover-author {
+    font-size: 18px;
+    font-weight: 700;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+  .cover-role {
+    font-size: 15px;
+    color: #888888;
+    margin-bottom: 4px;
+  }
+  .cover-date {
+    font-size: 14px;
+    color: #555555;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ─── SECTION HEADER ──────────────────────────────────────── */
+  .section-header {
+    border-bottom: 4px solid #C9A646;
+    padding-bottom: 14px;
+    margin-bottom: 32px;
+  }
+  .section-eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    color: #C9A646;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .section-title {
+    font-size: 38px;
+    font-weight: 900;
+    color: #C9A646;
+    text-transform: uppercase;
+    line-height: 1.15;
+  }
+
+  /* ─── WORKFLOW HEADER ─────────────────────────────────────── */
+  .wf-badge {
+    display: inline-block;
+    background-color: #C9A646;
+    color: #0B0B0B;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    margin-bottom: 14px;
+  }
+  .wf-title {
+    font-size: 34px;
+    font-weight: 900;
+    color: #C9A646;
+    text-transform: uppercase;
+    line-height: 1.2;
+    border-bottom: 4px solid #C9A646;
+    padding-bottom: 14px;
+    margin-bottom: 28px;
+  }
+  .wf-objective {
+    font-size: 18px;
+    font-weight: 700;
+    color: #FFFFFF;
+    background-color: #111111;
+    border-left: 5px solid #C9A646;
+    padding: 14px 20px;
+    margin-bottom: 28px;
+  }
+
+  /* ─── BODY TEXT ───────────────────────────────────────────── */
+  p {
+    font-size: 15px;
+    color: #D0D0D0;
+    margin-bottom: 18px;
+    line-height: 1.75;
+  }
+  strong, b { color: #C9A646; font-weight: 700; }
+
+  /* ─── SUBHEADINGS ─────────────────────────────────────────── */
+  h3 {
+    font-size: 18px;
+    font-weight: 900;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #333333;
+    padding-bottom: 8px;
+    margin-top: 28px;
+    margin-bottom: 14px;
+  }
+
+  /* ─── TABLES ──────────────────────────────────────────────── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 28px;
+    border: 2px solid #C9A646;
+  }
+  th {
+    background-color: #1A1A1A;
+    color: #C9A646;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 2px solid #C9A646;
+  }
+  th:not(:last-child) { border-right: 1px solid #333333; }
+  td {
+    font-size: 14px;
+    padding: 11px 16px;
+    border-bottom: 1px solid #222222;
+    color: #CCCCCC;
+    vertical-align: top;
+  }
+  td:not(:last-child) { border-right: 1px solid #222222; }
+  td:first-child { color: #C9A646; font-weight: 700; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background-color: #0D0D0D; }
+
+  /* ─── COMMAND BOX ─────────────────────────────────────────── */
+  .command-box {
+    background-color: #0D0D0D;
+    border: 1px solid #333333;
+    border-left: 5px solid #C9A646;
+    padding: 18px 22px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: #A0A0A0;
+    margin-bottom: 24px;
+    line-height: 1.8;
+  }
+  .command-box .label {
+    font-weight: 700;
+    color: #C9A646;
+    display: block;
+    margin-bottom: 4px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ─── AGENT PROMPT BOX ────────────────────────────────────── */
+  .agent-box {
+    background-color: #0A0A0A;
+    border: 2px solid #333333;
+    padding: 22px 26px;
+    margin-bottom: 24px;
+    font-size: 14px;
+    color: #BBBBBB;
+    line-height: 1.75;
+    font-style: italic;
+  }
+  .agent-box .agent-label {
+    font-style: normal;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #C9A646;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  /* ─── PHASE BLOCKS ────────────────────────────────────────── */
+  .phase-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+  .phase-block {
+    border: 2px solid #C9A646;
+    padding: 18px;
+    background-color: #111111;
+  }
+  .phase-number {
+    font-size: 42px;
+    font-weight: 900;
+    color: #2A2A2A;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .phase-name {
+    font-size: 18px;
+    font-weight: 900;
+    color: #C9A646;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .phase-desc {
+    font-size: 13px;
+    color: #AAAAAA;
+    line-height: 1.6;
+  }
+
+  /* ─── STEP BLOCKS ─────────────────────────────────────────── */
+  .step-block {
+    display: flex;
+    border: 2px solid #C9A646;
+    background-color: #111111;
+    margin-bottom: 14px;
+  }
+  .step-num {
+    font-size: 40px;
+    font-weight: 900;
+    color: #0B0B0B;
+    background-color: #C9A646;
+    width: 80px;
+    min-width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .step-content {
+    padding: 16px 22px;
+  }
+  .step-action {
+    font-size: 17px;
+    font-weight: 900;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .step-cmd {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: #888888;
+  }
+
+  /* ─── TARGET GRID ─────────────────────────────────────────── */
+  .target-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .target-item {
+    border: 2px solid #333333;
+    padding: 14px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    color: #FFFFFF;
+    background-color: #0B0B0B;
+  }
+
+  /* ─── FLOW ROW ────────────────────────────────────────────── */
+  .flow-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 3px solid #C9A646;
+    background-color: #111111;
+    padding: 20px;
+    margin-bottom: 28px;
+  }
+  .flow-step {
+    border: 2px solid #C9A646;
+    padding: 12px 10px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: #C9A646;
+    text-transform: uppercase;
+    background-color: #0B0B0B;
+    width: 120px;
+  }
+  .flow-arrow {
+    font-size: 24px;
+    color: #555555;
+    font-weight: 900;
+  }
+
+  /* ─── DOCTRINE QUOTE ──────────────────────────────────────── */
+  .doctrine-quote {
+    border-top: 2px solid #C9A646;
+    border-bottom: 2px solid #C9A646;
+    padding: 24px 0;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: #C9A646;
+    letter-spacing: 1px;
+    margin: 40px 0;
+  }
+
+  /* ─── FOOTER ──────────────────────────────────────────────── */
+  .page-footer {
+    position: absolute;
+    bottom: 28px;
+    left: 80px;
+    right: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #222222;
+    padding-top: 10px;
+  }
+  .footer-brand {
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    color: #C9A646;
+    text-transform: uppercase;
+  }
+  .footer-page {
+    font-size: 11px;
+    color: #555555;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ─── ARCHITECTURE IMAGE ──────────────────────────────────── */
+  .arch-img-container {
+    border: 3px solid #C9A646;
+    padding: 10px;
+    background-color: #111111;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .arch-img-container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* ─── PRINT / PDF ─────────────────────────────────────────── */
+  @media print {
+    body { background-color: #0B0B0B; }
+    .page { page-break-after: always; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- PAGE 1: COVER                                                   -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="page cover-page">
+  <div class="cover-rule-top"></div>
+  <div class="cover-eyebrow">Prime Pathwy · Sovereign Intelligence Buildout</div>
+  <div class="cover-title">Manus Master<br>Sovereign System</div>
+  <div class="cover-subtitle">Credit Maximization &amp; Long-Term Operating System</div>
+  <div class="cover-sub2">10–20 Year Institutional Intelligence Architecture</div>
+  <div class="cover-divider"></div>
+  <div class="cover-author">Arthur F. Appling Sr.</div>
+  <div class="cover-role">Lead Technical Architect · Prime Pathwy</div>
+  <div class="cover-date">May 2026</div>
+  <div class="cover-rule-bottom"></div>
+  <div class="page-footer">
+    <span class="footer-brand">Prime Pathwy</span>
+    <span class="footer-page">Sovereign System Manual · Confidential</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- PAGE 2: TABLE OF CONTENTS                                       -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="section-header">
+    <div class="section-eyebrow">Navigation</div>
+    <div class="section-title">Table of Contents</div>
+  </div>
+  <table>
+    <thead>
+      <tr><th>Section</th><th>Title</th><th>Page</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>01</td><td>Core Doctrine: Systems Over Labor</td><td>3</td></tr>
+      <tr><td>02</td><td>The WAT Framework</td><td>4</td></tr>
+      <tr><td>03</td><td>Workflow Relationship Architecture</td><td>5</td></tr>
+      <tr><td>04</td><td>WF-01 · Institutional Knowledge Vault</td><td>6</td></tr>
+      <tr><td>05</td><td>WF-02 · Operator Training System</td><td>7</td></tr>
+      <tr><td>06</td><td>WF-03 · Enterprise Failure Recovery</td><td>8</td></tr>
+      <tr><td>07</td><td>WF-04 · Government Contracting Intelligence</td><td>9</td></tr>
+      <tr><td>08</td><td>WF-05 · Personal Sovereign Operating System</td><td>10</td></tr>
+      <tr><td>09</td><td>Execution Tool · execute_workflow.py</td><td>11</td></tr>
+      <tr><td>10</td><td>GitHub Deployment Status</td><td>12</td></tr>
+      <tr><td>11</td><td>Immediate Next Steps</td><td>13</td></tr>
+    </tbody>
+  </table>
+  <div class="doctrine-quote">
+    "Every output should be reusable for 10–20 years."
+  </div>
+  <div class="page-footer">
+    <span class="footer-brand">Prime Pathwy</span>
+    <span class="footer-page">Table of Contents · Page 2</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- PAGE 3: CORE DOCTRINE                                           -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="section-header">
+    <div class="section-eyebrow">Section 01</div>
+    <div class="section-title">Core Doctrine: Systems Over Labor</div>
+  </div>
+  <p>The Manus Master System is built on a single governing principle: <strong>institutional memory compounds</strong>. Tools will change. Models will change. Platforms will change. But documented systems, indexed intelligence, standard operating procedures, recovery procedures, and governance frameworks continue delivering operational leverage for decades. This system converts AI credits into permanent business infrastructure across five sovereign domains.</p>
+  <p>The long-term value is not the AI tool. The long-term value is the institutional memory and operational structure you build while the tool exists. That is the real asset.</p>
+
+  <table>
+    <thead>
+      <tr><th>Do NOT Use For</th><th>DO Use For</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Random experiments</td><td>Structured institutional intelligence</td></tr>
+      <tr><td>Generic brainstorming</td><td>Permanent operating systems</td></tr>
+      <tr><td>Motivational content</td><td>Indexed knowledge bases</td></tr>
+      <tr><td>Shallow summaries</td><td>SOP generation &amp; recovery systems</td></tr>
+      <tr><td>Duplicated internet research</td><td>Legal, compliance &amp; automation structures</td></tr>
+      <tr><td>Temporary conversations</td><td>Enterprise governance frameworks</td></tr>
+    </tbody>
+  </table>
+
+  <h3>The Validation Contract</h3>
+  <p>Every actionable response within the Prime Pathwy ecosystem must include three components to ensure absolute audit-readiness and chargeback defense:</p>
+  <div class="command-box">
+    <span class="label">Exact Command</span>
+    The literal terminal or click path required to execute the action.
+    <span class="label" style="margin-top:12px;">Pass Criteria</span>
+    The description of the success screen or output that confirms completion.
+    <span class="label" style="margin-top:12px;">Error Map</span>
+    The fix for the most likely failure mode.
+  </div>
+
+  <div class="page-footer">
+    <span class="footer-brand">Prime Pathwy</span>
+    <span class="footer-page">Core Doctrine · Page 3</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- PAGE 4: WAT FRAMEWORK                                           -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="section-header">
+    <div class="section-eyebrow">Section 02</div>
+    <div class="section-title">The WAT Framework</div>
+  </div>
+  <p>All outputs generated by this system are organized under the <strong>WAT Framework</strong> — the non-negotiable file governance standard for Prime Pathwy operations. This framework is the structural law of the ecosystem. Every file produced by every workflow, agent, and tool must be placed in the correct directory without exception.</p>
+
+  <table>
+    <thead>
+      <tr><th>Layer</th><th>Directory</th><th>Contents</th><th>File Type</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Workflows</td><td>/workflows</td><td>Step-by-step execution procedures with Validation Contracts</td><td>.md</td></tr>
+      <tr><td>Agents</td><td>/agents</td><td>AI prompt instructions — the cognitive engine for specific tasks</td><td>.md</td></tr>
+      <tr><td>Tools</td><td>/tools</td><td>Python scripts and automation code — the mechanical execution layer</td><td>.py</td></tr>
+      <tr><td>Temporary</td><td>/temporary</td><td>Staging data and ephemeral outputs — isolated from the permanent vault</td><td>Any</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Governance Laws</h3>
+  <p>The WAT Framework is enforced by a set of institutional governance laws defined in <strong>OPERATIONAL_LAWS.md</strong>. These laws govern naming conventions, folder structure, branching and commit standards, backup and rollback procedures, AI execution rules, and audit requirements. No file may be created, modified, or deleted without adherence to these laws.</p>
+
+  <h3>Master Index Files</h3>
+  <table>
+    <thead>
+      <tr><th>File</th><th>Purpose</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>MASTER_INDEX.md</td><td>Maps the entire ecosystem — every file, every directory, every system</td></tr>
+      <tr><td>KNOWLEDGE_TREE.md</td><td>Shows hierarchical relationships between all knowledge assets</td></tr>
+      <tr><td>ARCHIVE_MANIFEST.md</td><td>Defines what gets archived, when, why, retention policy, and recovery process</td></tr>
+      <tr><td>OPERATIONAL_LAWS.md</td><td>The institutional governance rulebook for the entire ecosystem</td></tr>
+    </tbody>
+  </table>
+
+  <div class="page-footer">
+    <span class="footer-brand">Prime Pathwy</span>
+    <span class="footer-page">WAT Framework · Page 4</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- PAGE 5: WORKFLOW ARCHITECTURE MAP                               -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="section-header">
+    <div class="section-eyebrow">Section 03</div>
+    <div class="section-title">Workflow Relationship Architecture</div>
+  </div>
+  <p>The five core workflows are not independent — they form a <strong>self-reinforcing sovereign intelligence loop</strong>. The Sovereign Operator sits at the apex, directing all five workflows. WF-01 (Knowledge Vault) acts as the central hub, receiving intelligence from WF-04, daily operations from WF-05, and recovery archives from WF-03. WF-01 feeds training material into WF-02. WF-03 informs the discipline rules of WF-05.</p>
+
+  <div class="arch-img-container">
+    <img src="/home/ubuntu/prime_pathwy/workflow_architecture.png" alt="Prime Pathwy Workflow Architecture Map">
+  </div>
+
+  <div class="page-footer">
+    <span class="footer-brand">Prime Pathwy</span>
+    <span class="footer-page">Architecture Map · Page 5</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- PAGE 6: WF-01                                                   -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="wf-badge">Workflow 01 of 05</div>
+  <div class="wf-title">Institutional Knowledge Vault</div>
+  <div class="wf-objective">Objective: Build a permanent institutional intelligence vault for long-term business operations.</div>
+
+  <p>The Institutional Knowledge Vault is the foundational workflow in the system. It establishes the enterprise-grade folder and documentation structure designed to survive 10–20 years of business evolution. It generates deeply organized intelligence for government contracting, real estate, AI workflows, finance, vendor systems, and crisis management. Every asset is indexed and searchable.</p>
+
+  <h3>Operational Execution</h3>
+  <table>
+    <thead><tr><th>Step</th><th>Action</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Execute directory structure to establish physical file boundaries for the vault</td></tr>
+      <tr><td>2</td><td>Generate MASTER_INDEX.md, KNOWLEDGE_TREE.md, and ARCHIVE_MANIFEST.md</td></tr>
+      <tr><td>3</td><td>Define institutional governance laws in OPERATIONAL_LAWS.md</td></tr>
+      <tr><td>4</td><td>Generate markdown documentation, CSV trackers, JSON structures, and architecture maps for every system</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Validation Contract</h3>
+  <div class="command-box">
+    <span class="label">Exact Command</span>
+    mkdir -p /vault/{gov_contracting,compliance,real_estate,betting,ai_workflows,finance,sops,recovery}
+    <span class="label" style="margin-top:12px;">Pass Criteria</span>
+    Directory tree created without errors. ls /vault shows all 8 subdirectories.
+    <span class="label" style="margin-top:12px;">Error Map</span>
+    If permission denied, prepend sudo or verify user ownership with ls -la.
+  </div>
+
+  <h3>Agent Prompt Directive</h3>
+  <div class="agent-box">
+    <span class="agent-label">Agent: 01_institutional_knowledge_vault_agent.md</span>
+    "You are operating as a Senior Enterprise Systems Architect, Intelligence Archivist, and Operational Infrastructure Engineer. Create an enterprise-grade folder and documentation structure designed to survive 10–20 years of business evolution. Every output must prioritize operational longevity, maintainability, scalability, portability, and survivability. Output everything as organized production-ready assets."
+  </div>
+
+  <div class="page-footer">
+    <span class="footer-brand">Prime Pathwy</span>
+    <span class="footer-page">WF-01 · Institutional Knowledge Vault · Page 6</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- PAGE 7: WF-02                                                   -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="wf-badge">Workflow 02 of 05</div>
+  <div class="wf-title">Operator Training System</div>
+  <div class="wf-objective">Objective: Create a complete 12-month training curriculum for operating a sovereign AI-powered business ecosystem.</div>
+
+  <p>The Operator Training System builds the human capability required to manage the infrastructure. It structures a complete beginner-to-advanced curriculum designed for an operator with strong vision but limited traditional engineering experience. Each phase includes daily repetition drills, command memorization, recovery simulations, and real-world operational walkthroughs.</p>
+
+  <h3>12-Month Curriculum Phases</h3>
+  <div class="phase-grid">
+    <div class="phase-block">
+      <div class="phase-number">01</div>
+      <div class="phase-name">Beginner</div>
+      <div class="phase-desc">Foundational concepts, terminal basics, and daily repetition drills. Command cheat sheets and GitHub navigation guides.</div>
+    </div>
+    <div class="phase-block">
+      <div class="phase-number">02</div>
+      <div class="phase-name">Intermediate</div>
+      <div class="phase-desc">Command memorization, GitHub navigation, basic troubleshooting, and VS Code operational guides.</div>
+    </div>
+    <div class="phase-block">
+      <div class="phase-number">03</div>
+      <div class="phase-name">Advanced</div>
+      <div class="phase-desc">Recovery simulations, operational walkthroughs, database management, and deployment workflows.</div>
+    </div>
+    <div class="phase-block">
+      <div class="phase-number">04</div>
+      <div class="phase-name">Institutional</div>
+      <div class="phase-desc">Full sovereign mastery, emergency response, system architecture, and operational audits.</div>
+    </div>
+  </div>
+
+  <h3>Agent Prompt Directive</h3>
+  <div class="agent-box">
+    <span class="agent-label">Agent: 02_operator_training_system_agent.md</span>
+    "You are operating as a Senior Technical Trainer and Enterprise Operations Instructor. Build a full 12-month curriculum organized into Beginner, Intermediate, Advanced, and Institutional Operator phases. Include muscle-memory repetition systems, weekly reviews, monthly mastery tests, and operational readiness checkpoints. Build a 'What To Do When Something Breaks' operational section."
+  </div>
+
+  <div class="page-footer">
+    <span class="footer-brand">Prime Pathwy</span>
+    <span class="footer-page">WF-02 · Operator Training System · Page 7</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- PAGE 8: WF-03                                                   -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="wf-badge">Workflow 03 of 05</div>
+  <div class="wf-title">Enterprise Failure Recovery</div>
+  <div class="wf-objective">Objective: Build a full enterprise-grade disaster recovery and operational recovery system.</div>
+
+  <p>The Failure Recovery System ensures that no single point of failure can collapse the sovereign architecture. It provides the defensive infrastructure required to maintain absolute control over all digital assets. Every playbook documents symptoms, causes, severity level, recovery steps, rollback commands, validation steps, and prevention methods.</p>
+
+  <h3>Critical Failure Modes Covered</h3>
+  <table>
+    <thead><tr><th>Category</th><th>Failure Modes</th></tr></thead>
+    <tbody>
+      <tr><td>Version Control</td><td>Git conflicts, corrupted branches, accidental deletions, GitHub mistakes</td></tr>
+      <tr><td>Database</td><td>SQLite corruption, database lock issues, broken queries</td></tr>
+      <tr><td>Infrastructure</td><td>Broken APIs, failed deployments, Docker failures, dependency failures</td></tr>
+      <tr><td>Data Integrity</td><td>AI hallucination damage, accidental file overwrites, broken workflows</td></tr>
+      <tr><td>Runtime</td><td>Python failures, Node.js failures, environment variable mistakes</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Validation Contract</h3>
+  <div class="command-box">
+    <span class="label">Exact Command</span>
+    git reset --hard HEAD~1
+    <span class="label" style="margin-top:12px;">Pass Criteria</span>
+    Terminal confirms rollback: "HEAD is now at [commit hash]". Repository state matches prior commit.
+    <span class="label" style="margin-top:12px;">Error Map</span>
+    If command fails due to uncommitted changes, run git stash first, then retry the reset command.
+  </div>
+
+  <h3>Agent Prompt Directive</h3>
+  <div class="agent-box">
+    <span class="agent-label">Agent: 03_enterprise_failure_recovery_agent.md</span>
+    "You are operating as a Senior Incident Response Engineer and Enterprise Recovery Architect. Build recovery playbooks for Git failures, database lock issues, broken APIs, and Docker failures. Create 'DO NOT TOUCH' protected zones, protected database rules, branch protection rules, and backup protection rules. Build a printable Emergency Operations Manual."
+  </div>
+
+  <div class="page-footer">
+    <span class="footer-brand">Prime Pathwy</span>
+    <span class="footer-page">WF-03 · Enterprise Failure Recovery · Page 8</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- PAGE 9: WF-04                                                   -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="wf-badge">Workflow 04 of 05</div>
+  <div class="wf-title">Government Contracting Intelligence</div>
+  <div class="wf-objective">Objective: Build a long-term intelligence and operational system for government contracting and capital acquisition.</div>
+
+  <p>The Government Contracting Intelligence Engine converts institutional intelligence into revenue. It builds a permanent intelligence structure targeting high-value contracts and grants, ensuring that every bid improves upon the last through a compounding intelligence loop. All intelligence flows directly into WF-01 to populate the knowledge vault.</p>
+
+  <h3>Target Procurement Systems</h3>
+  <div class="target-grid">
+    <div class="target-item">SAM.gov</div>
+    <div class="target-item">PlanetBids</div>
+    <div class="target-item">CalOSBA</div>
+    <div class="target-item">OpenGov</div>
+    <div class="target-item">SBA Programs</div>
+    <div class="target-item">BAAQMD</div>
+  </div>
+
+  <h3>AI-Assisted Workflow Capabilities</h3>
+  <table>
+    <thead><tr><th>Capability</th><th>Output</th></tr></thead>
+    <tbody>
+      <tr><td>RFP Summarization</td><td>Structured Markdown or JSON summary of requirements</td></tr>
+      <tr><td>Requirement Extraction</td><td>Indexed list of mandatory compliance items</td></tr>
+      <tr><td>Proposal Draft Generation</td><td>Template-based proposal draft with phrase bank</td></tr>
+      <tr><td>Compliance Analysis</td><td>Gap analysis report against bid requirements</td></tr>
+      <tr><td>Risk Scoring</td><td>Weighted risk matrix for bid/no-bid decision</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Agent Prompt Directive</h3>
+  <div class="agent-box">
+    <span class="agent-label">Agent: 04_government_contracting_intelligence_agent.md</span>
+    "You are operating as a Government Procurement Strategist, Institutional Intelligence Analyst, and Commercial Expansion Architect. Build a permanent intelligence structure for California procurement, federal procurement, SAM.gov, and public purchase portals. Build AI-assisted workflows for summarizing RFPs, extracting requirements, generating proposal drafts, and performing compliance analysis."
+  </div>
+
+  <div class="page-footer">
+    <span class="footer-brand">Prime Pathwy</span>
+    <span class="footer-page">WF-04 · Government Contracting Intelligence · Page 9</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- PAGE 10: WF-05                                                  -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="wf-badge">Workflow 05 of 05</div>
+  <div class="wf-title">Personal Sovereign Operating System</div>
+  <div class="wf-objective">Objective: Design a permanent personal operating system for one-man enterprise management.</div>
+
+  <p>The Personal Sovereign OS is the command layer that governs every hour of the operator's day. It ties all other workflows together, enforcing discipline, tracking metrics, and preventing operational drift. Anti-chaos, anti-overload, and anti-context-scramble systems prevent the entropy that destroys solo operators. WF-05 logs all daily operations back into WF-01, ensuring the knowledge vault remains current.</p>
+
+  <h3>Daily Operational Structure</h3>
+  <div class="flow-row">
+    <div class="flow-step">Morning<br>Startup</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">Operational<br>Review</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">Execution<br>Phase</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">Evening<br>Shutdown</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">Weekly /<br>Monthly Review</div>
+  </div>
+
+  <h3>Governance Systems</h3>
+  <table>
+    <thead><tr><th>System</th><th>Purpose</th></tr></thead>
+    <tbody>
+      <tr><td>AI Delegation Rules</td><td>Defines what tasks can be delegated to AI and what must stay with the operator</td></tr>
+      <tr><td>Verification Laws</td><td>Every AI output must be verified before being committed to the vault</td></tr>
+      <tr><td>Audit Laws</td><td>Regular audits of all systems to ensure compliance with governance standards</td></tr>
+      <tr><td>Anti-Chaos Systems</td><td>Prevents task overload and context-switching that destroys execution quality</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Agent Prompt Directive</h3>
+  <div class="agent-box">
+    <span class="agent-label">Agent: 05_personal_sovereign_operating_system_agent.md</span>
+    "You are operating as a Sovereign Systems Architect. Design a permanent personal operating system for one-man enterprise management. Build anti-chaos systems, anti-overload systems, and anti-context-scramble systems. Design the system for one operator, low overhead, high leverage, and long-term survivability. Build everything as institutional-grade documentation."
+  </div>
+
+  <div class="page-footer">
+    <span class="footer-brand">Prime Pathwy</span>
+    <span class="footer-page">WF-05 · Personal Sovereign Operating System · Page 10</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- PAGE 11: EXECUTION TOOL                                         -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="section-header">
+    <div class="section-eyebrow">Section 09</div>
+    <div class="section-title">Execution Tool: execute_workflow.py</div>
+  </div>
+  <p>To bridge the gap between the Markdown workflows and actual execution, the system utilizes a standardized Python tool. This tool reads the designated workflow file, displays the execution parameters, and prompts the operator to verify the outputs against the Pass Criteria. It is the mechanical execution layer of the WAT Framework.</p>
+
+  <div class="command-box">
+    <span class="label">File: /tools/execute_workflow.py</span>
+#!/usr/bin/env python3<br>
+"""<br>
+Tool: execute_workflow.py<br>
+Purpose: Parse and execute Markdown-based workflows within the Prime Pathwy Sovereign System.<br>
+Architect: Arthur F. Appling Sr.<br>
+"""<br>
+<br>
+import sys, os<br>
+<br>
+def run_workflow(workflow_path):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if not os.path.exists(workflow_path):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(f"ERROR: Workflow {workflow_path} not found.")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sys.exit(1)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print(f"Initializing execution for: {workflow_path}")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("=" * 60)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;with open(workflow_path, 'r') as f:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(f.read())<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("=" * 60)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;print("Execution complete. Review outputs against Pass Criteria.")<br>
+<br>
+if __name__ == "__main__":<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if len(sys.argv) &lt; 2:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("Usage: python3 execute_workflow.py &lt;path_to_workflow.md&gt;")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sys.exit(1)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;run_workflow(sys.argv[1])
+  </div>
+
+  <h3>Usage</h3>
+  <div class="command-box">
+    <span class="label">Exact Command</span>
+    python3 /tools/execute_workflow.py /workflows/01_institutional_knowledge_vault.md
+    <span class="label" style="margin-top:12px;">Pass Criteria</span>
+    Terminal displays the full workflow content followed by "Execution complete."
+    <span class="label" style="margin-top:12px;">Error Map</span>
+    If "Workflow not found" error, verify the absolute path to the workflow file is correct.
+  </div>
+
+  <div class="page-footer">
+    <span class="footer-brand">Prime Pathwy</span>
+    <span class="footer-page">Execution Tool · Page 11</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- PAGE 12: GITHUB DEPLOYMENT                                      -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="section-header">
+    <div class="section-eyebrow">Section 10</div>
+    <div class="section-title">GitHub Deployment Status</div>
+  </div>
+  <p>All 12 WAT Framework files have been committed to the <strong>arthurappling-ISE-DYNAMICE</strong> GitHub repository under the <strong>MANUS_MASTER_SYSTEM</strong> directory. A Pull Request has been opened for review and merge into the main branch.</p>
+
+  <table>
+    <thead><tr><th>Item</th><th>Detail</th></tr></thead>
+    <tbody>
+      <tr><td>Repository</td><td>arthurappling-ISE-DYNAMICE/arthurappling-ISE-DYNAMICE</td></tr>
+      <tr><td>Branch</td><td>feat/manus-master-system-wat-framework</td></tr>
+      <tr><td>Pull Request</td><td>PR #26 — feat: Add MANUS_MASTER_SYSTEM — WAT Framework Operationalization</td></tr>
+      <tr><td>Files Added</td><td>12 files, 376 insertions</td></tr>
+      <tr><td>Status</td><td>Pending merge into main branch</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Complete File Manifest</h3>
+  <table>
+    <thead><tr><th>Path</th><th>Type</th></tr></thead>
+    <tbody>
+      <tr><td>MANUS_MASTER_SYSTEM/MASTER_INDEX.md</td><td>Index</td></tr>
+      <tr><td>MANUS_MASTER_SYSTEM/workflows/01_institutional_knowledge_vault.md</td><td>Workflow</td></tr>
+      <tr><td>MANUS_MASTER_SYSTEM/workflows/02_operator_training_system.md</td><td>Workflow</td></tr>
+      <tr><td>MANUS_MASTER_SYSTEM/workflows/03_enterprise_failure_recovery.md</td><td>Workflow</td></tr>
+      <tr><td>MANUS_MASTER_SYSTEM/workflows/04_government_contracting_intelligence.md</td><td>Workflow</td></tr>
+      <tr><td>MANUS_MASTER_SYSTEM/workflows/05_personal_sovereign_operating_system.md</td><td>Workflow</td></tr>
+      <tr><td>MANUS_MASTER_SYSTEM/agents/01_institutional_knowledge_vault_agent.md</td><td>Agent</td></tr>
+      <tr><td>MANUS_MASTER_SYSTEM/agents/02_operator_training_system_agent.md</td><td>Agent</td></tr>
+      <tr><td>MANUS_MASTER_SYSTEM/agents/03_enterprise_failure_recovery_agent.md</td><td>Agent</td></tr>
+      <tr><td>MANUS_MASTER_SYSTEM/agents/04_government_contracting_intelligence_agent.md</td><td>Agent</td></tr>
+      <tr><td>MANUS_MASTER_SYSTEM/agents/05_personal_sovereign_operating_system_agent.md</td><td>Agent</td></tr>
+      <tr><td>MANUS_MASTER_SYSTEM/tools/execute_workflow.py</td><td>Tool</td></tr>
+    </tbody>
+  </table>
+
+  <div class="page-footer">
+    <span class="footer-brand">Prime Pathwy</span>
+    <span class="footer-page">GitHub Deployment · Page 12</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- PAGE 13: NEXT STEPS                                             -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="section-header">
+    <div class="section-eyebrow">Section 11</div>
+    <div class="section-title">Immediate Next Steps</div>
+  </div>
+  <p>The system is staged and ready. Three actions must be completed to bring it fully online. Execute them in sequence — do not skip steps.</p>
+
+  <div class="step-block">
+    <div class="step-num">01</div>
+    <div class="step-content">
+      <div class="step-action">Merge PR #26 on GitHub</div>
+      <div class="step-cmd">github.com → arthurappling-ISE-DYNAMICE → Pull Requests → PR #26 → Merge Pull Request</div>
+    </div>
+  </div>
+
+  <div class="step-block">
+    <div class="step-num">02</div>
+    <div class="step-content">
+      <div class="step-action">Execute Agent Prompts in Sequence</div>
+      <div class="step-cmd">Start with: MANUS_MASTER_SYSTEM/agents/01_institutional_knowledge_vault_agent.md</div>
+    </div>
+  </div>
+
+  <div class="step-block">
+    <div class="step-num">03</div>
+    <div class="step-content">
+      <div class="step-action">Activate Daily Sovereign OS</div>
+      <div class="step-cmd">python3 tools/execute_workflow.py workflows/05_personal_sovereign_operating_system.md</div>
+    </div>
+  </div>
+
+  <div class="doctrine-quote">
+    "Tools will change. Models will change. Platforms will change.<br>
+    But documented systems, operational discipline, and indexed intelligence<br>
+    will continue compounding for decades. That is the real asset."
+  </div>
+
+  <table>
+    <thead><tr><th>Asset Type</th><th>1-Year Value</th><th>10-Year Value</th></tr></thead>
+    <tbody>
+      <tr><td>Documented Workflows</td><td>Operational clarity</td><td>Institutional standard</td></tr>
+      <tr><td>Agent Prompts</td><td>Immediate AI leverage</td><td>Reusable across all future AI platforms</td></tr>
+      <tr><td>Recovery Playbooks</td><td>Prevents downtime</td><td>Trains future operators</td></tr>
+      <tr><td>Gov Contracting Intel</td><td>First bids</td><td>Compounding bid win rate</td></tr>
+      <tr><td>Sovereign OS</td><td>Daily discipline</td><td>Scalable enterprise structure</td></tr>
+    </tbody>
+  </table>
+
+  <div class="page-footer">
+    <span class="footer-brand">Prime Pathwy</span>
+    <span class="footer-page">Immediate Next Steps · Page 13</span>
+  </div>
+</div>
+
+</body>
+</html>

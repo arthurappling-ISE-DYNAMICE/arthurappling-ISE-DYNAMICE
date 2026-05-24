@@ -1,30 +1,59 @@
-﻿## Chapter 3: Hire My Husband
+## Chapter 3: Hire My Husband
 **Entity:** Hire My Husband
-**Industry:** Handyman / Home Repair
+**Industry:** Industrial Painting
 **Location:** Benicia, CA
-**Phone:** (707) 746-7958
+**County:** Solano County
+**Owner:** [Owner Name — Verify]
+**Phone:** [Verify Phone Number]
+**Digital Footprint:** Weak
+**Ownership:** Women-owned & operated
+**Priority:** Tier 1 (Highest Priority — Weak Digital Footprint)
+
+---
 
 ### 1. THE PROBLEM-AWARENESS TEXT (SMS/DM)
-"Hey Dawson, noticed Hire My Husband is doing great work across Benicia and Vallejo. Most handyman services get bogged down with manual scheduling and chasing down invoices after the job is done. I build systems that automate your booking and payment collection so you can focus on the workâ€”open to seeing how it operates?"
+
+"Hey [Owner Name], I came across Hire My Husband — looks like you're running a tight, professional painting crew out of Benicia. A lot of independent painting contractors I talk to are leaving money on the table because their scheduling for commercial contracts is still manual and they have no system to send GCs upfront pricing before a competitor does. I build back-office systems that fix exactly that — open to a quick look at how it works?"
+
+---
 
 ### 2. THE DIALOGUE SCRIPT (NEPQ COLD CALL)
 
 **Connection Questions:**
-**You:** "Hey Dawson, it's Arthur. I saw the drywall and door repair work your team is doing around Benicia. Are you the one handling the scheduling and invoicing for Hire My Husband?"
-**Prospect:** "Yes, I manage all of that."
-**You:** "Got it. I help home repair businesses in Solano County streamline their back-office. Just out of curiosity, are you still scheduling jobs and sending out invoices manually, or have you moved to an automated system?"
+**You:** "Hey [Owner Name], it's Arthur. I found Hire My Husband while researching painting contractors operating out of Solano County. Are you the one handling the commercial contracts and scheduling for the crew?"
+**Prospect:** "Yes, that's me."
+**You:** "Good. I work with independent painting operations in the Bay Area to streamline how they manage commercial job pipelines. Quick question — when a general contractor reaches out for a bid, how are you currently getting them a price?"
 
 **Problem Awareness Questions:**
-**You:** "Okay, so when Arturo finishes a job, how are you ensuring the invoice goes out immediately and the payment is collected without having to chase the client down?"
-**Prospect:** "I usually have to send it out later that evening and follow up if they don't pay."
-**You:** "I see. And when you're spending your evenings doing administrative work instead of resting or planning the next day, how does that impact your ability to scale the business?"
+**You:** "So are you building those quotes manually every time, or do you have a system that produces them on demand?"
+**Prospect:** "Manually — it takes a while to pull together."
+**You:** "I hear that a lot. And when a GC needs a number fast and you're mid-job, what typically happens — do you lose the bid window while you're on site?"
+**Prospect:** "Sometimes, yeah. It slows things down."
+**You:** "Right. And on the scheduling side — when you're running [Field Lead] and the crew across multiple commercial sites, how are you tracking job status and knowing when each site is ready for the next phase?"
+
+**Problem Deepening Questions:**
+**You:** "So if a job runs long or a site isn't ready, how does that ripple through the rest of your schedule that week?"
+**Prospect:** "It throws everything off. We end up waiting or double-booking."
+**You:** "Exactly. That's the core problem — without a live job-tracking system, your crew's time is getting burned on coordination instead of production. And uncoordinated site schedules are the number-one reason independent painting crews can't scale past a certain revenue ceiling."
 
 **Tool/Solution Awareness Questions:**
-**You:** "Right. It sounds like that manual invoicing process is eating up a lot of your time. What if your system automatically generated and sent the invoice the moment the job was marked complete, and followed up on unpaid bills automatically?"
-**Prospect:** "That would give me my evenings back."
-**You:** "Exactly. Because right now, that legacy manual workflow is costing you time and delaying your cash flow."
+**You:** "What if, instead of building quotes manually and tracking jobs in your head or on a spreadsheet, you had a system that let you send a GC a branded, itemized price estimate within five minutes of their call — and your [Field Lead] could update job-site status in real time so your schedule auto-adjusts?"
+**Prospect:** "That would change things significantly."
+**You:** "That's what I build. It's a Sovereign System — your own back-office engine, not a SaaS subscription you're renting from someone else."
 
 **Consequence Questions:**
-**You:** "Let's say you keep things exactly the way they areâ€”spending hours on admin work every week. What happens over the next 12 months as you try to take on more clients and expand your service area?"
+**You:** "Let's say nothing changes — you keep quoting manually and scheduling by hand. Over the next 12 months, as GCs start favoring contractors who respond faster and track jobs more professionally, where does Hire My Husband land in that competitive shift?"
 
 ---
+
+### 3. GROUND TRUTH AUDIT NOTES
+
+| Field | Status |
+|-------|--------|
+| Owner name | **[Verify]** — do not use a name until confirmed |
+| Field Lead name | **[Verify]** — no personnel names sourced from CSV |
+| Phone number | **[Verify]** — no confirmed number in source data |
+| Industry | **Industrial Painting** — confirmed via CSV |
+| County | **Solano County** — confirmed via CSV |
+| Location | **Benicia, CA** — confirmed via CSV (verify flag retained) |
+| Pain points | Derived from industry vertical, not fabricated from individual data |

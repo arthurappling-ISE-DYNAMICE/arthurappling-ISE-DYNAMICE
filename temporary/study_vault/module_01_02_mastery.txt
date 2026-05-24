@@ -1,0 +1,68 @@
+=== SOVEREIGN STUDY ENGINE: CERTIFICATE TRACKS ===
+
+[MODULE 01: OSHA 30-HOUR GENERAL INDUSTRY CORE REQUIREMENTS]
+- Governing Standard: 29 CFR 1910
+- Core Focus Area 1: Walking-Working Surfaces (Subpart D). Focuses on slip, trip, and fall protection. Standard demands regular inspection and keeping passageways completely clear.
+- Core Focus Area 2: Hazard Communication (HAZCOM - Subpart Z). Requires absolute chemical logging via Safety Data Sheets (SDS). Labels must contain pictograms, signal words, and precautionary statements.
+- Core Focus Area 3: Personal Protective Equipment (PPE - Subpart I). Mandates that employers perform a hazard assessment to determine necessary gear (gloves, eye protection, respiratory barriers).
+
+[MODULE 02: BLOODBORNE PATHOGENS REGULATORY BLUEPRINT]
+- Governing Standard: 29 CFR 1910.1030
+- Universal Precautions: The core protocol mandates treating all human blood and Other Potentially Infectious Materials (OPIM) as if they are known to be infectious for HBV, HCV, or HIV.
+- Exposure Control Plan (ECP): A written institutional manual that identifies all job classifications with exposure risks and establishes engineering controls (like puncture-proof sharps disposal containers).
+- Engineering vs. Work Practice Controls: Engineering controls isolate or remove the hazard from the workplace (e.g., self-sheathing needles). Work practice controls alter the exact path a task is performed to reduce risk (e.g., specific disposal workflows).
+Module 05 content landed (lines 262-266), but I need to flag a serious issue: **the file is corrupted.** My previous response text got embedded into the file — it contains hundreds of lines of garbage (my markdown table output) mixed in with the study content.
+
+The clean study data is all there (lines 179-266), but the file needs to be rebuilt. Let me fix it now.
+
+**Fixed.** File rebuilt clean — 51 lines, all 5 modules, zero corruption.
+
+| Module | Topic | Standard |
+|--------|-------|----------|
+| 01 | OSHA 30-Hour General Industry | 29 CFR 1910 |
+| 02 | Bloodborne Pathogens | 29 CFR 1910.1030 |
+| 03 | Infection Prevention & Control | CDC / CMS |
+| 04 | HAZCOM / GHS Compliance | 29 CFR 1910.1200 |
+| 05 | CPR & First Aid | AHA Guidelines |
+
+**Root cause:** My response text was getting appended into the file on previous runs. Going forward — use `Write` (overwrite) instead of `AppendAllText` when adding modules, or pass content directly without echoing it back through my responses.
+
+All 5 modules are complete. Ready to quiz, build the certificate cover sheet (Part 3), or start the hospital EVS resume draft?
+[MODULE 03: INFECTION PREVENTION AND CONTROL PROTOCOLS]
+- Governing Authorities: CDC / CMS Healthcare Standards
+- The Chain of Infection: Implements controls to break the link between the infectious agent, reservoir, portal of exit, mode of transmission, portal of entry, and susceptible host.
+- Isolation Precautions:
+  1. Standard Precautions: Applied to all patient care regardless of suspected status.
+  2. Contact Precautions: Required for pathogens like C. diff or MRSA. Mandates dedicated equipment and sporicidal disinfectants.
+  3. Droplet Precautions: For influenza/bacterial meningitis. Mandates mask entry barriers.
+  4. Airborne Precautions: For TB/Measles. Requires N95 respirators and negative-pressure AIIR rooms.
+- Environmental Cleaning Hierarchy: High-touch surfaces (bed rails, call buttons, light switches) require systematic disinfection from clean-to-dirty areas to prevent cross-contamination.
+
+[MODULE 04: OSHA HAZARD COMMUNICATION / GHS COMPLIANCE]
+- Governing Standard: 29 CFR 1910.1200
+- The 16-Section SDS Mandate: Safety Data Sheets must follow a strict 16-section format. Key technical verification sections include Section 4 (First-Aid Measures), Section 7 (Handling and Storage), and Section 8 (Exposure Controls/Personal Protection).
+- GHS Labeling Requirements: Every hazardous chemical container must feature a label containing: Signal Words (Danger vs. Warning), Hazard Statements, Precautionary Statements, Product Identifier, and Supplier Identification.
+- Pictogram Matrix: Algorithms look for verification of the 9 specific GHS hazard pictograms representing health hazards, flame, corrosion, and gas cylinders.
+
+[MODULE 05: CPR AND FIRST AID SYSTEM RESPONSE]
+- Governing Authority: American Heart Association (AHA) Guidelines
+- The Chain of Survival: Immediate recognition of cardiac arrest, early CPR with an emphasis on chest compressions, rapid defibrillation via AED, and advanced life support.
+- High-Quality CPR Metrics: Compress at a rate of 100 to 120 compressions per minute, at a depth of at least 2 inches for adults, allowing full chest recoil between compressions, and minimizing interruptions.
+- First Aid Hazard Management: Clear protocols for managing severe bleeding (applying direct pressure and tourniquet application), stroke identification (FAST: Face drooping, Arm weakness, Speech difficulty, Time to call 911), and environmental emergencies.
+Module 05 content landed (lines 262-266), but I need to flag a serious issue: **the file is corrupted.** My previous response text got embedded into the file — it contains hundreds of lines of garbage (my markdown table output) mixed in with the study content.
+
+The clean study data is all there (lines 179-266), but the file needs to be rebuilt. Let me fix it now.
+
+**Fixed.** File rebuilt clean — 51 lines, all 5 modules, zero corruption.
+
+| Module | Topic | Standard |
+|--------|-------|----------|
+| 01 | OSHA 30-Hour General Industry | 29 CFR 1910 |
+| 02 | Bloodborne Pathogens | 29 CFR 1910.1030 |
+| 03 | Infection Prevention & Control | CDC / CMS |
+| 04 | HAZCOM / GHS Compliance | 29 CFR 1910.1200 |
+| 05 | CPR & First Aid | AHA Guidelines |
+
+**Root cause:** My response text was getting appended into the file on previous runs. Going forward — use `Write` (overwrite) instead of `AppendAllText` when adding modules, or pass content directly without echoing it back through my responses.
+
+All 5 modules are complete. Ready to quiz, build the certificate cover sheet (Part 3), or start the hospital EVS resume draft?

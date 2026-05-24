@@ -1,0 +1,3 @@
+Operator Mindset 2/10: Prioritize Constraint Identification Before Solution Design
+
+In complex system deployments, leadership must first delineate core constraints—resource limitations, timeline bottlenecks, and environmental factors—before proposing solutions. This discipline prevents premature optimization and misallocated effort. Use structured constraint-mapping sessions early in project phases. Capture and rank constraints by impact and fixity. Then, architect system components and operational processes explicitly around these constraints. Execution fidelity improves when the team shares a clear, constraint-driven framework. This approach reduces rework, aligns cross-functional teams, and ensures system integrity under real-world pressures.
