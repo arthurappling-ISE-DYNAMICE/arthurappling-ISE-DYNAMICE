@@ -5,6 +5,13 @@
 
 ---
 
+## DOWNLOAD & USAGE INSTRUCTIONS
+* **File Location in Repository:** `/temporary/GROUND_TRUTH_AUDIT.md`
+* **Local Download Command:** `gh file view temporary/GROUND_TRUTH_AUDIT.md > GROUND_TRUTH_AUDIT.md`
+* **Purpose:** Fill out this template immediately when any system fails its validation contract twice. Do not attempt to fix the system until this audit is complete and reviewed by the Lead Technical Architect.
+
+---
+
 ### I. INCIDENT OVERVIEW
 
 | Field | Incident Details |

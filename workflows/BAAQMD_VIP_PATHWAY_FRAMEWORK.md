@@ -5,6 +5,14 @@
 
 ---
 
+## DOWNLOAD & USAGE INSTRUCTIONS
+* **File Location in Repository:** `/workflows/BAAQMD_VIP_PATHWAY_FRAMEWORK.md`
+* **Local Download Command:** `gh file view workflows/BAAQMD_VIP_PATHWAY_FRAMEWORK.md > BAAQMD_VIP_PATHWAY_FRAMEWORK.md`
+* **Execution/Audit Command:** `python3 tools/sovereign_router.py --file workflows/BAAQMD_VIP_PATHWAY_FRAMEWORK.md --category A --type workflows`
+* **Purpose:** Use this as the step-by-step compliance playbook when guiding a client through the BAAQMD VIP application. Do not place any vehicle deposit before the grant contract is signed.
+
+---
+
 ## I. REGULATORY CONTEXT & OPPORTUNITY WINDOW
 
 The Bay Area Air Quality Management District (BAAQMD) is opening the **Voucher Incentive Program (VIP)** in **Summer 2026** [1]. This program provides rapid-turnaround funding specifically targeted at small fleets (20 or fewer vehicles) to scrap older, high-polluting diesel or alternative-fuel trucks and replace them with new, zero-emission vehicles (ZEVs) [2]. 

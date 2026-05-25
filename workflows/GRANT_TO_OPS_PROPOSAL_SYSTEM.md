@@ -5,6 +5,14 @@
 
 ---
 
+## DOWNLOAD & USAGE INSTRUCTIONS
+* **File Location in Repository:** `/workflows/GRANT_TO_OPS_PROPOSAL_SYSTEM.md`
+* **Local Download Command:** `gh file view workflows/GRANT_TO_OPS_PROPOSAL_SYSTEM.md > GRANT_TO_OPS_PROPOSAL_SYSTEM.md`
+* **Execution/Audit Command:** `python3 tools/sovereign_router.py --file workflows/GRANT_TO_OPS_PROPOSAL_SYSTEM.md --category A --type workflows`
+* **Purpose:** Use this as the master B2B proposal template when pitching logistics fleet owners. Fill in client-specific data in Section III.
+
+---
+
 ## I. EXECUTIVE STRATEGY & Persuasion
 
 This system is engineered around a core economic bottleneck: small to mid-sized logistics fleets in Solano, Contra Costa, and Napa counties are facing severe operational leakage (averaging $12,000–$18,000 annually per vehicle due to manual dispatching, fuel waste, and booking failures) but lack the capital to modernize. 

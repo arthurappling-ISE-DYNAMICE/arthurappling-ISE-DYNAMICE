@@ -96,7 +96,7 @@ def main():
     parser.add_argument('--file', required=True, help="Path to the file to audit/route")
     parser.add_argument('--category', choices=['A', 'B', 'C', 'D'], required=True, help="Execution Category (A: Rev, B: Ops, C: Intel, D: Asset)")
     parser.add_argument('--type', choices=['workflows', 'agents', 'temporary', 'tools'], help="Target WAT directory override")
-    parser.add_argument('--log-only', action='store_true', help="Only log execution, do not fail on WAT mismatch")
+    parser.add_argument('--log-only', dest='log_only', action='store_true', help="Only log execution, do not fail on WAT mismatch")
     
     args = parser.parse_args()
     
@@ -119,7 +119,7 @@ def main():
         message=msg
     )
     
-    if not is_compliant and not args.log-only:
+    if not is_compliant and not args.log_only:
         print("[!] Execution halted due to WAT Non-Compliance.", file=sys.stderr)
         sys.exit(1)
         

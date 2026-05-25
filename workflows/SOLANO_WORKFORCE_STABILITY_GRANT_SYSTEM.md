@@ -5,6 +5,14 @@
 
 ---
 
+## DOWNLOAD & USAGE INSTRUCTIONS
+* **File Location in Repository:** `/workflows/SOLANO_WORKFORCE_STABILITY_GRANT_SYSTEM.md`
+* **Local Download Command:** `gh file view workflows/SOLANO_WORKFORCE_STABILITY_GRANT_SYSTEM.md > SOLANO_WORKFORCE_STABILITY_GRANT_SYSTEM.md`
+* **Execution/Audit Command:** `python3 tools/sovereign_router.py --file workflows/SOLANO_WORKFORCE_STABILITY_GRANT_SYSTEM.md --category A --type workflows`
+* **Purpose:** Use this to build the Layoff Aversion Plan and budget for the Solano WDB grant application. Match the client to the correct closure corridor (Valero, Mare Island, or Anheuser-Busch) before submitting.
+
+---
+
 ## I. FUNDING OPPORTUNITY & ELIGIBILITY
 
 The Workforce Development Board of Solano County (WDB), in partnership with the Solano-Napa Small Business Development Center (SBDC), administers the **Solano Workforce Stability Grant Program** [1]. Funded by the federal **Workforce Innovation and Opportunity Act (WIOA)** Dislocated Worker Program, this initiative supports business stabilization and layoff aversion [2].

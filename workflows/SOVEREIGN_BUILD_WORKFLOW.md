@@ -5,6 +5,14 @@
 
 ---
 
+## DOWNLOAD & USAGE INSTRUCTIONS
+* **File Location in Repository:** `/workflows/SOVEREIGN_BUILD_WORKFLOW.md`
+* **Local Download Command:** `gh file view workflows/SOVEREIGN_BUILD_WORKFLOW.md > SOVEREIGN_BUILD_WORKFLOW.md`
+* **Execution/Audit Command:** `python3 tools/sovereign_router.py --file workflows/SOVEREIGN_BUILD_WORKFLOW.md --category B --type workflows`
+* **Purpose:** Run this workflow at the start of every Prime Pathwy build cycle to ensure structured, audit-ready execution.
+
+---
+
 ## I. DAILY EXECUTION WORKFLOW (THE 5-STEP PROTOCOL)
 
 To maintain absolute structural consistency, every execution cycle must follow these five sequential phases.
