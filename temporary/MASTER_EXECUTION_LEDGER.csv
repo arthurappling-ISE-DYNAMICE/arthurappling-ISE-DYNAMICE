@@ -9,3 +9,4 @@ Timestamp,Category,Asset Name,Path,Status,Message
 2026-05-25 15:54:02,CATEGORY_B,CLIENT_ONBOARDING_COMPLIANCE_SOP.md,workflows/CLIENT_ONBOARDING_COMPLIANCE_SOP.md,COMPLIANT,Valid Markdown Asset (Type: workflows)
 2026-05-25 15:54:02,CATEGORY_A,COMBINED_CAPITAL_STACK_PRESENTATION.md,workflows/COMBINED_CAPITAL_STACK_PRESENTATION.md,COMPLIANT,Valid Markdown Asset (Type: workflows)
 2026-05-25 15:54:02,CATEGORY_D,README_PRIME_PATHWY.md,README_PRIME_PATHWY.md,NON-COMPLIANT,"Markdown files (.md) must reside in /workflows, /agents, or /temporary, not /arthurappling-ISE-DYNAMICE."
+2026-05-25 16:36:29,CATEGORY_D,SKILL_PRESENTATION_SCRIPT.md,workflows/SKILL_PRESENTATION_SCRIPT.md,COMPLIANT,Valid Markdown Asset (Type: workflows)
