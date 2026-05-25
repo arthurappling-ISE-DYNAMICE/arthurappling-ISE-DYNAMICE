@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRIME PATHWY // CAPITAL &amp; OPERATIONS CONTROL CENTER</title>
+  <style>
+    :root {
+      --bg-0: #0d0d0d;
+      --bg-1: #121212;
+      --bg-2: #1a1a1a;
+      --bg-3: #1e1e1e;
+      --bg-4: #242424;
+      --bg-5: #2c2c2c;
+      --gold-1: #d4af37;
+      --gold-2: #c5a059;
+      --gold-3: #a07c30;
+      --gold-4: #5e4a1a;
+      --gold-glow: rgba(212,175,55,0.10);
+      --gold-glow-strong: rgba(212,175,55,0.22);
+      --text-1: #f0e8d8;
+      --text-2: #c8b89a;
+      --text-3: #8a7a62;
+      --text-4: #4a4032;
+      --red: #c0392b;
+      --amber: #c5872c;
+      --green: #27ae60;
+      --blue: #2980b9;
+      --purple: #8e44ad;
+      --border-subtle: 1px solid #242424;
+      --border-mid: 1px solid #2c2c2c;
+      --border-gold: 1px solid #5e4a1a;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; overflow: hidden; }
+    body {
+      background: var(--bg-1);
+      color: var(--text-1);
+      font-family: 'Segoe UI', 'SF Pro Text', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    /* ── MASTHEAD ─────────────────────────────────────────── */
+    .masthead {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      height: 54px;
+      background: var(--bg-0);
+      border-bottom: 1px solid var(--gold-4);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 20px;
+      gap: 16px;
+    }
+    .masthead-brand {
+      font-size: 13px; font-weight: 800;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold-1);
+      white-space: nowrap;
+      text-shadow: 0 0 32px rgba(212,175,55,0.25);
+    }
+    .masthead-brand span { color: var(--gold-3); }
+    .masthead-right {
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    }
+    .m-chip {
+      background: var(--bg-2); border: 1px solid var(--gold-4);
+      color: var(--gold-2); padding: 2px 9px; border-radius: 2px;
+      font-size: 9px; font-weight: 700; letter-spacing: 0.1em; white-space: nowrap;
+    }
+    .m-label { font-size: 10px; color: var(--text-3); white-space: nowrap; }
+
+    /* ── CONTROL CENTER GRID ──────────────────────────────── */
+    .control-center {
+      position: fixed; top: 54px; left: 0; right: 0; bottom: 0;
+      display: grid;
+      grid-template-columns: 1fr 300px 330px;
+    }
+
+    /* ── COLUMN BASE ──────────────────────────────────────── */
+    .col {
+      display: flex; flex-direction: column; overflow: hidden;
+      border-right: 1px solid var(--bg-5);
+    }
+    .col:last-child { border-right: none; }
+
+    .col-hd {
+      flex-shrink: 0;
+      background: var(--bg-2);
+      border-bottom: 1px solid var(--gold-4);
+      padding: 9px 14px 8px;
+    }
+    .col-hd h2 {
+      font-size: 9px; font-weight: 800;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold-1); margin-bottom: 5px;
+    }
+    .col-stats {
+      display: flex; gap: 14px;
+    }
+    .col-stat { font-size: 10px; color: var(--text-3); }
+    .col-stat strong { color: var(--gold-2); }
+
+    .col-body { flex: 1; overflow-y: auto; overflow-x: hidden; }
+    .col-body::-webkit-scrollbar { width: 3px; }
+    .col-body::-webkit-scrollbar-track { background: var(--bg-2); }
+    .col-body::-webkit-scrollbar-thumb { background: var(--gold-4); border-radius: 2px; }
+
+    /* ── COLUMN A — LEAD PIPELINE ─────────────────────────── */
+    .filter-bar {
+      flex-shrink: 0;
+      background: var(--bg-2); border-bottom: var(--border-mid);
+      padding: 7px 14px; display: flex; gap: 7px; align-items: center; flex-wrap: wrap;
+    }
+    .filter-bar select, .filter-bar input[type=text] {
+      background: var(--bg-4); border: 1px solid var(--bg-5);
+      color: var(--text-2); padding: 4px 8px;
+      font-size: 10px; font-family: inherit; border-radius: 2px; outline: none;
+    }
+    .filter-bar select:focus, .filter-bar input[type=text]:focus { border-color: var(--gold-4); }
+    .filter-bar input[type=text] { width: 130px; }
+    .filter-bar label { font-size: 9px; color: var(--text-4); letter-spacing: 0.08em; }
+
+    .lead-table { width: 100%; border-collapse: collapse; }
+    .lead-table thead tr { position: sticky; top: 0; z-index: 10; }
+    .lead-table th {
+      background: var(--bg-3); color: var(--text-4);
+      font-size: 8px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 6px 9px; text-align: left; border-bottom: var(--border-mid);
+      white-space: nowrap;
+    }
+    .lead-table td {
+      padding: 5px 9px; border-bottom: 1px solid #1e1e1e; vertical-align: middle;
+    }
+    .lead-table tr:hover td { background: var(--bg-3); }
+    .td-id { color: var(--text-4); font-size: 9px; width: 28px; }
+    .td-name { font-weight: 600; color: var(--text-1); font-size: 11px; }
+    .td-phone { color: var(--text-3); font-size: 9px; font-family: 'Courier New', monospace; white-space: nowrap; }
+
+    .badge {
+      display: inline-block; padding: 1px 5px; border-radius: 1px;
+      font-size: 8px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .bc-solano   { background: rgba(41,128,185,0.15); color: #5dade2; border: 1px solid rgba(41,128,185,0.3); }
+    .bc-napa     { background: rgba(142,68,173,0.15); color: #bb8fce; border: 1px solid rgba(142,68,173,0.3); }
+    .bc-cc       { background: rgba(39,174,96,0.15);  color: #58d68d; border: 1px solid rgba(39,174,96,0.3); }
+    .bs-logistics { background: rgba(197,160,89,0.12); color: var(--gold-2); border: 1px solid var(--gold-4); }
+    .bs-junk     { background: rgba(192,57,43,0.12);  color: #e8857a; border: 1px solid rgba(192,57,43,0.3); }
+    .bs-painting { background: rgba(22,160,133,0.12); color: #48c9b0; border: 1px solid rgba(22,160,133,0.3); }
+    .fr-crit { color: #e74c3c; font-size: 9px; font-weight: 700; }
+    .fr-elev { color: var(--amber); font-size: 9px; font-weight: 700; }
+
+    .btn-board {
+      background: none; border: 1px solid var(--gold-4); color: var(--gold-3);
+      padding: 2px 7px; font-size: 8px; cursor: pointer;
+      border-radius: 1px; font-family: inherit; letter-spacing: 0.06em;
+      white-space: nowrap;
+    }
+    .btn-board:hover { background: var(--gold-glow); color: var(--gold-1); border-color: var(--gold-3); }
+    .btn-board.onboard { border-color: var(--bg-5); color: var(--text-4); cursor: default; pointer-events: none; }
+
+    /* ── COLUMN B — CAPITAL VEHICLES ─────────────────────── */
+    .cap-summary {
+      margin: 10px; padding: 10px 12px;
+      background: var(--bg-3); border: 1px solid var(--gold-4); border-radius: 2px;
+    }
+    .cap-summary-label { font-size: 8px; color: var(--text-3); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 3px; }
+    .cap-summary-val   { font-size: 20px; font-weight: 800; color: var(--gold-1); line-height: 1; }
+    .cap-summary-sub   { font-size: 9px; color: var(--text-3); margin-top: 3px; }
+
+    .cap-card {
+      margin: 0 10px 8px; background: var(--bg-2);
+      border: 1px solid var(--bg-5); border-radius: 2px; overflow: hidden;
+    }
+    .cap-card.sovereign { border-color: var(--gold-3); box-shadow: 0 0 18px rgba(212,175,55,0.08); }
+    .cap-card.p1        { border-color: rgba(212,175,55,0.35); }
+
+    .cap-card-hd {
+      padding: 9px 11px; border-bottom: 1px solid var(--bg-5);
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 6px;
+    }
+    .cap-card.sovereign .cap-card-hd { background: rgba(212,175,55,0.05); border-bottom-color: var(--gold-4); }
+    .cap-card-name { font-size: 10px; font-weight: 700; color: var(--text-1); line-height: 1.35; flex: 1; }
+    .cap-card.sovereign .cap-card-name { color: var(--gold-2); }
+    .cap-award { font-size: 14px; font-weight: 800; color: var(--gold-1); white-space: nowrap; text-align: right; line-height: 1; }
+
+    .cap-card-bd { padding: 7px 11px; }
+    .cap-row { display: flex; justify-content: space-between; align-items: baseline; padding: 2px 0; }
+    .cap-lbl { font-size: 8px; color: var(--text-4); letter-spacing: 0.1em; text-transform: uppercase; }
+    .cap-val { font-size: 9px; color: var(--text-3); text-align: right; max-width: 55%; }
+
+    .s-open     { display: inline-block; padding: 1px 5px; font-size: 8px; font-weight: 700; border-radius: 1px; background: rgba(39,174,96,0.15);  color: #2ecc71; }
+    .s-closed   { display: inline-block; padding: 1px 5px; font-size: 8px; font-weight: 700; border-radius: 1px; background: rgba(192,57,43,0.15);  color: #e74c3c; }
+    .s-upcoming { display: inline-block; padding: 1px 5px; font-size: 8px; font-weight: 700; border-radius: 1px; background: rgba(197,135,44,0.15); color: var(--amber); }
+    .s-outreach { display: inline-block; padding: 1px 5px; font-size: 8px; font-weight: 700; border-radius: 1px; background: rgba(212,175,55,0.15); color: var(--gold-2); }
+    .s-monitor  { display: inline-block; padding: 1px 5px; font-size: 8px; font-weight: 700; border-radius: 1px; background: rgba(100,100,100,0.15); color: var(--text-3); }
+
+    /* ── COLUMN C — KANBAN ────────────────────────────────── */
+    .kanban { padding: 8px; }
+
+    .kl { margin-bottom: 8px; background: var(--bg-2); border: 1px solid var(--bg-5); border-radius: 2px; }
+    .kl.drag-over { border-color: var(--gold-3); background: rgba(212,175,55,0.03); }
+
+    .kl-hd {
+      padding: 7px 10px; background: var(--bg-3); border-bottom: 1px solid var(--bg-5);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .kl-hd h3 { font-size: 8px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; }
+    .kl-cold     .kl-hd h3 { color: var(--text-3); }
+    .kl-contacted .kl-hd h3 { color: #5dade2; }
+    .kl-audited  .kl-hd h3 { color: var(--amber); }
+    .kl-proposal .kl-hd h3 { color: #bb8fce; }
+    .kl-installed .kl-hd h3 { color: var(--green); }
+    .kl-count {
+      background: var(--bg-4); color: var(--text-3);
+      padding: 1px 7px; border-radius: 9px; font-size: 8px; font-weight: 700;
+    }
+    .kl-installed .kl-count { background: rgba(39,174,96,0.15); color: var(--green); }
+
+    .kl-cards { min-height: 36px; padding: 6px; }
+    .kl-hint  { font-size: 9px; color: var(--text-4); text-align: center; padding: 6px; font-style: italic; }
+
+    .kc {
+      background: var(--bg-4); border: 1px solid var(--bg-5); border-radius: 2px;
+      padding: 7px 9px; margin-bottom: 5px; cursor: grab; user-select: none;
+    }
+    .kc:last-child { margin-bottom: 0; }
+    .kc:hover { border-color: var(--gold-4); }
+    .kc.dragging { opacity: 0.45; cursor: grabbing; }
+    .kl-installed .kc { border-color: rgba(39,174,96,0.3); }
+
+    .kc-name { font-size: 11px; font-weight: 600; color: var(--text-1); margin-bottom: 3px; }
+    .kc-meta { display: flex; gap: 5px; align-items: center; }
+    .kc-val  { font-size: 11px; font-weight: 700; color: var(--green); margin-top: 4px; }
+
+    ::-webkit-scrollbar { width: 3px; height: 3px; }
+    ::-webkit-scrollbar-track { background: var(--bg-2); }
+    ::-webkit-scrollbar-thumb { background: var(--gold-4); border-radius: 2px; }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════ MASTHEAD ═══════════════════════ -->
+<header class="masthead">
+  <div class="masthead-brand">Prime Pathwy <span>//</span> Capital &amp; Operations Control Center</div>
+  <div class="masthead-right">
+    <span class="m-label">AA CAPITAL INC · EIN 84-4788578</span>
+    <span class="m-label">VALLEJO, CA 94590</span>
+    <span class="m-chip">DSCR 7.42×</span>
+    <span class="m-chip">91 REGIONAL TARGETS</span>
+    <span class="m-chip" id="clock">—</span>
+  </div>
+</header>
+
+<!-- ═══════════════════════ CONTROL CENTER ═════════════════ -->
+<div class="control-center">
+
+  <!-- COLUMN A -->
+  <section class="col">
+    <div class="col-hd">
+      <h2>Lead Target Pipeline — NorCal 9-County Registry</h2>
+      <div class="col-stats">
+        <span class="col-stat">Total: <strong>91</strong></span>
+        <span class="col-stat">Visible: <strong id="vis-count">91</strong></span>
+        <span class="col-stat">On Board: <strong id="board-count">0</strong></span>
+      </div>
+    </div>
+    <div class="filter-bar">
+      <select id="f-county"><option value="">All Counties</option><option>Solano</option><option>Contra Costa</option><option>Napa</option></select>
+      <select id="f-sector"><option value="">All Sectors</option><option>Logistics Fleet</option><option>Junk Removal</option><option>Industrial Painting</option></select>
+      <select id="f-friction"><option value="">All Friction</option><option value="CRITICAL">Critical</option><option value="ELEVATED">Elevated</option></select>
+      <input type="text" id="f-search" placeholder="Search company…">
+    </div>
+    <div class="col-body">
+      <table class="lead-table">
+        <thead>
+          <tr>
+            <th>#</th><th>Company</th><th>Phone</th><th>County</th><th>Sector</th><th>Friction</th><th>Board</th>
+          </tr>
+        </thead>
+        <tbody id="lead-tbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- COLUMN B -->
+  <section class="col">
+    <div class="col-hd">
+      <h2>Capital Vehicles Matrix</h2>
+      <div class="col-stats">
+        <span class="col-stat">Programs: <strong>8</strong></span>
+        <span class="col-stat">Sovereign Max: <strong>$560,000+</strong></span>
+      </div>
+    </div>
+    <div class="col-body" id="cap-body"></div>
+  </section>
+
+  <!-- COLUMN C -->
+  <section class="col">
+    <div class="col-hd">
+      <h2>System Installation Status</h2>
+      <div class="col-stats">
+        <span class="col-stat">On Board: <strong id="kb-total">0</strong></span>
+        <span class="col-stat">Installed: <strong id="kb-installed">0</strong></span>
+        <span class="col-stat">Pipeline: <strong id="kb-value">$0</strong></span>
+      </div>
+    </div>
+    <div class="col-body">
+      <div class="kanban" id="kanban"></div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+'use strict';
+
+// ════════════════════════════════════════════════════════════
+// LEADS — 91 TOTAL (Solano, Contra Costa, Napa × 3 Sectors)
+// ════════════════════════════════════════════════════════════
+const LEADS = [
+  // ── SOLANO · LOGISTICS FLEET ──────────────────── 11
+  {id:1,  name:'AAA Courier',                    phone:'(707) 446-6967', county:'Solano',        sector:'Logistics Fleet',    friction:'ELEVATED', owner:'[verify]',        stage:'contacted'},
+  {id:2,  name:'BSB Transport',                  phone:'(541) 244-2429', county:'Solano',        sector:'Logistics Fleet',    friction:'ELEVATED', owner:'Brian Bates',      stage:'audited'},
+  {id:3,  name:'Rapid Express Courier Systems',  phone:'707-526-7633',   county:'Solano',        sector:'Logistics Fleet',    friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  {id:4,  name:'G & C Trucking',                 phone:'(415) 297-3797', county:'Solano',        sector:'Logistics Fleet',    friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  {id:5,  name:'Yandell Truckaway',              phone:'(877) 750-0012', county:'Solano',        sector:'Logistics Fleet',    friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  {id:6,  name:'Fasttruck Delivery Service',     phone:'(510) 375-7996', county:'Solano',        sector:'Logistics Fleet',    friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  {id:7,  name:'Button Transportation',          phone:'(707) 678-1983', county:'Solano',        sector:'Logistics Fleet',    friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  {id:8,  name:"Benjamin's Transfer Inc.",       phone:'(707) 678-1996', county:'Solano',        sector:'Logistics Fleet',    friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  {id:9,  name:'Godspeed Courier',               phone:'[verify]',       county:'Solano',        sector:'Logistics Fleet',    friction:'CRITICAL', owner:'[verify]',        stage:'cold'},
+  {id:10, name:'Modern Express',                 phone:'[verify]',       county:'Solano',        sector:'Logistics Fleet',    friction:'CRITICAL', owner:'[verify]',        stage:'cold'},
+  {id:11, name:"McBride's Delivery",             phone:'[verify]',       county:'Solano',        sector:'Logistics Fleet',    friction:'CRITICAL', owner:'[verify]',        stage:'cold'},
+  // ── CONTRA COSTA · LOGISTICS FLEET ───────────── 11
+  {id:12, name:'Diaz Hauling',                   phone:'[verify]',       county:'Contra Costa',  sector:'Logistics Fleet',    friction:'CRITICAL', owner:'[verify]',        stage:'cold'},
+  {id:13, name:'Trustee Logistics',              phone:'[verify]',       county:'Contra Costa',  sector:'Logistics Fleet',    friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  {id:14, name:'Modern Express (Oakland)',        phone:'(510) 444-6245', county:'Contra Costa',  sector:'Logistics Fleet',    friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  {id:15, name:'GBE Deliveries',                 phone:'[verify]',       county:'Contra Costa',  sector:'Logistics Fleet',    friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  {id:16, name:'California Legal Express',       phone:'[verify]',       county:'Contra Costa',  sector:'Logistics Fleet',    friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  {id:17, name:'Redline Courier Service',        phone:'[verify]',       county:'Contra Costa',  sector:'Logistics Fleet',    friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  {id:18, name:'Bay Area Delivery Services',     phone:'[verify]',       county:'Contra Costa',  sector:'Logistics Fleet',    friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  {id:19, name:'BirdDog Delivery',               phone:'[verify]',       county:'Contra Costa',  sector:'Logistics Fleet',    friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  {id:20, name:'One Hour Delivery Service',      phone:'[verify]',       county:'Contra Costa',  sector:'Logistics Fleet',    friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  {id:21, name:'Junk Removal & Hauling Services',phone:'[verify]',       county:'Contra Costa',  sector:'Logistics Fleet',    friction:'CRITICAL', owner:'[verify]',        stage:'cold'},
+  {id:22, name:'Contra Costa Hauling',           phone:'[verify]',       county:'Contra Costa',  sector:'Logistics Fleet',    friction:'CRITICAL', owner:'[verify]',        stage:'cold'},
+  // ── NAPA · LOGISTICS FLEET ───────────────────── 11
+  {id:23, name:'PCT Logistics',                  phone:'1-707-690-3161', county:'Napa',          sector:'Logistics Fleet',    friction:'ELEVATED', owner:"T.J. O'Doan",     stage:'proposal'},
+  {id:24, name:'Eds Delivery Napa',              phone:'(707) 373-4854', county:'Napa',          sector:'Logistics Fleet',    friction:'CRITICAL', owner:'[verify]',        stage:'cold'},
+  {id:25, name:'Wardlaw Trucking',               phone:'(707) 226-1336', county:'Napa',          sector:'Logistics Fleet',    friction:'ELEVATED', owner:'Corey W.',        stage:'contacted'},
+  {id:26, name:'Sprint Courier Services',        phone:'707-544-3634',   county:'Napa',          sector:'Logistics Fleet',    friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  {id:27, name:'American Canyon Transportation', phone:'(707) 210-5376', county:'Napa',          sector:'Logistics Fleet',    friction:'CRITICAL', owner:'[verify]',        stage:'cold'},
+  {id:28, name:'Jackson Street Wine Warehouse',  phone:'[verify]',       county:'Napa',          sector:'Logistics Fleet',    friction:'CRITICAL', owner:'[verify]',        stage:'cold'},
+  {id:29, name:'Muvr (St. Helena)',              phone:'[verify]',       county:'Napa',          sector:'Logistics Fleet',    friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  {id:30, name:"Chima's Towing Recovery",        phone:'916-454-5112',   county:'Napa',          sector:'Logistics Fleet',    friction:'CRITICAL', owner:'[verify]',        stage:'cold'},
+  {id:31, name:'JNS LLC',                        phone:'707-967-4845',   county:'Napa',          sector:'Logistics Fleet',    friction:'CRITICAL', owner:'[verify]',        stage:'cold'},
+  {id:32, name:'Christine Properties LLC',       phone:'[verify]',       county:'Napa',          sector:'Logistics Fleet',    friction:'CRITICAL', owner:'[verify]',        stage:'cold'},
+  {id:33, name:'Bartolucci & Sons',              phone:'[verify]',       county:'Napa',          sector:'Logistics Fleet',    friction:'CRITICAL', owner:'[verify]',        stage:'cold'},
+  // ── SOLANO · JUNK REMOVAL ────────────────────── 12
+  {id:34, name:'Ready Now Junk Removal',         phone:'[verify]',       county:'Solano',        sector:'Junk Removal',       friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  {id:35, name:'SacValley Junk Removal',         phone:'[verify]',       county:'Solano',        sector:'Junk Removal',       friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  {id:36, name:"Tony's Junk Removal",            phone:'[verify]',       county:'Solano',        sector:'Junk Removal',       friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  {id:37, name:'No Limit Hauling & Junk Removal',phone:'[verify]',       county:'Solano',        sector:'Junk Removal',       friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  {id:38, name:'Solano County Hauling',          phone:'[verify]',       county:'Solano',        sector:'Junk Removal',       friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  {id:39, name:'All Types of Hauling',           phone:'[verify]',       county:'Solano',        sector:'Junk Removal',       friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  {id:40, name:"John's Hauling",                 phone:'[verify]',       county:'Solano',        sector:'Junk Removal',       friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  {id:41, name:'Allens Hauling (Solano)',         phone:'[verify]',       county:'Solano',        sector:'Junk Removal',       friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  {id:42, name:'Best Bet Hauling',               phone:'[verify]',       county:'Solano',        sector:'Junk Removal',       friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  {id:43, name:'Rays Hauling (Solano)',           phone:'[verify]',       county:'Solano',        sector:'Junk Removal',       friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  {id:44, name:'Carrillos Family Junk Removal',  phone:'[verify]',       county:'Solano',        sector:'Junk Removal',       friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  {id:45, name:'3 Kings Hauling & More',         phone:'[verify]',       county:'Solano',        sector:'Junk Removal',       friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  // ── NAPA · JUNK REMOVAL ──────────────────────── 11
+  {id:46, name:'Allens Hauling (Napa)',           phone:'(707) 252-4373', county:'Napa',          sector:'Junk Removal',       friction:'ELEVATED', owner:'Patrick',         stage:'proposal'},
+  {id:47, name:'Napa Valley Hauling',            phone:'(707) 312-8103', county:'Napa',          sector:'Junk Removal',       friction:'ELEVATED', owner:'[verify]',        stage:'audited'},
+  {id:48, name:'Marciano Junk Removal',          phone:'(707) 337-8143', county:'Napa',          sector:'Junk Removal',       friction:'CRITICAL', owner:'[verify]',        stage:'cold'},
+  {id:49, name:'Napa Strong Hauling',            phone:'(707) 307-9683', county:'Napa',          sector:'Junk Removal',       friction:'CRITICAL', owner:'[verify]',        stage:'cold'},
+  {id:50, name:'GG Hauling Junk Removal',        phone:'(707) 694-4885', county:'Napa',          sector:'Junk Removal',       friction:'CRITICAL', owner:'Sergio',          stage:'cold'},
+  {id:51, name:'Quick Haul',                     phone:'(707) 582-8672', county:'Napa',          sector:'Junk Removal',       friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  {id:52, name:'Jona Haul And Yard Care',        phone:'(707) 943-0409', county:'Napa',          sector:'Junk Removal',       friction:'CRITICAL', owner:'[verify]',        stage:'cold'},
+  {id:53, name:"PJ's Junk Removal",              phone:'(707) 656-9208', county:'Napa',          sector:'Junk Removal',       friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  {id:54, name:"Brian's Salvage & Junk",         phone:'(707) 642-5408', county:'Napa',          sector:'Junk Removal',       friction:'CRITICAL', owner:'Brian',           stage:'cold'},
+  {id:55, name:'Simplify Hauling',               phone:'(415) 685-9041', county:'Napa',          sector:'Junk Removal',       friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  {id:56, name:'Fast Eddie',                     phone:'(707) 815-1901', county:'Napa',          sector:'Junk Removal',       friction:'ELEVATED', owner:'Eddie',           stage:'cold'},
+  // ── SOLANO · INDUSTRIAL PAINTING ─────────────── 12
+  {id:57, name:'Green Valley Painting',          phone:'(707) 864-6864', county:'Solano',        sector:'Industrial Painting',friction:'ELEVATED', owner:'Ian L.',          stage:'installed'},
+  {id:58, name:'All Access Painting',            phone:'(707) 862-8702', county:'Solano',        sector:'Industrial Painting',friction:'ELEVATED', owner:'Steve T.',        stage:'cold'},
+  {id:59, name:'Ramirez Painting',               phone:'(707) 450-8360', county:'Solano',        sector:'Industrial Painting',friction:'ELEVATED', owner:'Junior Ramirez',  stage:'audited'},
+  {id:60, name:'Vicondoa Painting',              phone:'(707) 685-2458', county:'Solano',        sector:'Industrial Painting',friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  {id:61, name:'MS Painting',                    phone:'(707) 410-3583', county:'Solano',        sector:'Industrial Painting',friction:'ELEVATED', owner:'Marcos S.',       stage:'cold'},
+  {id:62, name:'Bill Taylor Painting',           phone:'(209) 625-5768', county:'Solano',        sector:'Industrial Painting',friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  {id:63, name:"Aiden's Quality Painting",       phone:'(707) 917-0354', county:'Solano',        sector:'Industrial Painting',friction:'ELEVATED', owner:'Noel P.',         stage:'cold'},
+  {id:64, name:'Cotter Painting',                phone:'(530) 307-1460', county:'Solano',        sector:'Industrial Painting',friction:'ELEVATED', owner:'Jon C.',          stage:'cold'},
+  {id:65, name:'Gryder Painting',                phone:'[verify]',       county:'Solano',        sector:'Industrial Painting',friction:'ELEVATED', owner:'Randy Gryder',    stage:'cold'},
+  {id:66, name:'Hobson Painting & Coatings',     phone:'[verify]',       county:'Solano',        sector:'Industrial Painting',friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  {id:67, name:'Hire My Husband',                phone:'[verify]',       county:'Solano',        sector:'Industrial Painting',friction:'CRITICAL', owner:'[verify]',        stage:'cold'},
+  {id:68, name:'Friendly Painting',              phone:'[verify]',       county:'Solano',        sector:'Industrial Painting',friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  // ── CONTRA COSTA · INDUSTRIAL PAINTING ───────── 12
+  {id:69, name:'Commercial Painting Inc.',       phone:'(669) 877-2468', county:'Contra Costa',  sector:'Industrial Painting',friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  {id:70, name:'J. Allan Chausse Painting Co.',  phone:'650-400-4885',   county:'Contra Costa',  sector:'Industrial Painting',friction:'ELEVATED', owner:'J. Allan Chausse',stage:'contacted'},
+  {id:71, name:'Darden Painting, Inc.',          phone:'[verify]',       county:'Contra Costa',  sector:'Industrial Painting',friction:'CRITICAL', owner:'[verify]',        stage:'cold'},
+  {id:72, name:'Green Valley Painting (CC)',     phone:'(707) 864-6864', county:'Contra Costa',  sector:'Industrial Painting',friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  {id:73, name:'CAL INC',                        phone:'(800) 359-4467', county:'Contra Costa',  sector:'Industrial Painting',friction:'ELEVATED', owner:'David Esparza',   stage:'cold'},
+  {id:74, name:'Blackhawk Painting, Inc.',       phone:'(707) 451-7872', county:'Contra Costa',  sector:'Industrial Painting',friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  {id:75, name:'Qualith Industrial Coating Inc.',phone:'(925) 685-XXXX', county:'Contra Costa',  sector:'Industrial Painting',friction:'CRITICAL', owner:'[verify]',        stage:'cold'},
+  {id:76, name:'Richmond Metal Painting',        phone:'[verify]',       county:'Contra Costa',  sector:'Industrial Painting',friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  {id:77, name:'Steve Roberts Painting',         phone:'(925) 233-6115', county:'Contra Costa',  sector:'Industrial Painting',friction:'ELEVATED', owner:'Steve Roberts',   stage:'cold'},
+  {id:78, name:"J & J's Final Coat Painting",    phone:'(925) 405-6970', county:'Contra Costa',  sector:'Industrial Painting',friction:'ELEVATED', owner:'Jill & Joe Sabel',stage:'cold'},
+  {id:79, name:'S & S Painting and Coatings',    phone:'[verify]',       county:'Contra Costa',  sector:'Industrial Painting',friction:'ELEVATED', owner:'Greg Severs',     stage:'cold'},
+  {id:80, name:'Paintmasters',                   phone:'(925) 399-1975', county:'Contra Costa',  sector:'Industrial Painting',friction:'ELEVATED', owner:'David Miles',     stage:'cold'},
+  // ── NAPA · INDUSTRIAL PAINTING ───────────────── 11
+  {id:81, name:"M.D.'s Quality Painting",        phone:'707.539.1222',   county:'Napa',          sector:'Industrial Painting',friction:'ELEVATED', owner:'Michael Dehnert', stage:'cold'},
+  {id:82, name:'Left Coast Painting',            phone:'(707) 478-9150', county:'Napa',          sector:'Industrial Painting',friction:'ELEVATED', owner:'Dennis B.',       stage:'cold'},
+  {id:83, name:'Napco Painting Contractors Inc.',phone:'(707) 255-4359', county:'Napa',          sector:'Industrial Painting',friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  {id:84, name:'JLM Painting',                   phone:'(707) 782-3652', county:'Napa',          sector:'Industrial Painting',friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  {id:85, name:'PaintPros Of Napa Valley',       phone:'(707) 285-7755', county:'Napa',          sector:'Industrial Painting',friction:'ELEVATED', owner:'Kenneth Van Houten',stage:'contacted'},
+  {id:86, name:"Garcia's Painting Services",     phone:'(415) 246-7656', county:'Napa',          sector:'Industrial Painting',friction:'CRITICAL', owner:'[verify]',        stage:'cold'},
+  {id:87, name:'Marco Coton Painting',           phone:'(415) 410-8822', county:'Napa',          sector:'Industrial Painting',friction:'CRITICAL', owner:'Marco Coton',     stage:'cold'},
+  {id:88, name:'Green Valley Painting (St.H)',   phone:'(707) 963-3386', county:'Napa',          sector:'Industrial Painting',friction:'ELEVATED', owner:'[verify]',        stage:'cold'},
+  {id:89, name:'All Access Painting (Napa)',     phone:'(707) 255-0990', county:'Napa',          sector:'Industrial Painting',friction:'CRITICAL', owner:'[verify]',        stage:'cold'},
+  {id:90, name:'Rasmusen Painting',              phone:'(707) 552-7000', county:'Napa',          sector:'Industrial Painting',friction:'CRITICAL', owner:'Kyle Rasmusen',   stage:'cold'},
+  {id:91, name:'Rojas Painting',                 phone:'(707) 255-0000', county:'Napa',          sector:'Industrial Painting',friction:'CRITICAL', owner:'[verify]',        stage:'cold'},
+];
+
+// ════════════════════════════════════════════════════════════
+// CAPITAL VEHICLES — 8 PROGRAMS
+// ════════════════════════════════════════════════════════════
+const CAPITAL = [
+  {
+    id:1, tier:'sovereign',
+    name:'BAAQMD Zero-Emission Truck Voucher (VIP)',
+    agency:'Bay Area Air Quality Management District',
+    award:'Up to $520,000',
+    category:'Fleet Capital — ZEV',
+    deadline:'Opening Summer 2026',
+    status:'upcoming',
+    statusLabel:'OPENING SUMMER 2026',
+    contact:'grants@baaqmd.gov · 415.749.4994',
+    naics:'484110 / 562111',
+    notes:'Up to $240K for Light/Med-Heavy Duty. Up to $520K for Heavy-Heavy Duty. Co-funding permitted. HVIP-aligned. No strict match requirement.'
+  },
+  {
+    id:2, tier:'p1',
+    name:'Solano Workforce Stability Grant Program',
+    agency:'Workforce Development Board of Solano County',
+    award:'Up to $25,000',
+    category:'Workforce Development',
+    deadline:'May 1, 2026 (closed — contingency active)',
+    status:'outreach',
+    statusLabel:'DIRECT-TO-DIRECTOR ACTIVE',
+    contact:'opportunities@solanowdb.org',
+    naics:'562111 / 561720',
+    notes:'Public window closed. Active contingency solicitation for unallocated Q2 funds. No match required. Requires business license + W-9.'
+  },
+  {
+    id:3, tier:'',
+    name:'Restaurants Care Resilience Grants',
+    agency:'PG&E Corporation Foundation',
+    award:'$5,000',
+    category:'Business Resilience',
+    deadline:'June 1–30, 2026',
+    status:'open',
+    statusLabel:'OPEN',
+    contact:'www.restaurantscare.org/resilience',
+    naics:'722511',
+    notes:'PG&E service area. Revenue < $3M per location. 1 year minimum operation. Up to 5 locations eligible per entity.'
+  },
+  {
+    id:4, tier:'',
+    name:'City of Vallejo Special Event Sponsorship',
+    agency:'City of Vallejo, City Manager\'s Office',
+    award:'25% of event budget',
+    category:'Municipal Sponsorship',
+    deadline:'2025 cycle closed — 2026 opens Jan 2026',
+    status:'monitor',
+    statusLabel:'MONITOR — CYCLE PENDING',
+    contact:'specialevents@cityofvallejo.net · 707-648-8616',
+    naics:'900001',
+    notes:'Requires 501(c)3 status. Covers city services costs. 2026 cycle anticipated January opening. Budget adoption in June 2025.'
+  },
+  {
+    id:5, tier:'',
+    name:'Verizon CA Digital Ready $5,000 Grant',
+    agency:'Verizon',
+    award:'$5,000',
+    category:'Digital Infrastructure',
+    deadline:'March 31, 2026',
+    status:'closed',
+    statusLabel:'CLOSED',
+    contact:'digitalready.verizonwireless.com',
+    naics:'541511',
+    notes:'Register, complete Digital Ready course or event, submit application. California statewide. No repayment.'
+  },
+  {
+    id:6, tier:'',
+    name:'CA Paid Family Leave Small Business Grant',
+    agency:'California ETP / LWDA',
+    award:'Up to $2,000 / employee',
+    category:'Workforce Retention',
+    deadline:'Ongoing',
+    status:'open',
+    statusLabel:'ONGOING — OPEN',
+    contact:'microbizinsocal.org/grants/california-paid-family-small-business-grant',
+    naics:'All NAICS',
+    notes:'Requires CEAN, NAICS code, employee EDD CAN. No match required. Reimbursement for employees utilizing state PFL.'
+  },
+  {
+    id:7, tier:'',
+    name:'2026 MHP Gap Funding NOFA',
+    agency:'CA Dept. of Housing & Community Development',
+    award:'$240,000,000 (program total)',
+    category:'Housing / Community Development',
+    deadline:'June 5, 2026 at 16:00',
+    status:'open',
+    statusLabel:'OPEN',
+    contact:'grants.ca.gov/grants/2026-mhp-gap-funding-nofa',
+    naics:'531',
+    notes:'10% rural set-aside. Complex large-program application. Align to real estate and community stabilization verticals.'
+  },
+  {
+    id:8, tier:'',
+    name:'Richmond Small Business Facade Improvement',
+    agency:'City of Richmond',
+    award:'Up to $15,000',
+    category:'Business Infrastructure',
+    deadline:'Dec 2025 – Dec 2026',
+    status:'open',
+    statusLabel:'OPEN',
+    contact:'ci.richmond.ca.us/4648/Small-Business-Facade-Improvement-Progra',
+    naics:'562111 / 561720',
+    notes:'Iron Triangle, Coronado, Santa Fe neighborhoods only. Richmond, CA. Verify specific eligibility criteria before applying.'
+  },
+];
+
+// ════════════════════════════════════════════════════════════
+// KANBAN STAGES
+// ════════════════════════════════════════════════════════════
+const STAGES = [
+  {id:'cold',      label:'Cold Lead',                cls:'kl-cold'},
+  {id:'contacted', label:'Contacted',                cls:'kl-contacted'},
+  {id:'audited',   label:'Friction Audit Complete',  cls:'kl-audited'},
+  {id:'proposal',  label:'Proposal Delivered',        cls:'kl-proposal'},
+  {id:'installed', label:'$5,000 System Installed',  cls:'kl-installed'},
+];
+
+// ════════════════════════════════════════════════════════════
+// STATE
+// ════════════════════════════════════════════════════════════
+const state = {
+  leads: JSON.parse(JSON.stringify(LEADS)), // working copy
+  filters: {county:'', sector:'', friction:'', search:''},
+  dragId: null,
+};
+
+// leads that are "on board" = any stage other than cold
+const onBoard = () => state.leads.filter(l => l.stage !== 'cold');
+
+// ════════════════════════════════════════════════════════════
+// UTILITIES
+// ════════════════════════════════════════════════════════════
+const countyClass = c => c === 'Solano' ? 'bc-solano' : c === 'Napa' ? 'bc-napa' : 'bc-cc';
+const sectorClass = s => s === 'Logistics Fleet' ? 'bs-logistics' : s === 'Junk Removal' ? 'bs-junk' : 'bs-painting';
+const sectorShort = s => s === 'Logistics Fleet' ? 'LOGISTICS' : s === 'Junk Removal' ? 'JUNK REM.' : 'PAINTING';
+const frictionClass = f => f === 'CRITICAL' ? 'fr-crit' : 'fr-elev';
+const statusClass = s => ({open:'s-open',closed:'s-closed',upcoming:'s-upcoming',outreach:'s-outreach',monitor:'s-monitor'}[s]||'s-monitor');
+
+const fmt$ = n => '$' + n.toLocaleString();
+
+// ════════════════════════════════════════════════════════════
+// RENDER — COLUMN A: LEAD TABLE
+// ════════════════════════════════════════════════════════════
+function renderLeadTable() {
+  const {county, sector, friction, search} = state.filters;
+  const filtered = state.leads.filter(l => {
+    if (county  && l.county  !== county)  return false;
+    if (sector  && l.sector  !== sector)  return false;
+    if (friction && l.friction !== friction) return false;
+    if (search  && !l.name.toLowerCase().includes(search.toLowerCase())) return false;
+    return true;
+  });
+
+  const tbody = document.getElementById('lead-tbody');
+  tbody.innerHTML = filtered.map(l => {
+    const onb = l.stage !== 'cold';
+    const btnLabel = onb ? '✓ ON BOARD' : '+ BOARD';
+    const btnCls   = onb ? 'btn-board onboard' : 'btn-board';
+    return `<tr>
+      <td class="td-id">${l.id}</td>
+      <td class="td-name">${l.name}</td>
+      <td class="td-phone">${l.phone}</td>
+      <td><span class="badge ${countyClass(l.county)}">${l.county.toUpperCase()}</span></td>
+      <td><span class="badge ${sectorClass(l.sector)}">${sectorShort(l.sector)}</span></td>
+      <td><span class="${frictionClass(l.friction)}">${l.friction}</span></td>
+      <td><button class="${btnCls}" data-id="${l.id}" onclick="addToBoard(${l.id})">${btnLabel}</button></td>
+    </tr>`;
+  }).join('');
+
+  document.getElementById('vis-count').textContent = filtered.length;
+  document.getElementById('board-count').textContent = onBoard().length;
+}
+
+// ════════════════════════════════════════════════════════════
+// RENDER — COLUMN B: CAPITAL VEHICLES
+// ════════════════════════════════════════════════════════════
+function renderCapital() {
+  const body = document.getElementById('cap-body');
+  const accessible = CAPITAL.filter(c => ['open','upcoming','outreach'].includes(c.status))
+                             .reduce((sum,c) => {
+                               const m = c.award.replace(/[^0-9]/g,'');
+                               return sum + (m ? parseInt(m) : 0);
+                             }, 0);
+
+  const summaryHtml = `<div class="cap-summary">
+    <div class="cap-summary-label">Max Capital Accessible — Active Programs</div>
+    <div class="cap-summary-val">${fmt$(accessible)}<span style="font-size:13px;color:var(--gold-3);">+</span></div>
+    <div class="cap-summary-sub">Open + Upcoming + Direct-to-Director programs · 8 vehicles tracked</div>
+  </div>`;
+
+  const cardsHtml = CAPITAL.map(c => `
+    <div class="cap-card ${c.tier}">
+      <div class="cap-card-hd">
+        <div class="cap-card-name">${c.name}</div>
+        <div class="cap-award">${c.award}</div>
+      </div>
+      <div class="cap-card-bd">
+        <div class="cap-row"><span class="cap-lbl">Agency</span><span class="cap-val">${c.agency}</span></div>
+        <div class="cap-row"><span class="cap-lbl">Category</span><span class="cap-val">${c.category}</span></div>
+        <div class="cap-row"><span class="cap-lbl">NAICS</span><span class="cap-val">${c.naics}</span></div>
+        <div class="cap-row"><span class="cap-lbl">Status</span><span class="cap-val"><span class="${statusClass(c.status)}">${c.statusLabel}</span></span></div>
+        <div class="cap-row"><span class="cap-lbl">Deadline</span><span class="cap-val">${c.deadline}</span></div>
+        <div class="cap-row"><span class="cap-lbl">Contact</span><span class="cap-val" style="word-break:break-all;">${c.contact}</span></div>
+        <div style="margin-top:5px;font-size:9px;color:var(--text-4);line-height:1.5;">${c.notes}</div>
+      </div>
+    </div>`).join('');
+
+  body.innerHTML = summaryHtml + cardsHtml;
+}
+
+// ════════════════════════════════════════════════════════════
+// RENDER — COLUMN C: KANBAN
+// ════════════════════════════════════════════════════════════
+function renderKanban() {
+  const board = onBoard();
+  const installed = board.filter(l => l.stage === 'installed');
+
+  document.getElementById('kb-total').textContent     = board.length;
+  document.getElementById('kb-installed').textContent = installed.length;
+  document.getElementById('kb-value').textContent     = fmt$(installed.length * 5000);
+
+  const kanban = document.getElementById('kanban');
+  kanban.innerHTML = STAGES.map(st => {
+    const cards = board.filter(l => l.stage === st.id);
+    const cardsHtml = cards.length
+      ? cards.map(l => `
+          <div class="kc" draggable="true" data-id="${l.id}"
+               ondragstart="onDragStart(event,${l.id})"
+               ondragend="onDragEnd(event)">
+            <div class="kc-name">${l.name}</div>
+            <div class="kc-meta">
+              <span class="badge ${countyClass(l.county)}">${l.county.toUpperCase()}</span>
+              <span class="badge ${sectorClass(l.sector)}">${sectorShort(l.sector)}</span>
+            </div>
+            ${st.id === 'installed' ? '<div class="kc-val">$5,000 INSTALLED</div>' : ''}
+          </div>`).join('')
+      : `<div class="kl-hint">Drop leads here</div>`;
+
+    return `<div class="kl ${st.cls}" data-stage="${st.id}"
+                  ondragover="onDragOver(event)"
+                  ondragleave="onDragLeave(event)"
+                  ondrop="onDrop(event,'${st.id}')">
+      <div class="kl-hd">
+        <h3>${st.label}</h3>
+        <span class="kl-count">${cards.length}</span>
+      </div>
+      <div class="kl-cards">${cardsHtml}</div>
+    </div>`;
+  }).join('');
+}
+
+// ════════════════════════════════════════════════════════════
+// ACTIONS
+// ════════════════════════════════════════════════════════════
+function addToBoard(id) {
+  const lead = state.leads.find(l => l.id === id);
+  if (!lead || lead.stage !== 'cold') return;
+  lead.stage = 'contacted';
+  renderLeadTable();
+  renderKanban();
+}
+
+// ════════════════════════════════════════════════════════════
+// DRAG & DROP
+// ════════════════════════════════════════════════════════════
+function onDragStart(e, id) {
+  state.dragId = id;
+  e.currentTarget.classList.add('dragging');
+  e.dataTransfer.effectAllowed = 'move';
+}
+
+function onDragEnd(e) {
+  e.currentTarget.classList.remove('dragging');
+  document.querySelectorAll('.kl').forEach(el => el.classList.remove('drag-over'));
+}
+
+function onDragOver(e) {
+  e.preventDefault();
+  e.dataTransfer.dropEffect = 'move';
+  const lane = e.currentTarget.closest('.kl');
+  if (lane) lane.classList.add('drag-over');
+}
+
+function onDragLeave(e) {
+  const lane = e.currentTarget.closest('.kl');
+  if (lane && !lane.contains(e.relatedTarget)) lane.classList.remove('drag-over');
+}
+
+function onDrop(e, stage) {
+  e.preventDefault();
+  const lane = e.currentTarget.closest('.kl');
+  if (lane) lane.classList.remove('drag-over');
+  if (state.dragId === null) return;
+  const lead = state.leads.find(l => l.id === state.dragId);
+  if (lead) {
+    lead.stage = stage;
+    state.dragId = null;
+    renderLeadTable();
+    renderKanban();
+  }
+}
+
+// ════════════════════════════════════════════════════════════
+// FILTERS
+// ════════════════════════════════════════════════════════════
+document.getElementById('f-county').addEventListener('change',  e => { state.filters.county  = e.target.value; renderLeadTable(); });
+document.getElementById('f-sector').addEventListener('change',  e => { state.filters.sector  = e.target.value; renderLeadTable(); });
+document.getElementById('f-friction').addEventListener('change',e => { state.filters.friction = e.target.value; renderLeadTable(); });
+document.getElementById('f-search').addEventListener('input',   e => { state.filters.search  = e.target.value; renderLeadTable(); });
+
+// ════════════════════════════════════════════════════════════
+// CLOCK
+// ════════════════════════════════════════════════════════════
+function updateClock() {
+  const now = new Date();
+  const pad = n => String(n).padStart(2,'0');
+  document.getElementById('clock').textContent =
+    `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())} ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+}
+setInterval(updateClock, 1000);
+
+// ════════════════════════════════════════════════════════════
+// INIT
+// ════════════════════════════════════════════════════════════
+updateClock();
+renderLeadTable();
+renderCapital();
+renderKanban();
+</script>
+</body>
+</html>
