@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Bebas+Neue&family=JetBrains+Mono:wght@300;400;500;700&family=Cinzel+Decorative:wght@400;700;900&family=Cormorant:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --ink:#070709;
+  --surface:#0E0E12;
+  --card:#121218;
+  --card2:#16161E;
+  --border:#1F1F2C;
+  --gold:#D4AF37;
+  --gold2:#B8952A;
+  --gold3:#F0CC55;
+  --gold-glow:rgba(212,175,55,0.15);
+  --gold-faint:rgba(212,175,55,0.06);
+  --red:#991B1B;
+  --red-dim:#7A1515;
+  --red-glow:rgba(153,27,27,0.12);
+  --green:#1A6B3A;
+  --green-glow:rgba(26,107,58,0.12);
+  --cream:#EDE8DC;
+  --cream-dim:#B8B0A0;
+  --cream-faint:rgba(237,232,220,0.05);
+  --display:'Cinzel Decorative',serif;
+  --serif:'Playfair Display',serif;
+  --body:'Cormorant',serif;
+  --mono:'JetBrains Mono',monospace;
+  --wide:'Bebas Neue',sans-serif;
+}
+
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);
+  color:var(--cream);
+  font-family:var(--body);
+  font-size:17px;
+  line-height:1.8;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* ── LAYERED BACKGROUND ── */
+body::before{
+  content:'';
+  position:fixed;inset:0;
+  background:
+    radial-gradient(ellipse 70% 50% at 15% 20%, rgba(212,175,55,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 60% at 85% 80%, rgba(100,60,10,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 50% 50%, rgba(212,175,55,0.02) 0%, transparent 70%);
+  pointer-events:none;z-index:0;
+}
+body::after{
+  content:'';
+  position:fixed;inset:0;
+  background:
+    repeating-linear-gradient(0deg,transparent,transparent 59px,rgba(212,175,55,0.018) 60px),
+    repeating-linear-gradient(90deg,transparent,transparent 59px,rgba(212,175,55,0.010) 60px);
+  pointer-events:none;z-index:0;
+}
+
+.page{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:0 28px 120px}
+
+/* ══════════════════════════════════
+   HERO HEADER
+══════════════════════════════════ */
+.hero{
+  position:relative;
+  padding:72px 0 56px;
+  text-align:center;
+  overflow:hidden;
+}
+.hero-stripe{
+  position:absolute;top:0;left:-5%;right:-5%;
+  height:3px;
+  background:linear-gradient(90deg,transparent 0%,var(--gold2) 20%,var(--gold3) 50%,var(--gold2) 80%,transparent 100%);
+}
+.hero-bg-text{
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  font-family:var(--wide);
+  font-size:clamp(80px,16vw,180px);
+  color:rgba(212,175,55,0.03);
+  white-space:nowrap;
+  letter-spacing:0.1em;
+  pointer-events:none;
+  user-select:none;
+}
+.hero-eyebrow{
+  font-family:var(--mono);
+  font-size:10px;
+  letter-spacing:0.45em;
+  color:var(--gold2);
+  text-transform:uppercase;
+  margin-bottom:20px;
+  opacity:0.75;
+}
+.hero-title{
+  font-family:var(--display);
+  font-size:clamp(22px,4.5vw,46px);
+  font-weight:900;
+  color:var(--gold);
+  letter-spacing:0.04em;
+  line-height:1.2;
+  text-shadow:0 0 60px rgba(212,175,55,0.3),0 2px 8px rgba(0,0,0,0.8);
+  margin-bottom:12px;
+}
+.hero-sub{
+  font-family:var(--wide);
+  font-size:clamp(12px,2.5vw,17px);
+  letter-spacing:0.38em;
+  color:var(--cream-dim);
+  text-transform:uppercase;
+  margin-bottom:36px;
+}
+.hero-divider{
+  display:flex;align-items:center;gap:16px;
+  justify-content:center;margin-bottom:32px;
+}
+.hero-divider span{width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.hero-divider span:last-child{background:linear-gradient(90deg,var(--gold),transparent)}
+.hero-diamond{
+  width:8px;height:8px;
+  background:var(--gold);
+  transform:rotate(45deg);
+}
+.hero-desc{
+  max-width:640px;margin:0 auto;
+  font-size:17px;font-weight:300;font-style:italic;
+  color:var(--cream-dim);line-height:1.85;
+}
+.hero-desc strong{color:var(--gold);font-style:normal;font-weight:600}
+.hero-bottom-line{
+  position:absolute;bottom:0;left:-5%;right:-5%;
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--border),transparent);
+}
+
+/* ══════════════════════════════════
+   SECTION CONTAINER
+══════════════════════════════════ */
+.section{
+  margin:40px 0;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:6px;
+  overflow:hidden;
+  position:relative;
+  transition:border-color 0.4s,box-shadow 0.4s;
+}
+.section:hover{
+  border-color:rgba(212,175,55,0.3);
+  box-shadow:0 0 40px rgba(212,175,55,0.05),0 4px 32px rgba(0,0,0,0.5);
+}
+.section::before{
+  content:'';position:absolute;
+  top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,var(--gold),var(--gold2),transparent);
+  opacity:0;transition:opacity 0.4s;
+}
+.section:hover::before{opacity:1}
+
+/* SECTION HEADER */
+.sec-head{
+  display:flex;align-items:stretch;
+  border-bottom:1px solid var(--border);
+  background:linear-gradient(90deg,rgba(212,175,55,0.05),transparent);
+}
+.sec-num{
+  font-family:var(--wide);
+  font-size:52px;
+  color:var(--gold);
+  opacity:0.18;
+  padding:16px 20px;
+  line-height:1;
+  min-width:80px;
+  display:flex;align-items:center;justify-content:center;
+  border-right:1px solid var(--border);
+}
+.sec-titles{
+  padding:18px 24px;
+  display:flex;flex-direction:column;justify-content:center;
+  flex:1;
+}
+.sec-label{
+  font-family:var(--mono);
+  font-size:9.5px;
+  letter-spacing:0.38em;
+  color:var(--gold2);
+  text-transform:uppercase;
+  margin-bottom:5px;
+  opacity:0.7;
+}
+.sec-title{
+  font-family:var(--serif);
+  font-size:clamp(15px,2.5vw,20px);
+  font-weight:700;
+  color:var(--gold);
+  letter-spacing:0.05em;
+}
+
+/* SECTION BODY */
+.sec-body{padding:28px 28px 32px}
+.sec-body p{
+  color:var(--cream-dim);
+  font-weight:300;font-size:17px;
+  margin-bottom:12px;line-height:1.8;
+}
+
+/* ══════════════════════════════════
+   SAFE / DANGER SPLIT
+══════════════════════════════════ */
+.split-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  margin-bottom:20px;
+}
+@media(max-width:600px){.split-grid{grid-template-columns:1fr}}
+
+.safe-panel,.danger-panel{
+  border-radius:4px;
+  padding:20px 20px 22px;
+  border:1px solid;
+}
+.safe-panel{
+  background:var(--green-glow);
+  border-color:rgba(26,107,58,0.35);
+}
+.danger-panel{
+  background:var(--red-glow);
+  border-color:rgba(153,27,27,0.35);
+}
+.panel-label{
+  font-family:var(--mono);
+  font-size:9px;letter-spacing:0.38em;
+  text-transform:uppercase;
+  margin-bottom:14px;
+  display:flex;align-items:center;gap:8px;
+}
+.safe-panel .panel-label{color:#4ADE80}
+.danger-panel .panel-label{color:#F87171}
+.panel-label::before{
+  content:'';display:inline-block;
+  width:6px;height:6px;border-radius:50%;
+}
+.safe-panel .panel-label::before{background:#4ADE80;box-shadow:0 0 6px #4ADE80}
+.danger-panel .panel-label::before{background:#F87171;box-shadow:0 0 6px #F87171}
+.panel-list{list-style:none}
+.panel-list li{
+  padding:6px 0 6px 18px;
+  position:relative;
+  font-size:15.5px;
+  line-height:1.55;
+  font-weight:300;
+}
+.safe-panel .panel-list li{color:#A7F3C0}
+.danger-panel .panel-list li{color:#FECACA}
+.safe-panel .panel-list li::before{content:'✓';position:absolute;left:0;color:#4ADE80;font-size:11px;top:8px;font-weight:700}
+.danger-panel .panel-list li::before{content:'✕';position:absolute;left:0;color:#F87171;font-size:11px;top:8px;font-weight:700}
+
+/* ══════════════════════════════════
+   RULE BOX
+══════════════════════════════════ */
+.rule-box{
+  background:rgba(212,175,55,0.06);
+  border:1px solid rgba(212,175,55,0.22);
+  border-left:4px solid var(--gold);
+  padding:16px 22px;
+  border-radius:0 4px 4px 0;
+  margin-top:16px;
+}
+.rule-box .rule-label{
+  font-family:var(--mono);font-size:9px;
+  letter-spacing:0.38em;color:var(--gold2);
+  text-transform:uppercase;margin-bottom:6px;opacity:0.8;
+}
+.rule-box p{
+  color:var(--gold3) !important;
+  font-style:italic;font-size:16px !important;font-weight:400 !important;
+  margin-bottom:0 !important;
+}
+
+/* ══════════════════════════════════
+   SYMPTOM / CAUSE / RECOVERY
+══════════════════════════════════ */
+.diag-grid{display:flex;flex-direction:column;gap:16px}
+.diag-block{
+  border-radius:4px;
+  overflow:hidden;
+  border:1px solid var(--border);
+}
+.diag-head{
+  padding:10px 16px;
+  display:flex;align-items:center;gap:10px;
+  font-family:var(--mono);font-size:9px;
+  letter-spacing:0.35em;text-transform:uppercase;
+}
+.diag-symptom .diag-head{background:rgba(251,191,36,0.08);color:#FBD24A}
+.diag-cause .diag-head{background:rgba(239,68,68,0.07);color:#FCA5A5}
+.diag-recovery .diag-head{background:rgba(52,211,153,0.07);color:#6EE7B7}
+.diag-danger .diag-head{background:rgba(153,27,27,0.12);color:#FCA5A5}
+.diag-body{
+  background:var(--card2);
+  padding:14px 18px;
+}
+.diag-body ul{list-style:none}
+.diag-body ul li{
+  padding:5px 0 5px 18px;position:relative;
+  font-size:15.5px;color:var(--cream-dim);font-weight:300;line-height:1.5;
+}
+.diag-body ul li::before{content:'▸';position:absolute;left:0;color:var(--gold2);font-size:10px;top:8px}
+.diag-body p{font-size:15.5px;color:var(--cream-dim);font-weight:300;margin-bottom:0}
+
+/* ══════════════════════════════════
+   CODE BLOCK
+══════════════════════════════════ */
+.code-wrap{
+  background:#060608;
+  border:1px solid #1a1a24;
+  border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;
+  padding:18px 20px;
+  margin:14px 0;
+  overflow-x:auto;
+}
+.code-wrap pre{
+  font-family:var(--mono);
+  font-size:12.5px;color:#A8C87A;
+  line-height:1.75;white-space:pre-wrap;
+}
+.code-label{
+  font-family:var(--mono);font-size:9px;
+  letter-spacing:0.35em;color:var(--gold2);
+  text-transform:uppercase;margin-bottom:6px;opacity:0.65;
+}
+.path-box{
+  background:#060608;border:1px solid #1a1a24;
+  border-left:3px solid var(--gold2);
+  padding:10px 16px;font-family:var(--mono);
+  font-size:13px;color:var(--gold3);
+  border-radius:0 3px 3px 0;margin:10px 0;
+  word-break:break-all;
+}
+
+/* ══════════════════════════════════
+   NUMBERED STEPS
+══════════════════════════════════ */
+.steps-list{display:flex;flex-direction:column;gap:0}
+.step-row{
+  display:flex;gap:20px;align-items:flex-start;
+  padding:16px 0;border-bottom:1px solid rgba(31,31,44,0.8);
+}
+.step-row:last-child{border-bottom:none}
+.step-n{
+  font-family:var(--wide);font-size:32px;
+  color:var(--gold);opacity:0.22;
+  min-width:40px;line-height:1;padding-top:2px;
+}
+.step-text strong{
+  display:block;font-family:var(--mono);
+  font-size:10px;letter-spacing:0.28em;
+  color:var(--gold2);text-transform:uppercase;
+  margin-bottom:4px;
+}
+.step-text p{color:var(--cream-dim);font-size:15.5px;font-weight:300;line-height:1.6;margin-bottom:0}
+
+/* ══════════════════════════════════
+   BACKUP WATERFALL
+══════════════════════════════════ */
+.backup-flow{
+  display:flex;flex-direction:column;
+  align-items:flex-start;gap:0;
+  margin:16px 0;padding-left:8px;
+}
+.backup-node{
+  display:flex;align-items:center;gap:14px;
+  padding:12px 18px;
+  background:var(--card2);
+  border:1px solid var(--border);
+  border-left:3px solid var(--gold2);
+  border-radius:0 4px 4px 0;
+  width:100%;max-width:360px;
+  position:relative;
+}
+.backup-node .icon{font-size:14px;opacity:0.7}
+.backup-node .label{
+  font-family:var(--mono);font-size:12px;
+  letter-spacing:0.15em;color:var(--cream-dim);
+  text-transform:uppercase;
+}
+.backup-arrow{
+  font-family:var(--mono);font-size:18px;
+  color:var(--gold2);opacity:0.4;
+  padding:4px 0 4px 20px;
+}
+
+.freq-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:12px;margin-top:16px;
+}
+.freq-card{
+  background:var(--card2);
+  border:1px solid var(--border);
+  border-top:2px solid var(--gold2);
+  padding:16px;border-radius:3px;
+}
+.freq-card .f-label{
+  font-family:var(--mono);font-size:9px;
+  letter-spacing:0.3em;color:var(--gold);
+  text-transform:uppercase;margin-bottom:8px;opacity:0.8;
+}
+.freq-card .f-val{
+  font-family:var(--wide);font-size:22px;
+  letter-spacing:0.12em;color:var(--cream);margin-bottom:4px;
+}
+.freq-card .f-item{font-size:14px;color:var(--cream-dim);font-weight:300}
+
+/* ══════════════════════════════════
+   WARNING SIGNS
+══════════════════════════════════ */
+.warning-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:12px;margin-bottom:20px;
+}
+.warn-card{
+  background:rgba(153,27,27,0.07);
+  border:1px solid rgba(153,27,27,0.25);
+  border-radius:4px;padding:14px 16px;
+  text-align:center;
+}
+.warn-card .w-icon{font-size:20px;margin-bottom:8px;opacity:0.8}
+.warn-card p{font-size:13.5px;color:#FECACA;font-weight:400;line-height:1.4;margin-bottom:0}
+
+/* ══════════════════════════════════
+   SCENARIOS
+══════════════════════════════════ */
+.scenario-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:600px){.scenario-grid{grid-template-columns:1fr}}
+.scenario-card{
+  background:var(--card2);
+  border:1px solid var(--border);
+  border-radius:4px;overflow:hidden;
+}
+.scenario-head{
+  padding:14px 18px;
+  background:rgba(212,175,55,0.06);
+  border-bottom:1px solid var(--border);
+}
+.scenario-head .s-num{
+  font-family:var(--mono);font-size:9px;
+  letter-spacing:0.35em;color:var(--gold2);opacity:0.7;
+  margin-bottom:4px;
+}
+.scenario-head .s-goal{
+  font-family:var(--serif);font-size:15px;
+  font-weight:700;color:var(--gold);
+  letter-spacing:0.04em;
+}
+.scenario-body{padding:16px 18px}
+.scenario-body ol{
+  list-style:none;counter-reset:sc;
+}
+.scenario-body ol li{
+  counter-increment:sc;
+  padding:6px 0 6px 28px;
+  position:relative;
+  font-size:14.5px;color:var(--cream-dim);font-weight:300;
+  border-bottom:1px solid rgba(31,31,44,0.6);
+}
+.scenario-body ol li:last-child{border-bottom:none}
+.scenario-body ol li::before{
+  content:counter(sc);
+  position:absolute;left:0;
+  font-family:var(--mono);font-size:10px;
+  color:var(--gold);background:var(--gold-faint);
+  width:18px;height:18px;border-radius:2px;
+  display:flex;align-items:center;justify-content:center;
+  top:8px;font-weight:500;
+}
+
+/* ══════════════════════════════════
+   10 RULES GRID
+══════════════════════════════════ */
+.rules-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:14px;
+}
+.rule-card{
+  background:var(--card2);
+  border:1px solid var(--border);
+  border-radius:4px;padding:18px 18px 20px;
+  position:relative;overflow:hidden;
+  transition:border-color 0.3s;
+}
+.rule-card:hover{border-color:rgba(212,175,55,0.28)}
+.rule-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;
+  height:2px;
+  background:linear-gradient(90deg,var(--gold),transparent);
+  opacity:0;transition:opacity 0.3s;
+}
+.rule-card:hover::after{opacity:1}
+.rule-n{
+  font-family:var(--wide);font-size:44px;
+  color:var(--gold);opacity:0.12;
+  line-height:1;margin-bottom:8px;
+}
+.rule-text{font-size:15px;color:var(--cream-dim);font-weight:300;font-style:italic;line-height:1.65}
+.rule-text strong{color:var(--gold3);font-style:normal;font-weight:600}
+
+/* ══════════════════════════════════
+   README EXAMPLE
+══════════════════════════════════ */
+.readme-box{
+  background:#060608;border:1px solid #1a1a24;
+  border-radius:4px;overflow:hidden;margin:14px 0;
+}
+.readme-tab{
+  background:#0F0F16;border-bottom:1px solid #1a1a24;
+  padding:8px 16px;font-family:var(--mono);font-size:11px;
+  color:var(--gold2);letter-spacing:0.12em;
+  display:flex;align-items:center;gap:8px;
+}
+.readme-tab span{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--gold2);opacity:0.5;
+}
+.readme-content{padding:16px 20px;font-family:var(--mono);font-size:12px;color:#8FB07A;line-height:1.75}
+
+/* ══════════════════════════════════
+   FINAL BLOCK
+══════════════════════════════════ */
+.final{
+  margin-top:56px;
+  background:linear-gradient(135deg,#0E0E14 0%,rgba(212,175,55,0.04) 100%);
+  border:1px solid var(--gold2);
+  border-radius:6px;padding:52px 40px;
+  text-align:center;position:relative;overflow:hidden;
+}
+.final::before{
+  content:'';position:absolute;
+  top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+.final-bg{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  font-family:var(--wide);font-size:200px;
+  color:rgba(212,175,55,0.025);
+  pointer-events:none;user-select:none;
+  white-space:nowrap;
+}
+.final h2{
+  font-family:var(--display);
+  font-size:clamp(16px,3vw,26px);
+  color:var(--gold);letter-spacing:0.1em;
+  margin-bottom:32px;
+  text-shadow:0 0 30px rgba(212,175,55,0.2);
+}
+.principle-list{
+  list-style:none;
+  display:flex;flex-direction:column;
+  align-items:center;gap:0;
+  margin-bottom:40px;max-width:500px;margin-left:auto;margin-right:auto;
+}
+.principle-list li{
+  padding:14px 0;border-bottom:1px solid rgba(212,175,55,0.1);
+  font-family:var(--serif);font-size:18px;font-style:italic;
+  color:var(--cream-dim);font-weight:400;width:100%;
+  display:flex;align-items:center;gap:14px;
+  justify-content:center;
+}
+.principle-list li::before{
+  content:'◈';color:var(--gold);font-size:12px;font-style:normal;
+}
+.principle-list li:last-child{border-bottom:none}
+.final-mandate{
+  font-family:var(--serif);font-size:19px;
+  font-weight:400;color:var(--cream-dim);
+  line-height:1.85;max-width:560px;margin:0 auto;
+}
+.final-mandate em{color:var(--gold);font-style:normal;font-weight:700}
+
+/* ── FOOTER ── */
+.doc-footer{
+  margin-top:64px;
+  border-top:1px solid var(--border);
+  padding-top:22px;
+  display:flex;justify-content:space-between;
+  align-items:center;flex-wrap:wrap;gap:12px;
+}
+.footer-brand{
+  font-family:var(--display);font-size:11px;
+  color:var(--gold);letter-spacing:0.2em;
+}
+.footer-meta{
+  font-family:var(--mono);font-size:9px;
+  color:var(--cream-dim);letter-spacing:0.22em;opacity:0.35;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(24px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.section{animation:fadeUp 0.55s ease both}
+.section:nth-child(1){animation-delay:0.05s}
+.section:nth-child(2){animation-delay:0.10s}
+.section:nth-child(3){animation-delay:0.15s}
+.section:nth-child(4){animation-delay:0.20s}
+.section:nth-child(5){animation-delay:0.25s}
+.section:nth-child(6){animation-delay:0.30s}
+.section:nth-child(7){animation-delay:0.35s}
+.section:nth-child(8){animation-delay:0.40s}
+.section:nth-child(9){animation-delay:0.45s}
+.section:nth-child(10){animation-delay:0.50s}
+.hero{animation:fadeUp 0.6s ease both}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ══ HERO ══ -->
+<div class="hero">
+  <div class="hero-stripe"></div>
+  <div class="hero-bg-text">RECOVER</div>
+  <div class="hero-eyebrow">AA Capital Inc. · Prime Pathwy OS · Recovery Protocol</div>
+  <div class="hero-title">Troubleshooting &amp;<br>Recovery Manual</div>
+  <div class="hero-sub">Operator Field Edition — Systems Continuity</div>
+  <div class="hero-divider">
+    <span></span><div class="hero-diamond"></div><span></span>
+  </div>
+  <p class="hero-desc">
+    When something breaks, freezes, disappears, or stops working — you need a <strong>calm, structured recovery system</strong>. This manual covers: what can go wrong, why it happens, how to diagnose it, how to recover safely, which actions are safe, and which are dangerous.
+  </p>
+  <div class="hero-bottom-line"></div>
+</div>
+
+<!-- ══ SECTION 1 ══ -->
+<div class="section">
+  <div class="sec-head">
+    <div class="sec-num">01</div>
+    <div class="sec-titles">
+      <div class="sec-label">Section One</div>
+      <div class="sec-title">Understanding Safe vs. Dangerous Actions</div>
+    </div>
+  </div>
+  <div class="sec-body">
+    <div class="split-grid">
+      <div class="safe-panel">
+        <div class="panel-label">Safe Actions</div>
+        <ul class="panel-list">
+          <li>Opening files</li>
+          <li>Reading CSV data</li>
+          <li>Running display commands</li>
+          <li>Copying folders</li>
+          <li>Creating backups</li>
+          <li>Viewing workflows</li>
+        </ul>
+      </div>
+      <div class="danger-panel">
+        <div class="panel-label">Dangerous Actions</div>
+        <ul class="panel-list">
+          <li>Deleting folders</li>
+          <li>Renaming system directories</li>
+          <li>Overwriting CSV databases</li>
+          <li>Bulk editing without backups</li>
+          <li>Running unknown scripts</li>
+          <li>Moving folders manually</li>
+        </ul>
+      </div>
+    </div>
+    <div class="rule-box">
+      <div class="rule-label">Standing Rule</div>
+      <p>If you are unsure what a command does — do not run it.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SECTION 2 ══ -->
+<div class="section">
+  <div class="sec-head">
+    <div class="sec-num">02</div>
+    <div class="sec-titles">
+      <div class="sec-label">Section Two</div>
+      <div class="sec-title">If the Terminal Says 'Path Not Found'</div>
+    </div>
+  </div>
+  <div class="sec-body">
+    <div class="diag-grid">
+      <div class="diag-block diag-symptom">
+        <div class="diag-head">⚑ Symptom</div>
+        <div class="diag-body"><p>The terminal cannot locate your PrimePathwyOS folder.</p></div>
+      </div>
+      <div class="diag-block diag-cause">
+        <div class="diag-head">◉ Common Causes</div>
+        <div class="diag-body"><ul>
+          <li>Folder moved accidentally</li>
+          <li>Typing error in command</li>
+          <li>Wrong username inside path</li>
+          <li>Folder renamed</li>
+        </ul></div>
+      </div>
+      <div class="diag-block diag-recovery">
+        <div class="diag-head">▶ Recovery Process</div>
+        <div class="diag-body">
+          <div class="steps-list">
+            <div class="step-row"><div class="step-n">1</div><div class="step-text"><p>Open File Explorer</p></div></div>
+            <div class="step-row"><div class="step-n">2</div><div class="step-text"><p>Navigate manually to <code style="font-family:var(--mono);font-size:12px;color:var(--gold3)">C:\Users\arthu\GeminiEcosystem\</code></p></div></div>
+            <div class="step-row"><div class="step-n">3</div><div class="step-text"><p>Confirm PrimePathwyOS still exists</p></div></div>
+            <div class="step-row"><div class="step-n">4</div><div class="step-text"><p>Copy the exact folder path</p></div></div>
+            <div class="step-row"><div class="step-n">5</div><div class="step-text"><p>Paste the copied path into PowerShell</p></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="code-label">Correct Command</div>
+    <div class="code-wrap"><pre>cd "C:\Users\arthu\GeminiEcosystem\PrimePathwyOS"</pre></div>
+    <div class="rule-box">
+      <div class="rule-label">Important</div>
+      <p>Paths must match exactly. One wrong character breaks the entire command.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SECTION 3 ══ -->
+<div class="section">
+  <div class="sec-head">
+    <div class="sec-num">03</div>
+    <div class="sec-titles">
+      <div class="sec-label">Section Three</div>
+      <div class="sec-title">If the CSV Database Will Not Open</div>
+    </div>
+  </div>
+  <div class="sec-body">
+    <div class="diag-grid">
+      <div class="diag-block diag-symptom">
+        <div class="diag-head">⚑ Symptom</div>
+        <div class="diag-body"><p>The CRM database fails to load or is inaccessible.</p></div>
+      </div>
+      <div class="diag-block diag-cause">
+        <div class="diag-head">◉ Common Causes</div>
+        <div class="diag-body"><ul>
+          <li>File renamed</li><li>File moved</li>
+          <li>CSV corrupted</li><li>Wrong directory</li>
+        </ul></div>
+      </div>
+    </div>
+    <p style="margin:16px 0 8px;">Navigate to confirm file existence:</p>
+    <div class="path-box">research\leads\enriched_solano_crm_database.csv</div>
+    <div class="diag-block diag-recovery" style="margin-top:14px">
+      <div class="diag-head">▶ Safe Recovery</div>
+      <div class="diag-body"><ul>
+        <li>Restore from backup copy</li>
+        <li>Re-download the latest version</li>
+        <li>Open in Excel to confirm readability</li>
+      </ul></div>
+    </div>
+    <div class="diag-block diag-danger" style="margin-top:10px">
+      <div class="diag-head">✕ Dangerous Action</div>
+      <div class="diag-body"><p>Do not save corrupted CSV exports over the master file.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SECTION 4 ══ -->
+<div class="section">
+  <div class="sec-head">
+    <div class="sec-num">04</div>
+    <div class="sec-titles">
+      <div class="sec-label">Section Four</div>
+      <div class="sec-title">If PowerShell Commands Fail</div>
+    </div>
+  </div>
+  <div class="sec-body">
+    <div class="diag-block diag-symptom" style="margin-bottom:16px">
+      <div class="diag-head">⚑ Symptom</div>
+      <div class="diag-body"><p>Commands return red text or syntax errors.</p></div>
+    </div>
+    <div class="diag-block diag-cause" style="margin-bottom:16px">
+      <div class="diag-head">◉ Common Causes</div>
+      <div class="diag-body"><ul>
+        <li>Missing quotation marks</li><li>Missing spaces</li>
+        <li>Incorrect slashes</li><li>Pasting partial commands</li>
+      </ul></div>
+    </div>
+    <p style="margin-bottom:12px;">Recovery method:</p>
+    <div class="steps-list">
+      <div class="step-row"><div class="step-n">1</div><div class="step-text"><strong>Compose yourself</strong><p>Do not panic. Red text is almost always a formatting problem, not a system failure.</p></div></div>
+      <div class="step-row"><div class="step-n">2</div><div class="step-text"><strong>Re-copy</strong><p>Re-copy the full original command from your source document.</p></div></div>
+      <div class="step-row"><div class="step-n">3</div><div class="step-text"><strong>Paste exactly</strong><p>Paste it exactly as written — no partial edits.</p></div></div>
+      <div class="step-row"><div class="step-n">4</div><div class="step-text"><strong>One at a time</strong><p>Run one command at a time. Never chain unknowns.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SECTION 5 ══ -->
+<div class="section">
+  <div class="sec-head">
+    <div class="sec-num">05</div>
+    <div class="sec-titles">
+      <div class="sec-label">Section Five</div>
+      <div class="sec-title">If You Accidentally Delete Something</div>
+    </div>
+  </div>
+  <div class="sec-body">
+    <div class="steps-list" style="margin-bottom:20px">
+      <div class="step-row"><div class="step-n">1</div><div class="step-text"><strong>Stop immediately</strong><p>Do not continue moving or editing files.</p></div></div>
+      <div class="step-row"><div class="step-n">2</div><div class="step-text"><strong>Check Recycle Bin</strong><p>Navigate to the Recycle Bin immediately.</p></div></div>
+      <div class="step-row"><div class="step-n">3</div><div class="step-text"><strong>Restore if available</strong><p>Right-click the file and select Restore.</p></div></div>
+    </div>
+    <div class="diag-block diag-recovery">
+      <div class="diag-head">▶ If File Is Not in Recycle Bin</div>
+      <div class="diag-body"><ul>
+        <li>Check cloud backups</li>
+        <li>Check external drive backups</li>
+        <li>Search entire drive by filename</li>
+      </ul></div>
+    </div>
+    <div class="rule-box" style="margin-top:16px">
+      <div class="rule-label">Prevention Rule</div>
+      <p>Never operate without backups. This situation should be impossible.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SECTION 6 ══ -->
+<div class="section">
+  <div class="sec-head">
+    <div class="sec-num">06</div>
+    <div class="sec-titles">
+      <div class="sec-label">Section Six</div>
+      <div class="sec-title">The Backup Protocol</div>
+    </div>
+  </div>
+  <div class="sec-body">
+    <div class="backup-flow">
+      <div class="backup-node"><div class="icon">💼</div><div class="label">Primary Working Copy</div></div>
+      <div class="backup-arrow">↓</div>
+      <div class="backup-node"><div class="icon">🖥</div><div class="label">Local Backup Copy</div></div>
+      <div class="backup-arrow">↓</div>
+      <div class="backup-node"><div class="icon">💾</div><div class="label">External Drive Backup</div></div>
+      <div class="backup-arrow">↓</div>
+      <div class="backup-node"><div class="icon">☁️</div><div class="label">Cloud Backup</div></div>
+    </div>
+    <p style="margin:20px 0 8px;"><strong style="color:var(--gold-light)">Recommended Frequency:</strong></p>
+    <div class="freq-grid">
+      <div class="freq-card"><div class="f-label">CRM Databases</div><div class="f-val">DAILY</div></div>
+      <div class="freq-card"><div class="f-label">SOP Libraries</div><div class="f-val">WEEKLY</div></div>
+      <div class="freq-card"><div class="f-label">Publishing Workflows</div><div class="f-val">WEEKLY</div></div>
+      <div class="freq-card"><div class="f-label">Full System Archive</div><div class="f-val">MONTHLY</div></div>
+    </div>
+    <div class="rule-box" style="margin-top:16px">
+      <div class="rule-label">System Truth</div>
+      <p>A system without backups is temporary.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SECTION 7 ══ -->
+<div class="section">
+  <div class="sec-head">
+    <div class="sec-num">07</div>
+    <div class="sec-titles">
+      <div class="sec-label">Section Seven</div>
+      <div class="sec-title">If Your System Becomes Disorganized</div>
+    </div>
+  </div>
+  <div class="sec-body">
+    <p style="margin-bottom:14px;">Warning signs to watch for:</p>
+    <div class="warning-grid">
+      <div class="warn-card"><div class="w-icon">⚠</div><p>Duplicate folders</p></div>
+      <div class="warn-card"><div class="w-icon">⚠</div><p>Random file names</p></div>
+      <div class="warn-card"><div class="w-icon">⚠</div><p>Missing SOPs</p></div>
+      <div class="warn-card"><div class="w-icon">⚠</div><p>Conflicting versions</p></div>
+      <div class="warn-card"><div class="w-icon">⚠</div><p>Files stored everywhere</p></div>
+    </div>
+    <div class="steps-list">
+      <div class="step-row"><div class="step-n">1</div><div class="step-text"><strong>Pause all expansion</strong><p>Stop building new things until the structure is clean.</p></div></div>
+      <div class="step-row"><div class="step-n">2</div><div class="step-text"><strong>Rebuild folder structure</strong><p>Return to your master directory framework.</p></div></div>
+      <div class="step-row"><div class="step-n">3</div><div class="step-text"><strong>Centralize important assets</strong><p>Move everything critical back to PrimePathwyOS.</p></div></div>
+      <div class="step-row"><div class="step-n">4</div><div class="step-text"><strong>Archive outdated files</strong><p>Archive — never delete without verification.</p></div></div>
+      <div class="step-row"><div class="step-n">5</div><div class="step-text"><strong>Restore naming conventions</strong><p>Consistent names = findable assets.</p></div></div>
+    </div>
+    <div class="rule-box" style="margin-top:8px">
+      <div class="rule-label">Operator Rule</div>
+      <p>Organization problems become operational problems.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SECTION 8 ══ -->
+<div class="section">
+  <div class="sec-head">
+    <div class="sec-num">08</div>
+    <div class="sec-titles">
+      <div class="sec-label">Section Eight</div>
+      <div class="sec-title">If You Forget What a Folder Does</div>
+    </div>
+  </div>
+  <div class="sec-body">
+    <p>Every major directory should contain internal documentation:</p>
+    <ul class="panel-list" style="margin:12px 0 20px">
+      <li style="color:var(--cream-dim)">README files</li>
+      <li style="color:var(--cream-dim)">Operator notes</li>
+      <li style="color:var(--cream-dim)">Folder purpose descriptions</li>
+    </ul>
+    <div class="path-box">research\leads\README.txt</div>
+    <div class="readme-box">
+      <div class="readme-tab"><span></span>README.txt — research\leads\</div>
+      <div class="readme-content">This folder stores all CRM and lead intelligence databases.<br>Do not overwrite master CSV files without backup verification.<br>Owner: Prime Pathwy OS — AA Capital Inc.</div>
+    </div>
+    <div class="rule-box">
+      <div class="rule-label">Why This Matters</div>
+      <p>Future-you should never have to guess what a folder contains or why it exists.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SECTION 9 ══ -->
+<div class="section">
+  <div class="sec-head">
+    <div class="sec-num">09</div>
+    <div class="sec-titles">
+      <div class="sec-label">Section Nine</div>
+      <div class="sec-title">Beginner Operator Scenarios</div>
+    </div>
+  </div>
+  <div class="sec-body">
+    <div class="scenario-grid">
+      <div class="scenario-card">
+        <div class="scenario-head">
+          <div class="s-num">Scenario 01</div>
+          <div class="s-goal">Pull 5 Junk Removal Companies</div>
+        </div>
+        <div class="scenario-body"><ol>
+          <li>Open PowerShell</li>
+          <li>Navigate to PrimePathwyOS</li>
+          <li>Run CSV extraction command</li>
+          <li>Review returned rows</li>
+          <li>Document operational weaknesses</li>
+        </ol></div>
+      </div>
+      <div class="scenario-card">
+        <div class="scenario-head">
+          <div class="s-num">Scenario 02</div>
+          <div class="s-goal">Prepare Consulting Outreach</div>
+        </div>
+        <div class="scenario-body"><ol>
+          <li>Select one business from CRM</li>
+          <li>Identify operational inefficiencies</li>
+          <li>Connect inefficiencies to money loss</li>
+          <li>Draft operational diagnosis</li>
+          <li>Build solution proposal</li>
+        </ol></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SECTION 10 ══ -->
+<div class="section">
+  <div class="sec-head">
+    <div class="sec-num">10</div>
+    <div class="sec-titles">
+      <div class="sec-label">Section Ten</div>
+      <div class="sec-title">System Stability Rules</div>
+    </div>
+  </div>
+  <div class="sec-body">
+    <div class="rules-grid">
+      <div class="rule-card"><div class="rule-n">01</div><div class="rule-text">Never edit the <strong>master database</strong> without backups.</div></div>
+      <div class="rule-card"><div class="rule-n">02</div><div class="rule-text">Never rename <strong>major system folders</strong> casually.</div></div>
+      <div class="rule-card"><div class="rule-n">03</div><div class="rule-text">Never trust <strong>memory over documentation</strong>.</div></div>
+      <div class="rule-card"><div class="rule-n">04</div><div class="rule-text">Keep all systems <strong>centralized</strong> under one root.</div></div>
+      <div class="rule-card"><div class="rule-n">05</div><div class="rule-text"><strong>Small consistent structure</strong> beats chaotic expansion.</div></div>
+      <div class="rule-card"><div class="rule-n">06</div><div class="rule-text">Every workflow must become <strong>repeatable</strong>.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FINAL ══ -->
+<div class="final">
+  <div class="final-bg">SOVEREIGN</div>
+  <h2>Final Operator Principle</h2>
+  <ul class="principle-list">
+    <li>A stable system</li>
+    <li>A recoverable system</li>
+    <li>A documented system</li>
+    <li>A teachable system</li>
+  </ul>
+  <p class="final-mandate">
+    The stronger your structure becomes,<br>
+    the less dependent your business becomes<br>
+    on <em>memory</em>, chaos, or improvisation.
+  </p>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<div class="doc-footer">
+  <div class="footer-brand">Prime Pathwy · AA Capital Inc.</div>
+  <div class="footer-meta">DISCIPLINE OVER CHAOS · SYSTEMS OVER SHORTCUTS</div>
+</div>
+
+</div>
+</body>
+</html>

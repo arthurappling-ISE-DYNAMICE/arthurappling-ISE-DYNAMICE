@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=Cinzel:wght@400;600;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0A0A0A;
+    --black-mid: #111111;
+    --black-card: #141414;
+    --black-border: #1E1E1E;
+    --gold: #D4AF37;
+    --gold-light: #E8C84A;
+    --gold-dim: #B8952A;
+    --gold-ghost: rgba(212,175,55,0.08);
+    --gold-glow: rgba(212,175,55,0.18);
+    --white: #F5F0E8;
+    --white-dim: #C8BFA8;
+    --white-faint: rgba(245,240,232,0.06);
+    --accent: #8B1A1A;
+    --mono: 'DM Mono', monospace;
+    --serif: 'Cormorant Garamond', serif;
+    --display: 'Bebas Neue', sans-serif;
+    --title: 'Cinzel', serif;
+  }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.75;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── BACKGROUND TEXTURE ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(212,175,55,0.025) 80px),
+      repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(212,175,55,0.015) 80px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 60px 32px 100px;
+  }
+
+  /* ── HEADER ── */
+  .doc-header {
+    border-top: 3px solid var(--gold);
+    border-bottom: 1px solid var(--gold-dim);
+    padding: 48px 0 36px;
+    margin-bottom: 64px;
+    text-align: center;
+    position: relative;
+  }
+  .doc-header::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 24px auto 0;
+  }
+
+  .classification {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    opacity: 0.7;
+  }
+
+  .doc-title {
+    font-family: var(--title);
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 900;
+    color: var(--gold);
+    letter-spacing: 0.06em;
+    line-height: 1.15;
+    text-shadow: 0 0 40px rgba(212,175,55,0.25);
+    margin-bottom: 8px;
+  }
+
+  .doc-subtitle {
+    font-family: var(--display);
+    font-size: clamp(13px, 2.5vw, 18px);
+    letter-spacing: 0.28em;
+    color: var(--white-dim);
+    text-transform: uppercase;
+  }
+
+  /* ── INTRO CALLOUT ── */
+  .intro-box {
+    background: var(--gold-ghost);
+    border-left: 4px solid var(--gold);
+    padding: 24px 28px;
+    margin-bottom: 64px;
+    border-radius: 0 4px 4px 0;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--white-dim);
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  /* ── BLOCK CARDS ── */
+  .block {
+    background: var(--black-card);
+    border: 1px solid var(--black-border);
+    border-radius: 4px;
+    margin-bottom: 40px;
+    overflow: hidden;
+    position: relative;
+    transition: border-color 0.3s;
+  }
+  .block:hover {
+    border-color: var(--gold-dim);
+  }
+  .block::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .block:hover::before { opacity: 1; }
+
+  .block-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 28px 16px;
+    background: rgba(212,175,55,0.04);
+    border-bottom: 1px solid var(--black-border);
+  }
+
+  .block-number {
+    font-family: var(--display);
+    font-size: 38px;
+    color: var(--gold);
+    opacity: 0.35;
+    line-height: 1;
+    min-width: 52px;
+  }
+
+  .block-title {
+    font-family: var(--title);
+    font-size: 15px;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .block-body {
+    padding: 28px 28px 28px 28px;
+  }
+
+  /* ── PATH DISPLAY ── */
+  .path-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    opacity: 0.6;
+  }
+
+  .path-box {
+    background: #0D0D0D;
+    border: 1px solid var(--black-border);
+    border-left: 3px solid var(--gold-dim);
+    padding: 12px 16px;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--gold-light);
+    margin-bottom: 20px;
+    border-radius: 0 3px 3px 0;
+    word-break: break-all;
+  }
+
+  /* ── BULLET LISTS ── */
+  .bullet-list {
+    list-style: none;
+    margin-top: 12px;
+  }
+  .bullet-list li {
+    padding: 6px 0 6px 22px;
+    position: relative;
+    font-size: 17px;
+    color: var(--white-dim);
+    font-weight: 300;
+  }
+  .bullet-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 11px;
+    top: 10px;
+  }
+
+  /* ── INLINE TAGS ── */
+  .tag {
+    display: inline-block;
+    background: var(--gold-ghost);
+    border: 1px solid rgba(212,175,55,0.2);
+    color: var(--gold-light);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    padding: 3px 10px;
+    border-radius: 2px;
+    margin: 3px 4px 3px 0;
+    vertical-align: middle;
+  }
+
+  /* ── CODE BLOCK ── */
+  .code-block {
+    background: #080808;
+    border: 1px solid #222;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 4px 4px 0;
+    padding: 20px 20px;
+    margin: 16px 0;
+    overflow-x: auto;
+  }
+  .code-block pre {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: #A8C87A;
+    line-height: 1.7;
+    white-space: pre-wrap;
+  }
+
+  /* ── CMD BREAKDOWN ── */
+  .cmd-row {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 0;
+    border-bottom: 1px solid var(--black-border);
+    padding: 11px 0;
+  }
+  .cmd-row:last-child { border-bottom: none; }
+  .cmd-key {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--gold);
+    font-weight: 500;
+    padding-right: 16px;
+  }
+  .cmd-val {
+    font-size: 15px;
+    color: var(--white-dim);
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  /* ── CONSULTING STEPS ── */
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    counter-reset: step;
+  }
+  .step {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--black-border);
+  }
+  .step:last-child { border-bottom: none; }
+  .step-num {
+    font-family: var(--display);
+    font-size: 36px;
+    color: var(--gold);
+    opacity: 0.25;
+    min-width: 44px;
+    line-height: 1;
+    padding-top: 2px;
+  }
+  .step-content strong {
+    display: block;
+    font-family: var(--title);
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    color: var(--gold-light);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+  .step-content p {
+    font-size: 16px;
+    color: var(--white-dim);
+    font-weight: 300;
+    line-height: 1.65;
+  }
+
+  /* ── PHASES GRID ── */
+  .phases {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 4px;
+  }
+  .phase-card {
+    background: #0D0D0D;
+    border: 1px solid var(--black-border);
+    border-top: 2px solid var(--gold-dim);
+    padding: 20px 18px;
+    border-radius: 3px;
+  }
+  .phase-label {
+    font-family: var(--display);
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .phase-card p {
+    font-size: 14.5px;
+    color: var(--white-dim);
+    font-weight: 300;
+    line-height: 1.65;
+  }
+
+  /* ── CALLOUT BLOCK ── */
+  .callout {
+    background: rgba(139,26,26,0.08);
+    border: 1px solid rgba(139,26,26,0.3);
+    border-left: 4px solid #8B1A1A;
+    padding: 20px 24px;
+    margin: 20px 0 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .callout .label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: #C84444;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .callout p {
+    font-size: 17px;
+    color: var(--white-dim);
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  /* ── GOLD CALLOUT ── */
+  .gold-callout {
+    background: var(--gold-ghost);
+    border: 1px solid rgba(212,175,55,0.2);
+    padding: 22px 26px;
+    margin: 20px 0 0;
+    border-radius: 4px;
+    text-align: center;
+  }
+  .gold-callout p {
+    font-family: var(--title);
+    font-size: 16px;
+    letter-spacing: 0.12em;
+    color: var(--gold-light);
+    line-height: 1.7;
+  }
+
+  /* ── FINAL BLOCK ── */
+  .final-block {
+    background: linear-gradient(135deg, #0D0D0D 60%, rgba(212,175,55,0.04));
+    border: 1px solid var(--gold-dim);
+    padding: 40px 36px;
+    border-radius: 4px;
+    margin-top: 48px;
+    text-align: center;
+  }
+  .final-block h3 {
+    font-family: var(--title);
+    font-size: 20px;
+    color: var(--gold);
+    letter-spacing: 0.18em;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  .status-pills {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .pill {
+    background: var(--gold-ghost);
+    border: 1px solid rgba(212,175,55,0.25);
+    color: var(--gold-light);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    padding: 8px 18px;
+    border-radius: 2px;
+  }
+  .final-rule {
+    font-size: 18px;
+    font-style: italic;
+    color: var(--white-dim);
+    font-weight: 300;
+    line-height: 1.8;
+  }
+  .final-rule em {
+    color: var(--gold);
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  /* ── FOOTER ── */
+  .doc-footer {
+    margin-top: 64px;
+    border-top: 1px solid var(--black-border);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-brand {
+    font-family: var(--title);
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+  }
+  .footer-meta {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--white-faint);
+    letter-spacing: 0.2em;
+    opacity: 0.5;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--black-border);
+    margin: 12px 0 20px;
+  }
+
+  p { color: var(--white-dim); font-weight: 300; margin-bottom: 8px; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .block { animation: fadeUp 0.5s ease both; }
+  .block:nth-child(1) { animation-delay: 0.05s }
+  .block:nth-child(2) { animation-delay: 0.10s }
+  .block:nth-child(3) { animation-delay: 0.15s }
+  .block:nth-child(4) { animation-delay: 0.20s }
+  .block:nth-child(5) { animation-delay: 0.25s }
+  .block:nth-child(6) { animation-delay: 0.30s }
+  .block:nth-child(7) { animation-delay: 0.35s }
+  .block:nth-child(8) { animation-delay: 0.40s }
+  .block:nth-child(9) { animation-delay: 0.45s }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <div class="doc-header">
+    <div class="classification">AA Capital Inc. · Prime Pathwy OS · Operator Manual · Beginner Edition</div>
+    <div class="doc-title">Prime Pathwy<br>Operating System</div>
+    <div class="doc-subtitle">Beginner Operator Manual — Field Edition</div>
+  </div>
+
+  <!-- INTRO -->
+  <div class="intro-box">
+    This document is not written like technical documentation. It is written like an operator handbook. The goal is simple: understand what your system actually is, why each piece exists, what each command does, and how the pieces connect together into a real business operation.
+  </div>
+
+  <!-- BLOCK 1 -->
+  <div class="block">
+    <div class="block-header">
+      <div class="block-number">01</div>
+      <div class="block-title">The Main Headquarters</div>
+    </div>
+    <div class="block-body">
+      <div class="path-label">Main Directory</div>
+      <div class="path-box">C:\Users\arthu\GeminiEcosystem\PrimePathwyOS</div>
+      <p>This is your central business operating system folder. Think of it as:</p>
+      <ul class="bullet-list">
+        <li>The command center</li>
+        <li>The vault</li>
+        <li>The engine room</li>
+        <li>The business brain</li>
+      </ul>
+      <div class="callout">
+        <div class="label">Operator Note</div>
+        <p>Every major business asset eventually connects back into this structure.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOCK 2 -->
+  <div class="block">
+    <div class="block-header">
+      <div class="block-number">02</div>
+      <div class="block-title">Understanding the Directory Structure</div>
+    </div>
+    <div class="block-body">
+      <div class="path-label">Target Path</div>
+      <div class="path-box">research\leads\enriched_solano_crm_database.csv</div>
+      <p>This CSV file is your <strong style="color:var(--gold-light)">prospect intelligence database</strong>. Each row represents a company, a commercial operation, or a potential consulting client.</p>
+      <hr class="divider">
+      <p style="margin-bottom:10px;">Each column contains structured business intelligence such as:</p>
+      <ul class="bullet-list">
+        <li>Company name</li>
+        <li>City</li>
+        <li>Sector</li>
+        <li>Pain points</li>
+        <li>Operational weaknesses</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BLOCK 3 -->
+  <div class="block">
+    <div class="block-header">
+      <div class="block-number">03</div>
+      <div class="block-title">The Operations Library</div>
+    </div>
+    <div class="block-body">
+      <div class="path-label">SOP Directory</div>
+      <div class="path-box">docs\operations\</div>
+      <p>This is your <strong style="color:var(--gold-light)">SOP system</strong> — Standard Operating Procedures. These documents explain how operations get completed consistently.</p>
+      <hr class="divider">
+      <p style="margin-bottom:10px;">SOP Coverage includes:</p>
+      <ul class="bullet-list">
+        <li>Onboarding systems</li>
+        <li>Invoicing workflows</li>
+        <li>CRM handling</li>
+        <li>Automation procedures</li>
+        <li>Publishing workflows</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BLOCK 4 -->
+  <div class="block">
+    <div class="block-header">
+      <div class="block-number">04</div>
+      <div class="block-title">The Publishing Engine</div>
+    </div>
+    <div class="block-body">
+      <div class="path-label">Publishing Directory</div>
+      <div class="path-box">workflows\publishing\</div>
+      <p>This is your <strong style="color:var(--gold-light)">authority-generation system</strong>. Most businesses post randomly. A publishing engine creates consistency.</p>
+      <hr class="divider">
+      <ul class="bullet-list">
+        <li>Content sequencing</li>
+        <li>Authority positioning</li>
+        <li>Marketing structure</li>
+        <li>Trust-building systems</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BLOCK 5 -->
+  <div class="block">
+    <div class="block-header">
+      <div class="block-number">05</div>
+      <div class="block-title">Understanding the Terminal Command</div>
+    </div>
+    <div class="block-body">
+      <div class="code-block">
+        <pre>cd "C:\Users\arthu\GeminiEcosystem\PrimePathwyOS"</pre>
+      </div>
+      <p>The command <span class="tag">cd</span> means <em style="color:var(--gold-light)">change directory</em>. You are telling the terminal:</p>
+      <div class="gold-callout">
+        <p>"Take me into this folder so I can operate from inside it."</p>
+      </div>
+      <p style="margin-top:16px;">Without this command, the terminal does not know where your files are located.</p>
+    </div>
+  </div>
+
+  <!-- BLOCK 6 -->
+  <div class="block">
+    <div class="block-header">
+      <div class="block-number">06</div>
+      <div class="block-title">The Lead Extraction Command</div>
+    </div>
+    <div class="block-body">
+      <div class="code-block">
+        <pre>Import-Csv ".\research\leads\enriched_solano_crm_database.csv" |
+Where-Object { $_.company_name -notlike "*Research*" } |
+Format-Table company_name, sector, city, phone, website</pre>
+      </div>
+      <hr class="divider">
+      <div class="cmd-row"><div class="cmd-key">Import-Csv</div><div class="cmd-val">Opens and reads the spreadsheet</div></div>
+      <div class="cmd-row"><div class="cmd-key">Where-Object</div><div class="cmd-val">Filters rows using conditions</div></div>
+      <div class="cmd-row"><div class="cmd-key">$_.company_name</div><div class="cmd-val">Looks at the company_name column</div></div>
+      <div class="cmd-row"><div class="cmd-key">-notlike "*Research*"</div><div class="cmd-val">Removes placeholder research rows</div></div>
+      <div class="cmd-row"><div class="cmd-key">Format-Table</div><div class="cmd-val">Displays clean, readable output</div></div>
+    </div>
+  </div>
+
+  <!-- BLOCK 7 -->
+  <div class="block">
+    <div class="block-header">
+      <div class="block-number">07</div>
+      <div class="block-title">The Real Business Model</div>
+    </div>
+    <div class="block-body">
+      <div class="callout" style="margin:0 0 20px;">
+        <div class="label">Core Directive</div>
+        <p>You are not selling "AI." Businesses care about operational chaos, lost revenue, missed invoices, compliance failures, and slow workflows.</p>
+      </div>
+      <p>Your actual offer is <strong style="color:var(--gold-light)">Operational Stability + Efficiency</strong>.</p>
+      <p>AI and automation are simply the tools used to solve those problems.</p>
+    </div>
+  </div>
+
+  <!-- BLOCK 8 -->
+  <div class="block">
+    <div class="block-header">
+      <div class="block-number">08</div>
+      <div class="block-title">The Consulting Flow</div>
+    </div>
+    <div class="block-body">
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <strong>Extract Lead Profile</strong>
+            <p>Pull a real business from the CRM database.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <strong>Diagnose Operational Weakness</strong>
+            <p>Identify workflow problems tied to money loss.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <strong>Install the Solution</strong>
+            <p>Implement structured workflows, SOPs, tracking systems, or automation. This is not about selling software — it is about improving business operations.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOCK 9 -->
+  <div class="block">
+    <div class="block-header">
+      <div class="block-number">09</div>
+      <div class="block-title">What You Should Focus On First</div>
+    </div>
+    <div class="block-body">
+      <div class="phases">
+        <div class="phase-card">
+          <div class="phase-label">Phase 1</div>
+          <p>Learn the structure. Practice navigating folders and running commands.</p>
+        </div>
+        <div class="phase-card">
+          <div class="phase-label">Phase 2</div>
+          <p>Read your own systems. Understand what exists and what creates revenue.</p>
+        </div>
+        <div class="phase-card">
+          <div class="phase-label">Phase 3</div>
+          <p>Test small operational workflows. Pull leads. Diagnose problems. Build simple consulting solutions.</p>
+        </div>
+      </div>
+      <div class="gold-callout" style="margin-top:20px;">
+        <p>Small repetitions create mastery.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINAL BLOCK -->
+  <div class="final-block">
+    <h3>Final Reality Check</h3>
+    <div class="status-pills">
+      <div class="pill">CENTRALIZED</div>
+      <div class="pill">ORGANIZED</div>
+      <div class="pill">OPERATIONAL</div>
+      <div class="pill">EXPANDABLE</div>
+    </div>
+    <p class="final-rule">
+      Your system is not "finished." That is the important part.<br><br>
+      A real operating system <em>evolves over time</em>.<br><br>
+      The goal is not perfection.<br>
+      The goal is <em>structure strong enough to scale</em> without collapsing into chaos.
+    </p>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="doc-footer">
+    <div class="footer-brand">Prime Pathwy · AA Capital Inc.</div>
+    <div class="footer-meta">DISCIPLINE OVER CHAOS · SYSTEMS OVER SHORTCUTS</div>
+  </div>
+
+</div>
+</body>
+</html>

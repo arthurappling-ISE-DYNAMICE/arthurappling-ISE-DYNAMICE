@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Cormorant:ital,wght@0,300;0,400;0,600;1,300&family=JetBrains+Mono:wght@300;400;500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#070709;--surface:#0E0E12;--card:#111116;--card2:#16161E;
+  --border:#1F1F2C;--border2:#2A2A3A;
+  --gold:#D4AF37;--gold2:#B8952A;--gold3:#F0CC55;
+  --gold-glow:rgba(212,175,55,0.13);--gold-faint:rgba(212,175,55,0.06);
+  --red:#991B1B;--red-glow:rgba(153,27,27,0.13);
+  --green-glow:rgba(26,107,58,0.13);
+  --blue-glow:rgba(30,64,175,0.12);
+  --cream:#EDE8DC;--cream-dim:#A8A090;--cream-faint:rgba(237,232,220,0.05);
+  --sidebar:220px;
+  --display:'Cinzel Decorative',serif;
+  --serif:'Playfair Display',serif;
+  --body:'Cormorant',serif;
+  --mono:'JetBrains Mono',monospace;
+  --wide:'Bebas Neue',sans-serif;
+  --status-u:#2A1515;--status-ub:#8B1A1A;
+  --status-p:#1A1A10;--status-pb:#B8952A;
+  --status-r:#0F1F14;--status-rb:#1A6B3A;
+}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--cream);font-family:var(--body);font-size:16px;line-height:1.75;overflow-x:hidden;display:flex;min-height:100vh}
+
+/* ── BG ── */
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 60% 50% at 10% 10%,rgba(212,175,55,0.04),transparent 60%),radial-gradient(ellipse 50% 60% at 90% 90%,rgba(100,60,10,0.05),transparent 60%);pointer-events:none;z-index:0}
+body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 59px,rgba(212,175,55,0.015) 60px),repeating-linear-gradient(90deg,transparent,transparent 59px,rgba(212,175,55,0.008) 60px);pointer-events:none;z-index:0}
+
+/* ══════════ SIDEBAR ══════════ */
+#sidebar{
+  position:fixed;top:0;left:0;bottom:0;width:var(--sidebar);
+  background:#090910;border-right:1px solid var(--border);
+  z-index:100;overflow-y:auto;overflow-x:hidden;
+  display:flex;flex-direction:column;
+  transition:transform 0.3s;
+}
+#sidebar::-webkit-scrollbar{width:3px}
+#sidebar::-webkit-scrollbar-track{background:transparent}
+#sidebar::-webkit-scrollbar-thumb{background:var(--gold2);border-radius:2px;opacity:0.4}
+.sb-brand{padding:22px 18px 16px;border-bottom:1px solid var(--border)}
+.sb-brand-name{font-family:var(--display);font-size:11px;color:var(--gold);letter-spacing:0.06em;line-height:1.4}
+.sb-brand-sub{font-family:var(--mono);font-size:8.5px;letter-spacing:0.28em;color:var(--cream-dim);text-transform:uppercase;margin-top:4px;opacity:0.6}
+.sb-version{font-family:var(--mono);font-size:8px;color:var(--gold2);letter-spacing:0.2em;margin-top:6px;opacity:0.7}
+.sb-section-group{padding:12px 0}
+.sb-group-label{font-family:var(--mono);font-size:8px;letter-spacing:0.35em;color:var(--cream-dim);text-transform:uppercase;padding:8px 18px 6px;opacity:0.45}
+.sb-link{
+  display:flex;align-items:center;gap:10px;
+  padding:8px 18px;cursor:pointer;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:0.08em;
+  color:var(--cream-dim);text-decoration:none;
+  transition:all 0.2s;position:relative;
+  border-left:2px solid transparent;
+}
+.sb-link:hover,.sb-link.active{
+  color:var(--gold);background:var(--gold-faint);
+  border-left-color:var(--gold);
+}
+.sb-link .sb-num{
+  font-family:var(--wide);font-size:16px;
+  color:var(--gold);opacity:0.25;min-width:20px;
+}
+.sb-link:hover .sb-num,.sb-link.active .sb-num{opacity:0.7}
+.sb-divider{height:1px;background:var(--border);margin:8px 18px}
+.sb-bottom{padding:16px 18px;border-top:1px solid var(--border);margin-top:auto}
+.print-btn{
+  width:100%;padding:10px;
+  background:var(--gold-faint);border:1px solid rgba(212,175,55,0.25);
+  color:var(--gold);font-family:var(--mono);font-size:9px;
+  letter-spacing:0.25em;text-transform:uppercase;cursor:pointer;
+  border-radius:3px;transition:all 0.2s;
+}
+.print-btn:hover{background:rgba(212,175,55,0.12);border-color:var(--gold)}
+
+/* ══════════ MAIN CONTENT ══════════ */
+#main{margin-left:var(--sidebar);flex:1;position:relative;z-index:1;padding:0 32px 100px}
+
+/* ══════════ VERSION STRIP ══════════ */
+.version-strip{
+  background:#0A0A0E;border-bottom:1px solid var(--border);
+  padding:8px 32px;display:flex;align-items:center;
+  justify-content:space-between;gap:16px;flex-wrap:wrap;
+  position:sticky;top:0;z-index:50;
+}
+.vs-left{display:flex;align-items:center;gap:16px}
+.vs-badge{
+  background:var(--gold-faint);border:1px solid rgba(212,175,55,0.2);
+  padding:3px 10px;border-radius:2px;
+  font-family:var(--mono);font-size:9px;letter-spacing:0.2em;color:var(--gold);
+}
+.vs-date{font-family:var(--mono);font-size:9px;letter-spacing:0.15em;color:var(--cream-dim);opacity:0.5}
+.vs-search{
+  display:flex;align-items:center;gap:8px;
+  background:var(--card);border:1px solid var(--border);
+  padding:6px 12px;border-radius:3px;flex:1;max-width:260px;
+  transition:border-color 0.2s;
+}
+.vs-search:focus-within{border-color:rgba(212,175,55,0.35)}
+.vs-search svg{opacity:0.4;flex-shrink:0}
+#searchInput{
+  background:none;border:none;outline:none;
+  font-family:var(--mono);font-size:11px;color:var(--cream);
+  width:100%;letter-spacing:0.08em;
+}
+#searchInput::placeholder{color:var(--cream-dim);opacity:0.35}
+
+/* ══════════ HERO ══════════ */
+.hero{
+  padding:56px 0 48px;text-align:center;position:relative;overflow:hidden;
+  border-bottom:1px solid var(--border);margin-bottom:40px;
+}
+.hero-bg{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  font-family:var(--wide);font-size:clamp(80px,14vw,160px);
+  color:rgba(212,175,55,0.025);white-space:nowrap;pointer-events:none;
+}
+.hero-eye{font-family:var(--mono);font-size:9px;letter-spacing:0.45em;color:var(--gold2);text-transform:uppercase;margin-bottom:16px;opacity:0.7}
+.hero-title{font-family:var(--display);font-size:clamp(20px,3.5vw,38px);font-weight:900;color:var(--gold);letter-spacing:0.04em;line-height:1.25;text-shadow:0 0 50px rgba(212,175,55,0.25);margin-bottom:10px}
+.hero-sub{font-family:var(--wide);font-size:clamp(11px,2vw,16px);letter-spacing:0.35em;color:var(--cream-dim);text-transform:uppercase;margin-bottom:24px}
+.hero-div{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:24px}
+.hero-div span{width:70px;height:1px}
+.hero-div span:first-child{background:linear-gradient(90deg,transparent,var(--gold))}
+.hero-div span:last-child{background:linear-gradient(90deg,var(--gold),transparent)}
+.hero-diamond{width:7px;height:7px;background:var(--gold);transform:rotate(45deg)}
+.hero-desc{max-width:580px;margin:0 auto;font-size:16px;font-style:italic;color:var(--cream-dim);font-weight:300;line-height:1.85}
+
+/* ══════════ SECTION ══════════ */
+.section{
+  background:var(--card);border:1px solid var(--border);border-radius:5px;
+  margin-bottom:28px;overflow:hidden;transition:border-color 0.3s,box-shadow 0.3s;
+  scroll-margin-top:52px;
+}
+.section:hover{border-color:rgba(212,175,55,0.22);box-shadow:0 0 32px rgba(212,175,55,0.04),0 4px 24px rgba(0,0,0,0.4)}
+.section.highlight{animation:pulse 1s ease}
+@keyframes pulse{0%,100%{border-color:var(--border)}50%{border-color:var(--gold);box-shadow:0 0 30px rgba(212,175,55,0.15)}}
+
+/* SECTION HEADER — clickable accordion */
+.sec-head{
+  display:flex;align-items:stretch;border-bottom:1px solid var(--border);
+  background:linear-gradient(90deg,rgba(212,175,55,0.04),transparent);
+  cursor:pointer;user-select:none;position:relative;
+}
+.sec-head::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--gold),transparent);opacity:0;transition:opacity 0.3s}
+.section:hover .sec-head::before{opacity:1}
+.sec-num-col{font-family:var(--wide);font-size:42px;color:var(--gold);opacity:0.15;padding:14px 16px;min-width:68px;display:flex;align-items:center;justify-content:center;border-right:1px solid var(--border);line-height:1}
+.sec-title-col{padding:14px 20px;flex:1;display:flex;flex-direction:column;justify-content:center}
+.sec-cat{font-family:var(--mono);font-size:8.5px;letter-spacing:0.38em;color:var(--gold2);text-transform:uppercase;margin-bottom:4px;opacity:0.65}
+.sec-title{font-family:var(--serif);font-size:clamp(14px,2vw,18px);font-weight:700;color:var(--gold);letter-spacing:0.04em}
+.sec-controls{display:flex;align-items:center;gap:10px;padding:0 16px}
+.toggle-icon{font-size:14px;color:var(--gold2);opacity:0.5;transition:transform 0.3s,opacity 0.2s;font-family:var(--mono)}
+.section.collapsed .toggle-icon{transform:rotate(-90deg)}
+.sec-body{padding:24px 24px 28px;transition:all 0.3s}
+.section.collapsed .sec-body{display:none}
+
+/* ══════════ STATUS TOGGLE ══════════ */
+.status-wrap{display:flex;align-items:center;gap:8px;margin-bottom:18px}
+.status-label{font-family:var(--mono);font-size:8px;letter-spacing:0.3em;color:var(--cream-dim);text-transform:uppercase;opacity:0.5}
+.status-btn{
+  padding:4px 12px;border-radius:2px;
+  font-family:var(--mono);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;
+  cursor:pointer;border:1px solid;transition:all 0.2s;font-weight:500;
+}
+.status-btn.unresolved{background:var(--status-u);border-color:var(--status-ub);color:#FCA5A5}
+.status-btn.in-progress{background:var(--status-p);border-color:var(--status-pb);color:#FDE68A}
+.status-btn.resolved{background:var(--status-r);border-color:var(--status-rb);color:#6EE7B7}
+
+/* ══════════ CODE BLOCKS ══════════ */
+.code-wrap{background:#060608;border:1px solid #1a1a24;border-left:3px solid var(--gold);border-radius:0 4px 4px 0;padding:16px 16px;margin:12px 0;overflow-x:auto;position:relative}
+.code-wrap pre{font-family:var(--mono);font-size:12px;color:#A8C87A;line-height:1.75;white-space:pre-wrap}
+.copy-btn{
+  position:absolute;top:10px;right:10px;
+  background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.2);
+  color:var(--gold2);font-family:var(--mono);font-size:8.5px;letter-spacing:0.2em;
+  padding:4px 10px;border-radius:2px;cursor:pointer;text-transform:uppercase;
+  transition:all 0.2s;
+}
+.copy-btn:hover{background:rgba(212,175,55,0.15);color:var(--gold)}
+.copy-btn.copied{color:#6EE7B7;border-color:rgba(110,231,183,0.3);background:rgba(26,107,58,0.1)}
+.path-box{background:#060608;border:1px solid #1a1a24;border-left:3px solid var(--gold2);padding:9px 14px;font-family:var(--mono);font-size:12px;color:var(--gold3);border-radius:0 3px 3px 0;margin:8px 0;word-break:break-all}
+.code-label{font-family:var(--mono);font-size:8.5px;letter-spacing:0.32em;color:var(--gold2);text-transform:uppercase;margin-bottom:5px;opacity:0.6}
+
+/* ══════════ STEP CHECKLIST ══════════ */
+.step-list{display:flex;flex-direction:column;gap:0}
+.step-item{display:flex;align-items:flex-start;gap:14px;padding:13px 0;border-bottom:1px solid rgba(31,31,44,0.7)}
+.step-item:last-child{border-bottom:none}
+.step-check{
+  width:20px;height:20px;border-radius:3px;
+  border:1.5px solid var(--border2);background:transparent;
+  cursor:pointer;flex-shrink:0;margin-top:2px;
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.2s;
+}
+.step-check:hover{border-color:var(--gold2)}
+.step-check.checked{background:var(--gold2);border-color:var(--gold2)}
+.step-check.checked::after{content:'✓';font-size:11px;color:#000;font-weight:700;font-family:var(--mono)}
+.step-num{font-family:var(--wide);font-size:28px;color:var(--gold);opacity:0.18;min-width:34px;line-height:1;margin-top:0}
+.step-content{flex:1}
+.step-content strong{display:block;font-family:var(--mono);font-size:9px;letter-spacing:0.28em;color:var(--gold2);text-transform:uppercase;margin-bottom:3px}
+.step-content p{color:var(--cream-dim);font-size:15px;font-weight:300;line-height:1.65;margin:0}
+.step-item.done .step-content p,.step-item.done .step-content strong{opacity:0.4;text-decoration:line-through;text-decoration-color:rgba(212,175,55,0.3)}
+
+/* ══════════ PANELS ══════════ */
+.split-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
+@media(max-width:700px){.split-grid{grid-template-columns:1fr}}
+.safe-panel,.danger-panel{border-radius:4px;padding:18px;border:1px solid}
+.safe-panel{background:var(--green-glow);border-color:rgba(26,107,58,0.3)}
+.danger-panel{background:var(--red-glow);border-color:rgba(153,27,27,0.3)}
+.panel-label{font-family:var(--mono);font-size:8.5px;letter-spacing:0.35em;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:7px}
+.safe-panel .panel-label{color:#4ADE80}.danger-panel .panel-label{color:#F87171}
+.panel-label::before{content:'';display:inline-block;width:5px;height:5px;border-radius:50%}
+.safe-panel .panel-label::before{background:#4ADE80;box-shadow:0 0 5px #4ADE80}
+.danger-panel .panel-label::before{background:#F87171;box-shadow:0 0 5px #F87171}
+.panel-list{list-style:none}
+.panel-list li{padding:5px 0 5px 16px;position:relative;font-size:14.5px;line-height:1.5;font-weight:300}
+.safe-panel .panel-list li{color:#A7F3C0}.danger-panel .panel-list li{color:#FECACA}
+.safe-panel .panel-list li::before{content:'✓';position:absolute;left:0;color:#4ADE80;font-size:10px;top:7px;font-weight:700}
+.danger-panel .panel-list li::before{content:'✕';position:absolute;left:0;color:#F87171;font-size:10px;top:7px;font-weight:700}
+.rule-box{background:rgba(212,175,55,0.05);border:1px solid rgba(212,175,55,0.18);border-left:3px solid var(--gold);padding:14px 20px;border-radius:0 4px 4px 0;margin-top:14px}
+.rule-box .rl{font-family:var(--mono);font-size:8px;letter-spacing:0.35em;color:var(--gold2);text-transform:uppercase;margin-bottom:5px;opacity:0.75}
+.rule-box p{color:var(--gold3);font-style:italic;font-size:15px;font-weight:400;margin:0}
+
+/* ══════════ DIAG BLOCKS ══════════ */
+.diag-block{border-radius:3px;overflow:hidden;border:1px solid var(--border);margin-bottom:10px}
+.diag-head{padding:9px 14px;font-family:var(--mono);font-size:8.5px;letter-spacing:0.3em;text-transform:uppercase}
+.diag-symptom .diag-head{background:rgba(251,191,36,0.07);color:#FBD24A}
+.diag-cause .diag-head{background:rgba(239,68,68,0.06);color:#FCA5A5}
+.diag-recovery .diag-head{background:rgba(52,211,153,0.06);color:#6EE7B7}
+.diag-danger .diag-head{background:rgba(153,27,27,0.1);color:#FCA5A5}
+.diag-body{background:var(--card2);padding:13px 16px}
+.diag-body p{font-size:14.5px;color:var(--cream-dim);font-weight:300;margin:0}
+.diag-body ul{list-style:none}
+.diag-body ul li{padding:4px 0 4px 16px;position:relative;font-size:14.5px;color:var(--cream-dim);font-weight:300}
+.diag-body ul li::before{content:'▸';position:absolute;left:0;color:var(--gold2);font-size:9px;top:7px}
+
+/* ══════════ BACKUP FLOW ══════════ */
+.backup-flow{display:flex;flex-direction:column;align-items:flex-start;gap:0;margin:14px 0}
+.backup-node{display:flex;align-items:center;gap:12px;padding:10px 16px;background:var(--card2);border:1px solid var(--border);border-left:3px solid var(--gold2);border-radius:0 4px 4px 0;width:100%;max-width:340px}
+.backup-node .b-lbl{font-family:var(--mono);font-size:11.5px;letter-spacing:0.12em;color:var(--cream-dim);text-transform:uppercase}
+.backup-arrow{font-family:var(--mono);font-size:16px;color:var(--gold2);opacity:0.35;padding:3px 0 3px 18px}
+.freq-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:14px}
+.freq-card{background:var(--card2);border:1px solid var(--border);border-top:2px solid var(--gold2);padding:14px;border-radius:3px}
+.freq-card .fc-lbl{font-family:var(--mono);font-size:8px;letter-spacing:0.28em;color:var(--gold);text-transform:uppercase;margin-bottom:6px;opacity:0.75}
+.freq-card .fc-val{font-family:var(--wide);font-size:20px;letter-spacing:0.1em;color:var(--cream)}
+.freq-card .fc-item{font-size:13px;color:var(--cream-dim);font-weight:300}
+
+/* ══════════ WARNING ══════════ */
+.warn-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:18px}
+.warn-card{background:rgba(153,27,27,0.07);border:1px solid rgba(153,27,27,0.22);border-radius:4px;padding:13px;text-align:center}
+.warn-card .wi{font-size:18px;margin-bottom:7px}
+.warn-card p{font-size:13px;color:#FECACA;font-weight:400;line-height:1.4;margin:0}
+
+/* ══════════ SCENARIOS ══════════ */
+.scenario-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:640px){.scenario-grid{grid-template-columns:1fr}}
+.sc-card{background:var(--card2);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.sc-head{padding:13px 16px;background:rgba(212,175,55,0.05);border-bottom:1px solid var(--border)}
+.sc-num{font-family:var(--mono);font-size:8px;letter-spacing:0.35em;color:var(--gold2);opacity:0.65;margin-bottom:3px}
+.sc-goal{font-family:var(--serif);font-size:15px;font-weight:700;color:var(--gold)}
+.sc-body{padding:14px 16px}
+.sc-body ol{list-style:none;counter-reset:sc}
+.sc-body ol li{counter-increment:sc;padding:5px 0 5px 26px;position:relative;font-size:14px;color:var(--cream-dim);font-weight:300;border-bottom:1px solid rgba(31,31,44,0.5)}
+.sc-body ol li:last-child{border-bottom:none}
+.sc-body ol li::before{content:counter(sc);position:absolute;left:0;font-family:var(--mono);font-size:9px;color:var(--gold);background:var(--gold-faint);width:17px;height:17px;border-radius:2px;display:flex;align-items:center;justify-content:center;top:7px}
+
+/* ══════════ RULES GRID ══════════ */
+.rules-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.rule-card{background:var(--card2);border:1px solid var(--border);border-radius:4px;padding:16px;position:relative;overflow:hidden;transition:border-color 0.3s}
+.rule-card:hover{border-color:rgba(212,175,55,0.25)}
+.rule-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1.5px;background:linear-gradient(90deg,var(--gold),transparent);opacity:0;transition:opacity 0.3s}
+.rule-card:hover::after{opacity:1}
+.rc-n{font-family:var(--wide);font-size:40px;color:var(--gold);opacity:0.1;line-height:1;margin-bottom:6px}
+.rc-text{font-size:14px;color:var(--cream-dim);font-weight:300;font-style:italic;line-height:1.65}
+.rc-text strong{color:var(--gold3);font-style:normal;font-weight:600}
+
+/* ══════════ PHASES ══════════ */
+.phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:4px}
+.ph-card{background:var(--card2);border:1px solid var(--border);border-top:2px solid var(--gold2);padding:16px;border-radius:3px}
+.ph-lbl{font-family:var(--wide);font-size:13px;letter-spacing:0.22em;color:var(--gold);margin-bottom:8px}
+.ph-card p{font-size:14px;color:var(--cream-dim);font-weight:300;line-height:1.65;margin:0}
+
+/* ══════════ SIGN-OFF ══════════ */
+.signoff{
+  background:#0A0A0E;border:1px solid var(--border);border-top:2px solid var(--gold2);
+  border-radius:0 0 4px 4px;padding:16px 20px;margin-top:20px;
+}
+.signoff-label{font-family:var(--mono);font-size:8px;letter-spacing:0.35em;color:var(--gold2);text-transform:uppercase;margin-bottom:12px;opacity:0.65}
+.signoff-fields{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+@media(max-width:600px){.signoff-fields{grid-template-columns:1fr 1fr}}
+.sf{display:flex;flex-direction:column;gap:4px}
+.sf label{font-family:var(--mono);font-size:8px;letter-spacing:0.25em;color:var(--cream-dim);text-transform:uppercase;opacity:0.5}
+.sf input{
+  background:var(--card);border:1px solid var(--border);border-radius:2px;
+  padding:7px 10px;font-family:var(--mono);font-size:11px;color:var(--cream);
+  outline:none;transition:border-color 0.2s;
+}
+.sf input:focus{border-color:rgba(212,175,55,0.35)}
+.sf input::placeholder{color:var(--cream-dim);opacity:0.3}
+.signoff-save{
+  margin-top:12px;padding:8px 18px;
+  background:var(--gold-faint);border:1px solid rgba(212,175,55,0.22);
+  color:var(--gold);font-family:var(--mono);font-size:9px;letter-spacing:0.22em;
+  text-transform:uppercase;cursor:pointer;border-radius:2px;transition:all 0.2s;
+}
+.signoff-save:hover{background:rgba(212,175,55,0.12)}
+.signoff-saved{font-family:var(--mono);font-size:9px;color:#6EE7B7;letter-spacing:0.2em;margin-left:10px;opacity:0;transition:opacity 0.3s}
+
+/* ══════════ BULLET LIST ══════════ */
+.blist{list-style:none;margin:10px 0}
+.blist li{padding:5px 0 5px 18px;position:relative;font-size:15px;color:var(--cream-dim);font-weight:300}
+.blist li::before{content:'▸';position:absolute;left:0;color:var(--gold2);font-size:9px;top:8px}
+
+/* ══════════ GOLD CALLOUT ══════════ */
+.gold-call{background:var(--gold-faint);border:1px solid rgba(212,175,55,0.15);padding:18px 22px;border-radius:4px;text-align:center;margin:14px 0}
+.gold-call p{font-family:var(--serif);font-size:17px;font-style:italic;color:var(--gold3);margin:0}
+
+/* ══════════ CMD BREAKDOWN ══════════ */
+.cmd-rows{margin-top:12px}
+.cmd-row{display:grid;grid-template-columns:170px 1fr;border-bottom:1px solid rgba(31,31,44,0.7);padding:9px 0}
+.cmd-row:last-child{border-bottom:none}
+.cmd-key{font-family:var(--mono);font-size:11.5px;color:var(--gold);font-weight:500}
+.cmd-val{font-size:14.5px;color:var(--cream-dim);font-style:italic;font-weight:300}
+
+/* ══════════ FINAL ══════════ */
+.final{
+  margin-top:48px;background:linear-gradient(135deg,#0E0E14,rgba(212,175,55,0.03));
+  border:1px solid var(--gold2);border-radius:6px;
+  padding:44px 36px;text-align:center;position:relative;overflow:hidden;
+}
+.final::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.final-bg-t{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--wide);font-size:150px;color:rgba(212,175,55,0.022);pointer-events:none;user-select:none;white-space:nowrap}
+.final h2{font-family:var(--display);font-size:clamp(14px,2.5vw,22px);color:var(--gold);letter-spacing:0.1em;margin-bottom:28px;text-shadow:0 0 30px rgba(212,175,55,0.2)}
+.prin-list{list-style:none;max-width:420px;margin:0 auto 32px}
+.prin-list li{padding:12px 0;border-bottom:1px solid rgba(212,175,55,0.08);font-family:var(--serif);font-size:17px;font-style:italic;color:var(--cream-dim);display:flex;align-items:center;justify-content:center;gap:12px}
+.prin-list li::before{content:'◈';color:var(--gold);font-size:11px;font-style:normal}
+.prin-list li:last-child{border-bottom:none}
+.final-p{font-family:var(--serif);font-size:18px;color:var(--cream-dim);line-height:1.85;max-width:520px;margin:0 auto}
+.final-p em{color:var(--gold);font-style:normal;font-weight:700}
+
+/* ══════════ README ══════════ */
+.readme-box{background:#060608;border:1px solid #1a1a24;border-radius:4px;overflow:hidden;margin:12px 0}
+.readme-tab{background:#0F0F16;border-bottom:1px solid #1a1a24;padding:7px 14px;font-family:var(--mono);font-size:10px;color:var(--gold2);letter-spacing:0.1em;display:flex;align-items:center;gap:7px}
+.readme-tab span{width:7px;height:7px;border-radius:50%;background:var(--gold2);opacity:0.4}
+.readme-content{padding:14px 18px;font-family:var(--mono);font-size:11.5px;color:#8FB07A;line-height:1.75}
+
+/* ══════════ SEARCH HIGHLIGHT ══════════ */
+.section.search-hidden{display:none}
+mark{background:rgba(212,175,55,0.25);color:var(--gold3);border-radius:2px;padding:0 2px}
+
+/* ══════════ FOOTER ══════════ */
+.doc-footer{margin-top:56px;border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.footer-brand{font-family:var(--display);font-size:10px;color:var(--gold);letter-spacing:0.18em}
+.footer-meta{font-family:var(--mono);font-size:8.5px;color:var(--cream-dim);letter-spacing:0.2em;opacity:0.3}
+
+/* ══════════ MOBILE ══════════ */
+@media(max-width:768px){
+  #sidebar{transform:translateX(-100%)}
+  #sidebar.open{transform:translateX(0)}
+  #main{margin-left:0}
+  .mob-toggle{display:flex}
+}
+.mob-toggle{display:none;position:fixed;bottom:20px;right:20px;z-index:200;width:44px;height:44px;background:var(--gold);border-radius:50%;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 16px rgba(212,175,55,0.3);border:none}
+.mob-toggle svg{color:#000}
+
+/* ══════════ PRINT ══════════ */
+@media print{
+  #sidebar,.version-strip,.status-wrap,.signoff,.mob-toggle,.copy-btn{display:none!important}
+  #main{margin-left:0;padding:20px}
+  body{background:#fff;color:#000}
+  .section{border:1px solid #ccc;break-inside:avoid}
+  .sec-title,.gold-call p{color:#000}
+  .rule-box,.code-wrap,.path-box{border-color:#999}
+  .code-wrap pre,.cmd-key{color:#333}
+  .hero-title{color:#000;text-shadow:none}
+}
+
+/* ANIMATE IN */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.section{animation:fadeUp 0.5s ease both}
+.section:nth-child(1){animation-delay:0.04s}.section:nth-child(2){animation-delay:0.08s}
+.section:nth-child(3){animation-delay:0.12s}.section:nth-child(4){animation-delay:0.16s}
+.section:nth-child(5){animation-delay:0.20s}.section:nth-child(6){animation-delay:0.24s}
+.section:nth-child(7){animation-delay:0.28s}.section:nth-child(8){animation-delay:0.32s}
+.section:nth-child(9){animation-delay:0.36s}.section:nth-child(10){animation-delay:0.40s}
+.section:nth-child(11){animation-delay:0.44s}.section:nth-child(12){animation-delay:0.48s}
+.section:nth-child(13){animation-delay:0.52s}.section:nth-child(14){animation-delay:0.56s}
+.section:nth-child(15){animation-delay:0.60s}.section:nth-child(16){animation-delay:0.64s}
+.section:nth-child(17){animation-delay:0.68s}.section:nth-child(18){animation-delay:0.72s}
+.section:nth-child(19){animation-delay:0.76s}
+</style>
+</head>
+<body>
+
+<!-- ══ SIDEBAR ══ -->
+<nav id="sidebar">
+  <div class="sb-brand">
+    <div class="sb-brand-name">Prime Pathwy OS</div>
+    <div class="sb-brand-sub">Operator Manual Suite</div>
+    <div class="sb-version">v2.0 · May 2026</div>
+  </div>
+
+  <div class="sb-section-group">
+    <div class="sb-group-label">Beginner Manual</div>
+    <a class="sb-link" onclick="jumpTo('s-hq')"><div class="sb-num">01</div>Main HQ</a>
+    <a class="sb-link" onclick="jumpTo('s-dir')"><div class="sb-num">02</div>Directory Structure</a>
+    <a class="sb-link" onclick="jumpTo('s-ops')"><div class="sb-num">03</div>Operations Library</a>
+    <a class="sb-link" onclick="jumpTo('s-pub')"><div class="sb-num">04</div>Publishing Engine</a>
+    <a class="sb-link" onclick="jumpTo('s-term')"><div class="sb-num">05</div>Terminal Command</a>
+    <a class="sb-link" onclick="jumpTo('s-lead')"><div class="sb-num">06</div>Lead Extraction</a>
+    <a class="sb-link" onclick="jumpTo('s-model')"><div class="sb-num">07</div>Business Model</a>
+    <a class="sb-link" onclick="jumpTo('s-flow')"><div class="sb-num">08</div>Consulting Flow</a>
+    <a class="sb-link" onclick="jumpTo('s-focus')"><div class="sb-num">09</div>Focus Protocol</a>
+  </div>
+
+  <div class="sb-divider"></div>
+
+  <div class="sb-section-group">
+    <div class="sb-group-label">Troubleshooting</div>
+    <a class="sb-link" onclick="jumpTo('t-safe')"><div class="sb-num">T1</div>Safe vs Dangerous</a>
+    <a class="sb-link" onclick="jumpTo('t-path')"><div class="sb-num">T2</div>Path Not Found</a>
+    <a class="sb-link" onclick="jumpTo('t-csv')"><div class="sb-num">T3</div>CSV Won't Open</a>
+    <a class="sb-link" onclick="jumpTo('t-ps')"><div class="sb-num">T4</div>PowerShell Fails</a>
+    <a class="sb-link" onclick="jumpTo('t-del')"><div class="sb-num">T5</div>Accidental Delete</a>
+    <a class="sb-link" onclick="jumpTo('t-bkp')"><div class="sb-num">T6</div>Backup Protocol</a>
+    <a class="sb-link" onclick="jumpTo('t-org')"><div class="sb-num">T7</div>Disorganized System</a>
+    <a class="sb-link" onclick="jumpTo('t-fold')"><div class="sb-num">T8</div>Forgot Folder Purpose</a>
+    <a class="sb-link" onclick="jumpTo('t-scen')"><div class="sb-num">T9</div>Scenarios</a>
+    <a class="sb-link" onclick="jumpTo('t-stab')"><div class="sb-num">T10</div>Stability Rules</a>
+  </div>
+
+  <div class="sb-bottom">
+    <button class="print-btn" onclick="window.print()">⎙ &nbsp;Print / Export PDF</button>
+  </div>
+</nav>
+
+<!-- ══ MAIN ══ -->
+<div id="main">
+
+<!-- VERSION STRIP -->
+<div class="version-strip">
+  <div class="vs-left">
+    <div class="vs-badge">v2.0 LIVE</div>
+    <div class="vs-date">Last Updated: May 2026 · AA Capital Inc.</div>
+  </div>
+  <div class="vs-search">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input id="searchInput" type="text" placeholder="Search manual..." autocomplete="off">
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg">SOVEREIGN</div>
+  <div class="hero-eye">AA Capital Inc. · Prime Pathwy OS · Unified Field Manual</div>
+  <div class="hero-title">Prime Pathwy<br>Operating System</div>
+  <div class="hero-sub">Complete Operator Manual — Beginner + Troubleshooting</div>
+  <div class="hero-div"><span></span><div class="hero-diamond"></div><span></span></div>
+  <p class="hero-desc">A complete field reference covering system structure, operations, terminal commands, lead extraction, consulting flow, recovery protocols, and stability rules. Written for operators, not programmers.</p>
+</div>
+
+<!-- ════════════════════════════
+     BEGINNER MANUAL SECTIONS
+═════════════════════════════ -->
+
+<!-- S1 -->
+<div class="section" id="s-hq" data-title="Main Headquarters">
+  <div class="sec-head" onclick="toggleSection(this)">
+    <div class="sec-num-col">01</div>
+    <div class="sec-title-col">
+      <div class="sec-cat">Beginner Manual · Block 1</div>
+      <div class="sec-title">The Main Headquarters</div>
+    </div>
+    <div class="sec-controls"><div class="toggle-icon">▾</div></div>
+  </div>
+  <div class="sec-body">
+    <div class="status-wrap">
+      <span class="status-label">Status:</span>
+      <button class="status-btn unresolved" onclick="cycleStatus(this)">Unresolved</button>
+    </div>
+    <div class="code-label">Main Directory</div>
+    <div class="code-wrap">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <pre>C:\Users\arthu\GeminiEcosystem\PrimePathwyOS</pre>
+    </div>
+    <p style="color:var(--cream-dim);font-weight:300;margin-bottom:10px">This is your central business operating system folder. Think of it as:</p>
+    <ul class="blist">
+      <li>The command center</li><li>The vault</li>
+      <li>The engine room</li><li>The business brain</li>
+    </ul>
+    <div class="rule-box"><div class="rl">Operator Note</div><p>Every major business asset eventually connects back into this structure.</p></div>
+    <div class="signoff">
+      <div class="signoff-label">Section Sign-Off</div>
+      <div class="signoff-fields">
+        <div class="sf"><label>Date</label><input type="text" placeholder="MM/DD/YYYY"></div>
+        <div class="sf"><label>Operator ID</label><input type="text" placeholder="ARCH-CMD-01"></div>
+        <div class="sf"><label>Notes</label><input type="text" placeholder="Action taken..."></div>
+      </div>
+      <button class="signoff-save" onclick="saveSignoff(this)">Save Sign-Off</button>
+      <span class="signoff-saved">✓ Logged</span>
+    </div>
+  </div>
+</div>
+
+<!-- S2 -->
+<div class="section" id="s-dir" data-title="Directory Structure">
+  <div class="sec-head" onclick="toggleSection(this)">
+    <div class="sec-num-col">02</div>
+    <div class="sec-title-col">
+      <div class="sec-cat">Beginner Manual · Block 2</div>
+      <div class="sec-title">Understanding the Directory Structure</div>
+    </div>
+    <div class="sec-controls"><div class="toggle-icon">▾</div></div>
+  </div>
+  <div class="sec-body">
+    <div class="status-wrap"><span class="status-label">Status:</span><button class="status-btn unresolved" onclick="cycleStatus(this)">Unresolved</button></div>
+    <div class="code-label">Target Path</div>
+    <div class="path-box">research\leads\enriched_solano_crm_database.csv</div>
+    <p style="color:var(--cream-dim);font-weight:300;margin:12px 0 8px">This CSV is your <strong style="color:var(--gold3)">prospect intelligence database</strong>. Each column contains:</p>
+    <ul class="blist"><li>Company name</li><li>City</li><li>Sector</li><li>Pain points</li><li>Operational weaknesses</li></ul>
+    <div class="signoff"><div class="signoff-label">Section Sign-Off</div><div class="signoff-fields"><div class="sf"><label>Date</label><input type="text" placeholder="MM/DD/YYYY"></div><div class="sf"><label>Operator ID</label><input type="text" placeholder="ARCH-CMD-01"></div><div class="sf"><label>Notes</label><input type="text" placeholder="Action taken..."></div></div><button class="signoff-save" onclick="saveSignoff(this)">Save Sign-Off</button><span class="signoff-saved">✓ Logged</span></div>
+  </div>
+</div>
+
+<!-- S3 -->
+<div class="section" id="s-ops" data-title="Operations Library">
+  <div class="sec-head" onclick="toggleSection(this)">
+    <div class="sec-num-col">03</div>
+    <div class="sec-title-col">
+      <div class="sec-cat">Beginner Manual · Block 3</div>
+      <div class="sec-title">The Operations Library</div>
+    </div>
+    <div class="sec-controls"><div class="toggle-icon">▾</div></div>
+  </div>
+  <div class="sec-body">
+    <div class="status-wrap"><span class="status-label">Status:</span><button class="status-btn unresolved" onclick="cycleStatus(this)">Unresolved</button></div>
+    <div class="code-label">SOP Directory</div>
+    <div class="path-box">docs\operations\</div>
+    <p style="color:var(--cream-dim);font-weight:300;margin:12px 0 8px">Your Standard Operating Procedure system. Coverage includes:</p>
+    <ul class="blist"><li>Onboarding systems</li><li>Invoicing workflows</li><li>CRM handling</li><li>Automation procedures</li><li>Publishing workflows</li></ul>
+    <div class="signoff"><div class="signoff-label">Section Sign-Off</div><div class="signoff-fields"><div class="sf"><label>Date</label><input type="text" placeholder="MM/DD/YYYY"></div><div class="sf"><label>Operator ID</label><input type="text" placeholder="ARCH-CMD-01"></div><div class="sf"><label>Notes</label><input type="text" placeholder="Action taken..."></div></div><button class="signoff-save" onclick="saveSignoff(this)">Save Sign-Off</button><span class="signoff-saved">✓ Logged</span></div>
+  </div>
+</div>
+
+<!-- S4 -->
+<div class="section" id="s-pub" data-title="Publishing Engine">
+  <div class="sec-head" onclick="toggleSection(this)">
+    <div class="sec-num-col">04</div>
+    <div class="sec-title-col">
+      <div class="sec-cat">Beginner Manual · Block 4</div>
+      <div class="sec-title">The Publishing Engine</div>
+    </div>
+    <div class="sec-controls"><div class="toggle-icon">▾</div></div>
+  </div>
+  <div class="sec-body">
+    <div class="status-wrap"><span class="status-label">Status:</span><button class="status-btn unresolved" onclick="cycleStatus(this)">Unresolved</button></div>
+    <div class="code-label">Publishing Directory</div>
+    <div class="path-box">workflows\publishing\</div>
+    <p style="color:var(--cream-dim);font-weight:300;margin:12px 0 8px">Your <strong style="color:var(--gold3)">authority-generation system</strong>. Manages:</p>
+    <ul class="blist"><li>Content sequencing</li><li>Authority positioning</li><li>Marketing structure</li><li>Trust-building systems</li></ul>
+    <div class="signoff"><div class="signoff-label">Section Sign-Off</div><div class="signoff-fields"><div class="sf"><label>Date</label><input type="text" placeholder="MM/DD/YYYY"></div><div class="sf"><label>Operator ID</label><input type="text" placeholder="ARCH-CMD-01"></div><div class="sf"><label>Notes</label><input type="text" placeholder="Action taken..."></div></div><button class="signoff-save" onclick="saveSignoff(this)">Save Sign-Off</button><span class="signoff-saved">✓ Logged</span></div>
+  </div>
+</div>
+
+<!-- S5 -->
+<div class="section" id="s-term" data-title="Terminal Command">
+  <div class="sec-head" onclick="toggleSection(this)">
+    <div class="sec-num-col">05</div>
+    <div class="sec-title-col">
+      <div class="sec-cat">Beginner Manual · Block 5</div>
+      <div class="sec-title">Understanding the Terminal Command</div>
+    </div>
+    <div class="sec-controls"><div class="toggle-icon">▾</div></div>
+  </div>
+  <div class="sec-body">
+    <div class="status-wrap"><span class="status-label">Status:</span><button class="status-btn unresolved" onclick="cycleStatus(this)">Unresolved</button></div>
+    <div class="code-label">Navigate to System Root</div>
+    <div class="code-wrap">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <pre>cd "C:\Users\arthu\GeminiEcosystem\PrimePathwyOS"</pre>
+    </div>
+    <div class="gold-call"><p>"Take me into this folder so I can operate from inside it."</p></div>
+    <p style="color:var(--cream-dim);font-weight:300;margin-top:12px">Without this command, the terminal does not know where your files are located.</p>
+    <div class="signoff"><div class="signoff-label">Section Sign-Off</div><div class="signoff-fields"><div class="sf"><label>Date</label><input type="text" placeholder="MM/DD/YYYY"></div><div class="sf"><label>Operator ID</label><input type="text" placeholder="ARCH-CMD-01"></div><div class="sf"><label>Notes</label><input type="text" placeholder="Action taken..."></div></div><button class="signoff-save" onclick="saveSignoff(this)">Save Sign-Off</button><span class="signoff-saved">✓ Logged</span></div>
+  </div>
+</div>
+
+<!-- S6 -->
+<div class="section" id="s-lead" data-title="Lead Extraction Command">
+  <div class="sec-head" onclick="toggleSection(this)">
+    <div class="sec-num-col">06</div>
+    <div class="sec-title-col">
+      <div class="sec-cat">Beginner Manual · Block 6</div>
+      <div class="sec-title">The Lead Extraction Command</div>
+    </div>
+    <div class="sec-controls"><div class="toggle-icon">▾</div></div>
+  </div>
+  <div class="sec-body">
+    <div class="status-wrap"><span class="status-label">Status:</span><button class="status-btn unresolved" onclick="cycleStatus(this)">Unresolved</button></div>
+    <div class="code-label">PowerShell — Lead Pull Command</div>
+    <div class="code-wrap">
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <pre>Import-Csv ".\research\leads\enriched_solano_crm_database.csv" |
+Where-Object { $_.company_name -notlike "*Research*" } |
+Format-Table company_name, sector, city, phone, website</pre>
+    </div>
+    <div class="cmd-rows">
+      <div class="cmd-row"><div class="cmd-key">Import-Csv</div><div class="cmd-val">Opens and reads the spreadsheet</div></div>
+      <div class="cmd-row"><div class="cmd-key">Where-Object</div><div class="cmd-val">Filters rows using conditions</div></div>
+      <div class="cmd-row"><div class="cmd-key">$_.company_name</div><div class="cmd-val">Looks at the company_name column</div></div>
+      <div class="cmd-row"><div class="cmd-key">-notlike "*Research*"</div><div class="cmd-val">Removes placeholder research rows</div></div>
+      <div class="cmd-row"><div class="cmd-key">Format-Table</div><div class="cmd-val">Displays clean, readable output</div></div>
+    </div>
+    <div class="signoff"><div class="signoff-label">Section Sign-Off</div><div class="signoff-fields"><div class="sf"><label>Date</label><input type="text" placeholder="MM/DD/YYYY"></div><div class="sf"><label>Operator ID</label><input type="text" placeholder="ARCH-CMD-01"></div><div class="sf"><label>Notes</label><input type="text" placeholder="Action taken..."></div></div><button class="signoff-save" onclick="saveSignoff(this)">Save Sign-Off</button><span class="signoff-saved">✓ Logged</span></div>
+  </div>
+</div>
+
+<!-- S7 -->
+<div class="section" id="s-model" data-title="Business Model">
+  <div class="sec-head" onclick="toggleSection(this)">
+    <div class="sec-num-col">07</div>
+    <div class="sec-title-col">
+      <div class="sec-cat">Beginner Manual · Block 7</div>
+      <div class="sec-title">The Real Business Model</div>
+    </div>
+    <div class="sec-controls"><div class="toggle-icon">▾</div></div>
+  </div>
+  <div class="sec-body">
+    <div class="status-wrap"><span class="status-label">Status:</span><button class="status-btn unresolved" onclick="cycleStatus(this)">Unresolved</button></div>
+    <div class="rule-box" style="margin-bottom:16px"><div class="rl">Core Directive</div><p>You are not selling "AI." You are selling Operational Stability + Efficiency.</p></div>
+    <p style="color:var(--cream-dim);font-weight:300">Businesses care about: operational chaos, lost revenue, missed invoices, compliance failures, and slow workflows. AI and automation are simply the tools used to solve those problems.</p>
+    <div class="signoff"><div class="signoff-label">Section Sign-Off</div><div class="signoff-fields"><div class="sf"><label>Date</label><input type="text" placeholder="MM/DD/YYYY"></div><div class="sf"><label>Operator ID</label><input type="text" placeholder="ARCH-CMD-01"></div><div class="sf"><label>Notes</label><input type="text" placeholder="Action taken..."></div></div><button class="signoff-save" onclick="saveSignoff(this)">Save Sign-Off</button><span class="signoff-saved">✓ Logged</span></div>
+  </div>
+</div>
+
+<!-- S8 -->
+<div class="section" id="s-flow" data-title="Consulting Flow">
+  <div class="sec-head" onclick="toggleSection(this)">
+    <div class="sec-num-col">08</div>
+    <div class="sec-title-col">
+      <div class="sec-cat">Beginner Manual · Block 8</div>
+      <div class="sec-title">The Consulting Flow</div>
+    </div>
+    <div class="sec-controls"><div class="toggle-icon">▾</div></div>
+  </div>
+  <div class="sec-body">
+    <div class="status-wrap"><span class="status-label">Status:</span><button class="status-btn unresolved" onclick="cycleStatus(this)">Unresolved</button></div>
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-check" onclick="toggleCheck(this)"></div>
+        <div class="step-num">1</div>
+        <div class="step-content"><strong>Extract Lead Profile</strong><p>Pull a real business from the CRM database using the extraction command.</p></div>
+      </div>
+      <div class="step-item">
+        <div class="step-check" onclick="toggleCheck(this)"></div>
+        <div class="step-num">2</div>
+        <div class="step-content"><strong>Diagnose Operational Weakness</strong><p>Identify workflow problems tied directly to money loss.</p></div>
+      </div>
+      <div class="step-item">
+        <div class="step-check" onclick="toggleCheck(this)"></div>
+        <div class="step-num">3</div>
+        <div class="step-content"><strong>Install the Solution</strong><p>Implement structured workflows, SOPs, tracking systems, or automation. This is not about selling software — it is about improving business operations.</p></div>
+      </div>
+    </div>
+    <div class="signoff"><div class="signoff-label">Section Sign-Off</div><div class="signoff-fields"><div class="sf"><label>Date</label><input type="text" placeholder="MM/DD/YYYY"></div><div class="sf"><label>Operator ID</label><input type="text" placeholder="ARCH-CMD-01"></div><div class="sf"><label>Notes</label><input type="text" placeholder="Action taken..."></div></div><button class="signoff-save" onclick="saveSignoff(this)">Save Sign-Off</button><span class="signoff-saved">✓ Logged</span></div>
+  </div>
+</div>
+
+<!-- S9 -->
+<div class="section" id="s-focus" data-title="Focus Protocol">
+  <div class="sec-head" onclick="toggleSection(this)">
+    <div class="sec-num-col">09</div>
+    <div class="sec-title-col">
+      <div class="sec-cat">Beginner Manual · Block 9</div>
+      <div class="sec-title">Focus Protocol — What to Execute First</div>
+    </div>
+    <div class="sec-controls"><div class="toggle-icon">▾</div></div>
+  </div>
+  <div class="sec-body">
+    <div class="status-wrap"><span class="status-label">Status:</span><button class="status-btn unresolved" onclick="cycleStatus(this)">Unresolved</button></div>
+    <div class="phases">
+      <div class="ph-card"><div class="ph-lbl">Phase 1</div><p>Learn the structure. Practice navigating folders and running commands.</p></div>
+      <div class="ph-card"><div class="ph-lbl">Phase 2</div><p>Read your own systems. Understand what exists and what creates revenue.</p></div>
+      <div class="ph-card"><div class="ph-lbl">Phase 3</div><p>Test small operational workflows. Pull leads. Diagnose. Build consulting solutions.</p></div>
+    </div>
+    <div class="gold-call" style="margin-top:14px"><p>Small repetitions create mastery.</p></div>
+    <div class="signoff"><div class="signoff-label">Section Sign-Off</div><div class="signoff-fields"><div class="sf"><label>Date</label><input type="text" placeholder="MM/DD/YYYY"></div><div class="sf"><label>Operator ID</label><input type="text" placeholder="ARCH-CMD-01"></div><div class="sf"><label>Notes</label><input type="text" placeholder="Action taken..."></div></div><button class="signoff-save" onclick="saveSignoff(this)">Save Sign-Off</button><span class="signoff-saved">✓ Logged</span></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════
+     TROUBLESHOOTING SECTIONS
+═════════════════════════════ -->
+
+<!-- T1 -->
+<div class="section" id="t-safe" data-title="Safe vs Dangerous Actions">
+  <div class="sec-head" onclick="toggleSection(this)">
+    <div class="sec-num-col">T1</div>
+    <div class="sec-title-col">
+      <div class="sec-cat">Troubleshooting · Section 1</div>
+      <div class="sec-title">Safe vs. Dangerous Actions</div>
+    </div>
+    <div class="sec-controls"><div class="toggle-icon">▾</div></div>
+  </div>
+  <div class="sec-body">
+    <div class="status-wrap"><span class="status-label">Status:</span><button class="status-btn unresolved" onclick="cycleStatus(this)">Unresolved</button></div>
+    <div class="split-grid">
+      <div class="safe-panel"><div class="panel-label">Safe Actions</div><ul class="panel-list"><li>Opening files</li><li>Reading CSV data</li><li>Running display commands</li><li>Copying folders</li><li>Creating backups</li><li>Viewing workflows</li></ul></div>
+      <div class="danger-panel"><div class="panel-label">Dangerous Actions</div><ul class="panel-list"><li>Deleting folders</li><li>Renaming system directories</li><li>Overwriting CSV databases</li><li>Bulk editing without backups</li><li>Running unknown scripts</li><li>Moving folders manually</li></ul></div>
+    </div>
+    <div class="rule-box"><div class="rl">Standing Rule</div><p>If you are unsure what a command does — do not run it.</p></div>
+    <div class="signoff"><div class="signoff-label">Section Sign-Off</div><div class="signoff-fields"><div class="sf"><label>Date</label><input type="text" placeholder="MM/DD/YYYY"></div><div class="sf"><label>Operator ID</label><input type="text" placeholder="ARCH-CMD-01"></div><div class="sf"><label>Notes</label><input type="text" placeholder="Action taken..."></div></div><button class="signoff-save" onclick="saveSignoff(this)">Save Sign-Off</button><span class="signoff-saved">✓ Logged</span></div>
+  </div>
+</div>
+
+<!-- T2 -->
+<div class="section" id="t-path" data-title="Path Not Found">
+  <div class="sec-head" onclick="toggleSection(this)">
+    <div class="sec-num-col">T2</div>
+    <div class="sec-title-col">
+      <div class="sec-cat">Troubleshooting · Section 2</div>
+      <div class="sec-title">If the Terminal Says 'Path Not Found'</div>
+    </div>
+    <div class="sec-controls"><div class="toggle-icon">▾</div></div>
+  </div>
+  <div class="sec-body">
+    <div class="status-wrap"><span class="status-label">Status:</span><button class="status-btn unresolved" onclick="cycleStatus(this)">Unresolved</button></div>
+    <div class="diag-block diag-symptom"><div class="diag-head">⚑ Symptom</div><div class="diag-body"><p>The terminal cannot locate your PrimePathwyOS folder.</p></div></div>
+    <div class="diag-block diag-cause"><div class="diag-head">◉ Common Causes</div><div class="diag-body"><ul><li>Folder moved accidentally</li><li>Typing error in command</li><li>Wrong username inside path</li><li>Folder renamed</li></ul></div></div>
+    <div class="diag-block diag-recovery" style="margin-bottom:14px"><div class="diag-head">▶ Recovery Process</div>
+      <div class="diag-body">
+        <div class="step-list">
+          <div class="step-item"><div class="step-check" onclick="toggleCheck(this)"></div><div class="step-num">1</div><div class="step-content"><p>Open File Explorer</p></div></div>
+          <div class="step-item"><div class="step-check" onclick="toggleCheck(this)"></div><div class="step-num">2</div><div class="step-content"><p>Navigate manually to <code style="font-family:var(--mono);font-size:11px;color:var(--gold3)">C:\Users\arthu\GeminiEcosystem\</code></p></div></div>
+          <div class="step-item"><div class="step-check" onclick="toggleCheck(this)"></div><div class="step-num">3</div><div class="step-content"><p>Confirm PrimePathwyOS still exists</p></div></div>
+          <div class="step-item"><div class="step-check" onclick="toggleCheck(this)"></div><div class="step-num">4</div><div class="step-content"><p>Copy the exact folder path</p></div></div>
+          <div class="step-item"><div class="step-check" onclick="toggleCheck(this)"></div><div class="step-num">5</div><div class="step-content"><p>Paste the copied path into PowerShell</p></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="code-label">Correct Command</div>
+    <div class="code-wrap"><button class="copy-btn" onclick="copyCode(this)">Copy</button><pre>cd "C:\Users\arthu\GeminiEcosystem\PrimePathwyOS"</pre></div>
+    <div class="rule-box"><div class="rl">Important</div><p>Paths must match exactly. One wrong character breaks the entire command.</p></div>
+    <div class="signoff"><div class="signoff-label">Section Sign-Off</div><div class="signoff-fields"><div class="sf"><label>Date</label><input type="text" placeholder="MM/DD/YYYY"></div><div class="sf"><label>Operator ID</label><input type="text" placeholder="ARCH-CMD-01"></div><div class="sf"><label>Notes</label><input type="text" placeholder="Action taken..."></div></div><button class="signoff-save" onclick="saveSignoff(this)">Save Sign-Off</button><span class="signoff-saved">✓ Logged</span></div>
+  </div>
+</div>
+
+<!-- T3 -->
+<div class="section" id="t-csv" data-title="CSV Database Will Not Open">
+  <div class="sec-head" onclick="toggleSection(this)">
+    <div class="sec-num-col">T3</div>
+    <div class="sec-title-col">
+      <div class="sec-cat">Troubleshooting · Section 3</div>
+      <div class="sec-title">If the CSV Database Will Not Open</div>
+    </div>
+    <div class="sec-controls"><div class="toggle-icon">▾</div></div>
+  </div>
+  <div class="sec-body">
+    <div class="status-wrap"><span class="status-label">Status:</span><button class="status-btn unresolved" onclick="cycleStatus(this)">Unresolved</button></div>
+    <div class="diag-block diag-symptom"><div class="diag-head">⚑ Symptom</div><div class="diag-body"><p>The CRM database fails to load or is inaccessible.</p></div></div>
+    <div class="diag-block diag-cause" style="margin-bottom:12px"><div class="diag-head">◉ Common Causes</div><div class="diag-body"><ul><li>File renamed</li><li>File moved</li><li>CSV corrupted</li><li>Wrong directory</li></ul></div></div>
+    <div class="code-label">Confirm File Exists At</div>
+    <div class="path-box">research\leads\enriched_solano_crm_database.csv</div>
+    <div class="diag-block diag-recovery" style="margin-top:12px"><div class="diag-head">▶ Safe Recovery</div><div class="diag-body"><ul><li>Restore from backup copy</li><li>Re-download the latest version</li><li>Open in Excel to confirm readability</li></ul></div></div>
+    <div class="diag-block diag-danger" style="margin-top:8px"><div class="diag-head">✕ Dangerous Action</div><div class="diag-body"><p>Do not save corrupted CSV exports over the master file.</p></div></div>
+    <div class="signoff"><div class="signoff-label">Section Sign-Off</div><div class="signoff-fields"><div class="sf"><label>Date</label><input type="text" placeholder="MM/DD/YYYY"></div><div class="sf"><label>Operator ID</label><input type="text" placeholder="ARCH-CMD-01"></div><div class="sf"><label>Notes</label><input type="text" placeholder="Action taken..."></div></div><button class="signoff-save" onclick="saveSignoff(this)">Save Sign-Off</button><span class="signoff-saved">✓ Logged</span></div>
+  </div>
+</div>
+
+<!-- T4 -->
+<div class="section" id="t-ps" data-title="PowerShell Commands Fail">
+  <div class="sec-head" onclick="toggleSection(this)">
+    <div class="sec-num-col">T4</div>
+    <div class="sec-title-col">
+      <div class="sec-cat">Troubleshooting · Section 4</div>
+      <div class="sec-title">If PowerShell Commands Fail</div>
+    </div>
+    <div class="sec-controls"><div class="toggle-icon">▾</div></div>
+  </div>
+  <div class="sec-body">
+    <div class="status-wrap"><span class="status-label">Status:</span><button class="status-btn unresolved" onclick="cycleStatus(this)">Unresolved</button></div>
+    <div class="diag-block diag-symptom" style="margin-bottom:10px"><div class="diag-head">⚑ Symptom</div><div class="diag-body"><p>Commands return red text or syntax errors.</p></div></div>
+    <div class="diag-block diag-cause" style="margin-bottom:14px"><div class="diag-head">◉ Common Causes</div><div class="diag-body"><ul><li>Missing quotation marks</li><li>Missing spaces</li><li>Incorrect slashes</li><li>Pasting partial commands</li></ul></div></div>
+    <div class="step-list">
+      <div class="step-item"><div class="step-check" onclick="toggleCheck(this)"></div><div class="step-num">1</div><div class="step-content"><strong>Do Not Panic</strong><p>Red text is almost always a formatting problem, not a system failure.</p></div></div>
+      <div class="step-item"><div class="step-check" onclick="toggleCheck(this)"></div><div class="step-num">2</div><div class="step-content"><strong>Re-Copy Full Command</strong><p>Go back to the source document and copy the full original command.</p></div></div>
+      <div class="step-item"><div class="step-check" onclick="toggleCheck(this)"></div><div class="step-num">3</div><div class="step-content"><strong>Paste Exactly</strong><p>Paste it exactly — no partial edits or manual typing.</p></div></div>
+      <div class="step-item"><div class="step-check" onclick="toggleCheck(this)"></div><div class="step-num">4</div><div class="step-content"><strong>Run One at a Time</strong><p>Never chain unknown commands in sequence.</p></div></div>
+    </div>
+    <div class="signoff"><div class="signoff-label">Section Sign-Off</div><div class="signoff-fields"><div class="sf"><label>Date</label><input type="text" placeholder="MM/DD/YYYY"></div><div class="sf"><label>Operator ID</label><input type="text" placeholder="ARCH-CMD-01"></div><div class="sf"><label>Notes</label><input type="text" placeholder="Action taken..."></div></div><button class="signoff-save" onclick="saveSignoff(this)">Save Sign-Off</button><span class="signoff-saved">✓ Logged</span></div>
+  </div>
+</div>
+
+<!-- T5 -->
+<div class="section" id="t-del" data-title="Accidental Delete">
+  <div class="sec-head" onclick="toggleSection(this)">
+    <div class="sec-num-col">T5</div>
+    <div class="sec-title-col">
+      <div class="sec-cat">Troubleshooting · Section 5</div>
+      <div class="sec-title">If You Accidentally Delete Something</div>
+    </div>
+    <div class="sec-controls"><div class="toggle-icon">▾</div></div>
+  </div>
+  <div class="sec-body">
+    <div class="status-wrap"><span class="status-label">Status:</span><button class="status-btn unresolved" onclick="cycleStatus(this)">Unresolved</button></div>
+    <div class="step-list">
+      <div class="step-item"><div class="step-check" onclick="toggleCheck(this)"></div><div class="step-num">1</div><div class="step-content"><strong>Stop Immediately</strong><p>Do not continue moving or editing any files.</p></div></div>
+      <div class="step-item"><div class="step-check" onclick="toggleCheck(this)"></div><div class="step-num">2</div><div class="step-content"><strong>Check Recycle Bin</strong><p>Navigate to the Recycle Bin immediately — do not delay.</p></div></div>
+      <div class="step-item"><div class="step-check" onclick="toggleCheck(this)"></div><div class="step-num">3</div><div class="step-content"><strong>Restore If Available</strong><p>Right-click the deleted file and select Restore.</p></div></div>
+    </div>
+    <div class="diag-block diag-recovery" style="margin-top:14px"><div class="diag-head">▶ If File Is Not in Recycle Bin</div><div class="diag-body"><ul><li>Check cloud backups immediately</li><li>Check external drive backups</li><li>Search entire drive by filename</li></ul></div></div>
+    <div class="rule-box" style="margin-top:12px"><div class="rl">Prevention Rule</div><p>Never operate without backups. This situation should be impossible.</p></div>
+    <div class="signoff"><div class="signoff-label">Section Sign-Off</div><div class="signoff-fields"><div class="sf"><label>Date</label><input type="text" placeholder="MM/DD/YYYY"></div><div class="sf"><label>Operator ID</label><input type="text" placeholder="ARCH-CMD-01"></div><div class="sf"><label>Notes</label><input type="text" placeholder="Action taken..."></div></div><button class="signoff-save" onclick="saveSignoff(this)">Save Sign-Off</button><span class="signoff-saved">✓ Logged</span></div>
+  </div>
+</div>
+
+<!-- T6 -->
+<div class="section" id="t-bkp" data-title="Backup Protocol">
+  <div class="sec-head" onclick="toggleSection(this)">
+    <div class="sec-num-col">T6</div>
+    <div class="sec-title-col">
+      <div class="sec-cat">Troubleshooting · Section 6</div>
+      <div class="sec-title">The Backup Protocol</div>
+    </div>
+    <div class="sec-controls"><div class="toggle-icon">▾</div></div>
+  </div>
+  <div class="sec-body">
+    <div class="status-wrap"><span class="status-label">Status:</span><button class="status-btn unresolved" onclick="cycleStatus(this)">Unresolved</button></div>
+    <div class="backup-flow">
+      <div class="backup-node"><div>💼</div><div class="b-lbl">Primary Working Copy</div></div>
+      <div class="backup-arrow">↓</div>
+      <div class="backup-node"><div>🖥</div><div class="b-lbl">Local Backup Copy</div></div>
+      <div class="backup-arrow">↓</div>
+      <div class="backup-node"><div>💾</div><div class="b-lbl">External Drive Backup</div></div>
+      <div class="backup-arrow">↓</div>
+      <div class="backup-node"><div>☁️</div><div class="b-lbl">Cloud Backup</div></div>
+    </div>
+    <div class="freq-grid">
+      <div class="freq-card"><div class="fc-lbl">CRM Databases</div><div class="fc-val">DAILY</div></div>
+      <div class="freq-card"><div class="fc-lbl">SOP Libraries</div><div class="fc-val">WEEKLY</div></div>
+      <div class="freq-card"><div class="fc-lbl">Publishing Workflows</div><div class="fc-val">WEEKLY</div></div>
+      <div class="freq-card"><div class="fc-lbl">Full System Archive</div><div class="fc-val">MONTHLY</div></div>
+    </div>
+    <div class="rule-box" style="margin-top:14px"><div class="rl">System Truth</div><p>A system without backups is temporary.</p></div>
+    <div class="signoff"><div class="signoff-label">Section Sign-Off</div><div class="signoff-fields"><div class="sf"><label>Date</label><input type="text" placeholder="MM/DD/YYYY"></div><div class="sf"><label>Operator ID</label><input type="text" placeholder="ARCH-CMD-01"></div><div class="sf"><label>Notes</label><input type="text" placeholder="Action taken..."></div></div><button class="signoff-save" onclick="saveSignoff(this)">Save Sign-Off</button><span class="signoff-saved">✓ Logged</span></div>
+  </div>
+</div>
+
+<!-- T7 -->
+<div class="section" id="t-org" data-title="Disorganized System">
+  <div class="sec-head" onclick="toggleSection(this)">
+    <div class="sec-num-col">T7</div>
+    <div class="sec-title-col">
+      <div class="sec-cat">Troubleshooting · Section 7</div>
+      <div class="sec-title">If Your System Becomes Disorganized</div>
+    </div>
+    <div class="sec-controls"><div class="toggle-icon">▾</div></div>
+  </div>
+  <div class="sec-body">
+    <div class="status-wrap"><span class="status-label">Status:</span><button class="status-btn unresolved" onclick="cycleStatus(this)">Unresolved</button></div>
+    <div class="warn-grid">
+      <div class="warn-card"><div class="wi">⚠</div><p>Duplicate folders</p></div>
+      <div class="warn-card"><div class="wi">⚠</div><p>Random file names</p></div>
+      <div class="warn-card"><div class="wi">⚠</div><p>Missing SOPs</p></div>
+      <div class="warn-card"><div class="wi">⚠</div><p>Conflicting versions</p></div>
+      <div class="warn-card"><div class="wi">⚠</div><p>Files stored everywhere</p></div>
+    </div>
+    <div class="step-list">
+      <div class="step-item"><div class="step-check" onclick="toggleCheck(this)"></div><div class="step-num">1</div><div class="step-content"><strong>Pause All Expansion</strong><p>Stop building new things until the structure is clean.</p></div></div>
+      <div class="step-item"><div class="step-check" onclick="toggleCheck(this)"></div><div class="step-num">2</div><div class="step-content"><strong>Rebuild Folder Structure</strong><p>Return to the master directory framework.</p></div></div>
+      <div class="step-item"><div class="step-check" onclick="toggleCheck(this)"></div><div class="step-num">3</div><div class="step-content"><strong>Centralize Important Assets</strong><p>Move everything critical back into PrimePathwyOS.</p></div></div>
+      <div class="step-item"><div class="step-check" onclick="toggleCheck(this)"></div><div class="step-num">4</div><div class="step-content"><strong>Archive Outdated Files</strong><p>Archive — never delete without verification.</p></div></div>
+      <div class="step-item"><div class="step-check" onclick="toggleCheck(this)"></div><div class="step-num">5</div><div class="step-content"><strong>Restore Naming Conventions</strong><p>Consistent names = findable assets = operational speed.</p></div></div>
+    </div>
+    <div class="rule-box"><div class="rl">Operator Rule</div><p>Organization problems become operational problems.</p></div>
+    <div class="signoff"><div class="signoff-label">Section Sign-Off</div><div class="signoff-fields"><div class="sf"><label>Date</label><input type="text" placeholder="MM/DD/YYYY"></div><div class="sf"><label>Operator ID</label><input type="text" placeholder="ARCH-CMD-01"></div><div class="sf"><label>Notes</label><input type="text" placeholder="Action taken..."></div></div><button class="signoff-save" onclick="saveSignoff(this)">Save Sign-Off</button><span class="signoff-saved">✓ Logged</span></div>
+  </div>
+</div>
+
+<!-- T8 -->
+<div class="section" id="t-fold" data-title="Forgot Folder Purpose">
+  <div class="sec-head" onclick="toggleSection(this)">
+    <div class="sec-num-col">T8</div>
+    <div class="sec-title-col">
+      <div class="sec-cat">Troubleshooting · Section 8</div>
+      <div class="sec-title">If You Forget What a Folder Does</div>
+    </div>
+    <div class="sec-controls"><div class="toggle-icon">▾</div></div>
+  </div>
+  <div class="sec-body">
+    <div class="status-wrap"><span class="status-label">Status:</span><button class="status-btn unresolved" onclick="cycleStatus(this)">Unresolved</button></div>
+    <p style="color:var(--cream-dim);font-weight:300;margin-bottom:12px">Every major directory should contain internal documentation:</p>
+    <ul class="blist"><li>README files</li><li>Operator notes</li><li>Folder purpose descriptions</li></ul>
+    <div class="path-box" style="margin-top:14px">research\leads\README.txt</div>
+    <div class="readme-box">
+      <div class="readme-tab"><span></span> README.txt — research\leads\</div>
+      <div class="readme-content">This folder stores all CRM and lead intelligence databases.<br>Do not overwrite master CSV files without backup verification.<br>Owner: Prime Pathwy OS — AA Capital Inc.</div>
+    </div>
+    <div class="rule-box"><div class="rl">Why This Matters</div><p>Future-you should never have to guess what a folder contains or why it exists.</p></div>
+    <div class="signoff"><div class="signoff-label">Section Sign-Off</div><div class="signoff-fields"><div class="sf"><label>Date</label><input type="text" placeholder="MM/DD/YYYY"></div><div class="sf"><label>Operator ID</label><input type="text" placeholder="ARCH-CMD-01"></div><div class="sf"><label>Notes</label><input type="text" placeholder="Action taken..."></div></div><button class="signoff-save" onclick="saveSignoff(this)">Save Sign-Off</button><span class="signoff-saved">✓ Logged</span></div>
+  </div>
+</div>
+
+<!-- T9 -->
+<div class="section" id="t-scen" data-title="Operator Scenarios">
+  <div class="sec-head" onclick="toggleSection(this)">
+    <div class="sec-num-col">T9</div>
+    <div class="sec-title-col">
+      <div class="sec-cat">Troubleshooting · Section 9</div>
+      <div class="sec-title">Beginner Operator Scenarios</div>
+    </div>
+    <div class="sec-controls"><div class="toggle-icon">▾</div></div>
+  </div>
+  <div class="sec-body">
+    <div class="status-wrap"><span class="status-label">Status:</span><button class="status-btn unresolved" onclick="cycleStatus(this)">Unresolved</button></div>
+    <div class="scenario-grid">
+      <div class="sc-card"><div class="sc-head"><div class="sc-num">Scenario 01</div><div class="sc-goal">Pull 5 Junk Removal Companies</div></div><div class="sc-body"><ol><li>Open PowerShell</li><li>Navigate to PrimePathwyOS</li><li>Run CSV extraction command</li><li>Review returned rows</li><li>Document operational weaknesses</li></ol></div></div>
+      <div class="sc-card"><div class="sc-head"><div class="sc-num">Scenario 02</div><div class="sc-goal">Prepare Consulting Outreach</div></div><div class="sc-body"><ol><li>Select one business from CRM</li><li>Identify operational inefficiencies</li><li>Connect inefficiencies to money loss</li><li>Draft operational diagnosis</li><li>Build solution proposal</li></ol></div></div>
+    </div>
+    <div class="signoff"><div class="signoff-label">Section Sign-Off</div><div class="signoff-fields"><div class="sf"><label>Date</label><input type="text" placeholder="MM/DD/YYYY"></div><div class="sf"><label>Operator ID</label><input type="text" placeholder="ARCH-CMD-01"></div><div class="sf"><label>Notes</label><input type="text" placeholder="Action taken..."></div></div><button class="signoff-save" onclick="saveSignoff(this)">Save Sign-Off</button><span class="signoff-saved">✓ Logged</span></div>
+  </div>
+</div>
+
+<!-- T10 -->
+<div class="section" id="t-stab" data-title="System Stability Rules">
+  <div class="sec-head" onclick="toggleSection(this)">
+    <div class="sec-num-col">T10</div>
+    <div class="sec-title-col">
+      <div class="sec-cat">Troubleshooting · Section 10</div>
+      <div class="sec-title">System Stability Rules</div>
+    </div>
+    <div class="sec-controls"><div class="toggle-icon">▾</div></div>
+  </div>
+  <div class="sec-body">
+    <div class="status-wrap"><span class="status-label">Status:</span><button class="status-btn unresolved" onclick="cycleStatus(this)">Unresolved</button></div>
+    <div class="rules-grid">
+      <div class="rule-card"><div class="rc-n">01</div><div class="rc-text">Never edit the <strong>master database</strong> without backups.</div></div>
+      <div class="rule-card"><div class="rc-n">02</div><div class="rc-text">Never rename <strong>major system folders</strong> casually.</div></div>
+      <div class="rule-card"><div class="rc-n">03</div><div class="rc-text">Never trust <strong>memory over documentation</strong>.</div></div>
+      <div class="rule-card"><div class="rc-n">04</div><div class="rc-text">Keep all systems <strong>centralized</strong> under one root.</div></div>
+      <div class="rule-card"><div class="rc-n">05</div><div class="rc-text"><strong>Small consistent structure</strong> beats chaotic expansion.</div></div>
+      <div class="rule-card"><div class="rc-n">06</div><div class="rc-text">Every workflow must become <strong>repeatable</strong>.</div></div>
+    </div>
+    <div class="signoff"><div class="signoff-label">Section Sign-Off</div><div class="signoff-fields"><div class="sf"><label>Date</label><input type="text" placeholder="MM/DD/YYYY"></div><div class="sf"><label>Operator ID</label><input type="text" placeholder="ARCH-CMD-01"></div><div class="sf"><label>Notes</label><input type="text" placeholder="Action taken..."></div></div><button class="signoff-save" onclick="saveSignoff(this)">Save Sign-Off</button><span class="signoff-saved">✓ Logged</span></div>
+  </div>
+</div>
+
+<!-- FINAL -->
+<div class="final">
+  <div class="final-bg-t">SOVEREIGN</div>
+  <h2>Final Operator Principle</h2>
+  <ul class="prin-list">
+    <li>A stable system</li><li>A recoverable system</li>
+    <li>A documented system</li><li>A teachable system</li>
+  </ul>
+  <p class="final-p">The stronger your structure becomes,<br>the less dependent your business becomes<br>on <em>memory</em>, chaos, or improvisation.</p>
+</div>
+
+<div class="doc-footer">
+  <div class="footer-brand">Prime Pathwy · AA Capital Inc.</div>
+  <div class="footer-meta">DISCIPLINE OVER CHAOS · SYSTEMS OVER SHORTCUTS · v2.0</div>
+</div>
+
+</div><!-- end #main -->
+
+<!-- Mobile toggle -->
+<button class="mob-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+</button>
+
+<script>
+// ── ACCORDION ──
+function toggleSection(head){
+  const sec = head.closest('.section');
+  sec.classList.toggle('collapsed');
+  updateSidebarActive();
+}
+
+// ── SIDEBAR NAVIGATION ──
+function jumpTo(id){
+  const el = document.getElementById(id);
+  if(!el) return;
+  if(el.classList.contains('collapsed')){
+    el.classList.remove('collapsed');
+  }
+  setTimeout(()=>{ el.scrollIntoView({behavior:'smooth',block:'start'}); },50);
+  document.getElementById('sidebar').classList.remove('open');
+  updateSidebarActive();
+}
+
+function updateSidebarActive(){
+  const links = document.querySelectorAll('.sb-link');
+  links.forEach(l=>{
+    const fn = l.getAttribute('onclick');
+    if(!fn) return;
+    const m = fn.match(/'([^']+)'/);
+    if(!m) return;
+    const target = document.getElementById(m[1]);
+    if(!target) return;
+    const rect = target.getBoundingClientRect();
+    l.classList.toggle('active', rect.top >= 0 && rect.top < 200);
+  });
+}
+
+window.addEventListener('scroll', updateSidebarActive, {passive:true});
+
+// ── COPY BUTTONS ──
+function copyCode(btn){
+  const pre = btn.nextElementSibling;
+  navigator.clipboard.writeText(pre.textContent.trim()).then(()=>{
+    btn.textContent = '✓ Copied';
+    btn.classList.add('copied');
+    setTimeout(()=>{ btn.textContent='Copy'; btn.classList.remove('copied'); }, 1800);
+  }).catch(()=>{
+    const ta = document.createElement('textarea');
+    ta.value = pre.textContent.trim();
+    document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
+    btn.textContent = '✓ Copied'; btn.classList.add('copied');
+    setTimeout(()=>{ btn.textContent='Copy'; btn.classList.remove('copied'); }, 1800);
+  });
+}
+
+// ── STEP CHECKBOXES ──
+function toggleCheck(box){
+  box.classList.toggle('checked');
+  const row = box.closest('.step-item');
+  row.classList.toggle('done');
+}
+
+// ── STATUS CYCLE ──
+function cycleStatus(btn){
+  const states = ['unresolved','in-progress','resolved'];
+  const labels = ['Unresolved','In Progress','Resolved'];
+  const cur = states.findIndex(s => btn.classList.contains(s));
+  const next = (cur+1) % 3;
+  states.forEach(s => btn.classList.remove(s));
+  btn.classList.add(states[next]);
+  btn.textContent = labels[next];
+}
+
+// ── SIGN-OFF SAVE ──
+function saveSignoff(btn){
+  const saved = btn.nextElementSibling;
+  saved.style.opacity = '1';
+  setTimeout(()=>{ saved.style.opacity='0'; }, 2500);
+}
+
+// ── LIVE SEARCH ──
+const searchInput = document.getElementById('searchInput');
+const sections = document.querySelectorAll('.section');
+
+searchInput.addEventListener('input', function(){
+  const q = this.value.trim().toLowerCase();
+  sections.forEach(sec => {
+    if(!q){ sec.classList.remove('search-hidden'); return; }
+    const txt = sec.getAttribute('data-title') + ' ' + sec.innerText;
+    sec.classList.toggle('search-hidden', !txt.toLowerCase().includes(q));
+  });
+});
+
+// ── PRINT ──
+window.matchMedia('print').addListener(()=>{
+  sections.forEach(s=>s.classList.remove('collapsed'));
+});
+</script>
+</body>
+</html>

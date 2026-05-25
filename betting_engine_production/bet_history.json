@@ -1,0 +1,1161 @@
+{
+  "currentWeek": 1,
+  "weeks": {
+    "1": {
+      "date": "2026-04-19",
+      "tickets": {
+        "4-leg": {
+          "stake": 100,
+          "serial": "",
+          "ticketCost": "$100.00",
+          "maxPayout": "$1,247.50",
+          "image": null,
+          "legs": []
+        }
+      },
+      "tables": {
+        "4leg": [
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          }
+        ],
+        "6leg": [
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          }
+        ],
+        "8leg": [
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          }
+        ]
+      }
+    },
+    "2": {
+      "date": "2026-04-20",
+      "tables": {
+        "4leg": [
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          }
+        ],
+        "6leg": [
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          }
+        ],
+        "8leg": [
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          }
+        ]
+      }
+    },
+    "3": {
+      "date": "2026-04-20",
+      "tables": {
+        "4leg": [
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          }
+        ],
+        "6leg": [
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          }
+        ],
+        "8leg": [
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          }
+        ]
+      }
+    },
+    "4": {
+      "date": "2026-04-20",
+      "tables": {
+        "4leg": [
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          }
+        ],
+        "6leg": [
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          }
+        ],
+        "8leg": [
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          }
+        ]
+      }
+    },
+    "5": {
+      "date": "2026-05-21",
+      "tables": {
+        "4leg": [
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          }
+        ],
+        "6leg": [
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          }
+        ],
+        "8leg": [
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          }
+        ]
+      }
+    },
+    "6": {
+      "date": "2026-05-21",
+      "tables": {
+        "4leg": [
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          }
+        ],
+        "6leg": [
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          }
+        ],
+        "8leg": [
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          },
+          {
+            "ticket": "",
+            "team": "",
+            "ss": "",
+            "upi": "",
+            "swapRisk": "Low",
+            "label": "",
+            "legacyFlag": false,
+            "status": "Pending"
+          }
+        ]
+      }
+    }
+  }
+}

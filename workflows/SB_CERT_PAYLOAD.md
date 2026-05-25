@@ -76,14 +76,48 @@
 
 ---
 
-## SECTION 6 — SUBMISSION PORTAL
+## SECTION 6 — UNSPSC CLASSIFICATION MAPPING
+
+> **Authority:** United Nations Standard Products and Services Code (UNSPSC) — required for Cal eProcure commodity registration and state contract bid eligibility matching.
+
+| UNSPSC Code | Classification | Segment | Prime Pathwy Service Line | Status |
+|---|---|---|---|---|
+| **76110000** | Cleaning and janitorial services | Facility management | Commercial/government facility cleaning, sanitation services | **PRIMARY** |
+| **76120000** | Refuse disposal and treatment | Waste management | Solid waste collection, hauling, and refuse disposal | **PRIMARY** |
+| **76100000** | Facilities management | Facility management | Broad facilities operations support | SECONDARY |
+| **78100000** | Mail and cargo transport | Transportation | Logistics and freight support services | SECONDARY |
+| **80100000** | Management advisory services | Professional services | Consulting, operational planning, government bid strategy | SECONDARY |
+
+---
+
+## SECTION 6A — REGIONAL IDENTIFIER & GEOGRAPHIC CONTRACTING POSTURE
+
+| Field | Value |
+|---|---|
+| **Primary City** | Vallejo, CA 94590 |
+| **Primary County** | Solano County |
+| **Caltrans / DGS District** | District 4 — Bay Area |
+| **District 4 Jurisdictions** | Alameda, Contra Costa, Marin, Napa, San Francisco, San Mateo, Santa Clara, Solano, Sonoma |
+| **Cal eProcure Region** | Northern California / Bay Area |
+| **SB Certification ID** | 2052045 (California DGS) |
+| **DUNS** | 12-3035654 |
+| **EIN** | 84-4788578 |
+| **SAM.gov UEI** | `[PLACEHOLDER — required for federal contracts; distinct from DUNS]` |
+
+**District 4 Contracting Notes:**
+- Solano County sits within **Caltrans District 4** — the largest Caltrans district by contract volume in California
+- Prime Pathwy's Vallejo HQ positions the entity for **local hire preferences** under District 4 procurement where applicable
+- UNSPSC **76110000** and **76120000** align directly with high-volume District 4 facility maintenance and refuse disposal contracts issued through Cal eProcure and DGS statewide contracts
+- Solano County independently issues janitorial and waste management contracts through its own procurement office — separate pipeline from state DGS
+
+---
+
+## SECTION 7 — SUBMISSION PORTAL
 
 - **Portal:** Cal eProcure — https://caleprocure.ca.gov/
 - **Certification type:** Small Business (SB) — not DVBE, not MB
 - **Estimated processing:** 3–5 business days after complete submission
-- **Verification ID field:** Leave blank — paste Certification ID here once issued
-
-**Certification ID:** `[PLACEHOLDER — issued by Cal eProcure upon approval]`
+- **Certification ID:** 2052045 *(California DGS — issued)*
 
 ---
 

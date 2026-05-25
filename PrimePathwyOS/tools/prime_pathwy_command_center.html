@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prime Pathwy — Sovereign Business Command Center</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@300;400;500;700&family=Cormorant:ital,wght@0,300;0,400;0,600;1,300&family=Playfair+Display:wght@700;900&family=Cinzel:wght@400;600;900&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   PRIME PATHWY — SOVEREIGN BUSINESS COMMAND CENTER v3.0
+   AA Capital Inc. | Phase 1: KPI Dashboard + Invoice Tracker
+   Matte Black & Gold Institutional Design System
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:       #07070A;
+  --surface:   #0D0D12;
+  --card:      #111118;
+  --card2:     #15151E;
+  --card3:     #1A1A26;
+  --border:    #1E1E2C;
+  --border2:   #28283A;
+  --gold:      #D4AF37;
+  --gold2:     #B8952A;
+  --gold3:     #F0CC55;
+  --gf:        rgba(212,175,55,0.07);
+  --gf2:       rgba(212,175,55,0.14);
+  --cream:     #EDE8DC;
+  --cdim:      #9A9285;
+  --green-t:   #4ADE80;
+  --green-bg:  rgba(26,107,58,0.10);
+  --red-t:     #FCA5A5;
+  --red-bg:    rgba(139,26,26,0.10);
+  --blue-t:    #7BC4F0;
+  --blue-bg:   rgba(30,100,175,0.10);
+  --yel-t:     #FDE68A;
+  --yel-bg:    rgba(139,105,20,0.10);
+  --pur-t:     #C4B5FD;
+  --pur-bg:    rgba(107,78,196,0.10);
+  --mono:      'JetBrains Mono', monospace;
+  --body:      'Cormorant', serif;
+  --serif:     'Playfair Display', serif;
+  --display:   'Cinzel', serif;
+  --wide:      'Bebas Neue', sans-serif;
+  --topbar-h:  50px;
+  --tabbar-h:  46px;
+}
+
+html, body {
+  height: 100%; background: var(--ink);
+  color: var(--cream); font-family: var(--body);
+  font-size: 15px; line-height: 1.65; overflow: hidden;
+}
+body::before {
+  content: ''; position: fixed; inset: 0;
+  background:
+    radial-gradient(ellipse 55% 40% at 4% 4%, rgba(212,175,55,0.04), transparent 60%),
+    radial-gradient(ellipse 45% 45% at 96% 96%, rgba(100,60,10,0.04), transparent 60%);
+  pointer-events: none; z-index: 0;
+}
+body::after {
+  content: ''; position: fixed; inset: 0;
+  background:
+    repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(212,175,55,0.012) 60px),
+    repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(212,175,55,0.007) 60px);
+  pointer-events: none; z-index: 0;
+}
+.app { position: relative; z-index: 1; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+
+/* ══ SCROLLBARS ══ */
+::-webkit-scrollbar       { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold2); }
+
+/* ════════════════════════════════════════
+   TOP BAR
+════════════════════════════════════════ */
+.topbar {
+  background: #080810; border-bottom: 1px solid var(--border);
+  height: var(--topbar-h); display: flex; align-items: center;
+  justify-content: space-between; padding: 0 24px;
+  flex-shrink: 0; z-index: 60;
+}
+.tb-brand { display: flex; align-items: center; gap: 14px; }
+.tb-logo  { font-family: var(--wide); font-size: 19px; color: var(--gold); letter-spacing: 0.08em; }
+.tb-pipe  { width: 1px; height: 20px; background: var(--border2); }
+.tb-sub   { font-family: var(--mono); font-size: 8.5px; letter-spacing: 0.3em; color: var(--cdim); text-transform: uppercase; opacity: 0.55; }
+.tb-right { display: flex; align-items: center; gap: 10px; }
+.tb-date  { font-family: var(--mono); font-size: 9px; color: var(--cdim); opacity: 0.38; letter-spacing: 0.1em; }
+.tb-badge {
+  font-family: var(--mono); font-size: 8px; padding: 3px 10px;
+  background: var(--gf); border: 1px solid rgba(212,175,55,0.22);
+  color: var(--gold2); border-radius: 2px; letter-spacing: 0.15em;
+}
+.btn-export {
+  padding: 6px 14px; background: var(--gf);
+  border: 1px solid rgba(212,175,55,0.22); color: var(--gold);
+  font-family: var(--mono); font-size: 8px; letter-spacing: 0.22em;
+  text-transform: uppercase; cursor: pointer; border-radius: 2px; transition: all 0.2s;
+}
+.btn-export:hover { background: var(--gf2); border-color: var(--gold); }
+
+/* ════════════════════════════════════════
+   TAB BAR
+════════════════════════════════════════ */
+.tabbar {
+  background: var(--surface); border-bottom: 1px solid var(--border);
+  height: var(--tabbar-h); display: flex; align-items: stretch;
+  flex-shrink: 0; overflow-x: auto; z-index: 55;
+}
+.tabbar::-webkit-scrollbar { height: 2px; }
+.tabbar::-webkit-scrollbar-thumb { background: var(--gold2); }
+.tab {
+  padding: 0 22px; display: flex; align-items: center; gap: 8px;
+  cursor: pointer; font-family: var(--mono); font-size: 9.5px;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--cdim);
+  border-bottom: 2px solid transparent; white-space: nowrap;
+  transition: all 0.22s; flex-shrink: 0;
+}
+.tab:hover  { color: var(--cream); background: var(--gf); }
+.tab.active { color: var(--gold); border-bottom-color: var(--gold); background: rgba(212,175,55,0.04); }
+.tab-icon   { font-size: 12px; opacity: 0.65; }
+.tab-badge  {
+  background: var(--gold); color: #000; font-family: var(--mono);
+  font-size: 8px; font-weight: 700; padding: 1px 6px;
+  border-radius: 8px; min-width: 18px; text-align: center;
+}
+.tab-badge.zero { background: var(--border2); color: var(--cdim); }
+.tab-coming {
+  padding: 0 22px; display: flex; align-items: center; gap: 8px;
+  font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--cdim); opacity: 0.3;
+  border-bottom: 2px solid transparent; white-space: nowrap; flex-shrink: 0;
+  cursor: not-allowed;
+}
+
+/* ════════════════════════════════════════
+   CONTENT PANES
+════════════════════════════════════════ */
+.content   { flex: 1; overflow: hidden; position: relative; }
+.pane      { display: none; height: 100%; overflow-y: auto; padding: 22px 26px 80px; }
+.pane.active { display: block; }
+
+/* ════════════════════════════════════════
+   SHARED UTILITY COMPONENTS
+════════════════════════════════════════ */
+.section-hdr {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  margin-bottom: 18px; gap: 12px; flex-wrap: wrap;
+}
+.sh-title { font-family: var(--display); font-size: 13px; letter-spacing: 0.14em; color: var(--gold); text-transform: uppercase; }
+.sh-sub   { font-family: var(--mono); font-size: 8.5px; letter-spacing: 0.18em; color: var(--cdim); opacity: 0.5; margin-top: 3px; }
+.sh-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+
+.btn-gold {
+  padding: 7px 16px; background: var(--gold); border: none; border-radius: 2px;
+  font-family: var(--mono); font-size: 8.5px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: #000; font-weight: 700;
+  cursor: pointer; transition: background 0.2s; flex-shrink: 0;
+}
+.btn-gold:hover { background: var(--gold3); }
+.btn-outline {
+  padding: 7px 14px; background: var(--gf);
+  border: 1px solid rgba(212,175,55,0.22); color: var(--gold);
+  font-family: var(--mono); font-size: 8.5px; letter-spacing: 0.18em;
+  text-transform: uppercase; cursor: pointer; border-radius: 2px; transition: all 0.2s;
+}
+.btn-outline:hover { background: var(--gf2); border-color: var(--gold); }
+
+.rule-note {
+  background: var(--gf); border: 1px solid rgba(212,175,55,0.15);
+  border-left: 3px solid var(--gold); padding: 10px 16px;
+  border-radius: 0 3px 3px 0; font-family: var(--mono);
+  font-size: 9.5px; color: var(--gold3); letter-spacing: 0.06em;
+  margin-bottom: 16px; font-style: italic;
+}
+
+/* STATUS PILLS */
+.sp {
+  font-family: var(--mono); font-size: 8px; letter-spacing: 0.15em;
+  text-transform: uppercase; padding: 3px 10px; border-radius: 10px;
+  border: 1px solid; white-space: nowrap; cursor: pointer;
+  transition: all 0.2s; display: inline-block; user-select: none;
+}
+.sp-draft   { background: var(--card2);   border-color: var(--border2);            color: var(--cdim);   }
+.sp-sent    { background: var(--blue-bg); border-color: rgba(30,100,175,0.35);     color: var(--blue-t); }
+.sp-partial { background: var(--yel-bg);  border-color: rgba(139,105,20,0.35);     color: var(--yel-t);  }
+.sp-paid    { background: var(--green-bg);border-color: rgba(26,107,58,0.35);      color: var(--green-t);}
+.sp-overdue { background: var(--red-bg);  border-color: rgba(139,26,26,0.35);      color: var(--red-t);  }
+
+/* MODAL */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.84);
+  z-index: 500; display: flex; align-items: center;
+  justify-content: center; padding: 16px;
+}
+.modal-overlay.hidden { display: none; }
+.modal {
+  background: var(--card); border: 1px solid var(--border);
+  border-top: 2px solid var(--gold); border-radius: 5px;
+  padding: 26px; width: 100%; max-width: 560px;
+  max-height: 92vh; overflow-y: auto;
+}
+.modal-title { font-family: var(--display); font-size: 15px; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 20px; }
+.modal-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px; }
+.btn-cancel {
+  padding: 8px 18px; background: transparent; border: 1px solid var(--border);
+  color: var(--cdim); font-family: var(--mono); font-size: 8.5px;
+  letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer;
+  border-radius: 2px; transition: all 0.2s;
+}
+.btn-cancel:hover { color: var(--cream); border-color: var(--border2); }
+.btn-submit {
+  padding: 8px 22px; background: var(--gold); border: none; color: #000;
+  font-family: var(--mono); font-size: 8.5px; letter-spacing: 0.22em;
+  text-transform: uppercase; font-weight: 700; cursor: pointer;
+  border-radius: 2px; transition: background 0.2s;
+}
+.btn-submit:hover { background: var(--gold3); }
+
+/* FORM ELEMENTS */
+.fg { margin-bottom: 12px; }
+.fg label {
+  font-family: var(--mono); font-size: 8px; letter-spacing: 0.28em;
+  text-transform: uppercase; color: var(--cdim); opacity: 0.65;
+  display: block; margin-bottom: 4px;
+}
+.fi, .fs, .fta {
+  width: 100%; background: var(--card2); border: 1px solid var(--border);
+  border-radius: 3px; padding: 8px 11px; font-family: var(--mono);
+  font-size: 11.5px; color: var(--cream); outline: none; transition: border-color 0.2s;
+}
+.fi:focus, .fs:focus, .fta:focus { border-color: rgba(212,175,55,0.38); }
+.fi::placeholder, .fta::placeholder { color: var(--cdim); opacity: 0.35; font-style: italic; }
+.fs option { background: var(--card2); color: var(--cream); }
+.fta { resize: vertical; min-height: 72px; font-family: var(--body); font-size: 15px; line-height: 1.6; }
+.fr2 { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
+.fr3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 11px; }
+
+/* ICON BUTTONS */
+.icon-btn {
+  background: none; border: none; cursor: pointer; font-size: 13px;
+  opacity: 0.4; padding: 3px 7px; transition: all 0.2s;
+  color: var(--cream); border-radius: 2px;
+}
+.icon-btn:hover      { opacity: 1; background: var(--gf); }
+.icon-btn-del:hover  { opacity: 1; background: var(--red-bg); color: var(--red-t); }
+
+/* TABLE */
+.table-wrap { background: var(--card); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; overflow-x: auto; }
+.data-table { width: 100%; border-collapse: collapse; min-width: 720px; }
+.data-table th {
+  font-family: var(--mono); font-size: 7.5px; letter-spacing: 0.3em;
+  text-transform: uppercase; color: var(--cdim); opacity: 0.6;
+  padding: 10px 14px; border-bottom: 1px solid var(--border);
+  text-align: left; white-space: nowrap; background: #0C0C13; position: sticky; top: 0;
+}
+.data-table td {
+  padding: 11px 14px; border-bottom: 1px solid rgba(31,31,46,0.5);
+  font-size: 13.5px; color: var(--cream); vertical-align: middle;
+}
+.data-table tbody tr:last-child td { border-bottom: none; }
+.data-table tbody tr:hover td { background: rgba(212,175,55,0.025); }
+
+/* EMPTY STATE */
+.empty-state {
+  padding: 56px 24px; text-align: center; opacity: 0.25;
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+}
+.empty-state p { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--cdim); }
+
+/* TOAST */
+.toast {
+  position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+  background: var(--card); border: 1px solid var(--gold2);
+  border-left: 3px solid var(--gold); border-radius: 4px;
+  padding: 11px 18px; font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.15em; color: var(--gold3);
+  box-shadow: 0 4px 28px rgba(0,0,0,0.6);
+  animation: toastIn 0.25s ease, toastOut 0.25s ease 2.2s forwards;
+}
+@keyframes toastIn  { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+@keyframes toastOut { from { opacity:1; } to { opacity:0; transform:translateY(4px); } }
+
+/* ════════════════════════════════════════
+   TAB 1 — KPI DASHBOARD
+════════════════════════════════════════ */
+
+/* Primary KPI Cards */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(168px, 1fr));
+  gap: 10px; margin-bottom: 20px;
+}
+.kpi-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 4px; padding: 16px 18px;
+  border-top: 2px solid var(--gold2);
+  transition: border-color 0.25s, box-shadow 0.25s;
+  position: relative; overflow: hidden; cursor: default;
+}
+.kpi-card::after {
+  content: ''; position: absolute; bottom: 0; left: 0;
+  width: 100%; height: 1px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  opacity: 0; transition: opacity 0.25s;
+}
+.kpi-card:hover { border-color: rgba(212,175,55,0.32); box-shadow: 0 0 24px rgba(212,175,55,0.05); }
+.kpi-card:hover::after { opacity: 1; }
+.kpi-label { font-family: var(--mono); font-size: 7.5px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--cdim); opacity: 0.58; margin-bottom: 8px; }
+.kpi-val   { font-family: var(--wide); font-size: 32px; letter-spacing: 0.04em; line-height: 1; margin-bottom: 5px; }
+.kpi-sub   { font-family: var(--mono); font-size: 8.5px; color: var(--cdim); opacity: 0.4; }
+.kpi-prog  { background: var(--card2); border-radius: 2px; height: 5px; margin-top: 9px; overflow: hidden; }
+.kpi-prog-bar { height: 100%; border-radius: 2px; transition: width 0.65s ease; }
+
+/* KPI Secondary Row — two panels side-by-side */
+.kpi-dual { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+@media (max-width: 700px) { .kpi-dual { grid-template-columns: 1fr; } }
+
+.kpi-panel {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 4px; overflow: hidden;
+}
+.kpi-panel-hdr {
+  padding: 12px 18px; border-bottom: 1px solid var(--border);
+  background: rgba(212,175,55,0.03);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.kpi-panel-title { font-family: var(--display); font-size: 11px; letter-spacing: 0.14em; color: var(--gold); text-transform: uppercase; }
+.kpi-panel-meta  { font-family: var(--mono); font-size: 8.5px; color: var(--cdim); opacity: 0.5; }
+.kpi-panel-body  { padding: 14px 18px; }
+
+/* Pipeline Bars */
+.pipe-row   { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.pipe-row:last-child { margin-bottom: 0; }
+.pipe-label { font-family: var(--mono); font-size: 8.5px; letter-spacing: 0.1em; color: var(--cdim); min-width: 82px; text-transform: uppercase; opacity: 0.65; }
+.pipe-track { flex: 1; background: var(--card2); border-radius: 2px; height: 7px; overflow: hidden; }
+.pipe-fill  { height: 100%; border-radius: 2px; transition: width 0.55s ease; }
+.pipe-count { font-family: var(--mono); font-size: 9px; color: var(--cdim); min-width: 22px; text-align: right; opacity: 0.55; }
+
+/* Activity Feed */
+.activity-scroll { max-height: 300px; overflow-y: auto; }
+.activity-scroll::-webkit-scrollbar { width: 2px; }
+.activity-scroll::-webkit-scrollbar-thumb { background: var(--gold2); border-radius: 2px; }
+.act-item {
+  display: flex; align-items: flex-start; gap: 11px;
+  padding: 10px 0; border-bottom: 1px solid rgba(31,31,46,0.5);
+}
+.act-item:last-child { border-bottom: none; }
+.act-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  margin-top: 5px; flex-shrink: 0;
+}
+.dot-gold   { background: var(--gold2);   box-shadow: 0 0 6px rgba(212,175,55,0.35); }
+.dot-green  { background: var(--green-t); box-shadow: 0 0 6px rgba(74,222,128,0.3);  }
+.dot-red    { background: var(--red-t);   box-shadow: 0 0 6px rgba(252,165,165,0.3); }
+.dot-blue   { background: var(--blue-t);  box-shadow: 0 0 6px rgba(123,196,240,0.3); }
+.act-msg    { flex: 1; font-size: 14px; color: var(--cream); font-weight: 300; line-height: 1.5; }
+.act-time   { font-family: var(--mono); font-size: 8.5px; color: var(--cdim); opacity: 0.38; margin-top: 2px; white-space: nowrap; }
+
+/* ════════════════════════════════════════
+   TAB 2 — INVOICE TRACKER
+════════════════════════════════════════ */
+
+/* Summary Strip */
+.inv-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 18px; }
+@media (max-width: 600px) { .inv-strip { grid-template-columns: 1fr 1fr; } }
+.inv-strip-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 3px; padding: 13px 16px;
+}
+.isc-label { font-family: var(--mono); font-size: 7.5px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--cdim); opacity: 0.55; margin-bottom: 6px; }
+.isc-val   { font-family: var(--wide); font-size: 26px; letter-spacing: 0.04em; margin-bottom: 2px; }
+.isc-sub   { font-family: var(--mono); font-size: 8px; color: var(--cdim); opacity: 0.38; }
+
+/* Invoice Table extras */
+.td-invnum  { font-family: var(--mono); font-size: 11px; color: var(--gold2); letter-spacing: 0.08em; }
+.td-name    { font-family: var(--serif); font-size: 14px; font-weight: 700; }
+.td-ref     { font-family: var(--mono); font-size: 8.5px; color: var(--cdim); opacity: 0.5; margin-top: 2px; }
+.td-amount  { font-family: var(--wide); font-size: 19px; color: var(--gold); letter-spacing: 0.04em; }
+.td-recv    { font-family: var(--mono); font-size: 11px; }
+.td-balance { font-family: var(--mono); font-size: 11px; color: var(--red-t); }
+.td-date    { font-family: var(--mono); font-size: 10.5px; color: var(--cdim); opacity: 0.65; }
+.td-desc    { font-family: var(--mono); font-size: 10px; color: var(--cdim); opacity: 0.6; max-width: 160px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tbl-actions { display: flex; gap: 4px; align-items: center; }
+
+/* Notes inline in table */
+.td-notes { font-family: var(--body); font-size: 12.5px; color: var(--cdim); font-style: italic; font-weight: 300; max-width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* ════════════════════════════════════════
+   PRINT STYLES
+════════════════════════════════════════ */
+@media print {
+  .topbar, .tabbar, .sh-actions, .tbl-actions,
+  .btn-gold, .btn-outline, .btn-export,
+  .icon-btn, .modal-overlay, .toast { display: none !important; }
+  html, body { background: #fff; color: #000; overflow: visible; height: auto; }
+  .app, .content, .pane { overflow: visible; height: auto; }
+  .pane { display: block !important; padding: 16px; }
+  .kpi-card { border: 1px solid #ccc; }
+  .kpi-val, .td-amount { color: #000; }
+  .data-table td, .data-table th { color: #000; border-color: #ccc; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- ════════════════════════════════════════
+     TOP BAR
+════════════════════════════════════════ -->
+<div class="topbar">
+  <div class="tb-brand">
+    <div class="tb-logo">Prime Pathwy</div>
+    <div class="tb-pipe"></div>
+    <div class="tb-sub">Sovereign Business Command Center</div>
+  </div>
+  <div class="tb-right">
+    <div class="tb-date" id="topDate"></div>
+    <div class="tb-badge">v3.0 &nbsp;·&nbsp; AA Capital Inc.</div>
+    <button class="btn-export" onclick="window.print()">&#9108; &nbsp;Export PDF</button>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     TAB BAR — 5 TABS (Phase 1: Tabs 1 & 2 live; 3–5 load in Phase 2)
+════════════════════════════════════════ -->
+<div class="tabbar">
+  <div class="tab active"  id="tab-kpi"     onclick="switchTab('kpi',this)">
+    <span class="tab-icon">&#9670;</span> KPI Dashboard
+  </div>
+  <div class="tab"         id="tab-inv"     onclick="switchTab('invoices',this)">
+    <span class="tab-icon">&#9711;</span> Invoice Tracker
+    <span class="tab-badge zero" id="badge-inv">0</span>
+  </div>
+  <div class="tab-coming"  id="tab-jobs">
+    <span class="tab-icon">&#8862;</span> Job Tracker <span style="font-size:7.5px;opacity:0.5;margin-left:4px">Phase 2</span>
+  </div>
+  <div class="tab-coming"  id="tab-agree">
+    <span class="tab-icon">&#9634;</span> Agreements <span style="font-size:7.5px;opacity:0.5;margin-left:4px">Phase 2</span>
+  </div>
+  <div class="tab-coming"  id="tab-gov">
+    <span class="tab-icon">&#11041;</span> Gov Contracting <span style="font-size:7.5px;opacity:0.5;margin-left:4px">Phase 2</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     CONTENT AREA
+════════════════════════════════════════ -->
+<div class="content">
+
+<!-- ════════════════════
+     PANE 1: KPI DASHBOARD
+════════════════════ -->
+<div class="pane active" id="pane-kpi">
+
+  <div class="section-hdr">
+    <div>
+      <div class="sh-title">Revenue &amp; Operations Dashboard</div>
+      <div class="sh-sub">Real-time engine · Auto-calculated from all modules · Last refresh: <span id="kpiLastRefresh">—</span></div>
+    </div>
+    <div class="sh-actions">
+      <button class="btn-outline" onclick="refreshKPIs()">&#8635; &nbsp;Refresh</button>
+      <button class="btn-outline" onclick="clearActivity()">Clear Feed</button>
+    </div>
+  </div>
+
+  <!-- PRIMARY KPI CARDS — 8 metrics -->
+  <div class="kpi-grid">
+
+    <div class="kpi-card">
+      <div class="kpi-label">Total Invoiced</div>
+      <div class="kpi-val" id="k-invoiced" style="color:var(--gold)">$0</div>
+      <div class="kpi-sub">All invoices issued</div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-label">Total Collected</div>
+      <div class="kpi-val" id="k-collected" style="color:var(--green-t)">$0</div>
+      <div class="kpi-sub">Payments received</div>
+      <div class="kpi-prog"><div class="kpi-prog-bar" id="bar-collected" style="width:0%;background:linear-gradient(90deg,#1A6B3A,var(--green-t))"></div></div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-label">Total Outstanding</div>
+      <div class="kpi-val" id="k-outstanding" style="color:var(--yel-t)">$0</div>
+      <div class="kpi-sub">Sent + partial unpaid</div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-label">Overdue Amount</div>
+      <div class="kpi-val" id="k-overdue" style="color:var(--red-t)">$0</div>
+      <div class="kpi-sub">Past due date</div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-label">Active Jobs</div>
+      <div class="kpi-val" id="k-active-jobs" style="color:var(--cream)">0</div>
+      <div class="kpi-sub">New + In Progress</div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-label">Completion Rate</div>
+      <div class="kpi-val" id="k-completion" style="color:var(--gold)">0%</div>
+      <div class="kpi-sub">Jobs finished</div>
+      <div class="kpi-prog"><div class="kpi-prog-bar" id="bar-completion" style="width:0%"></div></div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-label">Avg Job Value</div>
+      <div class="kpi-val" id="k-avg-job" style="color:var(--cream)">$0</div>
+      <div class="kpi-sub">Per turnover job</div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-label">Collection Rate</div>
+      <div class="kpi-val" id="k-coll-rate" style="color:var(--gold)">0%</div>
+      <div class="kpi-sub">Paid ÷ Invoiced</div>
+      <div class="kpi-prog"><div class="kpi-prog-bar" id="bar-coll-rate" style="width:0%"></div></div>
+    </div>
+
+  </div><!-- end kpi-grid -->
+
+  <!-- PIPELINE PANELS -->
+  <div class="kpi-dual">
+
+    <!-- Invoice Pipeline -->
+    <div class="kpi-panel">
+      <div class="kpi-panel-hdr">
+        <div class="kpi-panel-title">Invoice Pipeline</div>
+        <div class="kpi-panel-meta" id="kpi-inv-meta">0 invoices</div>
+      </div>
+      <div class="kpi-panel-body">
+        <div class="pipe-row">
+          <span class="pipe-label">Draft</span>
+          <div class="pipe-track"><div class="pipe-fill" id="pp-draft" style="width:0%;background:var(--cdim)"></div></div>
+          <span class="pipe-count" id="pc-draft">0</span>
+        </div>
+        <div class="pipe-row">
+          <span class="pipe-label">Sent</span>
+          <div class="pipe-track"><div class="pipe-fill" id="pp-sent" style="width:0%;background:var(--blue-t)"></div></div>
+          <span class="pipe-count" id="pc-sent">0</span>
+        </div>
+        <div class="pipe-row">
+          <span class="pipe-label">Partial</span>
+          <div class="pipe-track"><div class="pipe-fill" id="pp-partial" style="width:0%;background:var(--yel-t)"></div></div>
+          <span class="pipe-count" id="pc-partial">0</span>
+        </div>
+        <div class="pipe-row">
+          <span class="pipe-label">Paid</span>
+          <div class="pipe-track"><div class="pipe-fill" id="pp-paid" style="width:0%;background:var(--green-t)"></div></div>
+          <span class="pipe-count" id="pc-paid">0</span>
+        </div>
+        <div class="pipe-row">
+          <span class="pipe-label">Overdue</span>
+          <div class="pipe-track"><div class="pipe-fill" id="pp-overdue" style="width:0%;background:var(--red-t)"></div></div>
+          <span class="pipe-count" id="pc-overdue">0</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Job Pipeline (Phase 2 data — structure ready) -->
+    <div class="kpi-panel">
+      <div class="kpi-panel-hdr">
+        <div class="kpi-panel-title">Job Pipeline</div>
+        <div class="kpi-panel-meta" id="kpi-job-meta">0 jobs</div>
+      </div>
+      <div class="kpi-panel-body">
+        <div class="pipe-row">
+          <span class="pipe-label">New</span>
+          <div class="pipe-track"><div class="pipe-fill" id="jp-new" style="width:0%;background:var(--blue-t)"></div></div>
+          <span class="pipe-count" id="jc-new">0</span>
+        </div>
+        <div class="pipe-row">
+          <span class="pipe-label">In Progress</span>
+          <div class="pipe-track"><div class="pipe-fill" id="jp-progress" style="width:0%;background:var(--yel-t)"></div></div>
+          <span class="pipe-count" id="jc-progress">0</span>
+        </div>
+        <div class="pipe-row">
+          <span class="pipe-label">Complete</span>
+          <div class="pipe-track"><div class="pipe-fill" id="jp-complete" style="width:0%;background:var(--green-t)"></div></div>
+          <span class="pipe-count" id="jc-complete">0</span>
+        </div>
+        <div class="pipe-row">
+          <span class="pipe-label">Invoiced</span>
+          <div class="pipe-track"><div class="pipe-fill" id="jp-invoiced" style="width:0%;background:var(--pur-t)"></div></div>
+          <span class="pipe-count" id="jc-invoiced">0</span>
+        </div>
+        <div class="pipe-row">
+          <span class="pipe-label">Paid</span>
+          <div class="pipe-track"><div class="pipe-fill" id="jp-paid" style="width:0%;background:var(--green-t)"></div></div>
+          <span class="pipe-count" id="jc-paid">0</span>
+        </div>
+        <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border);font-family:var(--mono);font-size:9px;color:var(--cdim);opacity:0.4;letter-spacing:0.15em">
+          JOB DATA LOADS IN PHASE 2
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end kpi-dual -->
+
+  <!-- LIVE ACTIVITY FEED -->
+  <div class="kpi-panel">
+    <div class="kpi-panel-hdr">
+      <div class="kpi-panel-title">Live Activity Feed</div>
+      <div class="kpi-panel-meta" id="act-count">0 events</div>
+    </div>
+    <div class="kpi-panel-body">
+      <div class="activity-scroll" id="actFeed">
+        <div class="empty-state" style="padding:28px 0">
+          <p>Activity events appear here as you add invoices and jobs</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end pane-kpi -->
+
+
+<!-- ════════════════════
+     PANE 2: INVOICE TRACKER
+════════════════════ -->
+<div class="pane" id="pane-invoices">
+
+  <div class="section-hdr">
+    <div>
+      <div class="sh-title">Invoice &amp; Payment Tracker</div>
+      <div class="sh-sub">Complete billing ledger — issued, collected, outstanding, overdue</div>
+    </div>
+    <div class="sh-actions">
+      <button class="btn-outline" onclick="exportInvoiceCSV()">&#8681; &nbsp;Export CSV</button>
+      <button class="btn-gold"    onclick="openAddInvoice()">+ New Invoice</button>
+    </div>
+  </div>
+
+  <div class="rule-note">
+    Operator Rule: Every engagement — consulting or field — must carry a corresponding invoice. Revenue not recorded is revenue abandoned.
+  </div>
+
+  <!-- INVOICE SUMMARY STRIP -->
+  <div class="inv-strip">
+    <div class="inv-strip-card">
+      <div class="isc-label">Total Invoiced</div>
+      <div class="isc-val" id="is-total"       style="color:var(--gold)">$0</div>
+      <div class="isc-sub">All invoices</div>
+    </div>
+    <div class="inv-strip-card">
+      <div class="isc-label">Collected</div>
+      <div class="isc-val" id="is-collected"   style="color:var(--green-t)">$0</div>
+      <div class="isc-sub">Paid in full</div>
+    </div>
+    <div class="inv-strip-card">
+      <div class="isc-label">Outstanding</div>
+      <div class="isc-val" id="is-outstanding" style="color:var(--yel-t)">$0</div>
+      <div class="isc-sub">Sent + partial</div>
+    </div>
+    <div class="inv-strip-card">
+      <div class="isc-label">Overdue</div>
+      <div class="isc-val" id="is-overdue"     style="color:var(--red-t)">$0</div>
+      <div class="isc-sub">Past due date</div>
+    </div>
+  </div>
+
+  <!-- INVOICE TABLE -->
+  <div id="invTableWrap">
+    <div class="empty-state" id="invEmptyState">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="5" y="2" width="14" height="20" rx="2"/>
+        <line x1="9" y1="7"  x2="15" y2="7"/>
+        <line x1="9" y1="11" x2="15" y2="11"/>
+        <line x1="9" y1="15" x2="13" y2="15"/>
+      </svg>
+      <p>No invoices yet &mdash; click New Invoice to begin</p>
+    </div>
+  </div>
+
+</div><!-- end pane-invoices -->
+
+</div><!-- end content -->
+</div><!-- end app -->
+
+
+<!-- ════════════════════════════════════════
+     MODAL — ADD / EDIT INVOICE
+════════════════════════════════════════ -->
+<div class="modal-overlay hidden" id="modal-invoice">
+  <div class="modal">
+    <div class="modal-title" id="inv-modal-title">New Invoice</div>
+    <input type="hidden" id="inv-edit-id">
+
+    <div class="fr2">
+      <div class="fg">
+        <label>Invoice Number *</label>
+        <input class="fi" id="inv-num" placeholder="INV-001">
+      </div>
+      <div class="fg">
+        <label>Client / Company Name *</label>
+        <input class="fi" id="inv-client" placeholder="Business or individual">
+      </div>
+    </div>
+
+    <div class="fr3">
+      <div class="fg">
+        <label>Invoice Amount ($) *</label>
+        <input class="fi" id="inv-amount" type="number" min="0" step="0.01" placeholder="5000">
+      </div>
+      <div class="fg">
+        <label>Amount Received ($)</label>
+        <input class="fi" id="inv-received" type="number" min="0" step="0.01" placeholder="0">
+      </div>
+      <div class="fg">
+        <label>Status</label>
+        <select class="fs" id="inv-status">
+          <option value="draft">Draft</option>
+          <option value="sent">Sent</option>
+          <option value="partial">Partial Payment</option>
+          <option value="paid">Paid — Collected in Full</option>
+          <option value="overdue">Overdue</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="fr2">
+      <div class="fg">
+        <label>Issue Date</label>
+        <input class="fi" id="inv-date" placeholder="e.g. June 1, 2026">
+      </div>
+      <div class="fg">
+        <label>Due Date</label>
+        <input class="fi" id="inv-due" placeholder="e.g. June 30, 2026">
+      </div>
+    </div>
+
+    <div class="fg">
+      <label>Service / Job Description</label>
+      <input class="fi" id="inv-desc" placeholder="Brief description of services rendered">
+    </div>
+
+    <div class="fr2">
+      <div class="fg">
+        <label>Job / Property Reference</label>
+        <input class="fi" id="inv-jobref" placeholder="Address or job ID (optional)">
+      </div>
+      <div class="fg">
+        <label>Client Phone / Email</label>
+        <input class="fi" id="inv-contact" placeholder="Contact info (optional)">
+      </div>
+    </div>
+
+    <div class="fg">
+      <label>Payment Notes</label>
+      <textarea class="fta" id="inv-notes" style="min-height:56px" placeholder="Check numbers, payment method, follow-up actions, disputes..."></textarea>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeModal('modal-invoice')">Cancel</button>
+      <button class="btn-submit" onclick="saveInvoice()">Save Invoice</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     JAVASCRIPT ENGINE
+════════════════════════════════════════ -->
+<script>
+/* ═════════════════════════════════════════
+   CONSTANTS & ENUMERATIONS
+═════════════════════════════════════════ */
+const INV_STATUSES = ['draft','sent','partial','paid','overdue'];
+const INV_LABELS   = { draft:'Draft', sent:'Sent', partial:'Partial', paid:'Paid', overdue:'Overdue' };
+const INV_CLASS    = { draft:'sp-draft', sent:'sp-sent', partial:'sp-partial', paid:'sp-paid', overdue:'sp-overdue' };
+
+// Job status arrays pre-wired for Phase 2 data binding
+const JOB_STATUSES = ['new','progress','complete','invoiced','paid'];
+const JOB_LABELS   = { new:'New', progress:'In Progress', complete:'Complete', invoiced:'Invoiced', paid:'Paid' };
+
+/* ═════════════════════════════════════════
+   PERSISTENT STATE (localStorage)
+   Enables full data retention across browser sessions.
+   For local network deployment: data survives page reloads.
+═════════════════════════════════════════ */
+const SK_INV  = 'pp_v3_invoices';
+const SK_JOBS = 'pp_v3_jobs';
+const SK_ACT  = 'pp_v3_activity';
+
+let invoices = [];
+let jobs     = [];
+let activity = [];
+
+function loadState() {
+  try { invoices = JSON.parse(localStorage.getItem(SK_INV))  || []; } catch(e) { invoices = []; }
+  try { jobs     = JSON.parse(localStorage.getItem(SK_JOBS)) || []; } catch(e) { jobs = [];     }
+  try { activity = JSON.parse(localStorage.getItem(SK_ACT))  || []; } catch(e) { activity = []; }
+}
+
+function saveState() {
+  try {
+    localStorage.setItem(SK_INV,  JSON.stringify(invoices));
+    localStorage.setItem(SK_JOBS, JSON.stringify(jobs));
+    localStorage.setItem(SK_ACT,  JSON.stringify(activity));
+  } catch(e) { console.warn('Storage write failed:', e); }
+}
+
+/* ═════════════════════════════════════════
+   UTILITY FUNCTIONS
+═════════════════════════════════════════ */
+function fmt(n) {
+  if (!n || n === 0) return '$0';
+  return '$' + Number(n).toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
+}
+
+function nowDate() {
+  return new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+}
+
+function nowTime() {
+  return new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }) + ' · ' + nowDate();
+}
+
+function showToast(msg) {
+  const old = document.querySelector('.toast');
+  if (old) old.remove();
+  const t = document.createElement('div');
+  t.className = 'toast';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => { if (t.parentNode) t.remove(); }, 2600);
+}
+
+/* ═════════════════════════════════════════
+   TAB NAVIGATION
+═════════════════════════════════════════ */
+function switchTab(id, el) {
+  document.querySelectorAll('.pane').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  const pane = document.getElementById('pane-' + id);
+  if (pane) pane.classList.add('active');
+  el.classList.add('active');
+  if (id === 'kpi') refreshKPIs();
+  if (id === 'invoices') renderInvoiceStrip();
+}
+
+/* ═════════════════════════════════════════
+   MODAL SYSTEM
+═════════════════════════════════════════ */
+function closeModal(id) {
+  const el = document.getElementById(id);
+  if (el) el.classList.add('hidden');
+}
+window.addEventListener('click', function(e) {
+  if (e.target.classList.contains('modal-overlay')) {
+    e.target.classList.add('hidden');
+  }
+});
+
+/* ═════════════════════════════════════════
+   ACTIVITY FEED ENGINE
+═════════════════════════════════════════ */
+function logActivity(msg, type) {
+  type = type || 'gold';
+  activity.unshift({ msg: msg, time: nowTime(), type: type });
+  if (activity.length > 60) activity.pop();
+  saveState();
+  renderActivity();
+  const el = document.getElementById('kpiLastRefresh');
+  if (el) el.textContent = nowTime();
+}
+
+function renderActivity() {
+  const feed = document.getElementById('actFeed');
+  if (!feed) return;
+  const cnt = document.getElementById('act-count');
+  if (cnt) cnt.textContent = activity.length + ' event' + (activity.length !== 1 ? 's' : '');
+  if (!activity.length) {
+    feed.innerHTML = '<div class="empty-state" style="padding:28px 0"><p>No activity yet</p></div>';
+    return;
+  }
+  feed.innerHTML = activity.map(function(a) {
+    return '<div class="act-item">' +
+      '<div class="act-dot dot-' + (a.type || 'gold') + '"></div>' +
+      '<div style="flex:1">' +
+        '<div class="act-msg">' + a.msg + '</div>' +
+        '<div class="act-time">' + a.time + '</div>' +
+      '</div></div>';
+  }).join('');
+}
+
+function clearActivity() {
+  if (!confirm('Clear the activity feed?')) return;
+  activity = [];
+  saveState();
+  renderActivity();
+}
+
+/* ═════════════════════════════════════════
+   KPI CALCULATION ENGINE
+   Reads from invoices[] and jobs[] arrays.
+   All metrics auto-calculate on every data change.
+═════════════════════════════════════════ */
+function refreshKPIs() {
+  /* ── Invoice Metrics ── */
+  var totalInvoiced  = invoices.reduce(function(s,i){ return s + (parseFloat(i.amount) || 0); }, 0);
+  var totalReceived  = invoices.reduce(function(s,i){ return s + (parseFloat(i.received) || 0); }, 0);
+  var overdueAmt     = invoices.filter(function(i){ return i.status === 'overdue'; })
+                               .reduce(function(s,i){ return s + Math.max(0, (parseFloat(i.amount)||0) - (parseFloat(i.received)||0)); }, 0);
+  var outstandingAmt = invoices.filter(function(i){ return i.status === 'sent' || i.status === 'partial'; })
+                               .reduce(function(s,i){ return s + Math.max(0, (parseFloat(i.amount)||0) - (parseFloat(i.received)||0)); }, 0);
+  var collRate       = totalInvoiced > 0 ? Math.round((totalReceived / totalInvoiced) * 100) : 0;
+
+  /* ── Job Metrics (Phase 2 will populate jobs[]) ── */
+  var totalJobs      = jobs.length;
+  var activeJobs     = jobs.filter(function(j){ return j.status === 'new' || j.status === 'progress'; }).length;
+  var doneJobs       = jobs.filter(function(j){ return ['complete','invoiced','paid'].indexOf(j.status) > -1; }).length;
+  var completionRate = totalJobs > 0 ? Math.round((doneJobs / totalJobs) * 100) : 0;
+  var jobsWithVal    = jobs.filter(function(j){ return j.value > 0; });
+  var avgJobVal      = jobsWithVal.length > 0
+                       ? Math.round(jobsWithVal.reduce(function(s,j){ return s + j.value; }, 0) / jobsWithVal.length)
+                       : 0;
+
+  /* ── Update Primary Cards ── */
+  setText('k-invoiced',    fmt(totalInvoiced));
+  setText('k-collected',   fmt(totalReceived));
+  setText('k-outstanding', fmt(outstandingAmt));
+  setText('k-overdue',     fmt(overdueAmt));
+  setText('k-active-jobs', String(activeJobs));
+  setText('k-completion',  completionRate + '%');
+  setText('k-avg-job',     fmt(avgJobVal));
+  setText('k-coll-rate',   collRate + '%');
+
+  setWidth('bar-collected',   collRate);
+  setWidth('bar-completion',  completionRate);
+  setWidth('bar-coll-rate',   collRate);
+
+  /* ── Invoice Pipeline Bars ── */
+  var total = invoices.length || 1;
+  INV_STATUSES.forEach(function(s) {
+    var cnt = invoices.filter(function(i){ return i.status === s; }).length;
+    var pct = Math.round((cnt / total) * 100);
+    setWidth('pp-' + s, pct);
+    setText('pc-' + s, String(cnt));
+  });
+  setText('kpi-inv-meta', invoices.length + ' invoice' + (invoices.length !== 1 ? 's' : ''));
+
+  /* ── Job Pipeline Bars ── */
+  var jtotal = jobs.length || 1;
+  JOB_STATUSES.forEach(function(s) {
+    var cnt = jobs.filter(function(j){ return j.status === s; }).length;
+    var pct = Math.round((cnt / jtotal) * 100);
+    setWidth('jp-' + s, pct);
+    setText('jc-' + s, String(cnt));
+  });
+  setText('kpi-job-meta', jobs.length + ' job' + (jobs.length !== 1 ? 's' : ''));
+
+  /* ── Invoice Strip (Tab 2 summary) ── */
+  setText('is-total',       fmt(totalInvoiced));
+  setText('is-collected',   fmt(totalReceived));
+  setText('is-outstanding', fmt(outstandingAmt));
+  setText('is-overdue',     fmt(overdueAmt));
+
+  /* ── Badge ── */
+  var badge = document.getElementById('badge-inv');
+  if (badge) {
+    badge.textContent = invoices.length;
+    badge.className   = 'tab-badge' + (invoices.length === 0 ? ' zero' : '');
+  }
+
+  /* ── Last Refresh ── */
+  setText('kpiLastRefresh', new Date().toLocaleTimeString('en-US', { hour:'2-digit', minute:'2-digit' }));
+
+  /* ── Activity ── */
+  renderActivity();
+}
+
+function setText(id, val) {
+  var el = document.getElementById(id);
+  if (el) el.textContent = val;
+}
+function setWidth(id, pct) {
+  var el = document.getElementById(id);
+  if (el) el.style.width = Math.min(100, Math.max(0, pct)) + '%';
+}
+
+/* ═════════════════════════════════════════
+   INVOICE MODULE — FULL CRUD ENGINE
+═════════════════════════════════════════ */
+
+/* Open Add Modal */
+function openAddInvoice() {
+  document.getElementById('inv-modal-title').textContent = 'New Invoice';
+  document.getElementById('inv-edit-id').value = '';
+
+  // Auto-generate next invoice number
+  var nextNum = 'INV-' + String(invoices.length + 1).padStart(3, '0');
+  document.getElementById('inv-num').value      = nextNum;
+  document.getElementById('inv-client').value   = '';
+  document.getElementById('inv-amount').value   = '';
+  document.getElementById('inv-received').value = '';
+  document.getElementById('inv-status').value   = 'draft';
+  document.getElementById('inv-date').value     = nowDate();
+  document.getElementById('inv-due').value      = '';
+  document.getElementById('inv-desc').value     = '';
+  document.getElementById('inv-jobref').value   = '';
+  document.getElementById('inv-contact').value  = '';
+  document.getElementById('inv-notes').value    = '';
+  document.getElementById('modal-invoice').classList.remove('hidden');
+}
+
+/* Open Edit Modal */
+function openEditInvoice(id) {
+  var inv = invoices.find(function(x){ return x.id === id; });
+  if (!inv) return;
+  document.getElementById('inv-modal-title').textContent = 'Edit Invoice — ' + inv.num;
+  document.getElementById('inv-edit-id').value  = inv.id;
+  document.getElementById('inv-num').value      = inv.num;
+  document.getElementById('inv-client').value   = inv.client;
+  document.getElementById('inv-amount').value   = inv.amount;
+  document.getElementById('inv-received').value = inv.received || 0;
+  document.getElementById('inv-status').value   = inv.status;
+  document.getElementById('inv-date').value     = inv.date    || '';
+  document.getElementById('inv-due').value      = inv.due     || '';
+  document.getElementById('inv-desc').value     = inv.desc    || '';
+  document.getElementById('inv-jobref').value   = inv.jobRef  || '';
+  document.getElementById('inv-contact').value  = inv.contact || '';
+  document.getElementById('inv-notes').value    = inv.notes   || '';
+  document.getElementById('modal-invoice').classList.remove('hidden');
+}
+
+/* Save Invoice (Add or Edit) */
+function saveInvoice() {
+  var num    = document.getElementById('inv-num').value.trim();
+  var client = document.getElementById('inv-client').value.trim();
+  var amount = parseFloat(document.getElementById('inv-amount').value) || 0;
+
+  if (!num)    { showToast('\u26A0 Invoice Number is required.'); return; }
+  if (!client) { showToast('\u26A0 Client Name is required.'); return; }
+  if (!amount) { showToast('\u26A0 Invoice Amount must be greater than 0.'); return; }
+
+  var editId   = document.getElementById('inv-edit-id').value;
+  var statusVal = document.getElementById('inv-status').value;
+  var received  = parseFloat(document.getElementById('inv-received').value) || 0;
+
+  // Auto-set received = amount when marking paid
+  if (statusVal === 'paid') received = amount;
+
+  var data = {
+    num:     num,
+    client:  client,
+    amount:  amount,
+    received: received,
+    status:  statusVal,
+    date:    document.getElementById('inv-date').value    || '',
+    due:     document.getElementById('inv-due').value     || '',
+    desc:    document.getElementById('inv-desc').value    || '',
+    jobRef:  document.getElementById('inv-jobref').value  || '',
+    contact: document.getElementById('inv-contact').value || '',
+    notes:   document.getElementById('inv-notes').value   || ''
+  };
+
+  if (editId) {
+    // UPDATE existing
+    var idx = invoices.findIndex(function(x){ return String(x.id) === String(editId); });
+    if (idx > -1) {
+      invoices[idx] = Object.assign({}, invoices[idx], data);
+      logActivity('Invoice ' + num + ' updated \u2014 ' + client, 'blue');
+      showToast('Invoice updated \u2713');
+    }
+  } else {
+    // CREATE new
+    data.id        = Date.now();
+    data.createdAt = nowDate();
+    invoices.unshift(data);
+    logActivity('Invoice ' + num + ' created \u2014 ' + client + ' \u00B7 ' + fmt(amount), 'gold');
+    showToast('Invoice added \u2713');
+  }
+
+  saveState();
+  closeModal('modal-invoice');
+  renderInvoices();
+  refreshKPIs();
+}
+
+/* Cycle Status — Draft > Sent > Partial > Paid > Overdue > Draft */
+function cycleInvStatus(id) {
+  var inv = invoices.find(function(x){ return x.id === id; });
+  if (!inv) return;
+  var cur    = INV_STATUSES.indexOf(inv.status);
+  inv.status = INV_STATUSES[(cur + 1) % INV_STATUSES.length];
+  // Auto-fill received when flipping to Paid
+  if (inv.status === 'paid') inv.received = inv.amount;
+  saveState();
+  var dotType = inv.status === 'paid' ? 'green' : inv.status === 'overdue' ? 'red' : 'gold';
+  logActivity('Invoice ' + inv.num + ' \u2192 ' + INV_LABELS[inv.status] + ' \u2014 ' + inv.client, dotType);
+  renderInvoices();
+  refreshKPIs();
+  showToast(inv.num + ' \u2192 ' + INV_LABELS[inv.status]);
+}
+
+/* Delete Invoice */
+function deleteInvoice(id) {
+  var inv = invoices.find(function(x){ return x.id === id; });
+  if (!inv) return;
+  if (!confirm('Permanently remove invoice ' + inv.num + ' for ' + inv.client + '?\nThis action cannot be undone.')) return;
+  invoices = invoices.filter(function(x){ return x.id !== id; });
+  saveState();
+  logActivity('Invoice ' + inv.num + ' deleted \u2014 ' + inv.client, 'red');
+  renderInvoices();
+  refreshKPIs();
+  showToast('Invoice removed');
+}
+
+/* Render Invoice Table */
+function renderInvoices() {
+  var wrap = document.getElementById('invTableWrap');
+  if (!wrap) return;
+
+  if (!invoices.length) {
+    wrap.innerHTML = '<div class="empty-state" id="invEmptyState">' +
+      '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">' +
+      '<rect x="5" y="2" width="14" height="20" rx="2"/>' +
+      '<line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="13" y2="15"/>' +
+      '</svg><p>No invoices yet &mdash; click New Invoice to begin</p></div>';
+    return;
+  }
+
+  var rows = invoices.map(function(inv) {
+    var s       = INV_CLASS[inv.status]  || 'sp-draft';
+    var lbl     = INV_LABELS[inv.status] || 'Draft';
+    var balance = Math.max(0, (parseFloat(inv.amount) || 0) - (parseFloat(inv.received) || 0));
+    var balanceCell = balance > 0 && inv.status !== 'draft'
+      ? '<span class="td-balance">' + fmt(balance) + '</span>'
+      : '<span style="color:var(--cdim);opacity:0.35;font-family:var(--mono);font-size:10px">\u2014</span>';
+
+    return '<tr>' +
+      '<td><div class="td-invnum">' + inv.num + '</div>' +
+           (inv.date ? '<div style="font-family:var(--mono);font-size:8.5px;color:var(--cdim);opacity:0.4;margin-top:2px">' + inv.date + '</div>' : '') +
+      '</td>' +
+      '<td><div class="td-name">' + inv.client + '</div>' +
+           (inv.jobRef ? '<div class="td-ref">' + inv.jobRef + '</div>' : '') +
+           (inv.contact ? '<div class="td-ref">' + inv.contact + '</div>' : '') +
+      '</td>' +
+      '<td><span class="td-amount">' + fmt(inv.amount) + '</span></td>' +
+      '<td><span class="td-recv" style="color:' + (inv.received > 0 ? 'var(--green-t)' : 'var(--cdim)') + '">' + fmt(inv.received || 0) + '</span></td>' +
+      '<td>' + balanceCell + '</td>' +
+      '<td><span class="td-date">' + (inv.due || '\u2014') + '</span></td>' +
+      '<td><span class="td-desc">' + (inv.desc || '\u2014') + '</span></td>' +
+      '<td>' + (inv.notes ? '<span class="td-notes" title="' + inv.notes.replace(/"/g,'&quot;') + '">' + inv.notes + '</span>' : '<span style="color:var(--cdim);opacity:0.3;font-family:var(--mono);font-size:10px">\u2014</span>') + '</td>' +
+      '<td><span class="sp ' + s + '" onclick="cycleInvStatus(' + inv.id + ')" title="Click to advance status">' + lbl + '</span></td>' +
+      '<td><div class="tbl-actions">' +
+        '<button class="icon-btn" onclick="openEditInvoice(' + inv.id + ')" title="Edit">\u270E</button>' +
+        '<button class="icon-btn icon-btn-del" onclick="deleteInvoice(' + inv.id + ')" title="Delete">\u2715</button>' +
+      '</div></td>' +
+    '</tr>';
+  }).join('');
+
+  wrap.innerHTML =
+    '<div class="table-wrap">' +
+    '<table class="data-table">' +
+    '<thead><tr>' +
+      '<th>Invoice #</th>' +
+      '<th>Client</th>' +
+      '<th>Amount</th>' +
+      '<th>Received</th>' +
+      '<th>Balance</th>' +
+      '<th>Due Date</th>' +
+      '<th>Description</th>' +
+      '<th>Notes</th>' +
+      '<th>Status</th>' +
+      '<th></th>' +
+    '</tr></thead>' +
+    '<tbody>' + rows + '</tbody>' +
+    '</table></div>';
+}
+
+/* Invoice Summary Strip re-render */
+function renderInvoiceStrip() {
+  var totalInvoiced  = invoices.reduce(function(s,i){ return s + (parseFloat(i.amount) || 0); }, 0);
+  var totalReceived  = invoices.reduce(function(s,i){ return s + (parseFloat(i.received) || 0); }, 0);
+  var overdueAmt     = invoices.filter(function(i){ return i.status === 'overdue'; })
+                               .reduce(function(s,i){ return s + Math.max(0,(parseFloat(i.amount)||0)-(parseFloat(i.received)||0)); }, 0);
+  var outstandingAmt = invoices.filter(function(i){ return i.status === 'sent' || i.status === 'partial'; })
+                               .reduce(function(s,i){ return s + Math.max(0,(parseFloat(i.amount)||0)-(parseFloat(i.received)||0)); }, 0);
+  setText('is-total',       fmt(totalInvoiced));
+  setText('is-collected',   fmt(totalReceived));
+  setText('is-outstanding', fmt(outstandingAmt));
+  setText('is-overdue',     fmt(overdueAmt));
+}
+
+/* Export Invoice CSV */
+function exportInvoiceCSV() {
+  if (!invoices.length) { showToast('\u26A0 No invoices to export.'); return; }
+  var headers = ['Invoice #','Client','Amount','Received','Balance','Status','Issue Date','Due Date','Description','Job Ref','Contact','Notes'];
+  var rows = invoices.map(function(inv) {
+    var bal = Math.max(0,(parseFloat(inv.amount)||0)-(parseFloat(inv.received)||0));
+    return [
+      '"' + (inv.num     || '') + '"',
+      '"' + (inv.client  || '') + '"',
+      inv.amount   || 0,
+      inv.received || 0,
+      bal,
+      '"' + (INV_LABELS[inv.status] || '') + '"',
+      '"' + (inv.date    || '') + '"',
+      '"' + (inv.due     || '') + '"',
+      '"' + (inv.desc    || '') + '"',
+      '"' + (inv.jobRef  || '') + '"',
+      '"' + (inv.contact || '') + '"',
+      '"' + (inv.notes   || '').replace(/"/g,'""') + '"'
+    ].join(',');
+  });
+  var csv    = headers.join(',') + '\n' + rows.join('\n');
+  var blob   = new Blob([csv], { type: 'text/csv' });
+  var url    = URL.createObjectURL(blob);
+  var a      = document.createElement('a');
+  a.href     = url;
+  a.download = 'PrimePathwy_Invoices_' + new Date().toISOString().slice(0,10) + '.csv';
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('CSV exported \u2713');
+  logActivity('Invoice ledger exported to CSV', 'blue');
+}
+
+/* ═════════════════════════════════════════
+   INITIALIZATION
+═════════════════════════════════════════ */
+document.addEventListener('DOMContentLoaded', function() {
+  // Set date
+  var topDate = document.getElementById('topDate');
+  if (topDate) topDate.textContent = new Date().toLocaleDateString('en-US',
+    { weekday:'short', month:'long', day:'numeric', year:'numeric' });
+
+  // Load persisted data
+  loadState();
+
+  // Initial renders
+  renderInvoices();
+  renderActivity();
+  refreshKPIs();
+});
+</script>
+</body>
+</html>
