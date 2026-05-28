@@ -6,6 +6,177 @@
 
 ---
 
+> **DOCUMENT CLASS:** Constitutional Research & Educational Reference System
+> **CLASSIFICATION:** Institutional-Grade Legal Study Material
+> **ARCHITECT:** Arthur F. Appling Sr., Lead Technical Architect, Prime Pathwy
+> **LAST UPDATED:** May 2026
+
+---
+
+# AI LEGAL VERIFICATION & COURT COMPLIANCE PROTOCOL
+
+## Mandatory Constitutional Research Integrity Framework
+
+### PURPOSE
+
+This system is a constitutional research and educational framework only.
+
+It is **NOT** self-authenticating legal authority.
+
+All legal citations, quotations, holdings, statutes, procedural rules, and constitutional interpretations **MUST** be independently verified against recognized legal sources before being:
+
+- filed in court
+- submitted in motions
+- quoted in legal pleadings
+- relied upon in litigation
+- presented as authoritative legal argument
+
+Courts increasingly sanction attorneys and litigants for submitting hallucinated or fabricated AI-generated legal citations. The user of this system remains legally responsible for verifying accuracy.
+
+---
+
+## SECTION I — APPROVED PRIMARY SOURCE DATABASES
+
+All constitutional case law and legal doctrine must be verified against one or more of the following recognized legal authorities:
+
+| Source | URL / Access |
+| :--- | :--- |
+| **Official U.S. Supreme Court Opinions** | [supremecourt.gov](https://www.supremecourt.gov/) |
+| **Cornell Legal Information Institute (LII)** | [law.cornell.edu](https://www.law.cornell.edu/) |
+| **Oyez** | [oyez.org](https://www.oyez.org/) |
+| **Justia** | [supreme.justia.com](https://supreme.justia.com/) |
+| **PACER (Federal Court Records)** | [pacer.uscourts.gov](https://pacer.uscourts.gov/) |
+| **Westlaw** | Subscription required |
+| **LexisNexis** | Subscription required |
+| **Official State Court Opinions** | Varies by jurisdiction |
+| **Government Judicial Websites** | Varies by court |
+
+> **ZERO-TRUST RULE:** Never rely exclusively on AI-generated summaries. No AI-generated citation shall be considered verified until independently confirmed against a recognized legal source.
+
+---
+
+## SECTION II — MANDATORY CASE VERIFICATION CHECKLIST
+
+Before any legal citation is relied upon, verify **ALL** of the following:
+
+### 1. Official Citation
+Confirm: case name, reporter volume, reporter abbreviation, page number, and year.
+**Example:** *Terry v. Ohio*, 392 U.S. 1 (1968)
+
+### 2. Holding Accuracy
+Confirm: the court actually ruled what the document claims; no misstatement of constitutional doctrine exists; no paraphrased holding changes the meaning.
+
+### 3. Quotation Accuracy
+If quoting: compare directly against the official opinion; verify wording exactly; confirm quotation context. Never trust AI-generated quotations automatically.
+
+### 4. Later History Verification
+Verify whether the case has been limited, narrowed, distinguished, partially overruled, or superseded by later precedent. Constitutional doctrine evolves over time.
+
+### 5. Jurisdiction Verification
+Distinguish between: federal constitutional law, federal circuit precedent, state law, and local procedural rules. Federal constitutional doctrine does **NOT** automatically replace state procedural law.
+
+### 6. Procedural Posture Verification
+Verify: criminal vs. civil context, suppression context, appellate posture, and evidentiary context. Misapplying a case outside its procedural posture creates legal inaccuracies.
+
+---
+
+## SECTION III — AI HALLUCINATION PREVENTION RULES
+
+AI systems can generate:
+
+- nonexistent cases
+- incorrect citations
+- fabricated quotations
+- incorrect holdings
+- merged doctrinal summaries
+- false procedural history
+
+Courts have sanctioned attorneys and litigants for filing hallucinated AI-generated authorities.
+
+---
+
+## SECTION IV — COURT FILING SAFETY PROTOCOL
+
+Before submitting **ANY** filing, complete the following mandatory verification steps:
+
+- [ ] Shepardize or KeyCite all cases
+- [ ] Confirm every quotation against the official opinion
+- [ ] Confirm every citation exists in the official reporter
+- [ ] Verify all procedural rules
+- [ ] Verify all statutes
+- [ ] Confirm all cited authority supports the proposition claimed
+
+> **If verification cannot be completed: DO NOT FILE.**
+
+---
+
+## SECTION V — RESPONSIBILITY & LIABILITY NOTICE
+
+The individual submitting legal material remains legally responsible for:
+
+- factual accuracy
+- citation accuracy
+- legal representations
+- procedural compliance
+- candor to the tribunal
+
+Use of AI does not eliminate the duty of verification. Courts have repeatedly reaffirmed this principle in sanctions decisions involving AI-generated hallucinated citations.
+
+---
+
+## SECTION VI — SAFE USE OF AI IN LEGAL RESEARCH
+
+**AI may be used for:**
+- issue spotting
+- legal education
+- constitutional study
+- doctrine organization
+- research structuring
+- document formatting
+- procedural checklists
+
+**AI should NOT be solely relied upon for:**
+- final legal citations
+- quotations
+- filed pleadings
+- sworn declarations
+- court-ready briefs
+- legal conclusions without source verification
+
+---
+
+## SECTION VII — RECOMMENDED OPERATIONAL STANDARD
+
+**Use AI as:**
+- a research assistant
+- a doctrine-mapping tool
+- a constitutional study system
+
+**NOT as:**
+- a substitute for legal verification
+- a substitute for official legal research
+- automatic legal authority
+- guaranteed court-ready analysis
+
+The safest model is:
+
+```
+AI-Assisted → Human-Verified → Source-Audited → Court-Compliant
+```
+
+---
+
+## FINAL COMPLIANCE RULE
+
+> If any citation, quotation, statute, holding, or constitutional proposition cannot be independently verified through recognized legal sources:
+>
+> **DO NOT RELY ON IT.**
+> **DO NOT FILE IT.**
+> **DO NOT PRESENT IT AS AUTHORITATIVE LAW.**
+
+---
+
+
 ## TABLE OF CONTENTS
 
 - [I. EXECUTIVE SUMMARY & LITIGATION PERSUASION FRAMEWORK](#i-executive-summary--litigation-persuasion-framework)
