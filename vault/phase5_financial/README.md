@@ -110,4 +110,55 @@ Acquiring cash-flowing, regional service businesses (such as commercial janitori
 
 ---
 
+## 6. TAX OPTIMIZATION & REVENUE FORECASTING
+
+Sovereign corporate finance leverages legal tax mitigation frameworks and quantitative forecasting models to preserve capital.
+
+### Legal Tax Mitigation Strategies (US Tax Code)
+
+- **Section 179 Deduction:** Write off 100% of the purchase price of qualifying equipment (including servers, local GPU nodes, and vehicles) in the tax year it is placed in service.
+- **Research & Development (R&D) Tax Credit:** Claim tax credits for custom AI agent and workflow software engineering development.
+- **S-Corp Salary Split:** Pay the owner-operator a reasonable W-2 salary and take the remaining corporate distributions as pass-through dividends, avoiding self-employment tax on the dividend portion.
+
+### Revenue Forecasting Model
+
+To project monthly cash flows and capital reserves, the finance team uses a rolling 12-month forecasting model based on current contract values and acquisition timelines.
+
+```python
+# /opt/prime-pathwy/tools/TOOL_FINANCIAL_FORECAST_V1.py
+import numpy as np
+
+def project_revenue(current_mrr, growth_rate, churn_rate, acquisition_month, acquired_ebitda, months=12):
+    projections = []
+    mrr = current_mrr
+    
+    for month in range(1, months + 1):
+        # Apply organic growth and churn
+        mrr = mrr * (1 + growth_rate - churn_rate)
+        monthly_rev = mrr
+        
+        # Inject acquired business revenue at the target month
+        if month >= acquisition_month:
+            monthly_rev += (acquired_ebitda / 12)
+            
+        projections.append(round(monthly_rev, 2))
+        
+    return projections
+
+if __name__ == "__main__":
+    # Parameters
+    current_mrr = 25000.00  # Current monthly recurring revenue
+    growth_rate = 0.05      # 5% monthly growth
+    churn_rate = 0.01       # 1% monthly churn
+    acquisition_month = 6   # Acquire competitor in month 6
+    acquired_ebitda = 180000.00 # Competitor generates $180k annual EBITDA
+    
+    projections = project_revenue(current_mrr, growth_rate, churn_rate, acquisition_month, acquired_ebitda)
+    print("12-Month Rolling Revenue Projection:")
+    for m, rev in enumerate(projections, 1):
+        print(f"Month {m:02d}: ${rev:,.2f}")
+```
+
+---
+
 *Prime Pathwy Sovereign Corporate Finance Manual — Confidential Institutional Asset*

@@ -1,0 +1,13 @@
+kpi_id,kpi_name,category,target_value,target_unit,measurement_frequency,data_source,alert_threshold,escalation_owner,strategic_importance_1_10
+KPI001,First-Time Fix Rate (FTFR),Service Delivery,85,Percent,Weekly,Work Order System,Below 80%,Operations Manager,9
+KPI002,Mean Time to Resolution (MTTR),Service Delivery,4,Hours,Daily,Ticketing System,Above 6 Hours,Systems Engineer,9
+KPI003,Client Satisfaction Score (CSAT),Client Experience,92,Percent,Monthly,Post-Resolution Survey,Below 88%,Account Manager,10
+KPI004,SLA Compliance Rate,Service Delivery,98,Percent,Weekly,Work Order System,Below 95%,Lead Architect,10
+KPI005,Monthly Recurring Revenue (MRR),Financial,25000,USD,Monthly,Accounting System,Below 20000,CEO,10
+KPI006,Client Churn Rate,Financial,1,Percent,Monthly,CRM System,Above 3%,Account Manager,9
+KPI007,Automation Job Success Rate,Technical,99,Percent,Daily,Automation Logs,Below 97%,Systems Engineer,8
+KPI008,System Uptime,Technical,99.9,Percent,Daily,Monitoring System,Below 99.5%,Lead Architect,10
+KPI009,Invoice Processing Time,Operations,24,Hours,Weekly,Invoice System,Above 48 Hours,Operations Manager,7
+KPI010,Vendor SLA Compliance,Procurement,95,Percent,Monthly,Vendor Management System,Below 90%,Procurement Lead,8
+KPI011,Gross Profit Margin,Financial,65,Percent,Monthly,Accounting System,Below 55%,CFO,9
+KPI012,New Client Acquisition Rate,Sales,2,Clients per Month,Monthly,CRM System,Below 1,Sales Lead,9

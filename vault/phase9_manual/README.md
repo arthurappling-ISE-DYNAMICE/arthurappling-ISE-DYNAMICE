@@ -37,13 +37,13 @@ As Prime Pathwy grows, this vault must be continuously updated to reflect new op
 
 All new files added to the vault must comply with the strict **WAT Framework** naming conventions:
 
-- **Workflows (`/workflows`):** `WORKFLOW_[DOMAIN]_[VERSION].md`
+- **Workflows (`/workflows/`):** `WORKFLOW_[DOMAIN]_[VERSION].md`
   - *Example:* `WORKFLOW_DISPATCH_V1_2.md`
-- **Agents (`/agents`):** `AGENT_[ROLE]_[VERSION].md`
+- **Agents (`/agents/`):** `AGENT_[ROLE]_[VERSION].md`
   - *Example:* `AGENT_INGESTION_V1_0.md`
-- **Tools (`/tools`):** `TOOL_[FUNCTION]_[VERSION].py`
+- **Tools (`/tools/`):** `TOOL_[FUNCTION]_[VERSION].py`
   - *Example:* `TOOL_API_ENGINE_V1_1.py`
-- **Temporary Data (`/temporary`):** `TEMP_[DESCRIPTION]_[YYYYMMDD].csv`
+- **Temporary Data (`/temporary/`):** `TEMP_[DESCRIPTION]_[YYYYMMDD].[ext]`
   - *Example:* `TEMP_LEADS_20260529.csv`
 
 ### Vault Update Workflow
@@ -94,6 +94,29 @@ To ensure long-term data integrity and system reliability, system administrators
 - Perform a complete restore test from the latest ZFS snapshot to a staging server.
 - Update all system packages and security patches (`apt-get update && apt-get upgrade`).
 - Review system incident logs and update the troubleshooting playbook (**Phase 6**) with new findings.
+
+---
+
+## 5. GLOBAL SCALING & REVENUE OPTIMIZATION PROTOCOL
+
+Scaling the Sovereign System from a single regional operation to a multinational footprint requires standardized execution models and multi-tenant infrastructure.
+
+### Multi-Tenant Architecture Standard
+
+To support hundreds of clients on a single core system without data leakage, all database queries and API routes must enforce strict client isolation:
+
+- **Row-Level Security (RLS):** Enable PostgreSQL RLS on all core tables to restrict user access to their own `client_id` records.
+- **Isolated Vector Collections:** Create separate Qdrant vector collections or namespace partitions for each client's document vaults.
+- **Subdomain Routing:** Route traffic dynamically based on subdomain (e.g., `client1.primepathwy.com` maps to a specific client tenant context).
+
+### Global Scaling Phase Timeline
+
+| Phase | Milestone Objective | Target Headcount | Infrastructure Requirement | Financial Target |
+|---|---|---|---|---|
+| **Phase A (Local)** | Standardize local operations and secure first 5 Sovereign System clients. | 1-3 | Single dedicated server node (NVIDIA RTX 4090). | $15,000 MRR |
+| **Phase B (Regional)** | Acquire first regional competitor; migrate them to the Sovereign Engine. | 5-10 | Mirrored server nodes; ZFS replication. | $50,000 MRR |
+| **Phase C (National)** | Scale multi-tenant API to support 50+ facilities and logistics operators. | 15-25 | Distributed Kubernetes cluster (K3s); local GPU cluster. | $250,000 MRR |
+| **Phase D (Global)** | Open international operations; support multi-currency and localized compliance. | 50+ | Global CDN; multi-region PostgreSQL replication. | $1,000,000+ MRR |
 
 ---
 

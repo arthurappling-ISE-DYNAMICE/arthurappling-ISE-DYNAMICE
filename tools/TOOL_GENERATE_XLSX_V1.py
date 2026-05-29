@@ -2,9 +2,9 @@
 """
 TOOL_GENERATE_XLSX_V1.py
 Prime Pathwy Sovereign Intelligence Engine
-Generates formatted XLSX databases from CSV datasets.
+Generates formatted XLSX databases from all CSV datasets.
 Author: Arthur F. Appling Sr.
-Version: 1.0.0
+Version: 1.1.0
 """
 
 import os
@@ -20,8 +20,33 @@ DARK_GRAY = "1A1A1A"
 LIGHT_GRAY = "2C2C2C"
 WHITE = "FFFFFF"
 
-CSV_DIR = "/home/ubuntu/prime-pathwy-sovereign-vault/vault/phase8_datasets/csv"
-XLSX_DIR = "/home/ubuntu/prime-pathwy-sovereign-vault/vault/phase8_datasets/xlsx"
+CSV_SOURCES = [
+    {
+        "csv_path": "/home/ubuntu/prime-pathwy-sovereign-vault/vault/phase8_datasets/csv/procurement_intelligence.csv",
+        "xlsx_path": "/home/ubuntu/prime-pathwy-sovereign-vault/vault/phase8_datasets/xlsx/procurement_intelligence.xlsx",
+        "sheet_name": "Procurement Intelligence"
+    },
+    {
+        "csv_path": "/home/ubuntu/prime-pathwy-sovereign-vault/vault/phase8_datasets/csv/sovereign_system_pricing_tiers.csv",
+        "xlsx_path": "/home/ubuntu/prime-pathwy-sovereign-vault/vault/phase8_datasets/xlsx/sovereign_system_pricing_tiers.xlsx",
+        "sheet_name": "Pricing Tiers"
+    },
+    {
+        "csv_path": "/home/ubuntu/prime-pathwy-sovereign-vault/vault/phase8_datasets/csv/kpi_sla_performance_template.csv",
+        "xlsx_path": "/home/ubuntu/prime-pathwy-sovereign-vault/vault/phase8_datasets/xlsx/kpi_sla_performance_template.xlsx",
+        "sheet_name": "KPI & SLA Targets"
+    },
+    {
+        "csv_path": "/home/ubuntu/prime-pathwy-sovereign-vault/vault/phase7_knowledge_graph/csv/entity_adjacency_matrix.csv",
+        "xlsx_path": "/home/ubuntu/prime-pathwy-sovereign-vault/vault/phase8_datasets/xlsx/entity_adjacency_matrix.xlsx",
+        "sheet_name": "Entity Adjacency Matrix"
+    },
+    {
+        "csv_path": "/home/ubuntu/prime-pathwy-sovereign-vault/vault/phase7_knowledge_graph/csv/monetization_opportunity_map.csv",
+        "xlsx_path": "/home/ubuntu/prime-pathwy-sovereign-vault/vault/phase8_datasets/xlsx/monetization_opportunity_map.xlsx",
+        "sheet_name": "Monetization Opportunities"
+    }
+]
 
 def apply_header_style(ws, row_num, col_count):
     """Apply Matte Black + Gold header styling to a worksheet row."""
@@ -78,33 +103,21 @@ def csv_to_xlsx(csv_path, xlsx_path, sheet_name):
 
     # Freeze the header row
     ws.freeze_panes = "A2"
-
-    # Set worksheet background
     ws.sheet_view.showGridLines = False
 
     wb.save(xlsx_path)
     print(f"[SUCCESS] Generated: {xlsx_path}")
 
 def main():
-    os.makedirs(XLSX_DIR, exist_ok=True)
+    os.makedirs("/home/ubuntu/prime-pathwy-sovereign-vault/vault/phase8_datasets/xlsx", exist_ok=True)
 
-    csv_files = {
-        "procurement_intelligence.csv": "Procurement Intelligence",
-        "sovereign_system_pricing_tiers.csv": "Pricing Tiers",
-    }
-
-    for csv_filename, sheet_name in csv_files.items():
-        csv_path = os.path.join(CSV_DIR, csv_filename)
-        xlsx_filename = csv_filename.replace(".csv", ".xlsx")
-        xlsx_path = os.path.join(XLSX_DIR, xlsx_filename)
-
-        if os.path.exists(csv_path):
-            csv_to_xlsx(csv_path, xlsx_path, sheet_name)
+    for source in CSV_SOURCES:
+        if os.path.exists(source["csv_path"]):
+            csv_to_xlsx(source["csv_path"], source["xlsx_path"], source["sheet_name"])
         else:
-            print(f"[WARNING] CSV not found: {csv_path}")
+            print(f"[WARNING] CSV not found: {source['csv_path']}")
 
     print("\n[COMPLETE] All XLSX databases generated successfully.")
-    print(f"Output directory: {XLSX_DIR}")
 
 if __name__ == "__main__":
     main()

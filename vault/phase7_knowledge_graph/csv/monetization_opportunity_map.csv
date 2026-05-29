@@ -1,0 +1,9 @@
+opportunity_id,title,target_entity_type,entry_point,estimated_installation_fee_usd,estimated_mrr_usd,annual_contract_value_usd,barrier_to_entry,time_to_close_months,automation_displacement_score_1_10,saas_replacement_savings_annual_usd
+MON001,Municipal AI Modernization Contract,Municipal Government,SAM.gov / State Procurement Portal,50000,5000,110000,Medium,9,9,45000
+MON002,Commercial Facilities AI Operations Dashboard,Commercial Facilities Manager,Direct B2B / LinkedIn Outreach,10000,2500,40000,Low,3,8,32000
+MON003,Regional Logistics Dispatch Optimization,Regional Logistics Operator,RFP Response / Industry Events,25000,4000,73000,Medium,6,9,28000
+MON004,Healthcare Facility Compliance Automation,Healthcare Facilities Manager,Partner Referral / Direct B2B,35000,6000,107000,High,9,8,55000
+MON005,Commercial Janitorial AI Quality Control,Janitorial Service Operator,Acquisition / Direct B2B,5000,1500,23000,Low,2,7,18000
+MON006,Federal Infrastructure Reporting System,Federal Agency,SAM.gov / Prime Contractor Sub,100000,15000,280000,Very High,18,9,120000
+MON007,Fleet Telematics & Dispatch Optimization,Regional Fleet Operator,Cold Outreach / Free Pilot,15000,3000,51000,Low,4,8,24000
+MON008,Commercial Real Estate Vendor Management,REIT / Property Management Firm,Direct B2B / Portfolio Proposal,40000,7500,130000,Medium,6,8,60000

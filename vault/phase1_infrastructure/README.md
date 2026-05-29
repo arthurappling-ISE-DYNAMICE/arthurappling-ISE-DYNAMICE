@@ -25,6 +25,31 @@ Enterprise systems architecture requires rigorous operating system configuration
 | **PowerShell Security** | ExecutionPolicy & Logging | Set `ExecutionPolicy AllSigned`, enable Script Block Logging (Event ID 4104). | `Get-ExecutionPolicy` |
 | **Service Accounts** | Group Managed Service Accounts | Automate password rotation, scope privileges to minimum required. | `Get-ADServiceAccount` |
 
+### SSH Hardening Protocol
+
+Secure Shell (SSH) access must be hardened to prevent brute-force attacks and unauthorized intrusion.
+
+- **Port Obfuscation:** Move SSH from the default port `22` to a non-standard port (e.g., `2222`).
+- **Key-Based Authentication Only:** Explicitly disable password-based authentication.
+- **Root Login Restriction:** Disable direct root login; users must log in via standard accounts and escalate privileges via `sudo`.
+
+```ini
+# /etc/ssh/sshd_config Hardening Directive
+Port 2222
+Protocol 2
+PermitRootLogin no
+MaxAuthTries 3
+PubkeyAuthentication yes
+PasswordAuthentication no
+PermitEmptyPasswords no
+ChallengeResponseAuthentication no
+UsePAM yes
+X11Forwarding no
+AllowAgentForwarding no
+ClientAliveInterval 300
+ClientAliveCountMax 2
+```
+
 ---
 
 ## 2. NETWORKING, VLANS, & REVERSE PROXIES
@@ -271,6 +296,123 @@ Operational continuity requires structured recovery plans for infrastructure and
    # Restart PostgreSQL service
    sudo systemctl start postgresql
    ```
+
+---
+
+## 7. ENTERPRISE CONTAINERIZATION (DOCKER) & CI/CD PIPELINES
+
+Containerization ensures that development, staging, and production environments remain completely identical, eliminating "works on my machine" failure points.
+
+### Docker Compose Production Blueprint
+
+```yaml
+# /opt/prime-pathwy/docker-compose.prod.yml
+version: '3.8'
+
+services:
+  api_engine:
+    image: primepathwy/api_engine:latest
+    container_name: api_engine_prod
+    restart: always
+    environment:
+      - DATABASE_URL=postgresql://postgres:${DB_PASSWORD}@db_prod:5432/prime_pathwy_prod
+      - LOCAL_LLM_URL=http://ollama:11434
+    ports:
+      - "8000:8000"
+    volumes:
+      - /var/log/prime-pathwy:/var/log/prime-pathwy
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    depends_on:
+      - db_prod
+
+  db_prod:
+    image: postgres:14-alpine
+    container_name: postgres_prod
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=prime_pathwy_prod
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  db_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /mnt/storage/data
+```
+
+### GitHub Actions CI/CD Pipeline Specification
+
+To automate deployment and maintain institutional code standards, all pushes to the `main` branch must pass automated syntax checking, security audits, and Docker image builds.
+
+```yaml
+# .github/workflows/deploy.yml
+name: Sovereign CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  audit-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-node: '3.11'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8 black pytest safety
+
+      - name: Run Linter (Flake8)
+        run: flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+
+      - name: Run Code Formatter (Black)
+        run: black --check .
+
+      - name: Run Security Audit (Safety)
+        run: safety check
+
+  build-and-deploy:
+    needs: audit-and-test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Deploy to Sovereign Server via SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.PROD_HOST }}
+          username: ubuntu
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 2222
+          script: |
+            cd /opt/prime-pathwy
+            git pull origin main
+            docker-compose -f docker-compose.prod.yml up -d --build
+```
 
 ---
 

@@ -119,4 +119,26 @@ The ultimate goal of operational systems is to build highly predictable, recurri
 
 ---
 
+## 6. STAFFING & ESCALATION PROTOCOLS
+
+To handle complex technical issues and client disputes, the operations team must follow a strict, multi-tiered escalation matrix.
+
+### Operational Escalation Matrix
+
+```
+  [ TIER 1 SUPPORT ] ──► [ TIER 2 ENGINEER ] ──► [ TIER 3 ARCHITECT ] ──► [ EXECUTIVE ]
+  - General inquiries    - Complex routing       - Core infrastructure    - SLA breaches
+  - Basic scheduling     - Hardware errors       - Database failures      - Contract disputes
+  - SLA: < 2 Hours       - SLA: < 1 Hour         - SLA: < 30 Minutes      - SLA: Immediate
+```
+
+### SLA Escalation Path Specification
+
+1. **Tier 1 (Helpdesk):** Receives initial ticket. If unresolved within 15 minutes, or if it involves database access, it must be escalated to Tier 2.
+2. **Tier 2 (Systems Engineer):** Performs system diagnostics. If database corruption or server hardware failure is detected, the ticket must be escalated to Tier 3 within 10 minutes.
+3. **Tier 3 (Systems Architect):** Takes over system recovery. Executes playbooks defined in **Phase 6 (Troubleshooting)**.
+4. **Tier 4 (Executive):** Notified immediately if an incident exceeds 30 minutes of downtime, or if a client threatens a contract breach.
+
+---
+
 *Prime Pathwy Sovereign Operational Architecture Manual — Confidential Institutional Asset*

@@ -134,4 +134,43 @@ On 2026-05-29 at 14:22 UTC, the primary PostgreSQL database instance suffered a 
 
 ---
 
+## 6. GIT MERGE CONFLICT RESOLUTION & RECOVERY
+
+Git is the source of truth for all software, configuration, and documentation assets. Merge conflicts must be resolved systematically to prevent code regression or documentation loss.
+
+### Standard Conflict Resolution Protocol
+
+1. **Identify Conflicted Files:**
+   ```bash
+   git status
+   ```
+2. **Open the Conflicted File and Locate Markers:**
+   Git inserts markers indicating the differences between your branch and the incoming branch:
+   ```markdown
+   <<<<<<< HEAD
+   # Your local changes
+   =======
+   # Incoming changes from remote
+   >>>>>>> main
+   ```
+3. **Analyze and Resolve:** Discuss with the action owner if necessary. Choose the correct version or merge both. Remove the conflict markers (`<<<<<<<`, `=======`, `>>>>>>>`).
+4. **Test and Commit:** Verify the fix by running linter and test scripts before staging.
+   ```bash
+   git add resolved_file.py
+   git commit -m "fix: resolve merge conflict in resolved_file.py"
+   ```
+
+### Emergency Git Reset (Nuclear Option)
+
+If a local branch is completely corrupted and you need to match the remote main branch exactly:
+
+```bash
+# WARNING: This will destroy all uncommitted local changes
+git fetch origin
+git reset --hard origin/main
+git clean -fd
+```
+
+---
+
 *Prime Pathwy Sovereign Incident Response Playbook — Confidential Institutional Asset*

@@ -118,4 +118,18 @@ Sovereign System installations are structured to maximize recurring revenue and 
 
 ---
 
+## 6. SUBCONTRACTING & PARTNER ECOSYSTEMS
+
+To scale operations without proportional headcount growth, Prime Pathwy utilizes a leveraged subcontracting model.
+
+### Subcontractor Tiering Matrix
+
+| Tier | Classification | Core Competency | Contractual Relationship | Audit Frequency |
+|---|---|---|---|---|
+| **Tier 1** | Strategic Partners | High-ticket custom software and local AI deployments. | Master Services Agreement (MSA) + Statement of Work (SOW) | Bi-Annual Technical Audit |
+| **Tier 2** | Technical Specialists | Network cabling, server racking, and telematics hardware installation. | Independent Contractor Agreement | Project-by-Project Review |
+| **Tier 3** | Operational Support | Local field labor, cleaning staff, and physical maintenance. | Vendor Agreement | Monthly SLA Review |
+
+---
+
 *Prime Pathwy Sovereign B2B & B2G Acquisition Manual — Confidential Institutional Asset*

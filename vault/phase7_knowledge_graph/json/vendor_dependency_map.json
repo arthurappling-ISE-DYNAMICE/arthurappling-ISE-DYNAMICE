@@ -1,0 +1,24 @@
+{
+  "graph_metadata": {
+    "title": "Prime Pathwy Vendor Dependency Map",
+    "version": "1.0.0",
+    "created": "2026-05-29",
+    "author": "Arthur F. Appling Sr.",
+    "description": "Maps all vendor and technology dependencies with criticality ratings, alternatives, and risk scores for Prime Pathwy operations."
+  },
+  "vendors": [
+    {"id": "V001", "name": "NVIDIA", "category": "GPU Hardware", "criticality": "Critical", "risk_score": 9, "alternatives": ["AMD ROCm", "Intel Arc"], "monthly_cost_usd": 0, "contract_type": "One-Time Purchase"},
+    {"id": "V002", "name": "Ollama (Open Source)", "category": "LLM Inference", "criticality": "High", "risk_score": 7, "alternatives": ["vLLM", "LM Studio", "llama.cpp"], "monthly_cost_usd": 0, "contract_type": "Open Source"},
+    {"id": "V003", "name": "PostgreSQL (Open Source)", "category": "Relational Database", "criticality": "Critical", "risk_score": 8, "alternatives": ["MySQL", "SQLite", "CockroachDB"], "monthly_cost_usd": 0, "contract_type": "Open Source"},
+    {"id": "V004", "name": "Hetzner Cloud", "category": "Cloud Infrastructure", "criticality": "Medium", "risk_score": 5, "alternatives": ["DigitalOcean", "Vultr", "AWS"], "monthly_cost_usd": 45, "contract_type": "Monthly Subscription"},
+    {"id": "V005", "name": "GitHub", "category": "Version Control / CI/CD", "criticality": "High", "risk_score": 7, "alternatives": ["GitLab", "Gitea (Self-Hosted)"], "monthly_cost_usd": 4, "contract_type": "Monthly Subscription"},
+    {"id": "V006", "name": "Qdrant (Open Source)", "category": "Vector Database", "criticality": "Medium", "risk_score": 5, "alternatives": ["pgvector", "Weaviate", "Chroma"], "monthly_cost_usd": 0, "contract_type": "Open Source"},
+    {"id": "V007", "name": "Cloudflare", "category": "DNS / CDN / DDoS Protection", "criticality": "High", "risk_score": 6, "alternatives": ["AWS Route 53", "Self-Hosted DNS"], "monthly_cost_usd": 20, "contract_type": "Monthly Subscription"},
+    {"id": "V008", "name": "WireGuard (Open Source)", "category": "VPN / Secure Tunneling", "criticality": "High", "risk_score": 6, "alternatives": ["OpenVPN", "Tailscale"], "monthly_cost_usd": 0, "contract_type": "Open Source"}
+  ],
+  "dependency_rules": [
+    {"rule_id": "DR001", "rule": "Any vendor with criticality=Critical must have at least 2 documented alternatives and a tested failover procedure."},
+    {"rule_id": "DR002", "rule": "Any vendor with monthly_cost_usd > 100 must be reviewed quarterly for cost optimization."},
+    {"rule_id": "DR003", "rule": "Open source dependencies must be pinned to a specific version in all deployment manifests to prevent breaking changes."}
+  ]
+}
