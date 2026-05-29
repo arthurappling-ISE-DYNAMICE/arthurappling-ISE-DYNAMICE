@@ -1,0 +1,173 @@
+{
+  "graph_metadata": {
+    "title": "Prime Pathwy Sovereign Entity Relationship Graph",
+    "version": "1.0.0",
+    "created": "2026-05-29",
+    "author": "Arthur F. Appling Sr.",
+    "description": "Institutional-grade entity relationship graph mapping procurement ecosystems, vendor dependencies, ownership structures, and monetization opportunity nodes for Prime Pathwy."
+  },
+  "entities": [
+    {
+      "id": "E001",
+      "type": "Organization",
+      "name": "Prime Pathwy",
+      "category": "Sovereign Systems Integrator",
+      "tier": 1,
+      "revenue_model": "Sovereign System Installations + MRR",
+      "target_contract_value": "$5,000 - $250,000+"
+    },
+    {
+      "id": "E002",
+      "type": "Client",
+      "name": "Municipal Government (Generic)",
+      "category": "Government Procurement",
+      "tier": 2,
+      "procurement_system": "SAM.gov / State Portal",
+      "contract_cycle_months": 9,
+      "typical_value": "$25,000 - $500,000"
+    },
+    {
+      "id": "E003",
+      "type": "Client",
+      "name": "Commercial Facilities Manager",
+      "category": "Facilities Management",
+      "tier": 2,
+      "procurement_system": "Direct B2B",
+      "contract_cycle_months": 3,
+      "typical_value": "$5,000 - $100,000"
+    },
+    {
+      "id": "E004",
+      "type": "Client",
+      "name": "Regional Logistics Operator",
+      "category": "Logistics / Warehousing",
+      "tier": 2,
+      "procurement_system": "RFP / Direct B2B",
+      "contract_cycle_months": 6,
+      "typical_value": "$10,000 - $250,000"
+    },
+    {
+      "id": "E005",
+      "type": "Vendor",
+      "name": "Local GPU Infrastructure Provider",
+      "category": "Hardware Vendor",
+      "tier": 3,
+      "dependency_type": "Critical",
+      "alternatives": ["NVIDIA Partner Network", "Supermicro", "Lambda Labs"]
+    },
+    {
+      "id": "E006",
+      "type": "Vendor",
+      "name": "Open-Source LLM Community",
+      "category": "AI Model Provider",
+      "tier": 3,
+      "dependency_type": "Strategic",
+      "alternatives": ["Meta Llama", "Mistral AI", "Google Gemma"]
+    },
+    {
+      "id": "E007",
+      "type": "Vendor",
+      "name": "Cloud Infrastructure Provider",
+      "category": "Cloud Vendor",
+      "tier": 3,
+      "dependency_type": "Supplementary",
+      "alternatives": ["AWS", "Hetzner", "DigitalOcean"]
+    },
+    {
+      "id": "E008",
+      "type": "Acquisition Target",
+      "name": "Regional Janitorial Business",
+      "category": "Service Business Acquisition",
+      "tier": 2,
+      "annual_revenue_range": "$1M - $5M",
+      "ebitda_margin_target": "15%+",
+      "technology_state": "Low",
+      "acquisition_method": "SBA 7(a) + Seller Note"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "R001",
+      "source_entity": "E001",
+      "target_entity": "E002",
+      "relationship_type": "PROVIDES_SERVICE_TO",
+      "description": "Prime Pathwy delivers Sovereign System installations to municipal government clients.",
+      "value_flow": "Prime Pathwy → Client",
+      "revenue_type": "Installation + MRR"
+    },
+    {
+      "id": "R002",
+      "source_entity": "E001",
+      "target_entity": "E003",
+      "relationship_type": "PROVIDES_SERVICE_TO",
+      "description": "Prime Pathwy delivers AI-powered operations dashboards to commercial facilities managers.",
+      "value_flow": "Prime Pathwy → Client",
+      "revenue_type": "Installation + MRR"
+    },
+    {
+      "id": "R003",
+      "source_entity": "E001",
+      "target_entity": "E004",
+      "relationship_type": "PROVIDES_SERVICE_TO",
+      "description": "Prime Pathwy delivers dispatch optimization and fleet management systems to regional logistics operators.",
+      "value_flow": "Prime Pathwy → Client",
+      "revenue_type": "Installation + MRR"
+    },
+    {
+      "id": "R004",
+      "source_entity": "E001",
+      "target_entity": "E005",
+      "relationship_type": "DEPENDS_ON",
+      "description": "Prime Pathwy depends on GPU hardware vendors for local AI inference infrastructure.",
+      "value_flow": "Client → Prime Pathwy",
+      "dependency_criticality": "High"
+    },
+    {
+      "id": "R005",
+      "source_entity": "E001",
+      "target_entity": "E006",
+      "relationship_type": "DEPENDS_ON",
+      "description": "Prime Pathwy depends on open-source LLM providers for sovereign AI model deployments.",
+      "value_flow": "None (Open Source)",
+      "dependency_criticality": "High"
+    },
+    {
+      "id": "R006",
+      "source_entity": "E001",
+      "target_entity": "E008",
+      "relationship_type": "ACQUISITION_TARGET",
+      "description": "Prime Pathwy targets regional janitorial businesses for acquisition and AI modernization.",
+      "value_flow": "Prime Pathwy → Acquisition",
+      "acquisition_value_multiplier": "3x - 5x EBITDA"
+    }
+  ],
+  "monetization_opportunity_map": [
+    {
+      "opportunity_id": "MON001",
+      "title": "Municipal AI Modernization Contract",
+      "target_entity_type": "Municipal Government",
+      "entry_point": "SAM.gov / State Procurement Portal",
+      "estimated_contract_value": "$50,000 - $500,000",
+      "recurring_revenue_potential": "$3,000 - $15,000/month",
+      "barrier_to_entry": "Medium (UEI Registration, Insurance, NIST Compliance)"
+    },
+    {
+      "opportunity_id": "MON002",
+      "title": "Commercial Facilities AI Operations Dashboard",
+      "target_entity_type": "Commercial Facilities Manager",
+      "entry_point": "Direct B2B / LinkedIn Outreach",
+      "estimated_contract_value": "$5,000 - $50,000",
+      "recurring_revenue_potential": "$1,500 - $5,000/month",
+      "barrier_to_entry": "Low (Direct Sales, COI Required)"
+    },
+    {
+      "opportunity_id": "MON003",
+      "title": "Regional Logistics Dispatch Optimization",
+      "target_entity_type": "Regional Logistics Operator",
+      "entry_point": "RFP Response / Industry Events",
+      "estimated_contract_value": "$10,000 - $100,000",
+      "recurring_revenue_potential": "$2,000 - $8,000/month",
+      "barrier_to_entry": "Medium (Proof of Concept Required)"
+    }
+  ]
+}

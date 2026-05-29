@@ -1,0 +1,9 @@
+sector_id,sector_name,procurement_type,typical_contract_value_usd,contract_cycle_months,barrier_to_entry,key_compliance_requirements,ai_automation_opportunity_score_1_10,recurring_revenue_potential,primary_pain_point,prime_pathwy_entry_strategy
+SECT001,Municipal Government,Government RFP,250000,9,High,UEI Registration / NIST 800-171 / COI,9,High,Legacy systems and paper-based workflows,Register on SAM.gov; pursue small business set-aside contracts
+SECT002,Commercial Facilities Management,Direct B2B,35000,6,Low,COI / Business License,8,High,Vendor fragmentation and unoptimized scheduling,LinkedIn outreach to property managers; offer free operational audit
+SECT003,Regional Logistics / Warehousing,RFP / Direct B2B,75000,6,Medium,DOT Compliance / Insurance,9,High,Manual dispatch and paper-based inventory,Attend regional logistics conferences; demonstrate dispatch ROI calculator
+SECT004,Healthcare Facilities,Government / Commercial,150000,12,High,HIPAA / Joint Commission / COI,8,High,Compliance documentation and manual reporting,Partner with healthcare compliance consultants for referrals
+SECT005,Commercial Janitorial Services,Direct B2B / Acquisition,25000,3,Low,COI / Business License,7,Medium,Quality control and staff scheduling,Acquire underperforming regional operators; modernize with Sovereign Systems
+SECT006,Federal Infrastructure Contracts,Government RFP,500000,18,Very High,CAGE Code / Security Clearance / FAR Compliance,9,Very High,Outdated procurement and reporting systems,Pursue subcontracting relationships with prime contractors
+SECT007,Fleet & Transportation Management,Direct B2B,50000,6,Low,DOT Compliance / Insurance,8,High,Fuel waste and unoptimized routing,Cold outreach to regional fleet operators; offer free telematics pilot
+SECT008,Commercial Real Estate Management,Direct B2B,80000,12,Medium,COI / E&O Insurance,8,High,Disconnected vendor management systems,Target REITs and property management firms with portfolio-wide proposals

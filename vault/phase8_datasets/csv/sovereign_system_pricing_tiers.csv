@@ -1,0 +1,5 @@
+tier_id,tier_name,installation_fee_usd,monthly_retainer_usd,annual_contract_value_usd,included_features,target_client_profile,sla_response_time_hours,support_level
+TIER001,Sovereign Starter,5000,1500,23000,AI Dispatch Engine / Basic Operations Dashboard / Email Support,Small commercial facilities (1-5 locations),24,Standard Email
+TIER002,Sovereign Professional,15000,3000,51000,All Starter Features / Custom Workflow Automation / Vendor Management Portal / Priority Support,Mid-size logistics operators (5-20 locations),8,Priority Phone + Email
+TIER003,Sovereign Enterprise,50000,7500,140000,All Professional Features / Local LLM Deployment / Custom AI Agents / Dedicated Systems Architect / 24/7 Support,Large commercial facilities / Municipal Government (20+ locations),2,Dedicated Architect + 24/7 NOC
+TIER004,Sovereign Government,100000,15000,280000,All Enterprise Features / NIST 800-171 Compliance Package / FedRAMP-Ready Architecture / Quarterly Compliance Audits,Federal and State Government Agencies,1,Dedicated Federal Compliance Team

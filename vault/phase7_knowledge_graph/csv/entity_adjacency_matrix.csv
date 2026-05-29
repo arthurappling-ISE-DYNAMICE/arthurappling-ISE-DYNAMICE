@@ -1,0 +1,11 @@
+source_entity_id,source_entity_name,source_entity_type,target_entity_id,target_entity_name,target_entity_type,relationship_type,value_flow_direction,revenue_type,dependency_criticality,estimated_annual_value_usd
+E001,Prime Pathwy,Sovereign Systems Integrator,E002,Municipal Government,Government Client,PROVIDES_SERVICE_TO,Outbound,Installation + MRR,N/A,250000
+E001,Prime Pathwy,Sovereign Systems Integrator,E003,Commercial Facilities Manager,Commercial Client,PROVIDES_SERVICE_TO,Outbound,Installation + MRR,N/A,60000
+E001,Prime Pathwy,Sovereign Systems Integrator,E004,Regional Logistics Operator,Logistics Client,PROVIDES_SERVICE_TO,Outbound,Installation + MRR,N/A,96000
+E001,Prime Pathwy,Sovereign Systems Integrator,E005,GPU Infrastructure Provider,Hardware Vendor,DEPENDS_ON,Inbound,Capital Expenditure,High,15000
+E001,Prime Pathwy,Sovereign Systems Integrator,E006,Open-Source LLM Community,AI Model Provider,DEPENDS_ON,None,Open Source,High,0
+E001,Prime Pathwy,Sovereign Systems Integrator,E007,Cloud Infrastructure Provider,Cloud Vendor,DEPENDS_ON,Inbound,Monthly Subscription,Supplementary,3600
+E001,Prime Pathwy,Sovereign Systems Integrator,E008,Regional Janitorial Business,Acquisition Target,ACQUISITION_TARGET,Outbound,Capital Deployment,N/A,1500000
+E002,Municipal Government,Government Client,E001,Prime Pathwy,Sovereign Systems Integrator,CONTRACTS_WITH,Outbound,Contract Payment,N/A,250000
+E003,Commercial Facilities Manager,Commercial Client,E001,Prime Pathwy,Sovereign Systems Integrator,CONTRACTS_WITH,Outbound,Contract Payment,N/A,60000
+E004,Regional Logistics Operator,Logistics Client,E001,Prime Pathwy,Sovereign Systems Integrator,CONTRACTS_WITH,Outbound,Contract Payment,N/A,96000
