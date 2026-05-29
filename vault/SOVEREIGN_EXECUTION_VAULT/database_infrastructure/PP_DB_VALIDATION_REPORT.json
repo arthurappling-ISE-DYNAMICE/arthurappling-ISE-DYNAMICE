@@ -1,0 +1,42 @@
+{
+  "generated": "2026-05-29 12:00:58",
+  "database": "/home/ubuntu/sovereign-vault/vault/SOVEREIGN_EXECUTION_VAULT/database_infrastructure/PP_SOVEREIGN_VAULT.db",
+  "validation": {
+    "entities": {
+      "row_count": 2000,
+      "status": "OK"
+    },
+    "procurement_opportunities": {
+      "row_count": 3000,
+      "status": "OK"
+    },
+    "graph_nodes": {
+      "row_count": 2117,
+      "status": "OK"
+    },
+    "graph_edges": {
+      "row_count": 1948,
+      "status": "OK"
+    },
+    "outreach_log": {
+      "row_count": 0,
+      "status": "OK"
+    },
+    "contracts_won": {
+      "row_count": 0,
+      "status": "OK"
+    },
+    "ingestion_log": {
+      "row_count": 4,
+      "status": "OK"
+    },
+    "orphaned_edges": {
+      "count": 0,
+      "status": "OK"
+    },
+    "entities_missing_email": {
+      "count": 0,
+      "status": "OK"
+    }
+  }
+}
