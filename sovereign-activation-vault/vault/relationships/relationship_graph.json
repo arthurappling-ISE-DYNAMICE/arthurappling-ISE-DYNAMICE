@@ -1,0 +1,48 @@
+{
+    "nodes": [
+        {
+            "id": 1,
+            "label": "Apex Hauling & Logistics LLC",
+            "group": "Trucking & Logistics",
+            "scale": "$1.5M - $5.0M"
+        },
+        {
+            "id": 2,
+            "label": "Sovereign Facilities Management Group",
+            "group": "Janitorial & Facilities",
+            "scale": "$1.5M - $5.0M"
+        },
+        {
+            "id": 3,
+            "label": "Vanguard Industrial Warehousing",
+            "group": "Warehousing & Logistics",
+            "scale": "$1.5M - $5.0M"
+        },
+        {
+            "id": "Bay Area Air Quality Management District (BAAQMD)",
+            "label": "Bay Area Air Quality Management District (BAAQMD)",
+            "group": "Government Agency",
+            "scale": "N/A"
+        },
+        {
+            "id": "City of Vallejo Municipal Transit",
+            "label": "City of Vallejo Municipal Transit",
+            "group": "Government Agency",
+            "scale": "N/A"
+        },
+        {
+            "id": "Solano County Records & Information Services",
+            "label": "Solano County Records & Information Services",
+            "group": "Government Agency",
+            "scale": "N/A"
+        }
+    ],
+    "links": [
+        {
+            "source": 3,
+            "target": 1,
+            "type": "logistics_subcontractor",
+            "details": "Vanguard utilizes Apex for regional hauling dispatch."
+        }
+    ]
+}
