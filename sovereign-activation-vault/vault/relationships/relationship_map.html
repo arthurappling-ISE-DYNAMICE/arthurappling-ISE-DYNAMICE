@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prime Pathwy — Sovereign Relationship Map</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body {
+            background-color: #0B0B0B;
+            color: #FFFFFF;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            overflow: hidden;
+        }
+        #header {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+            border-left: 4px solid #C9A646;
+            padding-left: 15px;
+        }
+        h1 {
+            margin: 0;
+            font-size: 24px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #C9A646;
+        }
+        p {
+            margin: 5px 0 0 0;
+            font-size: 12px;
+            color: #888888;
+        }
+        .node {
+            stroke: #0B0B0B;
+            stroke-width: 2px;
+            cursor: pointer;
+        }
+        .link {
+            stroke: #444444;
+            stroke-opacity: 0.6;
+            stroke-width: 1.5px;
+        }
+        .label {
+            font-size: 10px;
+            fill: #DDDDDD;
+            pointer-events: none;
+            text-anchor: middle;
+        }
+        #tooltip {
+            position: absolute;
+            background-color: rgba(11, 11, 11, 0.9);
+            border: 1px solid #C9A646;
+            padding: 10px;
+            border-radius: 4px;
+            pointer-events: none;
+            font-size: 12px;
+            display: none;
+            color: #FFFFFF;
+            max-width: 250px;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1>Sovereign Relationship Map</h1>
+        <p>Prime Pathwy Network Intelligence & Ecosystem Graph</p>
+    </div>
+    <div id="tooltip"></div>
+    <svg width="100vw" height="100vh" id="graph"></svg>
+
+    <script>
+        const graphData = {
+            nodes: [
+    {
+        "id": 1,
+        "label": "Apex Hauling & Logistics LLC",
+        "group": "Trucking & Logistics",
+        "scale": "$1.5M - $5.0M"
+    },
+    {
+        "id": 2,
+        "label": "Sovereign Facilities Management Group",
+        "group": "Janitorial & Facilities",
+        "scale": "$1.5M - $5.0M"
+    },
+    {
+        "id": 3,
+        "label": "Vanguard Industrial Warehousing",
+        "group": "Warehousing & Logistics",
+        "scale": "$1.5M - $5.0M"
+    },
+    {
+        "id": "Bay Area Air Quality Management District (BAAQMD)",
+        "label": "Bay Area Air Quality Management District (BAAQMD)",
+        "group": "Government Agency",
+        "scale": "N/A"
+    },
+    {
+        "id": "City of Vallejo Municipal Transit",
+        "label": "City of Vallejo Municipal Transit",
+        "group": "Government Agency",
+        "scale": "N/A"
+    },
+    {
+        "id": "Solano County Records & Information Services",
+        "label": "Solano County Records & Information Services",
+        "group": "Government Agency",
+        "scale": "N/A"
+    }
+],
+            links: [
+    {
+        "source": 3,
+        "target": 1,
+        "type": "logistics_subcontractor",
+        "details": "Vanguard utilizes Apex for regional hauling dispatch."
+    }
+]
+        };
+
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+
+        const svg = d3.select("#graph")
+            .attr("width", width)
+            .attr("height", height);
+
+        const simulation = d3.forceSimulation(graphData.nodes)
+            .force("link", d3.forceLink(graphData.links).id(d => d.id).distance(150))
+            .force("charge", d3.forceManyBody().strength(-300))
+            .force("center", d3.forceCenter(width / 2, height / 2));
+
+        const link = svg.append("g")
+            .selectAll("line")
+            .data(graphData.links)
+            .enter().append("line")
+            .attr("class", "link")
+            .style("stroke", d => {
+                if (d.type === 'logistics_subcontractor') return '#C9A646';
+                if (d.type === 'incumbent_contractor') return '#4488ff';
+                return '#444444';
+            });
+
+        const node = svg.append("g")
+            .selectAll("circle")
+            .data(graphData.nodes)
+            .enter().append("circle")
+            .attr("class", "node")
+            .attr("r", d => d.group === 'Government Agency' ? 12 : 8)
+            .style("fill", d => {
+                if (d.group === 'Government Agency') return '#4488ff';
+                if (d.id === 1) return '#C9A646'; // Highlight primary
+                return '#888888';
+            })
+            .call(d3.drag()
+                .on("start", dragstarted)
+                .on("drag", dragged)
+                .on("end", dragended));
+
+        const label = svg.append("g")
+            .selectAll("text")
+            .data(graphData.nodes)
+            .enter().append("text")
+            .attr("class", "label")
+            .attr("dy", -15)
+            .text(d => d.label);
+
+        node.on("mouseover", function(event, d) {
+            const tooltip = d3.select("#tooltip");
+            tooltip.style("display", "block")
+                .html(`<strong>${d.label}</strong><br/>Group: ${d.group}<br/>Scale: ${d.scale}`)
+                .style("left", (event.pageX + 15) + "px")
+                .style("top", (event.pageY - 15) + "px");
+        }).on("mouseout", function() {
+            d3.select("#tooltip").style("display", "none");
+        });
+
+        simulation.on("tick", () => {
+            link
+                .attr("x1", d => d.source.x)
+                .attr("y1", d => d.source.y)
+                .attr("x2", d => d.target.x)
+                .attr("y2", d => d.target.y);
+
+            node
+                .attr("cx", d => d.x)
+                .attr("cy", d => d.y);
+
+            label
+                .attr("x", d => d.x)
+                .attr("y", d => d.y);
+        });
+
+        function dragstarted(event, d) {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+        }
+
+        function dragged(event, d) {
+            d.fx = event.x;
+            d.fy = event.y;
+        }
+
+        function dragended(event, d) {
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+        }
+    </script>
+</body>
+</html>

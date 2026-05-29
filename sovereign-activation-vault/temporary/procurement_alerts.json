@@ -1,0 +1,32 @@
+[
+    {
+        "issuing_agency": "Bay Area Air Quality Management District (BAAQMD)",
+        "contract_value": "$1,450,000",
+        "incumbent_vendor": "Legacy Fleet Services LLC",
+        "renewal_date": "2026-08-15",
+        "days_remaining": 77,
+        "pursuit_tier": "IMMEDIATE_PURSUIT",
+        "action_required": "Initiate NEPQ outreach. Prepare Sovereign System Modernization Proposal.",
+        "contact_info": "procurement@baaqmd.gov"
+    },
+    {
+        "issuing_agency": "City of Vallejo Municipal Transit",
+        "contract_value": "$850,000",
+        "incumbent_vendor": "Vallejo Hauling Corp",
+        "renewal_date": "2026-11-30",
+        "days_remaining": 184,
+        "pursuit_tier": "MONITORING_PHASE",
+        "action_required": "Monitor procurement portal for updates and pre-RFP releases.",
+        "contact_info": "contracts@cityofvallejo.net"
+    },
+    {
+        "issuing_agency": "Solano County Records & Information Services",
+        "contract_value": "$2,100,000",
+        "incumbent_vendor": "PaperArchivers Inc.",
+        "renewal_date": "2027-04-30",
+        "days_remaining": 335,
+        "pursuit_tier": "MONITORING_PHASE",
+        "action_required": "Monitor procurement portal for updates and pre-RFP releases.",
+        "contact_info": "records_procure@solanocounty.com"
+    }
+]
