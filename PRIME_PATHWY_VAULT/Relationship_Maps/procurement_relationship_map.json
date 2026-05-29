@@ -1,0 +1,181 @@
+{
+    "procurement_ecosystem": {
+        "name": "Federal Government Procurement Ecosystem",
+        "nodes": [
+            {
+                "id": "OMB",
+                "label": "Office of Management & Budget",
+                "group": "regulatory"
+            },
+            {
+                "id": "FAR",
+                "label": "FAR/DFARS Council",
+                "group": "regulatory"
+            },
+            {
+                "id": "SBA",
+                "label": "Small Business Administration",
+                "group": "regulatory"
+            },
+            {
+                "id": "GSA",
+                "label": "General Services Administration",
+                "group": "agency"
+            },
+            {
+                "id": "DoD",
+                "label": "Department of Defense",
+                "group": "agency"
+            },
+            {
+                "id": "VA",
+                "label": "Department of Veterans Affairs",
+                "group": "agency"
+            },
+            {
+                "id": "Prime_Pathwy",
+                "label": "Prime Pathwy",
+                "group": "contractor"
+            },
+            {
+                "id": "Sovereign_Systems",
+                "label": "Sovereign Systems",
+                "group": "product"
+            }
+        ],
+        "edges": [
+            {
+                "source": "OMB",
+                "target": "FAR",
+                "type": "governs"
+            },
+            {
+                "source": "FAR",
+                "target": "GSA",
+                "type": "regulates"
+            },
+            {
+                "source": "FAR",
+                "target": "DoD",
+                "type": "regulates"
+            },
+            {
+                "source": "SBA",
+                "target": "GSA",
+                "type": "facilitates_set_asides"
+            },
+            {
+                "source": "SBA",
+                "target": "DoD",
+                "type": "facilitates_set_asides"
+            },
+            {
+                "source": "Prime_Pathwy",
+                "target": "SBA",
+                "type": "certified_by"
+            },
+            {
+                "source": "Prime_Pathwy",
+                "target": "GSA",
+                "type": "bids_on"
+            },
+            {
+                "source": "Prime_Pathwy",
+                "target": "DoD",
+                "type": "bids_on"
+            },
+            {
+                "source": "Prime_Pathwy",
+                "target": "Sovereign_Systems",
+                "type": "delivers"
+            }
+        ]
+    },
+    "commercial_ecosystem": {
+        "name": "Commercial Real Estate & Logistics Ecosystem",
+        "nodes": [
+            {
+                "id": "Blackstone",
+                "label": "Blackstone Real Estate",
+                "group": "owner"
+            },
+            {
+                "id": "Prologis",
+                "label": "Prologis Inc.",
+                "group": "owner"
+            },
+            {
+                "id": "Equinix",
+                "label": "Equinix Data Centers",
+                "group": "owner"
+            },
+            {
+                "id": "CBRE",
+                "label": "CBRE Property Management",
+                "group": "manager"
+            },
+            {
+                "id": "JLL",
+                "label": "JLL Property Management",
+                "group": "manager"
+            },
+            {
+                "id": "ABM",
+                "label": "ABM Facilities Services",
+                "group": "vendor"
+            },
+            {
+                "id": "ISS",
+                "label": "ISS Cleaning & FM",
+                "group": "vendor"
+            },
+            {
+                "id": "Prime_Pathwy",
+                "label": "Prime Pathwy",
+                "group": "consultant"
+            },
+            {
+                "id": "Sovereign_Systems",
+                "label": "Sovereign Systems",
+                "group": "product"
+            }
+        ],
+        "edges": [
+            {
+                "source": "Blackstone",
+                "target": "CBRE",
+                "type": "hires_manager"
+            },
+            {
+                "source": "Prologis",
+                "target": "JLL",
+                "type": "hires_manager"
+            },
+            {
+                "source": "CBRE",
+                "target": "ABM",
+                "type": "subcontracts"
+            },
+            {
+                "source": "JLL",
+                "target": "ISS",
+                "type": "subcontracts"
+            },
+            {
+                "source": "Prime_Pathwy",
+                "target": "ABM",
+                "type": "automates_operations"
+            },
+            {
+                "source": "Prime_Pathwy",
+                "target": "ISS",
+                "type": "automates_operations"
+            },
+            {
+                "source": "Prime_Pathwy",
+                "target": "Sovereign_Systems",
+                "type": "installs"
+            }
+        ]
+    }
+}

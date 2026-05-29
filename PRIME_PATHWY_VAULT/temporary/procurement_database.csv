@@ -1,0 +1,11 @@
+ID,Agency,Contract Title,Scope,Est Value,Incumbent,NAICS,Renewal Window,Source Portal,Status
+P-001,DoD (Defense Logistics Agency),Military Apparel Supply,Supply of military textiles and uniforms,"$45,000,000",Cintas Corp,315220,18 months,SAM.gov,Active
+P-002,GSA (Public Buildings Service),Federal Building FM Services,Complete facilities support services,"$12,500,000",ABM Industries,561210,12 months,SAM.gov,Active
+P-003,Department of Energy,HQ Facilities Maintenance,Facilities support and preventive maintenance,"$8,400,000",CMI Management,561210,Expired (Nov 2025),SAM.gov,Under Review
+P-004,Department of State,Global Facilities O&M,Global facility operations and support,"$1,700,000,000",Multi-award IDIQ,561210,24 months,SAM.gov,Active
+P-005,National Archives (NARA),Records Digitization Services,Digitization of historical paper records,"$4,200,000",Apex Covantage,518210,6 months,SAM.gov,Active
+P-006,Department of Veterans Affairs,Medical Records Modernization,AI-assisted records management and digitization,"$15,000,000",Leidos Inc,541512,18 months,SAM.gov,Active
+P-007,GSA (Fleet Management),Federal Fleet Telematics,Fleet telematics and route optimization software,"$6,500,000",Samsara Inc,541511,12 months,SAM.gov,Active
+P-008,Dubai Government (GovProcurement),Business Consultancy Services,Management consulting and digital transformation,"$3,500,000",PwC Middle East,541611,Closing in 38 days,eSupply,Bidding Open
+P-009,Singapore GovTech,Smart Nation AI Modernization,AI-powered process automation for public services,"$8,200,000",NCS Group,541512,9 months,GeBIZ,Active
+P-010,Crown Commercial Service (UK),SME Professional Services Framework,Framework agreement for consulting services,"£15,000,000",Multi-vendor,541611,12 months,FTS,Active
