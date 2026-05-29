@@ -1,0 +1,6167 @@
+[
+  {
+    "parent": "Premier Facilities Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00008",
+        "name": "Premier Facilities Consulting",
+        "industry": "Janitorial & Facilities Maintenance",
+        "region": "Marin County",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "69"
+      }
+    ]
+  },
+  {
+    "parent": "CleanPro Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00012",
+        "name": "CleanPro Group",
+        "industry": "Janitorial & Facilities Maintenance",
+        "region": "West Midlands",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "41"
+      },
+      {
+        "entity_id": "ENT-00058",
+        "name": "CleanPro Systems",
+        "industry": "Janitorial & Facilities Maintenance",
+        "region": "West Midlands",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "66"
+      },
+      {
+        "entity_id": "ENT-00072",
+        "name": "CleanPro Systems",
+        "industry": "Janitorial & Facilities Maintenance",
+        "region": "Greater London",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "47"
+      },
+      {
+        "entity_id": "ENT-00096",
+        "name": "CleanPro Group",
+        "industry": "Janitorial & Facilities Maintenance",
+        "region": "Denver County",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "58"
+      }
+    ]
+  },
+  {
+    "parent": "Stellar Maintenance Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00013",
+        "name": "Stellar Maintenance Solutions",
+        "industry": "Janitorial & Facilities Maintenance",
+        "region": "Maricopa County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "99"
+      },
+      {
+        "entity_id": "ENT-00030",
+        "name": "Stellar Maintenance Co.",
+        "industry": "Janitorial & Facilities Maintenance",
+        "region": "Calgary Region",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "70"
+      },
+      {
+        "entity_id": "ENT-00051",
+        "name": "Stellar Maintenance Consulting",
+        "industry": "Janitorial & Facilities Maintenance",
+        "region": "Harris County",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "52"
+      },
+      {
+        "entity_id": "ENT-00085",
+        "name": "Stellar Maintenance Enterprises",
+        "industry": "Janitorial & Facilities Maintenance",
+        "region": "Cuyahoga County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "94"
+      }
+    ]
+  },
+  {
+    "parent": "ProClean Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00015",
+        "name": "ProClean Co.",
+        "industry": "Janitorial & Facilities Maintenance",
+        "region": "West Midlands",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "76"
+      },
+      {
+        "entity_id": "ENT-00062",
+        "name": "ProClean Industries",
+        "industry": "Janitorial & Facilities Maintenance",
+        "region": "Greater Toronto Area",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "74"
+      },
+      {
+        "entity_id": "ENT-00093",
+        "name": "ProClean Industries",
+        "industry": "Janitorial & Facilities Maintenance",
+        "region": "Solano County",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "68"
+      }
+    ]
+  },
+  {
+    "parent": "National Systems Group",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00019",
+        "name": "Apex Clean Systems",
+        "industry": "Janitorial & Facilities Maintenance",
+        "region": "Miami-Dade County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "97"
+      },
+      {
+        "entity_id": "ENT-00156",
+        "name": "Swift Haul Systems",
+        "industry": "Commercial Hauling & Debris Removal",
+        "region": "Miami-Dade County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "55"
+      },
+      {
+        "entity_id": "ENT-00165",
+        "name": "Swift Haul Systems",
+        "industry": "Commercial Hauling & Debris Removal",
+        "region": "Fulton County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "62"
+      },
+      {
+        "entity_id": "ENT-00177",
+        "name": "Delta Hauling Systems",
+        "industry": "Commercial Hauling & Debris Removal",
+        "region": "Calgary Region",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "43"
+      },
+      {
+        "entity_id": "ENT-00278",
+        "name": "Armor Paint Systems",
+        "industry": "Industrial Painting & Coatings",
+        "region": "Greater Sydney",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "43"
+      },
+      {
+        "entity_id": "ENT-00426",
+        "name": "Apex Records Systems",
+        "industry": "Records Management & Digitization",
+        "region": "West Midlands",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "43"
+      },
+      {
+        "entity_id": "ENT-00460",
+        "name": "Apex Records Systems",
+        "industry": "Records Management & Digitization",
+        "region": "Sacramento County",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "46"
+      },
+      {
+        "entity_id": "ENT-00501",
+        "name": "Nexus AI Systems",
+        "industry": "AI & Automation Consulting",
+        "region": "Sonoma County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "96"
+      },
+      {
+        "entity_id": "ENT-00530",
+        "name": "Vanguard Tech Systems",
+        "industry": "AI & Automation Consulting",
+        "region": "Miami-Dade County",
+        "revenue": "$100M+",
+        "ai_score": "93"
+      },
+      {
+        "entity_id": "ENT-00722",
+        "name": "Clarity Compliance Systems",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "Solano County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "78"
+      },
+      {
+        "entity_id": "ENT-00839",
+        "name": "Summit Security Systems",
+        "industry": "Security Services & Guard Staffing",
+        "region": "Marin County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "59"
+      },
+      {
+        "entity_id": "ENT-00857",
+        "name": "Apex Security Systems",
+        "industry": "Security Services & Guard Staffing",
+        "region": "Greater Toronto Area",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "49"
+      },
+      {
+        "entity_id": "ENT-00933",
+        "name": "Apex HVAC Systems",
+        "industry": "HVAC & Mechanical Services",
+        "region": "Greater Sydney",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "80"
+      },
+      {
+        "entity_id": "ENT-00987",
+        "name": "Delta Air Systems",
+        "industry": "HVAC & Mechanical Services",
+        "region": "Orange County",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "84"
+      },
+      {
+        "entity_id": "ENT-01053",
+        "name": "Precision Electric Systems",
+        "industry": "Electrical Contracting",
+        "region": "Miami-Dade County",
+        "revenue": "$100M+",
+        "ai_score": "60"
+      },
+      {
+        "entity_id": "ENT-01418",
+        "name": "ProBuild Systems",
+        "industry": "Construction & General Contracting",
+        "region": "Greater Toronto Area",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "57"
+      },
+      {
+        "entity_id": "ENT-01452",
+        "name": "Clarity Build Systems",
+        "industry": "Construction & General Contracting",
+        "region": "Greater Sydney",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "64"
+      },
+      {
+        "entity_id": "ENT-01730",
+        "name": "Precision Legal Systems",
+        "industry": "Legal & Compliance Services",
+        "region": "Harris County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "54"
+      },
+      {
+        "entity_id": "ENT-01770",
+        "name": "Vanguard Legal Systems",
+        "industry": "Legal & Compliance Services",
+        "region": "Sonoma County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "46"
+      },
+      {
+        "entity_id": "ENT-01794",
+        "name": "Clarity Compliance Systems",
+        "industry": "Legal & Compliance Services",
+        "region": "Sacramento County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "93"
+      },
+      {
+        "entity_id": "ENT-01836",
+        "name": "Titan Marketing Systems",
+        "industry": "Marketing & Digital Services",
+        "region": "Maricopa County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "65"
+      },
+      {
+        "entity_id": "ENT-01891",
+        "name": "Delta Media Systems",
+        "industry": "Marketing & Digital Services",
+        "region": "Greater Melbourne",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "58"
+      },
+      {
+        "entity_id": "ENT-01955",
+        "name": "Titan Medical Systems",
+        "industry": "Healthcare Facility Services",
+        "region": "Fulton County",
+        "revenue": "$100M+",
+        "ai_score": "71"
+      }
+    ]
+  },
+  {
+    "parent": "National Associates Group",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00037",
+        "name": "ProClean Associates",
+        "industry": "Janitorial & Facilities Maintenance",
+        "region": "Miami-Dade County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "76"
+      },
+      {
+        "entity_id": "ENT-00061",
+        "name": "Apex Clean Associates",
+        "industry": "Janitorial & Facilities Maintenance",
+        "region": "Greater Toronto Area",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "73"
+      },
+      {
+        "entity_id": "ENT-00103",
+        "name": "Titan Debris Associates",
+        "industry": "Commercial Hauling & Debris Removal",
+        "region": "Fulton County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "42"
+      },
+      {
+        "entity_id": "ENT-00166",
+        "name": "Titan Debris Associates",
+        "industry": "Commercial Hauling & Debris Removal",
+        "region": "Miami-Dade County",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "76"
+      },
+      {
+        "entity_id": "ENT-00181",
+        "name": "Vanguard Removal Associates",
+        "industry": "Commercial Hauling & Debris Removal",
+        "region": "Greater London",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "87"
+      },
+      {
+        "entity_id": "ENT-00199",
+        "name": "Iron Eagle Hauling Associates",
+        "industry": "Commercial Hauling & Debris Removal",
+        "region": "Denver County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "73"
+      },
+      {
+        "entity_id": "ENT-00218",
+        "name": "Precision Coatings Associates",
+        "industry": "Industrial Painting & Coatings",
+        "region": "Metro Vancouver",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "41"
+      },
+      {
+        "entity_id": "ENT-00234",
+        "name": "Shield Coatings Associates",
+        "industry": "Industrial Painting & Coatings",
+        "region": "Sonoma County",
+        "revenue": "$100M+",
+        "ai_score": "89"
+      },
+      {
+        "entity_id": "ENT-00297",
+        "name": "Vanguard Paint Associates",
+        "industry": "Industrial Painting & Coatings",
+        "region": "Cuyahoga County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "43"
+      },
+      {
+        "entity_id": "ENT-00334",
+        "name": "Swift Transport Associates",
+        "industry": "Fleet Logistics & Transportation",
+        "region": "Greater Toronto Area",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "44"
+      },
+      {
+        "entity_id": "ENT-00647",
+        "name": "Atlas IT Associates",
+        "industry": "IT Infrastructure & Managed Services",
+        "region": "Greater Sydney",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "75"
+      },
+      {
+        "entity_id": "ENT-00685",
+        "name": "ProNet Associates",
+        "industry": "IT Infrastructure & Managed Services",
+        "region": "Greater Sydney",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "75"
+      },
+      {
+        "entity_id": "ENT-00733",
+        "name": "Titan Remediation Associates",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "Greater London",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "45"
+      },
+      {
+        "entity_id": "ENT-00988",
+        "name": "Titan Mechanical Associates",
+        "industry": "HVAC & Mechanical Services",
+        "region": "Harris County",
+        "revenue": "$100M+",
+        "ai_score": "75"
+      },
+      {
+        "entity_id": "ENT-01235",
+        "name": "ProPest Associates",
+        "industry": "Pest Control & Sanitation",
+        "region": "Napa County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "78"
+      },
+      {
+        "entity_id": "ENT-01295",
+        "name": "Titan Sanitation Associates",
+        "industry": "Pest Control & Sanitation",
+        "region": "Napa County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "60"
+      },
+      {
+        "entity_id": "ENT-01314",
+        "name": "Vanguard Plumbing Associates",
+        "industry": "Plumbing & Water Systems",
+        "region": "Harris County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "57"
+      },
+      {
+        "entity_id": "ENT-01441",
+        "name": "Precision Construction Associates",
+        "industry": "Construction & General Contracting",
+        "region": "West Midlands",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "75"
+      },
+      {
+        "entity_id": "ENT-01455",
+        "name": "Apex Construction Associates",
+        "industry": "Construction & General Contracting",
+        "region": "San Francisco County",
+        "revenue": "$100M+",
+        "ai_score": "55"
+      },
+      {
+        "entity_id": "ENT-01553",
+        "name": "Clarity Workforce Associates",
+        "industry": "Staffing & Workforce Solutions",
+        "region": "Calgary Region",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "65"
+      },
+      {
+        "entity_id": "ENT-01712",
+        "name": "Vanguard Legal Associates",
+        "industry": "Legal & Compliance Services",
+        "region": "Cook County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "58"
+      },
+      {
+        "entity_id": "ENT-01746",
+        "name": "Precision Legal Associates",
+        "industry": "Legal & Compliance Services",
+        "region": "Los Angeles County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "64"
+      },
+      {
+        "entity_id": "ENT-01792",
+        "name": "Precision Legal Associates",
+        "industry": "Legal & Compliance Services",
+        "region": "Contra Costa County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "85"
+      },
+      {
+        "entity_id": "ENT-01838",
+        "name": "Vanguard Digital Associates",
+        "industry": "Marketing & Digital Services",
+        "region": "San Francisco County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "77"
+      },
+      {
+        "entity_id": "ENT-01850",
+        "name": "Clarity Digital Associates",
+        "industry": "Marketing & Digital Services",
+        "region": "Solano County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "56"
+      }
+    ]
+  },
+  {
+    "parent": "Spotless Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00039",
+        "name": "Spotless Corp.",
+        "industry": "Janitorial & Facilities Maintenance",
+        "region": "Sacramento County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "95"
+      }
+    ]
+  },
+  {
+    "parent": "National Corp. Group",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00047",
+        "name": "Apex Clean Corp.",
+        "industry": "Janitorial & Facilities Maintenance",
+        "region": "Sonoma County",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "59"
+      },
+      {
+        "entity_id": "ENT-00191",
+        "name": "Vanguard Removal Corp.",
+        "industry": "Commercial Hauling & Debris Removal",
+        "region": "Orange County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "56"
+      },
+      {
+        "entity_id": "ENT-00310",
+        "name": "Velocity Logistics Corp.",
+        "industry": "Fleet Logistics & Transportation",
+        "region": "Solano County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "94"
+      },
+      {
+        "entity_id": "ENT-00319",
+        "name": "Apex Transport Corp.",
+        "industry": "Fleet Logistics & Transportation",
+        "region": "Los Angeles County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "56"
+      },
+      {
+        "entity_id": "ENT-00368",
+        "name": "Patriot Logistics Corp.",
+        "industry": "Fleet Logistics & Transportation",
+        "region": "Miami-Dade County",
+        "revenue": "$100M+",
+        "ai_score": "51"
+      },
+      {
+        "entity_id": "ENT-00397",
+        "name": "Patriot Logistics Corp.",
+        "industry": "Fleet Logistics & Transportation",
+        "region": "Sacramento County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "97"
+      },
+      {
+        "entity_id": "ENT-00413",
+        "name": "Clarity Archives Corp.",
+        "industry": "Records Management & Digitization",
+        "region": "Solano County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "48"
+      },
+      {
+        "entity_id": "ENT-00621",
+        "name": "Summit Tech Corp.",
+        "industry": "IT Infrastructure & Managed Services",
+        "region": "Metro Vancouver",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "80"
+      },
+      {
+        "entity_id": "ENT-00691",
+        "name": "ProNet Corp.",
+        "industry": "IT Infrastructure & Managed Services",
+        "region": "Sonoma County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "62"
+      },
+      {
+        "entity_id": "ENT-00706",
+        "name": "Titan Remediation Corp.",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "Denver County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "42"
+      },
+      {
+        "entity_id": "ENT-00713",
+        "name": "EcoShield Corp.",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "Alameda County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "56"
+      },
+      {
+        "entity_id": "ENT-00882",
+        "name": "Vanguard Security Corp.",
+        "industry": "Security Services & Guard Staffing",
+        "region": "Wayne County",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "88"
+      },
+      {
+        "entity_id": "ENT-00891",
+        "name": "Summit Security Corp.",
+        "industry": "Security Services & Guard Staffing",
+        "region": "Sacramento County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "99"
+      },
+      {
+        "entity_id": "ENT-00993",
+        "name": "Clarity HVAC Corp.",
+        "industry": "HVAC & Mechanical Services",
+        "region": "Contra Costa County",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "57"
+      },
+      {
+        "entity_id": "ENT-01037",
+        "name": "Delta Power Corp.",
+        "industry": "Electrical Contracting",
+        "region": "Marin County",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "68"
+      },
+      {
+        "entity_id": "ENT-01101",
+        "name": "Titan Landscaping Corp.",
+        "industry": "Landscaping & Grounds Maintenance",
+        "region": "Orange County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "83"
+      },
+      {
+        "entity_id": "ENT-01133",
+        "name": "Vanguard Grounds Corp.",
+        "industry": "Landscaping & Grounds Maintenance",
+        "region": "Maricopa County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "89"
+      },
+      {
+        "entity_id": "ENT-01145",
+        "name": "Precision Landscaping Corp.",
+        "industry": "Landscaping & Grounds Maintenance",
+        "region": "Solano County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "52"
+      },
+      {
+        "entity_id": "ENT-01219",
+        "name": "Guardian Pest Corp.",
+        "industry": "Pest Control & Sanitation",
+        "region": "Miami-Dade County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "62"
+      },
+      {
+        "entity_id": "ENT-01277",
+        "name": "Precision Pest Corp.",
+        "industry": "Pest Control & Sanitation",
+        "region": "Napa County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "70"
+      },
+      {
+        "entity_id": "ENT-01476",
+        "name": "Precision Construction Corp.",
+        "industry": "Construction & General Contracting",
+        "region": "Sonoma County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "89"
+      },
+      {
+        "entity_id": "ENT-01511",
+        "name": "Apex Staffing Corp.",
+        "industry": "Staffing & Workforce Solutions",
+        "region": "Denver County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "44"
+      },
+      {
+        "entity_id": "ENT-01515",
+        "name": "ProStaff Corp.",
+        "industry": "Staffing & Workforce Solutions",
+        "region": "Metro Vancouver",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "60"
+      },
+      {
+        "entity_id": "ENT-01550",
+        "name": "Atlas Staffing Corp.",
+        "industry": "Staffing & Workforce Solutions",
+        "region": "Miami-Dade County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "89"
+      },
+      {
+        "entity_id": "ENT-01619",
+        "name": "Summit Accounting Corp.",
+        "industry": "Accounting & Financial Services",
+        "region": "San Francisco County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "92"
+      },
+      {
+        "entity_id": "ENT-01628",
+        "name": "Summit Accounting Corp.",
+        "industry": "Accounting & Financial Services",
+        "region": "Greater London",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "90"
+      },
+      {
+        "entity_id": "ENT-01653",
+        "name": "Clarity Financial Corp.",
+        "industry": "Accounting & Financial Services",
+        "region": "Harris County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "46"
+      },
+      {
+        "entity_id": "ENT-01673",
+        "name": "ProFinance Corp.",
+        "industry": "Accounting & Financial Services",
+        "region": "Cook County",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "61"
+      },
+      {
+        "entity_id": "ENT-01690",
+        "name": "Delta Finance Corp.",
+        "industry": "Accounting & Financial Services",
+        "region": "Fulton County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "41"
+      },
+      {
+        "entity_id": "ENT-01699",
+        "name": "Precision Accounting Corp.",
+        "industry": "Accounting & Financial Services",
+        "region": "San Francisco County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "68"
+      },
+      {
+        "entity_id": "ENT-01817",
+        "name": "Delta Media Corp.",
+        "industry": "Marketing & Digital Services",
+        "region": "Orange County",
+        "revenue": "$100M+",
+        "ai_score": "66"
+      },
+      {
+        "entity_id": "ENT-01954",
+        "name": "Apex Healthcare Corp.",
+        "industry": "Healthcare Facility Services",
+        "region": "Harris County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "76"
+      },
+      {
+        "entity_id": "ENT-01971",
+        "name": "Precision Medical Corp.",
+        "industry": "Healthcare Facility Services",
+        "region": "San Francisco County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "43"
+      },
+      {
+        "entity_id": "ENT-01980",
+        "name": "Clarity Healthcare Corp.",
+        "industry": "Healthcare Facility Services",
+        "region": "Miami-Dade County",
+        "revenue": "$100M+",
+        "ai_score": "45"
+      }
+    ]
+  },
+  {
+    "parent": "National Enterprises Group",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00048",
+        "name": "BrightStar Enterprises",
+        "industry": "Janitorial & Facilities Maintenance",
+        "region": "Greater Melbourne",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "68"
+      },
+      {
+        "entity_id": "ENT-00097",
+        "name": "Elite Janitorial Enterprises",
+        "industry": "Janitorial & Facilities Maintenance",
+        "region": "Contra Costa County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "50"
+      },
+      {
+        "entity_id": "ENT-00099",
+        "name": "Spotless Enterprises",
+        "industry": "Janitorial & Facilities Maintenance",
+        "region": "Metro Vancouver",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "69"
+      },
+      {
+        "entity_id": "ENT-00214",
+        "name": "Vanguard Paint Enterprises",
+        "industry": "Industrial Painting & Coatings",
+        "region": "Fulton County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "55"
+      },
+      {
+        "entity_id": "ENT-00227",
+        "name": "Apex Painting Enterprises",
+        "industry": "Industrial Painting & Coatings",
+        "region": "King County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "75"
+      },
+      {
+        "entity_id": "ENT-00261",
+        "name": "Titan Coatings Enterprises",
+        "industry": "Industrial Painting & Coatings",
+        "region": "Harris County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "61"
+      },
+      {
+        "entity_id": "ENT-00335",
+        "name": "Swift Transport Enterprises",
+        "industry": "Fleet Logistics & Transportation",
+        "region": "Greater Sydney",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "41"
+      },
+      {
+        "entity_id": "ENT-00360",
+        "name": "Summit Freight Enterprises",
+        "industry": "Fleet Logistics & Transportation",
+        "region": "San Francisco County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "55"
+      },
+      {
+        "entity_id": "ENT-00372",
+        "name": "Atlas Transport Enterprises",
+        "industry": "Fleet Logistics & Transportation",
+        "region": "Metro Vancouver",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "55"
+      },
+      {
+        "entity_id": "ENT-00421",
+        "name": "Clarity Archives Enterprises",
+        "industry": "Records Management & Digitization",
+        "region": "Harris County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "75"
+      },
+      {
+        "entity_id": "ENT-00489",
+        "name": "Apex Records Enterprises",
+        "industry": "Records Management & Digitization",
+        "region": "Miami-Dade County",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "74"
+      },
+      {
+        "entity_id": "ENT-00564",
+        "name": "Nexus AI Enterprises",
+        "industry": "AI & Automation Consulting",
+        "region": "San Francisco County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "45"
+      },
+      {
+        "entity_id": "ENT-00567",
+        "name": "Titan AI Enterprises",
+        "industry": "AI & Automation Consulting",
+        "region": "Contra Costa County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "88"
+      },
+      {
+        "entity_id": "ENT-00644",
+        "name": "Fortress Systems Enterprises",
+        "industry": "IT Infrastructure & Managed Services",
+        "region": "Los Angeles County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "44"
+      },
+      {
+        "entity_id": "ENT-00726",
+        "name": "Vanguard Compliance Enterprises",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "Greater Sydney",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "68"
+      },
+      {
+        "entity_id": "ENT-00784",
+        "name": "ProEnviro Enterprises",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "Alameda County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "53"
+      },
+      {
+        "entity_id": "ENT-00806",
+        "name": "ProShield Enterprises",
+        "industry": "Security Services & Guard Staffing",
+        "region": "Wayne County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "92"
+      },
+      {
+        "entity_id": "ENT-00823",
+        "name": "Patriot Security Enterprises",
+        "industry": "Security Services & Guard Staffing",
+        "region": "Calgary Region",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "80"
+      },
+      {
+        "entity_id": "ENT-00884",
+        "name": "Atlas Guard Enterprises",
+        "industry": "Security Services & Guard Staffing",
+        "region": "Greater London",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "50"
+      },
+      {
+        "entity_id": "ENT-00907",
+        "name": "Titan Mechanical Enterprises",
+        "industry": "HVAC & Mechanical Services",
+        "region": "San Diego County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "40"
+      },
+      {
+        "entity_id": "ENT-00917",
+        "name": "Clarity HVAC Enterprises",
+        "industry": "HVAC & Mechanical Services",
+        "region": "Sonoma County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "98"
+      },
+      {
+        "entity_id": "ENT-01051",
+        "name": "Vanguard Electric Enterprises",
+        "industry": "Electrical Contracting",
+        "region": "Cook County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "51"
+      },
+      {
+        "entity_id": "ENT-01085",
+        "name": "Titan Electrical Enterprises",
+        "industry": "Electrical Contracting",
+        "region": "Cook County",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "92"
+      },
+      {
+        "entity_id": "ENT-01116",
+        "name": "Atlas Grounds Enterprises",
+        "industry": "Landscaping & Grounds Maintenance",
+        "region": "Marin County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "77"
+      },
+      {
+        "entity_id": "ENT-01195",
+        "name": "Summit Landscaping Enterprises",
+        "industry": "Landscaping & Grounds Maintenance",
+        "region": "Greater Sydney",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "43"
+      },
+      {
+        "entity_id": "ENT-01198",
+        "name": "Apex Grounds Enterprises",
+        "industry": "Landscaping & Grounds Maintenance",
+        "region": "Cook County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "76"
+      },
+      {
+        "entity_id": "ENT-01223",
+        "name": "Apex Pest Enterprises",
+        "industry": "Pest Control & Sanitation",
+        "region": "Greater London",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "53"
+      },
+      {
+        "entity_id": "ENT-01301",
+        "name": "ProFlow Enterprises",
+        "industry": "Plumbing & Water Systems",
+        "region": "Cook County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "57"
+      },
+      {
+        "entity_id": "ENT-01366",
+        "name": "Vanguard Plumbing Enterprises",
+        "industry": "Plumbing & Water Systems",
+        "region": "Cook County",
+        "revenue": "$100M+",
+        "ai_score": "59"
+      },
+      {
+        "entity_id": "ENT-01408",
+        "name": "Vanguard Construction Enterprises",
+        "industry": "Construction & General Contracting",
+        "region": "Greater Sydney",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "77"
+      },
+      {
+        "entity_id": "ENT-01411",
+        "name": "Clarity Build Enterprises",
+        "industry": "Construction & General Contracting",
+        "region": "Greater Sydney",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "42"
+      },
+      {
+        "entity_id": "ENT-01564",
+        "name": "Precision Staffing Enterprises",
+        "industry": "Staffing & Workforce Solutions",
+        "region": "Alameda County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "76"
+      },
+      {
+        "entity_id": "ENT-01584",
+        "name": "Apex Staffing Enterprises",
+        "industry": "Staffing & Workforce Solutions",
+        "region": "West Midlands",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "82"
+      },
+      {
+        "entity_id": "ENT-01588",
+        "name": "Atlas Staffing Enterprises",
+        "industry": "Staffing & Workforce Solutions",
+        "region": "Contra Costa County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "63"
+      },
+      {
+        "entity_id": "ENT-01657",
+        "name": "Titan Accounting Enterprises",
+        "industry": "Accounting & Financial Services",
+        "region": "Solano County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "57"
+      },
+      {
+        "entity_id": "ENT-01736",
+        "name": "Clarity Compliance Enterprises",
+        "industry": "Legal & Compliance Services",
+        "region": "Orange County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "66"
+      },
+      {
+        "entity_id": "ENT-01769",
+        "name": "Summit Compliance Enterprises",
+        "industry": "Legal & Compliance Services",
+        "region": "Greater Sydney",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "96"
+      },
+      {
+        "entity_id": "ENT-01935",
+        "name": "Summit Medical Enterprises",
+        "industry": "Healthcare Facility Services",
+        "region": "Napa County",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "54"
+      }
+    ]
+  },
+  {
+    "parent": "National Solutions Group",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00063",
+        "name": "Elite Janitorial Solutions",
+        "industry": "Janitorial & Facilities Maintenance",
+        "region": "Greater Melbourne",
+        "revenue": "$100M+",
+        "ai_score": "53"
+      },
+      {
+        "entity_id": "ENT-00128",
+        "name": "Summit Debris Solutions",
+        "industry": "Commercial Hauling & Debris Removal",
+        "region": "Alameda County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "84"
+      },
+      {
+        "entity_id": "ENT-00279",
+        "name": "Fortress Coatings Solutions",
+        "industry": "Industrial Painting & Coatings",
+        "region": "Sacramento County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "75"
+      },
+      {
+        "entity_id": "ENT-00438",
+        "name": "Vanguard Records Solutions",
+        "industry": "Records Management & Digitization",
+        "region": "Napa County",
+        "revenue": "$100M+",
+        "ai_score": "42"
+      },
+      {
+        "entity_id": "ENT-00641",
+        "name": "Clarity Networks Solutions",
+        "industry": "IT Infrastructure & Managed Services",
+        "region": "Los Angeles County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "66"
+      },
+      {
+        "entity_id": "ENT-00670",
+        "name": "Atlas IT Solutions",
+        "industry": "IT Infrastructure & Managed Services",
+        "region": "Cook County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "66"
+      },
+      {
+        "entity_id": "ENT-00716",
+        "name": "Titan Remediation Solutions",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "Greater Toronto Area",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "64"
+      },
+      {
+        "entity_id": "ENT-00748",
+        "name": "Atlas Remediation Solutions",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "Greater Toronto Area",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "54"
+      },
+      {
+        "entity_id": "ENT-00799",
+        "name": "Delta Enviro Solutions",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "Sonoma County",
+        "revenue": "$100M+",
+        "ai_score": "87"
+      },
+      {
+        "entity_id": "ENT-00841",
+        "name": "Delta Security Solutions",
+        "industry": "Security Services & Guard Staffing",
+        "region": "Cuyahoga County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "44"
+      },
+      {
+        "entity_id": "ENT-00937",
+        "name": "Titan Mechanical Solutions",
+        "industry": "HVAC & Mechanical Services",
+        "region": "Alameda County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "44"
+      },
+      {
+        "entity_id": "ENT-01036",
+        "name": "ProVolt Solutions",
+        "industry": "Electrical Contracting",
+        "region": "Sacramento County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "44"
+      },
+      {
+        "entity_id": "ENT-01146",
+        "name": "Titan Landscaping Solutions",
+        "industry": "Landscaping & Grounds Maintenance",
+        "region": "Contra Costa County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "96"
+      },
+      {
+        "entity_id": "ENT-01163",
+        "name": "ProGreen Solutions",
+        "industry": "Landscaping & Grounds Maintenance",
+        "region": "King County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "84"
+      },
+      {
+        "entity_id": "ENT-01196",
+        "name": "Summit Landscaping Solutions",
+        "industry": "Landscaping & Grounds Maintenance",
+        "region": "Napa County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "94"
+      },
+      {
+        "entity_id": "ENT-01197",
+        "name": "ProGreen Solutions",
+        "industry": "Landscaping & Grounds Maintenance",
+        "region": "Cook County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "84"
+      },
+      {
+        "entity_id": "ENT-01220",
+        "name": "Vanguard Pest Solutions",
+        "industry": "Pest Control & Sanitation",
+        "region": "Los Angeles County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "40"
+      },
+      {
+        "entity_id": "ENT-01405",
+        "name": "Summit Build Solutions",
+        "industry": "Construction & General Contracting",
+        "region": "Los Angeles County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "68"
+      },
+      {
+        "entity_id": "ENT-01470",
+        "name": "Delta Build Solutions",
+        "industry": "Construction & General Contracting",
+        "region": "Miami-Dade County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "90"
+      },
+      {
+        "entity_id": "ENT-01495",
+        "name": "Delta Build Solutions",
+        "industry": "Construction & General Contracting",
+        "region": "San Diego County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "68"
+      },
+      {
+        "entity_id": "ENT-01565",
+        "name": "Apex Staffing Solutions",
+        "industry": "Staffing & Workforce Solutions",
+        "region": "Sacramento County",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "65"
+      },
+      {
+        "entity_id": "ENT-01665",
+        "name": "Delta Finance Solutions",
+        "industry": "Accounting & Financial Services",
+        "region": "Contra Costa County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "88"
+      },
+      {
+        "entity_id": "ENT-01667",
+        "name": "ProFinance Solutions",
+        "industry": "Accounting & Financial Services",
+        "region": "Greater London",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "78"
+      },
+      {
+        "entity_id": "ENT-01957",
+        "name": "Vanguard Healthcare Solutions",
+        "industry": "Healthcare Facility Services",
+        "region": "West Midlands",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "60"
+      }
+    ]
+  },
+  {
+    "parent": "National Co. Group",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00070",
+        "name": "BrightStar Co.",
+        "industry": "Janitorial & Facilities Maintenance",
+        "region": "Contra Costa County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "80"
+      },
+      {
+        "entity_id": "ENT-00086",
+        "name": "BrightStar Co.",
+        "industry": "Janitorial & Facilities Maintenance",
+        "region": "Marin County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "98"
+      },
+      {
+        "entity_id": "ENT-00087",
+        "name": "Premier Facilities Co.",
+        "industry": "Janitorial & Facilities Maintenance",
+        "region": "Sacramento County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "60"
+      },
+      {
+        "entity_id": "ENT-00147",
+        "name": "Swift Haul Co.",
+        "industry": "Commercial Hauling & Debris Removal",
+        "region": "Solano County",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "76"
+      },
+      {
+        "entity_id": "ENT-00148",
+        "name": "Patriot Hauling Co.",
+        "industry": "Commercial Hauling & Debris Removal",
+        "region": "Greater London",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "73"
+      },
+      {
+        "entity_id": "ENT-00196",
+        "name": "Swift Haul Co.",
+        "industry": "Commercial Hauling & Debris Removal",
+        "region": "Los Angeles County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "55"
+      },
+      {
+        "entity_id": "ENT-00348",
+        "name": "Titan Fleet Co.",
+        "industry": "Fleet Logistics & Transportation",
+        "region": "Alameda County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "44"
+      },
+      {
+        "entity_id": "ENT-00479",
+        "name": "Summit Digitization Co.",
+        "industry": "Records Management & Digitization",
+        "region": "San Francisco County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "97"
+      },
+      {
+        "entity_id": "ENT-00572",
+        "name": "Quantum Systems Co.",
+        "industry": "AI & Automation Consulting",
+        "region": "Wayne County",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "88"
+      },
+      {
+        "entity_id": "ENT-00627",
+        "name": "Clarity Networks Co.",
+        "industry": "IT Infrastructure & Managed Services",
+        "region": "Calgary Region",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "54"
+      },
+      {
+        "entity_id": "ENT-00653",
+        "name": "ProNet Co.",
+        "industry": "IT Infrastructure & Managed Services",
+        "region": "Calgary Region",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "42"
+      },
+      {
+        "entity_id": "ENT-00812",
+        "name": "Summit Security Co.",
+        "industry": "Security Services & Guard Staffing",
+        "region": "Greater Toronto Area",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "92"
+      },
+      {
+        "entity_id": "ENT-01066",
+        "name": "Guardian Power Co.",
+        "industry": "Electrical Contracting",
+        "region": "Calgary Region",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "70"
+      },
+      {
+        "entity_id": "ENT-01174",
+        "name": "Apex Grounds Co.",
+        "industry": "Landscaping & Grounds Maintenance",
+        "region": "Greater London",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "40"
+      },
+      {
+        "entity_id": "ENT-01379",
+        "name": "Clarity Water Co.",
+        "industry": "Plumbing & Water Systems",
+        "region": "Greater Melbourne",
+        "revenue": "$100M+",
+        "ai_score": "75"
+      },
+      {
+        "entity_id": "ENT-01384",
+        "name": "Summit Water Co.",
+        "industry": "Plumbing & Water Systems",
+        "region": "Wayne County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "44"
+      },
+      {
+        "entity_id": "ENT-01532",
+        "name": "ProStaff Co.",
+        "industry": "Staffing & Workforce Solutions",
+        "region": "Orange County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "86"
+      },
+      {
+        "entity_id": "ENT-01599",
+        "name": "Clarity Workforce Co.",
+        "industry": "Staffing & Workforce Solutions",
+        "region": "Miami-Dade County",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "57"
+      },
+      {
+        "entity_id": "ENT-01693",
+        "name": "ProFinance Co.",
+        "industry": "Accounting & Financial Services",
+        "region": "West Midlands",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "49"
+      },
+      {
+        "entity_id": "ENT-01714",
+        "name": "Delta Compliance Co.",
+        "industry": "Legal & Compliance Services",
+        "region": "Wayne County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "86"
+      },
+      {
+        "entity_id": "ENT-01731",
+        "name": "ProLegal Co.",
+        "industry": "Legal & Compliance Services",
+        "region": "Sonoma County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "70"
+      },
+      {
+        "entity_id": "ENT-01808",
+        "name": "Guardian Marketing Co.",
+        "industry": "Marketing & Digital Services",
+        "region": "Greater Sydney",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "43"
+      },
+      {
+        "entity_id": "ENT-01910",
+        "name": "Precision Medical Co.",
+        "industry": "Healthcare Facility Services",
+        "region": "Contra Costa County",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "50"
+      }
+    ]
+  },
+  {
+    "parent": "National Consulting Group",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00077",
+        "name": "Pristine Consulting",
+        "industry": "Janitorial & Facilities Maintenance",
+        "region": "Miami-Dade County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "94"
+      },
+      {
+        "entity_id": "ENT-00288",
+        "name": "Fortress Coatings Consulting",
+        "industry": "Industrial Painting & Coatings",
+        "region": "Cook County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "64"
+      },
+      {
+        "entity_id": "ENT-00400",
+        "name": "Apex Transport Consulting",
+        "industry": "Fleet Logistics & Transportation",
+        "region": "Sonoma County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "98"
+      },
+      {
+        "entity_id": "ENT-00453",
+        "name": "DataVault Consulting",
+        "industry": "Records Management & Digitization",
+        "region": "San Diego County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "87"
+      },
+      {
+        "entity_id": "ENT-00527",
+        "name": "Atlas Automation Consulting",
+        "industry": "AI & Automation Consulting",
+        "region": "Marin County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "86"
+      },
+      {
+        "entity_id": "ENT-00551",
+        "name": "ProAI Consulting",
+        "industry": "AI & Automation Consulting",
+        "region": "San Diego County",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "56"
+      },
+      {
+        "entity_id": "ENT-00573",
+        "name": "Vanguard Tech Consulting",
+        "industry": "AI & Automation Consulting",
+        "region": "Orange County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "48"
+      },
+      {
+        "entity_id": "ENT-00740",
+        "name": "Vanguard Compliance Consulting",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "Fulton County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "75"
+      },
+      {
+        "entity_id": "ENT-00768",
+        "name": "Apex Environmental Consulting",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "West Midlands",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "86"
+      },
+      {
+        "entity_id": "ENT-00777",
+        "name": "Vanguard Compliance Consulting",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "Sacramento County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "76"
+      },
+      {
+        "entity_id": "ENT-00788",
+        "name": "Clarity Compliance Consulting",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "Marin County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "87"
+      },
+      {
+        "entity_id": "ENT-00847",
+        "name": "ProShield Consulting",
+        "industry": "Security Services & Guard Staffing",
+        "region": "Orange County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "88"
+      },
+      {
+        "entity_id": "ENT-01120",
+        "name": "Delta Green Consulting",
+        "industry": "Landscaping & Grounds Maintenance",
+        "region": "Cuyahoga County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "65"
+      },
+      {
+        "entity_id": "ENT-01134",
+        "name": "Precision Landscaping Consulting",
+        "industry": "Landscaping & Grounds Maintenance",
+        "region": "Cuyahoga County",
+        "revenue": "$100M+",
+        "ai_score": "89"
+      },
+      {
+        "entity_id": "ENT-01253",
+        "name": "Vanguard Pest Consulting",
+        "industry": "Pest Control & Sanitation",
+        "region": "Marin County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "53"
+      },
+      {
+        "entity_id": "ENT-01312",
+        "name": "Clarity Water Consulting",
+        "industry": "Plumbing & Water Systems",
+        "region": "Greater London",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "71"
+      },
+      {
+        "entity_id": "ENT-01324",
+        "name": "Clarity Water Consulting",
+        "industry": "Plumbing & Water Systems",
+        "region": "Miami-Dade County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "74"
+      },
+      {
+        "entity_id": "ENT-01353",
+        "name": "Titan Water Consulting",
+        "industry": "Plumbing & Water Systems",
+        "region": "Cook County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "63"
+      },
+      {
+        "entity_id": "ENT-01478",
+        "name": "Titan Build Consulting",
+        "industry": "Construction & General Contracting",
+        "region": "Sonoma County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "47"
+      },
+      {
+        "entity_id": "ENT-01528",
+        "name": "Guardian Staffing Consulting",
+        "industry": "Staffing & Workforce Solutions",
+        "region": "Harris County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "69"
+      },
+      {
+        "entity_id": "ENT-01594",
+        "name": "Precision Staffing Consulting",
+        "industry": "Staffing & Workforce Solutions",
+        "region": "Greater Melbourne",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "92"
+      },
+      {
+        "entity_id": "ENT-01715",
+        "name": "Guardian Legal Consulting",
+        "industry": "Legal & Compliance Services",
+        "region": "San Diego County",
+        "revenue": "$100M+",
+        "ai_score": "98"
+      },
+      {
+        "entity_id": "ENT-01737",
+        "name": "ProLegal Consulting",
+        "industry": "Legal & Compliance Services",
+        "region": "Greater Melbourne",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "53"
+      },
+      {
+        "entity_id": "ENT-01789",
+        "name": "ProLegal Consulting",
+        "industry": "Legal & Compliance Services",
+        "region": "Marin County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "82"
+      },
+      {
+        "entity_id": "ENT-01825",
+        "name": "Clarity Digital Consulting",
+        "industry": "Marketing & Digital Services",
+        "region": "Metro Vancouver",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "81"
+      },
+      {
+        "entity_id": "ENT-01940",
+        "name": "Vanguard Healthcare Consulting",
+        "industry": "Healthcare Facility Services",
+        "region": "Solano County",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "78"
+      },
+      {
+        "entity_id": "ENT-01945",
+        "name": "Titan Medical Consulting",
+        "industry": "Healthcare Facility Services",
+        "region": "Calgary Region",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "70"
+      },
+      {
+        "entity_id": "ENT-01956",
+        "name": "Delta Health Consulting",
+        "industry": "Healthcare Facility Services",
+        "region": "Greater Sydney",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "43"
+      }
+    ]
+  },
+  {
+    "parent": "Guardian Facilities Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00078",
+        "name": "Guardian Facilities Consulting",
+        "industry": "Janitorial & Facilities Maintenance",
+        "region": "Alameda County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "68"
+      }
+    ]
+  },
+  {
+    "parent": "National Inc. Group",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00083",
+        "name": "Stellar Maintenance Inc.",
+        "industry": "Janitorial & Facilities Maintenance",
+        "region": "Greater Toronto Area",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "97"
+      },
+      {
+        "entity_id": "ENT-00137",
+        "name": "Patriot Hauling Inc.",
+        "industry": "Commercial Hauling & Debris Removal",
+        "region": "Cook County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "55"
+      },
+      {
+        "entity_id": "ENT-00144",
+        "name": "Apex Removal Inc.",
+        "industry": "Commercial Hauling & Debris Removal",
+        "region": "San Francisco County",
+        "revenue": "$100M+",
+        "ai_score": "41"
+      },
+      {
+        "entity_id": "ENT-00432",
+        "name": "SecureDoc Inc.",
+        "industry": "Records Management & Digitization",
+        "region": "Fulton County",
+        "revenue": "$100M+",
+        "ai_score": "46"
+      },
+      {
+        "entity_id": "ENT-00531",
+        "name": "Vanguard Tech Inc.",
+        "industry": "AI & Automation Consulting",
+        "region": "Orange County",
+        "revenue": "$100M+",
+        "ai_score": "54"
+      },
+      {
+        "entity_id": "ENT-00580",
+        "name": "Sovereign Systems Inc.",
+        "industry": "AI & Automation Consulting",
+        "region": "Maricopa County",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "72"
+      },
+      {
+        "entity_id": "ENT-00798",
+        "name": "Atlas Remediation Inc.",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "San Francisco County",
+        "revenue": "$100M+",
+        "ai_score": "52"
+      },
+      {
+        "entity_id": "ENT-00820",
+        "name": "Titan Guard Inc.",
+        "industry": "Security Services & Guard Staffing",
+        "region": "Denver County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "57"
+      },
+      {
+        "entity_id": "ENT-00951",
+        "name": "ProAir Inc.",
+        "industry": "HVAC & Mechanical Services",
+        "region": "Los Angeles County",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "41"
+      },
+      {
+        "entity_id": "ENT-01090",
+        "name": "Apex Electric Inc.",
+        "industry": "Electrical Contracting",
+        "region": "Metro Vancouver",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "66"
+      },
+      {
+        "entity_id": "ENT-01124",
+        "name": "Apex Grounds Inc.",
+        "industry": "Landscaping & Grounds Maintenance",
+        "region": "San Francisco County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "65"
+      },
+      {
+        "entity_id": "ENT-01136",
+        "name": "Clarity Grounds Inc.",
+        "industry": "Landscaping & Grounds Maintenance",
+        "region": "Cook County",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "98"
+      },
+      {
+        "entity_id": "ENT-01169",
+        "name": "Titan Landscaping Inc.",
+        "industry": "Landscaping & Grounds Maintenance",
+        "region": "Alameda County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "48"
+      },
+      {
+        "entity_id": "ENT-01185",
+        "name": "Vanguard Grounds Inc.",
+        "industry": "Landscaping & Grounds Maintenance",
+        "region": "West Midlands",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "70"
+      },
+      {
+        "entity_id": "ENT-01307",
+        "name": "Precision Plumbing Inc.",
+        "industry": "Plumbing & Water Systems",
+        "region": "San Diego County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "84"
+      },
+      {
+        "entity_id": "ENT-01432",
+        "name": "Guardian Construction Inc.",
+        "industry": "Construction & General Contracting",
+        "region": "Denver County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "52"
+      },
+      {
+        "entity_id": "ENT-01482",
+        "name": "Precision Construction Inc.",
+        "industry": "Construction & General Contracting",
+        "region": "Wayne County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "41"
+      },
+      {
+        "entity_id": "ENT-01492",
+        "name": "ProBuild Inc.",
+        "industry": "Construction & General Contracting",
+        "region": "Sonoma County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "83"
+      },
+      {
+        "entity_id": "ENT-01640",
+        "name": "Summit Accounting Inc.",
+        "industry": "Accounting & Financial Services",
+        "region": "Marin County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "96"
+      },
+      {
+        "entity_id": "ENT-01779",
+        "name": "Titan Compliance Inc.",
+        "industry": "Legal & Compliance Services",
+        "region": "West Midlands",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "83"
+      },
+      {
+        "entity_id": "ENT-01897",
+        "name": "Summit Marketing Inc.",
+        "industry": "Marketing & Digital Services",
+        "region": "Cook County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "44"
+      }
+    ]
+  },
+  {
+    "parent": "Elite Janitorial Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00100",
+        "name": "Elite Janitorial Solutions",
+        "industry": "Janitorial & Facilities Maintenance",
+        "region": "Denver County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "43"
+      }
+    ]
+  },
+  {
+    "parent": "Titan Debris Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00105",
+        "name": "Titan Debris Inc.",
+        "industry": "Commercial Hauling & Debris Removal",
+        "region": "Wayne County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "51"
+      },
+      {
+        "entity_id": "ENT-00118",
+        "name": "Titan Debris Systems",
+        "industry": "Commercial Hauling & Debris Removal",
+        "region": "Napa County",
+        "revenue": "$100M+",
+        "ai_score": "48"
+      },
+      {
+        "entity_id": "ENT-00184",
+        "name": "Titan Debris Co.",
+        "industry": "Commercial Hauling & Debris Removal",
+        "region": "Contra Costa County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "62"
+      }
+    ]
+  },
+  {
+    "parent": "Apex Removal Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00106",
+        "name": "Apex Removal Industries",
+        "industry": "Commercial Hauling & Debris Removal",
+        "region": "Metro Vancouver",
+        "revenue": "$100M+",
+        "ai_score": "82"
+      },
+      {
+        "entity_id": "ENT-00146",
+        "name": "Apex Removal Co.",
+        "industry": "Commercial Hauling & Debris Removal",
+        "region": "Greater Melbourne",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "63"
+      },
+      {
+        "entity_id": "ENT-00153",
+        "name": "Apex Removal Services",
+        "industry": "Commercial Hauling & Debris Removal",
+        "region": "Metro Vancouver",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "95"
+      }
+    ]
+  },
+  {
+    "parent": "National Services Group",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00113",
+        "name": "Delta Hauling Services",
+        "industry": "Commercial Hauling & Debris Removal",
+        "region": "Sonoma County",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "97"
+      },
+      {
+        "entity_id": "ENT-00119",
+        "name": "Vanguard Removal Services",
+        "industry": "Commercial Hauling & Debris Removal",
+        "region": "Sacramento County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "64"
+      },
+      {
+        "entity_id": "ENT-00136",
+        "name": "ProHaul Services",
+        "industry": "Commercial Hauling & Debris Removal",
+        "region": "Greater London",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "56"
+      },
+      {
+        "entity_id": "ENT-00187",
+        "name": "Apex Removal Services",
+        "industry": "Commercial Hauling & Debris Removal",
+        "region": "Napa County",
+        "revenue": "$100M+",
+        "ai_score": "65"
+      },
+      {
+        "entity_id": "ENT-00267",
+        "name": "Precision Coatings Services",
+        "industry": "Industrial Painting & Coatings",
+        "region": "Sacramento County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "93"
+      },
+      {
+        "entity_id": "ENT-00428",
+        "name": "DataVault Services",
+        "industry": "Records Management & Digitization",
+        "region": "Orange County",
+        "revenue": "$100M+",
+        "ai_score": "70"
+      },
+      {
+        "entity_id": "ENT-00528",
+        "name": "Apex Automation Services",
+        "industry": "AI & Automation Consulting",
+        "region": "Maricopa County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "77"
+      },
+      {
+        "entity_id": "ENT-00563",
+        "name": "Delta Intelligence Services",
+        "industry": "AI & Automation Consulting",
+        "region": "Contra Costa County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "53"
+      },
+      {
+        "entity_id": "ENT-00617",
+        "name": "Titan Networks Services",
+        "industry": "IT Infrastructure & Managed Services",
+        "region": "Miami-Dade County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "52"
+      },
+      {
+        "entity_id": "ENT-00709",
+        "name": "Guardian Environmental Services",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "Calgary Region",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "55"
+      },
+      {
+        "entity_id": "ENT-00732",
+        "name": "Atlas Remediation Services",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "Marin County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "74"
+      },
+      {
+        "entity_id": "ENT-00904",
+        "name": "Summit Mechanical Services",
+        "industry": "HVAC & Mechanical Services",
+        "region": "San Diego County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "58"
+      },
+      {
+        "entity_id": "ENT-01017",
+        "name": "Clarity Electrical Services",
+        "industry": "Electrical Contracting",
+        "region": "Wayne County",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "80"
+      },
+      {
+        "entity_id": "ENT-01063",
+        "name": "Titan Electrical Services",
+        "industry": "Electrical Contracting",
+        "region": "Harris County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "72"
+      },
+      {
+        "entity_id": "ENT-01078",
+        "name": "Titan Electrical Services",
+        "industry": "Electrical Contracting",
+        "region": "Greater Toronto Area",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "86"
+      },
+      {
+        "entity_id": "ENT-01155",
+        "name": "Titan Landscaping Services",
+        "industry": "Landscaping & Grounds Maintenance",
+        "region": "Sonoma County",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "97"
+      },
+      {
+        "entity_id": "ENT-01164",
+        "name": "ProGreen Services",
+        "industry": "Landscaping & Grounds Maintenance",
+        "region": "Fulton County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "78"
+      },
+      {
+        "entity_id": "ENT-01170",
+        "name": "Apex Grounds Services",
+        "industry": "Landscaping & Grounds Maintenance",
+        "region": "Denver County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "79"
+      },
+      {
+        "entity_id": "ENT-01248",
+        "name": "Apex Pest Services",
+        "industry": "Pest Control & Sanitation",
+        "region": "Fulton County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "49"
+      },
+      {
+        "entity_id": "ENT-01303",
+        "name": "Clarity Water Services",
+        "industry": "Plumbing & Water Systems",
+        "region": "San Francisco County",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "45"
+      },
+      {
+        "entity_id": "ENT-01524",
+        "name": "Guardian Staffing Services",
+        "industry": "Staffing & Workforce Solutions",
+        "region": "Maricopa County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "68"
+      },
+      {
+        "entity_id": "ENT-01538",
+        "name": "Summit Workforce Services",
+        "industry": "Staffing & Workforce Solutions",
+        "region": "Greater Toronto Area",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "79"
+      },
+      {
+        "entity_id": "ENT-01630",
+        "name": "Delta Finance Services",
+        "industry": "Accounting & Financial Services",
+        "region": "Metro Vancouver",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "65"
+      },
+      {
+        "entity_id": "ENT-01643",
+        "name": "Guardian Finance Services",
+        "industry": "Accounting & Financial Services",
+        "region": "Greater London",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "95"
+      },
+      {
+        "entity_id": "ENT-01842",
+        "name": "Apex Digital Services",
+        "industry": "Marketing & Digital Services",
+        "region": "Metro Vancouver",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "40"
+      },
+      {
+        "entity_id": "ENT-01844",
+        "name": "Atlas Digital Services",
+        "industry": "Marketing & Digital Services",
+        "region": "Sacramento County",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "40"
+      },
+      {
+        "entity_id": "ENT-01901",
+        "name": "Titan Medical Services",
+        "industry": "Healthcare Facility Services",
+        "region": "Fulton County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "72"
+      },
+      {
+        "entity_id": "ENT-01943",
+        "name": "Titan Medical Services",
+        "industry": "Healthcare Facility Services",
+        "region": "Alameda County",
+        "revenue": "$100M+",
+        "ai_score": "78"
+      }
+    ]
+  },
+  {
+    "parent": "Vanguard Removal Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00114",
+        "name": "Vanguard Removal Inc.",
+        "industry": "Commercial Hauling & Debris Removal",
+        "region": "West Midlands",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "75"
+      },
+      {
+        "entity_id": "ENT-00129",
+        "name": "Vanguard Removal Solutions",
+        "industry": "Commercial Hauling & Debris Removal",
+        "region": "San Francisco County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "74"
+      }
+    ]
+  },
+  {
+    "parent": "National Group Group",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00115",
+        "name": "Apex Removal Group",
+        "industry": "Commercial Hauling & Debris Removal",
+        "region": "Wayne County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "63"
+      },
+      {
+        "entity_id": "ENT-00143",
+        "name": "Delta Hauling Group",
+        "industry": "Commercial Hauling & Debris Removal",
+        "region": "Los Angeles County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "56"
+      },
+      {
+        "entity_id": "ENT-00175",
+        "name": "Iron Eagle Hauling Group",
+        "industry": "Commercial Hauling & Debris Removal",
+        "region": "Greater London",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "64"
+      },
+      {
+        "entity_id": "ENT-00248",
+        "name": "Premier Paint Group",
+        "industry": "Industrial Painting & Coatings",
+        "region": "Solano County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "43"
+      },
+      {
+        "entity_id": "ENT-00294",
+        "name": "Shield Coatings Group",
+        "industry": "Industrial Painting & Coatings",
+        "region": "Greater Melbourne",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "81"
+      },
+      {
+        "entity_id": "ENT-00337",
+        "name": "Patriot Logistics Group",
+        "industry": "Fleet Logistics & Transportation",
+        "region": "Orange County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "63"
+      },
+      {
+        "entity_id": "ENT-00405",
+        "name": "Atlas DocSystems Group",
+        "industry": "Records Management & Digitization",
+        "region": "Solano County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "72"
+      },
+      {
+        "entity_id": "ENT-00568",
+        "name": "Vanguard Tech Group",
+        "industry": "AI & Automation Consulting",
+        "region": "Sacramento County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "74"
+      },
+      {
+        "entity_id": "ENT-00681",
+        "name": "Apex IT Group",
+        "industry": "IT Infrastructure & Managed Services",
+        "region": "Alameda County",
+        "revenue": "$100M+",
+        "ai_score": "64"
+      },
+      {
+        "entity_id": "ENT-00779",
+        "name": "Delta Enviro Group",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "Calgary Region",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "69"
+      },
+      {
+        "entity_id": "ENT-01115",
+        "name": "Titan Landscaping Group",
+        "industry": "Landscaping & Grounds Maintenance",
+        "region": "Harris County",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "71"
+      },
+      {
+        "entity_id": "ENT-01158",
+        "name": "Precision Landscaping Group",
+        "industry": "Landscaping & Grounds Maintenance",
+        "region": "Greater Sydney",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "96"
+      },
+      {
+        "entity_id": "ENT-01179",
+        "name": "Apex Grounds Group",
+        "industry": "Landscaping & Grounds Maintenance",
+        "region": "Metro Vancouver",
+        "revenue": "$100M+",
+        "ai_score": "93"
+      },
+      {
+        "entity_id": "ENT-01180",
+        "name": "Guardian Landscaping Group",
+        "industry": "Landscaping & Grounds Maintenance",
+        "region": "Los Angeles County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "65"
+      },
+      {
+        "entity_id": "ENT-01290",
+        "name": "ProPest Group",
+        "industry": "Pest Control & Sanitation",
+        "region": "Sonoma County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "66"
+      },
+      {
+        "entity_id": "ENT-01383",
+        "name": "Apex Plumbing Group",
+        "industry": "Plumbing & Water Systems",
+        "region": "Greater London",
+        "revenue": "$100M+",
+        "ai_score": "48"
+      },
+      {
+        "entity_id": "ENT-01385",
+        "name": "Precision Plumbing Group",
+        "industry": "Plumbing & Water Systems",
+        "region": "Greater Melbourne",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "51"
+      },
+      {
+        "entity_id": "ENT-01416",
+        "name": "Vanguard Construction Group",
+        "industry": "Construction & General Contracting",
+        "region": "Alameda County",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "64"
+      },
+      {
+        "entity_id": "ENT-01465",
+        "name": "Precision Construction Group",
+        "industry": "Construction & General Contracting",
+        "region": "Metro Vancouver",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "56"
+      },
+      {
+        "entity_id": "ENT-01563",
+        "name": "Apex Staffing Group",
+        "industry": "Staffing & Workforce Solutions",
+        "region": "Denver County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "54"
+      },
+      {
+        "entity_id": "ENT-01574",
+        "name": "Delta Workforce Group",
+        "industry": "Staffing & Workforce Solutions",
+        "region": "Greater Sydney",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "88"
+      },
+      {
+        "entity_id": "ENT-01578",
+        "name": "Guardian Staffing Group",
+        "industry": "Staffing & Workforce Solutions",
+        "region": "Cuyahoga County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "52"
+      },
+      {
+        "entity_id": "ENT-01732",
+        "name": "Atlas Legal Group",
+        "industry": "Legal & Compliance Services",
+        "region": "Fulton County",
+        "revenue": "$100M+",
+        "ai_score": "69"
+      },
+      {
+        "entity_id": "ENT-01757",
+        "name": "Delta Compliance Group",
+        "industry": "Legal & Compliance Services",
+        "region": "Los Angeles County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "54"
+      },
+      {
+        "entity_id": "ENT-01837",
+        "name": "Vanguard Digital Group",
+        "industry": "Marketing & Digital Services",
+        "region": "Greater London",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "45"
+      },
+      {
+        "entity_id": "ENT-01909",
+        "name": "Vanguard Healthcare Group",
+        "industry": "Healthcare Facility Services",
+        "region": "Fulton County",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "59"
+      },
+      {
+        "entity_id": "ENT-01941",
+        "name": "Delta Health Group",
+        "industry": "Healthcare Facility Services",
+        "region": "Los Angeles County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "41"
+      }
+    ]
+  },
+  {
+    "parent": "Delta Hauling Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00117",
+        "name": "Delta Hauling Industries",
+        "industry": "Commercial Hauling & Debris Removal",
+        "region": "Denver County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "43"
+      },
+      {
+        "entity_id": "ENT-00124",
+        "name": "Delta Hauling Co.",
+        "industry": "Commercial Hauling & Debris Removal",
+        "region": "Harris County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "78"
+      },
+      {
+        "entity_id": "ENT-00141",
+        "name": "Delta Hauling Group",
+        "industry": "Commercial Hauling & Debris Removal",
+        "region": "Alameda County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "78"
+      },
+      {
+        "entity_id": "ENT-00168",
+        "name": "Delta Hauling Services",
+        "industry": "Commercial Hauling & Debris Removal",
+        "region": "Alameda County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "56"
+      }
+    ]
+  },
+  {
+    "parent": "ProHaul Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00126",
+        "name": "ProHaul Partners",
+        "industry": "Commercial Hauling & Debris Removal",
+        "region": "Sonoma County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "52"
+      },
+      {
+        "entity_id": "ENT-00131",
+        "name": "ProHaul Industries",
+        "industry": "Commercial Hauling & Debris Removal",
+        "region": "West Midlands",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "63"
+      },
+      {
+        "entity_id": "ENT-00173",
+        "name": "ProHaul Industries",
+        "industry": "Commercial Hauling & Debris Removal",
+        "region": "Miami-Dade County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "89"
+      }
+    ]
+  },
+  {
+    "parent": "Iron Eagle Hauling Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00155",
+        "name": "Iron Eagle Hauling Systems",
+        "industry": "Commercial Hauling & Debris Removal",
+        "region": "Sacramento County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "42"
+      }
+    ]
+  },
+  {
+    "parent": "National Partners Group",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00160",
+        "name": "Swift Haul Partners",
+        "industry": "Commercial Hauling & Debris Removal",
+        "region": "Cuyahoga County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "88"
+      },
+      {
+        "entity_id": "ENT-00258",
+        "name": "Titan Coatings Partners",
+        "industry": "Industrial Painting & Coatings",
+        "region": "Fulton County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "69"
+      },
+      {
+        "entity_id": "ENT-00517",
+        "name": "Titan AI Partners",
+        "industry": "AI & Automation Consulting",
+        "region": "Alameda County",
+        "revenue": "$100M+",
+        "ai_score": "81"
+      },
+      {
+        "entity_id": "ENT-00659",
+        "name": "Delta Networks Partners",
+        "industry": "IT Infrastructure & Managed Services",
+        "region": "Greater London",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "64"
+      },
+      {
+        "entity_id": "ENT-00674",
+        "name": "Vanguard MSP Partners",
+        "industry": "IT Infrastructure & Managed Services",
+        "region": "San Francisco County",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "92"
+      },
+      {
+        "entity_id": "ENT-00813",
+        "name": "ProShield Partners",
+        "industry": "Security Services & Guard Staffing",
+        "region": "Contra Costa County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "40"
+      },
+      {
+        "entity_id": "ENT-00870",
+        "name": "Delta Security Partners",
+        "industry": "Security Services & Guard Staffing",
+        "region": "Marin County",
+        "revenue": "$100M+",
+        "ai_score": "78"
+      },
+      {
+        "entity_id": "ENT-00908",
+        "name": "Delta Air Partners",
+        "industry": "HVAC & Mechanical Services",
+        "region": "Sonoma County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "68"
+      },
+      {
+        "entity_id": "ENT-00914",
+        "name": "Vanguard HVAC Partners",
+        "industry": "HVAC & Mechanical Services",
+        "region": "Orange County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "55"
+      },
+      {
+        "entity_id": "ENT-00954",
+        "name": "Apex HVAC Partners",
+        "industry": "HVAC & Mechanical Services",
+        "region": "Greater Sydney",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "97"
+      },
+      {
+        "entity_id": "ENT-01052",
+        "name": "Atlas Electric Partners",
+        "industry": "Electrical Contracting",
+        "region": "Solano County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "57"
+      },
+      {
+        "entity_id": "ENT-01113",
+        "name": "Guardian Landscaping Partners",
+        "industry": "Landscaping & Grounds Maintenance",
+        "region": "Contra Costa County",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "53"
+      },
+      {
+        "entity_id": "ENT-01160",
+        "name": "Atlas Grounds Partners",
+        "industry": "Landscaping & Grounds Maintenance",
+        "region": "Calgary Region",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "88"
+      },
+      {
+        "entity_id": "ENT-01181",
+        "name": "Apex Grounds Partners",
+        "industry": "Landscaping & Grounds Maintenance",
+        "region": "King County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "44"
+      },
+      {
+        "entity_id": "ENT-01335",
+        "name": "Delta Flow Partners",
+        "industry": "Plumbing & Water Systems",
+        "region": "Denver County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "98"
+      },
+      {
+        "entity_id": "ENT-01414",
+        "name": "Vanguard Construction Partners",
+        "industry": "Construction & General Contracting",
+        "region": "Greater Sydney",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "68"
+      },
+      {
+        "entity_id": "ENT-01430",
+        "name": "Guardian Construction Partners",
+        "industry": "Construction & General Contracting",
+        "region": "Greater London",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "48"
+      },
+      {
+        "entity_id": "ENT-01547",
+        "name": "Delta Workforce Partners",
+        "industry": "Staffing & Workforce Solutions",
+        "region": "Solano County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "77"
+      },
+      {
+        "entity_id": "ENT-01555",
+        "name": "ProStaff Partners",
+        "industry": "Staffing & Workforce Solutions",
+        "region": "Harris County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "42"
+      },
+      {
+        "entity_id": "ENT-01577",
+        "name": "Vanguard Staffing Partners",
+        "industry": "Staffing & Workforce Solutions",
+        "region": "Denver County",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "91"
+      },
+      {
+        "entity_id": "ENT-01618",
+        "name": "Apex Financial Partners",
+        "industry": "Accounting & Financial Services",
+        "region": "Cuyahoga County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "43"
+      },
+      {
+        "entity_id": "ENT-01685",
+        "name": "Summit Accounting Partners",
+        "industry": "Accounting & Financial Services",
+        "region": "Denver County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "77"
+      },
+      {
+        "entity_id": "ENT-01869",
+        "name": "Guardian Marketing Partners",
+        "industry": "Marketing & Digital Services",
+        "region": "Greater Sydney",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "44"
+      },
+      {
+        "entity_id": "ENT-01914",
+        "name": "Atlas Healthcare Partners",
+        "industry": "Healthcare Facility Services",
+        "region": "Cook County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "41"
+      }
+    ]
+  },
+  {
+    "parent": "National LLC Group",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00186",
+        "name": "Titan Debris LLC",
+        "industry": "Commercial Hauling & Debris Removal",
+        "region": "Solano County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "54"
+      },
+      {
+        "entity_id": "ENT-00255",
+        "name": "Shield Coatings LLC",
+        "industry": "Industrial Painting & Coatings",
+        "region": "Greater Toronto Area",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "85"
+      },
+      {
+        "entity_id": "ENT-00256",
+        "name": "Armor Paint LLC",
+        "industry": "Industrial Painting & Coatings",
+        "region": "Metro Vancouver",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "72"
+      },
+      {
+        "entity_id": "ENT-00327",
+        "name": "Atlas Transport LLC",
+        "industry": "Fleet Logistics & Transportation",
+        "region": "Harris County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "61"
+      },
+      {
+        "entity_id": "ENT-00488",
+        "name": "DataVault LLC",
+        "industry": "Records Management & Digitization",
+        "region": "Solano County",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "87"
+      },
+      {
+        "entity_id": "ENT-00720",
+        "name": "Apex Environmental LLC",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "Miami-Dade County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "50"
+      },
+      {
+        "entity_id": "ENT-00745",
+        "name": "Apex Environmental LLC",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "Denver County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "67"
+      },
+      {
+        "entity_id": "ENT-00775",
+        "name": "ProEnviro LLC",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "Cuyahoga County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "49"
+      },
+      {
+        "entity_id": "ENT-00834",
+        "name": "Patriot Security LLC",
+        "industry": "Security Services & Guard Staffing",
+        "region": "Contra Costa County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "78"
+      },
+      {
+        "entity_id": "ENT-00838",
+        "name": "Apex Security LLC",
+        "industry": "Security Services & Guard Staffing",
+        "region": "Harris County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "92"
+      },
+      {
+        "entity_id": "ENT-00853",
+        "name": "Atlas Guard LLC",
+        "industry": "Security Services & Guard Staffing",
+        "region": "West Midlands",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "68"
+      },
+      {
+        "entity_id": "ENT-00935",
+        "name": "Precision Mechanical LLC",
+        "industry": "HVAC & Mechanical Services",
+        "region": "Los Angeles County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "83"
+      },
+      {
+        "entity_id": "ENT-01020",
+        "name": "Clarity Electrical LLC",
+        "industry": "Electrical Contracting",
+        "region": "Napa County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "59"
+      },
+      {
+        "entity_id": "ENT-01060",
+        "name": "Clarity Electrical LLC",
+        "industry": "Electrical Contracting",
+        "region": "Alameda County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "71"
+      },
+      {
+        "entity_id": "ENT-01212",
+        "name": "Atlas Pest LLC",
+        "industry": "Pest Control & Sanitation",
+        "region": "Calgary Region",
+        "revenue": "$100M+",
+        "ai_score": "62"
+      },
+      {
+        "entity_id": "ENT-01221",
+        "name": "Apex Pest LLC",
+        "industry": "Pest Control & Sanitation",
+        "region": "King County",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "58"
+      },
+      {
+        "entity_id": "ENT-01323",
+        "name": "Clarity Water LLC",
+        "industry": "Plumbing & Water Systems",
+        "region": "Greater Toronto Area",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "83"
+      },
+      {
+        "entity_id": "ENT-01443",
+        "name": "Precision Construction LLC",
+        "industry": "Construction & General Contracting",
+        "region": "Contra Costa County",
+        "revenue": "$100M+",
+        "ai_score": "50"
+      },
+      {
+        "entity_id": "ENT-01536",
+        "name": "Delta Workforce LLC",
+        "industry": "Staffing & Workforce Solutions",
+        "region": "Wayne County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "54"
+      },
+      {
+        "entity_id": "ENT-01566",
+        "name": "Precision Staffing LLC",
+        "industry": "Staffing & Workforce Solutions",
+        "region": "Greater Sydney",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "69"
+      },
+      {
+        "entity_id": "ENT-01783",
+        "name": "Apex Legal LLC",
+        "industry": "Legal & Compliance Services",
+        "region": "West Midlands",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "85"
+      },
+      {
+        "entity_id": "ENT-01802",
+        "name": "Atlas Digital LLC",
+        "industry": "Marketing & Digital Services",
+        "region": "Calgary Region",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "70"
+      },
+      {
+        "entity_id": "ENT-01863",
+        "name": "Apex Digital LLC",
+        "industry": "Marketing & Digital Services",
+        "region": "San Francisco County",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "91"
+      },
+      {
+        "entity_id": "ENT-01867",
+        "name": "Delta Media LLC",
+        "industry": "Marketing & Digital Services",
+        "region": "Greater Sydney",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "69"
+      }
+    ]
+  },
+  {
+    "parent": "National Industries Group",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00189",
+        "name": "Titan Debris Industries",
+        "industry": "Commercial Hauling & Debris Removal",
+        "region": "Fulton County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "76"
+      },
+      {
+        "entity_id": "ENT-00210",
+        "name": "Armor Paint Industries",
+        "industry": "Industrial Painting & Coatings",
+        "region": "Miami-Dade County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "41"
+      },
+      {
+        "entity_id": "ENT-00272",
+        "name": "ProCoat Industries",
+        "industry": "Industrial Painting & Coatings",
+        "region": "Greater Sydney",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "49"
+      },
+      {
+        "entity_id": "ENT-00340",
+        "name": "Velocity Logistics Industries",
+        "industry": "Fleet Logistics & Transportation",
+        "region": "Orange County",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "46"
+      },
+      {
+        "entity_id": "ENT-00383",
+        "name": "Summit Freight Industries",
+        "industry": "Fleet Logistics & Transportation",
+        "region": "Greater Melbourne",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "65"
+      },
+      {
+        "entity_id": "ENT-00459",
+        "name": "ProScan Industries",
+        "industry": "Records Management & Digitization",
+        "region": "Contra Costa County",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "78"
+      },
+      {
+        "entity_id": "ENT-00463",
+        "name": "DigitalBridge Industries",
+        "industry": "Records Management & Digitization",
+        "region": "Greater Toronto Area",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "41"
+      },
+      {
+        "entity_id": "ENT-00470",
+        "name": "ProScan Industries",
+        "industry": "Records Management & Digitization",
+        "region": "King County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "56"
+      },
+      {
+        "entity_id": "ENT-00686",
+        "name": "ProNet Industries",
+        "industry": "IT Infrastructure & Managed Services",
+        "region": "Contra Costa County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "58"
+      },
+      {
+        "entity_id": "ENT-00697",
+        "name": "ProNet Industries",
+        "industry": "IT Infrastructure & Managed Services",
+        "region": "Greater London",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "67"
+      },
+      {
+        "entity_id": "ENT-00730",
+        "name": "Guardian Environmental Industries",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "Wayne County",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "86"
+      },
+      {
+        "entity_id": "ENT-00783",
+        "name": "Vanguard Compliance Industries",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "Calgary Region",
+        "revenue": "$100M+",
+        "ai_score": "90"
+      },
+      {
+        "entity_id": "ENT-00795",
+        "name": "Clarity Compliance Industries",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "Greater Sydney",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "63"
+      },
+      {
+        "entity_id": "ENT-00890",
+        "name": "Titan Guard Industries",
+        "industry": "Security Services & Guard Staffing",
+        "region": "Greater Melbourne",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "89"
+      },
+      {
+        "entity_id": "ENT-01010",
+        "name": "Precision Electric Industries",
+        "industry": "Electrical Contracting",
+        "region": "Greater London",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "76"
+      },
+      {
+        "entity_id": "ENT-01011",
+        "name": "ProVolt Industries",
+        "industry": "Electrical Contracting",
+        "region": "Wayne County",
+        "revenue": "$100M+",
+        "ai_score": "94"
+      },
+      {
+        "entity_id": "ENT-01057",
+        "name": "Apex Electric Industries",
+        "industry": "Electrical Contracting",
+        "region": "San Francisco County",
+        "revenue": "$100M+",
+        "ai_score": "54"
+      },
+      {
+        "entity_id": "ENT-01257",
+        "name": "Apex Pest Industries",
+        "industry": "Pest Control & Sanitation",
+        "region": "Denver County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "45"
+      },
+      {
+        "entity_id": "ENT-01262",
+        "name": "Summit Sanitation Industries",
+        "industry": "Pest Control & Sanitation",
+        "region": "Calgary Region",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "55"
+      },
+      {
+        "entity_id": "ENT-01291",
+        "name": "Vanguard Pest Industries",
+        "industry": "Pest Control & Sanitation",
+        "region": "Calgary Region",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "83"
+      },
+      {
+        "entity_id": "ENT-01354",
+        "name": "Guardian Plumbing Industries",
+        "industry": "Plumbing & Water Systems",
+        "region": "Napa County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "57"
+      },
+      {
+        "entity_id": "ENT-01611",
+        "name": "Titan Accounting Industries",
+        "industry": "Accounting & Financial Services",
+        "region": "Wayne County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "77"
+      },
+      {
+        "entity_id": "ENT-01720",
+        "name": "Clarity Compliance Industries",
+        "industry": "Legal & Compliance Services",
+        "region": "Sacramento County",
+        "revenue": "$100M+",
+        "ai_score": "87"
+      },
+      {
+        "entity_id": "ENT-01724",
+        "name": "Guardian Legal Industries",
+        "industry": "Legal & Compliance Services",
+        "region": "Greater Melbourne",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "56"
+      },
+      {
+        "entity_id": "ENT-01754",
+        "name": "Summit Compliance Industries",
+        "industry": "Legal & Compliance Services",
+        "region": "San Diego County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "52"
+      },
+      {
+        "entity_id": "ENT-01761",
+        "name": "Guardian Legal Industries",
+        "industry": "Legal & Compliance Services",
+        "region": "Greater London",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "73"
+      },
+      {
+        "entity_id": "ENT-01822",
+        "name": "Delta Media Industries",
+        "industry": "Marketing & Digital Services",
+        "region": "Metro Vancouver",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "90"
+      },
+      {
+        "entity_id": "ENT-01834",
+        "name": "Precision Marketing Industries",
+        "industry": "Marketing & Digital Services",
+        "region": "Miami-Dade County",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "49"
+      },
+      {
+        "entity_id": "ENT-01880",
+        "name": "Delta Media Industries",
+        "industry": "Marketing & Digital Services",
+        "region": "Denver County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "81"
+      },
+      {
+        "entity_id": "ENT-01895",
+        "name": "Titan Marketing Industries",
+        "industry": "Marketing & Digital Services",
+        "region": "Sacramento County",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "87"
+      },
+      {
+        "entity_id": "ENT-01928",
+        "name": "Guardian Medical Industries",
+        "industry": "Healthcare Facility Services",
+        "region": "Marin County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "62"
+      },
+      {
+        "entity_id": "ENT-01974",
+        "name": "Atlas Healthcare Industries",
+        "industry": "Healthcare Facility Services",
+        "region": "Contra Costa County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "74"
+      },
+      {
+        "entity_id": "ENT-01989",
+        "name": "Summit Medical Industries",
+        "industry": "Healthcare Facility Services",
+        "region": "Napa County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "41"
+      },
+      {
+        "entity_id": "ENT-01990",
+        "name": "Guardian Medical Industries",
+        "industry": "Healthcare Facility Services",
+        "region": "San Diego County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "92"
+      },
+      {
+        "entity_id": "ENT-01994",
+        "name": "Apex Healthcare Industries",
+        "industry": "Healthcare Facility Services",
+        "region": "Wayne County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "61"
+      }
+    ]
+  },
+  {
+    "parent": "Titan Coatings Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00225",
+        "name": "Titan Coatings Solutions",
+        "industry": "Industrial Painting & Coatings",
+        "region": "Greater Sydney",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "95"
+      },
+      {
+        "entity_id": "ENT-00240",
+        "name": "Titan Coatings Co.",
+        "industry": "Industrial Painting & Coatings",
+        "region": "Greater Toronto Area",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "84"
+      },
+      {
+        "entity_id": "ENT-00293",
+        "name": "Titan Coatings Group",
+        "industry": "Industrial Painting & Coatings",
+        "region": "Greater Toronto Area",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "90"
+      }
+    ]
+  },
+  {
+    "parent": "Fortress Coatings Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00229",
+        "name": "Fortress Coatings Enterprises",
+        "industry": "Industrial Painting & Coatings",
+        "region": "Sacramento County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "91"
+      },
+      {
+        "entity_id": "ENT-00277",
+        "name": "Fortress Coatings Systems",
+        "industry": "Industrial Painting & Coatings",
+        "region": "Greater Sydney",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "78"
+      }
+    ]
+  },
+  {
+    "parent": "Premier Paint Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00235",
+        "name": "Premier Paint Systems",
+        "industry": "Industrial Painting & Coatings",
+        "region": "Maricopa County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "64"
+      },
+      {
+        "entity_id": "ENT-00259",
+        "name": "Premier Paint Group",
+        "industry": "Industrial Painting & Coatings",
+        "region": "Miami-Dade County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "87"
+      }
+    ]
+  },
+  {
+    "parent": "ProCoat Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00236",
+        "name": "ProCoat Inc.",
+        "industry": "Industrial Painting & Coatings",
+        "region": "San Francisco County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "55"
+      },
+      {
+        "entity_id": "ENT-00238",
+        "name": "ProCoat Partners",
+        "industry": "Industrial Painting & Coatings",
+        "region": "Contra Costa County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "89"
+      }
+    ]
+  },
+  {
+    "parent": "Shield Coatings Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00245",
+        "name": "Shield Coatings Systems",
+        "industry": "Industrial Painting & Coatings",
+        "region": "Alameda County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "89"
+      }
+    ]
+  },
+  {
+    "parent": "Apex Painting Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00254",
+        "name": "Apex Painting Corp.",
+        "industry": "Industrial Painting & Coatings",
+        "region": "Alameda County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "69"
+      }
+    ]
+  },
+  {
+    "parent": "Industrial Shield Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00269",
+        "name": "Industrial Shield Services",
+        "industry": "Industrial Painting & Coatings",
+        "region": "Metro Vancouver",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "88"
+      }
+    ]
+  },
+  {
+    "parent": "Precision Coatings Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00271",
+        "name": "Precision Coatings Partners",
+        "industry": "Industrial Painting & Coatings",
+        "region": "Los Angeles County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "43"
+      }
+    ]
+  },
+  {
+    "parent": "Armor Paint Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00280",
+        "name": "Armor Paint Co.",
+        "industry": "Industrial Painting & Coatings",
+        "region": "Greater Melbourne",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "75"
+      }
+    ]
+  },
+  {
+    "parent": "Velocity Logistics Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00301",
+        "name": "Velocity Logistics Corp.",
+        "industry": "Fleet Logistics & Transportation",
+        "region": "Greater Toronto Area",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "91"
+      },
+      {
+        "entity_id": "ENT-00317",
+        "name": "Velocity Logistics Associates",
+        "industry": "Fleet Logistics & Transportation",
+        "region": "Maricopa County",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "45"
+      },
+      {
+        "entity_id": "ENT-00324",
+        "name": "Velocity Logistics Services",
+        "industry": "Fleet Logistics & Transportation",
+        "region": "Marin County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "48"
+      },
+      {
+        "entity_id": "ENT-00341",
+        "name": "Velocity Logistics Inc.",
+        "industry": "Fleet Logistics & Transportation",
+        "region": "Wayne County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "96"
+      },
+      {
+        "entity_id": "ENT-00386",
+        "name": "Velocity Logistics Industries",
+        "industry": "Fleet Logistics & Transportation",
+        "region": "Wayne County",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "58"
+      }
+    ]
+  },
+  {
+    "parent": "Iron Road Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00302",
+        "name": "Iron Road Industries",
+        "industry": "Fleet Logistics & Transportation",
+        "region": "Alameda County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "96"
+      },
+      {
+        "entity_id": "ENT-00354",
+        "name": "Iron Road Enterprises",
+        "industry": "Fleet Logistics & Transportation",
+        "region": "Wayne County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "95"
+      }
+    ]
+  },
+  {
+    "parent": "Patriot Logistics Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00311",
+        "name": "Patriot Logistics Consulting",
+        "industry": "Fleet Logistics & Transportation",
+        "region": "Sacramento County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "95"
+      },
+      {
+        "entity_id": "ENT-00353",
+        "name": "Patriot Logistics Group",
+        "industry": "Fleet Logistics & Transportation",
+        "region": "Greater Sydney",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "57"
+      }
+    ]
+  },
+  {
+    "parent": "Swift Transport Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00318",
+        "name": "Swift Transport Inc.",
+        "industry": "Fleet Logistics & Transportation",
+        "region": "Greater Melbourne",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "72"
+      }
+    ]
+  },
+  {
+    "parent": "Vanguard Fleet Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00320",
+        "name": "Vanguard Fleet Co.",
+        "industry": "Fleet Logistics & Transportation",
+        "region": "Greater London",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "44"
+      }
+    ]
+  },
+  {
+    "parent": "Delta Logistics Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00321",
+        "name": "Delta Logistics Enterprises",
+        "industry": "Fleet Logistics & Transportation",
+        "region": "Maricopa County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "51"
+      },
+      {
+        "entity_id": "ENT-00363",
+        "name": "Delta Logistics Consulting",
+        "industry": "Fleet Logistics & Transportation",
+        "region": "Greater Toronto Area",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "60"
+      },
+      {
+        "entity_id": "ENT-00384",
+        "name": "Delta Logistics Group",
+        "industry": "Fleet Logistics & Transportation",
+        "region": "Harris County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "89"
+      },
+      {
+        "entity_id": "ENT-00393",
+        "name": "Delta Logistics LLC",
+        "industry": "Fleet Logistics & Transportation",
+        "region": "San Diego County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "81"
+      }
+    ]
+  },
+  {
+    "parent": "Summit Freight Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00325",
+        "name": "Summit Freight Enterprises",
+        "industry": "Fleet Logistics & Transportation",
+        "region": "Fulton County",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "91"
+      },
+      {
+        "entity_id": "ENT-00365",
+        "name": "Summit Freight Co.",
+        "industry": "Fleet Logistics & Transportation",
+        "region": "King County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "97"
+      }
+    ]
+  },
+  {
+    "parent": "Atlas Transport Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00332",
+        "name": "Atlas Transport Consulting",
+        "industry": "Fleet Logistics & Transportation",
+        "region": "Cook County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "76"
+      },
+      {
+        "entity_id": "ENT-00333",
+        "name": "Atlas Transport Solutions",
+        "industry": "Fleet Logistics & Transportation",
+        "region": "Greater Sydney",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "70"
+      },
+      {
+        "entity_id": "ENT-00346",
+        "name": "Atlas Transport Group",
+        "industry": "Fleet Logistics & Transportation",
+        "region": "Greater Toronto Area",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "98"
+      }
+    ]
+  },
+  {
+    "parent": "Apex Transport Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00361",
+        "name": "Apex Transport Industries",
+        "industry": "Fleet Logistics & Transportation",
+        "region": "Greater London",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "97"
+      }
+    ]
+  },
+  {
+    "parent": "Clarity Archives Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00404",
+        "name": "Clarity Archives Industries",
+        "industry": "Records Management & Digitization",
+        "region": "Miami-Dade County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "72"
+      }
+    ]
+  },
+  {
+    "parent": "Apex Records Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00408",
+        "name": "Apex Records Consulting",
+        "industry": "Records Management & Digitization",
+        "region": "Denver County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "66"
+      },
+      {
+        "entity_id": "ENT-00467",
+        "name": "Apex Records Corp.",
+        "industry": "Records Management & Digitization",
+        "region": "Maricopa County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "63"
+      }
+    ]
+  },
+  {
+    "parent": "DigitalBridge Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00418",
+        "name": "DigitalBridge Partners",
+        "industry": "Records Management & Digitization",
+        "region": "Fulton County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "63"
+      },
+      {
+        "entity_id": "ENT-00476",
+        "name": "DigitalBridge Consulting",
+        "industry": "Records Management & Digitization",
+        "region": "Contra Costa County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "49"
+      }
+    ]
+  },
+  {
+    "parent": "DataVault Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00425",
+        "name": "DataVault Partners",
+        "industry": "Records Management & Digitization",
+        "region": "Orange County",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "41"
+      },
+      {
+        "entity_id": "ENT-00447",
+        "name": "DataVault Consulting",
+        "industry": "Records Management & Digitization",
+        "region": "Miami-Dade County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "54"
+      }
+    ]
+  },
+  {
+    "parent": "Vanguard Records Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00440",
+        "name": "Vanguard Records Enterprises",
+        "industry": "Records Management & Digitization",
+        "region": "West Midlands",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "63"
+      },
+      {
+        "entity_id": "ENT-00478",
+        "name": "Vanguard Records LLC",
+        "industry": "Records Management & Digitization",
+        "region": "Cook County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "63"
+      },
+      {
+        "entity_id": "ENT-00491",
+        "name": "Vanguard Records Industries",
+        "industry": "Records Management & Digitization",
+        "region": "San Francisco County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "89"
+      },
+      {
+        "entity_id": "ENT-00500",
+        "name": "Vanguard Records Associates",
+        "industry": "Records Management & Digitization",
+        "region": "Marin County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "45"
+      }
+    ]
+  },
+  {
+    "parent": "SecureDoc Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00464",
+        "name": "SecureDoc Associates",
+        "industry": "Records Management & Digitization",
+        "region": "Greater London",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "90"
+      },
+      {
+        "entity_id": "ENT-00496",
+        "name": "SecureDoc Consulting",
+        "industry": "Records Management & Digitization",
+        "region": "Harris County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "74"
+      }
+    ]
+  },
+  {
+    "parent": "Summit Digitization Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00465",
+        "name": "Summit Digitization Associates",
+        "industry": "Records Management & Digitization",
+        "region": "Napa County",
+        "revenue": "$100M+",
+        "ai_score": "60"
+      }
+    ]
+  },
+  {
+    "parent": "Quantum Systems Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00518",
+        "name": "Quantum Systems Associates",
+        "industry": "AI & Automation Consulting",
+        "region": "San Francisco County",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "46"
+      },
+      {
+        "entity_id": "ENT-00562",
+        "name": "Quantum Systems Associates",
+        "industry": "AI & Automation Consulting",
+        "region": "Marin County",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "98"
+      }
+    ]
+  },
+  {
+    "parent": "Vanguard Tech Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00519",
+        "name": "Vanguard Tech Co.",
+        "industry": "AI & Automation Consulting",
+        "region": "Solano County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "49"
+      },
+      {
+        "entity_id": "ENT-00536",
+        "name": "Vanguard Tech Group",
+        "industry": "AI & Automation Consulting",
+        "region": "Denver County",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "63"
+      },
+      {
+        "entity_id": "ENT-00571",
+        "name": "Vanguard Tech Systems",
+        "industry": "AI & Automation Consulting",
+        "region": "Marin County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "59"
+      }
+    ]
+  },
+  {
+    "parent": "Titan AI Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00521",
+        "name": "Titan AI Group",
+        "industry": "AI & Automation Consulting",
+        "region": "Harris County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "72"
+      },
+      {
+        "entity_id": "ENT-00560",
+        "name": "Titan AI Co.",
+        "industry": "AI & Automation Consulting",
+        "region": "Cook County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "81"
+      }
+    ]
+  },
+  {
+    "parent": "Nexus AI Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00524",
+        "name": "Nexus AI Consulting",
+        "industry": "AI & Automation Consulting",
+        "region": "Orange County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "62"
+      },
+      {
+        "entity_id": "ENT-00576",
+        "name": "Nexus AI Corp.",
+        "industry": "AI & Automation Consulting",
+        "region": "Marin County",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "59"
+      }
+    ]
+  },
+  {
+    "parent": "Sovereign Systems Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00535",
+        "name": "Sovereign Systems LLC",
+        "industry": "AI & Automation Consulting",
+        "region": "Sonoma County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "45"
+      },
+      {
+        "entity_id": "ENT-00546",
+        "name": "Sovereign Systems Services",
+        "industry": "AI & Automation Consulting",
+        "region": "Denver County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "77"
+      }
+    ]
+  },
+  {
+    "parent": "ProAI Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00542",
+        "name": "ProAI Consulting",
+        "industry": "AI & Automation Consulting",
+        "region": "Orange County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "84"
+      }
+    ]
+  },
+  {
+    "parent": "Atlas Automation Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00552",
+        "name": "Atlas Automation Consulting",
+        "industry": "AI & Automation Consulting",
+        "region": "Cook County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "77"
+      }
+    ]
+  },
+  {
+    "parent": "Delta Intelligence Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00570",
+        "name": "Delta Intelligence Solutions",
+        "industry": "AI & Automation Consulting",
+        "region": "Harris County",
+        "revenue": "$100M+",
+        "ai_score": "63"
+      }
+    ]
+  },
+  {
+    "parent": "Apex Automation Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00586",
+        "name": "Apex Automation Services",
+        "industry": "AI & Automation Consulting",
+        "region": "Sacramento County",
+        "revenue": "$100M+",
+        "ai_score": "99"
+      }
+    ]
+  },
+  {
+    "parent": "Fortress Systems Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00610",
+        "name": "Fortress Systems Systems",
+        "industry": "IT Infrastructure & Managed Services",
+        "region": "Denver County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "56"
+      },
+      {
+        "entity_id": "ENT-00684",
+        "name": "Fortress Systems Group",
+        "industry": "IT Infrastructure & Managed Services",
+        "region": "King County",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "66"
+      }
+    ]
+  },
+  {
+    "parent": "Apex IT Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00614",
+        "name": "Apex IT Consulting",
+        "industry": "IT Infrastructure & Managed Services",
+        "region": "Sacramento County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "49"
+      },
+      {
+        "entity_id": "ENT-00632",
+        "name": "Apex IT Co.",
+        "industry": "IT Infrastructure & Managed Services",
+        "region": "Calgary Region",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "68"
+      },
+      {
+        "entity_id": "ENT-00633",
+        "name": "Apex IT Associates",
+        "industry": "IT Infrastructure & Managed Services",
+        "region": "Harris County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "41"
+      }
+    ]
+  },
+  {
+    "parent": "Shield IT Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00628",
+        "name": "Shield IT Corp.",
+        "industry": "IT Infrastructure & Managed Services",
+        "region": "Fulton County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "51"
+      },
+      {
+        "entity_id": "ENT-00645",
+        "name": "Shield IT Consulting",
+        "industry": "IT Infrastructure & Managed Services",
+        "region": "San Francisco County",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "77"
+      }
+    ]
+  },
+  {
+    "parent": "Delta Networks Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00634",
+        "name": "Delta Networks Inc.",
+        "industry": "IT Infrastructure & Managed Services",
+        "region": "Fulton County",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "64"
+      }
+    ]
+  },
+  {
+    "parent": "Atlas IT Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00664",
+        "name": "Atlas IT Enterprises",
+        "industry": "IT Infrastructure & Managed Services",
+        "region": "Fulton County",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "81"
+      },
+      {
+        "entity_id": "ENT-00673",
+        "name": "Atlas IT Group",
+        "industry": "IT Infrastructure & Managed Services",
+        "region": "Wayne County",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "46"
+      }
+    ]
+  },
+  {
+    "parent": "Titan Networks Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00693",
+        "name": "Titan Networks Inc.",
+        "industry": "IT Infrastructure & Managed Services",
+        "region": "Denver County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "63"
+      }
+    ]
+  },
+  {
+    "parent": "Summit Environmental Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00705",
+        "name": "Summit Environmental Consulting",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "Contra Costa County",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "46"
+      },
+      {
+        "entity_id": "ENT-00708",
+        "name": "Summit Environmental Co.",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "Greater London",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "83"
+      },
+      {
+        "entity_id": "ENT-00760",
+        "name": "Summit Environmental Inc.",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "Solano County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "84"
+      }
+    ]
+  },
+  {
+    "parent": "Clarity Compliance Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00707",
+        "name": "Clarity Compliance Consulting",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "Contra Costa County",
+        "revenue": "$100M+",
+        "ai_score": "46"
+      },
+      {
+        "entity_id": "ENT-00734",
+        "name": "Clarity Compliance Group",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "West Midlands",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "76"
+      },
+      {
+        "entity_id": "ENT-00757",
+        "name": "Clarity Compliance Solutions",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "Los Angeles County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "95"
+      },
+      {
+        "entity_id": "ENT-01741",
+        "name": "Clarity Compliance Corp.",
+        "industry": "Legal & Compliance Services",
+        "region": "Miami-Dade County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "49"
+      },
+      {
+        "entity_id": "ENT-01763",
+        "name": "Clarity Compliance Systems",
+        "industry": "Legal & Compliance Services",
+        "region": "Greater Sydney",
+        "revenue": "$100M+",
+        "ai_score": "73"
+      },
+      {
+        "entity_id": "ENT-01786",
+        "name": "Clarity Compliance Enterprises",
+        "industry": "Legal & Compliance Services",
+        "region": "Wayne County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "78"
+      }
+    ]
+  },
+  {
+    "parent": "ProEnviro Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00725",
+        "name": "ProEnviro Solutions",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "Alameda County",
+        "revenue": "$100M+",
+        "ai_score": "80"
+      },
+      {
+        "entity_id": "ENT-00780",
+        "name": "ProEnviro Corp.",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "San Diego County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "45"
+      }
+    ]
+  },
+  {
+    "parent": "Atlas Remediation Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00727",
+        "name": "Atlas Remediation Services",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "Greater London",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "72"
+      },
+      {
+        "entity_id": "ENT-00754",
+        "name": "Atlas Remediation Associates",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "Sacramento County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "51"
+      },
+      {
+        "entity_id": "ENT-00766",
+        "name": "Atlas Remediation Inc.",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "Greater Melbourne",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "93"
+      },
+      {
+        "entity_id": "ENT-00793",
+        "name": "Atlas Remediation Industries",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "Miami-Dade County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "49"
+      }
+    ]
+  },
+  {
+    "parent": "Guardian Environmental Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00746",
+        "name": "Guardian Environmental Consulting",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "Sacramento County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "48"
+      }
+    ]
+  },
+  {
+    "parent": "Titan Remediation Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00756",
+        "name": "Titan Remediation Consulting",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "Greater Melbourne",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "62"
+      }
+    ]
+  },
+  {
+    "parent": "Vanguard Compliance Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00762",
+        "name": "Vanguard Compliance Partners",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "Greater Toronto Area",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "73"
+      },
+      {
+        "entity_id": "ENT-00785",
+        "name": "Vanguard Compliance Consulting",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "Harris County",
+        "revenue": "$100M+",
+        "ai_score": "60"
+      },
+      {
+        "entity_id": "ENT-00791",
+        "name": "Vanguard Compliance Group",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "Fulton County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "40"
+      }
+    ]
+  },
+  {
+    "parent": "Apex Environmental Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00773",
+        "name": "Apex Environmental Associates",
+        "industry": "Environmental Compliance & Remediation",
+        "region": "Harris County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "79"
+      }
+    ]
+  },
+  {
+    "parent": "Apex Security Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00802",
+        "name": "Apex Security Partners",
+        "industry": "Security Services & Guard Staffing",
+        "region": "West Midlands",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "60"
+      }
+    ]
+  },
+  {
+    "parent": "Atlas Guard Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00803",
+        "name": "Atlas Guard Corp.",
+        "industry": "Security Services & Guard Staffing",
+        "region": "Wayne County",
+        "revenue": "$100M+",
+        "ai_score": "42"
+      },
+      {
+        "entity_id": "ENT-00805",
+        "name": "Atlas Guard Solutions",
+        "industry": "Security Services & Guard Staffing",
+        "region": "Greater Melbourne",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "89"
+      },
+      {
+        "entity_id": "ENT-00826",
+        "name": "Atlas Guard LLC",
+        "industry": "Security Services & Guard Staffing",
+        "region": "Los Angeles County",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "60"
+      }
+    ]
+  },
+  {
+    "parent": "Patriot Security Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00810",
+        "name": "Patriot Security Industries",
+        "industry": "Security Services & Guard Staffing",
+        "region": "Maricopa County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "44"
+      }
+    ]
+  },
+  {
+    "parent": "Fortress Guard Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00811",
+        "name": "Fortress Guard Solutions",
+        "industry": "Security Services & Guard Staffing",
+        "region": "Sonoma County",
+        "revenue": "$100M+",
+        "ai_score": "55"
+      }
+    ]
+  },
+  {
+    "parent": "ProShield Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00815",
+        "name": "ProShield Associates",
+        "industry": "Security Services & Guard Staffing",
+        "region": "Solano County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "41"
+      },
+      {
+        "entity_id": "ENT-00844",
+        "name": "ProShield Services",
+        "industry": "Security Services & Guard Staffing",
+        "region": "Greater Melbourne",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "80"
+      }
+    ]
+  },
+  {
+    "parent": "Vanguard Security Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00840",
+        "name": "Vanguard Security Services",
+        "industry": "Security Services & Guard Staffing",
+        "region": "Contra Costa County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "40"
+      }
+    ]
+  },
+  {
+    "parent": "Iron Shield Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00843",
+        "name": "Iron Shield Enterprises",
+        "industry": "Security Services & Guard Staffing",
+        "region": "Greater Sydney",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "97"
+      },
+      {
+        "entity_id": "ENT-00866",
+        "name": "Iron Shield Systems",
+        "industry": "Security Services & Guard Staffing",
+        "region": "Maricopa County",
+        "revenue": "$100M+",
+        "ai_score": "50"
+      },
+      {
+        "entity_id": "ENT-00878",
+        "name": "Iron Shield LLC",
+        "industry": "Security Services & Guard Staffing",
+        "region": "Wayne County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "95"
+      }
+    ]
+  },
+  {
+    "parent": "Delta Security Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00862",
+        "name": "Delta Security Solutions",
+        "industry": "Security Services & Guard Staffing",
+        "region": "Cook County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "44"
+      }
+    ]
+  },
+  {
+    "parent": "Titan Guard Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00883",
+        "name": "Titan Guard Services",
+        "industry": "Security Services & Guard Staffing",
+        "region": "Sonoma County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "41"
+      }
+    ]
+  },
+  {
+    "parent": "Precision Mechanical Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00903",
+        "name": "Precision Mechanical Associates",
+        "industry": "HVAC & Mechanical Services",
+        "region": "Contra Costa County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "59"
+      },
+      {
+        "entity_id": "ENT-00944",
+        "name": "Precision Mechanical Partners",
+        "industry": "HVAC & Mechanical Services",
+        "region": "Alameda County",
+        "revenue": "$100M+",
+        "ai_score": "82"
+      }
+    ]
+  },
+  {
+    "parent": "Delta Air Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00910",
+        "name": "Delta Air LLC",
+        "industry": "HVAC & Mechanical Services",
+        "region": "Contra Costa County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "91"
+      },
+      {
+        "entity_id": "ENT-00915",
+        "name": "Delta Air Group",
+        "industry": "HVAC & Mechanical Services",
+        "region": "Greater Toronto Area",
+        "revenue": "$100M+",
+        "ai_score": "52"
+      },
+      {
+        "entity_id": "ENT-00974",
+        "name": "Delta Air LLC",
+        "industry": "HVAC & Mechanical Services",
+        "region": "San Diego County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "51"
+      }
+    ]
+  },
+  {
+    "parent": "Guardian Mechanical Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00918",
+        "name": "Guardian Mechanical Inc.",
+        "industry": "HVAC & Mechanical Services",
+        "region": "King County",
+        "revenue": "$100M+",
+        "ai_score": "75"
+      },
+      {
+        "entity_id": "ENT-00990",
+        "name": "Guardian Mechanical Corp.",
+        "industry": "HVAC & Mechanical Services",
+        "region": "Orange County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "59"
+      }
+    ]
+  },
+  {
+    "parent": "ProAir Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00926",
+        "name": "ProAir Group",
+        "industry": "HVAC & Mechanical Services",
+        "region": "Orange County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "43"
+      }
+    ]
+  },
+  {
+    "parent": "Titan Mechanical Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00943",
+        "name": "Titan Mechanical LLC",
+        "industry": "HVAC & Mechanical Services",
+        "region": "Napa County",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "83"
+      },
+      {
+        "entity_id": "ENT-00981",
+        "name": "Titan Mechanical Group",
+        "industry": "HVAC & Mechanical Services",
+        "region": "Maricopa County",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "76"
+      },
+      {
+        "entity_id": "ENT-00986",
+        "name": "Titan Mechanical Partners",
+        "industry": "HVAC & Mechanical Services",
+        "region": "Cook County",
+        "revenue": "$100M+",
+        "ai_score": "69"
+      },
+      {
+        "entity_id": "ENT-00994",
+        "name": "Titan Mechanical Co.",
+        "industry": "HVAC & Mechanical Services",
+        "region": "San Diego County",
+        "revenue": "$100M+",
+        "ai_score": "78"
+      },
+      {
+        "entity_id": "ENT-00995",
+        "name": "Titan Mechanical Systems",
+        "industry": "HVAC & Mechanical Services",
+        "region": "Calgary Region",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "46"
+      }
+    ]
+  },
+  {
+    "parent": "Vanguard HVAC Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00952",
+        "name": "Vanguard HVAC Partners",
+        "industry": "HVAC & Mechanical Services",
+        "region": "Los Angeles County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "71"
+      },
+      {
+        "entity_id": "ENT-00976",
+        "name": "Vanguard HVAC Consulting",
+        "industry": "HVAC & Mechanical Services",
+        "region": "Denver County",
+        "revenue": "$100M+",
+        "ai_score": "76"
+      }
+    ]
+  },
+  {
+    "parent": "Clarity HVAC Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-00992",
+        "name": "Clarity HVAC Services",
+        "industry": "HVAC & Mechanical Services",
+        "region": "Greater London",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "61"
+      }
+    ]
+  },
+  {
+    "parent": "Vanguard Electric Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01014",
+        "name": "Vanguard Electric Enterprises",
+        "industry": "Electrical Contracting",
+        "region": "San Diego County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "77"
+      },
+      {
+        "entity_id": "ENT-01038",
+        "name": "Vanguard Electric Inc.",
+        "industry": "Electrical Contracting",
+        "region": "West Midlands",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "46"
+      }
+    ]
+  },
+  {
+    "parent": "Precision Electric Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01026",
+        "name": "Precision Electric Associates",
+        "industry": "Electrical Contracting",
+        "region": "Cuyahoga County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "59"
+      },
+      {
+        "entity_id": "ENT-01058",
+        "name": "Precision Electric Enterprises",
+        "industry": "Electrical Contracting",
+        "region": "Greater Sydney",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "94"
+      },
+      {
+        "entity_id": "ENT-01080",
+        "name": "Precision Electric LLC",
+        "industry": "Electrical Contracting",
+        "region": "Wayne County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "73"
+      }
+    ]
+  },
+  {
+    "parent": "Delta Power Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01028",
+        "name": "Delta Power Associates",
+        "industry": "Electrical Contracting",
+        "region": "Sonoma County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "73"
+      },
+      {
+        "entity_id": "ENT-01067",
+        "name": "Delta Power Corp.",
+        "industry": "Electrical Contracting",
+        "region": "Calgary Region",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "70"
+      },
+      {
+        "entity_id": "ENT-01092",
+        "name": "Delta Power Inc.",
+        "industry": "Electrical Contracting",
+        "region": "Orange County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "58"
+      }
+    ]
+  },
+  {
+    "parent": "Clarity Electrical Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01043",
+        "name": "Clarity Electrical Group",
+        "industry": "Electrical Contracting",
+        "region": "Harris County",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "47"
+      },
+      {
+        "entity_id": "ENT-01046",
+        "name": "Clarity Electrical Solutions",
+        "industry": "Electrical Contracting",
+        "region": "Greater London",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "85"
+      },
+      {
+        "entity_id": "ENT-01089",
+        "name": "Clarity Electrical Systems",
+        "industry": "Electrical Contracting",
+        "region": "West Midlands",
+        "revenue": "$100M+",
+        "ai_score": "73"
+      }
+    ]
+  },
+  {
+    "parent": "Apex Electric Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01049",
+        "name": "Apex Electric Corp.",
+        "industry": "Electrical Contracting",
+        "region": "Sacramento County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "67"
+      }
+    ]
+  },
+  {
+    "parent": "Summit Electrical Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01091",
+        "name": "Summit Electrical Services",
+        "industry": "Electrical Contracting",
+        "region": "Greater Sydney",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "77"
+      }
+    ]
+  },
+  {
+    "parent": "Atlas Grounds Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01102",
+        "name": "Atlas Grounds Partners",
+        "industry": "Landscaping & Grounds Maintenance",
+        "region": "Harris County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "44"
+      },
+      {
+        "entity_id": "ENT-01125",
+        "name": "Atlas Grounds Group",
+        "industry": "Landscaping & Grounds Maintenance",
+        "region": "Harris County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "46"
+      }
+    ]
+  },
+  {
+    "parent": "Clarity Grounds Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01104",
+        "name": "Clarity Grounds Industries",
+        "industry": "Landscaping & Grounds Maintenance",
+        "region": "Orange County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "62"
+      }
+    ]
+  },
+  {
+    "parent": "Apex Grounds Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01123",
+        "name": "Apex Grounds Corp.",
+        "industry": "Landscaping & Grounds Maintenance",
+        "region": "Contra Costa County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "92"
+      },
+      {
+        "entity_id": "ENT-01138",
+        "name": "Apex Grounds Consulting",
+        "industry": "Landscaping & Grounds Maintenance",
+        "region": "Cook County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "96"
+      },
+      {
+        "entity_id": "ENT-01167",
+        "name": "Apex Grounds Corp.",
+        "industry": "Landscaping & Grounds Maintenance",
+        "region": "West Midlands",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "62"
+      },
+      {
+        "entity_id": "ENT-01187",
+        "name": "Apex Grounds Associates",
+        "industry": "Landscaping & Grounds Maintenance",
+        "region": "Fulton County",
+        "revenue": "$100M+",
+        "ai_score": "89"
+      },
+      {
+        "entity_id": "ENT-01194",
+        "name": "Apex Grounds Enterprises",
+        "industry": "Landscaping & Grounds Maintenance",
+        "region": "Maricopa County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "85"
+      }
+    ]
+  },
+  {
+    "parent": "Titan Landscaping Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01144",
+        "name": "Titan Landscaping Consulting",
+        "industry": "Landscaping & Grounds Maintenance",
+        "region": "King County",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "60"
+      },
+      {
+        "entity_id": "ENT-01168",
+        "name": "Titan Landscaping Consulting",
+        "industry": "Landscaping & Grounds Maintenance",
+        "region": "Harris County",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "61"
+      }
+    ]
+  },
+  {
+    "parent": "Summit Landscaping Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01166",
+        "name": "Summit Landscaping Services",
+        "industry": "Landscaping & Grounds Maintenance",
+        "region": "Napa County",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "81"
+      }
+    ]
+  },
+  {
+    "parent": "Precision Landscaping Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01178",
+        "name": "Precision Landscaping Corp.",
+        "industry": "Landscaping & Grounds Maintenance",
+        "region": "Denver County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "92"
+      }
+    ]
+  },
+  {
+    "parent": "Vanguard Grounds Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01192",
+        "name": "Vanguard Grounds Partners",
+        "industry": "Landscaping & Grounds Maintenance",
+        "region": "Denver County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "77"
+      }
+    ]
+  },
+  {
+    "parent": "Guardian Pest Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01206",
+        "name": "Guardian Pest Corp.",
+        "industry": "Pest Control & Sanitation",
+        "region": "Fulton County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "90"
+      }
+    ]
+  },
+  {
+    "parent": "ProPest Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01207",
+        "name": "ProPest LLC",
+        "industry": "Pest Control & Sanitation",
+        "region": "Maricopa County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "71"
+      },
+      {
+        "entity_id": "ENT-01217",
+        "name": "ProPest Corp.",
+        "industry": "Pest Control & Sanitation",
+        "region": "Fulton County",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "96"
+      }
+    ]
+  },
+  {
+    "parent": "Atlas Pest Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01215",
+        "name": "Atlas Pest Associates",
+        "industry": "Pest Control & Sanitation",
+        "region": "Metro Vancouver",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "65"
+      },
+      {
+        "entity_id": "ENT-01274",
+        "name": "Atlas Pest Corp.",
+        "industry": "Pest Control & Sanitation",
+        "region": "Miami-Dade County",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "66"
+      },
+      {
+        "entity_id": "ENT-01278",
+        "name": "Atlas Pest Co.",
+        "industry": "Pest Control & Sanitation",
+        "region": "Solano County",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "59"
+      },
+      {
+        "entity_id": "ENT-01296",
+        "name": "Atlas Pest Partners",
+        "industry": "Pest Control & Sanitation",
+        "region": "Greater Sydney",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "62"
+      },
+      {
+        "entity_id": "ENT-01298",
+        "name": "Atlas Pest Industries",
+        "industry": "Pest Control & Sanitation",
+        "region": "Cuyahoga County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "62"
+      }
+    ]
+  },
+  {
+    "parent": "Titan Sanitation Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01216",
+        "name": "Titan Sanitation Consulting",
+        "industry": "Pest Control & Sanitation",
+        "region": "Greater Sydney",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "53"
+      },
+      {
+        "entity_id": "ENT-01297",
+        "name": "Titan Sanitation LLC",
+        "industry": "Pest Control & Sanitation",
+        "region": "Cuyahoga County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "84"
+      }
+    ]
+  },
+  {
+    "parent": "Apex Pest Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01225",
+        "name": "Apex Pest Associates",
+        "industry": "Pest Control & Sanitation",
+        "region": "Denver County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "76"
+      }
+    ]
+  },
+  {
+    "parent": "Clarity Sanitation Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01245",
+        "name": "Clarity Sanitation Partners",
+        "industry": "Pest Control & Sanitation",
+        "region": "West Midlands",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "98"
+      }
+    ]
+  },
+  {
+    "parent": "Summit Sanitation Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01287",
+        "name": "Summit Sanitation Services",
+        "industry": "Pest Control & Sanitation",
+        "region": "King County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "79"
+      }
+    ]
+  },
+  {
+    "parent": "Vanguard Pest Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01289",
+        "name": "Vanguard Pest Associates",
+        "industry": "Pest Control & Sanitation",
+        "region": "Contra Costa County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "64"
+      }
+    ]
+  },
+  {
+    "parent": "Delta Flow Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01306",
+        "name": "Delta Flow Industries",
+        "industry": "Plumbing & Water Systems",
+        "region": "Orange County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "80"
+      },
+      {
+        "entity_id": "ENT-01396",
+        "name": "Delta Flow Systems",
+        "industry": "Plumbing & Water Systems",
+        "region": "Harris County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "72"
+      }
+    ]
+  },
+  {
+    "parent": "Clarity Water Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01313",
+        "name": "Clarity Water Solutions",
+        "industry": "Plumbing & Water Systems",
+        "region": "Metro Vancouver",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "50"
+      }
+    ]
+  },
+  {
+    "parent": "Vanguard Plumbing Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01319",
+        "name": "Vanguard Plumbing Corp.",
+        "industry": "Plumbing & Water Systems",
+        "region": "Fulton County",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "47"
+      },
+      {
+        "entity_id": "ENT-01341",
+        "name": "Vanguard Plumbing Inc.",
+        "industry": "Plumbing & Water Systems",
+        "region": "Calgary Region",
+        "revenue": "$100M+",
+        "ai_score": "66"
+      },
+      {
+        "entity_id": "ENT-01367",
+        "name": "Vanguard Plumbing Industries",
+        "industry": "Plumbing & Water Systems",
+        "region": "Maricopa County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "99"
+      }
+    ]
+  },
+  {
+    "parent": "Precision Plumbing Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01328",
+        "name": "Precision Plumbing Industries",
+        "industry": "Plumbing & Water Systems",
+        "region": "West Midlands",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "97"
+      },
+      {
+        "entity_id": "ENT-01331",
+        "name": "Precision Plumbing Group",
+        "industry": "Plumbing & Water Systems",
+        "region": "San Diego County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "68"
+      },
+      {
+        "entity_id": "ENT-01339",
+        "name": "Precision Plumbing Enterprises",
+        "industry": "Plumbing & Water Systems",
+        "region": "Napa County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "54"
+      },
+      {
+        "entity_id": "ENT-01373",
+        "name": "Precision Plumbing Enterprises",
+        "industry": "Plumbing & Water Systems",
+        "region": "Greater London",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "51"
+      }
+    ]
+  },
+  {
+    "parent": "Summit Water Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01329",
+        "name": "Summit Water Systems",
+        "industry": "Plumbing & Water Systems",
+        "region": "Marin County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "92"
+      }
+    ]
+  },
+  {
+    "parent": "Titan Water Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01333",
+        "name": "Titan Water Inc.",
+        "industry": "Plumbing & Water Systems",
+        "region": "Napa County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "48"
+      }
+    ]
+  },
+  {
+    "parent": "Atlas Plumbing Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01346",
+        "name": "Atlas Plumbing Enterprises",
+        "industry": "Plumbing & Water Systems",
+        "region": "King County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "78"
+      },
+      {
+        "entity_id": "ENT-01392",
+        "name": "Atlas Plumbing LLC",
+        "industry": "Plumbing & Water Systems",
+        "region": "Marin County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "59"
+      }
+    ]
+  },
+  {
+    "parent": "Guardian Plumbing Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01355",
+        "name": "Guardian Plumbing Industries",
+        "industry": "Plumbing & Water Systems",
+        "region": "Maricopa County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "96"
+      },
+      {
+        "entity_id": "ENT-01377",
+        "name": "Guardian Plumbing Enterprises",
+        "industry": "Plumbing & Water Systems",
+        "region": "Sacramento County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "61"
+      },
+      {
+        "entity_id": "ENT-01387",
+        "name": "Guardian Plumbing Solutions",
+        "industry": "Plumbing & Water Systems",
+        "region": "San Francisco County",
+        "revenue": "$100M+",
+        "ai_score": "79"
+      }
+    ]
+  },
+  {
+    "parent": "ProFlow Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01372",
+        "name": "ProFlow Associates",
+        "industry": "Plumbing & Water Systems",
+        "region": "Los Angeles County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "84"
+      }
+    ]
+  },
+  {
+    "parent": "Summit Build Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01421",
+        "name": "Summit Build Group",
+        "industry": "Construction & General Contracting",
+        "region": "San Francisco County",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "86"
+      },
+      {
+        "entity_id": "ENT-01481",
+        "name": "Summit Build Industries",
+        "industry": "Construction & General Contracting",
+        "region": "Napa County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "85"
+      }
+    ]
+  },
+  {
+    "parent": "ProBuild Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01438",
+        "name": "ProBuild Group",
+        "industry": "Construction & General Contracting",
+        "region": "Sonoma County",
+        "revenue": "$100M+",
+        "ai_score": "68"
+      },
+      {
+        "entity_id": "ENT-01473",
+        "name": "ProBuild Industries",
+        "industry": "Construction & General Contracting",
+        "region": "Los Angeles County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "68"
+      }
+    ]
+  },
+  {
+    "parent": "Vanguard Construction Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01442",
+        "name": "Vanguard Construction Partners",
+        "industry": "Construction & General Contracting",
+        "region": "Wayne County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "61"
+      }
+    ]
+  },
+  {
+    "parent": "Precision Construction Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01445",
+        "name": "Precision Construction Inc.",
+        "industry": "Construction & General Contracting",
+        "region": "Maricopa County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "48"
+      },
+      {
+        "entity_id": "ENT-01499",
+        "name": "Precision Construction Systems",
+        "industry": "Construction & General Contracting",
+        "region": "Calgary Region",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "91"
+      }
+    ]
+  },
+  {
+    "parent": "Guardian Construction Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01448",
+        "name": "Guardian Construction Co.",
+        "industry": "Construction & General Contracting",
+        "region": "Metro Vancouver",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "87"
+      },
+      {
+        "entity_id": "ENT-01466",
+        "name": "Guardian Construction Consulting",
+        "industry": "Construction & General Contracting",
+        "region": "Marin County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "82"
+      }
+    ]
+  },
+  {
+    "parent": "Clarity Build Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01475",
+        "name": "Clarity Build Services",
+        "industry": "Construction & General Contracting",
+        "region": "Metro Vancouver",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "97"
+      }
+    ]
+  },
+  {
+    "parent": "Delta Build Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01483",
+        "name": "Delta Build Consulting",
+        "industry": "Construction & General Contracting",
+        "region": "King County",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "58"
+      }
+    ]
+  },
+  {
+    "parent": "Apex Staffing Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01505",
+        "name": "Apex Staffing Group",
+        "industry": "Staffing & Workforce Solutions",
+        "region": "Alameda County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "82"
+      },
+      {
+        "entity_id": "ENT-01531",
+        "name": "Apex Staffing Services",
+        "industry": "Staffing & Workforce Solutions",
+        "region": "Harris County",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "82"
+      }
+    ]
+  },
+  {
+    "parent": "Clarity Workforce Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01506",
+        "name": "Clarity Workforce Group",
+        "industry": "Staffing & Workforce Solutions",
+        "region": "Marin County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "84"
+      },
+      {
+        "entity_id": "ENT-01596",
+        "name": "Clarity Workforce Group",
+        "industry": "Staffing & Workforce Solutions",
+        "region": "Marin County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "81"
+      }
+    ]
+  },
+  {
+    "parent": "ProStaff Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01508",
+        "name": "ProStaff Corp.",
+        "industry": "Staffing & Workforce Solutions",
+        "region": "Maricopa County",
+        "revenue": "$100M+",
+        "ai_score": "49"
+      },
+      {
+        "entity_id": "ENT-01576",
+        "name": "ProStaff Co.",
+        "industry": "Staffing & Workforce Solutions",
+        "region": "San Francisco County",
+        "revenue": "$100M+",
+        "ai_score": "91"
+      }
+    ]
+  },
+  {
+    "parent": "Titan Workforce Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01516",
+        "name": "Titan Workforce Co.",
+        "industry": "Staffing & Workforce Solutions",
+        "region": "Marin County",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "87"
+      },
+      {
+        "entity_id": "ENT-01595",
+        "name": "Titan Workforce Services",
+        "industry": "Staffing & Workforce Solutions",
+        "region": "Orange County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "50"
+      }
+    ]
+  },
+  {
+    "parent": "Precision Staffing Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01535",
+        "name": "Precision Staffing Services",
+        "industry": "Staffing & Workforce Solutions",
+        "region": "Napa County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "67"
+      }
+    ]
+  },
+  {
+    "parent": "Guardian Staffing Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01557",
+        "name": "Guardian Staffing Consulting",
+        "industry": "Staffing & Workforce Solutions",
+        "region": "Greater Melbourne",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "58"
+      },
+      {
+        "entity_id": "ENT-01579",
+        "name": "Guardian Staffing Group",
+        "industry": "Staffing & Workforce Solutions",
+        "region": "Greater London",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "79"
+      }
+    ]
+  },
+  {
+    "parent": "Atlas Staffing Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01581",
+        "name": "Atlas Staffing Consulting",
+        "industry": "Staffing & Workforce Solutions",
+        "region": "Miami-Dade County",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "70"
+      },
+      {
+        "entity_id": "ENT-01586",
+        "name": "Atlas Staffing Solutions",
+        "industry": "Staffing & Workforce Solutions",
+        "region": "Cook County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "69"
+      }
+    ]
+  },
+  {
+    "parent": "Summit Workforce Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01582",
+        "name": "Summit Workforce Systems",
+        "industry": "Staffing & Workforce Solutions",
+        "region": "West Midlands",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "58"
+      }
+    ]
+  },
+  {
+    "parent": "Vanguard Staffing Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01591",
+        "name": "Vanguard Staffing Group",
+        "industry": "Staffing & Workforce Solutions",
+        "region": "Fulton County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "43"
+      }
+    ]
+  },
+  {
+    "parent": "Apex Financial Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01605",
+        "name": "Apex Financial Solutions",
+        "industry": "Accounting & Financial Services",
+        "region": "West Midlands",
+        "revenue": "$100M+",
+        "ai_score": "84"
+      },
+      {
+        "entity_id": "ENT-01621",
+        "name": "Apex Financial Corp.",
+        "industry": "Accounting & Financial Services",
+        "region": "Sacramento County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "94"
+      }
+    ]
+  },
+  {
+    "parent": "Precision Accounting Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01608",
+        "name": "Precision Accounting Partners",
+        "industry": "Accounting & Financial Services",
+        "region": "Greater Melbourne",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "54"
+      },
+      {
+        "entity_id": "ENT-01641",
+        "name": "Precision Accounting Services",
+        "industry": "Accounting & Financial Services",
+        "region": "Greater Melbourne",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "61"
+      },
+      {
+        "entity_id": "ENT-01660",
+        "name": "Precision Accounting Enterprises",
+        "industry": "Accounting & Financial Services",
+        "region": "Wayne County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "40"
+      }
+    ]
+  },
+  {
+    "parent": "Guardian Finance Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01614",
+        "name": "Guardian Finance Solutions",
+        "industry": "Accounting & Financial Services",
+        "region": "Napa County",
+        "revenue": "$100M+",
+        "ai_score": "98"
+      },
+      {
+        "entity_id": "ENT-01695",
+        "name": "Guardian Finance Corp.",
+        "industry": "Accounting & Financial Services",
+        "region": "Alameda County",
+        "revenue": "$100M+",
+        "ai_score": "94"
+      }
+    ]
+  },
+  {
+    "parent": "Delta Finance Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01615",
+        "name": "Delta Finance Consulting",
+        "industry": "Accounting & Financial Services",
+        "region": "King County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "97"
+      },
+      {
+        "entity_id": "ENT-01634",
+        "name": "Delta Finance Consulting",
+        "industry": "Accounting & Financial Services",
+        "region": "Metro Vancouver",
+        "revenue": "$100M+",
+        "ai_score": "69"
+      }
+    ]
+  },
+  {
+    "parent": "ProFinance Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01616",
+        "name": "ProFinance Associates",
+        "industry": "Accounting & Financial Services",
+        "region": "West Midlands",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "87"
+      },
+      {
+        "entity_id": "ENT-01620",
+        "name": "ProFinance Solutions",
+        "industry": "Accounting & Financial Services",
+        "region": "Calgary Region",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "71"
+      },
+      {
+        "entity_id": "ENT-01636",
+        "name": "ProFinance Solutions",
+        "industry": "Accounting & Financial Services",
+        "region": "King County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "84"
+      },
+      {
+        "entity_id": "ENT-01644",
+        "name": "ProFinance Associates",
+        "industry": "Accounting & Financial Services",
+        "region": "Metro Vancouver",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "92"
+      },
+      {
+        "entity_id": "ENT-01669",
+        "name": "ProFinance Co.",
+        "industry": "Accounting & Financial Services",
+        "region": "Greater Melbourne",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "78"
+      }
+    ]
+  },
+  {
+    "parent": "Vanguard Financial Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01655",
+        "name": "Vanguard Financial Consulting",
+        "industry": "Accounting & Financial Services",
+        "region": "Solano County",
+        "revenue": "$100M+",
+        "ai_score": "54"
+      }
+    ]
+  },
+  {
+    "parent": "Clarity Financial Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01666",
+        "name": "Clarity Financial Industries",
+        "industry": "Accounting & Financial Services",
+        "region": "Denver County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "75"
+      },
+      {
+        "entity_id": "ENT-01681",
+        "name": "Clarity Financial Corp.",
+        "industry": "Accounting & Financial Services",
+        "region": "Marin County",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "80"
+      },
+      {
+        "entity_id": "ENT-01683",
+        "name": "Clarity Financial Services",
+        "industry": "Accounting & Financial Services",
+        "region": "Solano County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "50"
+      },
+      {
+        "entity_id": "ENT-01698",
+        "name": "Clarity Financial Industries",
+        "industry": "Accounting & Financial Services",
+        "region": "Metro Vancouver",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "72"
+      }
+    ]
+  },
+  {
+    "parent": "Summit Accounting Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01680",
+        "name": "Summit Accounting Industries",
+        "industry": "Accounting & Financial Services",
+        "region": "West Midlands",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "91"
+      },
+      {
+        "entity_id": "ENT-01692",
+        "name": "Summit Accounting Industries",
+        "industry": "Accounting & Financial Services",
+        "region": "Greater Melbourne",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "93"
+      }
+    ]
+  },
+  {
+    "parent": "Summit Compliance Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01704",
+        "name": "Summit Compliance Corp.",
+        "industry": "Legal & Compliance Services",
+        "region": "Miami-Dade County",
+        "revenue": "$100M+",
+        "ai_score": "83"
+      },
+      {
+        "entity_id": "ENT-01717",
+        "name": "Summit Compliance LLC",
+        "industry": "Legal & Compliance Services",
+        "region": "Contra Costa County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "49"
+      },
+      {
+        "entity_id": "ENT-01740",
+        "name": "Summit Compliance Co.",
+        "industry": "Legal & Compliance Services",
+        "region": "Greater Sydney",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "77"
+      },
+      {
+        "entity_id": "ENT-01798",
+        "name": "Summit Compliance LLC",
+        "industry": "Legal & Compliance Services",
+        "region": "Greater Sydney",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "69"
+      }
+    ]
+  },
+  {
+    "parent": "Apex Legal Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01716",
+        "name": "Apex Legal Associates",
+        "industry": "Legal & Compliance Services",
+        "region": "King County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "98"
+      },
+      {
+        "entity_id": "ENT-01742",
+        "name": "Apex Legal Services",
+        "industry": "Legal & Compliance Services",
+        "region": "Fulton County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "52"
+      },
+      {
+        "entity_id": "ENT-01793",
+        "name": "Apex Legal Partners",
+        "industry": "Legal & Compliance Services",
+        "region": "Marin County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "61"
+      }
+    ]
+  },
+  {
+    "parent": "ProLegal Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01718",
+        "name": "ProLegal Solutions",
+        "industry": "Legal & Compliance Services",
+        "region": "Greater Toronto Area",
+        "revenue": "$100M+",
+        "ai_score": "76"
+      },
+      {
+        "entity_id": "ENT-01776",
+        "name": "ProLegal Enterprises",
+        "industry": "Legal & Compliance Services",
+        "region": "Orange County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "63"
+      }
+    ]
+  },
+  {
+    "parent": "Titan Compliance Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01748",
+        "name": "Titan Compliance Co.",
+        "industry": "Legal & Compliance Services",
+        "region": "Contra Costa County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "67"
+      },
+      {
+        "entity_id": "ENT-01785",
+        "name": "Titan Compliance Co.",
+        "industry": "Legal & Compliance Services",
+        "region": "Greater London",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "63"
+      }
+    ]
+  },
+  {
+    "parent": "Atlas Legal Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01753",
+        "name": "Atlas Legal LLC",
+        "industry": "Legal & Compliance Services",
+        "region": "Greater Toronto Area",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "46"
+      },
+      {
+        "entity_id": "ENT-01781",
+        "name": "Atlas Legal Consulting",
+        "industry": "Legal & Compliance Services",
+        "region": "Los Angeles County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "51"
+      }
+    ]
+  },
+  {
+    "parent": "Guardian Legal Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01777",
+        "name": "Guardian Legal Group",
+        "industry": "Legal & Compliance Services",
+        "region": "San Francisco County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "77"
+      }
+    ]
+  },
+  {
+    "parent": "Precision Legal Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01784",
+        "name": "Precision Legal Co.",
+        "industry": "Legal & Compliance Services",
+        "region": "West Midlands",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "79"
+      }
+    ]
+  },
+  {
+    "parent": "Vanguard Digital Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01805",
+        "name": "Vanguard Digital Consulting",
+        "industry": "Marketing & Digital Services",
+        "region": "San Francisco County",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "68"
+      },
+      {
+        "entity_id": "ENT-01824",
+        "name": "Vanguard Digital Inc.",
+        "industry": "Marketing & Digital Services",
+        "region": "Maricopa County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "74"
+      },
+      {
+        "entity_id": "ENT-01876",
+        "name": "Vanguard Digital Services",
+        "industry": "Marketing & Digital Services",
+        "region": "Los Angeles County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "86"
+      }
+    ]
+  },
+  {
+    "parent": "Precision Marketing Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01818",
+        "name": "Precision Marketing Enterprises",
+        "industry": "Marketing & Digital Services",
+        "region": "Metro Vancouver",
+        "revenue": "$100M+",
+        "ai_score": "96"
+      },
+      {
+        "entity_id": "ENT-01864",
+        "name": "Precision Marketing Enterprises",
+        "industry": "Marketing & Digital Services",
+        "region": "Greater Melbourne",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "70"
+      },
+      {
+        "entity_id": "ENT-01879",
+        "name": "Precision Marketing Corp.",
+        "industry": "Marketing & Digital Services",
+        "region": "San Diego County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "44"
+      },
+      {
+        "entity_id": "ENT-01885",
+        "name": "Precision Marketing LLC",
+        "industry": "Marketing & Digital Services",
+        "region": "San Diego County",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "68"
+      }
+    ]
+  },
+  {
+    "parent": "Apex Digital Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01826",
+        "name": "Apex Digital Inc.",
+        "industry": "Marketing & Digital Services",
+        "region": "Sacramento County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "85"
+      }
+    ]
+  },
+  {
+    "parent": "ProMedia Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01853",
+        "name": "ProMedia Systems",
+        "industry": "Marketing & Digital Services",
+        "region": "Orange County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "59"
+      },
+      {
+        "entity_id": "ENT-01857",
+        "name": "ProMedia Enterprises",
+        "industry": "Marketing & Digital Services",
+        "region": "Napa County",
+        "revenue": "$10M\u2013$25M",
+        "ai_score": "96"
+      }
+    ]
+  },
+  {
+    "parent": "Clarity Digital Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01859",
+        "name": "Clarity Digital Partners",
+        "industry": "Marketing & Digital Services",
+        "region": "Calgary Region",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "51"
+      },
+      {
+        "entity_id": "ENT-01886",
+        "name": "Clarity Digital Group",
+        "industry": "Marketing & Digital Services",
+        "region": "Miami-Dade County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "42"
+      }
+    ]
+  },
+  {
+    "parent": "Atlas Digital Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01861",
+        "name": "Atlas Digital Partners",
+        "industry": "Marketing & Digital Services",
+        "region": "Miami-Dade County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "49"
+      },
+      {
+        "entity_id": "ENT-01866",
+        "name": "Atlas Digital Inc.",
+        "industry": "Marketing & Digital Services",
+        "region": "San Diego County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "40"
+      }
+    ]
+  },
+  {
+    "parent": "Titan Marketing Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01870",
+        "name": "Titan Marketing Partners",
+        "industry": "Marketing & Digital Services",
+        "region": "Metro Vancouver",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "78"
+      }
+    ]
+  },
+  {
+    "parent": "Guardian Marketing Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01890",
+        "name": "Guardian Marketing Group",
+        "industry": "Marketing & Digital Services",
+        "region": "Sonoma County",
+        "revenue": "$25M\u2013$50M",
+        "ai_score": "95"
+      }
+    ]
+  },
+  {
+    "parent": "Summit Marketing Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01899",
+        "name": "Summit Marketing Systems",
+        "industry": "Marketing & Digital Services",
+        "region": "Alameda County",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "95"
+      }
+    ]
+  },
+  {
+    "parent": "Apex Healthcare Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01905",
+        "name": "Apex Healthcare LLC",
+        "industry": "Healthcare Facility Services",
+        "region": "Wayne County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "59"
+      },
+      {
+        "entity_id": "ENT-01938",
+        "name": "Apex Healthcare Industries",
+        "industry": "Healthcare Facility Services",
+        "region": "San Diego County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "48"
+      },
+      {
+        "entity_id": "ENT-01944",
+        "name": "Apex Healthcare Inc.",
+        "industry": "Healthcare Facility Services",
+        "region": "West Midlands",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "43"
+      }
+    ]
+  },
+  {
+    "parent": "Clarity Healthcare Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01906",
+        "name": "Clarity Healthcare Corp.",
+        "industry": "Healthcare Facility Services",
+        "region": "Solano County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "67"
+      },
+      {
+        "entity_id": "ENT-01984",
+        "name": "Clarity Healthcare Corp.",
+        "industry": "Healthcare Facility Services",
+        "region": "Greater Toronto Area",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "50"
+      },
+      {
+        "entity_id": "ENT-01986",
+        "name": "Clarity Healthcare Group",
+        "industry": "Healthcare Facility Services",
+        "region": "Cook County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "56"
+      }
+    ]
+  },
+  {
+    "parent": "Titan Medical Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01908",
+        "name": "Titan Medical Associates",
+        "industry": "Healthcare Facility Services",
+        "region": "Cuyahoga County",
+        "revenue": "$5M\u2013$10M",
+        "ai_score": "61"
+      },
+      {
+        "entity_id": "ENT-01978",
+        "name": "Titan Medical Corp.",
+        "industry": "Healthcare Facility Services",
+        "region": "West Midlands",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "78"
+      }
+    ]
+  },
+  {
+    "parent": "Delta Health Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01912",
+        "name": "Delta Health Group",
+        "industry": "Healthcare Facility Services",
+        "region": "Solano County",
+        "revenue": "$50M\u2013$100M",
+        "ai_score": "93"
+      },
+      {
+        "entity_id": "ENT-01925",
+        "name": "Delta Health Co.",
+        "industry": "Healthcare Facility Services",
+        "region": "Calgary Region",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "57"
+      },
+      {
+        "entity_id": "ENT-01948",
+        "name": "Delta Health Enterprises",
+        "industry": "Healthcare Facility Services",
+        "region": "Maricopa County",
+        "revenue": "$500K\u2013$1M",
+        "ai_score": "95"
+      }
+    ]
+  },
+  {
+    "parent": "Vanguard Healthcare Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01929",
+        "name": "Vanguard Healthcare Co.",
+        "industry": "Healthcare Facility Services",
+        "region": "Cook County",
+        "revenue": "$50K\u2013$250K",
+        "ai_score": "54"
+      }
+    ]
+  },
+  {
+    "parent": "Guardian Medical Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01963",
+        "name": "Guardian Medical Group",
+        "industry": "Healthcare Facility Services",
+        "region": "Denver County",
+        "revenue": "$1M\u2013$2.5M",
+        "ai_score": "55"
+      }
+    ]
+  },
+  {
+    "parent": "ProHealth Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01972",
+        "name": "ProHealth Partners",
+        "industry": "Healthcare Facility Services",
+        "region": "Metro Vancouver",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "47"
+      },
+      {
+        "entity_id": "ENT-01985",
+        "name": "ProHealth Associates",
+        "industry": "Healthcare Facility Services",
+        "region": "Metro Vancouver",
+        "revenue": "$2.5M\u2013$5M",
+        "ai_score": "95"
+      }
+    ]
+  },
+  {
+    "parent": "Atlas Healthcare Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01975",
+        "name": "Atlas Healthcare Associates",
+        "industry": "Healthcare Facility Services",
+        "region": "Greater Toronto Area",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "92"
+      }
+    ]
+  },
+  {
+    "parent": "Summit Medical Holdings Corp.",
+    "subsidiaries": [
+      {
+        "entity_id": "ENT-01987",
+        "name": "Summit Medical Solutions",
+        "industry": "Healthcare Facility Services",
+        "region": "Marin County",
+        "revenue": "$250K\u2013$500K",
+        "ai_score": "65"
+      }
+    ]
+  }
+]
