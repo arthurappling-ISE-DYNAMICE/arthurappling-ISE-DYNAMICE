@@ -36,3 +36,6 @@ tools/consulting_wing/sovereign-promo/**/*.png
 
 # Claude worktrees (internal only)
 .claude/worktrees/
+
+# Local SQLite vault — provisioned by tools/initialize_vault.py
+data/
