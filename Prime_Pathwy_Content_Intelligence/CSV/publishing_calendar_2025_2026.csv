@@ -1,0 +1,170 @@
+week,date,day,platform,content_type,content_id_ref,topic_tag,funnel_stage,notes
+1,2025-06-02,Monday,LinkedIn,LinkedIn Authority Post,PP-0001,systems-thinking,Awareness,Publish 8:00 AM PST
+1,2025-06-04,Wednesday,LinkedIn,Operator Mindset Post,PP-0201,operational-efficiency,Authority,Publish 9:00 AM PST
+1,2025-06-05,Thursday,Email/Substack,Long-Form Newsletter,PP-0401,AI-automation,Retention,Send 7:00 AM PST
+1,2025-06-06,Friday,LinkedIn,Operational Breakdown,PP-0301,contractor-management,Consideration,Publish 10:00 AM PST
+2,2025-06-09,Monday,LinkedIn,LinkedIn Authority Post,PP-0002,operational-efficiency,Authority,Publish 8:00 AM PST
+2,2025-06-11,Wednesday,LinkedIn,Operator Mindset Post,PP-0202,AI-automation,Consideration,Publish 9:00 AM PST
+2,2025-06-13,Friday,LinkedIn,Operational Breakdown,PP-0302,compliance,Conversion,Publish 10:00 AM PST
+3,2025-06-16,Monday,LinkedIn,LinkedIn Authority Post,PP-0003,AI-automation,Consideration,Publish 8:00 AM PST
+3,2025-06-18,Wednesday,LinkedIn,Operator Mindset Post,PP-0203,contractor-management,Conversion,Publish 9:00 AM PST
+3,2025-06-20,Friday,LinkedIn,Operational Breakdown,PP-0303,field-operations,Retention,Publish 10:00 AM PST
+4,2025-06-23,Monday,LinkedIn,LinkedIn Authority Post,PP-0004,contractor-management,Conversion,Publish 8:00 AM PST
+4,2025-06-25,Wednesday,LinkedIn,Operator Mindset Post,PP-0204,compliance,Retention,Publish 9:00 AM PST
+4,2025-06-27,Friday,LinkedIn,Operational Breakdown,PP-0304,logistics,Awareness,Publish 10:00 AM PST
+5,2025-06-30,Monday,LinkedIn,LinkedIn Authority Post,PP-0005,compliance,Retention,Publish 8:00 AM PST
+5,2025-07-02,Wednesday,LinkedIn,Operator Mindset Post,PP-0205,field-operations,Awareness,Publish 9:00 AM PST
+5,2025-07-03,Thursday,Email/Substack,Long-Form Newsletter,PP-0402,logistics,Retention,Send 7:00 AM PST
+5,2025-07-04,Friday,LinkedIn,Operational Breakdown,PP-0305,leadership-framework,Authority,Publish 10:00 AM PST
+6,2025-07-07,Monday,LinkedIn,LinkedIn Authority Post,PP-0006,field-operations,Awareness,Publish 8:00 AM PST
+6,2025-07-09,Wednesday,LinkedIn,Operator Mindset Post,PP-0206,logistics,Authority,Publish 9:00 AM PST
+6,2025-07-11,Friday,LinkedIn,Operational Breakdown,PP-0306,execution-philosophy,Consideration,Publish 10:00 AM PST
+7,2025-07-14,Monday,LinkedIn,LinkedIn Authority Post,PP-0007,logistics,Authority,Publish 8:00 AM PST
+7,2025-07-16,Wednesday,LinkedIn,Operator Mindset Post,PP-0207,leadership-framework,Consideration,Publish 9:00 AM PST
+7,2025-07-18,Friday,LinkedIn,Operational Breakdown,PP-0307,business-process-audit,Conversion,Publish 10:00 AM PST
+8,2025-07-21,Monday,LinkedIn,LinkedIn Authority Post,PP-0008,leadership-framework,Consideration,Publish 8:00 AM PST
+8,2025-07-23,Wednesday,LinkedIn,Operator Mindset Post,PP-0208,execution-philosophy,Conversion,Publish 9:00 AM PST
+8,2025-07-25,Friday,LinkedIn,Operational Breakdown,PP-0308,local-market-solano,Retention,Publish 10:00 AM PST
+9,2025-07-28,Monday,LinkedIn,LinkedIn Authority Post,PP-0009,execution-philosophy,Conversion,Publish 8:00 AM PST
+9,2025-07-30,Wednesday,LinkedIn,Operator Mindset Post,PP-0209,business-process-audit,Retention,Publish 9:00 AM PST
+9,2025-07-31,Thursday,Email/Substack,Long-Form Newsletter,PP-0403,local-market-solano,Retention,Send 7:00 AM PST
+9,2025-08-01,Friday,LinkedIn,Operational Breakdown,PP-0309,consulting-conversion,Awareness,Publish 10:00 AM PST
+10,2025-08-04,Monday,LinkedIn,LinkedIn Authority Post,PP-0010,business-process-audit,Retention,Publish 8:00 AM PST
+10,2025-08-06,Wednesday,LinkedIn,Operator Mindset Post,PP-0210,local-market-solano,Awareness,Publish 9:00 AM PST
+10,2025-08-08,Friday,LinkedIn,Operational Breakdown,PP-0310,authority-positioning,Authority,Publish 10:00 AM PST
+11,2025-08-11,Monday,LinkedIn,LinkedIn Authority Post,PP-0011,local-market-solano,Awareness,Publish 8:00 AM PST
+11,2025-08-13,Wednesday,LinkedIn,Operator Mindset Post,PP-0211,consulting-conversion,Authority,Publish 9:00 AM PST
+11,2025-08-15,Friday,LinkedIn,Operational Breakdown,PP-0311,NEPQ-persuasion,Consideration,Publish 10:00 AM PST
+12,2025-08-18,Monday,LinkedIn,LinkedIn Authority Post,PP-0012,consulting-conversion,Authority,Publish 8:00 AM PST
+12,2025-08-20,Wednesday,LinkedIn,Operator Mindset Post,PP-0212,authority-positioning,Consideration,Publish 9:00 AM PST
+12,2025-08-22,Friday,LinkedIn,Operational Breakdown,PP-0312,sovereign-systems,Conversion,Publish 10:00 AM PST
+13,2025-08-25,Monday,LinkedIn,LinkedIn Authority Post,PP-0013,authority-positioning,Consideration,Publish 8:00 AM PST
+13,2025-08-27,Wednesday,LinkedIn,Operator Mindset Post,PP-0213,NEPQ-persuasion,Conversion,Publish 9:00 AM PST
+13,2025-08-28,Thursday,Email/Substack,Long-Form Newsletter,PP-0404,sovereign-systems,Retention,Send 7:00 AM PST
+13,2025-08-29,Friday,LinkedIn,Operational Breakdown,PP-0313,financial-operations,Retention,Publish 10:00 AM PST
+14,2025-09-01,Monday,LinkedIn,LinkedIn Authority Post,PP-0014,NEPQ-persuasion,Conversion,Publish 8:00 AM PST
+14,2025-09-03,Wednesday,LinkedIn,Operator Mindset Post,PP-0214,sovereign-systems,Retention,Publish 9:00 AM PST
+14,2025-09-05,Friday,LinkedIn,Operational Breakdown,PP-0314,client-management,Awareness,Publish 10:00 AM PST
+15,2025-09-08,Monday,LinkedIn,LinkedIn Authority Post,PP-0015,sovereign-systems,Retention,Publish 8:00 AM PST
+15,2025-09-10,Wednesday,LinkedIn,Operator Mindset Post,PP-0215,financial-operations,Awareness,Publish 9:00 AM PST
+15,2025-09-12,Friday,LinkedIn,Operational Breakdown,PP-0315,SOP-architecture,Authority,Publish 10:00 AM PST
+16,2025-09-15,Monday,LinkedIn,LinkedIn Authority Post,PP-0016,financial-operations,Awareness,Publish 8:00 AM PST
+16,2025-09-17,Wednesday,LinkedIn,Operator Mindset Post,PP-0216,client-management,Authority,Publish 9:00 AM PST
+16,2025-09-19,Friday,LinkedIn,Operational Breakdown,PP-0316,CRM-workflows,Consideration,Publish 10:00 AM PST
+17,2025-09-22,Monday,LinkedIn,LinkedIn Authority Post,PP-0017,client-management,Authority,Publish 8:00 AM PST
+17,2025-09-24,Wednesday,LinkedIn,Operator Mindset Post,PP-0217,SOP-architecture,Consideration,Publish 9:00 AM PST
+17,2025-09-25,Thursday,Email/Substack,Long-Form Newsletter,PP-0405,CRM-workflows,Retention,Send 7:00 AM PST
+17,2025-09-26,Friday,LinkedIn,Operational Breakdown,PP-0317,lead-generation,Conversion,Publish 10:00 AM PST
+18,2025-09-29,Monday,LinkedIn,LinkedIn Authority Post,PP-0018,SOP-architecture,Consideration,Publish 8:00 AM PST
+18,2025-10-01,Wednesday,LinkedIn,Operator Mindset Post,PP-0218,CRM-workflows,Conversion,Publish 9:00 AM PST
+18,2025-10-03,Friday,LinkedIn,Operational Breakdown,PP-0318,revenue-optimization,Retention,Publish 10:00 AM PST
+19,2025-10-06,Monday,LinkedIn,LinkedIn Authority Post,PP-0019,CRM-workflows,Conversion,Publish 8:00 AM PST
+19,2025-10-08,Wednesday,LinkedIn,Operator Mindset Post,PP-0219,lead-generation,Retention,Publish 9:00 AM PST
+19,2025-10-10,Friday,LinkedIn,Operational Breakdown,PP-0319,facility-management,Awareness,Publish 10:00 AM PST
+20,2025-10-13,Monday,LinkedIn,LinkedIn Authority Post,PP-0020,lead-generation,Retention,Publish 8:00 AM PST
+20,2025-10-15,Wednesday,LinkedIn,Operator Mindset Post,PP-0220,revenue-optimization,Awareness,Publish 9:00 AM PST
+20,2025-10-17,Friday,LinkedIn,Operational Breakdown,PP-0320,property-management,Authority,Publish 10:00 AM PST
+21,2025-10-20,Monday,LinkedIn,LinkedIn Authority Post,PP-0021,revenue-optimization,Awareness,Publish 8:00 AM PST
+21,2025-10-22,Wednesday,LinkedIn,Operator Mindset Post,PP-0221,facility-management,Authority,Publish 9:00 AM PST
+21,2025-10-23,Thursday,Email/Substack,Long-Form Newsletter,PP-0406,property-management,Retention,Send 7:00 AM PST
+21,2025-10-24,Friday,LinkedIn,Operational Breakdown,PP-0321,industrial-services,Consideration,Publish 10:00 AM PST
+22,2025-10-27,Monday,LinkedIn,LinkedIn Authority Post,PP-0022,facility-management,Authority,Publish 8:00 AM PST
+22,2025-10-29,Wednesday,LinkedIn,Operator Mindset Post,PP-0222,property-management,Consideration,Publish 9:00 AM PST
+22,2025-10-31,Friday,LinkedIn,Operational Breakdown,PP-0322,workforce-deployment,Conversion,Publish 10:00 AM PST
+23,2025-11-03,Monday,LinkedIn,LinkedIn Authority Post,PP-0023,property-management,Consideration,Publish 8:00 AM PST
+23,2025-11-05,Wednesday,LinkedIn,Operator Mindset Post,PP-0223,industrial-services,Conversion,Publish 9:00 AM PST
+23,2025-11-07,Friday,LinkedIn,Operational Breakdown,PP-0323,inspection-systems,Retention,Publish 10:00 AM PST
+24,2025-11-10,Monday,LinkedIn,LinkedIn Authority Post,PP-0024,industrial-services,Conversion,Publish 8:00 AM PST
+24,2025-11-12,Wednesday,LinkedIn,Operator Mindset Post,PP-0224,workforce-deployment,Retention,Publish 9:00 AM PST
+24,2025-11-14,Friday,LinkedIn,Operational Breakdown,PP-0324,documentation-protocols,Awareness,Publish 10:00 AM PST
+25,2025-11-17,Monday,LinkedIn,LinkedIn Authority Post,PP-0025,workforce-deployment,Retention,Publish 8:00 AM PST
+25,2025-11-19,Wednesday,LinkedIn,Operator Mindset Post,PP-0225,inspection-systems,Awareness,Publish 9:00 AM PST
+25,2025-11-20,Thursday,Email/Substack,Long-Form Newsletter,PP-0407,documentation-protocols,Retention,Send 7:00 AM PST
+25,2025-11-21,Friday,LinkedIn,Operational Breakdown,PP-0325,KPI-frameworks,Authority,Publish 10:00 AM PST
+26,2025-11-24,Monday,LinkedIn,LinkedIn Authority Post,PP-0026,inspection-systems,Awareness,Publish 8:00 AM PST
+26,2025-11-26,Wednesday,LinkedIn,Operator Mindset Post,PP-0226,documentation-protocols,Authority,Publish 9:00 AM PST
+26,2025-11-28,Friday,LinkedIn,Operational Breakdown,PP-0326,accountability-systems,Consideration,Publish 10:00 AM PST
+27,2025-12-01,Monday,LinkedIn,LinkedIn Authority Post,PP-0027,documentation-protocols,Authority,Publish 8:00 AM PST
+27,2025-12-03,Wednesday,LinkedIn,Operator Mindset Post,PP-0227,KPI-frameworks,Consideration,Publish 9:00 AM PST
+27,2025-12-05,Friday,LinkedIn,Operational Breakdown,PP-0327,AI-implementation,Conversion,Publish 10:00 AM PST
+28,2025-12-08,Monday,LinkedIn,LinkedIn Authority Post,PP-0028,KPI-frameworks,Consideration,Publish 8:00 AM PST
+28,2025-12-10,Wednesday,LinkedIn,Operator Mindset Post,PP-0228,accountability-systems,Conversion,Publish 9:00 AM PST
+28,2025-12-12,Friday,LinkedIn,Operational Breakdown,PP-0328,systems-thinking,Retention,Publish 10:00 AM PST
+29,2025-12-15,Monday,LinkedIn,LinkedIn Authority Post,PP-0029,accountability-systems,Conversion,Publish 8:00 AM PST
+29,2025-12-17,Wednesday,LinkedIn,Operator Mindset Post,PP-0229,AI-implementation,Retention,Publish 9:00 AM PST
+29,2025-12-18,Thursday,Email/Substack,Long-Form Newsletter,PP-0408,systems-thinking,Retention,Send 7:00 AM PST
+29,2025-12-19,Friday,LinkedIn,Operational Breakdown,PP-0329,operational-efficiency,Awareness,Publish 10:00 AM PST
+30,2025-12-22,Monday,LinkedIn,LinkedIn Authority Post,PP-0030,AI-implementation,Retention,Publish 8:00 AM PST
+30,2025-12-24,Wednesday,LinkedIn,Operator Mindset Post,PP-0230,systems-thinking,Awareness,Publish 9:00 AM PST
+30,2025-12-26,Friday,LinkedIn,Operational Breakdown,PP-0330,AI-automation,Authority,Publish 10:00 AM PST
+31,2025-12-29,Monday,LinkedIn,LinkedIn Authority Post,PP-0031,systems-thinking,Awareness,Publish 8:00 AM PST
+31,2025-12-31,Wednesday,LinkedIn,Operator Mindset Post,PP-0231,operational-efficiency,Authority,Publish 9:00 AM PST
+31,2026-01-02,Friday,LinkedIn,Operational Breakdown,PP-0331,contractor-management,Consideration,Publish 10:00 AM PST
+32,2026-01-05,Monday,LinkedIn,LinkedIn Authority Post,PP-0032,operational-efficiency,Authority,Publish 8:00 AM PST
+32,2026-01-07,Wednesday,LinkedIn,Operator Mindset Post,PP-0232,AI-automation,Consideration,Publish 9:00 AM PST
+32,2026-01-09,Friday,LinkedIn,Operational Breakdown,PP-0332,compliance,Conversion,Publish 10:00 AM PST
+33,2026-01-12,Monday,LinkedIn,LinkedIn Authority Post,PP-0033,AI-automation,Consideration,Publish 8:00 AM PST
+33,2026-01-14,Wednesday,LinkedIn,Operator Mindset Post,PP-0233,contractor-management,Conversion,Publish 9:00 AM PST
+33,2026-01-15,Thursday,Email/Substack,Long-Form Newsletter,PP-0409,compliance,Retention,Send 7:00 AM PST
+33,2026-01-16,Friday,LinkedIn,Operational Breakdown,PP-0333,field-operations,Retention,Publish 10:00 AM PST
+34,2026-01-19,Monday,LinkedIn,LinkedIn Authority Post,PP-0034,contractor-management,Conversion,Publish 8:00 AM PST
+34,2026-01-21,Wednesday,LinkedIn,Operator Mindset Post,PP-0234,compliance,Retention,Publish 9:00 AM PST
+34,2026-01-23,Friday,LinkedIn,Operational Breakdown,PP-0334,logistics,Awareness,Publish 10:00 AM PST
+35,2026-01-26,Monday,LinkedIn,LinkedIn Authority Post,PP-0035,compliance,Retention,Publish 8:00 AM PST
+35,2026-01-28,Wednesday,LinkedIn,Operator Mindset Post,PP-0235,field-operations,Awareness,Publish 9:00 AM PST
+35,2026-01-30,Friday,LinkedIn,Operational Breakdown,PP-0335,leadership-framework,Authority,Publish 10:00 AM PST
+36,2026-02-02,Monday,LinkedIn,LinkedIn Authority Post,PP-0036,field-operations,Awareness,Publish 8:00 AM PST
+36,2026-02-04,Wednesday,LinkedIn,Operator Mindset Post,PP-0236,logistics,Authority,Publish 9:00 AM PST
+36,2026-02-06,Friday,LinkedIn,Operational Breakdown,PP-0336,execution-philosophy,Consideration,Publish 10:00 AM PST
+37,2026-02-09,Monday,LinkedIn,LinkedIn Authority Post,PP-0037,logistics,Authority,Publish 8:00 AM PST
+37,2026-02-11,Wednesday,LinkedIn,Operator Mindset Post,PP-0237,leadership-framework,Consideration,Publish 9:00 AM PST
+37,2026-02-12,Thursday,Email/Substack,Long-Form Newsletter,PP-0410,execution-philosophy,Retention,Send 7:00 AM PST
+37,2026-02-13,Friday,LinkedIn,Operational Breakdown,PP-0337,business-process-audit,Conversion,Publish 10:00 AM PST
+38,2026-02-16,Monday,LinkedIn,LinkedIn Authority Post,PP-0038,leadership-framework,Consideration,Publish 8:00 AM PST
+38,2026-02-18,Wednesday,LinkedIn,Operator Mindset Post,PP-0238,execution-philosophy,Conversion,Publish 9:00 AM PST
+38,2026-02-20,Friday,LinkedIn,Operational Breakdown,PP-0338,local-market-solano,Retention,Publish 10:00 AM PST
+39,2026-02-23,Monday,LinkedIn,LinkedIn Authority Post,PP-0039,execution-philosophy,Conversion,Publish 8:00 AM PST
+39,2026-02-25,Wednesday,LinkedIn,Operator Mindset Post,PP-0239,business-process-audit,Retention,Publish 9:00 AM PST
+39,2026-02-27,Friday,LinkedIn,Operational Breakdown,PP-0339,consulting-conversion,Awareness,Publish 10:00 AM PST
+40,2026-03-02,Monday,LinkedIn,LinkedIn Authority Post,PP-0040,business-process-audit,Retention,Publish 8:00 AM PST
+40,2026-03-04,Wednesday,LinkedIn,Operator Mindset Post,PP-0240,local-market-solano,Awareness,Publish 9:00 AM PST
+40,2026-03-06,Friday,LinkedIn,Operational Breakdown,PP-0340,authority-positioning,Authority,Publish 10:00 AM PST
+41,2026-03-09,Monday,LinkedIn,LinkedIn Authority Post,PP-0041,local-market-solano,Awareness,Publish 8:00 AM PST
+41,2026-03-11,Wednesday,LinkedIn,Operator Mindset Post,PP-0241,consulting-conversion,Authority,Publish 9:00 AM PST
+41,2026-03-12,Thursday,Email/Substack,Long-Form Newsletter,PP-0411,authority-positioning,Retention,Send 7:00 AM PST
+41,2026-03-13,Friday,LinkedIn,Operational Breakdown,PP-0341,NEPQ-persuasion,Consideration,Publish 10:00 AM PST
+42,2026-03-16,Monday,LinkedIn,LinkedIn Authority Post,PP-0042,consulting-conversion,Authority,Publish 8:00 AM PST
+42,2026-03-18,Wednesday,LinkedIn,Operator Mindset Post,PP-0242,authority-positioning,Consideration,Publish 9:00 AM PST
+42,2026-03-20,Friday,LinkedIn,Operational Breakdown,PP-0342,sovereign-systems,Conversion,Publish 10:00 AM PST
+43,2026-03-23,Monday,LinkedIn,LinkedIn Authority Post,PP-0043,authority-positioning,Consideration,Publish 8:00 AM PST
+43,2026-03-25,Wednesday,LinkedIn,Operator Mindset Post,PP-0243,NEPQ-persuasion,Conversion,Publish 9:00 AM PST
+43,2026-03-27,Friday,LinkedIn,Operational Breakdown,PP-0343,financial-operations,Retention,Publish 10:00 AM PST
+44,2026-03-30,Monday,LinkedIn,LinkedIn Authority Post,PP-0044,NEPQ-persuasion,Conversion,Publish 8:00 AM PST
+44,2026-04-01,Wednesday,LinkedIn,Operator Mindset Post,PP-0244,sovereign-systems,Retention,Publish 9:00 AM PST
+44,2026-04-03,Friday,LinkedIn,Operational Breakdown,PP-0344,client-management,Awareness,Publish 10:00 AM PST
+45,2026-04-06,Monday,LinkedIn,LinkedIn Authority Post,PP-0045,sovereign-systems,Retention,Publish 8:00 AM PST
+45,2026-04-08,Wednesday,LinkedIn,Operator Mindset Post,PP-0245,financial-operations,Awareness,Publish 9:00 AM PST
+45,2026-04-09,Thursday,Email/Substack,Long-Form Newsletter,PP-0412,client-management,Retention,Send 7:00 AM PST
+45,2026-04-10,Friday,LinkedIn,Operational Breakdown,PP-0345,SOP-architecture,Authority,Publish 10:00 AM PST
+46,2026-04-13,Monday,LinkedIn,LinkedIn Authority Post,PP-0046,financial-operations,Awareness,Publish 8:00 AM PST
+46,2026-04-15,Wednesday,LinkedIn,Operator Mindset Post,PP-0246,client-management,Authority,Publish 9:00 AM PST
+46,2026-04-17,Friday,LinkedIn,Operational Breakdown,PP-0346,CRM-workflows,Consideration,Publish 10:00 AM PST
+47,2026-04-20,Monday,LinkedIn,LinkedIn Authority Post,PP-0047,client-management,Authority,Publish 8:00 AM PST
+47,2026-04-22,Wednesday,LinkedIn,Operator Mindset Post,PP-0247,SOP-architecture,Consideration,Publish 9:00 AM PST
+47,2026-04-24,Friday,LinkedIn,Operational Breakdown,PP-0347,lead-generation,Conversion,Publish 10:00 AM PST
+48,2026-04-27,Monday,LinkedIn,LinkedIn Authority Post,PP-0048,SOP-architecture,Consideration,Publish 8:00 AM PST
+48,2026-04-29,Wednesday,LinkedIn,Operator Mindset Post,PP-0248,CRM-workflows,Conversion,Publish 9:00 AM PST
+48,2026-05-01,Friday,LinkedIn,Operational Breakdown,PP-0348,revenue-optimization,Retention,Publish 10:00 AM PST
+49,2026-05-04,Monday,LinkedIn,LinkedIn Authority Post,PP-0049,CRM-workflows,Conversion,Publish 8:00 AM PST
+49,2026-05-06,Wednesday,LinkedIn,Operator Mindset Post,PP-0249,lead-generation,Retention,Publish 9:00 AM PST
+49,2026-05-07,Thursday,Email/Substack,Long-Form Newsletter,PP-0413,revenue-optimization,Retention,Send 7:00 AM PST
+49,2026-05-08,Friday,LinkedIn,Operational Breakdown,PP-0349,facility-management,Awareness,Publish 10:00 AM PST
+50,2026-05-11,Monday,LinkedIn,LinkedIn Authority Post,PP-0050,lead-generation,Retention,Publish 8:00 AM PST
+50,2026-05-13,Wednesday,LinkedIn,Operator Mindset Post,PP-0250,revenue-optimization,Awareness,Publish 9:00 AM PST
+50,2026-05-15,Friday,LinkedIn,Operational Breakdown,PP-0350,property-management,Authority,Publish 10:00 AM PST
+51,2026-05-18,Monday,LinkedIn,LinkedIn Authority Post,PP-0051,revenue-optimization,Awareness,Publish 8:00 AM PST
+51,2026-05-20,Wednesday,LinkedIn,Operator Mindset Post,PP-0251,facility-management,Authority,Publish 9:00 AM PST
+51,2026-05-22,Friday,LinkedIn,Operational Breakdown,PP-0351,industrial-services,Consideration,Publish 10:00 AM PST
+52,2026-05-25,Monday,LinkedIn,LinkedIn Authority Post,PP-0052,facility-management,Authority,Publish 8:00 AM PST
+52,2026-05-27,Wednesday,LinkedIn,Operator Mindset Post,PP-0252,property-management,Consideration,Publish 9:00 AM PST
+52,2026-05-29,Friday,LinkedIn,Operational Breakdown,PP-0352,workforce-deployment,Conversion,Publish 10:00 AM PST

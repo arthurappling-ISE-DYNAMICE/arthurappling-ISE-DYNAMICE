@@ -1,0 +1,3 @@
+Operator Mindset 1/10:
+
+Leadership is a system of clear expectations, consistent feedback, and accountability loops. Begin each project by defining non-negotiable outcomes, then map every task to those outcomes. Execution thrives where metrics replace opinions—track progress daily, adjust resources promptly, and eliminate bottlenecks before they escalate. Logistics optimization demands a root-cause approach: analyze delays not as isolated failures but as symptoms of systemic friction. Embed continuous improvement into workflow cadence; every iteration should reduce waste and amplify throughput. This disciplined framework avoids assumptions, prioritizing data-driven decisions over intuition.

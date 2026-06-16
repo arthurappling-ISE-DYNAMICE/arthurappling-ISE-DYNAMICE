@@ -1,0 +1,11 @@
+file,size_bytes,md5_checksum,status,timestamp
+CSV/master_content_index.csv,120547,59c6dc7076b033abe50e0200a1f04bda,VERIFIED,2026-05-23 04:12:51
+CSV/solano_county_crm_lead_database.csv,503486,bbc0b848932c8aad97ccdd119da2dbcf,VERIFIED,2026-05-23 04:12:51
+CSV/publishing_calendar_2025_2026.csv,19097,129c86097b6ba395ee45a7ffad751871,VERIFIED,2026-05-23 04:12:51
+CSV/conversion_funnel_map.csv,1314,3d7c85c649b96ae4c81139659e5cf953,VERIFIED,2026-05-23 04:12:51
+CSV/audience_segmentation.csv,2136,4542744efb7f58e13b149450b28f4267,VERIFIED,2026-05-23 04:12:51
+Markdown/authority_positioning_architecture.md,3976,ed4b4f628d04d18cec4c542594407bdb,VERIFIED,2026-05-23 04:12:51
+Markdown/executive_operations_manual.md,6687,b507e265bf6f381136219457ec520491,VERIFIED,2026-05-23 04:12:51
+Markdown/solano_county_market_summary.md,4821,4c8470150e330e7c7998a1c687617ae2,VERIFIED,2026-05-23 04:12:51
+MASTER_INDEX.md,5231,f626dee5e799b51adb3523a3916d1cf0,VERIFIED,2026-05-23 04:12:51
+EXECUTIVE_SUMMARY.md,3614,6394dec10bcd1e9a4af44acd55c5de4a,VERIFIED,2026-05-23 04:12:51

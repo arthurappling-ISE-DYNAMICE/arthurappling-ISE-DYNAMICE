@@ -1,0 +1,3 @@
+**Operator Mindset #4: Principle-Centered Delegation**
+
+Effective leadership is not task hoarding; it’s designing a framework where decisions cascade through clear principles, not micromanagement. Define non-negotiable standards upfront. Empower your team with these guardrails, then hold them accountable to outcomes—not processes. This shifts your role from checker to coach, accelerating execution velocity without sacrificing control. In logistics, this means setting exact delivery windows, quality thresholds, and escalation protocols, then trusting operators to navigate day-to-day complexities within those boundaries. Document these standards thoroughly. Replace assumptions with explicit rulesets. The result: scalable operations that maintain integrity under pressure.

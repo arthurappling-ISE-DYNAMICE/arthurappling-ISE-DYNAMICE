@@ -1,0 +1,8 @@
+id,title,format,target_segment,funnel_stage,estimated_conversion_rate,delivery_method,notes
+LM-001,Operational Audit Checklist — Field Service Edition,PDF Checklist,"Property Managers, Facilities Management",Awareness,12-18%,Email Opt-in,Gate with email capture on website
+LM-002,Solano County Commercial Market Intelligence Brief,PDF Report,All Segments,Authority,8-14%,LinkedIn Lead Gen Form,High-value gated asset
+LM-003,The Contractor Verification Protocol,PDF + Checklist,"Property Managers, HOA Companies",Consideration,15-22%,Email Opt-in,Compliance-focused lead magnet
+LM-004,AI Automation Readiness Assessment,Interactive PDF / Scorecard,"Logistics, Facilities, Industrial",Consideration,10-16%,Website Form,Leads directly to discovery call
+LM-005,Prime Pathwy Sovereign System Overview,Executive Deck PDF,All High-Value Segments,Conversion,20-30%,Direct Outreach / Proposal,Sent after discovery call
+LM-006,Field Operations SOP Starter Pack,Markdown + PDF Bundle,"Contractors, Field Service Operators",Authority,10-15%,Email Opt-in,Positions Prime Pathwy as SOP authority
+LM-007,30-Day Operational Transformation Roadmap,PDF Roadmap,All Segments,Conversion,18-25%,Discovery Call Follow-up,Custom per client after intake

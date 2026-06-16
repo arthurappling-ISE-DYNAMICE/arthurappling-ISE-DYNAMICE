@@ -1,0 +1,3 @@
+Operator Mindset #6: Prioritize Bottleneck Resolution Above All Else
+
+In complex systems, throughput hinges on the slowest component. Leadership frameworks that emphasize broad visibility must zoom in on bottlenecks first. Identify the constraint, allocate resources decisively, and monitor its performance continuously. Avoid diffused efforts that improve non-critical paths. Execution is about amplifying the system’s weakest link until it no longer limits output. Logistics optimization demands targeted adjustments — not blanket changes. This disciplined focus transforms incremental gains into scalable momentum.

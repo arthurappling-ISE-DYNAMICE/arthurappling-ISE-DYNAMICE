@@ -1,0 +1,31 @@
+tag_id,tag_name,category,primary_platform,funnel_stage,content_count,notes
+TAG-001,systems-thinking,Systems,Email,Consideration,0,Evergreen: Yes
+TAG-002,operational-efficiency,Operations,Email,Consideration,0,Evergreen: No
+TAG-003,AI-automation,AI/Tech,Email,Consideration,0,Evergreen: No
+TAG-004,contractor-management,Systems,Email,Consideration,0,Evergreen: No
+TAG-005,compliance,Systems,Email,Consideration,0,Evergreen: Yes
+TAG-006,field-operations,Operations,Email,Consideration,0,Evergreen: No
+TAG-007,logistics,Operations,Email,Consideration,0,Evergreen: No
+TAG-008,leadership-framework,Systems,Email,Conversion,0,Evergreen: No
+TAG-009,execution-philosophy,Systems,Email,Consideration,0,Evergreen: No
+TAG-010,business-process-audit,Systems,Email,Consideration,0,Evergreen: No
+TAG-011,local-market-solano,Local Market,Email,Awareness,0,Evergreen: No
+TAG-012,consulting-conversion,Authority,Email,Conversion,0,Evergreen: No
+TAG-013,authority-positioning,Authority,LinkedIn,Authority,0,Evergreen: No
+TAG-014,NEPQ-persuasion,Systems,Email,Consideration,0,Evergreen: No
+TAG-015,sovereign-systems,Systems,Email,Consideration,0,Evergreen: Yes
+TAG-016,financial-operations,Operations,Email,Consideration,0,Evergreen: No
+TAG-017,client-management,Systems,Email,Consideration,0,Evergreen: No
+TAG-018,SOP-architecture,Systems,Email,Consideration,0,Evergreen: No
+TAG-019,CRM-workflows,AI/Tech,Email,Consideration,0,Evergreen: No
+TAG-020,lead-generation,Systems,Email,Conversion,0,Evergreen: No
+TAG-021,revenue-optimization,Finance,Email,Consideration,0,Evergreen: No
+TAG-022,facility-management,Systems,Email,Consideration,0,Evergreen: No
+TAG-023,property-management,Systems,Email,Consideration,0,Evergreen: No
+TAG-024,industrial-services,Systems,Email,Consideration,0,Evergreen: No
+TAG-025,workforce-deployment,Systems,Email,Consideration,0,Evergreen: No
+TAG-026,inspection-systems,Systems,Email,Consideration,0,Evergreen: Yes
+TAG-027,documentation-protocols,Systems,Email,Consideration,0,Evergreen: No
+TAG-028,KPI-frameworks,Systems,Email,Consideration,0,Evergreen: No
+TAG-029,accountability-systems,Systems,Email,Consideration,0,Evergreen: Yes
+TAG-030,AI-implementation,AI/Tech,Email,Consideration,0,Evergreen: No
