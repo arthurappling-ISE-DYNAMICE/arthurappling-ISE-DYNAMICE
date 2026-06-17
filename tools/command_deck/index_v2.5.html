@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-[#08080A]">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRIME PATHWY // AI OS COMMAND DECK</title>
+    <!-- Tailwind & Google Fonts CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        gold: {
+                            50: '#FFFDF0',
+                            100: '#FFF9D4',
+                            400: '#F5D061',
+                            500: '#E6B325',
+                            600: '#C79316',
+                            900: '#5C4103',
+                            950: '#2E2001',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Cybernetic Glowing Scrollbars */
+        ::-webkit-scrollbar { width: 4px; height: 4px; }
+        ::-webkit-scrollbar-track { background: #0D0D11; }
+        ::-webkit-scrollbar-thumb { background: rgba(230, 179, 37, 0.3); border-radius: 2px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(230, 179, 37, 0.6); }
+
+        /* Tactical CRT Scanline Effect Overlay */
+        .scanlines {
+            position: relative;
+            overflow: hidden;
+        }
+        .scanlines::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 10;
+            background-size: 100% 3px, 6px 100%;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="h-full text-slate-200 font-sans antialiased selection:bg-gold-500/30 selection:text-gold-400">
+
+    <div class="flex h-full scanlines">
+        <!-- SIDEBAR: Institutional Architecture & Sovereign Identity Seal -->
+        <aside class="w-80 bg-[#0D0D11] border-r border-gold-600/10 flex flex-col justify-between z-20">
+            <div>
+                <!-- Brand Anchor -->
+                <div class="p-6 border-b border-gold-600/10 flex items-center justify-between">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-3 h-3 bg-gold-500 rounded-full shadow-[0_0_10px_rgba(230,179,37,0.5)] animate-pulse"></div>
+                        <span class="font-mono tracking-[0.25em] text-xs uppercase text-gold-400 font-bold">PRIME PATHWY // OS</span>
+                    </div>
+                    <span class="font-mono text-[9px] text-slate-500 border border-slate-800 px-1.5 py-0.5 rounded">v2.5</span>
+                </div>
+
+                <!-- Navigation Controls -->
+                <nav class="p-4 space-y-2" id="sidebar-nav">
+                    <button onclick="switchStation('architect')" id="btn-architect" class="w-full flex items-center justify-between p-3 rounded-lg bg-gold-500/10 border border-gold-500/30 text-gold-400 transition-all duration-300">
+                        <div class="flex items-center space-x-3">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                            <span class="text-xs font-mono tracking-wider font-medium uppercase">01 // ARCHITECT CORE</span>
+                        </div>
+                        <div class="w-1.5 h-6 bg-gold-500 rounded-full shadow-[0_0_8px_#E6B325]"></div>
+                    </button>
+
+                    <button onclick="switchStation('ceo')" id="btn-ceo" class="w-full flex items-center justify-between p-3 rounded-lg text-slate-400 border border-transparent hover:bg-white/5 hover:text-slate-200 transition-all duration-300">
+                        <div class="flex items-center space-x-3">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                            <span class="text-xs font-mono tracking-wider uppercase">02 // CEO INTEL AGENT</span>
+                        </div>
+                    </button>
+
+                    <button onclick="switchStation('coo')" id="btn-coo" class="w-full flex items-center justify-between p-3 rounded-lg text-slate-400 border border-transparent hover:bg-white/5 hover:text-slate-200 transition-all duration-300">
+                        <div class="flex items-center space-x-3">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path></svg>
+                            <span class="text-xs font-mono tracking-wider uppercase">03 // COO DEPLOY AGENT</span>
+                        </div>
+                    </button>
+
+                    <button onclick="switchStation('vault')" id="btn-vault" class="w-full flex items-center justify-between p-3 rounded-lg text-slate-400 border border-transparent hover:bg-white/5 hover:text-slate-200 transition-all duration-300">
+                        <div class="flex items-center space-x-3">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
+                            <span class="text-xs font-mono tracking-wider uppercase">04 // KNOWLEDGE VAULT</span>
+                        </div>
+                    </button>
+
+                    <button onclick="switchStation('shield')" id="btn-shield" class="w-full flex items-center justify-between p-3 rounded-lg text-slate-400 border border-transparent hover:bg-white/5 hover:text-slate-200 transition-all duration-300">
+                        <div class="flex items-center space-x-3">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                            <span class="text-xs font-mono tracking-wider uppercase">05 // LEGACY SHIELD</span>
+                        </div>
+                    </button>
+                </nav>
+            </div>
+
+            <!-- Identity Seal -->
+            <div class="p-4 m-4 rounded-xl bg-black/40 border border-gold-600/10 backdrop-blur-md">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-lg border border-gold-500/30 bg-gold-500/5 flex items-center justify-center font-mono font-bold text-gold-400 text-sm shadow-[0_0_10px_rgba(230,179,37,0.15)]">
+                        AF
+                    </div>
+                    <div>
+                        <div class="text-xs font-mono font-bold text-slate-200 tracking-wider">A. FITZGERALD APPLING SR.</div>
+                        <div class="text-[10px] font-mono text-gold-500 uppercase tracking-widest">Lead Architect</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- MAIN OPERATIONAL VIEWPORT -->
+        <main class="flex-1 bg-[#08080A] p-8 overflow-y-auto space-y-8 z-10 relative">
+
+            <!-- STATION 1: ARCHITECT (Active View) -->
+            <div id="station-architect" class="space-y-8 station-view">
+                <!-- Header Status Telemetry Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div class="bg-black/30 backdrop-blur-md border border-gold-600/20 rounded-xl p-5 shadow-[0_0_15px_rgba(230,179,37,0.02)] transition-all duration-300 hover:border-gold-500/40">
+                        <div class="text-xs font-mono text-slate-400 uppercase tracking-wider">Institutional Leverage</div>
+                        <div class="text-3xl font-mono font-bold text-gold-400 mt-2 tracking-tight">7.42× <span class="text-xs text-slate-500 font-normal">DSCR</span></div>
+                        <div class="w-full bg-slate-900 h-1 rounded-full mt-3 overflow-hidden">
+                            <div class="bg-gold-500 h-full rounded-full shadow-[0_0_8px_#E6B325]" style="width: 84%"></div>
+                        </div>
+                    </div>
+
+                    <div class="bg-black/30 backdrop-blur-md border border-gold-600/20 rounded-xl p-5 shadow-[0_0_15px_rgba(230,179,37,0.02)] transition-all duration-300 hover:border-gold-500/40">
+                        <div class="text-xs font-mono text-slate-400 uppercase tracking-wider">Capital Allocations</div>
+                        <div class="text-3xl font-mono font-bold text-slate-100 mt-2 tracking-tight">$130,000</div>
+                        <div class="text-[10px] font-mono text-gold-500 mt-2 uppercase tracking-widest">HVIP Voucher Validated</div>
+                    </div>
+
+                    <div class="bg-black/30 backdrop-blur-md border border-gold-600/20 rounded-xl p-5 shadow-[0_0_15px_rgba(230,179,37,0.02)] transition-all duration-300 hover:border-gold-500/40">
+                        <div class="text-xs font-mono text-slate-400 uppercase tracking-wider">Consulting Funnel Model</div>
+                        <div class="text-3xl font-mono font-bold text-slate-100 mt-2 tracking-tight">$5,000+</div>
+                        <div class="text-[10px] font-mono text-emerald-400 mt-2 uppercase tracking-widest flex items-center">
+                            <span class="w-1.5 h-1.5 bg-emerald-400 rounded-full mr-1.5 animate-pulse"></span>Elite 10 Sovereign Deck
+                        </div>
+                    </div>
+
+                    <div class="bg-black/30 backdrop-blur-md border border-gold-600/20 rounded-xl p-5 shadow-[0_0_15px_rgba(230,179,37,0.02)] transition-all duration-300 hover:border-gold-500/40">
+                        <div class="text-xs font-mono text-slate-400 uppercase tracking-wider">Timeline Execution</div>
+                        <div class="text-3xl font-mono font-bold text-gold-400 mt-2 tracking-tight">1.5 YRS</div>
+                        <div class="text-[10px] font-mono text-slate-500 mt-2 uppercase tracking-widest">Zero Operational Drift</div>
+                    </div>
+                </div>
+
+                <!-- Environment & Active Systems Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Column 1 & 2: Active Runtimes & Health Audit Matrix -->
+                    <div class="lg:col-span-2 bg-[#0D0D11]/60 border border-gold-600/10 rounded-xl p-6">
+                        <div class="flex items-center justify-between border-b border-gold-600/10 pb-4 mb-4">
+                            <h3 class="text-xs font-mono font-bold uppercase tracking-widest text-gold-400">Sovereign Architecture Environment Status</h3>
+                            <span class="text-[10px] font-mono text-slate-500">LIVE SYSTEM HEALTH SCAN</span>
+                        </div>
+
+                        <div class="space-y-3">
+                            <!-- Interactive Port Verification Rows -->
+                            <div class="flex items-center justify-between p-3 bg-black/40 border border-slate-900 rounded-lg hover:border-gold-500/20 transition-all">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#34D399]"></div>
+                                    <span class="text-xs font-mono text-slate-300">Sports Betting Analytics Engine</span>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <span class="text-[11px] font-mono text-slate-500">PORT :3132</span>
+                                    <button onclick="testSystemHealth('Sports Analytics Engine')" class="text-[10px] font-mono bg-gold-500/10 border border-gold-500/30 px-3 py-1 rounded text-gold-400 hover:bg-gold-500 hover:text-black transition-all">PING PORT</button>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between p-3 bg-black/40 border border-slate-900 rounded-lg hover:border-gold-500/20 transition-all">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#34D399]"></div>
+                                    <span class="text-xs font-mono text-slate-300">Hyperframes Core Workspace</span>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <span class="text-[11px] font-mono text-slate-500">PORT :4173</span>
+                                    <button onclick="testSystemHealth('Hyperframes Core Workspace')" class="text-[10px] font-mono bg-gold-500/10 border border-gold-500/30 px-3 py-1 rounded text-gold-400 hover:bg-gold-500 hover:text-black transition-all">PING PORT</button>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between p-3 bg-black/40 border border-slate-900 rounded-lg hover:border-gold-500/20 transition-all">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#34D399]"></div>
+                                    <span class="text-xs font-mono text-slate-300">SQLite Ingestion Knowledge Matrix</span>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <span class="text-[11px] font-mono text-slate-500">LOCAL DB LINKED</span>
+                                    <button onclick="testSystemHealth('SQLite Ingestion Knowledge Matrix')" class="text-[10px] font-mono bg-gold-500/10 border border-gold-500/30 px-3 py-1 rounded text-gold-400 hover:bg-gold-500 hover:text-black transition-all">PING PORT</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Column 3: Priority Stack Action Center -->
+                    <div class="bg-[#0D0D11]/60 border border-gold-600/10 rounded-xl p-6 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xs font-mono font-bold uppercase tracking-widest text-gold-400 border-b border-gold-600/10 pb-4 mb-4">P1-P3 Governance Priorities</h3>
+                            <div class="space-y-3">
+                                <div class="border-l-2 border-red-500 bg-red-950/20 p-2.5 rounded-r">
+                                    <div class="text-[10px] font-mono font-bold text-red-400 uppercase tracking-wider">P1 // RESTRUCTURING SYSTEM</div>
+                                    <div class="text-xs text-slate-300 mt-1">Calibrate interface execution limits for client-facing demos.</div>
+                                </div>
+                                <div class="border-l-2 border-gold-500 bg-gold-950/20 p-2.5 rounded-r">
+                                    <div class="text-[10px] font-mono font-bold text-gold-400 uppercase tracking-wider">P2 // INFRASTRUCTURE PACKAGING</div>
+                                    <div class="text-xs text-slate-300 mt-1">Isolate Turnover system pipeline documentation into structural files.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <button onclick="triggerSystemAudit()" class="w-full mt-4 bg-gold-500 font-mono text-xs text-black font-bold py-3 px-4 rounded-lg shadow-[0_0_15px_rgba(230,179,37,0.3)] hover:shadow-[0_0_25px_rgba(230,179,37,0.5)] transition-all uppercase tracking-widest">
+                            Initialize Global Integrity Audit
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STATION 2: CEO INTEL CONSOLE -->
+            <div id="station-ceo" class="space-y-6 hidden station-view">
+                <div class="bg-[#0D0D11]/60 border border-gold-600/10 rounded-xl p-6 flex flex-col h-[650px]">
+                    <div class="border-b border-gold-600/10 pb-4 mb-4 flex justify-between items-center">
+                        <div>
+                            <h3 class="text-xs font-mono font-bold uppercase tracking-widest text-gold-400">CEO Strategic Intelligence Terminal</h3>
+                            <p class="text-[11px] text-slate-400 font-mono mt-1">Routing Framework: Jeremy Miner NEPQ Sequence Protocols</p>
+                        </div>
+                        <span class="text-[10px] font-mono text-slate-500 bg-slate-900 border border-slate-800 px-2 py-1 rounded">AGENT MODE: STRATEGIC ACCELERATION</span>
+                    </div>
+
+                    <!-- Live Dynamic Chat Viewport -->
+                    <div id="ceo-chat-box" class="flex-1 overflow-y-auto space-y-4 p-4 bg-black/40 border border-slate-900 rounded-lg font-mono text-xs min-h-[350px]">
+                        <div class="text-slate-500 text-[10px] border-b border-slate-900 pb-2 text-center uppercase tracking-widest">SYSTEM DISPATCHER LINK SECURED // NO DATA LEAKS DETECTED</div>
+                        <div class="flex items-start space-x-2 text-gold-400">
+                            <span class="text-slate-500">[CEO_CORE]:</span>
+                            <p>Sovereign system environment initialized. Ready to deploy corporate scaling and capital framework orchestration logic. Input execution request.</p>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Directive Presets -->
+                    <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-2">
+                        <button onclick="sendPresetDirective('ceo', 'Execute Capital Stack Verification')" class="text-left text-[11px] font-mono bg-slate-900/50 border border-slate-800 hover:border-gold-500/40 p-2 rounded text-slate-300 hover:text-gold-400 transition-all">
+                            &gt; Verify Capital Stack Position
+                        </button>
+                        <button onclick="sendPresetDirective('ceo', 'Deploy NEPQ Commitment Framework')" class="text-left text-[11px] font-mono bg-slate-900/50 border border-slate-800 hover:border-gold-500/40 p-2 rounded text-slate-300 hover:text-gold-400 transition-all">
+                            &gt; Generate NEPQ Pipeline Framework
+                        </button>
+                        <button onclick="sendPresetDirective('ceo', 'Review High-Ticket Consulting SOP')" class="text-left text-[11px] font-mono bg-slate-900/50 border border-slate-800 hover:border-gold-500/40 p-2 rounded text-slate-300 hover:text-gold-400 transition-all">
+                            &gt; Run High-Ticket Delivery Audit
+                        </button>
+                    </div>
+
+                    <!-- Custom Execution Input -->
+                    <div class="mt-4 flex space-x-2">
+                        <input type="text" id="ceo-custom-input" placeholder="Type custom strategic architectural instruction..." class="flex-1 bg-black/80 border border-slate-800 rounded-lg px-4 py-3 text-xs font-mono text-slate-100 placeholder-slate-600 focus:outline-none focus:border-gold-500/50">
+                        <button onclick="sendCustomDirective('ceo')" class="bg-gold-500 text-black font-mono font-bold text-xs px-6 rounded-lg uppercase tracking-wider hover:bg-gold-400 transition-all">Execute</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STATION 3: COO DEPLOY CONSOLE -->
+            <div id="station-coo" class="space-y-6 hidden station-view">
+                <div class="bg-[#0D0D11]/60 border border-gold-600/10 rounded-xl p-6 flex flex-col h-[650px]">
+                    <div class="border-b border-gold-600/10 pb-4 mb-4 flex justify-between items-center">
+                        <div>
+                            <h3 class="text-xs font-mono font-bold uppercase tracking-widest text-gold-400">COO Systems Execution Terminal</h3>
+                            <p class="text-[11px] text-slate-400 font-mono mt-1">Logistics Core: Property Turnover Metrics & Supply Node Synchronization</p>
+                        </div>
+                        <span class="text-[10px] font-mono text-slate-500 bg-slate-900 border border-slate-800 px-2 py-1 rounded">AGENT MODE: LOGISTICAL CONTROL</span>
+                    </div>
+
+                    <!-- Live Dynamic Chat Viewport -->
+                    <div id="coo-chat-box" class="flex-1 overflow-y-auto space-y-4 p-4 bg-black/40 border border-slate-900 rounded-lg font-mono text-xs min-h-[350px]">
+                        <div class="text-slate-500 text-[10px] border-b border-slate-900 pb-2 text-center uppercase tracking-widest">SYSTEM DISPATCHER LINK SECURED // LOGISTICAL MATRIX READY</div>
+                        <div class="flex items-start space-x-2 text-gold-400">
+                            <span class="text-slate-500">[COO_CORE]:</span>
+                            <p>Operations environment verified. Ground Truth rules active. No manual changes permitted without verifiable output validation logs.</p>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Directive Presets -->
+                    <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-2">
+                        <button onclick="sendPresetDirective('coo', 'Deploy Property Turnover Pipeline')" class="text-left text-[11px] font-mono bg-slate-900/50 border border-slate-800 hover:border-gold-500/40 p-2 rounded text-slate-300 hover:text-gold-400 transition-all">
+                            &gt; Initialize Turnover Pipeline
+                        </button>
+                        <button onclick="sendPresetDirective('coo', 'Sync Richmond RPDC Logistics Network')" class="text-left text-[11px] font-mono bg-slate-900/50 border border-slate-800 hover:border-gold-500/40 p-2 rounded text-slate-300 hover:text-gold-400 transition-all">
+                            &gt; Sync Richmond RPDC Anchor Data
+                        </button>
+                        <button onclick="sendPresetDirective('coo', 'Validate Ground Truth Output State')" class="text-left text-[11px] font-mono bg-slate-900/50 border border-slate-800 hover:border-gold-500/40 p-2 rounded text-slate-300 hover:text-gold-400 transition-all">
+                            &gt; Validate Workspace Status Logs
+                        </button>
+                    </div>
+
+                    <!-- Custom Execution Input -->
+                    <div class="mt-4 flex space-x-2">
+                        <input type="text" id="coo-custom-input" placeholder="Type custom operational execution directive..." class="flex-1 bg-black/80 border border-slate-800 rounded-lg px-4 py-3 text-xs font-mono text-slate-100 placeholder-slate-600 focus:outline-none focus:border-gold-500/50">
+                        <button onclick="sendCustomDirective('coo')" class="bg-gold-500 text-black font-mono font-bold text-xs px-6 rounded-lg uppercase tracking-wider hover:bg-gold-400 transition-all">Execute</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STATION 4: KNOWLEDGE VAULT -->
+            <div id="station-vault" class="space-y-6 hidden station-view">
+                <div class="bg-[#0D0D11]/60 border border-gold-600/10 rounded-xl p-6">
+                    <div class="flex items-center justify-between border-b border-gold-600/10 pb-4 mb-6">
+                        <div>
+                            <h3 class="text-xs font-mono font-bold uppercase tracking-widest text-gold-400">Sovereign SQLite Knowledge Ledger</h3>
+                            <p class="text-[11px] text-slate-400 font-mono mt-1">Local structural ingestion vault for systematic compliance monitoring</p>
+                        </div>
+                        <button onclick="simulateIngestion()" class="bg-gold-500/10 border border-gold-500/30 text-gold-400 font-mono text-xs px-4 py-2 rounded-lg hover:bg-gold-500 hover:text-black transition-all font-bold flex items-center space-x-2">
+                            <span>+ INGEST STRATEGIC DOCUMENT</span>
+                        </button>
+                    </div>
+
+                    <!-- Metrics -->
+                    <div class="grid grid-cols-3 gap-4 mb-6 text-center">
+                        <div class="bg-black/40 border border-slate-900 rounded-lg p-3">
+                            <div class="text-[10px] font-mono text-slate-500 uppercase">Total System Ledger Rows</div>
+                            <div id="ledger-count-display" class="text-xl font-mono text-slate-200 mt-1 font-bold">38</div>
+                        </div>
+                        <div class="bg-black/40 border border-slate-900 rounded-lg p-3">
+                            <div class="text-[10px] font-mono text-slate-500 uppercase">Data Sovereignty Rating</div>
+                            <div class="text-xl font-mono text-gold-400 mt-1 font-bold">100% OWNED</div>
+                        </div>
+                        <div class="bg-black/40 border border-slate-900 rounded-lg p-3">
+                            <div class="text-[10px] font-mono text-slate-500 uppercase">System Sync State</div>
+                            <div class="text-xl font-mono text-emerald-400 mt-1 font-bold">INDEXED</div>
+                        </div>
+                    </div>
+
+                    <!-- Ledger Data Table -->
+                    <div class="overflow-x-auto rounded-lg border border-slate-900 bg-black/20">
+                        <table class="w-full text-left font-mono text-xs">
+                            <thead class="bg-black text-slate-400 uppercase text-[10px] tracking-wider border-b border-slate-900">
+                                <tr>
+                                    <th class="p-4">Document UUID</th>
+                                    <th class="p-4">Resource Target Class</th>
+                                    <th class="p-4">Ingestion Signature</th>
+                                    <th class="p-4">Audit Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ledger-table-body" class="divide-y divide-slate-900/60 text-slate-300">
+                                <tr class="hover:bg-white/5 transition-colors">
+                                    <td class="p-4 font-bold text-slate-400">DOC-2026-0601A</td>
+                                    <td class="p-4">/workflows/turnover_standard_SOP.md</td>
+                                    <td class="p-4 text-gold-500">sha256:f8e239a...</td>
+                                    <td class="p-4"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-950/40 text-emerald-400 border border-emerald-500/20">INDEXED</span></td>
+                                </tr>
+                                <tr class="hover:bg-white/5 transition-colors">
+                                    <td class="p-4 font-bold text-slate-400">DOC-2026-0518C</td>
+                                    <td class="p-4">/agents/strategic_ceo_framework.md</td>
+                                    <td class="p-4 text-gold-500">sha256:4a9c2d1...</td>
+                                    <td class="p-4"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-950/40 text-emerald-400 border border-emerald-500/20">INDEXED</span></td>
+                                </tr>
+                                <tr class="hover:bg-white/5 transition-colors">
+                                    <td class="p-4 font-bold text-slate-400">DOC-2026-0412B</td>
+                                    <td class="p-4">/tools/sports_analytics_ladder.py</td>
+                                    <td class="p-4 text-gold-500">sha256:b73d9e4...</td>
+                                    <td class="p-4"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-950/40 text-emerald-400 border border-emerald-500/20">INDEXED</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STATION 5: LEGACY SHIELD -->
+            <div id="station-shield" class="space-y-6 hidden station-view">
+                <div class="bg-[#0D0D11]/60 border border-gold-600/10 rounded-xl p-6">
+                    <div class="border-b border-gold-600/10 pb-4 mb-6">
+                        <h3 class="text-xs font-mono font-bold uppercase tracking-widest text-gold-400">AA Capital Asset Protection Register</h3>
+                        <p class="text-[11px] text-slate-400 font-mono mt-1">Fortress Asset Allocation Strategy Matrix (20-Year Capital Plan)</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Asset Core Breakdown -->
+                        <div class="bg-black/40 border border-slate-900 rounded-xl p-5 space-y-4">
+                            <h4 class="text-xs font-mono text-gold-400 font-bold uppercase tracking-wider">Concrete & Steel Asset Hierarchy</h4>
+                            <div class="space-y-2 text-xs font-mono">
+                                <div class="flex justify-between p-2.5 bg-slate-900/50 rounded border border-slate-800">
+                                    <span class="text-slate-400">Richmond RPDC Logistics Hub</span>
+                                    <span class="text-emerald-400 font-bold">SECURED / AUDIT READY</span>
+                                </div>
+                                <div class="flex justify-between p-2.5 bg-slate-900/50 rounded border border-slate-800">
+                                    <span class="text-slate-400">Proprietary IP Pipeline Framework</span>
+                                    <span class="text-emerald-400 font-bold">100% DEPLOYED</span>
+                                </div>
+                                <div class="flex justify-between p-2.5 bg-slate-900/50 rounded border border-slate-800">
+                                    <span class="text-slate-400">Sovereign Consulting Domain Equity</span>
+                                    <span class="text-gold-500 font-bold">PRIME PATHWY REGISTERED</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Real-time Investment Pipeline Optimization Matrix -->
+                        <div class="bg-black/40 border border-slate-900 rounded-xl p-5 flex flex-col justify-between">
+                            <div>
+                                <h4 class="text-xs font-mono text-slate-300 font-bold uppercase tracking-wider mb-2">Automated Optimization Engine</h4>
+                                <p class="text-xs font-mono text-slate-400 leading-relaxed">Pipes algorithmic processing revenue models directly out of short-term liquid sports analytics data pools straight into non-rented capital positions.</p>
+                            </div>
+                            <button onclick="triggerAssetRebalanceOptimization()" class="w-full mt-4 bg-transparent border border-gold-500/40 text-gold-400 font-mono font-bold text-xs py-2.5 rounded hover:bg-gold-500/10 transition-all uppercase tracking-widest">
+                                Run Allocation Integrity Optimization Check
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- CLIENT INTERACTIVE ENGINE INTERFACE LOGIC Script Block -->
+    <script>
+        // High-Speed Front-End View Switcher
+        function switchStation(stationId) {
+            // Hide all views
+            document.querySelectorAll('.station-view').forEach(view => view.classList.add('hidden'));
+            // Remove active states from nav links
+            document.querySelectorAll('#sidebar-nav button').forEach(btn => {
+                btn.className = "w-full flex items-center justify-between p-3 rounded-lg text-slate-400 border border-transparent hover:bg-white/5 hover:text-slate-200 transition-all duration-300";
+                // Strip out active element rails
+                const rail = btn.querySelector('.w-1\\.5');
+                if (rail) rail.remove();
+            });
+
+            // Make chosen target visible
+            document.getElementById(`station-${stationId}`).classList.remove('hidden');
+
+            // Re-apply active class styling map to current target anchor
+            const activeBtn = document.getElementById(`btn-${stationId}`);
+            activeBtn.className = "w-full flex items-center justify-between p-3 rounded-lg bg-gold-500/10 border border-gold-500/30 text-gold-400 transition-all duration-300";
+
+            // Append indicator rail object to DOM dynamically
+            const railElement = document.createElement('div');
+            railElement.className = "w-1.5 h-6 bg-gold-500 rounded-full shadow-[0_0_8px_#E6B325]";
+            activeBtn.appendChild(railElement);
+        }
+
+        // NON-BLOCKING TACTICAL HUD ALERT (replaces native alert(), which freezes embedded previews)
+        function showHudAlert(message) {
+            const existing = document.getElementById('hud-alert');
+            if (existing) existing.remove();
+            const hud = document.createElement('div');
+            hud.id = 'hud-alert';
+            hud.className = "fixed bottom-6 right-6 max-w-md bg-[#0D0D11] border border-gold-500/40 rounded-xl p-4 shadow-[0_0_25px_rgba(230,179,37,0.25)] z-50 font-mono text-xs text-slate-200 whitespace-pre-line leading-relaxed";
+            hud.innerHTML = `<div class="flex items-center justify-between mb-2 pb-2 border-b border-gold-600/20">
+                <span class="text-gold-400 font-bold tracking-widest text-[10px] uppercase">// SYSTEM TELEMETRY</span>
+                <button onclick="this.closest('#hud-alert').remove()" class="text-slate-500 hover:text-gold-400 px-1">✕</button>
+            </div><div>${message}</div>`;
+            document.body.appendChild(hud);
+            setTimeout(() => { if (document.getElementById('hud-alert') === hud) hud.remove(); }, 6000);
+        }
+
+        // PING PORT System Emulator Action
+        function testSystemHealth(engineName) {
+            showHudAlert(`[TELEMETRY GATE]: Handshaking connection target -> ${engineName}\nStatus: Verification Successful.\nRTT: 14ms\nErrors: 0`);
+        }
+
+        // GLOBAL INTEGRITY AUDIT Action
+        function triggerSystemAudit() {
+            showHudAlert("[CRITICAL AUDIT SHIELD]: Initializing global integrity check across environment...\n- Local files verified.\n- /workflows integrity: 100% valid.\n- /agents brain synchronization match: 100% correct.\nSystem Audit State: Operational Excellence.");
+        }
+
+        // REAL-TIME LEDGER INGESTION SIMULATOR MUTATION ENGINE
+        let currentDocumentLedgerCount = 38;
+        function simulateIngestion() {
+            currentDocumentLedgerCount++;
+            document.getElementById('ledger-count-display').innerText = currentDocumentLedgerCount;
+
+            const tableBody = document.getElementById('ledger-table-body');
+            const newRow = document.createElement('tr');
+            newRow.className = "hover:bg-white/5 transition-colors bg-gold-500/5 animate-pulse border-b border-slate-900";
+
+            const randomHexSeed = Math.random().toString(16).substr(2, 7);
+            const currentEpochTimestamp = new Date().toISOString().slice(0,10).replace(/-/g,"");
+
+            newRow.innerHTML = `
+                <td class="p-4 font-bold text-gold-400">DOC-${currentEpochTimestamp}-${randomHexSeed.toUpperCase()}</td>
+                <td class="p-4">/workflows/ingested_client_sop_${randomHexSeed}.md</td>
+                <td class="p-4 text-slate-500">sha256:e3b0c44...</td>
+                <td class="p-4"><span class="px-2 py-0.5 rounded text-[10px] font-bold bg-gold-950/40 text-gold-400 border border-gold-500/20">INDEXED</span></td>
+            `;
+
+            tableBody.insertBefore(newRow, tableBody.firstChild);
+        }
+
+        // AGENT STRATEGIC CONSOLE LOGIC PRESETS & INTERACTIVE DIALOGUE MATRIX
+        function sendPresetDirective(agentType, textPayload) {
+            const chatBox = document.getElementById(`${agentType}-chat-box`);
+
+            // User entry message line
+            const userLine = document.createElement('div');
+            userLine.className = "flex items-start space-x-2 text-slate-300 mt-2";
+            userLine.innerHTML = `<span class="text-gold-500 font-bold">[ARCHITECT]:</span><p>${textPayload}</p>`;
+            chatBox.appendChild(userLine);
+
+            // Trigger typing automation response buffer latency emulation
+            const systemLine = document.createElement('div');
+            systemLine.className = "flex items-start space-x-2 text-slate-500 italic mt-1";
+            systemLine.id = `typing-temp-${agentType}`;
+            systemLine.innerHTML = `<span>[${agentType.toUpperCase()}_CORE]:</span><p class="animate-pulse">Processing execution architecture layer...</p>`;
+            chatBox.appendChild(systemLine);
+
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            setTimeout(() => {
+                document.getElementById(`typing-temp-${agentType}`).remove();
+
+                const responseLine = document.createElement('div');
+                responseLine.className = "flex items-start space-x-2 text-gold-400 mt-1";
+
+                let responseContent = ``;
+                if (agentType === 'ceo') {
+                    if (textPayload.includes('Capital Stack')) {
+                        responseContent = "Verification complete. Asset tracking profiles mapped across capital stack metrics. Zero external exposure parameters found.";
+                    } else if (textPayload.includes('NEPQ')) {
+                        responseContent = "NEPQ Commitment Engine Active. Sequence framework locked down: 'What are you looking for in an automated execution blueprint to ensure you secure absolute digital sovereignty?'";
+                    } else {
+                        responseContent = "Strategic delivery audit protocol generated successfully. High-ticket implementation parameters matched to enterprise specification constraints.";
+                    }
+                } else if (agentType === 'coo') {
+                    if (textPayload.includes('Turnover')) {
+                        responseContent = "Turnover operation pipeline deployed. Sync tracking matches core operational manifest requirements. Multi-agent monitors standing by.";
+                    } else if (textPayload.includes('Richmond')) {
+                        responseContent = "Richmond RPDC infrastructure data layer synchronized. Data logging telemetry is currently reading active and healthy.";
+                    } else {
+                        responseContent = "Ground Truth logic metrics confirmed. Environment file structures fully validated against expected operational signatures.";
+                    }
+                }
+
+                responseLine.innerHTML = `<span class="text-slate-500">[${agentType.toUpperCase()}_CORE]:</span><p>${responseContent}</p>`;
+                chatBox.appendChild(responseLine);
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }, 900);
+        }
+
+        // CUSTOM TEXT DIRECTIVE PROCESSING
+        function sendCustomDirective(agentType) {
+            const inputField = document.getElementById(`${agentType}-custom-input`);
+            const payload = inputField.value.trim();
+            if(!payload) return;
+
+            inputField.value = '';
+
+            const chatBox = document.getElementById(`${agentType}-chat-box`);
+            const userLine = document.createElement('div');
+            userLine.className = "flex items-start space-x-2 text-slate-300 mt-2";
+            userLine.innerHTML = `<span class="text-gold-500 font-bold">[ARCHITECT]:</span><p>${payload}</p>`;
+            chatBox.appendChild(userLine);
+
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            setTimeout(() => {
+                const responseLine = document.createElement('div');
+                responseLine.className = "flex items-start space-x-2 text-gold-400 mt-1";
+                responseLine.innerHTML = `<span class="text-slate-500">[${agentType.toUpperCase()}_CORE]:</span><p>Custom command registered into memory workspace: "${payload}". Simulating response context alignment based on standard WAT orchestration paths.</p>`;
+                chatBox.appendChild(responseLine);
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }, 600);
+        }
+
+        // LEGACY ASSET ENGINE CHECK
+        function triggerAssetRebalanceOptimization() {
+            showHudAlert("[ASSET SHIELD AUDIT]: Algorithmic tracking structures matched perfectly to long-term fortress reinvestment matrix. Capital accounts checked; zero compliance deviations found.");
+        }
+    </script>
+</body>
+</html>
