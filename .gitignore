@@ -39,3 +39,50 @@ tools/consulting_wing/sovereign-promo/**/*.png
 
 # Local SQLite vault — provisioned by tools/initialize_vault.py
 data/
+
+# =====================================================================
+# v3.4 SAFETY SHIELD (2026-06-16) — prevent PII / personal / bloat / junk
+# from ever being staged. Already-committed paths (e.g. tools/command_deck/
+# build/) are unaffected; .gitignore does not untrack tracked files.
+# =====================================================================
+
+# Personal / legal / private data
+cases_matrix.csv
+*.docx
+WorkOrders/
+projects/
+
+# Local assistant / tool configs
+.claude/
+.agents/
+
+# Node / dependency bloat
+node_modules/
+**/node_modules/
+
+# Build/cache artifacts
+dist/
+build/
+.cache/
+.temp/
+tmp/
+.DS_Store
+Thumbs.db
+
+# Accidental command typo files
+add
+commit
+*.mdgit
+
+# Environment / secrets
+.env
+.env.*
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# Logs
+*.log
+logs/
