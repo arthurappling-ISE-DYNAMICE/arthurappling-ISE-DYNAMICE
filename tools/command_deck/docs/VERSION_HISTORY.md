@@ -1,6 +1,48 @@
 # SYS_OS — VERSION HISTORY
 
-## v3.4.0 — INCREMENTAL_HEALTH (2026-06-16) · CURRENT
+## v3.5.0 — SESSION_BOUND_RBAC_VAULT_HARDENING (2026-06-20) · CURRENT
+Additive security + scalability release over v3.4.0. No redesign, no destructive
+migration, no schema change, no persistence-format change. Snapshot
+`index_v3.5.0.html` + `archives/v3.5.0/`. Gate 36. Every phase measured and
+verified individually; full regression green at seal.
+
+- **Session persistence (Phase 2):** `auth_ui` persists `{operator,role,since}`
+  through the storage adapter (`sysos.session.v1`); `restore()` re-applies it on
+  boot. ADMINISTRATOR remains the boot default when no session exists (default-
+  deny flip deferred by directive). `bootcheck` gates `authUI.restore`.
+- **Lock / Unlock (Phase 3):** memory-only `lock()`/`unlock()` — LOCK drops the
+  active role to READ_ONLY preserving the prior operator; UNLOCK restores it.
+  Lock state does not persist across reload (by design). Gate-validated.
+- **Registry Grid pagination (Phase 4):** `registry.js renderTable` lifts the
+  proven Client-Center pattern — filter/sort full dataset → 25-row page slice →
+  PREV/NEXT + count. Verified 308 records → **25 DOM rows**, O(page) not O(n).
+- **Proposal/Contract pagination closure (Phase 5):** measured proof that both
+  render through the single Registry Grid path (already paginated in Phase 4);
+  no separate table exists. `PAGINATION_CLOSURE_v3.5.md`. No code added.
+- **Vault hardening (Phase 6, H1–H5) — closes risk review R1–R5:**
+  - **H1** Vault→Central Audit bridge: ingest/evidence/ocr_stored/reset now
+    record `document.*` events in `SYSOS.audit` (was 0). Vault chain preserved.
+  - **H2** Hash-mode visibility: `vault.hashMode()`; weak FNV-1a (non-secure
+    context) surfaces WARNING/YELLOW + boot warn + startup audit event — no
+    longer silently HEALTHY. `verifyChain` unchanged.
+  - **H3** Reset protection: `vault.reset({confirm:'RESET_VAULT'})` requires
+    ADMINISTRATOR + token + verified recovery snapshot before deletion (aborts
+    if snapshot fails); full audit lifecycle. New permission `vault.reset`.
+  - **H4** Corrupt-restore quarantine: boot restore validates with distinct
+    reasons; corrupt payload quarantined (`sysos.vault.quarantine.<ts>`) before
+    any reseed; quarantine-write failure aborts without overwrite;
+    `vault.restoreStatus()` + WARNING surface. `restore()` (demo/sqlite) intact.
+  - **H5** Vault RBAC completion: `attachEvidence` + `registerOCRProvider` gated
+    (`vault.attachEvidence`, `vault.ocrProvider`) with structured denials +
+    audit; boot recovery and pre-authorized OCR completion intentionally ungated.
+- **Deferred:** H7 normalized vault persistence (vault is 3 docs; no scale need).
+- **Regression at seal:** smoke 18/18, drills 6/6, maintenance 10/10, integrity
+  88/0, gate 36/0, vault chain valid, demo isolation + SQLite swap intact.
+- **New modules:** none (all additive to existing modules). **Docs:**
+  BASELINE_REPORT_v3.5_PRE, PAGINATION_CLOSURE_v3.5, VAULT_ARCHITECTURE_MAP_v3.5,
+  VAULT_RISK_REVIEW_v3.5, VAULT_HARDENING_PLAN_v3.5, RELEASE_REPORT_v3.5.
+
+## v3.4.0 — INCREMENTAL_HEALTH (2026-06-16)
 Removes the last measured health O(n) constant via per-client memoization with
 change-token invalidation. Additive, no business changes. Snapshot
 `index_v3.4.0.html` + `archives/v3.4.0/` (43 files, 33 JS modules). Gate 36.

@@ -34,3 +34,11 @@ should be lifted into `registry.js renderTable`.
 ## Not changed this release
 No table code modified in v3.4.0 (this is health-memoization scope). This
 review is the input for the v3.5 table-pagination task.
+
+---
+**v3.5 UPDATE (addendum):** Registry Grid pagination shipped in Phase 4 and
+applies uniformly to every domain — including proposals and contracts, which
+share that single `renderTable` path. Phase 5 therefore added no code;
+proposal/contract pagination is verified at 300+ records each. See
+`PAGINATION_CLOSURE_v3.5.md` for the measured proof. Remaining: Vault ledger
+(Phase 6).
