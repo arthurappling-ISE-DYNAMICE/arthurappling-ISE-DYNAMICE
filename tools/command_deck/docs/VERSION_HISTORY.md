@@ -1,6 +1,43 @@
 # SYS_OS — VERSION HISTORY
 
-## v3.7.0 — COMMERCIAL_RECORD_MANAGEMENT_UI (2026-06-21) · CURRENT
+## v3.8.0 — BACKUP_EXPORT_RESTORE (2026-06-22) · CURRENT
+Additive deployment-foundation release over v3.7.0 — closes the highest immediate
+risk (no backup / data loss) from the v3.8 Deployment Foundation Audit. Local-
+first, auditable full-state backup/export/restore. No backend, no auth, no
+hosting; no change to vault H1-H5, store, registry, or commercial behavior.
+Snapshot `index_v3.8.0.html` + `archives/v3.8.0/`. Gate 36 (backup is operator-
+invoked, intentionally not boot-gated).
+
+- **New module `backup.js` (`SYSOS.backup`)** + **Station 14 // BACKUP** (router-
+  registered, lazy): export full `sysos.*` state to a downloadable JSON, validate
+  a backup, and restore conservatively.
+- **Export:** verifies vault chain + integrity first; builds a JSON with metadata
+  (schema/version/role/backup_id/origin), the full storage payload, a verification
+  block (`state_hash`, vault/audit/integrity status, record counts, schema
+  signature), a restore policy, and a human summary. Downloads as
+  `SYS_OS_BACKUP_v<ver>_YYYY-MM-DD_HHMMSS.json`. No secrets/tokens/credentials.
+- **Validate:** 20-point check (JSON, required sections, schema/version,
+  `created_by_sys_os`, required state families, **state-hash match**, forbidden-key
+  scan, chain-status presence, emptiness) → `{valid, severity PASS/WARNING/FAIL,
+  errors[], warnings[], can_restore}`. Invalid backups never mutate state.
+- **Restore (conservative):** RBAC + confirmation (`RESTORE SYS_OS BACKUP`) →
+  validate → **pre-restore snapshot** → overwrite `sysos.*` → re-hydrate →
+  **re-verify vault chain** → audit. **Rollback to snapshot on any failure.**
+- **RBAC:** new `backup.export` (all roles incl. READ_ONLY) + `backup.restore`
+  (ADMIN/MANAGER/OPERATOR; READ_ONLY denied). Both audited.
+- **Audit events:** export_started/created/failed; validation_passed/failed;
+  restore_started/completed/failed/rejected.
+- **Verified (30 cases):** round-trip export→validate→restore→reload; vault chain
+  + integrity 88/0 preserved; invalid JSON / missing metadata / hash-tamper /
+  empty / forbidden-key / missing-family all rejected; confirmation required;
+  READ_ONLY restore denied; fault-injected restore failure rolled back cleanly;
+  smoke 18/18, drills 6/6, maintenance 10/10, gate 36/0, chain valid, H1-H5 +
+  demo + lock/unlock + v3.7 commercial UI all intact; no console errors.
+- **Docs:** BACKUP_EXPORT_RESTORE_v3.8, OPERATOR_MANUAL_v3.8_ADDENDUM,
+  RELEASE_REPORT_v3.8. **Deferred:** environment profiles / production config
+  guard / server backup (later milestones).
+
+## v3.7.0 — COMMERCIAL_RECORD_MANAGEMENT_UI (2026-06-21)
 Additive operator-completion release over v3.5.0. Closes v3.6 validation gap
 **F2** (commercial records were create/view-only in the UI) and guards **F1**
 (delete that would orphan a reference). No redesign, no schema/persistence-format
