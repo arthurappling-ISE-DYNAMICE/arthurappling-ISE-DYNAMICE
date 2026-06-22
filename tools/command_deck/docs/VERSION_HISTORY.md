@@ -1,6 +1,36 @@
 # SYS_OS — VERSION HISTORY
 
-## v3.5.0 — SESSION_BOUND_RBAC_VAULT_HARDENING (2026-06-20) · CURRENT
+## v3.7.0 — COMMERCIAL_RECORD_MANAGEMENT_UI (2026-06-21) · CURRENT
+Additive operator-completion release over v3.5.0. Closes v3.6 validation gap
+**F2** (commercial records were create/view-only in the UI) and guards **F1**
+(delete that would orphan a reference). No redesign, no schema/persistence-format
+change, no change to Vault H1-H5. Snapshot `index_v3.7.0.html` +
+`archives/v3.7.0/`. Gate 36.
+
+- **Commercial record UI (client.js):** per-record **EDIT / ARCH·UNARCH / DEL**
+  controls on Client Center rows (clients) and workspace items (proposals,
+  contracts). `handleCommercialAction` dispatcher; client row is now a
+  `div[role=button]` hosting the controls (selection unchanged).
+- **Edit (commercial_ui.js):** generalized the pre-existing edit form to
+  `edit(recordMode, id)` — the update logic already existed and was simply
+  unwired; now reachable for client/proposal/contract (prefilled form → COMMIT).
+- **Relationship safety (F1):** `linkRisk()` checks backlinks + Vault document
+  links before any hard delete. References present → **delete blocked + audited
+  (`<domain>.delete_blocked`)**, operator directed to ARCHIVE (links preserved).
+  Unreferenced records → two-step confirm + post-delete integrity check. Dangling
+  links are unreachable via the UI.
+- **RBAC/audit unchanged:** EDIT/ARCH→`<domain>.update`, DEL→`<domain>.delete`
+  via the existing store enforcement + audit wrap; denials notified + audited.
+- **Verified:** edit prefilled+persisted+audited; archive/unarchive; two-step
+  delete of an unlinked record; delete-blocked on a linked client; READ_ONLY
+  denied; survived reload. smoke 18/18, drills 6/6, maintenance 10/10, integrity
+  88/0, gate 36/0, vault chain valid, H1-H5 + demo + SQLite swap + lock/unlock intact.
+- **Docs:** COMMERCIAL_RECORD_UI_v3.7, OPERATOR_MANUAL_v3.7_ADDENDUM,
+  RELEASE_REPORT_v3.7. **New modules:** none (additive to existing).
+- Note: v3.6 was an audit/validation cycle (no version bump); this is the next
+  sealed code release after v3.5.0.
+
+## v3.5.0 — SESSION_BOUND_RBAC_VAULT_HARDENING (2026-06-20)
 Additive security + scalability release over v3.4.0. No redesign, no destructive
 migration, no schema change, no persistence-format change. Snapshot
 `index_v3.5.0.html` + `archives/v3.5.0/`. Gate 36. Every phase measured and
