@@ -1,6 +1,45 @@
 # SYS_OS — VERSION HISTORY
 
-## v3.8.0 — BACKUP_EXPORT_RESTORE (2026-06-22) · CURRENT
+## v3.9.0 — ENVIRONMENT_PROFILES_PRODUCTION_GUARD (2026-06-23) · CURRENT
+Additive deployment-discipline safety layer over v3.8.0. SYS_OS now understands
+its environment (DEV/LOCAL/STAGING/PRODUCTION) and **honestly blocks unsafe
+production behavior** before any backend/auth/hosting exists. Default profile is
+**LOCAL**, where behavior is identical to v3.8. No backend, no real auth, no
+hosting; no change to vault H1-H5, backup, store, registry, or commercial
+behavior. Snapshot `index_v3.9.0.html` + `archives/v3.9.0/`. Gate 36 (environment
+is operator-invoked, intentionally not boot-gated).
+
+- **New module `environment.js` (`SYSOS.environment`)** + **Station 15 //
+  ENVIRONMENT** (router-registered, lazy). Profiles: DEV (LOW), LOCAL (LOW,
+  default), STAGING (MEDIUM, advisory warnings), PRODUCTION (CRITICAL, guard
+  active). Detection: `?profile=` URL override → `sysos.environment.profile`
+  storage key → `CONFIG.PROFILE` → default LOCAL.
+- **Production guard (honest):** `runProductionGuard()` scores 11 checks
+  (auth/persistence/hosting/monitoring/backup/audit/vault/integrity/demo/reset/
+  localhost). Because backend auth, server persistence, hosting, and monitoring
+  are missing, PRODUCTION is reported **PRODUCTION_BLOCKED** — never falsely
+  "secure". Language is truthful (local-first only).
+- **Guard integration (additive prechecks; no-op in LOCAL):** in PRODUCTION,
+  `demo.enter()` is blocked (stays LIVE + audited) and `vault.reset()` is blocked
+  (`production_guard_blocked`, before the v3.8 guarded-reset path — H1-H5
+  untouched). v3.8 backup/export stays available; restore stays RBAC-gated
+  (READ_ONLY denied). `setProfile` requires `system.configure` (ADMIN).
+- **API:** getCurrentProfile/getProfileRules/runProductionGuard/isProduction/
+  isStaging/isLocal/isDev/getBlockedActions/getWarnings/blocks/setProfile.
+- **Audit events:** environment.profile_detected / guard_checked /
+  production_blocked / warning_issued / reset_blocked / demo_blocked /
+  override_rejected.
+- **Verified (28 cases):** DEV/LOCAL normal; STAGING warns; PRODUCTION blocked +
+  honest; demo/reset blocked + audited in PRODUCTION; LOCAL unchanged (demo works,
+  reset RBAC-guarded); v3.8 backup + commercial UI + H1-H5 + lock/unlock intact;
+  smoke 18/18, drills 6/6, maintenance 10/10, integrity 88/0, gate 36/0, chain
+  valid; no console errors.
+- **Docs:** ENVIRONMENT_PROFILES_PRODUCTION_GUARD_v3.9, OPERATOR_MANUAL_v3.9_
+  ADDENDUM, RELEASE_REPORT_v3.9. **Deferred:** real auth, server persistence,
+  hosting, monitoring (Pilot, Option B) — the guard names exactly these as the
+  blockers.
+
+## v3.8.0 — BACKUP_EXPORT_RESTORE (2026-06-22)
 Additive deployment-foundation release over v3.7.0 — closes the highest immediate
 risk (no backup / data loss) from the v3.8 Deployment Foundation Audit. Local-
 first, auditable full-state backup/export/restore. No backend, no auth, no
