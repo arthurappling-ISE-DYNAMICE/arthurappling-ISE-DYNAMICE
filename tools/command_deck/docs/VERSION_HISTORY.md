@@ -1,6 +1,50 @@
 # SYS_OS — VERSION HISTORY
 
-## v3.9.0 — ENVIRONMENT_PROFILES_PRODUCTION_GUARD (2026-06-23) · CURRENT
+## v4.0.0 — PILOT_BACKEND_FOUNDATION (2026-06-23) · CURRENT
+Additive first pilot-backend foundation over v3.9.0. Adds a Supabase-shaped
+remote backend foundation (auth boundary + per-user KV adapter + schema/RLS +
+config + UI + guard wiring) **while fully preserving the local-first system**.
+Default is **LOCAL/localStorage** — identical to v3.9, fully offline. Remote is
+**opt-in**, **never auto-overwrites local data**, and is **not configured in the
+repo** (no secrets). No backend deployed, no real auth enforced yet, no hosting,
+no AI. Snapshot `index_v4.0.0.html` + `archives/v4.0.0/`. Gate 36.
+
+- **Pilot backend artifacts (`pilot_backend/`):** `supabase_schema.sql`
+  (`sysos_kv_state` + `sysos_backup_events`, indexes, updated-at trigger, **RLS
+  enabled + 6 per-user policies** — server-side authz that fixes client-side-RBAC
+  for real client use), `README.md` (setup/security/rollback/sovereign-exit),
+  `.env.example` (placeholders only).
+- **`auth_remote.js` (`SYSOS.authRemote`):** Supabase login boundary
+  (isConfigured/getSession/signIn/signOut/getUser/onAuthStateChange/getAuthStatus).
+  Safe no-op when SDK/config absent (the shipped default). No secrets, no
+  hardcoded credentials. Does not replace local auth/RBAC or lock/unlock.
+- **`remote_backend.js` (`SYSOS.remoteBackend`)** + **Station 16 // PILOT
+  BACKEND:** async per-user KV primitives (list/get/set/remove/clearNamespace),
+  `healthCheck`, explicit operator `syncToLocal`/`syncFromLocal` (deferred), and a
+  guarded `register()`. **Honest design:** the live storage contract is
+  synchronous and Supabase is async, so the foundation does **not** auto-swap the
+  live backend or auto-sync — that async-storage path is deferred. LOCAL preserved.
+- **Config (`config.js`):** `BACKEND` block (MODE local default · REMOTE_ENABLED
+  false · empty SUPABASE_URL/ANON_KEY placeholders · KV_TABLE). Real values come
+  from a git-ignored runtime `config.local.js` (`window.__SYSOS_RUNTIME__`); no
+  secrets in the bundle. Missing config warns, never crashes.
+- **Guard integration (`environment.js`):** Authentication + Server-persistence
+  checks become **backend-aware** — PASS only when remote is configured +
+  authenticated; otherwise BLOCK. With no remote (default), PRODUCTION stays
+  **honestly PRODUCTION_BLOCKED**. Never marks production secure.
+- **Verified:** LOCAL boots normally with no Supabase; missing config does not
+  crash; remote disabled by default; localStorage + backup export/validate +
+  restore guard + commercial UI + client edit + archive/delete + demo/reset
+  guards + READ_ONLY restore denial all intact; PRODUCTION honestly blocked
+  (auth+persistence BLOCK); RLS enabled + 6 policies; no service-role key, no real
+  creds, no backup JSON; smoke 18/18, drills 6/6, maintenance 10/10, integrity
+  88/0, gate 36/0, vault chain valid, H1-H5 intact; no console errors. **Live
+  Supabase tests SKIPPED / CONFIG_REQUIRED (no credentials).**
+- **Docs:** PILOT_BACKEND_FOUNDATION_v4.0, OPERATOR_MANUAL_v4.0_ADDENDUM,
+  RELEASE_REPORT_v4.0. **Deferred:** async-storage live swap, real auth
+  enforcement, hosting, monitoring, automated sync (next pilot steps).
+
+## v3.9.0 — ENVIRONMENT_PROFILES_PRODUCTION_GUARD (2026-06-23)
 Additive deployment-discipline safety layer over v3.8.0. SYS_OS now understands
 its environment (DEV/LOCAL/STAGING/PRODUCTION) and **honestly blocks unsafe
 production behavior** before any backend/auth/hosting exists. Default profile is
