@@ -1,6 +1,44 @@
 # SYS_OS — VERSION HISTORY
 
-## v4.0.0 — PILOT_BACKEND_FOUNDATION (2026-06-23) · CURRENT
+## v4.1.0 — REMOTE_PERSISTENCE_LIVE (2026-06-23) · CURRENT
+Additive over v4.0.0 — makes the deferred remote sync **real**: explicit,
+operator-controlled, overwrite-protected **push/pull** between local and the
+Supabase per-user KV store. **LOCAL remains the live store and the default**
+(localStorage); remote sync is opt-in, backup-gated, and never automatic. No live
+backend swap (storage.js synchronous contract untouched), no hosting, no
+monitoring, no AI. Snapshot `index_v4.1.0.html` + `archives/v4.1.0/`. Gate 36.
+
+- **`remote_backend.js` — real sync:** `preview()` (conflict classification:
+  local-only / remote-only / differing; NO mutation), `syncFromLocal()` (PUSH:
+  backup-gate + `PUSH TO REMOTE` phrase → upload all `sysos.*` → verify all present
+  → log `sysos_backup_events`), `syncToLocal()` (PULL: backup-gate + `PULL FROM
+  REMOTE` phrase → **pre-pull snapshot** → write remote→local → rehydrate → verify
+  vault chain + integrity → **rollback on failure**). `register()` (live async
+  swap) stays deferred.
+- **Station 16 UI:** Preview Conflicts (with overwrite-impact note), a required
+  "I have exported a v3.8 backup" gate, and confirm-phrase PUSH/PULL with result +
+  post-pull verification display.
+- **Overwrite protection:** no auto-sync; conflict preview before any write;
+  backup-required gate; distinct confirmation phrases; pre-pull local snapshot;
+  rollback to snapshot on verification failure; **RLS** as the server-side backstop.
+- **Audit events:** remote.sync_push_started/completed/failed, sync_pull_started/
+  completed/failed, sync_rejected, conflict_detected; `sysos_backup_events` rows.
+- **Guard:** Authentication + Server-persistence PASS only when configured +
+  authenticated (real Supabase). With no remote (default), PRODUCTION stays
+  **honestly BLOCKED**; hosting + monitoring remain BLOCK. No false PASS.
+- **Verified:** no-config gates honest (push/pull/preview → config_required,
+  health → SDK_MISSING — no fake live pass); LOCAL preserved (localStorage live,
+  remote off); backup + commercial UI + H1-H5 + demo/reset guards intact; smoke
+  18/18, drills 6/6, maintenance 10/10, integrity 88/0, gate 36/0, vault chain
+  valid; no console errors. **Sync orchestration** (push/conflict/pull/rollback +
+  backup/phrase gates) verified with **in-memory mock primitives** (explicitly NOT
+  a live Supabase pass). **Live Supabase + RLS isolation = CONFIG_REQUIRED** (no
+  credentials; never marked PASS). A leaked `/tools/v39.md` test doc from the v3.9
+  session was removed via the guarded reset, restoring the canonical 3-doc baseline.
+- **Docs:** REMOTE_PERSISTENCE_LIVE_v4.1, OPERATOR_MANUAL_v4.1_ADDENDUM,
+  RELEASE_REPORT_v4.1. **Deferred:** live async backend swap, hosting, monitoring.
+
+## v4.0.0 — PILOT_BACKEND_FOUNDATION (2026-06-23)
 Additive first pilot-backend foundation over v3.9.0. Adds a Supabase-shaped
 remote backend foundation (auth boundary + per-user KV adapter + schema/RLS +
 config + UI + guard wiring) **while fully preserving the local-first system**.
