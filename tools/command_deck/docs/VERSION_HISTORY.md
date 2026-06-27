@@ -1,6 +1,40 @@
 # SYS_OS — VERSION HISTORY
 
-## v4.1.0 — REMOTE_PERSISTENCE_LIVE (2026-06-23) · CURRENT
+## v4.2.0 — PILOT_HOSTING_MONITORING (2026-06-27) · CURRENT
+Additive over v4.1.0 — prepares SYS_OS for **HTTPS static hosting (GitHub Pages)**
+and adds a **client-side runtime monitoring sink**. LOCAL remains the live store
+and default (localStorage). No deploy, no live Supabase connection, no external
+alerting, no storage-backend swap, no AI. PRODUCTION stays **honestly BLOCKED**.
+Snapshot `index_v4.2.0.html` + `archives/v4.2.0/`. Gate **36** (monitoring is NOT
+boot-gated). smoke 18 · drills 6 · maintenance 10 · integrity 88/0.
+
+- **`monitoring.js` — new sink:** global `error` + `unhandledrejection` listeners
+  installed at parse time; event types `monitoring.runtime_error`,
+  `unhandled_rejection`, `guard_failure`, `vault_failure`, `integrity_failure`,
+  `health_checked`. Routes each into the central **audit** (domain `monitoring`)
+  and the **activity** feed. Defensive (guarded + reentrancy flag) — never crashes
+  the platform; works even if audit/activity are absent. Not in bootcheck MANIFEST.
+- **Monitoring UI:** Runtime Monitoring panel in **Station 15 // ENVIRONMENT**
+  (status, capture state, per-type counters + last event, LOCAL-only warning).
+- **CSP / Supabase readiness:** committed policy stays LOCAL-safe (self +
+  localhost); operator adds **one scoped** `https://<ref>.supabase.co` origin to
+  `connect-src` when configured — no wildcard, no real URL committed. `<meta>` CSP
+  (GitHub Pages cannot set headers).
+- **Production guard:** monitoring-aware (`Monitoring`, `Runtime error capture`,
+  `Guard failure capture` → PASS when active) plus explicit `RLS isolation
+  verified` (BLOCK / CONFIG_REQUIRED) and `Rollback path` (PASS, documented).
+  Guard now routes guard/vault/integrity failures into monitoring.
+- **Docs:** `PILOT_HOSTING_MONITORING_v4.2.md`, `OPERATOR_MANUAL_v4.2_ADDENDUM.md`,
+  `RELEASE_REPORT_v4.2.md` (GitHub Pages setup, base-path warning, HTTPS, rollback,
+  `config.local.js`, no-secrets rules).
+- **Verified (in-browser):** boots v4.2.0; smoke 18/18, drills 6/6, maintenance
+  10/10, integrity 88/0, gate 36/0, vault valid, no console errors; real uncaught
+  error + real unhandled rejection captured; self-test all-green; audit+activity
+  routing confirmed; PRODUCTION_BLOCKED in LOCAL and PRODUCTION; backup
+  export/validate, remote no-config `config_required`, commercial/client/env/pilot
+  stations all intact.
+
+## v4.1.0 — REMOTE_PERSISTENCE_LIVE (2026-06-23)
 Additive over v4.0.0 — makes the deferred remote sync **real**: explicit,
 operator-controlled, overwrite-protected **push/pull** between local and the
 Supabase per-user KV store. **LOCAL remains the live store and the default**
