@@ -1,6 +1,42 @@
 # SYS_OS — VERSION HISTORY
 
-## v4.2.0 — PILOT_HOSTING_MONITORING (2026-06-27) · CURRENT
+## v4.3.0 — LIVE_DEPLOYMENT_REHEARSAL (2026-06-28) · CURRENT
+Additive over v4.2.0 — a **rehearsal layer** for the first real hosted pilot on
+**GitHub Pages**: deployment-readiness controls, a safe Supabase config template,
+an RLS isolation verification workflow, a deployment health probe, and an honest
+production guard. No deploy, no live Supabase connection, no secrets. Deployment
+panel reports **REHEARSAL_READY** (live checks pending); production guard stays
+**PRODUCTION_BLOCKED**. Snapshot `index_v4.3.0.html` + `archives/v4.3.0/`. Gate 36 ·
+smoke 18 · drills 6 · maintenance 10 · integrity 88/0.
+
+- **Config template + secret exclusion:** `assets/js/config.local.example.js`
+  (placeholders only — `SUPABASE_URL`/`SUPABASE_ANON_KEY`/`BACKEND_MODE`/
+  `REMOTE_ENABLED`/`ENVIRONMENT_PROFILE`) + new `tools/command_deck/.gitignore`
+  ignoring the **real** `config.local.js`, `*.backup.json`, `.env*`. Verified:
+  real file IGNORED, template tracked.
+- **GitHub Pages docs:** enablement, source/branch strategy, HTTPS, project
+  base-path warning, deployed-URL test, rollback (revert/disable Pages/disable
+  remote), hosted monitoring + CSP checks, no-secrets rules.
+- **CSP strategy:** committed policy stays LOCAL-safe; one scoped
+  `https://<ref>.supabase.co` origin added by operator (no wildcard, no real URL).
+  Guard flags configured-but-missing origin (`CSP Supabase origin`).
+- **RLS verification:** Station 15 **Run RLS Isolation Checklist** (12 steps, A vs
+  B) + persisted result (`sysos.deploy.rls.v1`). Recording "verified" is rejected
+  without a live backend (`config_required`).
+- **Deployment Readiness panel** (Station 15): hosting target/status, HTTPS,
+  Supabase config, auth, RLS, monitoring, CSP, rollback, production status
+  (BLOCKED/REHEARSAL_READY/READY — READY never claimed without live checks).
+- **Monitoring:** new `monitoring.deployment_health_checked` (origin, secure
+  context, profile, backend mode, CSP note, guard status).
+- **Production guard:** added `CSP Supabase origin` check + dynamic RLS; remains
+  `PRODUCTION_BLOCKED` (Authentication, Server persistence, RLS isolation).
+- **Verified (in-browser):** boots v4.3.0; smoke 18/18, drills 6/6, maintenance
+  10/10, integrity 88/0, gate 36/0, vault valid, no console errors; deployment
+  readiness all-fields REHEARSAL_READY; RLS verify rejected without config;
+  deployment health logged; self-test green; backup/remote/commercial/client/
+  pilot stations intact.
+
+## v4.2.0 — PILOT_HOSTING_MONITORING (2026-06-27)
 Additive over v4.1.0 — prepares SYS_OS for **HTTPS static hosting (GitHub Pages)**
 and adds a **client-side runtime monitoring sink**. LOCAL remains the live store
 and default (localStorage). No deploy, no live Supabase connection, no external

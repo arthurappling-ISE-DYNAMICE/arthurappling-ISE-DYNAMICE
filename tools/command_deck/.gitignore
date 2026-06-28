@@ -1,0 +1,14 @@
+# SYS_OS (command_deck) — local-only / secret-bearing files (NEVER commit)
+
+# Operator's private runtime config — may contain a real Supabase anon key + URL.
+# The committed template is assets/js/config.local.example.js (placeholders only,
+# intentionally tracked). Only the REAL file below is ignored.
+assets/js/config.local.js
+
+# Backup / restore exports (may contain live operational data)
+*.backup.json
+sysos-backup-*.json
+
+# Environment / secrets
+.env
+.env.*
