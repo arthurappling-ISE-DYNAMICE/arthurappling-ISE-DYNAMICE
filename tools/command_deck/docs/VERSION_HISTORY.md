@@ -1,6 +1,44 @@
 # SYS_OS — VERSION HISTORY
 
-## v4.3.0 — LIVE_DEPLOYMENT_REHEARSAL (2026-06-28) · CURRENT
+## v4.4.3 — ARCHITECTURE_CLEANUP_RLS_HARDENING (2026-07-01) · CURRENT
+Controlled cleanup build resolving the 5 findings from the Sonnet 5 architecture
+review (v4.4.2): duplicated backend-config merge logic (4 copies), duplicated
+CSP/Supabase-origin detection (2 copies), a loose RLS self-attestation gap, a
+hosting-readiness fidelity mismatch, and missing Supabase URL/key validation. No
+live infrastructure, no new UI beyond one honest button-label fix, no weakened
+security. Snapshot `index_v4.4.3.html` + `archives/v4.4.3/`. Gate 36 (unchanged —
+`runtime_config.js` intentionally not boot-gated) · smoke 18 · drills 6 ·
+maintenance 10 · integrity 88/0.
+
+- **`runtime_config.js` (new):** single source for `getBackendConfig()`,
+  `validateSupabaseUrl()`, `validateAnonKeyShape()`, `isSupabaseConfigured()`,
+  `getCspSupabaseState()`, `getHostingState()`, `getRuntimeHealthSummary()`. No
+  secret values ever returned; no network calls. Loaded immediately after
+  `config.js`, consumed by `auth_remote.js`, `remote_backend.js`,
+  `environment.js`, `monitoring.js` (all 4 duplicate merges + both CSP-detection
+  copies removed).
+- **Supabase validation:** malformed/wrong-host/localhost URL → `CONFIG_INVALID`;
+  service-role-named key → **`BLOCK`**; valid `*.supabase.co` HTTPS URL + JWT-shaped
+  key → `CONFIGURED`. All format-only, no network calls.
+- **RLS hardening:** replaced loose verified/not-verified self-attestation with a
+  7-state model (`NOT_TESTED`/`CHECKLIST_STARTED`/`OPERATOR_ATTESTED`/
+  `TECHNICAL_VERIFICATION_REQUIRED`/`TECHNICALLY_VERIFIED`/`FAILED`/
+  `CONFIG_REQUIRED`). Operator attestation ("Record RLS Operator Attestation" —
+  renamed from "Record RLS Verified") now produces Guard **WARN**, never PASS.
+  New `verifyRLSIsolationTechnical()` placeholder always returns
+  `CONFIG_REQUIRED` — no simulated success. Effective status forced to
+  `CONFIG_REQUIRED` whenever live Supabase isn't configured, regardless of any
+  stored prior attestation.
+- **Hosting alignment:** Production Guard and Deployment Readiness panel now both
+  read `getHostingState()` — can no longer disagree.
+- **Verified (in-browser, no network calls):** boots v4.4.3; smoke 18/18, drills
+  6/6, maintenance 10/10, integrity 88/0, gate 36/0, vault valid, no console
+  errors; full validation matrix (9 cases) correct; RLS attestation with a
+  local-only stub config → guard WARN not PASS, confirmed reverted to clean
+  `CONFIG_REQUIRED` baseline; backup/remote/commercial/client/environment/pilot
+  stations all intact.
+
+## v4.3.0 — LIVE_DEPLOYMENT_REHEARSAL (2026-06-28)
 Additive over v4.2.0 — a **rehearsal layer** for the first real hosted pilot on
 **GitHub Pages**: deployment-readiness controls, a safe Supabase config template,
 an RLS isolation verification workflow, a deployment health probe, and an honest
