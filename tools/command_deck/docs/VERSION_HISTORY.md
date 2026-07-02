@@ -1,6 +1,38 @@
 # SYS_OS — VERSION HISTORY
 
-## v4.4.3 — ARCHITECTURE_CLEANUP_RLS_HARDENING (2026-07-01) · CURRENT
+## v4.5.2 — ACTIVATION_ENABLEMENT_VALIDATOR_HARDENING (2026-07-01) · CURRENT
+Small controlled pre-activation build. Unblocks live Supabase activation
+(v4.5.1 stopped: operator-confirmed the new `sb_publishable_` key format, which
+the v4.4.3 validator rejected) and closes the remaining pre-activation P1s from
+the Fable 5 senior review. No live infrastructure, no live calls, no secrets, no
+new UI. Snapshot `index_v4.5.2.html` + `archives/v4.5.2/`. Gate 36 · smoke 18 ·
+drills 6 · maintenance 10 · integrity 88/0.
+
+- **Key formats:** `validateAnonKeyShape()` accepts `sb_publishable_…` (new) and
+  legacy JWT anon keys; **BLOCKs** `sb_secret_…` and anything referencing
+  `service_role`; placeholders → CONFIG_REQUIRED; malformed → CONFIG_INVALID.
+- **CSP scoped:** Supabase origin must appear inside the **`connect-src`**
+  directive specifically (origin in `script-src` alone was a proven false PASS —
+  now BLOCK); missing directive → conservative BLOCK; wildcards never PASS.
+- **Auth client gate:** `auth_remote.client()` now requires the VALIDATED config
+  (`runtimeConfig.isSupabaseConfigured().ok`) — placeholder/malformed config can
+  no longer instantiate a client; cache is origin-keyed and resets on
+  invalid/changed config.
+- **Template:** dead `ENVIRONMENT_PROFILE` field removed from
+  `config.local.example.js` (was never read by `environment.detect()`); key
+  format guidance added.
+- **RLS import hardening:** new `environment.sanitizeRLSImport()` — an imported
+  `TECHNICALLY_VERIFIED` status (backup restore OR remote pull) is downgraded to
+  `TECHNICAL_VERIFICATION_REQUIRED` with an audit event
+  (`deploy.rls_import_downgraded`); technical RLS proof is now machine-local by
+  construction. Guard shows an explicit imported/downgraded detail.
+- **Verified (in-browser, zero network):** full key matrix (9 cases) correct;
+  CSP script-src-only/wildcard/missing-directive all BLOCK, connect-src PASS;
+  client gate + origin-keyed cache reset proven with stub SDK; end-to-end
+  tampered-backup restore → status downgraded, guard BLOCK, audit event logged,
+  restore itself succeeds (vault valid); all anchors green; no console errors.
+
+## v4.4.3 — ARCHITECTURE_CLEANUP_RLS_HARDENING (2026-07-01)
 Controlled cleanup build resolving the 5 findings from the Sonnet 5 architecture
 review (v4.4.2): duplicated backend-config merge logic (4 copies), duplicated
 CSP/Supabase-origin detection (2 copies), a loose RLS self-attestation gap, a
