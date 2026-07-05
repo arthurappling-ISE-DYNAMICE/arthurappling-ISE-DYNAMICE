@@ -1,6 +1,39 @@
 # SYS_OS — VERSION HISTORY
 
-## v4.5.2 — ACTIVATION_ENABLEMENT_VALIDATOR_HARDENING (2026-07-01) · CURRENT
+## v4.5.4 — RLS_TECHNICAL_VERIFICATION_STATUS_PATH (2026-07-05) · CURRENT
+Adds the missing safe channel to record RLS `TECHNICALLY_VERIFIED` — reachable
+ONLY by a machine-executed live two-user isolation test that passes end-to-end
+with confirmed cleanup (the deliberate gap left by the v4.4.3 hardening). Also
+banks the v4.5.3 live-backend milestone (`SUPABASE_RLS_VERIFICATION_PASS_v4.5.3.md`)
+and introduces repo-root `docs/CURRENT_STATE.md`. Snapshot `index_v4.5.4.html` +
+`archives/v4.5.4/` (local credential files excluded). Gate 36 · smoke 18 ·
+drills 6 · maintenance 10 · integrity 88/0.
+
+- **`environment.runTechnicalRLSVerification()`** — the only writer of
+  `TECHNICALLY_VERIFIED`: sign in A → write/read own row → B: cross-read must be
+  null (proof 1) → B write/read own → A: cross-read must be null (proof 2) →
+  persistence check → per-user cleanup verified to 0 rows → only then record.
+  Isolation violations store `FAILED`; transient errors store nothing; ends
+  signed out. Credentials only from the git-ignored local `TEST_USERS` block;
+  never logged. Old placeholder `verifyRLSIsolationTechnical` delegates.
+- **Verification record** (at `sysos.deploy.rls.v1`): verifiedAt · method
+  `live_two_user_machine_test` · projectRef · redacted uid prefixes · testKeys ·
+  cleanupConfirmed · evidenceHash (SHA-256 of step evidence) · operator.
+- **Integrity gate:** stored PASS honored only if method+cleanup match, the
+  projectRef equals the CURRENTLY configured project, and age ≤ new
+  `DEPLOY.RLS_VERIFICATION_MAX_AGE_DAYS` (30) — else effective status derives to
+  `TECHNICAL_VERIFICATION_REQUIRED` with an explicit guard reason. Attestation
+  ceiling (WARN) and import sanitizer (restore/pull downgrade) unchanged.
+- **Station 15:** new "Run Technical RLS Verification" button — runs the real
+  test, reports PASS with evidence hash or the exact failing stage.
+- **Verified LIVE (project `xwgm***`):** real run through the new path passed
+  all 6 proof steps + cleanup; guard `RLS isolation verified` = **PASS** (first
+  in project history), overall guard honestly `PRODUCTION_BLOCKED` with blocking
+  reduced to `Server persistence`; tamper matrix (attestation/wrong-project/
+  stale/wrong-method/import) all correctly refused PASS; no-config path returns
+  `CONFIG_REQUIRED`; all anchors green; no console errors.
+
+## v4.5.2 — ACTIVATION_ENABLEMENT_VALIDATOR_HARDENING (2026-07-01)
 Small controlled pre-activation build. Unblocks live Supabase activation
 (v4.5.1 stopped: operator-confirmed the new `sb_publishable_` key format, which
 the v4.4.3 validator rejected) and closes the remaining pre-activation P1s from
