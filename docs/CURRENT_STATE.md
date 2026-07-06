@@ -7,13 +7,13 @@ _Last updated: 2026-07-05 (v4.5.4 build session)_
 
 | Area | State |
 |---|---|
-| Code release | **v4.5.4 RLS_TECHNICAL_VERIFICATION_STATUS_PATH** (built, tested live, committed) |
+| Code release | **v4.6.0 HOSTING_STRATEGY_FIX** (built, artifact proven, committed) |
 | Backend | **Connected** — Supabase project `xwgm…`, legacy anon key live-verified (HTTP 200) |
 | Authentication | **Verified** — test1 + test2 sign-in, distinct uids, sessions valid |
 | Persistence | **Verified** — RLS-scoped health PASS; write/read round-trip byte-identical |
 | RLS isolation | **TECHNICALLY_VERIFIED via the new v4.5.4 status path** — live two-user machine test, both directions, cleanup confirmed, evidence-hashed; guard RLS line = PASS (integrity-gated: project match + 30-day freshness) |
-| Production | **Still BLOCKED (honest)** — remaining: Server persistence (requires an active signed-in session) + hosting (GitHub Pages strategy unresolved, Fable F2/F3) |
-| Hosting | NO-GO until Pages↔config.local.js contradiction + publish-scope decisions (Fable review F2/F3) |
+| Production | **Still BLOCKED (honest)** — remaining: Server persistence (needs an active session) + actual hosting (Pages NOT_DEPLOYED) |
+| Hosting | **PREPARED (v4.6)** — F2 resolved (two-stage public config: build-time generation, deploy-time deliberate commit), F3 resolved (allowlist builder + deterministic validator; archives/docs/helpers structurally excluded). Artifact built + validated + boot-proven locally. Pages: **NOT_DEPLOYED**; guard Hosting line = BLOCK until genuinely hosted |
 
 ## Live-config surface (all local-only, never committed)
 - `tools/command_deck/assets/js/config.local.js` — git-ignored; runtime config + temporary TEST_USERS
@@ -21,10 +21,11 @@ _Last updated: 2026-07-05 (v4.5.4 build session)_
 - `tools/command_deck/assets/js/supabase.local.js` — untracked vendored SDK
 
 ## Next mission
-**Hosting strategy fix** (pre-GitHub-Pages): resolve the Pages↔git-ignored-config
-contradiction (F2) and the publish-scope/business-data exposure decision (F3)
-from the Fable 5 review — the last engineering blockers between the current
-state and a hosted pilot.
+**v4.7 — GitHub Pages activation (operator-gated).** All engineering is in
+place; the sequence is `PUBLIC_DEPLOYMENT_OPERATOR_CHECKLIST_v4.6.md`:
+business-content signoff (D) → standing items (E: rotate old Google key,
+confirm repo visibility) → deliberate artifact commit (F) → enable Pages (G)
+→ hosted verification incl. RLS rerun from the hosted origin (H).
 
 ## Standing operator items
 - Rotate the old Google API key (v4.4.1 finding) and confirm repo visibility.

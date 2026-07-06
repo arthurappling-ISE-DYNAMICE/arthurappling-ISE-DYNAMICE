@@ -12,3 +12,15 @@ sysos-backup-*.json
 # Environment / secrets
 .env
 .env.*
+
+# v4.6 — GENERATED public deploy artifact (built by scripts/build_public_deploy.js).
+# Ignored during preparation so nothing ships accidentally. At actual deploy time
+# the operator DELIBERATELY removes this line and commits the validated artifact
+# (see docs/v3.0/PUBLIC_DEPLOYMENT_OPERATOR_CHECKLIST_v4.6.md). The generated
+# config.public.js inside it carries the browser-safe anon key ONLY — committing
+# it is a conscious, checklist-gated act, never a side effect.
+deploy/public/
+
+# Local vendored SDK + local test page (never commit; deploy build makes its own copy)
+assets/js/supabase.local.js
+index.local.html

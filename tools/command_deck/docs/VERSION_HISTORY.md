@@ -1,6 +1,37 @@
 # SYS_OS — VERSION HISTORY
 
-## v4.5.4 — RLS_TECHNICAL_VERIFICATION_STATUS_PATH (2026-07-05) · CURRENT
+## v4.6.0 — HOSTING_STRATEGY_FIX (2026-07-05) · CURRENT
+Resolves the two Fable-review hosting blockers without deploying anything.
+**F2** (Pages ↔ git-ignored config): Option A two-stage — `scripts/
+build_public_deploy.js` generates `deploy/public/assets/js/config.public.js`
+from local config (URL + anon key + safe flags ONLY; never TEST_USERS;
+sb_secret_/service_role aborts the build); the artifact is gitignored until a
+deliberate, checklist-gated deploy-time commit. **F3** (publish scope):
+allowlist-only builder — archives (24), snapshots (26), docs/reports (85),
+pilot_backend, helpers, and local files are structurally impossible to include;
+`scripts/validate_public_deploy.js` deterministically FAILs on any extra file,
+forbidden name, or forbidden content (incl. any API key outside
+config.public.js). Business-content exposure (identity + metrics in the
+dashboard) is banked as an owner signoff item, not silently shipped. Snapshot
+`index_v4.6.0.html` + `archives/v4.6.0/` (local/credential files excluded).
+Gate 36 · smoke 18 · drills 6 · maintenance 10 · integrity 88/0.
+
+- **Guard hardening:** `Hosting / HTTPS` is now BLOCK unless
+  `GITHUB_PAGES_VERIFIED` (was WARN on secure localhost) — closes the
+  false-`PRODUCTION_GUARD_PASSED`-on-localhost edge that opened once RLS became
+  PASS-able. Detail: "deploy package PREPARED (v4.6); GitHub Pages NOT_DEPLOYED".
+- **Artifact proven live:** built (REMOTE mode, 50 files + manifest), validator
+  PASS; negative test — a planted config.local.js trips 4 independent rules;
+  artifact itself booted from /deploy/public/: smoke 18/18, gate 36/0, vault
+  valid, public config loaded with TEST_USERS absent, SDK present, CONFIGURED,
+  CSP PASS, no console errors.
+- **New:** `deploy/README.md`, `HOSTING_STRATEGY_FIX_v4.6.md`,
+  `PUBLIC_DEPLOYMENT_OPERATOR_CHECKLIST_v4.6.md`; .gitignore additions
+  (deploy/public/, supabase.local.js, index.local.html).
+- **Posture after v4.6:** Hosting PREPARED · GitHub Pages NOT_DEPLOYED ·
+  Production BLOCKED (honest). Next: v4.7 Pages activation, operator-gated.
+
+## v4.5.4 — RLS_TECHNICAL_VERIFICATION_STATUS_PATH (2026-07-05)
 Adds the missing safe channel to record RLS `TECHNICALLY_VERIFIED` — reachable
 ONLY by a machine-executed live two-user isolation test that passes end-to-end
 with confirmed cleanup (the deliberate gap left by the v4.4.3 hardening). Also
