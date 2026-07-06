@@ -13,7 +13,7 @@ _Last updated: 2026-07-05 (v4.5.4 build session)_
 | Persistence | **Verified** — RLS-scoped health PASS; write/read round-trip byte-identical |
 | RLS isolation | **TECHNICALLY_VERIFIED via the new v4.5.4 status path** — live two-user machine test, both directions, cleanup confirmed, evidence-hashed; guard RLS line = PASS (integrity-gated: project match + 30-day freshness) |
 | Production | **Still BLOCKED (honest)** — remaining: Server persistence (needs an active session) + actual hosting (Pages NOT_DEPLOYED) |
-| Hosting | **PREPARED (v4.6)** — F2 resolved (two-stage public config: build-time generation, deploy-time deliberate commit), F3 resolved (allowlist builder + deterministic validator; archives/docs/helpers structurally excluded). Artifact built + validated + boot-proven locally. Pages: **NOT_DEPLOYED**; guard Hosting line = BLOCK until genuinely hosted |
+| Hosting | **ARTIFACT COMMITTED (v4.7)** — business-content signoff APPROVED 2026-07-06 (operator reserved follow-up content flags, unspecified; MED-HIGH candidates: DSCR/$ figures). Repo visibility confirmed **PUBLIC** via anonymous probe. Artifact rebuilt + validator PASS + boot-proven. Pages: **NOT_DEPLOYED** — activation is the next operator gate; guard Hosting line stays BLOCK until genuinely hosted |
 
 ## Live-config surface (all local-only, never committed)
 - `tools/command_deck/assets/js/config.local.js` — git-ignored; runtime config + temporary TEST_USERS
@@ -28,6 +28,11 @@ confirm repo visibility) → deliberate artifact commit (F) → enable Pages (G)
 → hosted verification incl. RLS rerun from the hosted origin (H).
 
 ## Standing operator items
-- Rotate the old Google API key (v4.4.1 finding) and confirm repo visibility.
+- **🔴 URGENT: rotate the old Google API key** — repo is confirmed PUBLIC and the
+  key sits in pre-remediation git history (commits ≤ 32b3c71b) → assume
+  compromised. Rotation at https://aistudio.google.com/app/apikey; history purge
+  (git filter-repo) is a separate authorized decision.
+- Repo visibility: **PUBLIC** (confirmed 2026-07-06, anonymous HTTP 200).
 - Test-user passwords that transited chat are burned — current ones were set fresh.
-- GitHub Pages decisions (F2/F3) before any hosting mission.
+- Business-content follow-up flags from the v4.7 signoff: operator to specify
+  (candidates: DSCR / dollar figures / Richmond-HVIP references).
