@@ -28,10 +28,17 @@ confirm repo visibility) → deliberate artifact commit (F) → enable Pages (G)
 → hosted verification incl. RLS rerun from the hosted origin (H).
 
 ## Standing operator items
-- **🔴 URGENT: rotate the old Google API key** — repo is confirmed PUBLIC and the
-  key sits in pre-remediation git history (commits ≤ 32b3c71b) → assume
-  compromised. Rotation at https://aistudio.google.com/app/apikey; history purge
-  (git filter-repo) is a separate authorized decision.
+- **✅ Google API key finding: VERIFIED RESOLVED (2026-07-06).**
+  Evidence: the historical Google/Gemini (Generative Language API) key existed
+  only in old `.env` history (`gemini-app/.env` → `CORE_SYSTEMS/gemini-app/.env`);
+  removed from tracked files in commit `968288a3`; a read-only validity probe
+  returned **HTTP 400 / API key not valid** (revoked); the current local `.env`
+  uses a **different replacement key**; current HEAD contains **no active tracked
+  Google API key**.
+  **Risk status: closed as an active security blocker.**
+  Remaining note: the dead key persists in public git history as historical
+  residue only — since it is revoked/invalid, a history purge is **optional
+  cleanup**, not required before pilot deployment.
 - Repo visibility: **PUBLIC** (confirmed 2026-07-06, anonymous HTTP 200).
 - Test-user passwords that transited chat are burned — current ones were set fresh.
 - Business-content follow-up flags from the v4.7 signoff: operator to specify

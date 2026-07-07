@@ -300,3 +300,26 @@ property above every feature.
 inspection depth: all remote/deploy/governance surfaces read in full at this HEAD;
 registry/commercial/executive audited structurally (sizes, seeds, API surface via
 test anchors) rather than line-by-line.*
+
+## Addendum — Google API Key Finding Closed
+
+**Closeout date: 2026-07-06** (same-day follow-up to this audit).
+
+- The original audit above flagged the historical Google/Gemini API key as
+  🔴 urgent because it existed in **public** git history (§8, §6, §14 "NOW").
+- A read-only forensic sweep then established the full lifecycle: the key
+  existed only in one file (`gemini-app/.env`, later
+  `CORE_SYSTEMS/gemini-app/.env`), introduced at `eb9907ca`, carried through
+  `a02b3c07`/`2b714a54`, removed from tracking at `968288a3`.
+- **Follow-up verification confirmed the exposed key is invalid/revoked** — a
+  single read-only Generative Language API probe returned HTTP 400 (API key not
+  valid). The exposure window is closed.
+- The **active local key is a different, replacement key** (rotation had already
+  been performed); **current HEAD contains no active tracked Google API key**.
+- **This item no longer blocks the public pilot.** The audit's §6 blocker #1 and
+  §14 "Rotate old Google key — NOW" entry are superseded by this closeout.
+- Optional future cleanup only: purging the dead key from git history
+  (`git filter-repo`) if a business need ever justifies rewriting public
+  history — not required for deployment.
+- Process note: no secrets were printed, reconstructed, or committed at any
+  point in the verification or this closeout.
