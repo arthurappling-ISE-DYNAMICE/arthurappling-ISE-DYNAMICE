@@ -1,19 +1,21 @@
 # SYS_OS — CURRENT STATE
 
-_Last updated: 2026-07-05 (v4.5.4 build session)_
+_Last updated: 2026-07-07 (v4.7.1 gh-pages publisher session)_
 
 ## Current phase
-**Supabase integration verified** — first live backend milestone banked.
+**Deployment mechanism complete** — local `gh-pages` branch built from the
+validated artifact; the only remaining step to a live pilot is the operator
+gate (push + enable Pages + hosted verification).
 
 | Area | State |
 |---|---|
-| Code release | **v4.6.0 HOSTING_STRATEGY_FIX** (built, artifact proven, committed) |
+| Code release | **v4.7.1 GH_PAGES_PUBLISHER** (`scripts/publish_pages_branch.js` — build→validate→stage→rescan→plumbing-commit→verify; contains no push path) |
 | Backend | **Connected** — Supabase project `xwgm…`, legacy anon key live-verified (HTTP 200) |
 | Authentication | **Verified** — test1 + test2 sign-in, distinct uids, sessions valid |
 | Persistence | **Verified** — RLS-scoped health PASS; write/read round-trip byte-identical |
 | RLS isolation | **TECHNICALLY_VERIFIED via the new v4.5.4 status path** — live two-user machine test, both directions, cleanup confirmed, evidence-hashed; guard RLS line = PASS (integrity-gated: project match + 30-day freshness) |
 | Production | **Still BLOCKED (honest)** — remaining: Server persistence (needs an active session) + actual hosting (Pages NOT_DEPLOYED) |
-| Hosting | **ARTIFACT COMMITTED (v4.7)** — business-content signoff APPROVED 2026-07-06 (operator reserved follow-up content flags, unspecified; MED-HIGH candidates: DSCR/$ figures). Repo visibility confirmed **PUBLIC** via anonymous probe. Artifact rebuilt + validator PASS + boot-proven. Pages: **NOT_DEPLOYED** — activation is the next operator gate; guard Hosting line stays BLOCK until genuinely hosted |
+| Hosting | **LOCAL gh-pages BRANCH BUILT (v4.7.1)** — orphan branch, root = exactly the validated artifact (51 files) + `.nojekyll`; reproducible build confirmed (rebuild byte-identical, only manifest timestamp moved); independent secret scan of the branch tree clean (anon key only in `config.public.js`; service_role/sb_secret mentions are defensive validator code only). Business-content signoff APPROVED 2026-07-06 (operator reserved follow-up flags; MED-HIGH candidates: DSCR/$ figures). Repo visibility **PUBLIC**. Branch **NOT PUSHED**; Pages: **NOT_DEPLOYED** — operator gate next; guard Hosting line stays BLOCK until genuinely hosted |
 
 ## Live-config surface (all local-only, never committed)
 - `tools/command_deck/assets/js/config.local.js` — git-ignored; runtime config + temporary TEST_USERS
@@ -21,11 +23,14 @@ _Last updated: 2026-07-05 (v4.5.4 build session)_
 - `tools/command_deck/assets/js/supabase.local.js` — untracked vendored SDK
 
 ## Next mission
-**v4.7 — GitHub Pages activation (operator-gated).** All engineering is in
-place; the sequence is `PUBLIC_DEPLOYMENT_OPERATOR_CHECKLIST_v4.6.md`:
-business-content signoff (D) → standing items (E: rotate old Google key,
-confirm repo visibility) → deliberate artifact commit (F) → enable Pages (G)
-→ hosted verification incl. RLS rerun from the hosted origin (H).
+**v4.7.1 operator gate — Pages activation.** All engineering is done; three
+operator steps remain (see `SYS_OS_v4.7.1_GH_PAGES_PUBLISHER_AUDIT_REPORT.md`):
+1. `git push origin gh-pages` (explicit operator act — no script pushes).
+2. GitHub → Settings → Pages → Deploy from a branch → `gh-pages` → `/ (root)` → Save.
+3. Hosted verification per `PUBLIC_DEPLOYMENT_OPERATOR_CHECKLIST_v4.6.md` (H):
+   HTTPS, assets, CSP, Supabase config, auth, persistence, hosted-origin RLS
+   technical verification, zero console errors — only then may the guard's
+   Hosting line move off BLOCK.
 
 ## Standing operator items
 - **✅ Google API key finding: VERIFIED RESOLVED (2026-07-06).**

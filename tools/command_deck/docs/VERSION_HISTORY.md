@@ -1,6 +1,43 @@
 # SYS_OS — VERSION HISTORY
 
-## v4.6.0 — HOSTING_STRATEGY_FIX (2026-07-05) · CURRENT
+## v4.7.1 — GH_PAGES_PUBLISHER (2026-07-07) · CURRENT
+Builds the repeatable, safe publishing mechanism: `scripts/publish_pages_branch.js`
+runs the v4.6 builder + validator, stages the validated artifact plus
+`.nojekyll` in a throwaway temp directory, runs an independent defense-in-depth
+rescan (duplicated forbidden-name/content/key rules so a future validator
+regression can't silently open this gate), commits it onto local `gh-pages`
+via git plumbing (temp index → write-tree → commit-tree → update-ref — the
+working tree, main index, and current branch are never touched), then verifies
+the resulting branch tree matches the staged file set exactly before declaring
+success. **Contains no `git push` call anywhere** — publishing to origin and
+enabling Pages remain deliberate, separately-authorized operator acts per
+`PUBLIC_DEPLOYMENT_OPERATOR_CHECKLIST_v4.6.md`.
+
+- **Local orphan branch built:** `gh-pages` created (no prior history), root =
+  51 validated artifact files + `.deploy-manifest.json` + `.nojekyll` = 52
+  total. Rebuild is reproducible (only the manifest's `builtAt` timestamp
+  differs between runs).
+- **Independent secret scan:** `git grep` over the built `gh-pages` tree for
+  `sb_secret_`, `service_role` assignment, test-user email domain, and
+  credential placeholders — zero real matches; the four broad-pattern hits are
+  all defensive validator/guard code (comments and `BLOCK` logic), not secret
+  material. Anon/publishable key confirmed present only in
+  `assets/js/config.public.js`.
+- **Fixed a real bug during build:** initial verify step used `git ls-tree -r`
+  from inside `tools/command_deck/`, which git scopes to the current working
+  directory's tree prefix — every root-level artifact file reported as
+  "missing" even though the branch was correct. Fixed with `--full-tree`.
+- **CLAUDE.md drift closed:** the operating file's version block had gone
+  stale during the v4.6/v4.7 missions (still read "v4.5.4" / "next mission v4.6
+  Hosting Strategy Fix" after both had shipped). Corrected to v4.7.1, and the
+  hardcoded commit-hash line replaced with a "verify live" instruction so this
+  specific drift cannot recur.
+- **Posture after v4.7.1:** Hosting mechanism COMPLETE · gh-pages branch BUILT
+  LOCALLY, NOT PUSHED · Pages NOT_DEPLOYED · Production BLOCKED (honest, hosting
+  activation only). Next: operator pushes `gh-pages`, enables Pages, runs
+  hosted verification (checklist step H).
+
+## v4.6.0 — HOSTING_STRATEGY_FIX (2026-07-05)
 Resolves the two Fable-review hosting blockers without deploying anything.
 **F2** (Pages ↔ git-ignored config): Option A two-stage — `scripts/
 build_public_deploy.js` generates `deploy/public/assets/js/config.public.js`

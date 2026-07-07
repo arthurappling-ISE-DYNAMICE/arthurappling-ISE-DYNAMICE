@@ -18,23 +18,29 @@ Verify ground truth before implementing anything.**
 - **State of record:** `docs/CURRENT_STATE.md`
 - **Release audit reports:** `tools/command_deck/docs/v3.0/`
 
-**Current shipped version:** v4.5.4
+**Current shipped version:** v4.7.1
 **Working branch:** `clean-vault-deployment`
-**Latest shipped commit:** `07ff012d662f20ea8a866eac1697859c40cca285`
+**Latest shipped commit:** do not pin here — verify live with `git log --oneline -1`
+(a pinned hash in this file goes stale every mission; `docs/CURRENT_STATE.md` is
+the state of record).
 
-Verified state as of v4.5.4:
+Verified state as of v4.7.1:
 
 | Check | Status |
 |---|---|
 | Supabase connection | PASS |
 | Authentication (test1/test2) | PASS |
 | Persistence | PASS |
-| RLS isolation | PASS |
+| RLS isolation | PASS (technically verified, v4.5.4 status path) |
 | Cleanup | PASS |
-| RLS technical verification status path | Shipped in v4.5.4 |
+| Hosting strategy (v4.6.0 builder + validator) | Shipped |
+| Public pilot artifact (v4.7) | Committed, validator PASS |
+| gh-pages publisher (v4.7.1) | Shipped — local branch built, NOT pushed |
 
-Production remains **blocked** for one reason only: hosting strategy is not complete.
-The next mission is **v4.6 Hosting Strategy Fix**.
+Production remains **blocked** for one reason only: the site is not yet hosted
+and hosted-verified. The next step is the **v4.7.1 operator gate**: push
+`gh-pages`, enable GitHub Pages (branch `gh-pages` → `/` root), then run hosted
+verification per `PUBLIC_DEPLOYMENT_OPERATOR_CHECKLIST_v4.6.md`.
 
 ---
 
@@ -226,14 +232,19 @@ A mission is not complete until its checks have run and passed with visible outp
 **Shipped state:**
 
 - v4.5.3 — first live Supabase/RLS pass banked.
-- v4.5.4 — RLS Technical Verification Status Path shipped (current).
+- v4.5.4 — RLS Technical Verification Status Path shipped.
+- v4.6.0 — Hosting Strategy Fix: allowlist public-deploy builder + validator.
+- v4.7 — public pilot artifact committed; business-content signoff accepted;
+  repo confirmed PUBLIC.
+- v4.7.1 — gh-pages publisher shipped (current); local `gh-pages` branch built
+  from the validated artifact, NOT pushed.
 - Supabase connected; authentication proven; persistence proven;
   RLS isolation technically verified.
-- Production still blocked by hosting strategy — nothing else.
+- Production still blocked by hosting activation — nothing else.
 
 **Next mission:**
 
-- v4.6 Hosting Strategy Fix.
+- v4.7.1 operator gate: push `gh-pages`, enable GitHub Pages, hosted verification.
 
 **Future parked missions** (do not start without explicit authorization):
 
