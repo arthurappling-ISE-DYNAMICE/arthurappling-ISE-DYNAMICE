@@ -51,6 +51,26 @@
             rec.status = 'CHECKING';
             this.emit(id);
 
+            // Nodes pointing at localhost are the operator's own local dev tools —
+            // reachable only when this deck itself is being viewed from localhost.
+            // On a hosted origin (e.g. GitHub Pages) the fetch is doomed before it
+            // starts, so skip the network call instead of logging a connection error.
+            const isLocalTarget = /^https?:\/\/(localhost|127\.0\.0\.1)/i.test(rec.def.url);
+            const onLocalHost = /^(localhost|127\.0\.0\.1|\[::1\])$/i.test(window.location.hostname);
+            if (isLocalTarget && !onLocalHost) {
+                rec.rttMs = null;
+                rec.status = 'OFFLINE';
+                rec.error = 'local_only';
+                rec.lastProbe = new Date().toISOString();
+                rec.history.push({ ts: rec.lastProbe, status: rec.status, rttMs: null });
+                if (rec.history.length > 20) rec.history = rec.history.slice(-20);
+                this.emit(id);
+                if (SYSOS.activity) {
+                    SYSOS.activity.log('TELEMETRY', 'Probe ' + rec.def.id + ' -> SKIPPED (local-only node, hosted origin)');
+                }
+                return rec;
+            }
+
             const controller = new AbortController();
             const sameOrigin = rec.def.url.indexOf('http') !== 0;
             const t0 = performance.now();
