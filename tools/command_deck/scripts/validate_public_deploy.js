@@ -37,7 +37,12 @@ const ALLOW = [
     /^assets\/fonts\/[A-Za-z0-9_-]+\.woff2$/,
     new RegExp('^assets/js/(' + JS_RUNTIME.join('|').replace(/\./g, '\\.') + ')$'),
     /^assets\/js\/supabase\.js$/,
-    /^assets\/js\/config\.public\.js$/
+    /^assets\/js\/config\.public\.js$/,
+    /^assets\/favicon\/favicon\.ico$/,
+    /^assets\/favicon\/favicon-(16x16|32x32|48x48|64x64)\.png$/,
+    /^assets\/favicon\/apple-touch-icon\.png$/,
+    /^assets\/favicon\/android-chrome-(192x192|512x512)\.png$/,
+    /^assets\/favicon\/site\.webmanifest$/
 ];
 
 // ---- forbidden NAME patterns (belt over the allowlist braces) --------------

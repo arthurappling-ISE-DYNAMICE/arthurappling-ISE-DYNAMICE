@@ -42,6 +42,11 @@ const JS_RUNTIME = [
     'store.js', 'telemetry.js', 'terminal.js', 'utils.js', 'vault.js'
 ];
 const CSS = ['sys_os.css', 'tailwind.build.css'];
+const FAVICON = [
+    'favicon.ico', 'favicon-16x16.png', 'favicon-32x32.png', 'favicon-48x48.png',
+    'favicon-64x64.png', 'apple-touch-icon.png', 'android-chrome-192x192.png',
+    'android-chrome-512x512.png', 'site.webmanifest'
+];
 
 function die(msg) { console.error('BUILD FAILED: ' + msg); process.exit(1); }
 function copy(src, dst) {
@@ -84,6 +89,7 @@ CSS.forEach(function (f) { copy(path.join(ROOT, 'assets', 'css', f), path.join(O
 fs.readdirSync(path.join(ROOT, 'assets', 'fonts')).forEach(function (f) {
     if (/\.(woff2|css)$/.test(f)) copy(path.join(ROOT, 'assets', 'fonts', f), path.join(OUT, 'assets', 'fonts', f));
 });
+FAVICON.forEach(function (f) { copy(path.join(ROOT, 'assets', 'favicon', f), path.join(OUT, 'assets', 'favicon', f)); });
 
 // Supabase SDK (public library) — only meaningful for a remote-enabled build.
 const sdkSrc = path.join(ROOT, 'assets', 'js', 'supabase.local.js');
