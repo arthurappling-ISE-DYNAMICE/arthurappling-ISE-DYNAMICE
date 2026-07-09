@@ -1,0 +1,4 @@
+# gemini-app local secrets — NEVER commit. Use .env.example as the template.
+.env
+.env.*
+!.env.example

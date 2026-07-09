@@ -1,0 +1,47 @@
+/*
+ * SYS_OS — Platform Stylesheet
+ * Custom CSS extracted from the v2.6 inline <style> block, plus
+ * accessibility hardening (focus-visible, reduced-motion).
+ */
+
+/* Cybernetic scanline & dark environment vignette */
+.cyber-viewport {
+    background: radial-gradient(circle at 50% 50%, #090911 0%, #020204 100%);
+    position: relative;
+    overflow: hidden;
+}
+.cyber-viewport::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.3) 50%);
+    z-index: 50;
+    background-size: 100% 4px;
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+/* Custom glowing scrollbars */
+::-webkit-scrollbar { width: 3px; height: 3px; }
+::-webkit-scrollbar-track { background: #020204; }
+::-webkit-scrollbar-thumb { background: rgba(212, 175, 55, 0.2); }
+::-webkit-scrollbar-thumb:hover { background: rgba(212, 175, 55, 0.5); }
+
+/* Visible keyboard focus (Audit F-21) — gold ring, never suppressed */
+:focus-visible {
+    outline: 1px solid rgba(212, 175, 55, 0.75);
+    outline-offset: 2px;
+}
+
+/* Honor user motion preferences (Audit F-23).
+   The canvas engine handles its own loop; this covers Tailwind keyframes. */
+@media (prefers-reduced-motion: reduce) {
+    .animate-ping,
+    .animate-pulse {
+        animation: none !important;
+    }
+    * {
+        transition-duration: 0.01ms !important;
+    }
+}

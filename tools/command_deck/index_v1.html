@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PRIME PATHWY · AI OS</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        obsidian: '#070708',
+        panel: '#0e0e10',
+        panel2: '#131316',
+        edge: '#1f1f24',
+        gold: '#d4af37',
+        goldsoft: '#e6c96b',
+        golddim: '#8a7224',
+        muted: '#8b8b94',
+      },
+      fontFamily: {
+        display: ['"Space Grotesk"', 'sans-serif'],
+        body: ['Inter', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'monospace'],
+      },
+    }
+  }
+}
+</script>
+<style>
+  body { background: #070708; }
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #26262c; border-radius: 8px; }
+  ::-webkit-scrollbar-thumb:hover { background: #d4af3755; }
+
+  .gold-text {
+    background: linear-gradient(135deg, #f0d98a 0%, #d4af37 45%, #9c7c1e 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .gold-line { background: linear-gradient(90deg, transparent, #d4af3766, transparent); height: 1px; }
+
+  .nav-btn { position: relative; transition: all .25s cubic-bezier(.4,0,.2,1); }
+  .nav-btn::before {
+    content: ''; position: absolute; left: 0; top: 18%; bottom: 18%; width: 2px;
+    background: linear-gradient(180deg, #f0d98a, #d4af37); border-radius: 2px;
+    opacity: 0; transform: scaleY(.3); transition: all .25s ease;
+  }
+  .nav-btn:hover { background: #ffffff08; }
+  .nav-btn.active { background: linear-gradient(90deg, #d4af3714, transparent 70%); }
+  .nav-btn.active::before { opacity: 1; transform: scaleY(1); }
+  .nav-btn.active .nav-ico { color: #d4af37; }
+  .nav-btn.active .nav-label { color: #f2e9cf; }
+
+  .view { display: none; animation: viewIn .35s cubic-bezier(.22,1,.36,1); }
+  .view.on { display: block; }
+  @keyframes viewIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+  .card {
+    background: linear-gradient(160deg, #121214 0%, #0c0c0e 100%);
+    border: 1px solid #1f1f24; border-radius: 14px;
+    transition: border-color .25s ease, transform .25s ease, box-shadow .25s ease;
+  }
+  .card:hover { border-color: #d4af3744; transform: translateY(-2px); box-shadow: 0 12px 40px -18px #d4af3733; }
+
+  .pulse-dot { position: relative; }
+  .pulse-dot::after {
+    content:''; position:absolute; inset:-4px; border-radius:9999px;
+    border:1px solid currentColor; opacity:.6; animation: ping 1.8s cubic-bezier(0,0,.2,1) infinite;
+  }
+  @keyframes ping { 75%,100% { transform: scale(2.1); opacity: 0; } }
+
+  .bar-fill { animation: grow 1.1s cubic-bezier(.22,1,.36,1) both; transform-origin: left; }
+  @keyframes grow { from { transform: scaleX(0); } }
+
+  .msg-in { animation: msgIn .3s ease both; }
+  @keyframes msgIn { from { opacity:0; transform: translateY(8px); } to { opacity:1; transform:none; } }
+
+  .typing-dot { width:5px; height:5px; border-radius:9999px; background:#d4af37; display:inline-block; animation: bounce 1.2s infinite; }
+  .typing-dot:nth-child(2){ animation-delay:.15s } .typing-dot:nth-child(3){ animation-delay:.3s }
+  @keyframes bounce { 0%,60%,100%{ transform:translateY(0); opacity:.4 } 30%{ transform:translateY(-4px); opacity:1 } }
+
+  .chat-input:focus { outline: none; border-color: #d4af3766; box-shadow: 0 0 0 3px #d4af3715; }
+
+  .tick { font-variant-numeric: tabular-nums; }
+  .scan {
+    background-image: repeating-linear-gradient(0deg, transparent 0 2px, #ffffff03 2px 4px);
+  }
+</style>
+</head>
+<body class="font-body text-zinc-200 antialiased overflow-hidden">
+
+<div class="flex h-screen">
+
+  <!-- ============ LEFT SIDEBAR ============ -->
+  <aside class="w-[248px] shrink-0 flex flex-col bg-panel border-r border-edge scan">
+    <!-- Brand -->
+    <div class="px-5 pt-6 pb-5">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-gradient-to-br from-[#1c1a12] to-[#0c0b08] border border-[#d4af3740]">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2L21 7v10l-9 5-9-5V7l9-5z" stroke="#d4af37" stroke-width="1.4"/><path d="M12 8v8M8.5 10v4M15.5 10v4" stroke="#d4af37" stroke-width="1.4" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <div class="font-display font-bold tracking-[.18em] text-[13px] gold-text">PRIME PATHWY</div>
+          <div class="text-[10px] tracking-[.3em] text-muted font-mono mt-0.5">AI OS · v4.0</div>
+        </div>
+      </div>
+    </div>
+    <div class="gold-line mx-5"></div>
+
+    <!-- Nav -->
+    <nav class="flex-1 px-3 pt-4 space-y-1" id="nav">
+      <div class="px-3 pb-2 text-[9px] tracking-[.35em] text-zinc-600 font-mono">COMMAND</div>
+
+      <button class="nav-btn active w-full flex items-center gap-3.5 px-3.5 py-3 rounded-lg text-left" data-view="architect">
+        <svg class="nav-ico w-[18px] h-[18px] text-zinc-500 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>
+        <div>
+          <div class="nav-label text-[13px] font-medium text-zinc-300 transition-colors">Architect</div>
+          <div class="text-[10px] text-zinc-600">Master Strategic View</div>
+        </div>
+      </button>
+
+      <div class="px-3 pt-4 pb-2 text-[9px] tracking-[.35em] text-zinc-600 font-mono">AGENTS</div>
+
+      <button class="nav-btn w-full flex items-center gap-3.5 px-3.5 py-3 rounded-lg text-left" data-view="ceo">
+        <svg class="nav-ico w-[18px] h-[18px] text-zinc-500 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 4.9L20 8l-4 3.9.9 5.6L12 14.9 7.1 17.5 8 11.9 4 8l5.6-1.1L12 2z"/></svg>
+        <div>
+          <div class="nav-label text-[13px] font-medium text-zinc-300 transition-colors">CEO Agent</div>
+          <div class="text-[10px] text-zinc-600">Institutional Strategy · NEPQ</div>
+        </div>
+      </button>
+
+      <button class="nav-btn w-full flex items-center gap-3.5 px-3.5 py-3 rounded-lg text-left" data-view="coo">
+        <svg class="nav-ico w-[18px] h-[18px] text-zinc-500 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09a1.65 1.65 0 00-1-1.51 1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09a1.65 1.65 0 001.51-1 1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33h.09a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51h.09a1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82v.09a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+        <div>
+          <div class="nav-label text-[13px] font-medium text-zinc-300 transition-colors">COO Agent</div>
+          <div class="text-[10px] text-zinc-600">Operations · Workflow Exec</div>
+        </div>
+      </button>
+
+      <div class="px-3 pt-4 pb-2 text-[9px] tracking-[.35em] text-zinc-600 font-mono">ASSETS</div>
+
+      <button class="nav-btn w-full flex items-center gap-3.5 px-3.5 py-3 rounded-lg text-left" data-view="vault">
+        <svg class="nav-ico w-[18px] h-[18px] text-zinc-500 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="12" cy="12" r="4"/><path d="M12 10v2l1.5 1.5"/></svg>
+        <div>
+          <div class="nav-label text-[13px] font-medium text-zinc-300 transition-colors">The Vault</div>
+          <div class="text-[10px] text-zinc-600">PDF Ingestion · SQLite</div>
+        </div>
+      </button>
+
+      <button class="nav-btn w-full flex items-center gap-3.5 px-3.5 py-3 rounded-lg text-left" data-view="shield">
+        <svg class="nav-ico w-[18px] h-[18px] text-zinc-500 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-3.5 8-10V5l-8-3-8 3v7c0 6.5 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+        <div>
+          <div class="nav-label text-[13px] font-medium text-zinc-300 transition-colors">Legacy Shield</div>
+          <div class="text-[10px] text-zinc-600">AA Capital Asset Tracker</div>
+        </div>
+      </button>
+    </nav>
+
+    <!-- Footer -->
+    <div class="px-5 pb-5">
+      <div class="gold-line mb-4"></div>
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-[#d4af37] to-[#8a7224] flex items-center justify-center font-display font-bold text-[11px] text-black">AA</div>
+        <div class="flex-1">
+          <div class="text-[12px] font-medium text-zinc-200">Arthur F. Appling Sr.</div>
+          <div class="text-[10px] text-muted font-mono">LEAD ARCHITECT</div>
+        </div>
+        <span class="pulse-dot w-2 h-2 rounded-full bg-emerald-400 text-emerald-400"></span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main class="flex-1 flex flex-col min-w-0">
+
+    <!-- Top bar -->
+    <header class="h-[60px] shrink-0 flex items-center justify-between px-7 border-b border-edge bg-panel/60 backdrop-blur">
+      <div class="flex items-center gap-3 font-mono text-[11px] tracking-wider">
+        <span class="text-zinc-600">SYS</span><span class="text-zinc-700">/</span>
+        <span class="gold-text font-semibold" id="crumb">ARCHITECT</span>
+      </div>
+      <div class="flex items-center gap-6 font-mono text-[11px]">
+        <div class="hidden md:flex items-center gap-2 text-emerald-400 whitespace-nowrap"><span class="pulse-dot w-1.5 h-1.5 rounded-full bg-emerald-400"></span> ALL SYSTEMS NOMINAL</div>
+        <div class="text-zinc-500 tick" id="clock">--:--:--</div>
+        <div class="hidden lg:block px-2.5 py-1 rounded-md border border-[#d4af3733] text-gold text-[10px] tracking-[.2em] whitespace-nowrap">SOVEREIGN MODE</div>
+      </div>
+    </header>
+
+    <!-- Views -->
+    <div class="flex-1 overflow-y-auto" id="viewport">
+
+      <!-- ================= ARCHITECT ================= -->
+      <section class="view on p-7" id="view-architect">
+        <div class="mb-6">
+          <h1 class="font-display text-2xl font-bold tracking-tight">Master Strategic View</h1>
+          <p class="text-[13px] text-muted mt-1">Empire-level telemetry · AA Capital INC dba Prime Pathwy · EIN 84-4788578</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-6">
+          <div class="card p-5">
+            <div class="flex items-start justify-between">
+              <div class="text-[10px] font-mono tracking-[.25em] text-muted">DSCR ANCHOR</div>
+              <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">QUALIFIED</span>
+            </div>
+            <div class="mt-3 font-display text-3xl font-bold gold-text tick">7.42×</div>
+            <div class="mt-2 text-[11px] text-zinc-500">Debt Service Coverage · loan anchor</div>
+            <div class="mt-3 h-1 rounded bg-edge overflow-hidden"><div class="bar-fill h-full w-[92%] bg-gradient-to-r from-golddim to-gold"></div></div>
+          </div>
+          <div class="card p-5">
+            <div class="flex items-start justify-between">
+              <div class="text-[10px] font-mono tracking-[.25em] text-muted">FLEET VOUCHER</div>
+              <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-gold/10 text-gold border border-gold/20">HVIP 4–5</span>
+            </div>
+            <div class="mt-3 font-display text-3xl font-bold tick">$130K</div>
+            <div class="mt-2 text-[11px] text-zinc-500">Carl Moyer · 415.749.4994</div>
+            <div class="mt-3 h-1 rounded bg-edge overflow-hidden"><div class="bar-fill h-full w-[68%] bg-gradient-to-r from-golddim to-gold"></div></div>
+          </div>
+          <div class="card p-5">
+            <div class="flex items-start justify-between">
+              <div class="text-[10px] font-mono tracking-[.25em] text-muted">TOKEN USAGE · 24H</div>
+              <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-sky-500/10 text-sky-400 border border-sky-500/20">LIVE</span>
+            </div>
+            <div class="mt-3 font-display text-3xl font-bold tick" id="tokenCount">412,608</div>
+            <div class="mt-2 text-[11px] text-zinc-500">Across CEO / COO / Vault pipelines</div>
+            <div class="mt-3 h-1 rounded bg-edge overflow-hidden"><div class="bar-fill h-full w-[41%] bg-gradient-to-r from-sky-700 to-sky-400"></div></div>
+          </div>
+          <div class="card p-5">
+            <div class="flex items-start justify-between">
+              <div class="text-[10px] font-mono tracking-[.25em] text-muted">PIPELINE STATUS</div>
+              <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">6 / 7 GREEN</span>
+            </div>
+            <div class="mt-3 font-display text-3xl font-bold tick">98.4%</div>
+            <div class="mt-2 text-[11px] text-zinc-500">Uptime · Nightly Sovereign Audit</div>
+            <div class="mt-3 h-1 rounded bg-edge overflow-hidden"><div class="bar-fill h-full w-[98%] bg-gradient-to-r from-emerald-700 to-emerald-400"></div></div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 xl:grid-cols-3 gap-4">
+          <!-- Active systems -->
+          <div class="card p-5 xl:col-span-2">
+            <div class="flex items-center justify-between mb-4">
+              <h2 class="font-display font-semibold text-[15px]">Active Systems</h2>
+              <span class="text-[10px] font-mono text-muted">GeminiEcosystem /</span>
+            </div>
+            <div class="space-y-2.5 font-mono text-[12px]">
+              <div class="flex items-center justify-between px-3.5 py-2.5 rounded-lg bg-black/30 border border-edge">
+                <div class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span> Betting Board</div>
+                <span class="text-zinc-500 whitespace-nowrap">port 3132 · <span class="text-emerald-400">ONLINE</span></span>
+              </div>
+              <div class="flex items-center justify-between px-3.5 py-2.5 rounded-lg bg-black/30 border border-edge">
+                <div class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span> Hyperframes · HeyGen Engine</div>
+                <span class="text-zinc-500 whitespace-nowrap">Bun runtime · <span class="text-emerald-400">READY</span></span>
+              </div>
+              <div class="flex items-center justify-between px-3.5 py-2.5 rounded-lg bg-black/30 border border-edge">
+                <div class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span> Data Vault · SQLite</div>
+                <span class="text-zinc-500 whitespace-nowrap">ingest CLI · <span class="text-emerald-400">ARMED</span></span>
+              </div>
+              <div class="flex items-center justify-between px-3.5 py-2.5 rounded-lg bg-black/30 border border-edge">
+                <div class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0"></span> Turnover System · SMTP</div>
+                <span class="text-zinc-500 whitespace-nowrap">phone # pending · <span class="text-amber-400">STAGED</span></span>
+              </div>
+              <div class="flex items-center justify-between px-3.5 py-2.5 rounded-lg bg-black/30 border border-edge">
+                <div class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span> Nightly Sovereign Audit</div>
+                <span class="text-zinc-500 whitespace-nowrap">GitHub Actions · <span class="text-emerald-400">SCHEDULED</span></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Priority stack -->
+          <div class="card p-5">
+            <h2 class="font-display font-semibold text-[15px] mb-4">Priority Stack</h2>
+            <div class="space-y-3">
+              <div class="px-3.5 py-3 rounded-lg border border-gold/25 bg-gold/5">
+                <div class="text-[10px] font-mono text-gold tracking-[.2em] mb-1">P1 · CAPITAL</div>
+                <div class="text-[12.5px] text-zinc-300">BAAQMD / Carl Moyer voucher call — confirm UEI on file</div>
+              </div>
+              <div class="px-3.5 py-3 rounded-lg border border-edge bg-black/30">
+                <div class="text-[10px] font-mono text-muted tracking-[.2em] mb-1">P2 · CONTRACTS</div>
+                <div class="text-[12.5px] text-zinc-400">USPS RPDC Richmond anchor — monitor activation window</div>
+              </div>
+              <div class="px-3.5 py-3 rounded-lg border border-edge bg-black/30">
+                <div class="text-[10px] font-mono text-muted tracking-[.2em] mb-1">P3 · OPS</div>
+                <div class="text-[12.5px] text-zinc-400">Turnover System — wire phone number, then deploy</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CEO AGENT ================= -->
+      <section class="view h-full" id="view-ceo">
+        <div class="flex h-full">
+          <div class="flex-1 flex flex-col min-w-0 p-7 pb-0">
+            <div class="mb-5 flex items-end justify-between">
+              <div>
+                <h1 class="font-display text-2xl font-bold tracking-tight">CEO Agent</h1>
+                <p class="text-[13px] text-muted mt-1">Institutional Strategy · NEPQ Framing · Capital Stack Command</p>
+              </div>
+              <div class="hidden lg:block font-mono text-[10px] px-2.5 py-1 rounded-md border border-gold/30 text-gold tracking-[.2em] whitespace-nowrap">MODEL: SOVEREIGN-STRAT-1</div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
+              <div class="card p-4"><div class="text-[10px] font-mono tracking-[.25em] text-muted">DEALS IN MOTION</div><div class="mt-2 font-display text-2xl font-bold gold-text tick">4</div><div class="text-[11px] text-zinc-500 mt-1">USPS · HVIP · SBDC · Fleet</div></div>
+              <div class="card p-4"><div class="text-[10px] font-mono tracking-[.25em] text-muted">NEPQ STAGE</div><div class="mt-2 font-display text-2xl font-bold tick">Commitment</div><div class="text-[11px] text-zinc-500 mt-1">Consequence qs cleared</div></div>
+              <div class="card p-4"><div class="text-[10px] font-mono tracking-[.25em] text-muted">CAPITAL READY</div><div class="mt-2 font-display text-2xl font-bold tick">$130K+</div><div class="text-[11px] text-zinc-500 mt-1">DSCR 7.42× backstop</div></div>
+            </div>
+            <div class="flex-1 min-h-[340px] flex flex-col card !rounded-b-none border-b-0" id="ceo-chat-shell"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= COO AGENT ================= -->
+      <section class="view h-full" id="view-coo">
+        <div class="flex h-full">
+          <div class="flex-1 flex flex-col min-w-0 p-7 pb-0">
+            <div class="mb-5 flex items-end justify-between">
+              <div>
+                <h1 class="font-display text-2xl font-bold tracking-tight">COO Agent</h1>
+                <p class="text-[13px] text-muted mt-1">Operations · Workflow Execution · Turnover System Command</p>
+              </div>
+              <div class="hidden lg:block font-mono text-[10px] px-2.5 py-1 rounded-md border border-gold/30 text-gold tracking-[.2em] whitespace-nowrap">MODEL: SOVEREIGN-OPS-1</div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
+              <div class="card p-4"><div class="text-[10px] font-mono tracking-[.25em] text-muted">WORKFLOWS LIVE</div><div class="mt-2 font-display text-2xl font-bold gold-text tick">7</div><div class="text-[11px] text-zinc-500 mt-1">2 staged · 0 failing</div></div>
+              <div class="card p-4"><div class="text-[10px] font-mono tracking-[.25em] text-muted">TURNOVER QUEUE</div><div class="mt-2 font-display text-2xl font-bold tick">12 units</div><div class="text-[11px] text-zinc-500 mt-1">SMTP relay armed</div></div>
+              <div class="card p-4"><div class="text-[10px] font-mono tracking-[.25em] text-muted">AUDIT STATUS</div><div class="mt-2 font-display text-2xl font-bold text-emerald-400 tick">PASS</div><div class="text-[11px] text-zinc-500 mt-1">Last nightly run clean</div></div>
+            </div>
+            <div class="flex-1 min-h-[340px] flex flex-col card !rounded-b-none border-b-0" id="coo-chat-shell"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= THE VAULT ================= -->
+      <section class="view p-7" id="view-vault">
+        <div class="mb-6 flex items-end justify-between gap-4 flex-wrap">
+          <div>
+            <h1 class="font-display text-2xl font-bold tracking-tight">The Vault</h1>
+            <p class="text-[13px] text-muted mt-1">PDF Ingestion Pipeline · SQLite Data Tracking · data/vault.db</p>
+          </div>
+          <button onclick="simulateIngest()" class="px-4 py-2 rounded-lg bg-gradient-to-br from-gold to-golddim text-black font-display font-semibold text-[12px] tracking-wide hover:brightness-110 transition whitespace-nowrap">+ INGEST DOCUMENT</button>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-6">
+          <div class="card p-5"><div class="text-[10px] font-mono tracking-[.25em] text-muted">DOCUMENTS</div><div class="mt-2 font-display text-3xl font-bold gold-text tick" id="vaultDocs">38</div><div class="text-[11px] text-zinc-500 mt-1">PDF · ingested &amp; indexed</div></div>
+          <div class="card p-5"><div class="text-[10px] font-mono tracking-[.25em] text-muted">EXTRACTED PAGES</div><div class="mt-2 font-display text-3xl font-bold tick" id="vaultPages">1,204</div><div class="text-[11px] text-zinc-500 mt-1">OCR + native text</div></div>
+          <div class="card p-5"><div class="text-[10px] font-mono tracking-[.25em] text-muted">DB SIZE</div><div class="mt-2 font-display text-3xl font-bold tick">18.6 MB</div><div class="text-[11px] text-zinc-500 mt-1">SQLite · WAL mode</div></div>
+          <div class="card p-5"><div class="text-[10px] font-mono tracking-[.25em] text-muted">LAST INGEST</div><div class="mt-2 font-display text-3xl font-bold tick" id="vaultLast">06:42</div><div class="text-[11px] text-zinc-500 mt-1">contract_intel_v4 pass 3/3</div></div>
+        </div>
+
+        <div class="card overflow-hidden">
+          <div class="px-5 py-4 flex items-center justify-between border-b border-edge">
+            <h2 class="font-display font-semibold text-[15px]">Ingestion Ledger</h2>
+            <span class="hidden md:block font-mono text-[10px] text-muted">SELECT * FROM ingest_log ORDER BY ts DESC</span>
+          </div>
+          <div class="overflow-x-auto">
+          <table class="w-full text-[12.5px]">
+            <thead><tr class="text-left font-mono text-[10px] tracking-[.2em] text-zinc-600 border-b border-edge">
+              <th class="px-5 py-3">DOCUMENT</th><th class="px-5 py-3">CLASS</th><th class="px-5 py-3">PAGES</th><th class="px-5 py-3">PASSES</th><th class="px-5 py-3">STATUS</th>
+            </tr></thead>
+            <tbody id="vaultTable" class="divide-y divide-edge/60">
+              <tr><td class="px-5 py-3 font-mono text-zinc-300">USPS_RPDC_Solicitation_2026.pdf</td><td class="px-5 py-3 text-zinc-400">Federal Contract</td><td class="px-5 py-3 tick">142</td><td class="px-5 py-3 tick">3/3</td><td class="px-5 py-3"><span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">INDEXED</span></td></tr>
+              <tr><td class="px-5 py-3 font-mono text-zinc-300">HVIP_Voucher_Terms_Class4-5.pdf</td><td class="px-5 py-3 text-zinc-400">Grant / Voucher</td><td class="px-5 py-3 tick">38</td><td class="px-5 py-3 tick">3/3</td><td class="px-5 py-3"><span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">INDEXED</span></td></tr>
+              <tr><td class="px-5 py-3 font-mono text-zinc-300">CarlMoyer_Program_Guidelines.pdf</td><td class="px-5 py-3 text-zinc-400">Grant / Voucher</td><td class="px-5 py-3 tick">96</td><td class="px-5 py-3 tick">3/3</td><td class="px-5 py-3"><span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">INDEXED</span></td></tr>
+              <tr><td class="px-5 py-3 font-mono text-zinc-300">SBDC_Pitch_Financials_Q2.pdf</td><td class="px-5 py-3 text-zinc-400">Financial</td><td class="px-5 py-3 tick">24</td><td class="px-5 py-3 tick">2/3</td><td class="px-5 py-3"><span class="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20">PASS 3 QUEUED</span></td></tr>
+              <tr><td class="px-5 py-3 font-mono text-zinc-300">AA_Capital_DSCR_Workpapers.pdf</td><td class="px-5 py-3 text-zinc-400">Financial</td><td class="px-5 py-3 tick">61</td><td class="px-5 py-3 tick">3/3</td><td class="px-5 py-3"><span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">INDEXED</span></td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= LEGACY SHIELD ================= -->
+      <section class="view p-7" id="view-shield">
+        <div class="mb-6">
+          <h1 class="font-display text-2xl font-bold tracking-tight">Legacy Shield</h1>
+          <p class="text-[13px] text-muted mt-1">AA Capital INC Asset Tracker · EIN 84-4788578 · DUNS 12-3035654</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-6">
+          <div class="card p-5"><div class="text-[10px] font-mono tracking-[.25em] text-muted">PROTECTED ASSETS</div><div class="mt-2 font-display text-3xl font-bold gold-text tick">11</div><div class="text-[11px] text-zinc-500 mt-1">Tracked under shield</div></div>
+          <div class="card p-5"><div class="text-[10px] font-mono tracking-[.25em] text-muted">SHIELD INTEGRITY</div><div class="mt-2 font-display text-3xl font-bold text-emerald-400 tick">100%</div><div class="text-[11px] text-zinc-500 mt-1">No exposure flags</div></div>
+          <div class="card p-5"><div class="text-[10px] font-mono tracking-[.25em] text-muted">ENTITY STANDING</div><div class="mt-2 font-display text-3xl font-bold tick">ACTIVE</div><div class="text-[11px] text-zinc-500 mt-1">CA · Vallejo 94590</div></div>
+          <div class="card p-5"><div class="text-[10px] font-mono tracking-[.25em] text-muted">NEXT REVIEW</div><div class="mt-2 font-display text-3xl font-bold tick">Q3 '26</div><div class="text-[11px] text-zinc-500 mt-1">Quarterly shield audit</div></div>
+        </div>
+
+        <div class="card overflow-hidden">
+          <div class="px-5 py-4 flex items-center justify-between border-b border-edge">
+            <h2 class="font-display font-semibold text-[15px]">Asset Register</h2>
+            <span class="hidden md:block font-mono text-[10px] text-muted">AA CAPITAL INC · CONFIDENTIAL</span>
+          </div>
+          <div class="overflow-x-auto">
+          <table class="w-full text-[12.5px]">
+            <thead><tr class="text-left font-mono text-[10px] tracking-[.2em] text-zinc-600 border-b border-edge">
+              <th class="px-5 py-3">ASSET</th><th class="px-5 py-3">CLASS</th><th class="px-5 py-3">VALUE BASIS</th><th class="px-5 py-3">SHIELD</th>
+            </tr></thead>
+            <tbody class="divide-y divide-edge/60">
+              <tr><td class="px-5 py-3 text-zinc-300">HVIP Class 4–5 Fleet Voucher</td><td class="px-5 py-3 text-zinc-400">Capital Instrument</td><td class="px-5 py-3 font-mono tick">$130,000</td><td class="px-5 py-3"><span class="text-[10px] font-mono px-2 py-0.5 rounded bg-gold/10 text-gold border border-gold/25">SECURED</span></td></tr>
+              <tr><td class="px-5 py-3 text-zinc-300">DSCR Loan Qualification Position</td><td class="px-5 py-3 text-zinc-400">Credit Anchor</td><td class="px-5 py-3 font-mono tick">7.42×</td><td class="px-5 py-3"><span class="text-[10px] font-mono px-2 py-0.5 rounded bg-gold/10 text-gold border border-gold/25">SECURED</span></td></tr>
+              <tr><td class="px-5 py-3 text-zinc-300">GeminiEcosystem Codebase</td><td class="px-5 py-3 text-zinc-400">IP / Software</td><td class="px-5 py-3 font-mono tick">Proprietary</td><td class="px-5 py-3"><span class="text-[10px] font-mono px-2 py-0.5 rounded bg-gold/10 text-gold border border-gold/25">SECURED</span></td></tr>
+              <tr><td class="px-5 py-3 text-zinc-300">Hyperframes Video Engine</td><td class="px-5 py-3 text-zinc-400">IP / Software</td><td class="px-5 py-3 font-mono tick">Proprietary</td><td class="px-5 py-3"><span class="text-[10px] font-mono px-2 py-0.5 rounded bg-gold/10 text-gold border border-gold/25">SECURED</span></td></tr>
+              <tr><td class="px-5 py-3 text-zinc-300">Prime Pathwy Brand &amp; dba</td><td class="px-5 py-3 text-zinc-400">Intangible</td><td class="px-5 py-3 font-mono tick">Registered</td><td class="px-5 py-3"><span class="text-[10px] font-mono px-2 py-0.5 rounded bg-gold/10 text-gold border border-gold/25">SECURED</span></td></tr>
+              <tr><td class="px-5 py-3 text-zinc-300">USPS RPDC Geographic Anchor (Richmond, 27mi)</td><td class="px-5 py-3 text-zinc-400">Strategic Position</td><td class="px-5 py-3 font-mono tick">Pre-award</td><td class="px-5 py-3"><span class="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20">MONITORING</span></td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<script>
+/* ============ NAVIGATION ============ */
+const crumb = document.getElementById('crumb');
+const names = { architect:'ARCHITECT', ceo:'CEO AGENT', coo:'COO AGENT', vault:'THE VAULT', shield:'LEGACY SHIELD' };
+document.querySelectorAll('#nav .nav-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#nav .nav-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const v = btn.dataset.view;
+    document.querySelectorAll('.view').forEach(s => s.classList.remove('on'));
+    document.getElementById('view-' + v).classList.add('on');
+    crumb.textContent = names[v];
+    document.getElementById('viewport').scrollTop = 0;
+  });
+});
+
+/* ============ CLOCK + TOKEN TICKER ============ */
+setInterval(() => {
+  document.getElementById('clock').textContent = new Date().toLocaleTimeString('en-US', { hour12:false });
+}, 1000);
+let tokens = 412608;
+setInterval(() => {
+  tokens += Math.floor(Math.random() * 140) + 20;
+  document.getElementById('tokenCount').textContent = tokens.toLocaleString();
+}, 2600);
+
+/* ============ CHAT ENGINE ============ */
+const AGENTS = {
+  ceo: {
+    title: 'CEO STRATEGIC CONSOLE',
+    tag: 'NEPQ · CAPITAL · INSTITUTIONAL',
+    greeting: 'CEO Agent online. Strategic posture loaded: DSCR 7.42× anchor, $130K HVIP voucher secured, USPS RPDC Richmond in monitoring. State your directive.',
+    responses: [
+      { k:['nepq','pitch','sell','negotiat'], r:'NEPQ sequence prepared. Open with a problem-awareness question, surface the consequence gap, then anchor on DSCR 7.42× as the de-risking proof point. Commitment question drafted: "If the coverage ratio already clears underwriting at 7.42×, what would keep us from executing this quarter?" Ready to deploy.' },
+      { k:['loan','capital','fund','dscr','bank','lender'], r:'Capital stack analysis: DSCR 7.42× clears every institutional underwriting threshold (target ≥1.25×). Recommended play — present the HVIP $130K voucher as non-dilutive first-loss capital, then layer senior debt. Lender packet can be assembled from Vault docs AA_Capital_DSCR_Workpapers.pdf + SBDC_Pitch_Financials_Q2.pdf.' },
+      { k:['usps','rpdc','contract','bid','federal'], r:'USPS RPDC position: San Francisco RPDC at 2501 Rydin Rd, Richmond CA — 27 miles from Vallejo base. Activation window still TBD. Strategy: maintain geographic-anchor advantage, keep fleet electrification narrative ready for the surface-transportation solicitation. Bid Architect agent standing by for the full proposal pass.' },
+      { k:['voucher','hvip','moyer','fleet','zev'], r:'Fleet capital position: HVIP Class 4–5 voucher at $130K confirmed. Action item on the board: Carl Moyer program contact 415.749.4994 — UEI is the required identifier (not DUNS). Recommend executing the call script in fleet_capital_ZEV.md before end of week.' },
+      { k:['sbdc','pitch deck','presentation'], r:'SBDC engagement debrief: pitch anchored on the 7.42× DSCR and the ZEV fleet capital package. Follow-through directive — convert advisor feedback into the lender packet and keep the financial narrative locked to Concrete-and-Steel assets only. Zero hype.' },
+    ],
+    fallback: 'Directive logged to the strategic ledger. Assessment: aligns with the institutional track. I recommend framing it against the two capital anchors — DSCR 7.42× and the $130K HVIP voucher — before committing resources. Specify a target (capital, contracts, or positioning) and I will produce the execution brief.'
+  },
+  coo: {
+    title: 'COO OPERATIONS CONSOLE',
+    tag: 'WORKFLOWS · TURNOVER · EXECUTION',
+    greeting: 'COO Agent online. 7 workflows live, 2 staged, 0 failing. Turnover System SMTP relay armed — phone number wiring is the open blocker. State your directive.',
+    responses: [
+      { k:['turnover','unit','property','smtp','deploy'], r:'Turnover System status: SMTP wired, Identity Seal sealed. Open blocker — phone number not yet wired into the notification chain. Execution order: (1) add phone to config, (2) run end-to-end relay test, (3) deploy. Estimated runway: under one session. Awaiting go signal.' },
+      { k:['workflow','pipeline','automat'], r:'Workflow grid: contract_intelligence_v4 (multi-pass) GREEN · master_handoff_protocol GREEN · sovereign_audit nightly GREEN · vault ingest CLI ARMED · betting engine port 3132 ONLINE · hyperframes READY · turnover STAGED. No failing lanes. Name the workflow and I will produce the run order.' },
+      { k:['audit','health','status','check'], r:'Ground Truth Audit summary: last nightly Sovereign Audit passed clean. Vault DB in WAL mode, 38 documents indexed, ingestion ledger consistent. One amber flag: SBDC_Pitch_Financials_Q2.pdf holding at pass 2/3 — pass 3 queued. No drift detected between declared and actual system state.' },
+      { k:['vault','ingest','pdf','sqlite'], r:'Vault operations: ingestion CLI armed against data/vault.db (SQLite, WAL). Standard run: drop PDF into intake, CLI executes 3-pass extraction per contract_intelligence_v4, rows land in ingest_log with page counts and class tags. Current queue depth: 1 (SBDC financials pass 3).' },
+      { k:['hyperframe','video','heygen'], r:'Hyperframes engine: Bun runtime READY at tools/hyperframes/. HeyGen credentials loaded. Render queue empty — submit a script payload and I will stage the video generation run with pass criteria attached.' },
+    ],
+    fallback: 'Directive received and queued. Decomposing into execution lanes: owner, command, pass criteria, error map — per the Validation Contract. Top of current ops stack remains the Turnover System phone-number wiring. Confirm priority override if this directive should jump the queue.'
+  }
+};
+
+function buildChat(agentKey, shellId) {
+  const A = AGENTS[agentKey];
+  const shell = document.getElementById(shellId);
+  shell.innerHTML = `
+    <div class="px-5 py-3.5 border-b border-edge flex items-center justify-between shrink-0">
+      <div class="flex items-center gap-3">
+        <span class="pulse-dot w-2 h-2 rounded-full bg-gold text-gold"></span>
+        <span class="font-display font-semibold text-[13px] tracking-wide">${A.title}</span>
+      </div>
+      <span class="hidden md:block font-mono text-[9px] tracking-[.25em] text-zinc-600">${A.tag}</span>
+    </div>
+    <div class="flex-1 overflow-y-auto px-5 py-4 space-y-4" id="${agentKey}-log"></div>
+    <div class="px-4 py-3.5 border-t border-edge shrink-0">
+      <form class="flex gap-2.5" id="${agentKey}-form">
+        <input class="chat-input flex-1 bg-black/40 border border-edge rounded-lg px-4 py-2.5 text-[13px] placeholder-zinc-600 transition" placeholder="Issue directive to ${agentKey.toUpperCase()} Agent…" autocomplete="off" id="${agentKey}-input" />
+        <button class="px-5 rounded-lg bg-gradient-to-br from-gold to-golddim text-black font-display font-semibold text-[12px] tracking-wide hover:brightness-110 transition">EXECUTE</button>
+      </form>
+    </div>`;
+  const log = document.getElementById(agentKey + '-log');
+
+  function stamp() { return new Date().toLocaleTimeString('en-US', { hour12:false }); }
+
+  function addMsg(text, who) {
+    const wrap = document.createElement('div');
+    wrap.className = 'msg-in flex ' + (who === 'user' ? 'justify-end' : 'justify-start');
+    wrap.innerHTML = who === 'user'
+      ? `<div class="max-w-[78%]"><div class="rounded-2xl rounded-br-sm px-4 py-3 bg-gradient-to-br from-[#2a2415] to-[#1a160c] border border-gold/25 text-[13px] leading-relaxed">${text}</div><div class="text-right font-mono text-[9px] text-zinc-600 mt-1.5 pr-1">ARCHITECT · ${stamp()}</div></div>`
+      : `<div class="max-w-[78%]"><div class="flex items-center gap-2 mb-1.5 pl-1"><span class="w-5 h-5 rounded-md bg-gradient-to-br from-gold to-golddim flex items-center justify-center text-[8px] font-bold text-black font-display">${agentKey === 'ceo' ? 'CE' : 'CO'}</span><span class="font-mono text-[9px] text-zinc-600">${agentKey.toUpperCase()} AGENT · ${stamp()}</span></div><div class="rounded-2xl rounded-tl-sm px-4 py-3 bg-panel2 border border-edge text-[13px] leading-relaxed text-zinc-300">${text}</div></div>`;
+    log.appendChild(wrap);
+    log.scrollTop = log.scrollHeight;
+  }
+
+  function addTyping() {
+    const t = document.createElement('div');
+    t.id = agentKey + '-typing';
+    t.className = 'msg-in';
+    t.innerHTML = `<div class="inline-flex items-center gap-1.5 rounded-2xl px-4 py-3 bg-panel2 border border-edge"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div>`;
+    log.appendChild(t);
+    log.scrollTop = log.scrollHeight;
+  }
+
+  function respond(input) {
+    const low = input.toLowerCase();
+    const hit = A.responses.find(r => r.k.some(k => low.includes(k)));
+    return hit ? hit.r : A.fallback;
+  }
+
+  document.getElementById(agentKey + '-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const inp = document.getElementById(agentKey + '-input');
+    const val = inp.value.trim();
+    if (!val) return;
+    addMsg(val.replace(/</g,'&lt;'), 'user');
+    inp.value = '';
+    addTyping();
+    setTimeout(() => {
+      document.getElementById(agentKey + '-typing')?.remove();
+      addMsg(respond(val), 'agent');
+      tokens += Math.floor(Math.random() * 900) + 400;
+    }, 900 + Math.random() * 900);
+  });
+
+  setTimeout(() => addMsg(A.greeting, 'agent'), 400);
+}
+
+buildChat('ceo', 'ceo-chat-shell');
+buildChat('coo', 'coo-chat-shell');
+
+/* ============ VAULT INGEST SIMULATION ============ */
+let docs = 38, pages = 1204;
+function simulateIngest() {
+  const namesPool = ['BAAQMD_Grant_Addendum.pdf','Fleet_Insurance_Binder_2026.pdf','RPDC_PreSolicitation_Notes.pdf','ZEV_Charging_Site_Survey.pdf','Lender_TermSheet_Draft.pdf'];
+  const doc = namesPool[Math.floor(Math.random() * namesPool.length)];
+  const p = Math.floor(Math.random() * 80) + 8;
+  const row = document.createElement('tr');
+  row.className = 'msg-in';
+  row.innerHTML = `<td class="px-5 py-3 font-mono text-zinc-300">${doc}</td><td class="px-5 py-3 text-zinc-400">Inbound</td><td class="px-5 py-3 tick">${p}</td><td class="px-5 py-3 tick">0/3</td><td class="px-5 py-3"><span class="text-[10px] font-mono px-2 py-0.5 rounded bg-sky-500/10 text-sky-400 border border-sky-500/20">INGESTING…</span></td>`;
+  document.getElementById('vaultTable').prepend(row);
+  setTimeout(() => {
+    row.cells[3].textContent = '3/3';
+    row.cells[4].innerHTML = '<span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">INDEXED</span>';
+    docs++; pages += p;
+    document.getElementById('vaultDocs').textContent = docs;
+    document.getElementById('vaultPages').textContent = pages.toLocaleString();
+    document.getElementById('vaultLast').textContent = new Date().toLocaleTimeString('en-US', { hour12:false, hour:'2-digit', minute:'2-digit' });
+  }, 2200);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-[#030305]">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Prime Pathwy SYS_OS — sovereign command deck and operational platform.">
+    <!-- v3.1 Strict CSP: no external script/font origins, no unsafe-eval.
+         style-src retains 'unsafe-inline' ONLY for the inline width style on the
+         DSCR bar + the bootcheck halt panel's cssText (documented exception). -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' http://localhost:3132 http://localhost:4173; object-src 'none'; base-uri 'self'; form-action 'self'">
+    <title>PRIME PATHWY // SYSTEM ARCHITECTURE OS</title>
+
+    <!-- v3.1 OFFLINE SOVEREIGN: locally compiled Tailwind + self-hosted fonts.
+         Zero external runtime dependencies. -->
+    <link rel="stylesheet" href="assets/css/tailwind.build.css">
+    <link rel="stylesheet" href="assets/fonts/fonts.css">
+    <link rel="stylesheet" href="assets/css/sys_os.css">
+</head>
+<body class="h-full text-slate-300 font-sans antialiased selection:bg-gold-500/20 selection:text-gold-400 cyber-viewport">
+
+    <!-- BACKGROUND NEURAL CORE CANVAS LAYER (engine: assets/js/canvas.js) -->
+    <canvas id="neuralCoreCanvas" class="absolute inset-0 z-0 pointer-events-none opacity-25" aria-hidden="true"></canvas>
+
+    <div class="flex flex-col md:flex-row h-full relative z-10">
+
+        <!-- SIDEBAR: Institutional Architecture Nav -->
+        <aside class="w-full md:w-80 md:shrink-0 bg-black/60 border-b md:border-b-0 md:border-r border-gold-500/10 flex flex-col justify-between backdrop-blur-xl">
+            <div>
+                <div class="p-6 border-b border-gold-500/10 flex items-center justify-between">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-2 h-2 bg-gold-400 rounded-full shadow-[0_0_12px_#D4AF37] animate-ping" aria-hidden="true"></div>
+                        <span class="font-cyber tracking-[0.2em] text-xs font-bold text-gold-400">PRIME PATHWY</span>
+                    </div>
+                    <span data-version class="font-mono text-[10px] text-gold-500/50 border border-gold-500/20 px-2 py-0.5 rounded bg-gold-500/5">SYS_OS v3.0.0</span>
+                </div>
+
+                <nav class="p-4 space-y-2" id="sidebar-nav" aria-label="Station navigation">
+                    <button type="button" data-station-target="architect" aria-current="page" class="w-full flex items-center justify-between p-3.5 rounded-lg border transition-all duration-300 bg-gold-500/5 border-gold-500/30 text-gold-400 shadow-[0_0_15px_rgba(212,175,55,0.05)]">
+                        <span class="text-xs font-mono tracking-wider uppercase">01 // ARCHITECT SYSTEM CORE</span>
+                        <div class="active-bar w-1 h-5 bg-gold-500 shadow-[0_0_10px_#D4AF37]"></div>
+                    </button>
+                    <button type="button" data-station-target="ceo" class="w-full flex items-center justify-between p-3.5 rounded-lg border transition-all duration-300 text-slate-500 border-transparent hover:bg-white/5 hover:text-slate-300">
+                        <span class="text-xs font-mono tracking-wider uppercase">02 // CEO INTEL CONSOLE</span>
+                        <div class="active-bar hidden w-1 h-5 bg-gold-500 shadow-[0_0_10px_#D4AF37]"></div>
+                    </button>
+                    <button type="button" data-station-target="coo" class="w-full flex items-center justify-between p-3.5 rounded-lg border transition-all duration-300 text-slate-500 border-transparent hover:bg-white/5 hover:text-slate-300">
+                        <span class="text-xs font-mono tracking-wider uppercase">03 // COO DEPLOY CONSOLE</span>
+                        <div class="active-bar hidden w-1 h-5 bg-gold-500 shadow-[0_0_10px_#D4AF37]"></div>
+                    </button>
+                    <button type="button" data-station-target="vault" class="w-full flex items-center justify-between p-3.5 rounded-lg border transition-all duration-300 text-slate-500 border-transparent hover:bg-white/5 hover:text-slate-300">
+                        <span class="text-xs font-mono tracking-wider uppercase">04 // KNOWLEDGE VAULT</span>
+                        <div class="active-bar hidden w-1 h-5 bg-gold-500 shadow-[0_0_10px_#D4AF37]"></div>
+                    </button>
+                    <button type="button" data-station-target="shield" class="w-full flex items-center justify-between p-3.5 rounded-lg border transition-all duration-300 text-slate-500 border-transparent hover:bg-white/5 hover:text-slate-300">
+                        <span class="text-xs font-mono tracking-wider uppercase">05 // LEGACY SHIELD</span>
+                        <div class="active-bar hidden w-1 h-5 bg-gold-500 shadow-[0_0_10px_#D4AF37]"></div>
+                    </button>
+                </nav>
+            </div>
+
+            <!-- Identity Seal -->
+            <div class="hidden md:block p-4 m-4 rounded-xl bg-gradient-to-b from-slate-950 to-black border border-gold-500/10 backdrop-blur-md">
+                <div class="flex items-center space-x-3">
+                    <div class="w-9 h-9 rounded bg-black border border-gold-500/20 flex items-center justify-center font-cyber font-bold text-gold-400 text-xs shadow-[0_0_10px_rgba(212,175,55,0.1)]">
+                        AF
+                    </div>
+                    <div>
+                        <div class="text-xs font-cyber font-bold text-slate-200 tracking-wide">A. FITZGERALD APPLING SR.</div>
+                        <div class="text-[9px] font-mono text-gold-500 uppercase tracking-widest">Lead Technical Architect</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- MAIN VIEWPORT -->
+        <main id="main-viewport" class="flex-1 p-8 overflow-y-auto space-y-8">
+            <h1 class="sr-only">Prime Pathwy System Architecture OS</h1>
+
+            <!-- STATION 1: ARCHITECT CORE -->
+            <div id="station-architect" data-station-panel="architect" class="space-y-8 station-view">
+
+                <!-- High-Tech Telemetry Metric Row (values bound from config.js) -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div class="bg-black/40 backdrop-blur-md border border-gold-500/10 rounded-xl p-5 shadow-[0_0_20px_rgba(0,0,0,0.5)] relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-gold-500/30 to-transparent"></div>
+                        <div class="text-[10px] font-mono text-slate-400 uppercase tracking-widest">INSTITUTIONAL LEVERAGE</div>
+                        <div class="text-3xl font-mono font-bold text-gold-400 mt-2 tracking-tight"><span data-metric="DSCR">7.42×</span> <span class="text-xs text-slate-600 font-normal">DSCR</span></div>
+                        <div class="w-full bg-slate-950 h-[2px] mt-4 rounded-full overflow-hidden">
+                            <div data-metric-bar class="bg-gradient-to-r from-gold-600 to-gold-400 h-full rounded-full shadow-[0_0_8px_#D4AF37]" style="width: 74.2%"></div>
+                        </div>
+                    </div>
+
+                    <div class="bg-black/40 backdrop-blur-md border border-gold-500/10 rounded-xl p-5 shadow-[0_0_20px_rgba(0,0,0,0.5)] relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-gold-500/30 to-transparent"></div>
+                        <div class="text-[10px] font-mono text-slate-400 uppercase tracking-widest">CAPITAL ALLOCATIONS</div>
+                        <div data-metric="CAPITAL_ALLOCATION" class="text-3xl font-mono font-bold text-slate-100 mt-2 tracking-tight">$130,000</div>
+                        <div class="text-[9px] font-mono text-gold-500/70 mt-3 tracking-wider uppercase">HVIP Voucher Ledger Validated</div>
+                    </div>
+
+                    <div class="bg-black/40 backdrop-blur-md border border-gold-500/10 rounded-xl p-5 shadow-[0_0_20px_rgba(0,0,0,0.5)] relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-gold-500/30 to-transparent"></div>
+                        <div class="text-[10px] font-mono text-slate-400 uppercase tracking-widest">CONSULTING PIPELINE</div>
+                        <div data-metric="CONSULTING_PIPELINE" class="text-3xl font-mono font-bold text-slate-100 mt-2 tracking-tight">$5,000+</div>
+                        <div class="text-[9px] font-mono text-emerald-400 mt-3 tracking-wider uppercase flex items-center">
+                            <span class="w-1 h-1 bg-emerald-400 rounded-full mr-2 animate-pulse shadow-[0_0_6px_#34D399]" aria-hidden="true"></span>Elite 10 Sovereign Deck Active
+                        </div>
+                    </div>
+
+                    <div class="bg-black/40 backdrop-blur-md border border-gold-500/10 rounded-xl p-5 shadow-[0_0_20px_rgba(0,0,0,0.5)] relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-gold-500/30 to-transparent"></div>
+                        <div class="text-[10px] font-mono text-slate-400 uppercase tracking-widest">TIMELINE HORIZON</div>
+                        <div data-metric="TIMELINE_HORIZON" class="text-3xl font-mono font-bold text-gold-400 mt-2 tracking-tight">1.5 YRS</div>
+                        <div class="text-[9px] font-mono text-slate-500 mt-3 tracking-wider uppercase">Zero System Drift Target</div>
+                    </div>
+                </div>
+
+                <!-- EXECUTIVE COMMAND CENTER — all values computed from live platform state (exec.js) -->
+                <div class="bg-black/30 border border-gold-500/10 rounded-xl p-6 backdrop-blur-md shadow-[0_0_30px_rgba(0,0,0,0.3)]">
+                    <div class="flex items-center justify-between border-b border-gold-500/10 pb-4 mb-4">
+                        <h2 class="text-xs font-cyber font-semibold uppercase tracking-widest text-gold-400">Executive Command Center</h2>
+                        <span class="text-[9px] font-mono text-slate-500 tracking-widest">LIVE PLATFORM STATE — MEASURED, NOT SCRIPTED</span>
+                    </div>
+                    <div id="exec-metrics" class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-5"></div>
+                    <div>
+                        <h3 class="text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-2">Recent Activity</h3>
+                        <ol id="exec-activity" class="space-y-1.5"></ol>
+                    </div>
+                </div>
+
+                <!-- Environment Map and HUD Layout Split -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+                    <!-- Runtime Environment Status Console -->
+                    <div class="lg:col-span-2 bg-black/30 border border-gold-500/10 rounded-xl p-6 backdrop-blur-md shadow-[0_0_30px_rgba(0,0,0,0.3)]">
+                        <div class="flex items-center justify-between border-b border-gold-500/10 pb-4 mb-4">
+                            <h2 class="text-xs font-cyber font-semibold uppercase tracking-widest text-gold-400">Environment Node Monitor</h2>
+                            <span class="text-[9px] font-mono text-slate-500 tracking-widest">LIVE DATASTREAM ROUTER</span>
+                        </div>
+
+                        <div class="space-y-3" id="system-nodes-container">
+                            <div class="flex items-center justify-between p-4 bg-slate-950/40 border border-white/5 rounded-lg hover:border-gold-500/20 hover:bg-gold-500/[0.01] transition-all duration-300">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_10px_#34D399] animate-pulse" aria-hidden="true"></div>
+                                    <span class="text-xs font-mono text-slate-300 tracking-wide">Sports Betting Analytics Engine</span>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <span class="text-[11px] font-mono text-slate-500 tracking-wider">PORT :3132</span>
+                                    <button type="button" data-action="ping-node" data-node="Sports Analytics Engine" class="text-[10px] font-mono bg-transparent border border-gold-500/30 px-3 py-1 rounded text-gold-400 tracking-widest hover:bg-gold-500 hover:text-black transition-all duration-300">PING_NODE</button>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between p-4 bg-slate-950/40 border border-white/5 rounded-lg hover:border-gold-500/20 hover:bg-gold-500/[0.01] transition-all duration-300">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_10px_#34D399] animate-pulse" aria-hidden="true"></div>
+                                    <span class="text-xs font-mono text-slate-300 tracking-wide">Hyperframes Core Workspace</span>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <span class="text-[11px] font-mono text-slate-500 tracking-wider">PORT :4173</span>
+                                    <button type="button" data-action="ping-node" data-node="Hyperframes Workspace" class="text-[10px] font-mono bg-transparent border border-gold-500/30 px-3 py-1 rounded text-gold-400 tracking-widest hover:bg-gold-500 hover:text-black transition-all duration-300">PING_NODE</button>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between p-4 bg-slate-950/40 border border-white/5 rounded-lg hover:border-gold-500/20 hover:bg-gold-500/[0.01] transition-all duration-300">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_10px_#34D399] animate-pulse" aria-hidden="true"></div>
+                                    <span class="text-xs font-mono text-slate-300 tracking-wide">SQLite Knowledge Ingestion Matrix</span>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <span class="text-[11px] font-mono text-slate-500 tracking-wider">LOCAL_DB_SECURED</span>
+                                    <button type="button" data-action="ping-node" data-node="SQLite Matrix" class="text-[10px] font-mono bg-transparent border border-gold-500/30 px-3 py-1 rounded text-gold-400 tracking-widest hover:bg-gold-500 hover:text-black transition-all duration-300">PING_NODE</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Priority Control Panel -->
+                    <div class="bg-black/40 border border-gold-500/10 rounded-xl p-6 backdrop-blur-md flex flex-col justify-between shadow-[0_0_30px_rgba(0,0,0,0.3)]">
+                        <div>
+                            <h2 class="text-xs font-cyber font-semibold uppercase tracking-widest text-gold-400 border-b border-gold-500/10 pb-4 mb-4">Governance Directives</h2>
+                            <div class="space-y-3">
+                                <div class="border-l border-red-500 bg-gradient-to-r from-red-950/10 to-transparent p-3 rounded-r border-t border-b border-white/[0.02]">
+                                    <div class="text-[10px] font-mono font-bold text-red-400 tracking-widest">P1 // RESTRUCTURING SYSTEM</div>
+                                    <div class="text-xs text-slate-400 font-sans mt-1">Calibrate system-level boundaries for high-ticket replication environments.</div>
+                                </div>
+                                <div class="border-l border-gold-500 bg-gradient-to-r from-gold-950/10 to-transparent p-3 rounded-r border-t border-b border-white/[0.02]">
+                                    <div class="text-[10px] font-mono font-bold text-gold-400 tracking-widest">P2 // INFRASTRUCTURE CORES</div>
+                                    <div class="text-xs text-slate-400 font-sans mt-1">Isolate structured property turnover systems into standalone SOP files.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Kinetic Interactive Audit Trigger -->
+                        <div class="relative group mt-6">
+                            <button type="button" data-action="global-audit" class="w-full relative z-10 bg-transparent border border-gold-500 text-gold-400 font-cyber font-bold text-xs py-3.5 px-4 rounded-lg tracking-widest transition-all duration-300 overflow-hidden hover:text-black">
+                                <span class="relative z-10">INITIALIZE INTEGRITY AUDIT</span>
+                                <div class="absolute inset-0 bg-gradient-to-r from-gold-400 to-gold-600 scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100 z-0"></div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STATION 2: CEO INTEL CONSOLE (mounted by assets/js/terminal.js) -->
+            <div id="station-ceo" data-station-panel="ceo" class="hidden space-y-6 station-view"></div>
+
+            <!-- STATION 3: COO DEPLOY CONSOLE (mounted by assets/js/terminal.js) -->
+            <div id="station-coo" data-station-panel="coo" class="hidden space-y-6 station-view"></div>
+
+            <!-- STATION 4: KNOWLEDGE VAULT (engine: assets/js/vault.js) -->
+            <div id="station-vault" data-station-panel="vault" class="hidden space-y-6 station-view">
+                <div class="bg-black/40 border border-gold-500/10 rounded-xl p-6 backdrop-blur-md">
+                    <div class="flex items-center justify-between border-b border-gold-500/10 pb-4 mb-6">
+                        <div>
+                            <h2 class="text-xs font-cyber font-semibold tracking-widest text-gold-400">SQLite Document Ingestion Matrix</h2>
+                            <p class="text-[11px] text-slate-500 font-mono mt-1">Structured document index ledger tracking internal architecture configurations</p>
+                        </div>
+                        <button type="button" data-action="vault-ingest" class="bg-transparent border border-gold-500/40 text-gold-400 font-mono text-xs px-5 py-2.5 rounded-lg hover:bg-gold-500 hover:text-black font-bold transition-all duration-300 flex items-center space-x-2 tracking-widest">
+                            <span>+ INGEST_SPEC_DOCUMENT</span>
+                        </button>
+                    </div>
+
+                    <!-- Metrics -->
+                    <div class="grid grid-cols-3 gap-4 mb-6 text-center">
+                        <div class="bg-slate-950/60 border border-white/5 rounded-lg p-3">
+                            <div class="text-[9px] font-mono text-slate-500 tracking-widest uppercase">Total Database Rows</div>
+                            <div id="vault-rows-counter" class="text-2xl font-mono text-slate-200 mt-1 font-bold">38</div>
+                        </div>
+                        <div class="bg-slate-950/60 border border-white/5 rounded-lg p-3">
+                            <div class="text-[9px] font-mono text-slate-500 tracking-widest uppercase">Sovereignty Status</div>
+                            <div class="text-2xl font-mono text-gold-400 mt-1 font-bold tracking-wide">100% OWNED</div>
+                        </div>
+                        <div class="bg-slate-950/60 border border-white/5 rounded-lg p-3">
+                            <div class="text-[9px] font-mono text-slate-500 tracking-widest uppercase">Index State</div>
+                            <div id="vault-chain-state" class="text-2xl font-mono text-emerald-400 mt-1 font-bold tracking-wide">HEALTHY</div>
+                            <div id="vault-chain-meta" class="text-[9px] font-mono text-slate-600 mt-1 tracking-widest"></div>
+                        </div>
+                    </div>
+
+                    <!-- Search Preparation Layer -->
+                    <div class="mb-4 flex space-x-2">
+                        <input type="search" id="vault-search" aria-label="Search the vault index" placeholder="Query ingestion matrix (path, classification, document id)..." autocomplete="off" class="flex-1 bg-black border border-white/10 rounded-lg px-4 py-3 text-xs font-mono text-slate-200 placeholder-slate-600 focus:outline-none focus:border-gold-500/40">
+                    </div>
+
+                    <!-- Ledger Table (rows rendered by the vault engine) -->
+                    <div class="overflow-x-auto rounded-lg border border-white/5 bg-black/40">
+                        <table class="w-full text-left font-mono text-xs">
+                            <thead class="bg-slate-950 text-slate-500 uppercase text-[9px] tracking-widest border-b border-white/5">
+                                <tr>
+                                    <th class="p-4">Document UUID</th>
+                                    <th class="p-4">Resource Target Class</th>
+                                    <th class="p-4">Cryptographic Hash Signature</th>
+                                    <th class="p-4">Compliance Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="vault-table-matrix" class="divide-y divide-white/[0.03] text-slate-300"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STATION 5: LEGACY SHIELD -->
+            <div id="station-shield" data-station-panel="shield" class="hidden space-y-6 station-view">
+                <div class="bg-black/40 border border-gold-500/10 rounded-xl p-6 backdrop-blur-md">
+                    <div class="border-b border-gold-500/10 pb-4 mb-6">
+                        <h2 class="text-xs font-cyber font-semibold tracking-widest text-gold-400">AA Capital Asset Register</h2>
+                        <p class="text-[11px] text-slate-500 font-mono mt-1">Fortress Capital Infrastructure Tracking Configuration (20-Year Horizon)</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Asset Core Breakdown -->
+                        <div class="bg-slate-950/40 border border-white/5 rounded-xl p-5 space-y-4">
+                            <h3 class="text-xs font-cyber text-gold-400 font-bold tracking-wider uppercase">Asset Hierarchy Mapping</h3>
+                            <div class="space-y-2 text-xs font-mono">
+                                <div class="flex justify-between p-3 bg-black/40 rounded border border-white/[0.03]">
+                                    <span class="text-slate-400">Richmond RPDC Logistics Hub</span>
+                                    <span class="text-emerald-400 font-bold tracking-wide">SECURED / AUDIT READY</span>
+                                </div>
+                                <div class="flex justify-between p-3 bg-black/40 rounded border border-white/[0.03]">
+                                    <span class="text-slate-400">Proprietary IP Pipeline Framework</span>
+                                    <span class="text-emerald-400 font-bold tracking-wide">100% DEPLOYED</span>
+                                </div>
+                                <div class="flex justify-between p-3 bg-black/40 rounded border border-white/[0.03]">
+                                    <span class="text-slate-400">Sovereign Consulting Domain Equity</span>
+                                    <span class="text-gold-500 font-bold tracking-wide">PRIME PATHWY REGISTERED</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Real-time Investment Pipeline Optimization Matrix -->
+                        <div class="bg-slate-950/40 border border-white/5 rounded-xl p-5 flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-xs font-cyber text-slate-300 font-bold tracking-wider uppercase mb-2">Automated Allocation Matrix</h3>
+                                <p class="text-xs font-mono text-slate-500 leading-relaxed">Systematically routes engine processing revenue models directly out of volatile liquid short-term pools straight into hard capital positions to shield equity long-term.</p>
+                            </div>
+                            <button type="button" data-action="asset-optimize" class="w-full mt-6 bg-transparent border border-gold-500/30 text-gold-400 font-cyber font-bold text-xs py-3 rounded-lg hover:bg-gold-500/10 transition-all duration-300 tracking-widest">
+                                OPTIMIZE ALLOCATION MATRIX
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STATION 6 (REGISTRY GRID) is registered at runtime by assets/js/registry.js -->
+        </main>
+    </div>
+
+    <!-- Non-blocking HUD notifications (alert() replacement) -->
+    <div id="toast-stack" class="fixed bottom-6 right-6 z-[70] w-80 space-y-2 pointer-events-none" role="status" aria-live="polite"></div>
+
+    <!-- SYS_OS PLATFORM MODULES — load order is the dependency order -->
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/utils.js"></script>
+    <script src="assets/js/money.js"></script>
+    <script src="assets/js/storage.js"></script>
+    <script src="assets/js/sqlite_backend.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/store.js"></script>
+    <script src="assets/js/healthcache.js"></script>
+    <script src="assets/js/canvas.js"></script>
+    <script src="assets/js/router.js"></script>
+    <script src="assets/js/terminal.js"></script>
+    <script src="assets/js/vault.js"></script>
+    <script src="assets/js/registry.js"></script>
+    <script src="assets/js/exec.js"></script>
+    <!-- v2.9 LIVE OPERATIONS layer -->
+    <script src="assets/js/telemetry.js"></script>
+    <script src="assets/js/opsqueue.js"></script>
+    <script src="assets/js/routing.js"></script>
+    <script src="assets/js/compliance.js"></script>
+    <script src="assets/js/ocr.js"></script>
+    <script src="assets/js/liveops.js"></script>
+    <!-- v2.9.5 Client layer -->
+    <script src="assets/js/client.js"></script>
+    <!-- v2.9.6 Commercial Pipeline -->
+    <script src="assets/js/commercial.js"></script>
+    <!-- v2.9.7 Pipeline Automation + Admin UI + boot gate -->
+    <script src="assets/js/commercial_ui.js"></script>
+    <!-- v2.9.8 Hardening: smoke test + maintenance harness -->
+    <script src="assets/js/smoketest.js"></script>
+    <script src="assets/js/maintenance.js"></script>
+    <!-- v2.9.9 Executive Command Center -->
+    <script src="assets/js/executive.js"></script>
+    <script src="assets/js/demo.js"></script>
+    <script src="assets/js/executive_ui.js"></script>
+    <!-- v3.1 Offline Sovereign: audit history + auth surface -->
+    <script src="assets/js/audit.js"></script>
+    <script src="assets/js/auth_ui.js"></script>
+    <script src="assets/js/bootcheck.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
